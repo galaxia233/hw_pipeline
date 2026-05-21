@@ -2,19 +2,32 @@
 
 从一道种子题目出发，自动生成多道相关但不同的物理题目，并通过 SymPy/EinsteinPy 计算保证答案中几何量的正确性。
 
+## 环境依赖
+
+- Python 3.10+
+- [EinsteinPy](https://einsteinpy.org/) — 符号计算 GR 时空几何量
+- [SymPy](https://sympy.org/) — 符号数学引擎
+- [python-dotenv](https://github.com/theskumar/python-dotenv) — 加载 `.env` 环境变量
+- [requests](https://docs.python-requests.org/) — HTTP API 调用
+- [pillow](https://python-pillow.org/) — 图片处理（PDF/Word 转图片）
+- [pdf2image](https://github.com/Belval/pdf2image) — PDF 转图片（需要系统安装 [Poppler](https://poppler.freedesktop.org/)）
+- [python-docx](https://github.com/python-openxml/python-docx) — Word 文件转图片
+- DashScope API Key（通过 `.env` 配置，参见 `.env.example`）
+
+安装：
+```bash
+pip install einsteinpy sympy python-dotenv requests pillow pdf2image python-docx
+```
+
+Windows 用户还需安装 Poppler（PDF 转图片所需），可从 [poppler-windows releases](https://github.com/oschwartz10612/poppler-windows/releases) 下载并添加到 PATH。
+
 ## 泛化思路
 
 流水线的核心是**从种子题目向不同方向延伸**，而非随意生成新题。具体策略：
 
 ### Phase 1：同度规延伸
 
-保持种子题的度规不变，从种子题的设问方向出发，向不同物理方向推进一步。例如：
-
-| 种子题方向 | 延伸方向 |
-|-----------|---------|
-| Christoffel 符号 | 测地线方程、Killing 矢量、守恒量 |
-| Riemann 张量 | Ricci 标量、奇点分析、平直条件 |
-| Einstein 张量 | 场方程、能动张量、能量条件 |
+保持种子题的度规不变，LLM 自行选择一个有意义的泛化方向，从种子题的设问出发延伸出一道后续题目。泛化方向由 LLM 根据种子题的物理场景和度规的非平凡几何特性自行决定，不做预设限制。
 
 每道延伸题都是**独立完整的题目**——包含物理背景、度规定义和所有假设，做题者无需参考种子题。难度与种子题相当，只聚焦一个物理问题。
 
@@ -81,10 +94,10 @@ python main.py clean <json文件>
 
 | 变量 | 阶段 | 默认值 |
 |------|------|--------|
-| `MODEL_ABSTRACT` | 抽象化 | `qwen3.5-flash` |
+| `MODEL_ABSTRACT` | 抽象化 | `qwen3.6-flash` |
 | `MODEL_COMPOSE` | 编题 | `glm-5.1` |
 | `MODEL_SUBSTITUTE` | 度规替换 | `glm-5.1` |
-| `MODEL_PICK_METRIC` | 挑选度规 | `qwen3.5-flash` |
+| `MODEL_PICK_METRIC` | 挑选度规 | `qwen3.6-flash` |
 | `MODEL_VALIDATE` | 验证 | `glm-5.1` |
 | `MODEL_FIX` | 修正 | `glm-5.1` |
 
@@ -95,9 +108,9 @@ MODEL_VALIDATE=claude-sonnet-4-6 python main.py run test.json ...
 
 ## 度规库
 
-包含 15 个非 heavy 度规（可直接计算 Fact Sheet）和 5 个 heavy 度规（计算太慢，不用于自动化流水线）：
+包含 8 个核心度规（聚焦 GR 张量计算，Fact Sheet $<30$s）和 6 个 heavy 度规（计算太慢，不用于自动化）：
 
-**可用度规**：Schwarzschild, Minkowski, DeSitter, AntiDeSitter, AntiDeSitterStatic, Godel, BarriolaVilekin, BertottiKasner, CMetric, Davidson, JanisNewmanWinicour, MinkowskiCartesian, MinkowskiPolar, FLRW
+**核心度规**：Schwarzschild, Minkowski, DeSitter, AntiDeSitter, AntiDeSitterStatic, MinkowskiCartesian, MinkowskiPolar, FLRW
 
 **Heavy 度规**：Kerr, Ernst, KerrNewman, ReissnerNordstrom, AlcubierreWarp, BesselGravitationalWave
 
@@ -116,7 +129,7 @@ hw_pipeline/
 │   ├── sympy_engine.py  # SymPy Fact Sheet 计算
 │   ├── system_prompts.py# 各阶段 LLM prompt
 │   ├── api_client.py    # API 调用客户端
-│   └── metric_generator.py# 度规生成（备用）
+│   └── file_converter.py # PDF/Word → 图片
 ├── schema/
 │   └── schema.py        # 数据结构定义
 └── variants/            # 输出目录
