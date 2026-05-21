@@ -1,0 +1,169 @@
+{
+  "metadata": {
+    "id": "test3",
+    "type": "calculate",
+    "tags": {
+      "metric": "Schwarzschild",
+      "target_object": "geodesic equation",
+      "coordinate": "spherical coordinates",
+      "scenario": "black hole",
+      "method": "variational principle"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "test3"
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$V_{\\text{eff}}(r)$"
+    ],
+    "metric": [
+      [
+        "$-(1-\\frac{2M}{r})$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-\\frac{2M}{r})^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2\\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "-r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "-r**2*sin(theta)**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "在史瓦西时空中，静止质量为零的光子在赤道面（$\\theta=\\pi/2$）内运动。已知史瓦西度规为：$$ds^2=-\\left(1-\\frac{2M}{r}\\right)dt^2+\\left(1-\\frac{2M}{r}\\right)^{-1}dr^2+r^2(d\\theta^2+\\sin^2\\thetad\\phi^2)$$利用时空的Killing矢量定义守恒量：能量$E = (1 - 2M/r)\\dot{t}$和角动量$L = r^2\\dot{\\phi}$（其中点号表示对仿射参数$\\lambda$的求导）。请利用光子测地线的条件$g_{\\mu\\nu}\\dot{x}^\\mu\\dot{x}^\\nu = 0$，将径向方程写为$\\left(\\frac{dr}{d\\lambda}\\right)^2 + V_{\\text{eff}}(r) = E^2$的形式。由此得到的有效势$V_{\\text{eff}}(r)$ 的正确表达式是什么？",
+    "answer": "解答：1. 基础条件与守恒量史瓦西度规在赤道面（$\\theta=\\pi/2\\impliesd\\theta=0,\\sin\\theta=1$）简化为：$$ds^2=-\\left(1-\\frac{2M}{r}\\right)dt^2+\\left(1-\\frac{2M}{r}\\right)^{-1}dr^2+r^2d\\phi^2$$由于度规分量不显含$t$和$\\phi$，时空存在两个Killing矢量$\\xi^\\mu = (1,0,0,0)$和$\\eta^\\mu = (0,0,0,1)$。沿测地线的守恒量定义为：能量：$E \\equiv -g_{tt}\\dot{t} = \\left(1 - \\frac{2M}{r}\\right)\\dot{t}$角动量：$L \\equiv g_{\\phi\\phi}\\dot{\\phi} = r^2\\dot{\\phi}$其中点号表示对仿射参数$\\lambda$的求导（即$\\dot{x}^\\mu = \\frac{dx^\\mu}{d\\lambda}$）。由此，我们可以将$\\dot{t}$和$\\dot{\\phi}$表达为径向坐标$r$和守恒量的函数：$$\\dot{t}=\\frac{E}{1-\\frac{2M}{r}}$$$$\\dot{\\phi}=\\frac{L}{r^2}$$2.利用零测地线条件推导对于静止质量为零的光子，其微元弧长$ds^2 = 0$，即满足零测地线条件$g_{\\mu\\nu}\\dot{x}^\\mu\\dot{x}^\\nu = 0$。展开各分量：$$-\\left(1-\\frac{2M}{r}\\right)\\dot{t}^2+\\left(1-\\frac{2M}{r}\\right)^{-1}\\dot{r}^2+r^2\\dot{\\phi}^2=0$$将前面得到的$\\dot{t}$和$\\dot{\\phi}$代入上式：$$-\\left(1-\\frac{2M}{r}\\right)\\left[\\frac{E}{1-\\frac{2M}{r}}\\right]^2+\\left(1-\\frac{2M}{r}\\right)^{-1}\\dot{r}^2+r^2\\left(\\frac{L}{r^2}\\right)^2=0$$化简每一项：$$-\\frac{E^2}{1-\\frac{2M}{r}}+\\left(1-\\frac{2M}{r}\\right)^{-1}\\dot{r}^2+\\frac{L^2}{r^2}=0$$为了消去$\\dot{r}^2$前面的系数，我们给整组方程同时乘以$\\left(1 - \\frac{2M}{r}\\right)$：$$-E^2+\\dot{r}^2+\\frac{L^2}{r^2}\\left(1-\\frac{2M}{r}\\right)=0$$3.写成标准形式并确定有效势将方程移项，让$\\dot{r}^2$（即$\\left(\\frac{dr}{d\\lambda}\\right)^2$）留在左边：$$\\left(\\frac{dr}{d\\lambda}\\right)^2+\\frac{L^2}{r^2}\\left(1-\\frac{2M}{r}\\right)=E^2$$对比题目给出的标准经典力学形式：$$\\left(\\frac{dr}{d\\lambda}\\right)^2+V_{\\text{eff}}(r)=E^2$$易得光子的有效势为：$$V_{\\text{eff}}(r)=\\frac{L^2}{r^2}\\left(1-\\frac{2M}{r}\\right)=\\frac{L^2}{r^2}-\\frac{2ML^2}{r^3}$$",
+    "solution": null,
+    "hint": null
+  },
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "heta",
+      "\\phi"
+    ],
+    "metric_latex": [
+      [
+        "\\frac{r - r_{s}}{r}",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "- \\frac{r}{r - r_{s}}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "- r^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "- r^{2} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_001": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_010": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_100": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{3}}",
+      "Gamma_111": "- \\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_122": "- r + r_{s}",
+      "Gamma_133": "\\left(- r + r_{s}\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_313": "\\frac{1}{r}",
+      "Gamma_331": "\\frac{1}{r}"
+    },
+    "riemann": {
+      "R_0101": "\\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0110": "- \\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0202": "- \\frac{r_{s}}{2 r}",
+      "R_0220": "\\frac{r_{s}}{2 r}",
+      "R_0303": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_0330": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1001": "\\frac{r_{s} \\left(r - r_{s}\\right)}{r^{4}}",
+      "R_1010": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{r^{4}}",
+      "R_1212": "- \\frac{r_{s}}{2 r}",
+      "R_1221": "\\frac{r_{s}}{2 r}",
+      "R_1313": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1331": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_2002": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_2020": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_2112": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2121": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2323": "\\frac{\\left(- r + r_{s}\\right) \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_2332": "\\frac{\\left(r - r_{s}\\right) \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_3003": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_3030": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_3113": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3131": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3223": "\\frac{r - r_{s}}{r}",
+      "R_3232": "\\frac{- r + r_{s}}{r}"
+    },
+    "ricci_tensor": {
+      "R_22": "-1",
+      "R_33": "- \\sin^{2}{\\left(\\theta \\right)}"
+    },
+    "ricci_scalar": "\\frac{2}{r^{2}}",
+    "kretschmann": "\\frac{r^{6} r_{s}^{2} \\left(r - r_{s}\\right) \\left(\\cos^{2}{\\left(\\theta \\right)} - 2\\right) \\sin^{2}{\\left(\\theta \\right)} - 4 r^{5} r_{s}^{2} \\sin^{2}{\\left(\\theta \\right)} + r^{4} r_{s}^{2} \\left(r - r_{s}\\right)^{3} \\left(\\sin^{4}{\\left(\\theta \\right)} + \\sin^{2}{\\left(\\theta \\right)}\\right) + 4 r^{3} \\left(r - r_{s}\\right)^{4} \\sin^{4}{\\left(\\theta \\right)} + 4 r^{3} \\left(r - r_{s}\\right)^{4} + r^{2} r_{s}^{2} \\left(r - r_{s}\\right) \\sin^{2}{\\left(\\theta \\right)} + r^{2} r_{s}^{2} \\left(r - r_{s}\\right) - 4 r r_{s}^{2} \\left(r - r_{s}\\right)^{4} \\sin^{2}{\\left(\\theta \\right)} - r_{s}^{2} \\left(r - r_{s}\\right)^{3} \\sin^{2}{\\left(\\theta \\right)} - r_{s}^{2} \\left(r - r_{s}\\right)^{3}}{2 r^{9} \\left(r - r_{s}\\right)^{2} \\sin^{2}{\\left(\\theta \\right)}}",
+    "einstein_tensor": {
+      "G_00": "\\frac{- r + r_{s}}{r^{3}}",
+      "G_11": "\\frac{1}{r \\left(r - r_{s}\\right)}"
+    }
+  }
+}

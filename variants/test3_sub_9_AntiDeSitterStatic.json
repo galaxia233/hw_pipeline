@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "id": "test3-1-s9",
+    "type": "calculate",
+    "tags": {
+      "metric": "AntiDeSitterStatic",
+      "target_object": "Einstein_tensor",
+      "coordinate": "Ricci_scalar",
+      "scenario": "singularity",
+      "method": "spherical_symmetry"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "validate:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated"
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$G_{00}$",
+      "singularity_existence"
+    ],
+    "metric": [
+      [
+        "$-\\cosh^2(r)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$\\sinh^2(r)$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$\\sin^2(\\theta)\\sinh^2(r)$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "考虑一个静态球对称时空，其度规为：$$ds^2=-\\cosh^2(r)dt^2+dr^2+\\sinh^2(r)d\\theta^2+\\sin^2(\\theta)\\sinh^2(r)d\\phi^2$$已知该时空Ricci张量的非零分量仅为$R_{00} = 3\\cosh^2(r)$，$R_{11} = -3$，$R_{22} = -3\\sinh^2(r) - 1$和$R_{33} = -(3\\sinh^2(r) + 1)\\sin^2(\\theta)$，其余分量均为零。请通过计算Einstein张量分量$G_{00}$来分析该时空的曲率奇点结构，给出$G_{00}$ 的表达式并指出该时空是否存在真实曲率奇点。",
+    "answer": "$G_{00}=-\\frac{3\\sinh^2(r)+1}{\\tanh^2(r)}$，该时空存在真实曲率奇点（位于$r=0$处）",
+    "solution": "1. 由度规可知 $g_{00}=-\\cosh^2(r)$，逆度规分量 $g^{00}=-\\frac{1}{\\cosh^2(r)}$，$g^{11}=1$，$g^{22}=\\frac{1}{\\sinh^2(r)}$，$g^{33}=\\frac{1}{\\sin^2(\\theta)\\sinh^2(r)}$。2. 计算 Ricci 标量：$R=g^{\\mu\\nu}R_{\\mu\\nu}=g^{00}R_{00}+g^{11}R_{11}+g^{22}R_{22}+g^{33}R_{33}=\\left(-\\frac{1}{\\cosh^2(r)}\\right)(3\\cosh^2(r))+(1)(-3)+\\left(\\frac{1}{\\sinh^2(r)}\\right)(-3\\sinh^2(r)-1)+\\left(\\frac{1}{\\sin^2(\\theta)\\sinh^2(r)}\\right)(-(3\\sinh^2(r)+1)\\sin^2(\\theta))=-3-3-3-\\frac{1}{\\sinh^2(r)}-3-\\frac{1}{\\sinh^2(r)}=-12-\\frac{2}{\\sinh^2(r)}$。利用恒等式 $\\frac{1}{\\sinh^2(r)}=\\frac{1}{\\tanh^2(r)}-1$，可得 $R=-12-2\\left(\\frac{1}{\\tanh^2(r)}-1\\right)=-10-\\frac{2}{\\tanh^2(r)}$。3. 计算 Einstein 张量分量：$G_{00}=R_{00}-\\frac{1}{2}g_{00}R=3\\cosh^2(r)-\\frac{1}{2}(-\\cosh^2(r))\\left(-10-\\frac{2}{\\tanh^2(r)}\\right)=3\\cosh^2(r)-5\\cosh^2(r)-\\frac{\\cosh^2(r)}{\\tanh^2(r)}=-2\\cosh^2(r)-\\frac{\\cosh^2(r)}{\\tanh^2(r)}$。提取公因式 $\\frac{1}{\\tanh^2(r)}$ 并展开：$-2\\cosh^2(r)-\\frac{\\cosh^2(r)}{\\tanh^2(r)}=-\\frac{2\\cosh^2(r)\\tanh^2(r)+\\cosh^2(r)}{\\tanh^2(r)}=-\\frac{2\\sinh^2(r)+\\cosh^2(r)}{\\tanh^2(r)}=-\\frac{3\\sinh^2(r)+1}{\\tanh^2(r)}$。4. 奇点分析：当 $r\\to0$ 时，$\\tanh(r)\\to0$，此时 Ricci 标量 $R=-10-\\frac{2}{\\tanh^2(r)}$ 和 Einstein 张量分量 $G_{00}=-\\frac{3\\sinh^2(r)+1}{\\tanh^2(r)}$ 均发散，表明该时空在 $r=0$ 处存在真实的曲率奇点。",
+    "hint": [
+      "度规符号为 $(-,+,+,+)$",
+      "Einstein 张量定义为 $G_{\\mu\\nu}=R_{\\mu\\nu}-\\frac{1}{2}g_{\\mu\\nu}R$",
+      "计算 Ricci 标量时注意逆度规分量 $g^{00}$ 带有负号，且 $R_{22}$ 和 $R_{33}$ 包含常数项",
+      "注意 $\\frac{1}{\\sinh^2(r)}=\\frac{1}{\\tanh^2(r)}-1$ 恒等变换"
+    ]
+  }
+}

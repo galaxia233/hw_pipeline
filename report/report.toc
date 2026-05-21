@@ -1,0 +1,20 @@
+\contentsline {section}{\numberline {1}概述}{3}{section.1}%
+\contentsline {section}{\numberline {2}架构}{3}{section.2}%
+\contentsline {section}{\numberline {3}两阶段泛化}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Phase 1：同度规延伸}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Phase 2：度规替换}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}度规库}{4}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Fact Sheet}{4}{section.4}%
+\contentsline {section}{\numberline {5}验证-修正循环}{5}{section.5}%
+\contentsline {subsection}{\numberline {5.1}验证}{5}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}修正循环}{5}{subsection.5.2}%
+\contentsline {section}{\numberline {6}LLM 配置}{5}{section.6}%
+\contentsline {section}{\numberline {7}JSON Schema}{6}{section.7}%
+\contentsline {section}{\numberline {8}Prompts 关键规则}{6}{section.8}%
+\contentsline {section}{\numberline {9}Cleaner}{7}{section.9}%
+\contentsline {section}{\numberline {10}正确性保证}{7}{section.10}%
+\contentsline {section}{\numberline {11}项目结构}{7}{section.11}%
+\contentsline {section}{\numberline {12}已解决问题}{8}{section.12}%
+\contentsline {section}{\numberline {13}待验证问题}{8}{section.13}%
+\contentsline {section}{\numberline {14}后续方向}{8}{section.14}%
+\contentsline {section}{附注：确定性标注}{9}{section*.2}%

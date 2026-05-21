@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "id": "test3-1-s7",
+    "type": "calculate",
+    "tags": {
+      "metric": "CMetric",
+      "target_object": "Einstein_tensor",
+      "coordinate": "t_x_y_phi",
+      "scenario": "singularity",
+      "method": "arbitrary_functions"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "validate:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated"
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$\\phi$"
+    ],
+    "target": [
+      "G_{00}",
+      "divergence_condition"
+    ],
+    "metric": [
+      [
+        "$-\\frac{h(y)}{(x+y)^2}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$\\frac{1}{(x+y)^2f(x)}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$\\frac{1}{(x+y)^2h(y)}$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$\\frac{f(x)}{(x+y)^2}$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "-h(y)/(x + y)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1/((x + y)**2*f(x))",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/((x + y)**2*h(y))",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "f(x)/(x + y)**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "考虑一个时空，其度规为：$$ds^2=-\\frac{h(y)}{(x+y)^2}dt^2+\\frac{1}{(x+y)^2f(x)}dx^2+\\frac{1}{(x+y)^2h(y)}dy^2+\\frac{f(x)}{(x+y)^2}d\\phi^2$$其中$f(x)$和$h(y)$为非零函数。请计算Einstein张量分量$G_{00}$的表达式，并指出导致$G_{00}$ 发散的坐标条件。",
+    "answer": "$G_{00}=\\frac{\\left(-x^{2}\\frac{d^{2}}{dx^{2}}f{\\left(x\\right)}-2xy\\frac{d^{2}}{dx^{2}}f{\\left(x\\right)}+4x\\frac{d}{dx}f{\\left(x\\right)}+2x\\frac{d}{dy}h{\\left(y\\right)}-y^{2}\\frac{d^{2}}{dx^{2}}f{\\left(x\\right)}+4y\\frac{d}{dx}f{\\left(x\\right)}+2y\\frac{d}{dy}h{\\left(y\\right)}-6f{\\left(x\\right)}-6h{\\left(y\\right)}\\right)h{\\left(y\\right)}}{2\\left(x+y\\right)^{2}}$，导致其发散的坐标条件为 $x+y=0$",
+    "solution": "1. Einstein 张量定义为 $G_{00}=R_{00}-\\frac{1}{2}g_{00}R$。2. 度规分量 $g_{00}=-\\frac{h(y)}{(x+y)^2}$。3. Ricci 张量分量 $R_{00}=\\frac{\\left(x^{2}\\frac{d^{2}}{dy^{2}}h{\\left(y\\right)}+2xy\\frac{d^{2}}{dy^{2}}h{\\left(y\\right)}-2x\\frac{d}{dx}f{\\left(x\\right)}-4x\\frac{d}{dy}h{\\left(y\\right)}+y^{2}\\frac{d^{2}}{dy^{2}}h{\\left(y\\right)}-2y\\frac{d}{dx}f{\\left(x\\right)}-4y\\frac{d}{dy}h{\\left(y\\right)}+6f{\\left(x\\right)}+6h{\\left(y\\right)}\\right)h{\\left(y\\right)}}{2\\left(x+y\\right)^{2}}$。4. Ricci 标量 $R=-x^{2}\\frac{d^{2}}{dx^{2}}f{\\left(x\\right)}-x^{2}\\frac{d^{2}}{dy^{2}}h{\\left(y\\right)}-2xy\\frac{d^{2}}{dx^{2}}f{\\left(x\\right)}-2xy\\frac{d^{2}}{dy^{2}}h{\\left(y\\right)}+6x\\frac{d}{dx}f{\\left(x\\right)}+6x\\frac{d}{dy}h{\\left(y\\right)}-y^{2}\\frac{d^{2}}{dx^{2}}f{\\left(x\\right)}-y^{2}\\frac{d^{2}}{dy^{2}}h{\\left(y\\right)}+6y\\frac{d}{dx}f{\\left(x\\right)}+6y\\frac{d}{dy}h{\\left(y\\right)}-12f{\\left(x\\right)}-12h{\\left(y\\right)}$。5. 代入计算：$-\\frac{1}{2}g_{00}R=\\frac{h(y)}{2(x+y)^2}R$。6. 合并 $R_{00}$ 与 $-\\frac{1}{2}g_{00}R$，关于 $h(y)$ 导数的项相互抵消，得到 $G_{00}=\\frac{\\left(-x^{2}\\frac{d^{2}}{dx^{2}}f{\\left(x\\right)}-2xy\\frac{d^{2}}{dx^{2}}f{\\left(x\\right)}+4x\\frac{d}{dx}f{\\left(x\\right)}+2x\\frac{d}{dy}h{\\left(y\\right)}-y^{2}\\frac{d^{2}}{dx^{2}}f{\\left(x\\right)}+4y\\frac{d}{dx}f{\\left(x\\right)}+2y\\frac{d}{dy}h{\\left(y\\right)}-6f{\\left(x\\right)}-6h{\\left(y\\right)}\\right)h{\\left(y\\right)}}{2\\left(x+y\\right)^{2}}$。7. 分析 $G_{00}$ 表达式，其分母包含 $(x+y)^2$，当 $x+y=0$ 时分量发散。",
+    "hint": [
+      "度规符号为 $(-,+,+,+)$",
+      "分母中的 $x^2+2xy+y^2$ 可因式分解为 $(x+y)^2$"
+    ]
+  }
+}

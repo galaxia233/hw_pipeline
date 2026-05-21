@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "id": "test3-2",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "einstein_tensor",
+      "coordinate": "stress_energy_tensor",
+      "scenario": "radial_pressure",
+      "method": "anisotropic_fluid"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "validate:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated"
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$p_r$"
+    ],
+    "metric": [
+      [
+        "$-(1-\\frac{2M}{r})$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-\\frac{2M}{r})^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2\\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "-r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "-r**2*sin(theta)**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "考虑一个具有符号差 (+---) 的静态球对称时空，其线元为$$ds^2=\\frac{r-r_s}{r}dt^2-\\frac{r}{r-r_s}dr^2-r^2d\\theta^2-r^2\\sin^2\\thetad\\phi^2$$其中$r_s$为常数。该时空由一种各向异性静态流体填充，其能动张量在坐标基下的分量满足$T_{\\mu\\nu} = \\text{diag}(\\rho g_{00}, p_r g_{11}, p_\\theta g_{22}, p_\\phi g_{33})$，其中$\\rho$为能量密度，$p_r, p_\\theta, p_\\phi$分别为径向和切向压强。已知该时空的Einstein张量分量$G_{00} = \\frac{-r+r_s}{r^3}$，$G_{11} = \\frac{1}{r(r-r_s)}$。根据Einstein场方程$G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$，请推导并写出该流体径向压强$p_r$ 的表达式。",
+    "answer": "$-\\frac{1}{8\\pir^2}$",
+    "solution": "根据 Einstein 场方程 $G_{\\mu\\nu}=8\\piT_{\\mu\\nu}$，可得能动张量分量 $T_{11}=\\frac{G_{11}}{8\\pi}=\\frac{1}{8\\pir(r-r_s)}$。由各向异性流体的设定，$T_{11}=p_rg_{11}$，因此 $p_r=\\frac{T_{11}}{g_{11}}$。代入度规分量 $g_{11}=-\\frac{r}{r-r_s}$，得 $p_r=\\frac{1}{8\\pir(r-r_s)}/\\left(-\\frac{r}{r-r_s}\\right)=-\\frac{1}{8\\pir^2}$。",
+    "hint": "注意在符号差为 (+---) 的约定下，度规分量 $g_{11}$ 为负值，这使得坐标分量 $T_{11}$ 与物理压强 $p_r$ 的符号相反。"
+  }
+}

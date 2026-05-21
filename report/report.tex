@@ -1,0 +1,340 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{booktabs}
+
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+}
+
+\definecolor{certcolor}{RGB}{0,100,0}
+\definecolor{uncertcolor}{RGB}{180,0,0}
+\newcommand{\certain}[1]{{\color{certcolor}\textbf{[已确认]}} #1}
+\newcommand{\uncertain}[1]{{\color{uncertcolor}\textbf{[待验证]}} #1}
+
+\title{\textbf{hw\_pipeline 技术报告}\\广义相对论题目泛化流水线}
+\author{}
+\date{2026年5月}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+%=============================================================================
+\section{概述}
+%=============================================================================
+
+hw\_pipeline 从一道种子 GR 题目出发，自动生成多道可独立求解的新题目。核心思路是两阶段泛化：Phase 1 保持原度规、LLM 自选方向延伸种子题；Phase 2 将题目适配到新度规。正确性由 SymPy/EinsteinPy 的 Fact Sheet 保证。
+
+\certain{流水线架构已实现并可运行。} \uncertain{题目质量尚未经人工评审。}
+
+%=============================================================================
+\section{架构}
+%=============================================================================
+
+五个子命令：
+
+\begin{lstlisting}
+python main.py run input.md --num 3 --subs 2   # 一步完成
+python main.py abstract input.md                 # 自然语言 → JSON
+python main.py generate seed.json                # 泛化生成
+python main.py validate variants/*.json          # 验证+修正
+python main.py clean variants/*.json             # 清理排版
+\end{lstlisting}
+
+数据流：
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+阶段 & 输入 & 输出 \\
+\midrule
+abstract & PDF/Image/MD & 种子 JSON \\
+缓存 & 种子 JSON & 种子 JSON + cached\_fact\_sheet \\
+Phase 1 & 种子 JSON + Fact Sheet & $N$ 道基础题 JSON \\
+Phase 2 & 基础题 + 新度规 Fact Sheet & $N \times M$ 道替换题 JSON \\
+validate & 题目 JSON & validated JSON \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%=============================================================================
+\section{两阶段泛化}
+%=============================================================================
+
+\subsection{Phase 1：同度规延伸}
+
+\certain{保持种子题的度规不变，LLM 自选泛化方向编题：}
+
+\begin{itemize}
+    \item LLM（COMPOSE prompt）基于 Fact Sheet + 种子题自行选择有意义的延伸方向
+    \item 强制 physical\_data 使用种子题的度规（覆写 LLM 输出）
+    \item 输出必须是独立完整题目（含物理背景、度规定义、所有假设）
+    \item 每道题只能有一问，难度与种子题相当
+\end{itemize}
+
+\subsection{Phase 2：度规替换}
+
+\certain{将基础题适配到新度规，保持题目类型和结构不变：}
+
+\begin{itemize}
+    \item LLM（PICK\_METRIC）一次性从度规库挑选 $M$ 个替换度规
+    \item 所有基础题共享同一组替换度规（减少 API 调用）
+    \item LLM（SUBSTITUTE）适配原题到新度规
+    \item 替换后 Fact Sheet 由 SymPy 重新计算
+\end{itemize}
+
+\uncertain{度规替换的物理合理性依赖 LLM 适配能力。不同物理场景（黑洞 vs 宇宙学）的转换可能不自然。}
+
+\subsection{度规库}
+
+8 个核心度规（均非 heavy，Fact Sheet $<30$s）：
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+度规 & 描述 \\
+\midrule
+Schwarzschild & 静态球对称黑洞，真空解 \\
+Minkowski / MinkowskiCartesian / MinkowskiPolar & 平直时空三种坐标 \\
+DeSitter & 正宇宙学常数 \\
+AntiDeSitter / AntiDeSitterStatic & 负宇宙学常数 \\
+FLRW & 标度因子 $a(t)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Heavy 度规（Kerr、Ernst、KerrNewman、AlcubierreWarp、BesselGravitationalWave、ReissnerNordstrom）排除在替换候选外。
+
+\uncertain{FLRW 含 $a(t)$ 函数，Fact Sheet 分量可能含其导数，LLM 编题时能否正确使用尚不确定。}
+
+%=============================================================================
+\section{Fact Sheet}
+%=============================================================================
+
+EinsteinPy 符号计算生成：Christoffel $\Gamma^k_{ij}$、Riemann $R^l_{ijk}$、Ricci $R_{ij}/R$、Kretschmann $K=R_{ijkl}R^{ijkl}$、Einstein $G_{\mu\nu}$。所有分量经 sympy.simplify 简化后存为 LaTeX。
+
+\certain{符号计算确定性，给定度规和变量，结果唯一且绝对正确。}
+
+\certain{Fact Sheet 可缓存到种子 JSON 的 cached\_fact\_sheet 字段。run 子命令自动缓存。}
+
+\uncertain{LaTeX→SymPy 转换（用于无 metric\_sympy 的旧 JSON）对非标准格式的鲁棒性有限。流水线尽量使用 metric\_sympy 或度规库直接提供的 SymPy 格式。}
+
+%=============================================================================
+\section{验证-修正循环}
+%=============================================================================
+
+\subsection{验证}
+
+VALIDATE prompt 聚焦\textbf{可解性和自洽性}：
+\begin{enumerate}
+    \item 可解性：目标能否推导？缺少必要条件？
+    \item 自洽性：度规与题干一致？中间量与 Fact Sheet 一致？
+    \item 完整性：做题者能否独立完成？
+\end{enumerate}
+
+\certain{answer 为"无答案"→ verified=false（不可解）。}
+
+\subsection{修正循环}
+
+validate\_and\_fix\_loop（max\_attempts=2）：
+
+\begin{enumerate}
+    \item 计算 Fact Sheet（只算一次）
+    \item validate → 若通过则结束
+    \item 若失败且有 issues → fix → 重新验证
+    \item 重复直到通过或达到上限
+\end{enumerate}
+
+修正规则：度规和 metadata.id/source 不可修改；只修正 origin（answer/solution/hint）；严重错误→ answer="无答案"。
+
+\certain{三个退出路径均添加 tools\_used 标记：EinsteinPy + validate:\{model\}。}
+
+\uncertain{修正循环依赖 LLM 修正能力，可能引入新错误。LLM 验证的判断标准不明确，不同调用可能给出不同结论。}
+
+%=============================================================================
+\section{LLM 配置}
+%=============================================================================
+
+各阶段模型通过 .env 环境变量配置，未设置时回退到 DEFAULT\_MODEL：
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+阶段 & 当前模型 \\
+\midrule
+abstract / pick\_metric & qwen3.6-flash \\
+compose / substitute / validate / fix & glm-5.1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+API：DashScope Anthropic 兼容接口，指数退避重试（最多 3 次），超时 600s，max\_tokens 32768。
+
+\certain{JSON 解析鲁棒性：剔除 markdown 代码块 + 修正无效 LaTeX 转义 + 字段过滤。}
+
+\uncertain{API 并发限制未知；不同模型的 JSON 输出格式稳定性待验证。}
+
+%=============================================================================
+\section{JSON Schema}
+%=============================================================================
+
+\begin{lstlisting}
+{
+  "metadata": {
+    "id": "test-gen-0",
+    "type": "calculate",        // prove | calculate | concept
+    "tags": { metric, target_object, coordinate, scenario, method },
+    "tools_used": ["EinsteinPy", "validate:glm-5.1"],
+    "validated": true,
+    "source": "generated"
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": ["$t$", "$r$", "$\\theta$", "$\\phi$"],
+    "target": ["$\\Gamma_{01}^{1}$"],
+    "metric": [[...], ...],            // LaTeX NxN
+    "metric_sympy": [[...], ...]       // SymPy NxN
+  },
+  "origin": {
+    "question": "...",     // 独立完整题干
+    "answer": "...",       // 结论或"无答案"
+    "solution": "...",     // 推导思路或 null
+    "hint": ["..."]        // 提示列表或 null
+  }
+}
+\end{lstlisting}
+
+%=============================================================================
+\section{Prompts 关键规则}
+%=============================================================================
+
+\begin{center}
+\begin{tabular}{lp{8cm}}
+\toprule
+阶段 & 关键规则 \\
+\midrule
+ABSTRACT & origin 保留原文照抄；每题一问 \\
+COMPOSE & LLM 自选泛化方向；度规不可修改；独立完整题；难度与种子题相当 \\
+SUBSTITUTE & 保持题目类型和结构；用新度规数据替换 \\
+PICK\_METRIC & 不选当前度规和 heavy 度规 \\
+VALIDATE & 聚焦可解性+自洽性；不可解→false \\
+FIX & 度规和 metadata 不可修改；严重错误→"无答案" \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+所有 prompt 限制题目范围：只涉及 GR 张量计算与基本应用，严禁引力波、量子引力、宇宙学精细模型等。
+
+solution 引用几何量直接写公式（不标注来源），hint 只写符号约定和特殊简化。
+
+\uncertain{Prompt 约束无法完全防止 LLM 偏离要求，代码层覆写是最后一道防线。}
+
+%=============================================================================
+\section{Cleaner}
+%=============================================================================
+
+两步清理：1) \_remove\_newlines — 递归移除所有字符串中的 \lstinline|\n|；2) \_clean\_string — 只在 \lstinline|$$...$$| 和 \lstinline|$...$| 数学段内移除空格。metric\_sympy 不参与第二步。
+
+\uncertain{嵌套数学段的正则匹配可能有潜在风险。}
+
+%=============================================================================
+\section{正确性保证}
+%=============================================================================
+
+三层机制：
+
+\begin{enumerate}
+    \item \textbf{SymPy Fact Sheet}：确定性符号计算，绝对正确
+    \item \textbf{LLM 验证-修正}：Fact Sheet 为基准，LLM 检查一致性
+    \item \textbf{代码覆写}：physical\_data 从种子/度规库获取，不依赖 LLM
+\end{enumerate}
+
+\uncertain{三层机制保证度规正确性和结构完整性，但不保证 answer/solution 的物理正确性。LLM 可能引用正确数据得出错误结论。}
+
+%=============================================================================
+\section{项目结构}
+%=============================================================================
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+hw_pipeline/
+  main.py            # CLI 入口
+  .env / .env.example
+  schema/schema.py   # Problem dataclass
+  core/
+    config.py        # 环境变量配置
+    api_client.py    # DashScope API (Anthropic 协议)
+    formatter.py     # abstract: 自然语言 → JSON
+    pipeline.py      # generate: 两阶段泛化
+    system_prompts.py # 6 个 LLM prompts
+    sympy_engine.py  # EinsteinPy Fact Sheet
+    metric_library.py # 度规库
+    cleaner.py       # JSON 清理
+    validator.py     # 验证-修正循环
+    file_converter.py # PDF/Word → 图片
+\end{lstlisting}
+
+%=============================================================================
+\section{已解决问题}
+%=============================================================================
+
+\begin{enumerate}
+    \item LLM 返回额外字段 → dataclass 字段过滤
+    \item LaTeX 转义错误 → 双重转义规则 + JSON 解析 fallback
+    \item Fact Sheet 重复计算 → 缓存 cached\_fact\_sheet
+    \item 3 维度规 Fact Sheet → 限制度规库为 4 维
+    \item ReissnerNordstrom eps\_0 → 标记 heavy 并排除
+    \item 速度瓶颈 → pick\_metric 一次性调用；并发执行；Phase 1 不生成新度规
+\end{enumerate}
+
+%=============================================================================
+\section{待验证问题}
+%=============================================================================
+
+\begin{enumerate}
+    \item \uncertain{LLM 验证可靠性：能否准确判断可解性？需要人工抽样验证准确率。}
+    \item \uncertain{修正循环有效性：修正后是否比修正前更好？还是引入新错误？}
+    \item \uncertain{度规替换的物理合理性：不同场景转换是否自然？}
+    \item \uncertain{难度一致性：LLM 能否准确把握难度？}
+    \item \uncertain{FLRW 的 $a(t)$ 导数：LLM 能否正确使用含导数的 Fact Sheet？}
+    \item \uncertain{API 并发限制：DashScope rate limit 未知。}
+    \item \uncertain{LLM 自选方向的质量：去掉方向池后，LLM 选择的泛化方向是否有意义且多样化？是否会趋向某些固定方向？}
+\end{enumerate}
+
+%=============================================================================
+\section{后续方向}
+%=============================================================================
+
+\begin{enumerate}
+    \item \certain{人工评审基准：统计 validate 准确率和题目质量分布。}
+    \item \uncertain{heavy 度规支持：优化 Kretschmann 计算，使 Kerr 可用于替换。}
+    \item \uncertain{structured output：用 JSON schema 约束 LLM 输出格式。}
+    \item \uncertain{多模型交叉验证：减少单模型偏差。}
+    \item \uncertain{题目质量评分：教学价值、难度一致性、题干清晰度。}
+\end{enumerate}
+
+%=============================================================================
+\section*{附注：确定性标注}
+\addcontentsline{toc}{section}{附注：确定性标注}
+%=============================================================================
+
+{\color{certcolor}\textbf{[已确认]}} — 代码验证或逻辑推理确认，可信度高。
+{\color{uncertcolor}\textbf{[待验证]}} — 推测或有限测试，需进一步验证，是后续审阅的重点。
+
+\end{document}
