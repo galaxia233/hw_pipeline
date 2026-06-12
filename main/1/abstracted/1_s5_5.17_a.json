@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s5_5.17_a",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "low_velocity_expansion",
+      "scenario": "momentum_density",
+      "method": "perfect_fluid"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.17_a",
+    "source_id": "1_s5_5.17_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.17_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.3,
+      "realism": 0.6,
+      "rationale": "基于应力能量张量洛伦兹变换的低速展开推导动量密度与惯性质量张量关系，逻辑严密但原题缺失配套解答",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^j$",
+      "$v^j$",
+      "$T^{\\mu'\\nu'}$",
+      "$m^{jk}$",
+      "$g^j$"
+    ],
+    "target": [
+      "$g^j$",
+      "$m^{jk}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "# Problem 5.17.(a) Consider a stressed medium which moves through a particular inertial frame with velocity $|\\underline{\\mathbf{v}}| << 1$ . Show that to first order in the velocity, the spatial components of the momentum density are$$\\mathbf {g}^{\\mathbf {j}} = \\mathbf {m}^{\\mathbf {j k}} \\mathbf {v}^{\\mathbf {k}},$$where $\\mathfrak{m}^{\\mathrm{jk}}$ , the \\\"inertial mass per unit volume\\\" is$$\\mathbf {m}^{\\mathrm {j k}} = \\mathbf {T}^{0^{'} 0^{'}} \\delta^{\\mathrm {j k}} + \\mathbf {T}^{\\mathrm {j^{'} k^{'}}}$$in terms of $\\mathbf{T}^{\\mu^{\\prime}\\nu^{\\prime}}$ , the components of the stress-energy in the rest frame of the medium. What is $\\mathbf{m}^{\\mathrm{jk}}$ for a perfect fluid?",
+    "answer": "$\\mathbf{m}^{\\mathrm{jk}} = \\mathbf{T}^{0'0'}\\delta^{jk} + \\mathbf{T}^{j'k'}$；对理想流体为 $(\\rho+p)\\delta^{jk}$",
+    "solution": null
+  },
+  "verification": null
+}

@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s13_13.2-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "gravitational redshift factor",
+      "coordinate": "spherical",
+      "scenario": "Nordström gravity theory",
+      "method": "conserved quantity and local observer measurement",
+      "generalization_axis": "apply",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.2",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.2",
+      "1_s13_13.2-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\nu$",
+      "$\\\\rho$",
+      "$\\\\sigma$",
+      "$\\\\kappa$",
+      "$\\\\phi$",
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$z$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Nordström 1913 年的引力理论是一个共形平坦的度规理论，其场方程为 Weyl 张量为零 ($C_{\\mu\\nu\\rho\\sigma}=0$) 且曲率标量与能动张量耦合 ($R = \\kappa g_{\\mu\\nu}T^{\\mu\\nu}$)。前述分析已表明，该理论预言光线经过太阳附近时无空间偏折，但在 Newtonian 极限下与牛顿引力一致。\\n\\n对于静态弱场中心质量 $M$，该理论预言的度规必须是 Minkowski 度规的共形变换，在球坐标下形式为：\\n$$ds^2 = -(1 + 2\\phi)dt^2 + (1 + 2\\phi)\\left(dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2\\right)$$\\n其中 $\\phi = -M/r$ 是 Newtonian 引力势（取 $G=1$）。\\n\\n利用该度规，推导一个光子从半径 $r_1$ 处径向发射到半径 $r_2$ 处被静态观测者接收时的红移因子 $z = (\\nu_1 - \\nu_2)/\\nu_2$ 的弱场近似表达式，并据此定量证明 Nordström 理论与广义相对论在预言引力红移方面具有相同的弱场行为，从而解释为什么该理论与 Pound-Rebka 实验的结果一致。",
+    "answer": "Nordström 理论预言的弱场引力红移因子为 $z \\approx \\phi(r_1) - \\phi(r_2) = M/r_2 - M/r_1$。由于该表达式仅依赖于度规的时间分量 $g_{tt}$，且其弱场形式与广义相对论 Schwarzschild 度规的 $g_{tt}$ 相同，因此两者预言的红移完全一致，这解释了 Nordström 理论能够与 Pound-Rebka 实验相符的原因。",
+    "solution": "1. 对于静态度规，存在时间平移 Killing 矢量 $K^\\mu = (1, 0, 0, 0)$。光子的四维动量 $p^\\mu$ 与 Killing 矢量的内积为守恒量，即光子的能量 $E = -g_{\\mu\\nu} K^\\mu p^\\nu = -g_{tt} p^t$。\\n\\n2. 静态观测者的四维速度为 $u^\\mu = \\left(\\frac{1}{\\sqrt{-g_{tt}}}, 0, 0, 0\\right)$。观测者测量到的光子局部频率为 $\\nu = -p_\\mu u^\\mu = -p_t u^t = \\frac{E}{\\sqrt{-g_{tt}}}$。\\n\\n3. 设光子在 $r_1$ 处发射，在 $r_2$ 处接收。由于 $E$ 是守恒量，发射频率 $\\nu_1$ 和接收频率 $\\nu_2$ 的关系为：\\n$$\\frac{\\nu_1}{\\nu_2} = \\frac{\\sqrt{-g_{tt}(r_2)}}{\\sqrt{-g_{tt}(r_1)}}$$\\n\\n4. 红移因子定义为 $1+z = \\frac{\\nu_1}{\\nu_2}$。代入 Nordström 理论的弱场度规分量 $-g_{tt} = 1+2\\phi$：\\n$$1+z = \\frac{\\sqrt{1+2\\phi(r_2)}}{\\sqrt{1+2\\phi(r_1)}} \\approx \\frac{1+\\phi(r_2)}{1+\\phi(r_1)} \\approx 1 + \\phi(r_2) - \\phi(r_1)$$\\n因此弱场下的红移为：\\n$$z \\approx \\phi(r_2) - \\phi(r_1) = -\\frac{M}{r_2} + \\frac{M}{r_1}$$\\n\\n5. 在广义相对论中，Schwarzschild 度规的时间分量为 $-g_{tt}^{GR} = 1 - 2M/r = 1 + 2\\phi$，这与 Nordström 理论的时间分量在弱场下完全相同。而红移只依赖于 $g_{tt}$，不依赖空间度规分量 $g_{rr}$（后者在两理论中不同，GR 为 $(1-2M/r)^{-1}$，Nordström 为 $1+2\\phi$，这导致了光线偏折预言的差异）。\\n\\n6. 因此，Nordström 理论和 GR 预言的引力红移在弱场极限下均为 $z \\approx \\Delta\\phi$，两者定量一致。Pound-Rebka 实验测量的是引力红移，其观测结果与 $z \\approx \\Delta\\phi$ 一致，因此 Nordström 理论同样能完美解释该实验。"
+  },
+  "verification": null
+}

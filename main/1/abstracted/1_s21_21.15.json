@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s21_21.15",
+    "type": "prove",
+    "tags": {
+      "metric": "spinor_formalism",
+      "target_object": "tensor_duality",
+      "coordinate": "antisymmetry_property",
+      "scenario": "abstract_index_calculus",
+      "method": "levis_civita_tensor"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s21_21.15",
+    "source_id": "1_s21_21.15",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s21_21.15"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.3,
+      "rationale": "涉及旋量-张量对应关系与对偶算符的抽象指标推导，逻辑链条完整且具理论深度，但偏重纯形式化运算而缺乏具体物理观测场景",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$a$",
+      "$b$",
+      "$c$",
+      "$d$",
+      "$\\\\mathrm{A}$",
+      "$\\\\mathrm{B}$",
+      "$\\\\mathrm{A}'$",
+      "$\\\\mathrm{B}'$"
+    ],
+    "target": [
+      "$*\\\\mathbf{T}_{\\\\mathrm{ab}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 21.15. Let $\\mathbf{T_{ab}} = \\mathbf{T_{AA'B'B'}}$ . Show that if $\\mathbf{T_{ab}}$ is antisymmetric then its dual in a spinor representation is $*\\mathbf{T_{ab}} = \\frac{1}{2}\\mathbf{i}(\\mathbf{T_{ABB'A'}} - \\mathbf{T_{BAA'B'}})$ .",
+    "answer": "$*\\\\mathbf{T}_{\\\\mathrm{ab}} = \\\\frac{1}{2}\\\\mathbf{i}(\\\\mathbf{T}_{\\\\mathrm{ABB'A'}} - \\\\mathbf{T}_{\\\\mathrm{BAA'B'}})$",
+    "solution": "Since $\\varepsilon_{\\mathbf{ab}}^{\\mathbf{cd}} = \\mathrm{i}(\\delta_{\\mathbf{A}}^{\\mathbf{C}}\\delta_{\\mathbf{B}}^{\\mathbf{D}}\\delta_{\\mathbf{B}}^{\\mathbf{C}'}\\delta_{\\mathbf{A}}^{\\mathbf{D}'}$ (see e.g. F. A. E. Pirani, Lectures on General Relativity, p. 315) and ${}^{*}\\mathrm{T}_{\\mathrm{ab}} = \\frac{\\mathrm{i}}{2}\\varepsilon_{\\mathrm{ab}}^{\\mathrm{cd}}\\mathrm{T}_{\\mathrm{cd}}$ the result follows immediately."
+  },
+  "verification": null
+}

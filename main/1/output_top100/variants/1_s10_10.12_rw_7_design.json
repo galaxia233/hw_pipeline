@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-5-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "Killing vector covariant derivative",
+      "coordinate": "spherical",
+      "scenario": "black hole",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-5",
+      "1_s10_10.12-5-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "设计数值实验验证Killing方程"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规为$$ds^2 = -\\left(1 - \\frac{r_s}{r}\\right) dt^2 + \\frac{1}{1 - \\frac{r_s}{r}} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$该时空具有旋转对称性，对应角动量守恒。理论上，旋转 Killing 矢量 $\\xi_{(\\phi)}^\\mu = (0, 0, 0, 1)$ 必须满足 Killing 方程 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$，这是角动量守恒流 $\\nabla_\\alpha (T^\\alpha_\\beta \\xi^\\beta) = 0$ 成立的几何前提。请设计一个数值实验方案，通过离散化计算验证 $\\xi_{(\\phi)}^\\mu$ 满足 Killing 方程。要求说明网格选取策略、协变导数的数值离散计算方法、需要提取的度规与 Christoffel 符号分量，以及预期结果（即 Killing 方程左边在网格上的数值分布特征）。",
+    "answer": "1. **网格选取**：在球坐标系 $(r, \\theta)$ 平面（固定 $t=t_0, \\phi=\\phi_0$）上选取均匀或按几何特征加密的网格点。因为 $\\xi_{(\\phi)}$ 的分量仅依赖于 $r$ 和 $\\theta$，所以二维切片足以捕捉其变化。2. **降指标与偏导数离散**：计算协变矢量分量 $\\xi_\\mu = g_{\\mu 3}$，即 $\\xi_3 = r^2 \\sin^2\\theta$。使用中心差分法在网格点上计算偏导数 $\\partial_r \\xi_3$ 和 $\\partial_\\theta \\xi_3$。3. **Christoffel 符号提取**：提取与指标 3 相关的非零 Christoffel 符号，即 $\\Gamma^3_{13} = 1/r$, $\\Gamma^3_{23} = \\cos\\theta / \\sin\\theta$, $\\Gamma^3_{31} = 1/r$, $\\Gamma^3_{32} = \\cos\\theta / \\sin\\theta$。4. **协变导数计算**：在每个网格点上计算 $\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu - \\Gamma^\\alpha_{\\mu\\nu} \\xi_\\alpha$。由于 $\\xi_0=\\xi_1=\\xi_2=0$，只需计算 $\\partial_\\mu \\xi_\\nu - \\Gamma^3_{\\mu\\nu} \\xi_3$。重点计算 $\\nabla_1 \\xi_3$, $\\nabla_3 \\xi_1$, $\\nabla_2 \\xi_3$, $\\nabla_3 \\xi_2$。5. **验证 Killing 方程**：构造对称张量 $S_{\\mu\\nu} = \\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu$。预期结果为：在所有网格点上，$S_{\\mu\\nu}$ 的所有分量均应接近于零（数值误差在差分精度量级，例如 $O(h^2)$），呈现出无系统偏移的微小随机波动，从而数值验证 Killing 方程成立。",
+    "solution": "方案论证：Killing 方程本质上要求矢量场的协变导数是反称的。在数值实验中，通过有限差分逼近偏导数，并代入解析的 Christoffel 符号，可以重构协变导数。由于 $\\xi_3 = r^2 \\sin^2\\theta$ 的解析形式已知，中心差分能精确逼近其导数，配合解析 Christoffel 符号能准确计算出 $\\nabla_1 \\xi_3 \\approx r \\sin^2\\theta$ 及 $\\nabla_3 \\xi_1 \\approx -r \\sin^2\\theta$ 等值。将它们相加，数值结果必然在差分误差范围内趋于零。这比纯符号计算更具物理直觉，展示了连续几何对称性在离散网格上的逼近实现。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 0.9,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

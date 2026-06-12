@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s3_3.16_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "abstract_metric_space",
+      "target_object": "rank_r_tensor",
+      "coordinate": "coordinate_independent_counting",
+      "scenario": "combinatorial_scenario",
+      "method": "symmetry_decomposition_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.16_b",
+    "source_id": "1_s3_3.16_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.16_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.4,
+      "generalizability": 0.8,
+      "completeness": 0.6,
+      "realism": 0.3,
+      "rationale": "纯张量指标对称性组合计数问题，逻辑链为对称约束到多重集排列组合，缺乏实际物理场景支撑，但模型结构高度可泛化至任意秩次与对称类。",
+      "overall": 0.53
+    }
+  },
+  "physical_data": {
+    "dimension": "n",
+    "variables": [
+      "$n$",
+      "$r$",
+      "$s$"
+    ],
+    "target": [
+      "$N_{\\\\text{indep}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s3_3.16_b.md]\\n\\nProblem 3.16.\\n(a) In an $n$ -dimensional metric space, how many independent components are there for an $r$ -rank tensor $T^{\\alpha \\beta \\cdots}$ with no symmetries?   \\n(b) If the tensor is symmetric on $s$ of its indices, how many independent components are there?   \\n(c) If the tensor is antisymmetric on a of its indices, how many independent components are there?\\n\\n## Solution\\n\\n(b) For $s$ symmetric indices and $r-s$ asymmetric ones, consider: How many inequivalent ways are there of choosing the values of the $s$ indices from the $n$ possibilities? It equals the number of ways of choosing $s$ things from $n$ possibilities, including repetitions:\\n$$\\n(n + s - 1)! / (n - 1)! s!.\\n$$\\n[See, e.g. J. Mathews and R. Walker, Mathematical Methods of Physics (W. A. Benjamin, 1965) Section 14.3.] The other $r$ -s indices can be chosen in $n^{r - s}$ ways so the number of independent components is\\n$$\\n\\mathbf {n}^{\\mathbf {r} - \\mathbf {s}} (\\mathbf {n} + \\mathbf {s} - \\mathbf {1})! / (\\mathbf {n} - \\mathbf {1})! \\mathbf {s}! .\\n$$",
+    "answer": "$n^{r-s} \\frac{(n+s-1)!}{(n-1)! s!}$",
+    "solution": "## Solution\\n\\n(b) For $s$ symmetric indices and $r-s$ asymmetric ones, consider: How many inequivalent ways are there of choosing the values of the $s$ indices from the $n$ possibilities? It equals the number of ways of choosing $s$ things from $n$ possibilities, including repetitions:\\n$$\\n(n + s - 1)! / (n - 1)! s!.\\n$$\\n[See, e.g. J. Mathews and R. Walker, Mathematical Methods of Physics (W. A. Benjamin, 1965) Section 14.3.] The other $r$ -s indices can be chosen in $n^{r - s}$ ways so the number of independent components is\\n$$\\n\\mathbf {n}^{\\mathbf {r} - \\mathbf {s}} (\\mathbf {n} + \\mathbf {s} - \\mathbf {1})! / (\\mathbf {n} - \\mathbf {1})! \\mathbf {s}! .\\n$$"
+  },
+  "verification": null
+}

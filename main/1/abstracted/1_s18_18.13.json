@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s18_18.13",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_background",
+      "target_object": "StressEnergyTensor",
+      "coordinate": "Cartesian_coordinates",
+      "scenario": "Gravitational_wave_absorption",
+      "method": "Conservation_laws_and_Gauss_theorem"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s18_18.13",
+    "source_id": "1_s18_18.13",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s18_18.13"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于能动张量守恒与高斯定理的多步物理推导，结合引力波与介质相互作用的明确场景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$T^{0\\\\nu}_{,\\\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 18.13. A (weak) plane gravitational wave travelling in the $x$ -direction is normally incident on a slab of cement. The cement absorbs energy $E$ from the plane wave. Show (e.g. as a result of $T^{\\mu \\nu}$ ; $\\nu = 0$ ) that the slab must absorb $x$ -momentum $E$ also, and find the relationship between the rate at which energy and $x$ -momentum are absorbed.",
+    "answer": "(rate at which momentum is absorbed per unit area per unit time) = (rate at which energy is absorbed per unit area per unit time)",
+    "solution": "Solution 18.13. Inside the material we have\\n$$\\n \\\\mathbf {T}_{\\\\mathbf {G W}, \\\\mu}^{0 \\\\mu} = \\\\mathbf {T}_{\\\\mathbf {G W}, \\\\mathbf {i}}^{0 \\\\mathbf {i}} = \\\\mathbf {F}^{0}\\n$$\\nwhere $\\mathbf{F}^0$ is the rate, per unit volume, at which external forces are doing work on the gravitational waves. Isolate a chunk of the cement of cross section A and put a Gaussian \"pill box\" around it. From Gauss' theorem in three dimensions we have\\n$$\\n \\\\int \\\\mathrm {T}_{\\\\mathrm {GW}}^{0 \\\\mathrm {i}} \\\\mathrm {d} \\\\Sigma_{\\\\mathrm {i}} = \\\\int \\\\mathrm {T}_{, \\\\mathrm {i}}^{0 \\\\mathrm {i}} \\\\mathrm {d} \\\\text {V o l}.\\n$$\\n$$\\n\\\\begin{array}{l} \\\\left. \\\\right.\\\\left( \\\\right.\\\\mathrm {T}_{\\\\mathrm {GW}}^{0 \\\\mathrm {x}} \\\\left. \\\\right|_{\\\\text {o u t}} - \\\\mathrm {T}_{\\\\mathrm {GW}}^{0 \\\\mathrm {x}} \\\\left. \\\\right|_{\\\\text {i n}}\\\\left. \\\\right) \\\\mathrm {A} = \\\\int \\\\mathrm {F}^{0} \\\\mathrm {d} \\\\text {V o l}. \\\\\\\\ = \\\\text {r a t e} \\\\\\\\ = - \\\\text {r a t e} \\\\\\\\ \\\\end{array}\\n$$\\nand hence:\\n(rate at which momentum is absorbed per unit area per unit time) = (rate at which energy is absorbed per unit area per unit time)."
+  },
+  "verification": null
+}

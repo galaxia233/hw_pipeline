@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-0-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "critical boundary condition of geodesic motion",
+      "coordinate": "general",
+      "scenario": "verify derivation of Killing vector boundary",
+      "method": "reverse Cauchy-Schwarz inequality",
+      "generalization_axis": "verify",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-0",
+      "1_s10_10.10-0-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "killing_vector",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\mathbf{x}^{\\\\mu}$",
+      "$\\\\mathbf{u}^{\\\\alpha}$",
+      "$\\\\boldsymbol{\\\\xi}_{\\\\alpha}$"
+    ],
+    "target": [
+      "校验反向柯西-施瓦茨不等式推导临界边界条件"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在具有类时 Killing 矢量场 $\\xi^\\mu$ 的时空中，自由粒子沿类时测地线运动，切矢量 $u^\\mu$ 满足 $u^\\mu u_\\mu = -1$。已知 $\\xi^\\mu$ 和 $u^\\mu$ 均指向未来，守恒量 $E = -\\xi^\\mu u_\\mu$。定义类时 Killing 矢量的模长 $X = \\sqrt{-\\xi^\\mu \\xi_\\mu}$。某同学推导粒子允许存在区域的临界几何边界条件过程如下：\"由于 $\\xi^\\mu$ 和 $u^\\mu$ 均为指向未来的类时矢量，根据洛伦兹时空中同向类时矢量的性质，内积满足反向柯西-施瓦茨不等式：$$\\xi^\\mu u_\\mu \\ge -\\sqrt{(\\xi^\\mu \\xi_\\mu)(u^\\nu u_\\nu)}$$将 $u^\\nu u_\\nu = -1$ 与 $\\xi^\\mu \\xi_\\mu = -X^2$ 代入，得：$$\\xi^\\mu u_\\mu \\ge -\\sqrt{(-X^2)(-1)} = -X$$两边乘以 $-1$，得到：$$-\\xi^\\mu u_\\mu \\ge X$$即守恒量必须满足的关系为 $E \\ge X$。由于 $E$ 是守恒量而 $X$ 随时空位置变化，粒子若要保持在允许区域内，必须满足此关系。在临界边界处取等号，即 $E = X$，代入模长定义得到临界边界条件方程为：$$\\xi^\\mu \\xi_\\mu = E^2$$\"请找出上述推导中的所有错误，指出错误位置、错误类型，并给出正确表达式。",
+    "answer": "1. 错误位置：反向柯西-施瓦茨不等式表达式 \"$\\xi^\\mu u_\\mu \\ge -\\sqrt{(\\xi^\\mu \\xi_\\mu)(u^\\nu u_\\nu)}$\"。   错误类型：不等号方向错误。   正确值：应为 \"$\\xi^\\mu u_\\mu \\le -\\sqrt{(\\xi^\\mu \\xi_\\mu)(u^\\nu u_\\nu)}$\"。2. 错误位置：两边乘以 $-1$ 后的表达式 \"$-\\xi^\\mu u_\\mu \\ge X$\"。   错误类型：不等式乘以负数时未反转不等号方向。   正确值：应为 \"$-\\xi^\\mu u_\\mu \\le X$\"。3. 错误位置：临界边界条件方程 \"$\\xi^\\mu \\xi_\\mu = E^2$\"。   错误类型：符号遗漏错误。   正确值：应为 \"$-\\xi^\\mu \\xi_\\mu = E^2$\"。",
+    "solution": "1. 对于同向类时矢量，洛伦兹时空中的反向柯西-施瓦茨不等式应为 $\\xi^\\mu u_\\mu \\le -\\sqrt{(\\xi^\\mu \\xi_\\mu)(u^\\nu u_\\nu)}$，推导中不等号方向写反了。2. 将 $u^\\nu u_\\nu = -1$ 与 $\\xi^\\mu \\xi_\\mu = -X^2$ 代入正确的反向柯西不等式，得 $\\xi^\\mu u_\\mu \\le -\\sqrt{X^2} = -X$。3. 两边乘以 $-1$ 时，不等号方向必须反转，得到 $-\\xi^\\mu u_\\mu \\ge X$，即 $E \\ge X$。4. 临界边界条件取等号 $E = X$，代入模长定义 $X = \\sqrt{-\\xi^\\mu \\xi_\\mu}$，可得 $E^2 = -\\xi^\\mu \\xi_\\mu$，即 $-\\xi^\\mu \\xi_\\mu = E^2$，推导中遗漏了负号。"
+  },
+  "verification": null
+}

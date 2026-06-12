@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-2-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "\\Phi",
+      "coordinate": "general_stationary",
+      "scenario": "newtonian_limit_verify",
+      "method": "taylor_expansion",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-2",
+      "1_s10_10.15-2-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\xi$",
+      "$\\mathbf{E}$",
+      "$\\mathbf{p}$",
+      "$\\mu$"
+    ],
+    "target": [
+      "校验推导中的指标、度规分量及泰勒展开错误"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在稳态时空中，时间 Killing 矢量 $\\boldsymbol{\\xi}$ 的存在保证了粒子在无穷远处的能量 $\\mathbf{E} = -\\mathbf{p} \\cdot \\boldsymbol{\\xi}$ 守恒。已知粒子在某点所能具有的最小单位质量能量为 $\\mathbf{E}_{min} / \\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$。在弱场 Newtonian 极限下，度规的时间分量表现为 $g_{tt} \\approx -(1 + 2\\Phi)$，其中 $\\Phi$ 为 Newtonian 引力势（例如对于质点源 $\\Phi = -M/r$），且满足 $|\\Phi| \\ll 1$。已知正确的结论应为 $\\mathbf{E}_{min} / \\mu - 1 = \\Phi$。以下是某学生试图推导该结论的演绎过程，但其中包含若干错误：“在稳态时空中，时间 Killing 矢量取为 $\\boldsymbol{\\xi} = \\partial_t$。由于 $\\partial_t$ 对应时间坐标，其协变分量应为 $\\xi_t = 1$，因此 Killing 矢量的范数为 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g^{\\mu\\nu} \\xi_\\mu \\xi_\\nu = g^{tt}$。粒子的最小单位质量能量为 $\\mathbf{E}_{min} / \\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}} = \\sqrt{-g^{tt}}$。在弱场 Newtonian 极限下，度规的时间分量退化为 $g_{tt} \\approx -(1 + 2\\Phi)$。因为弱场下时空近似平直，逆度规分量与度规分量近似相等，即 $g^{tt} \\approx g_{tt} \\approx -(1 + 2\\Phi)$。将 $g^{tt}$ 代入最小能量公式得到：$\\mathbf{E}_{min} / \\mu \\approx \\sqrt{1 + 2\\Phi}$。由于 $|\\Phi| \\ll 1$，对根号进行一阶 Taylor 展开：$\\sqrt{1 + 2\\Phi} \\approx 1 + 2\\Phi$。扣除静止质量对应的单位质量能量1：$\\mathbf{E}_{min} / \\mu - 1 \\approx 2\\Phi$。”请找出上述推导中的所有错误，指出其位置、错误类型，并给出正确值。",
+    "answer": "1. 位置：“其协变分量应为 $\\xi_t = 1$”；错误类型：指标错误；正确值：$\\xi^t = 1$（切矢量 $\\partial_t$ 的逆变分量为1，其协变分量应为 $\\xi_t = g_{tt} \\xi^t \\approx -(1+2\\Phi)$）。2. 位置：“$\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g^{tt}$”；错误类型：指标错误/度规分量错误；正确值：$\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g_{tt}$（矢量内积应使用度规降指标 $g_{\\mu\\nu}\\xi^\\mu\\xi^\\nu$ 计算）。3. 位置：“$g^{tt} \\approx g_{tt} \\approx -(1 + 2\\Phi)$”；错误类型：符号错误/逆度规展开错误；正确值：$g^{tt} \\approx -(1 - 2\\Phi)$（由 $g^{tt} g_{tt} \\approx 1$ 可得 $g^{tt} \\approx -1/g_{tt} \\approx -(1-2\\Phi)$，一阶小量符号相反）。4. 位置：“$\\sqrt{1 + 2\\Phi} \\approx 1 + 2\\Phi$”；错误类型：系数遗漏/泰勒展开错误；正确值：$\\sqrt{1 + 2\\Phi} \\approx 1 + \\Phi$（根据 $(1+x)^{1/2} \\approx 1 + x/2$，展开式系数应为 $1/2$）。",
+    "solution": "1. 在稳态时空中，时间 Killing 矢量取为 $\\boldsymbol{\\xi} = \\partial_t$，其逆变分量为 $\\xi^t = 1$。2. 矢量的范数由度规降指标给出：$\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g_{\\mu\\nu} \\xi^\\mu \\xi^\\nu = g_{tt}$。3. 粒子在某点所能具有的最小单位质量能量为 $\\mathbf{E}_{min} / \\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}} = \\sqrt{-g_{tt}}$。4. 在弱场 Newtonian 极限下，度规的时间分量退化为 $g_{tt} \\approx -(1 + 2\\Phi)$，代入上式得到：$\\mathbf{E}_{min} / \\mu \\approx \\sqrt{1 + 2\\Phi}$。5. 由于 $|\\Phi| \\ll 1$，对根号进行一阶 Taylor 展开：$\\sqrt{1 + 2\\Phi} \\approx 1 + \\Phi$。6. 扣除静止质量对应的单位质量能量1：$\\mathbf{E}_{min} / \\mu - 1 \\approx (1 + \\Phi) - 1 = \\Phi$。"
+  },
+  "verification": null
+}

@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_1-7-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "stress_energy_tensor_and_curvature_source",
+      "coordinate": "mixed_coordinates",
+      "scenario": "vacuum_geometry_contrast",
+      "method": "einstein_tensor_analysis",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.4_1",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.4_1",
+      "1_s13_13.4_1-7",
+      "1_s13_13.4_1-7-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$T_{\\mu\\nu}$",
+      "Ricci_vs_Weyl_curvature"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，时空弯曲的来源可以分为由物质/真空能量分布导致的 Ricci 曲率，以及由引力场自身自由度（如潮汐力）导致的 Weyl 曲率。如果真空不存在偏倚的参考系，则其能动张量必须正比于度规张量，即 $T_{\\mu\\nu}^{\\text{vac}} = -\\rho_{\\text{vac}} g_{\\mu\\nu}$。然而，时空的弯曲并不一定需要非零的能动张量。\\n\\n考虑以下两种具有不同几何特性的时空背景：\\n**背景 A（开放切片的 Anti-De Sitter 时空）：**\\n度规为 $ds^2 = -dt^2 + \\cos^{2}{(t)} d\\chi^2 + \\cos^{2}{(t)} \\sin h^{2}{(\\chi)} (d\\theta^2 + \\sin^{2}{(\\theta)} d\\phi^2)$\\n已知其 Einstein 张量为 $G_{00} = -3$, $G_{11} = 3\\cos^{2}{(t)}$, $G_{22} = 3\\cos^{2}{(t)}\\sin h^{2}{(\\chi)}$, $G_{33} = 3\\sin^{2}{(\\theta)}\\cos^{2}{(t)}\\sin h^{2}{(\\chi)}$。\\n\\n**背景 B（Schwarzschild 时空）：**\\n度规为 $ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^{2} d\\theta^2 + r^{2} \\sin^{2}{(\\theta)} d\\phi^2$\\n已知其 Einstein 张量各分量均为 0，且 Ricci 标量 $R=0$。\\n\\n请在两种背景下，分别推导产生该几何所需的能动张量 $T_{\\mu\\nu}$ 的具体表达式（设裸宇宙学常数为0，场方程为 $G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$）。对比两者的结果：为何背景 A 的 $T_{\\mu\\nu}$ 恰好表现为无偏倚参考系的各向同性真空能量形式，而背景 B 尽管存在明显的时空弯曲，其 $T_{\\mu\\nu}$ 却处处为零？请从 Ricci 曲率与 Weyl 曲率的物理来源角度，解释这一差异的深刻含义。",
+    "answer": "背景 A 的 Einstein 张量与度规张量严格成正比 $G_{\\mu\\nu} = 3 g_{\\mu\\nu}$，因此能动张量为 $T_{\\mu\\nu} = \\frac{3}{8\\pi} g_{\\mu\\nu}$。这正是各向同性真空能动张量的标准形式 $T_{\\mu\\nu}^{\\text{vac}} = -\\rho_{\\text{vac}} g_{\\mu\\nu}$（此处等效真空能量密度 $\\rho_{\\text{vac}} = -\\frac{3}{8\\pi}$，为负常量），其时空弯曲完全由均匀弥漫的真空能量支撑。\\n背景 B 的 Einstein 张量为 0，因此能动张量 $T_{\\mu\\nu} = 0$。\\n\\n**对比与物理含义**：背景 A 的时空弯曲完全源于 Ricci 曲率（$R_{\\mu\\nu} \\neq 0$），对应于局部物质或真空能量密度的存在，表现为时空的各向同性均匀弯曲；背景 B 尽管存在真实的时空弯曲（Kretschmann 标量不为零，反映引力场存在），但其 Ricci 曲率为零（$R_{\\mu\\nu}=0, R=0$），其弯曲完全由 Weyl 曲率主导。Weyl 曲率反映的是引力场的纯粹自由度（即潮汐形变效应），不需要任何局部物质或真空能量作为源。因此，Schwarzschild 时空的弯曲是纯粹的“无源真空引力场”，而背景 A 的弯曲是由“真空能量密度”作为源驱动的弯曲时空。这一对比揭示了时空弯曲不仅可以由物质/真空能量产生，也可以由引力场自身的非线性传播与潮汐效应产生。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "度规表达式及 Einstein 张量分量中存在严重的数学符号拼写/排版错误：双曲正弦函数 $\\sinh$ 被错误地拆分并写成了 $\\sin h$（例如 $\\sin h^{2}{(\\chi)}$）。这导致表达式产生歧义，可能被误解为正弦函数 $\\sin$ 作用于某个未定义的变量或函数 $h$，使得度规在数学上未定义，严重破坏了题目的自包含性。正确的写法应为 $\\sinh^{2}{(\\chi)}$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

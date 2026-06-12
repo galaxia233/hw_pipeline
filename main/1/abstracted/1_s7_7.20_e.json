@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s7_7.20_e",
+    "type": "concept",
+    "tags": {
+      "metric": "tensor_metric_operations",
+      "target_object": "vector_commutator_bracket",
+      "coordinate": "invariant_coordinate_system",
+      "scenario": "abstract_manifold_scenario",
+      "method": "index_to_covariant_derivative_translation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.20_e",
+    "source_id": "1_s7_7.20_e",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.20_e"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.3,
+      "rationale": "涉及协变导数乘积法则与方向导数算符结合律推导，逻辑链条完整但为纯抽象张量演算",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\gamma$",
+      "$\\\\mathsf{W}$",
+      "$\\\\mathsf{U}$"
+    ],
+    "target": null,
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s7_7.20_e.md]\\n\\nProblem 7.20. Write the following expressions in index-free notation:\\n(e) $\\mathsf{W}^{\\\\alpha}_{;\\\\gamma \\\\beta}\\\\mathsf{U}^{\\\\gamma}\\\\mathsf{U}^{\\\\beta} + \\\\mathsf{W}^{\\\\alpha}_{;\\\\gamma}\\\\mathsf{U}^{\\\\gamma}_{;\\\\beta}\\\\mathsf{U}^{\\\\beta} - \\\\mathsf{U}^{\\\\alpha}_{;\\\\beta}\\\\mathsf{W}^{\\\\beta}_{;\\\\gamma}\\\\mathsf{U}^{\\\\gamma}$ .",
+    "answer": "$[ \\\\mathbf {U}, \\\\nabla_{\\\\mathbf {U}} \\\\mathbf {\\\\bar {W}} ]$",
+    "solution": "$$\\n\\\\mathbf {W}^{\\\\alpha ; \\\\beta} \\\\mathbf {V}_{\\\\beta ; \\\\gamma} \\\\mathbf {U}^{\\\\gamma} = \\\\mathbf {W}_{; \\\\beta}^{\\\\alpha} (\\\\mathbf {V}^{\\\\beta}; \\\\gamma) \\\\mathbf {U}^{\\\\gamma}) = \\\\nabla_{(\\\\nabla_{\\\\mathbf {U}} \\\\mathbf {V})} \\\\mathbf {W}\\n$$\\n(e) Combine the first two terms of the given expression,\\n$$\\n(\\\\mathsf {W}_{; \\\\gamma}^{\\\\alpha} \\\\mathsf {U}^{\\\\gamma})_{; \\\\beta} \\\\mathbf {U}^{\\\\beta} - \\\\mathbf {U}_{; \\\\beta}^{\\\\alpha} (\\\\mathsf {W}_{; \\\\gamma}^{\\\\beta} \\\\mathsf {U}^{\\\\gamma}) = \\\\nabla_{\\\\mathbf {U}} (\\\\nabla_{\\\\mathbf {U}} \\\\mathbf {\\\\bar {W}}) - \\\\nabla_{(\\\\nabla_{\\\\mathbf {U}} \\\\mathbf {\\\\bar {W}})} \\\\mathbf {U} = [ \\\\mathbf {U}, \\\\nabla_{\\\\mathbf {U}} \\\\mathbf {\\\\bar {W}} ] .\\n$$"
+  },
+  "verification": null
+}

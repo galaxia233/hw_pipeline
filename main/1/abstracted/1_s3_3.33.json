@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s3_3.33",
+    "type": "calculate",
+    "tags": {
+      "metric": "arbitrary_curved_metric",
+      "target_object": "invariant_volume_form",
+      "coordinate": "momentum_coordinates",
+      "scenario": "mass_shell_constraint",
+      "method": "dirac_delta_integration"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.33",
+    "source_id": "1_s3_3.33",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.33"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于任意度规的动量空间相体积元推导，需综合运用张量变换律、度规行列式性质及质量壳δ函数积分技巧，物理动机明确且逻辑链条完整。",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$P^x$",
+      "$P^y$",
+      "$P^z$",
+      "$P^t$",
+      "$m$"
+    ],
+    "target": [
+      "$\\\\mathrm{d}^4 P$",
+      "$\\\\mathrm{d}^3 P$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.33. What is the invariant volume element of contravariant momentum $\\mathsf{d}^4\\mathbf{P}$ for 4-dimensional momentum space? What is the invariant 3-volume \"on the mass shell\", i.e. when the constraint $(-\\mathbf{P}\\cdot \\mathbf{P})^{\\frac{1}{2}} = \\mathfrak{m}$ is imposed?",
+    "answer": "$\\\\mathrm{d}^4 P = (-g)^{\\\\frac{1}{2}} \\\\mathrm{d} P^x \\\\mathrm{d} P^y \\\\mathrm{d} P^z \\\\mathrm{d} P^t$; $\\\\mathrm{d}^3 P = (-g)^{\\\\frac{1}{2}} \\\\mathrm{d} P^x \\\\mathrm{d} P^y \\\\mathrm{d} P^z \\\\left(\\\\frac{m}{-P_t}\\\\right)$",
+    "solution": "Solution 3.33. Since the contravariant momentum vector $\\mathbf{P}^{\\alpha}$ transforms just like the contravariant displacement vector $\\mathbf{x}^{\\alpha}$ , the 4-dimensional momentum element must be of the same form as the invariant 4-volume element (Problem 3.32), so\\n$$\\n\\\\mathrm {d}^{4} P = (- g)^{\\\\frac{1}{2}} \\\\mathrm {d} P^{x} \\\\mathrm {d} P^{y} \\\\mathrm {d} P^{z} \\\\mathrm {d} P^{t}.\\n$$\\nFor the 3-volume element we multiply by a \\u03b4-function of the constraint and integrate over $\\mathbf{P}^t$ :\\n$$\\n\\\\begin{array}{l}\\n\\\\mathrm {d}^{3} P = \\\\int \\\\delta \\\\left[ \\\\left(- g_{\\\\alpha \\\\beta} P^{\\\\alpha} P^{\\\\beta}\\\\right)^{\\\\frac{1}{2}} - m \\\\right] (- g)^{\\\\frac{1}{2}} \\\\mathrm {d} P^{x} \\\\mathrm {d} P^{y} \\\\mathrm {d} P^{z} \\\\mathrm {d} P^{t} \\\\\\\\\\n= (- g)^{\\\\frac{1}{2}} \\\\mathrm {d} P^{x} \\\\mathrm {d} P^{y} \\\\mathrm {d} P^{z} \\\\times \\\\left[ - \\\\frac {1} {2} \\\\left(- g_{\\\\alpha \\\\beta} P^{\\\\alpha} P^{\\\\beta}\\\\right)^{- \\\\frac {1}{2}} \\\\cdot 2 g_{t \\\\alpha} P^{\\\\alpha} \\\\right]^{- 1}. \\\\\\\\\\n\\\\end{array}\\n$$\\n(Here we have used the identity\\n$$\\n\\\\int \\\\delta (f (x)) d x = \\\\frac {1} {| f^{\\prime} (x_{1}) |}\\n$$\\nwhere $\\mathbf{x}_1$ is a zero of f.) Rewriting the term in brackets, we get\\n$$\\n\\\\mathrm {d}^{3} P = (- g)^{\\\\frac{1}{2}} \\\\mathrm {d} P^{x} \\\\mathrm {d} P^{y} \\\\mathrm {d} P^{z} \\\\left(\\\\frac {m}{- P_{t}}\\\\right).\\n$$\\nNotice that in a local orthonormal frame comoving with the particles in momentum space, this reduces to\\n$$\\n\\\\mathrm {d}^{3} P = \\\\mathrm {d} P^{x} \\\\mathrm {d} P^{y} \\\\mathrm {d} P^{z}\\n$$\\nas it should.\\nSometimes $\\mathbf{d}^3\\mathbf{P}$ is renormalized by dividing by $m$ . This gives an invariant volume element which is valid for massless particles as well."
+  },
+  "verification": null
+}

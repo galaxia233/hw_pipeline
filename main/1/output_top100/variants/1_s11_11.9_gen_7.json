@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-7",
+    "type": "calculate",
+    "tags": {
+      "target_object": "critical_radius",
+      "coordinate": "Schwarzschild",
+      "scenario": "black_hole_gyroscope",
+      "method": "limit_analysis",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$r_c$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞周围的赤道面内，一个自由下落的陀螺仪沿圆轨道公转时，其自旋轴会发生 de Sitter 进动（几何进动）。已知该陀螺仪每完成一周公转，其自旋轴相对于远处固定恒星的进动角为 $\\Delta\\alpha = \\frac{3\\pi M}{r}$（其中 $M$ 为黑洞质量，$r$ 为轨道半径）。该时空的度规为 $ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2{\\left(\\theta\\right)} d\\phi^2$，其中 $r_s = 2M$ 为 Schwarzschild 半径。求使该陀螺仪的自旋进动周期（以陀螺仪固有时 $\\tau$ 计量）趋于零的临界轨道半径 $r_c$，并解释 $r_c$ 与该时空光子球半径的物理关联。",
+    "answer": "$r_c = 3M = 1.5 r_s$",
+    "solution": "1. 首先计算陀螺仪在圆轨道上绕行一周所经历的固有时 $\\tau$。圆轨道的坐标角速度为 $\\Omega = \\frac{d\\phi}{dt} = \\sqrt{\\frac{M}{r^3}}$，坐标时间周期为 $T = \\frac{2\\pi}{\\Omega} = 2\\pi \\sqrt{\\frac{r^3}{M}}$。2. 由度规可得圆轨道上类时粒子的时间膨胀关系：对于赤道面内的圆轨道，$-d\\tau^2 = -(1 - r_s/r) dt^2 + r^2 d\\phi^2$。代入 $d\\phi/dt = \\Omega$，可得 $\\left(\\frac{dt}{d\\tau}\\right)^2 = \\frac{1}{1 - 3M/r}$，因此固有时周期为 $\\tau = T \\sqrt{1 - 3M/r} = 2\\pi \\sqrt{\\frac{r^3}{M}} \\sqrt{1 - 3M/r}$。3. 陀螺仪每绕行一周的进动角为 $\\Delta\\alpha = \\frac{3\\pi M}{r}$，因此以固有时计量的自旋进动周期为 $T_{prec, \\tau} = \\tau \\cdot \\frac{2\\pi}{\\Delta\\alpha} = 2\\pi \\sqrt{\\frac{r^3}{M}} \\sqrt{1 - 3M/r} \\cdot \\frac{2r}{3M} = \\frac{4\\pi}{3} \\frac{r^{5/2}}{M^{3/2}} \\sqrt{1 - 3M/r}$。4. 为使进动周期 $T_{prec, \\tau}$ 趋于零，需满足根号内的项趋于零，即 $1 - \\frac{3M}{r_c} = 0$，解得临界轨道半径为 $r_c = 3M = 1.5 r_s$。5. 物理关联：$r_c = 3M$ 正是 Schwarzschild 时空的光子球半径。在该半径处，光子可以形成圆形的零测地线轨道。对于沿圆轨道公转的有质量粒子，当其轨道半径逼近光子球时，其坐标速度逼近光速，洛伦兹因子发散，导致固有时急剧收缩至零，因此固有时进动周期也随之趋于零。同时，在该临界半径处，每绕行一周的自旋进动角极限为 $\\Delta\\alpha = \\pi$，即自旋轴翻转 180 度，但由于固有时流逝停滞，该翻转在观察者的固有时中趋于瞬间完成。此外，对于 $r < 3M$，有质量粒子无法维持稳定的圆轨道。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "题目和答案存在严重的物理概念错误。题目要求寻找使陀螺仪（有质量粒子）自旋进动周期趋于零的'临界轨道半径 $r_c$'，答案给出 $r_c = 3M$。然而，$r = 3M$ 是 Schwarzschild 时空的光子球半径，在此半径处只有光子（零测地线）能形成圆轨道，有质量的陀螺仪根本无法在此处维持类时圆轨道。当 $r \\to 3M$ 时，类时粒子的固有时趋于0只是一个数学极限，物理上陀螺仪不能在 $r=3M$ 做圆周运动，其四维速度将变为零矢量，自旋进动公式 $\\Delta\\alpha = 3\\pi M/r$ 在此极限下物理定义失效。将光子球半径称为'陀螺仪的临界轨道半径'违反了广义相对论基本事实。此外，solution步骤5中声称'对于 $r < 3M$，有质量粒子无法维持稳定的圆轨道'，这也是错误的表述：事实是对于 $r \\le 3M$，有质量粒子根本不存在类时圆轨道（不仅仅是'不稳定'），$r=3M$ 是零类时轨道，$r<3M$ 连类光圆轨道都不存在。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

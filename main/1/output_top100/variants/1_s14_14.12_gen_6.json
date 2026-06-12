@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-6",
+    "type": "prove",
+    "tags": {
+      "target_object": "tidal_force_matrix",
+      "coordinate": "orthonormal_comoving",
+      "scenario": "cosmology",
+      "method": "tetrad_projection",
+      "generalization_axis": "extend",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$R^{\\hat{1}}_{\\hat{0}\\hat{1}\\hat{0}}$",
+      "$R^{\\hat{2}}_{\\hat{0}\\hat{2}\\hat{0}}$",
+      "$R^{\\hat{3}}_{\\hat{0}\\hat{3}\\hat{0}}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In the local frame of an observer, the tidal forces on a nearby free-falling test particle are determined by the Riemann curvature tensor components $R^{\\hat{i}}_{\\hat{0}\\hat{j}\\hat{0}}$. Consider a free-falling comoving observer in the Friedmann-Lemaître-Robertson-Walker (FLRW) universe. The metric is given by:$$ ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2 $$This observer carries an orthonormal tetrad $e_{\\hat{\\mu}}$ aligned with the coordinate axes, where $e_{\\hat{0}} = \\partial_t$, $e_{\\hat{1}} = \\frac{\\sqrt{1-kr^2}}{a(t)} \\partial_r$, $e_{\\hat{2}} = \\frac{1}{r a(t)} \\partial_\\theta$, and $e_{\\hat{3}} = \\frac{1}{r a(t) \\sin\\theta} \\partial_\\phi$. Prove that the physical tidal force components $R^{\\hat{i}}_{\\hat{0}\\hat{j}\\hat{0}}$ experienced by this comoving observer form a matrix proportional to the identity matrix, and derive their explicit expression in terms of the scale factor $a(t)$ and its time derivatives.",
+    "answer": "$R^{\\hat{1}}_{\\hat{0}\\hat{1}\\hat{0}} = R^{\\hat{2}}_{\\hat{0}\\hat{2}\\hat{0}} = R^{\\hat{3}}_{\\hat{0}\\hat{3}\\hat{0}} = \\frac{\\ddot{a}(t)}{a(t)}$",
+    "solution": "To find the physical tidal forces, we project the coordinate basis Riemann tensor components onto the comoving observer's orthonormal tetrad. Since the orthonormal metric is $\\eta_{\\hat{\\mu}\\hat{\\nu}}$, raising the first spatial index gives $R^{\\hat{i}}_{\\hat{0}\\hat{j}\\hat{0}} = \\eta^{\\hat{i}\\hat{k}} R_{\\hat{k}\\hat{0}\\hat{j}\\hat{0}} = R_{\\hat{i}\\hat{0}\\hat{j}\\hat{0}}$ for spatial indices. The projection of the fully covariant Riemann tensor is:$$ R_{\\hat{\\mu}\\hat{\\nu}\\hat{\\rho}\\hat{\\sigma}} = e_{\\hat{\\mu}}^\\alpha e_{\\hat{\\nu}}^\\beta e_{\\hat{\\rho}}^\\gamma e_{\\hat{\\sigma}}^\\delta R_{\\alpha\\beta\\gamma\\delta} $$1. For the radial component $R^{\\hat{1}}_{\\hat{0}\\hat{1}\\hat{0}}$:$$ R_{\\hat{1}\\hat{0}\\hat{1}\\hat{0}} = (e_{\\hat{1}}^1)^2 (e_{\\hat{0}}^0)^2 R_{0101} = \\left( \\frac{\\sqrt{1-kr^2}}{a(t)}\\right)^2 R_{0101} $$From the given geometric data, $R_{0101} = - \\frac{a(t) \\ddot{a}(t)}{k r^2 - 1} = \\frac{a(t) \\ddot{a}(t)}{1-kr^2}$.Thus, $R_{\\hat{1}\\hat{0}\\hat{1}\\hat{0}} = \\frac{1-kr^2}{a^2(t)} \\frac{a(t) \\ddot{a}(t)}{1-kr^2} = \\frac{\\ddot{a}(t)}{a(t)}$.So $R^{\\hat{1}}_{\\hat{0}\\hat{1}\\hat{0}} = \\frac{\\ddot{a}(t)}{a(t)}$.2. For the polar component $R^{\\hat{2}}_{\\hat{0}\\hat{2}\\hat{0}}$:$$ R_{\\hat{2}\\hat{0}\\hat{2}\\hat{0}} = (e_{\\hat{2}}^2)^2 R_{0202} = \\left( \\frac{1}{r a(t)}\\right)^2 R_{0202} $$From the given geometric data, $R_{0202} = r^2 a(t) \\ddot{a}(t)$.Thus, $R_{\\hat{2}\\hat{0}\\hat{2}\\hat{0}} = \\frac{1}{r^2 a^2(t)} r^2 a(t) \\ddot{a}(t) = \\frac{\\ddot{a}(t)}{a(t)}$.So $R^{\\hat{2}}_{\\hat{0}\\hat{2}\\hat{0}} = \\frac{\\ddot{a}(t)}{a(t)}$.3. For the azimuthal component $R^{\\hat{3}}_{\\hat{0}\\hat{3}\\hat{0}}$:$$ R_{\\hat{3}\\hat{0}\\hat{3}\\hat{0}} = (e_{\\hat{3}}^3)^2 R_{0303} = \\left( \\frac{1}{r a(t) \\sin\\theta}\\right)^2 R_{0303} $$From the given geometric data, $R_{0303} = r^2 a(t) \\sin^2\\theta \\ddot{a}(t)$.Thus, $R_{\\hat{3}\\hat{0}\\hat{3}\\hat{0}} = \\frac{1}{r^2 a^2(t) \\sin^2\\theta} r^2 a(t) \\sin^2\\theta \\ddot{a}(t) = \\frac{\\ddot{a}(t)}{a(t)}$.So $R^{\\hat{3}}_{\\hat{0}\\hat{3}\\hat{0}} = \\frac{\\ddot{a}(t)}{a(t)}$.4. For the off-diagonal components ($\\hat{i} \\neq \\hat{j}$):The coordinate components of the Riemann tensor with mixed spatial indices, such as $R_{1020}$, are zero for the FLRW metric due to its isotropy and diagonal structure. Therefore, all off-diagonal tidal force components vanish.Therefore, the tidal force matrix in the orthonormal frame is proportional to the identity matrix:$$ R^{\\hat{i}}_{\\hat{0}\\hat{j}\\hat{0}} = \\frac{\\ddot{a}(t)}{a(t)} \\delta^{\\hat{i}}_{\\hat{j}} $$This confirms that the tidal forces experienced by a comoving observer in the FLRW universe are isotropic and determined solely by the scale factor's relative acceleration."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "answer 和 solution 中的核心符号错误。在给定度规下，全协变 Riemann 张量分量的标准值为 $R_{0i0j} = -\\frac{\\ddot{a}}{a} g_{ij}$。因此，$R_{0101}$ 期望值为 $-\\frac{a\\ddot{a}}{1-kr^2}$，实际值为 $+\\frac{a\\ddot{a}}{1-kr^2}$；$R_{0202}$ 期望值为 $-r^2 a\\ddot{a}$，实际值为 $+r^2 a\\ddot{a}$；$R_{0303}$ 期望值为 $-r^2 a\\ddot{a}\\sin^2\\theta$，实际值为 $+r^2 a\\ddot{a}\\sin^2\\theta$。由于中间量符号全部写反，恰好抵消了投影计算中本应产生的负号，导致最终推导的潮汐力分量 $R^{\\hat{i}}_{\\hat{0}\\hat{j}\\hat{0}}$ 期望值为 $-\\frac{\\ddot{a}}{a} \\delta^{\\hat{i}}_{\\hat{j}}$，而 answer 给出的实际值为 $+\\frac{\\ddot{a}}{a} \\delta^{\\hat{i}}_{\\hat{j}}$。这一正号结果与 FLRW 度规下标准的 Ricci 张量分量 $R_{00} = -3\\ddot{a}/a$ 直接矛盾。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

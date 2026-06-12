@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s1_1.20_c",
+    "type": "prove",
+    "tags": {
+      "metric": "flat_spacetime",
+      "target_object": "spatial_momentum_magnitude",
+      "coordinate": "inertial_orthonormal",
+      "scenario": "particle_observer_kinematics",
+      "method": "four_vector_projection"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.20_c",
+    "source_id": "1_s1_1.20_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.20_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.5,
+      "realism": 0.7,
+      "rationale": "基于观测者正交投影的四动量空间分量模长推导，物理动机明确且结构可泛化至弯曲时空局部惯性系或任意矢量分解，因题干不提供解答过程导致完整性评分中等。",
+      "overall": 0.65
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$m$",
+      "$p$",
+      "$u$",
+      "$\\mathbf{p}$",
+      "$\\mathbf{u}$"
+    ],
+    "target": [
+      "$|\\mathbf{p}|$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.20. A particle of rest mass $m$ and 4-momentum $p$ is examined by an observer with 4-velocity $u$ . Show that:(c) the momentum he measures has magnitude $|\\mathbf{p}| = [(\\mathbf{p}\\cdot \\mathbf{u})^2 +\\mathbf{p}\\cdot \\mathbf{p}]^{\\frac{1}{2}};$",
+    "answer": "$|\\mathbf{p}| = [(\\mathbf{p}\\cdot \\mathbf{u})^2 +\\mathbf{p}\\cdot \\mathbf{p}]^{\\frac{1}{2}}$",
+    "solution": null
+  },
+  "verification": null
+}

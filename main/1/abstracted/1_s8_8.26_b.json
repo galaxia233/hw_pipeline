@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s8_8.26_b",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.26_b",
+    "source_id": "1_s8_8.26_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.26_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.9,
+      "completeness": 0.95,
+      "realism": 0.6,
+      "rationale": "需多步仿射参数重标度消除加速度项与张量缩并推导，射影等价结构可推广至任意测地线轨迹重合的流形，题干与解答过程完整严密",
+      "overall": 0.84
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^\\\\mu$",
+      "$\\\\tau$",
+      "$\\\\Gamma_{\\\\mu\\\\nu}^\\\\lambda$",
+      "$\\\\mathsf{S}_{\\\\mu\\\\nu}^\\\\lambda$",
+      "$\\\\Psi_\\\\mu$"
+    ],
+    "target": [
+      "$\\\\mathsf{S}_{\\\\mu\\\\nu}^\\\\lambda$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 8.26.\\n(b) Suppose $\\mathbf{g}_{\\\\mu \\\\nu}$ and $\\overline{\\\\mathbf{g}}_{\\\\mu \\\\nu}$ have the same geodesics. Then show that\\n$$\\n\\\\mathsf {S}_{\\\\mu \\\\nu}^{\\\\lambda} = \\\\delta_{\\\\mu}^{\\\\lambda} \\\\Psi_{\\\\nu} + \\\\delta_{\\\\nu}^{\\\\lambda} \\\\Psi_{\\\\mu}\\n$$\\nwhere $\\Psi_{\\\\mu}$ are the components of a vector.",
+    "answer": "$\\\\mathsf {S}_{\\\\mu \\\\nu}^{\\\\lambda} = \\\\delta_{\\\\mu}^{\\\\lambda} \\\\Psi_{\\\\nu} + \\\\delta_{\\\\nu}^{\\\\lambda} \\\\Psi_{\\\\mu}$",
+    "solution": "(b) We cannot compare the geodesic equations of $\\mathbf{g}$ and $\\overline{\\\\mathbf{g}}$ directly since they would involve different affine parameters $\\tau$ and $\\overline{\\\\tau}$ . If $\\mathfrak{t}$ is an arbitrary function of $\\tau$ , a change of variable makes the geodesic equation\\n$$\\n\\\\frac {\\\\mathrm {d}^{2} \\\\mathbf {x}^{\\\\lambda}}{\\\\mathrm {d t}^{2}} + \\\\Gamma_{\\\\mu \\\\nu}^{\\\\lambda} \\\\frac {\\\\mathrm {d x}^{\\\\mu}}{\\\\mathrm {d t}} \\\\frac {\\\\mathrm {d x}^{\\\\nu}}{\\\\mathrm {d t}} - \\\\frac {\\\\mathrm {d x}^{\\\\lambda}}{\\\\mathrm {d t}} \\\\frac {\\\\mathrm {d}^{2} \\\\tau}{\\\\mathrm {d t}^{2}} \\\\frac {\\\\mathrm {d t}}{\\\\mathrm {d} \\\\tau} = 0 .\\n$$\\nTo eliminate the $\\mathrm{dr} / \\mathrm{dt}$ term, multiply by $\\mathrm{dx}^{\\\\alpha} / \\mathrm{dt}$ and antisymmetrize on $\\alpha$ and $\\lambda$ to get\\n$$\\n\\\\mathfrak {u}^{\\\\alpha} \\\\frac {\\\\mathrm {d} \\\\mathfrak {u}^{\\\\lambda}}{\\\\mathrm {d} t} - \\\\mathfrak {u}^{\\\\lambda} \\\\frac {\\\\mathrm {d} \\\\mathfrak {u}^{\\\\alpha}}{\\\\mathrm {d} t} + (\\\\Gamma_{\\\\mu \\\\nu}^{\\\\lambda} \\\\mathfrak {u}^{\\\\alpha} - \\\\Gamma_{\\\\mu \\\\nu}^{\\\\alpha} \\\\mathfrak {u}^{\\\\lambda}) \\\\mathfrak {u}^{\\\\mu} \\\\mathfrak {u}^{\\\\nu} = 0 ,\\n$$\\nwhere $\\mathbf{u}^{\\\\alpha}\\\\equiv \\mathrm{d}\\\\mathbf{x}^{\\\\alpha} / \\mathrm{dt}$ . If the world lines $\\mathbf{u}^{\\\\alpha}(\\\\mathfrak{t})$ are geodesics for both $\\mathbf{g}$ and $\\overline{\\\\mathbf{g}}$ then the above equation must also hold with $\\Gamma$ replaced by $\\overline{\\\\Gamma}$ . Subtracting these two equations gives\\n$$\\n(\\\\delta_{\\\\sigma}^{a} \\\\mathsf {S}_{\\\\mu \\\\nu}^{\\\\lambda} - \\\\delta_{\\\\sigma}^{\\\\lambda} \\\\mathsf {S}_{\\\\mu \\\\nu}^{a}) \\\\mathfrak {u}^{\\\\sigma} \\\\mathfrak {u}^{\\\\mu} \\\\mathfrak {u}^{\\\\nu} = 0 ,\\n$$\\nwhich implies that\\n$$\\n\\\\delta_{(\\\\sigma}^{\\\\alpha} \\\\mathsf {S}_{\\\\mu) \\\\nu}^{\\\\lambda} - \\\\delta_{(\\\\sigma}^{\\\\lambda} \\\\mathsf {S}_{\\\\mu) \\\\nu}^{\\\\alpha} = 0 .\\n$$\\nWhen this equation is contracted on $\\alpha$ and $\\nu$ the result is\\n$$\\n\\\\begin{array}{l} \\\\mathsf {S}_{\\\\sigma \\\\mu}^{\\\\lambda} = \\\\delta_{\\\\sigma}^{\\\\lambda} \\\\Phi_{\\\\mu} + \\\\delta_{\\\\mu}^{\\\\lambda} \\\\Phi_{\\\\sigma} \\\\\\\\ \\\\Phi_{\\\\alpha} \\\\equiv \\\\frac {1}{5} S_{\\\\alpha \\\\mu}^{\\\\mu}. \\\\\\\\ \\\\end{array}\\n$$\\n[See also L. P. Eisenhart, Riemannian Geometry (Princeton University Press, 1962), Section 40.]"
+  },
+  "verification": null
+}

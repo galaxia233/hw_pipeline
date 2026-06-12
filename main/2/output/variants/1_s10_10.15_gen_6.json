@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-6",
+    "type": "prove",
+    "tags": {
+      "target_object": "geodesic deviation",
+      "coordinate": "static_de_sitter",
+      "scenario": "cosmology",
+      "method": "Riemann_tensor_application",
+      "generalization_axis": "extend",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$\\frac{D^2 \\eta^3}{d \\tau^2} = C \\eta^3$ 中的比例常数 $C$",
+      "曲率对粒子束聚散行为的影响"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在德西特静态坐标系下，时空度规为 $ds^2 = -dt^2 + e^{\\frac{2 x}{\\alpha}}(dx^2 + dy^2 + dz^2)$，其中 $\\alpha$ 为常数。已知该度规的 Riemann 曲率张量分量 $R_{3232} = -\\frac{1}{\\alpha^{2}}$。考虑一族沿 $y$ 方向自由运动的测试粒子（其4维速度为 $u^\\mu$，主要空间速度分量为 $u^2$），它们之间的微小分离矢量沿 $z$ 方向，即 $\\eta^\\mu = (0, 0, 0, \\eta^3)$。请根据测地线偏离方程 $\\frac{D^2 \\eta^\\mu}{d \\tau^2} = - R^\\mu_{\\ \\nu \\rho \\sigma} u^\\nu \\eta^\\rho u^\\sigma$，推导偏离矢量演化方程的主导项 $\\frac{D^2 \\eta^3}{d \\tau^2} = C \\eta^3$，求出比例常数 $C$ 与 $u^2$ 及度规参数 $\\alpha$ 的关系，并据此判断 $y-z$ 截面的空间曲率对平行运动粒子束聚散行为的影响。",
+    "answer": "$C = \\frac{e^{-\\frac{2 x}{\\alpha}}}{\\alpha^{2}} (u^2)^2$；由于 $C > 0$，演化方程导致指数发散，说明该截面的负曲率性质使平行测地线相互远离。",
+    "solution": "1. 测地线偏离方程为 $\\frac{D^2 \\eta^\\mu}{d \\tau^2} = - R^\\mu_{\\ \\nu \\rho \\sigma} u^\\nu \\eta^\\rho u^\\sigma$。\\n2. 由于分离矢量仅在 $z$ 方向，即 $\\eta^\\rho$ 只有 $\\rho=3$ 分量不为零，方程右端简化为 $- R^\\mu_{\\ \\nu 3 \\sigma} u^\\nu u^\\sigma \\eta^3$。\\n3. 我们关注偏离矢量沿 $z$ 方向的演化，取 $\\mu=3$，则有 $\\frac{D^2 \\eta^3}{d \\tau^2} = - R^3_{\\ \\nu 3 \\sigma} u^\\nu u^\\sigma \\eta^3$。\\n4. 对于主要沿 $y$ 方向运动的粒子束，4维速度分量中 $u^2$ 主导，因此求和项中 $\\nu=\\sigma=2$ 的项为主导项：$- R^3_{\\ 2 3 2} (u^2)^2 \\eta^3$。\\n5. 需要将 Riemann 张量的协变分量转换为混合分量：$R^3_{\\ 2 3 2} = g^{33} R_{3232}$。\\n6. 由度规可知，空间逆度规分量 $g^{33} = e^{-\\frac{2 x}{\\alpha}}$。代入已知数据 $R_{3232} = -\\frac{1}{\\alpha^{2}}$，得到 $R^3_{\\ 2 3 2} = e^{-\\frac{2 x}{\\alpha}} \\left( -\\frac{1}{\\alpha^{2}}\\right) = -\\frac{e^{-\\frac{2 x}{\\alpha}}}{\\alpha^{2}}$。\\n7. 将其代入偏离方程：$\\frac{D^2 \\eta^3}{d \\tau^2} = - \\left( -\\frac{e^{-\\frac{2 x}{\\alpha}}}{\\alpha^{2}}\\right) (u^2)^2 \\eta^3 = \\frac{e^{-\\frac{2 x}{\\alpha}}}{\\alpha^{2}} (u^2)^2 \\eta^3$。\\n8. 因此比例常数 $C = \\frac{e^{-\\frac{2 x}{\\alpha}}}{\\alpha^{2}} (u^2)^2$。\\n9. 物理分析：由于 $C > 0$，偏离矢量的演化方程 $\\ddot{\\eta}^3 = C \\eta^3$ 为正反馈系统，解具有指数增长的形式，表明相邻测试粒子沿 $z$ 方向相互远离。这说明在 $y-z$ 截面上，时空曲率表现为负曲率性质（类似于马鞍面），使得原本平行的测地线发散。"
+  },
+  "verification": null
+}

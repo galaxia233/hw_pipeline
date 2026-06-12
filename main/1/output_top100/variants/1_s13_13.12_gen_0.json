@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "Riemann curvature tensor",
+      "coordinate": "Cartesian",
+      "scenario": "linearized gravity gauge transformation",
+      "method": "partial derivative commutativity",
+      "generalization_axis": "extend",
+      "metric": "metric_tensor"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric_tensor",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\mu$",
+      "$\\\\xi^\\\\mu$",
+      "$h_{\\\\mu\\\\nu}$",
+      "$g_{\\\\mu\\\\nu}$",
+      "$\\\\eta_{\\\\mu\\\\nu}$"
+    ],
+    "target": [
+      "$R_{\\alpha\\beta\\gamma\\delta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In the theory of linearized gravity around Minkowski spacetime, the full metric is approximated as $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$, where $\\eta_{\\mu\\nu}$ is the flat Minkowski metric with signature $(-,+,+,+)$ and $h_{\\mu\\nu}$ is a small perturbation satisfying $|h_{\\mu\\nu}| \\ll 1$. Under an infinitesimal gauge transformation (coordinate transformation) $x^\\mu_{\\text{new}} = x^\\mu_{\\text{old}} + \\xi^\\mu$, the metric perturbation transforms as $h_{\\mu\\nu}^{\\text{new}} = h_{\\mu\\nu}^{\\text{old}} - \\xi_{\\mu,\\nu} - \\xi_{\\nu,\\mu}$. \\n\\nThe linearized Riemann curvature tensor is defined to first order in $h_{\\mu\\nu}$ as:\\n$$ R_{\\alpha\\beta\\gamma\\delta} = \\frac{1}{2} (h_{\\alpha\\delta,\\beta\\gamma} + h_{\\beta\\gamma,\\alpha\\delta} - h_{\\alpha\\gamma,\\beta\\delta} - h_{\\beta\\delta,\\alpha\\gamma}) $$\\nProve that this linearized Riemann curvature tensor is gauge-invariant under infinitesimal coordinate transformations, i.e., demonstrate that $R_{\\alpha\\beta\\gamma\\delta}^{\\text{new}} = R_{\\alpha\\beta\\gamma\\delta}^{\\text{old}}$.",
+    "answer": "$R_{\\alpha\\beta\\gamma\\delta}^{\\text{new}} = R_{\\alpha\\beta\\gamma\\delta}^{\\text{old}}$",
+    "solution": "1. Substitute the new metric perturbation $h_{\\mu\\nu}^{\\text{new}} = h_{\\mu\\nu}^{\\text{old}} - \\xi_{\\mu,\\nu} - \\xi_{\\nu,\\mu}$ into the definition of the linearized Riemann tensor:\\n$$ R_{\\alpha\\beta\\gamma\\delta}^{\\text{new}} = \\frac{1}{2} (h_{\\alpha\\delta,\\beta\\gamma}^{\\text{new}} + h_{\\beta\\gamma,\\alpha\\delta}^{\\text{new}} - h_{\\alpha\\gamma,\\beta\\delta}^{\\text{new}} - h_{\\beta\\delta,\\alpha\\gamma}^{\\text{new}}) $$\\n2. Express the change in the Riemann tensor, $\\Delta R_{\\alpha\\beta\\gamma\\delta} = R_{\\alpha\\beta\\gamma\\delta}^{\\text{new}} - R_{\\alpha\\beta\\gamma\\delta}^{\\text{old}}$, by subtracting the old Riemann tensor definition and inserting the variation of the metric perturbation $\\Delta h_{\\mu\\nu} = -\\xi_{\\mu,\\nu} - \\xi_{\\nu,\\mu}$:\\n$$ \\Delta R_{\\alpha\\beta\\gamma\\delta} = \\frac{1}{2} (\\Delta h_{\\alpha\\delta,\\beta\\gamma} + \\Delta h_{\\beta\\gamma,\\alpha\\delta} - \\Delta h_{\\alpha\\gamma,\\beta\\delta} - \\Delta h_{\\beta\\delta,\\alpha\\gamma}) $$\\n3. Substitute $\\Delta h_{\\mu\\nu} = -\\xi_{\\mu,\\nu} - \\xi_{\\nu,\\mu}$ into the expression. Let $A_{\\mu\\nu} = \\xi_{\\mu,\\nu} + \\xi_{\\nu,\\mu}$. Then $\\Delta R_{\\alpha\\beta\\gamma\\delta} = -\\frac{1}{2} (A_{\\alpha\\delta,\\beta\\gamma} + A_{\\beta\\gamma,\\alpha\\delta} - A_{\\alpha\\gamma,\\beta\\delta} - A_{\\beta\\delta,\\alpha\\gamma})$.\\n4. Expand the derivatives of $A_{\\mu\\nu}$:\\n- $A_{\\alpha\\delta,\\beta\\gamma} = \\xi_{\\alpha,\\delta\\beta\\gamma} + \\xi_{\\delta,\\alpha\\beta\\gamma}$\\n- $A_{\\beta\\gamma,\\alpha\\delta} = \\xi_{\\beta,\\gamma\\alpha\\delta} + \\xi_{\\gamma,\\beta\\alpha\\delta}$\\n- $-A_{\\alpha\\gamma,\\beta\\delta} = -\\xi_{\\alpha,\\gamma\\beta\\delta} - \\xi_{\\gamma,\\alpha\\beta\\delta}$\\n- $-A_{\\beta\\delta,\\alpha\\gamma} = -\\xi_{\\beta,\\delta\\alpha\\gamma} - \\xi_{\\delta,\\beta\\alpha\\gamma}$\\n5. Since we are in Minkowski spacetime using Cartesian coordinates, partial derivatives commute. Thus, we can reorder the differentiation indices. For example, $\\xi_{\\alpha,\\delta\\beta\\gamma} = \\xi_{\\alpha,\\beta\\gamma\\delta}$ and $\\xi_{\\beta,\\gamma\\alpha\\delta} = \\xi_{\\beta,\\alpha\\delta\\gamma}$.\\n6. Reordering all terms to group them by their base index variable:\\n$$ \\Delta R_{\\alpha\\beta\\gamma\\delta} = -\\frac{1}{2} [ (\\xi_{\\alpha,\\beta\\gamma\\delta} - \\xi_{\\alpha,\\beta\\delta\\gamma}) + (\\xi_{\\beta,\\alpha\\delta\\gamma} - \\xi_{\\beta,\\alpha\\gamma\\delta}) + (\\xi_{\\gamma,\\alpha\\beta\\delta} - \\xi_{\\gamma,\\alpha\\beta\\delta}) + (\\xi_{\\delta,\\alpha\\beta\\gamma} - \\xi_{\\delta,\\alpha\\beta\\gamma}) ] $$\\n7. Evaluate each group using the commutativity of partial derivatives:\\n- Base index $\\alpha$: $\\xi_{\\alpha,\\beta\\gamma\\delta} - \\xi_{\\alpha,\\beta\\delta\\gamma} = 0$ (since partial derivatives commute, $\\xi_{\\alpha,\\beta\\gamma\\delta} = \\xi_{\\alpha,\\beta\\delta\\gamma}$)\\n- Base index $\\beta$: $\\xi_{\\beta,\\alpha\\delta\\gamma} - \\xi_{\\beta,\\alpha\\gamma\\delta} = 0$ (since $\\xi_{\\beta,\\alpha\\delta\\gamma} = \\xi_{\\beta,\\alpha\\gamma\\delta}$)\\n- Base index $\\gamma$: $\\xi_{\\gamma,\\alpha\\beta\\delta} - \\xi_{\\gamma,\\alpha\\beta\\delta} = 0$\\n- Base index $\\delta$: $\\xi_{\\delta,\\alpha\\beta\\gamma} - \\xi_{\\delta,\\alpha\\beta\\gamma} = 0$\\n8. All terms cancel exactly, yielding $\\Delta R_{\\alpha\\beta\\gamma\\delta} = 0$. This proves that the linearized Riemann tensor is invariant under infinitesimal gauge transformations: $R_{\\alpha\\beta\\gamma\\delta}^{\\text{new}} = R_{\\alpha\\beta\\gamma\\delta}^{\\text{old}}$."
+  },
+  "verification": null
+}

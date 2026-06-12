@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s10_10.3_b",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_tensor",
+      "target_object": "killing_vector_field",
+      "coordinate": "manifold_coordinates",
+      "scenario": "pure_geometry_theory",
+      "method": "covariant_derivative_linearity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s10_10.3_b",
+    "source_id": "1_s10_10.3_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s10_10.3_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.3,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.2,
+      "rationale": "基于协变导数线性的直接推导，逻辑链条短；题目与解答结构完整严谨，但属于纯微分几何代数性质验证，无具体天体或实验物理场景。",
+      "overall": 0.5
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\xi$",
+      "$\\eta$",
+      "$a$",
+      "$b$",
+      "$\\mu$",
+      "$\\nu$"
+    ],
+    "target": [
+      "$\\xi_{\\mu;\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "10.3 (b) Show that a linear combination of Killing vectors with constant coefficients is a Killing vector.## Solution(b) If a and b are constants, then$$( \\mathsf {a u}_{\\alpha} + \\mathsf {b v}_{\\alpha}); \\beta = \\mathsf {a u}_{\\alpha}; \\beta + \\mathsf {b v}_{\\alpha}; \\beta .$$Thus if $\\mathbf{u}$ and $\\mathbf{v}$ satisfy Killing's equation, so does $\\mathbf{a}\\mathbf{u} + \\mathbf{b}\\mathbf{v}$ .",
+    "answer": "得证（线性组合满足基林方程）。",
+    "solution": "(b) If a and b are constants, then$$( \\mathsf {a u}_{\\alpha} + \\mathsf {b v}_{\\alpha}); \\beta = \\mathsf {a u}_{\\alpha}; \\beta + \\mathsf {b v}_{\\alpha}; \\beta .$$Thus if $\\mathbf{u}$ and $\\mathbf{v}$ satisfy Killing's equation, so does $\\mathbf{a}\\mathbf{u} + \\mathbf{b}\\mathbf{v}$ ."
+  },
+  "verification": null
+}

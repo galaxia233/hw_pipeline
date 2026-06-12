@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s11_11.10_2",
+    "type": "concept",
+    "tags": {
+      "metric": "metric",
+      "target_object": "tensor_components",
+      "coordinate": "time_coordinate",
+      "scenario": "stationary_spacetime",
+      "method": "lie_derivative"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s11_11.10_2",
+    "source_id": "1_s11_11.10_2",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s11_11.10_2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.6,
+      "realism": 0.7,
+      "rationale": "考察静止观者四维速度与Killing矢量关系及正交标架下Lie导数的物理意义，需多步概念推导与坐标时到固有时的转换。",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\\\pmb{\\\\xi}$",
+      "$Q^{\\\\hat{\\\\alpha} \\\\dot s \\\\hat{\\\\beta}}$",
+      "$\\\\hat{t}$"
+    ],
+    "target": [
+      "$\\\\frac{\\\\mathrm{d} Q}{\\\\mathrm{d} \\\\hat{t}}^{\\\\hat{\\\\alpha} \\\\dot s \\\\hat{\\\\beta}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 11.10. Consider a family of stationary observers in a stationary spacetime, i.e. their 4-velocity is proportional to the time Killing vector $\\pmb{\\xi}$ . Each observer arranges his spatial basis vectors so that they connect to the same neighboring observers for all time $t$ , where $\\pmb{\\xi} = \\frac{\\partial}{\\partial t}$ .\\n(2) Show that the rate of change of the components of any tensor quantity $Q$ as measured by the stationary observer in units of $t$ , is\\n$$\\n\\\\frac {\\\\mathrm {d} Q}{\\\\mathrm {d} t}^{\\\\hat {\\\\alpha} \\\\dot s \\\\hat {\\\\beta}} = (\\\\mathcal {Q}_{\\\\boldsymbol {\\\\xi}} Q)^{\\\\hat {\\\\alpha} \\\\dot s \\\\hat {\\\\beta}}. \\\\text {W h a t i s} \\\\frac {\\\\mathrm {d} Q}{\\\\mathrm {d} \\\\hat {t}}^{\\\\hat {\\\\alpha} \\\\dot s \\\\hat {\\\\beta}}?\\n$$",
+    "answer": "\\\\frac{1}{V} (\\\\mathcal{L}_{\\\\pmb{\\\\xi}} Q)^{\\\\hat{\\\\alpha} \\\\dot s \\\\hat{\\\\beta}}，其中 $V=\\\\sqrt{-\\\\pmb{\\\\xi}\\\\cdot\\\\pmb{\\\\xi}}=\\\\sqrt{-g_{00}}$ 为Killing矢量的归一化因子（引力红移因子）",
+    "solution": null
+  },
+  "verification": null
+}

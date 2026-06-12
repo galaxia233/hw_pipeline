@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-6-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "tidal_force_matrix",
+      "coordinate": "orthonormal_static",
+      "scenario": "schwarzschild_reduce",
+      "method": "tetrad_projection_limit",
+      "generalization_axis": "limit",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-6",
+      "1_s14_14.12-6-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$R^{\\hat{1}}_{\\hat{0}\\hat{1}\\hat{0}}$",
+      "$R^{\\hat{2}}_{\\hat{0}\\hat{2}\\hat{0}}$",
+      "$R^{\\hat{3}}_{\\hat{0}\\hat{3}\\hat{0}}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，静态观察者感受到的物理潮汐力由黎曼曲率张量在正交随动标架下的投影 $R^{\\hat{i}}_{\\hat{0}\\hat{j}\\hat{0}}$ 决定。考虑 Schwarzschild 时空中的一个静态观察者（位于 $r > r_s$ 处），其度规为：$$ ds^2 = -\\left(1 - \\frac{r_s}{r}\\right) dt^2 + \\left(1 - \\frac{r_s}{r}\\right)^{-1} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2 $$该观察者的正交随动标架为 $e_{\\hat{0}} = \\left(1 - \\frac{r_s}{r}\\right)^{-1/2} \\partial_t$, $e_{\\hat{1}} = \\left(1 - \\frac{r_s}{r}\\right)^{1/2} \\partial_r$, $e_{\\hat{2}} = r^{-1} \\partial_\\theta$, $e_{\\hat{3}} = \\left(r \\sin\\theta\\right)^{-1} \\partial_\\phi$。已知黎曼曲率张量的坐标分量为 $R_{0101} = \\frac{r_s}{r^2(r - r_s)}$ 和 $R_{0202} = -\\frac{r_s}{2r}$。请推导该静态观察者沿径向和横向的潮汐力分量 $R^{\\hat{1}}_{\\hat{0}\\hat{1}\\hat{0}}$ 和 $R^{\\hat{2}}_{\\hat{0}\\hat{2}\\hat{0}}$ 的精确表达式；随后，通过取弱场极限 $r \\to \\inf ty$ （即 $r_s/r \\to 0$），证明所得的广义相对论结果如何回到经典牛顿引力中由质量 $M$ 产生的 Newtonian 潮汐力矩阵。",
+    "answer": "精确的潮汐力分量为：$R^{\\hat{1}}_{\\hat{0}\\hat{1}\\hat{0}} = \\frac{r_s}{r^2(r - r_s)} = \\frac{2GM}{r^2(r - 2GM)}$$R^{\\hat{2}}_{\\hat{0}\\hat{2}\\hat{0}} = R^{\\hat{3}}_{\\hat{0}\\hat{3}\\hat{0}} = -\\frac{r_s}{2r^2(r - r_s)} = -\\frac{GM}{r^2(r - 2GM)}$取弱场极限 $r \\to \\inf ty$ （展开分母保留一阶项）：$R^{\\hat{1}}_{\\hat{0}\\hat{1}\\hat{0}} \\approx \\frac{r_s}{r^3} = \\frac{2GM}{r^3}$$R^{\\hat{2}}_{\\hat{0}\\hat{2}\\hat{0}} \\approx -\\frac{r_s}{2r^3} = -\\frac{GM}{r^3}$这恰好对应于经典牛顿引力势 $\\Phi = -GM/r$ 的二阶导数矩阵（即 Newtonian 潮汐力矩阵）的负值：径向分量 $-d^2\\Phi/dr^2 = 2GM/r^3$，横向分量 $-(1/r) d\\Phi/dr = -GM/r^3$，从而回到了经典的 Newtonian 潮汐力。",
+    "solution": "1. 根据正交随动标架基矢与坐标基矢的关系，计算投影黎曼张量 $R_{\\hat{\\mu}\\hat{\\nu}\\hat{\\rho}\\hat{\\sigma}} = e_{\\hat{\\mu}}^\\alpha e_{\\hat{\\nu}}^\\beta e_{\\hat{\\rho}}^\\gamma e_{\\hat{\\sigma}}^\\delta R_{\\alpha\\beta\\gamma\\delta}$。2. 对于径向分量 $R^{\\hat{1}}_{\\hat{0}\\hat{1}\\hat{0}} = \\eta^{\\hat{1}\\hat{1}} R_{\\hat{1}\\hat{0}\\hat{1}\\hat{0}} = -R_{\\hat{1}\\hat{0}\\hat{1}\\hat{0}}$，利用 $R_{1010} = -R_{0101} = -\\frac{r_s}{r^2(r-r_s)}$ 和标架分量 $(e_{\\hat{1}}^1)^2 (e_{\\hat{0}}^0)^2 = 1$，得到 $R^{\\hat{1}}_{\\hat{0}\\hat{1}\\hat{0}} = \\frac{r_s}{r^2(r-r_s)}$。3. 对于横向分量 $R^{\\hat{2}}_{\\hat{0}\\hat{2}\\hat{0}} = -R_{\\hat{2}\\hat{0}\\hat{2}\\hat{0}}$，利用 $R_{2020} = -R_{0202} = \\frac{r_s}{2r}$ 和标架分量 $(e_{\\hat{2}}^2)^2 (e_{\\hat{0}}^0)^2 = \\frac{1}{r(r-r_s)}$，得到 $R^{\\hat{2}}_{\\hat{0}\\hat{2}\\hat{0}} = -\\frac{r_s}{2r^2(r-r_s)}$。4. 取弱场极限 $r \\to \\inf ty$，展开 $1/(1-r_s/r)$ 至一阶，径向分量趋近于 $\\frac{2GM}{r^3}$，横向分量趋近于 $-\\frac{GM}{r^3}$。5. 与牛顿引力势 $\\Phi = -GM/r$ 的二阶导数对比：径向 $-d^2\\Phi/dr^2 = 2GM/r^3$，横向 $-(1/r)d\\Phi/dr = -GM/r^3$，两者完全一致。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "1. 黎曼张量坐标分量严重错误：题目给定的 $R_{0101} = \\frac{r_s}{r^2(r - r_s)}$ 和 $R_{0202} = -\\frac{r_s}{2r}$ 完全错误。正确的 Schwarzschild 度规黎曼张量坐标分量不应包含导致视界发散的因子 $(1-r_s/r)$，期望值应为 $R_{0101} = \\pm \\frac{r_s}{r^3}$ 和 $R_{0202} = \\pm \\frac{r_s(r-r_s)}{2r^2}$（符号取决于约定，但分母绝无 $(r-r_s)$ 或缺失 $(r-r_s)$ 因子）。题目的 $R_{0101}$ 在事件视界 $r=r_s$ 处发散，违反了曲率在视界处有限的已知物理事实。\n2. Answer 确表达式错误：基于错误的黎曼分量输入，answer 得出的潮汐力分量 $R^{\\hat{1}}_{\\hat{0}\\hat{1}\\hat{0}} = \\frac{r_s}{r^2(r-r_s)}$ 包含了非物理的度规因子。正交标架下的潮汐力分量期望值应为不含度规因子的 $\\frac{2GM}{r^3} = \\frac{r_s}{r^3}$（或差一个负号），不应在分母上出现 $(r-r_s)$。\n3. 度规摘要与题目场景矛盾：系统提供的度规摘要为 FLRW 度规（非真空，1个 Killing 矢量），而题目实际考察的是 Schwarzschild 时空（真空，4个 Killing 矢量），两者完全不匹配。\n4. 排版错误：题目和 answer 中的弱场极限写为 $r \\to \\inf ty$，应为 $r \\to \\infty$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "metadata": {
+    "id": "1_s8_8.23",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "divergence_curl",
+      "coordinate": "spherical_coordinate",
+      "scenario": "vector_analysis_tool",
+      "method": "scale_factor_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.23",
+    "source_id": "1_s8_8.23",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.23"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "基于正交曲线坐标系标架量的标准算符推导，逻辑链条清晰且方法高度通用，但缺乏具体天体或场论物理背景。",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 3,
+    "variables": [
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$",
+      "$A_r$",
+      "$A_\\\\theta$",
+      "$A_\\\\phi$"
+    ],
+    "target": [
+      "$\\\\nabla \\\\cdot \\\\mathbf{A}$",
+      "$(\\\\nabla \\\\times \\\\mathbf{A})^r$",
+      "$(\\\\nabla \\\\times \\\\mathbf{A})^\\\\theta$",
+      "$(\\\\nabla \\\\times \\\\mathbf{A})^\\\\phi$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2 \\\\sin^2\\\\theta$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 8.23. Derive expressions for $\\underline{\\nabla} \\cdot \\underline{\\mathbf{A}}$ and $\\underline{\\nabla} \\times \\underline{\\mathbf{A}}$ in spherical polar coordinates.\\n\\n## Solution\\n\\nSolution 8.23. We use results (ii) and (iii) of Problem 8.22 with $\\mathbf{x}^1 = \\mathbf{r}$ , $\\mathbf{x}^2 = \\theta$ , $\\mathbf{x}^3 = \\phi$ and with $\\mathbf{h}_1 = \\mathbf{l}$ , $\\mathbf{h}_2 = \\mathbf{r}$ , $\\mathbf{h}_3 = \\mathbf{r}$ sin $\\theta$ . (For simplicity we follow the usual notation here and omit the caret's indicating physical components.)\\n$$\\n\\\\begin{array}{l} \\\\nabla \\\\cdot \\\\underline {{\\\\mathbf {A}}} = (\\\\mathrm {r}^{2} \\\\sin \\\\theta)^{- 1} [ \\\\mathrm {r}^{2} \\\\sin \\\\theta \\\\mathrm {h}_{\\\\mathrm {i}}^{- 1} \\\\mathrm {A}_{\\\\mathrm {i}} ]_{, \\\\mathrm {i}} \\\\\\\\\\\\\\\\= \\\\left(\\\\mathrm {r}^{2} \\\\sin \\\\theta\\\\right)^{- 1} \\\\left[ \\\\left(\\\\mathrm {r}^{2} \\\\sin \\\\theta \\\\mathrm {A}_{\\\\mathrm {r}}\\\\right), \\\\mathrm {r} + \\\\left(\\\\mathrm {r} \\\\sin \\\\theta \\\\mathrm {A}_{\\\\theta}\\\\right), \\\\theta + \\\\mathrm {r A}_{\\\\phi}, \\\\phi \\\\right] \\\\\\\\\\\\\\\\ \\\\end{array}\\n$$\\n$$\\n\\\\begin{array}{l} (\\\\nabla \\\\times \\\\mathbf {A})^{\\\\mathbf {r}} = (\\\\mathbf {r} \\\\sin \\\\theta)^{- 1} [ (\\\\sin \\\\theta \\\\mathbf {A}_{\\\\phi}), \\\\theta - \\\\mathbf {A}_{\\\\theta , \\\\phi} ] \\\\\\\\\\\\\\\\ (\\\\nabla \\\\times \\\\mathbf {A})^{\\\\theta} = (\\\\mathbf {r} \\\\sin \\\\theta)^{- 1} [ \\\\mathbf {A}_{\\\\mathbf {r},\\\\phi} - (\\\\mathbf {r} \\\\sin \\\\theta \\\\mathbf {A}_{\\\\phi}),_{\\\\mathbf {r}} ] \\\\\\\\\\\\\\\\ (\\\\nabla \\\\times \\\\mathbf {A})^{\\\\phi} = \\\\mathbf {r}^{- 1} \\\\left[ (\\\\mathbf {r A}_{\\\\theta})_{,\\\\mathbf {r}} - \\\\mathbf {A}_{\\\\mathbf {r}, \\\\theta} \\\\right]. \\\\\\\\\\\\\\\\ \\\\end{array}\\n$$",
+    "answer": "$\\\\nabla \\\\cdot \\\\underline{\\\\mathbf{A}} = \\\\left(r^2 \\\\sin \\\\theta\\\\right)^{-1} \\\\left[ \\\\left(r^2 \\\\sin \\\\theta A_r\\\\right)_{,r} + \\\\left(r \\\\sin \\\\theta A_\\\\theta\\\\right)_{,\\\\theta} + (r A_\\\\phi)_{,\\\\phi} \\\\right]$\\n$(\\\\nabla \\\\times \\\\mathbf{A})^r = (r \\\\sin \\\\theta)^{-1} \\\\left[ (\\\\sin \\\\theta A_\\\\phi)_{,\\\\theta} - A_{\\\\theta,\\\\phi} \\\\]$\\n$(\\\\nabla \\\\times \\\\mathbf{A})^\\\\theta = (r \\\\sin \\\\theta)^{-1} \\\\left[ A_{r,\\\\phi} - (r \\\\sin \\\\theta A_\\\\phi)_{,r} \\\\]$\\n$(\\\\nabla \\\\times \\\\mathbf{A})^\\\\phi = r^{-1} \\\\left[ (r A_\\\\theta)_{,r} - A_{r,\\\\theta} \\\\]$",
+    "solution": "Solution 8.23. We use results (ii) and (iii) of Problem 8.22 with $\\mathbf{x}^1 = \\mathbf{r}$ , $\\mathbf{x}^2 = \\theta$ , $\\mathbf{x}^3 = \\phi$ and with $\\mathbf{h}_1 = \\mathbf{l}$ , $\\mathbf{h}_2 = \\mathbf{r}$ , $\\mathbf{h}_3 = \\mathbf{r}$ sin $\\theta$ . (For simplicity we follow the usual notation here and omit the caret's indicating physical components.)\\n$$\\n\\\\begin{array}{l} \\\\nabla \\\\cdot \\\\underline {{\\\\mathbf {A}}} = (\\\\mathrm {r}^{2} \\\\sin \\\\theta)^{- 1} [ \\\\mathrm {r}^{2} \\\\sin \\\\theta \\\\mathrm {h}_{\\\\mathrm {i}}^{- 1} \\\\mathrm {A}_{\\\\mathrm {i}} ]_{, \\\\mathrm {i}} \\\\\\\\\\\\\\\\= \\\\left(\\\\mathrm {r}^{2} \\\\sin \\\\theta\\\\right)^{- 1} \\\\left[ \\\\left(\\\\mathrm {r}^{2} \\\\sin \\\\theta \\\\mathrm {A}_{\\\\mathrm {r}}\\\\right), \\\\mathrm {r} + \\\\left(\\\\mathrm {r} \\\\sin \\\\theta \\\\mathrm {A}_{\\\\theta}\\\\right), \\\\theta + \\\\mathrm {r A}_{\\\\phi}, \\\\phi \\\\right] \\\\\\\\\\\\\\\\ \\\\end{array}\\n$$\\n$$\\n\\\\begin{array}{l} (\\\\nabla \\\\times \\\\mathbf {A})^{\\\\mathbf {r}} = (\\\\mathbf {r} \\\\sin \\\\theta)^{- 1} [ (\\\\sin \\\\theta \\\\mathbf {A}_{\\\\phi}), \\\\theta - \\\\mathbf {A}_{\\\\theta , \\\\phi} ] \\\\\\\\\\\\\\\\ (\\\\nabla \\\\times \\\\mathbf {A})^{\\\\theta} = (\\\\mathbf {r} \\\\sin \\\\theta)^{- 1} [ \\\\mathbf {A}_{\\\\mathbf {r},\\\\phi} - (\\\\mathbf {r} \\\\sin \\\\theta \\\\mathbf {A}_{\\\\phi}),_{\\\\mathbf {r}} ] \\\\\\\\\\\\\\\\ (\\\\nabla \\\\times \\\\mathbf {A})^{\\\\phi} = \\\\mathbf {r}^{- 1} \\\\left[ (\\\\mathbf {r A}_{\\\\theta})_{,\\\\mathbf {r}} - \\\\mathbf {A}_{\\\\mathbf {r}, \\\\theta} \\\\right]. \\\\\\\\\\\\\\\\ \\\\end{array}\\n$$"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 3,
+    "variables": [
+      "r",
+      "\\\\theta",
+      "\\\\phi"
+    ],
+    "metric_latex": [
+      [
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r^{2} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_011": "- r",
+      "Gamma_022": "- r \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_101": "\\frac{1}{r}",
+      "Gamma_110": "\\frac{1}{r}",
+      "Gamma_202": "\\frac{1}{r}",
+      "Gamma_220": "\\frac{1}{r}"
+    },
+    "riemann": {
+      "R_1212": "- \\sin^{2}{\\left(\\theta \\right)}",
+      "R_1221": "\\sin^{2}{\\left(\\theta \\right)}",
+      "R_2112": "1",
+      "R_2121": "-1"
+    },
+    "ricci_tensor": {
+      "R_11": "-1",
+      "R_22": "- \\sin^{2}{\\left(\\theta \\right)}"
+    },
+    "ricci_scalar": "- \\frac{2}{r^{2}}",
+    "kretschmann": "\\frac{2 \\left(\\sin^{2}{\\left(\\theta \\right)} + \\frac{1}{\\sin^{2}{\\left(\\theta \\right)}}\\right)}{r^{4}}",
+    "einstein_tensor": {
+      "G_00": "\\frac{1}{r^{2}}"
+    },
+    "killing_vectors": []
+  }
+}

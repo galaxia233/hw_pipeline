@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10",
+    "type": "prove",
+    "tags": {
+      "metric": "killing_vector",
+      "target_object": "geodesic",
+      "coordinate": "conservation_law",
+      "scenario": "covariant_derivative",
+      "method": "symmetry"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s10_10.10",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s10_10.10"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.8,
+      "rationale": "基于弯曲时空对称性的严格守恒律推导，逻辑链条完整且具备高度物理普适性",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\mathbf{x}^{\\\\mu}$",
+      "$\\\\mathbf{u}^{\\\\alpha}$",
+      "$\\\\boldsymbol{\\\\xi}_{\\\\alpha}$"
+    ],
+    "target": [
+      "$\\\\boldsymbol{\\\\xi} \\\\cdot \\\\mathbf{u}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "10.10. If $\\pmb{\\\\xi}(\\\\mathbf{x}^{\\\\mu})$ is a Killing vector field and $\\mathbf{u}$ is the tangent vector to a geodesic, show that $\\pmb{\\\\xi} \\\\cdot \\mathbf{u}$ is constant along the geodesic.",
+    "answer": "$\\\\mathbf{u} \\\\cdot \\\\boldsymbol{\\\\xi} = \\\\text{constant}$",
+    "solution": "Solution 10.10. The change in $\\mathbf{u} \\\\cdot \\pmb{\\\\xi}$ along the geodesic is given by\\n$$\\n\\\\nabla_{\\\\mathbf {u}} (\\\\mathbf {u} \\\\cdot \\\\boldsymbol {\\\\xi}) = (\\\\nabla_{\\\\mathbf {u}} \\\\mathbf {u}) \\\\cdot \\\\boldsymbol {\\\\xi} + \\\\mathbf {u} \\\\cdot (\\\\nabla_{\\\\mathbf {u}} \\\\boldsymbol {\\\\xi}).\\n$$\\nNow $\\nabla_{\\\\mathbf{u}}\\\\mathbf{u} = 0$ since $\\mathbf{u}$ is tangent to a geodesic, and $\\mathbf {u} \\\\cdot \\\\nabla_ {\\\\mathbf {u}}\\\\pmb{\\\\xi} = 0$ since $\\pmb{\\\\xi}$ is a Killing vector. In components,\\n$$\\n\\\\mathbf {u} \\\\cdot \\\\nabla_{\\\\mathbf {u}} \\\\boldsymbol {\\\\xi} = \\\\mathbf {u}^{\\\\alpha} \\\\mathbf {u}^{\\\\beta} \\\\xi_{\\\\alpha ; \\\\beta} = \\\\mathbf {u}^{\\\\alpha} \\\\mathbf {u}^{\\\\beta} \\\\xi_{(\\\\alpha ; \\\\beta)} = 0.\\n$$\\nThus $\\mathbf{u} \\\\cdot \\pmb{\\\\xi} = \\\\text{constant}$ along a geodesic."
+  },
+  "verification": null
+}

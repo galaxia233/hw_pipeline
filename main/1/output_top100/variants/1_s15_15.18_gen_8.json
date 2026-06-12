@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s15_15.18-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "metric_component_and_cosmological_constant",
+      "coordinate": "static_spherical",
+      "scenario": "spherical_accretion_in_AdS",
+      "method": "differential_equation_inversion_and_field_equations",
+      "generalization_axis": "invert",
+      "metric": "AntiDeSitterStatic"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.18",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s15_15.18",
+      "1_s15_15.18-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "AntiDeSitterStatic",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$g_{tt}(r)$",
+      "$\\Lambda$"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "一个理论物理学家正在分析某 4 维静态球对称时空中的球面吸积流。根据相对论流体动力学分析，声速临界点处的无量纲临界流速由度规严格决定：$v_c^2 = \\frac{1}{2} \\frac{d \\ln(-g_{tt})}{d \\ln r}$。该物理学家发现此时空的临界流速满足方程 $v_c^2 = r \\tan h(r)$。请从这一吸积流的观测性质出发，反推度规分量 $g_{tt}(r)$ 的函数形式（取规范条件 $g_{tt}(0) = -1$），并结合 Einstein 张量分量 $G_{00} = -3 \\cos h^2(r)$，推断使得该度规满足含宇宙学常数的真空场方程 $G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 0$ 的宇宙学常数 $\\Lambda$ 的精确值。",
+    "answer": "$g_{tt}(r) = -\\cos h^2(r)$, $\\Lambda = -3$",
+    "solution": "1. 根据题目给出的声速临界点流速方程与度规的关系，将 $v_c^2 = r \\tan h(r)$ 代入：   $\\frac{1}{2} \\frac{d \\ln(-g_{tt})}{d \\ln r} = r \\tan h(r)$2. 将对数导数 $\\frac{d \\ln(-g_{tt})}{d \\ln r}$ 转化为对径向坐标 $r$ 的导数，利用 $\\frac{d \\ln r}{dr} = \\frac{1}{r}$，得：   $\\frac{d \\ln(-g_{tt})}{dr} = 2 \\tan h(r)$3. 对上述微分方程积分：   $\\ln(-g_{tt}) = 2 \\ln(\\cos h(r)) + C = \\ln(\\cos h^2(r)) + C$4. 解出 $g_{tt}$：   $-g_{tt} = e^C \\cos h^2(r)$5. 应用规范条件 $g_{tt}(0) = -1$。因为 $\\cos h(0) = 1$，故 $-1 = -e^C \\cdot 1$，即 $e^C = 1$。   因此反推出的度规分量为 $g_{tt}(r) = -\\cos h^2(r)$。6. 为推断宇宙学常数，考虑含宇宙学常数的真空 Einstein 场方程 $G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 0$。7. 取时间分量 ($\\mu=\\nu=0$) 代入已知量：   $G_{00} + \\Lambda g_{00} = -3 \\cos h^2(r) + \\Lambda (-\\cos h^2(r)) = 0$8. 提取公因式 $-\\cos h^2(r)$（该因子在 $r$ 有限时不为零）：   $3 + \\Lambda = 0$9. 解得宇宙学常数为 $\\Lambda = -3$。"
+  },
+  "verification": null
+}

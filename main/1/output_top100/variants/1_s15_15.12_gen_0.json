@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s15_15.12-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "angular_velocity_and_period",
+      "coordinate": "Schwarzschild",
+      "scenario": "circular_orbit",
+      "method": "geodesic_equation",
+      "generalization_axis": "extend",
+      "metric": "schwarzschild_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s15_15.12",
+      "1_s15_15.12-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "schwarzschild_metric",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$\\tau$"
+    ],
+    "target": [
+      "\\Omega",
+      "T"
+    ],
+    "metric": [
+      [
+        "$-1+2M/r$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2M/r)^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\sin^2 \\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 时空中，Paul 在径向坐标 $r = 4M$ 的赤道面 ($\\theta = \\pi/2$) 上围绕中心天体做圆周测地线运动。已知该时空的度规为 $ds^2 = -(1 - \\frac{2M}{r}) dt^2 + (1 - \\frac{2M}{r})^{-1} dr^2 + r^2 d\\theta^2 + r^2 \\sin^{2}\\theta d\\phi^2$，且相关的 Christoffel 符号分量为 $\\Gamma^r_{tt} = \\frac{M(r - 2M)}{r^3}$ 和 $\\Gamma^r_{\\phi\\phi} = -(r - 2M) \\sin^{2}\\theta$。请利用测地线方程推导 Paul 轨道的坐标角速度 $\\Omega = \\frac{d\\phi}{dt}$ 的表达式，并计算 Paul 完成一个完整轨道所需的坐标时间周期 $T$。",
+    "answer": "$\\Omega = \\frac{1}{8M}$, $T = 16\\pi M$",
+    "solution": "推导步骤：1. 圆周测地线在赤道面，条件为 $r = 4M = \\text{const}$ 且 $\\theta = \\pi/2 = \\text{const}$。2. 因此径向坐标的导数 $\\dot{r} = 0$ 且 $\\ddot{r} = 0$，极角坐标 $\\dot{\\theta} = 0$。3. 测地线方程的径向分量为 $\\ddot{r} + \\Gamma^r_{\\mu\\nu} \\dot{x}^{\\mu} \\dot{x}^{\\nu} = 0$。4. 代入条件，仅有非零项 $\\Gamma^r_{tt} \\dot{t}^{2} + \\Gamma^r_{\\phi\\phi} \\dot{\\phi}^{2} = 0$。5. 将 $\\Omega = \\dot{\\phi} / \\dot{t}$ 代入，得到 $\\Gamma^r_{tt} + \\Gamma^r_{\\phi\\phi} \\Omega^{2} = 0$。6. 解出 $\\Omega^{2} = - \\frac{\\Gamma^r_{tt}}{\\Gamma^r_{\\phi\\phi}} = \\frac{M(r - 2M)}{r^{3} (r - 2M) \\sin^{2}\\theta}$。在赤道面 $\\theta = \\pi/2$，$\\sin\\theta = 1$，所以 $\\Omega^{2} = \\frac{M}{r^{3}}$。7. 代入 $r = 4M$，得 $\\Omega^{2} = \\frac{M}{64M^{3}} = \\frac{1}{64M^{2}}$，故 $\\Omega = \\frac{1}{8M}$。8. 坐标时间周期 $T = \\frac{2\\pi}{\\Omega} = 16\\pi M$。"
+  },
+  "verification": null
+}

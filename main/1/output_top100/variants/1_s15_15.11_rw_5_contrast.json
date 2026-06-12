@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-1-1-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "光子球半径对比",
+      "coordinate": "球坐标",
+      "scenario": "Schwarzschild与JNW时空对比",
+      "method": "守恒量与有效势",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-1",
+      "1_s15_15.11-1-1",
+      "1_s15_15.11-1-1-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "光子球半径"
+    ],
+    "metric": [
+      [
+        "-(-2*M/(gam*r) + 1)**gam",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "(-2*M/(gam*r) + 1)**(-gam)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2*(-2*M/(gam*r) + 1)**(1 - gam)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*(-2*M/(gam*r) + 1)**(1 - gam)*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "光子可以在黑洞周围特定半径处形成不稳定圆形轨道，构成“光子球”。已知在赤道面 ($\\theta = \\pi/2$) 上，光子球的轨道满足径向速度与径向加速度均为零的特征（即 $\\dot{r} = 0$ 且 $\\ddot{r} = 0$）。这两种时空均具有时间平移 Killing 矢量 $\\partial_t$ 和绕 $\\phi$ 轴旋转 Killing 矢量 $\\partial_\\phi$，分别对应守恒量 $E$ 和 $L$。请利用这些守恒量与零测地线条件，在以下两种时空中分别推导光子球所处的径向坐标 $r_{ph}$（用质量 $M$ 表示），并对比两者表达式的差异及其物理含义。背景A：Schwarzschild 时空度规：$ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2(\\theta) d\\phi^2$，其中 $r_s = 2M$。背景B：Janis-Newman-Winicour (JNW) 时空度规：$ds^2 = - \\left( 1 - \\frac{2M}{\\gamma r}\\right)^{\\gamma} dt^2 + \\left( 1 - \\frac{2M}{\\gamma r}\\right)^{-\\gamma} dr^2 + r^2 \\left( 1 - \\frac{2M}{\\gamma r}\\right)^{1-\\gamma} d\\theta^2 + r^2 \\left( 1 - \\frac{2M}{\\gamma r}\\right)^{1-\\gamma} \\sin^2(\\theta) d\\phi^2$",
+    "answer": "背景A (Schwarzschild)：$r_{ph} = 3M$。背景B (JNW)：$r_{ph} = \\frac{M(2\\gamma + 1)}{\\gamma}$。对比与物理含义：当参数 $\\gamma = 1$ 时，JNW度规退化为Schwarzschild度规，此时 $r_{ph}^{JNW} = \\frac{3M}{1} = 3M = r_{ph}^{Sch}$，两者一致；当 $\\gamma < 1$ 时，$r_{ph}^{JNW} > 3M$。物理解释：JNW时空是包含静态标量场的解，参数 $\\gamma$ 表征标量场的强度。标量场的存在改变了时空曲率的径向分布，削弱了引力场的有效吸引范围，使得光子必须在更远的径向坐标处才能维持不稳定圆形轨道。",
+    "solution": "推导思路：1. 利用 Killing 矢量定义守恒量：$E = -g_{tt} \\dot{t}$，$L = g_{\\phi\\phi} \\dot{\\phi}$。2. 对于赤道面 ($\\theta = \\pi/2$) 上的零测地线，代入 $\\dot{r} = 0$ 得到：$-g_{tt} \\dot{t}^2 + g_{\\phi\\phi} \\dot{\\phi}^2 = 0$，即 $\\frac{E^2}{-g_{tt}} = \\frac{L^2}{g_{\\phi\\phi}}$。3. 写出径向运动方程 $\\dot{r}^2 = \\frac{1}{g_{rr}} \\left( \\frac{E^2}{-g_{tt}} - \\frac{L^2}{g_{\\phi\\phi}}\\right) = V_{eff}$，光子球要求 $V_{eff} = 0$ 及 $\\frac{d V_{eff}}{dr} = 0$。4. 背景A中：$V_{eff} = E^2 - \\frac{L^2}{r^2} \\left(1 - \\frac{2M}{r}\\right)$，极值条件给出 $r = 3M$。5. 背景B中：$V_{eff} = E^2 - \\frac{L^2}{r^2} \\left(1 - \\frac{2M}{\\gamma r}\\right)^{2\\gamma - 1}$，极值条件给出 $-\\frac{2}{r^3} \\left(1 - \\frac{2M}{\\gamma r}\\right)^{2\\gamma - 1} + \\frac{1}{r^2} (2\\gamma - 1) \\left(1 - \\frac{2M}{\\gamma r}\\right)^{2\\gamma - 2} \\frac{2M}{\\gamma r^2} = 0$，化简得到 $r = \\frac{M(2\\gamma + 1)}{\\gamma}$。"
+  },
+  "verification": null
+}

@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "id": "1_s13_13.11-1",
+    "type": "calculate",
+    "tags": {
+      "target_object": "proper_acceleration_magnitude",
+      "coordinate": "cartesian",
+      "scenario": "newtonian_limit",
+      "method": "covariant_derivative",
+      "generalization_axis": "extend",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.11",
+      "1_s13_13.11-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "metric",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$a^\\mu$",
+      "$a_i a^i$"
+    ],
+    "metric": [
+      [
+        "$-(1+2\\Phi)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2\\Phi)$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$(1-2\\Phi)$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$(1-2\\Phi)$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "-2*Phi - 1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1 - 2*Phi",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1 - 2*Phi",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1 - 2*Phi"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "For the nearly Newtonian metric $\\mathrm{d} s^{2} = - (1 + 2 \\Phi) \\mathrm{d} t^{2} + (1 - 2 \\Phi) \\delta_{\\mathrm{j k}} \\mathrm{d} x^{\\mathrm{j}} \\mathrm{d} x^{\\mathrm{k}}$, calculate the proper 4-acceleration $a^\\mu$ of a stationary observer (with $\\dot{x}^i = 0$) to lowest nonvanishing order in $\\Phi$, assuming time derivatives of $\\Phi$ can be neglected compared to spatial derivatives. Determine the components $a^\\mu$ and the magnitude squared of the spatial acceleration $a_i a^i$.",
+    "answer": "$a^0 = 0, a^i = \\Phi_{,i}; a_i a^i = \\Phi_{,i} \\Phi_{,i}$",
+    "solution": "1. The 4-velocity of a stationary observer is $u^\\mu = (u^0, 0, 0, 0)$. From the normalization condition $g_{\\mu\\nu} u^\\mu u^\\nu = -1$, we have $g_{00} (u^0)^2 = -1$, which gives $u^0 = 1 / \\sqrt{1+2\\Phi} \\approx 1 - \\Phi$ to lowest order.2. The proper 4-acceleration is defined as $a^\\mu = \\frac{D u^\\mu}{d \\tau} = u^\\nu \\nabla_\\nu u^\\mu$. Since $u^i = 0$ and $\\partial_0 \\Phi \\approx 0$, the coordinate derivative term vanishes, leaving $a^\\mu = \\Gamma^\\mu_{\\nu\\sigma} u^\\nu u^\\sigma$.3. Calculate the relevant Christoffel symbols to lowest order:   $\\Gamma^0_{00} = 0$, $\\Gamma^0_{0i} = \\frac{1}{2} g^{00} g_{00,i} = \\Phi_{,i}$   $\\Gamma^i_{00} = -\\frac{1}{2} g^{ik} g_{00,k} = \\Phi_{,i}$4. Substitute into the acceleration formula:   $a^0 = \\Gamma^0_{00} (u^0)^2 = 0$   $a^i = \\Gamma^i_{00} (u^0)^2 = \\Phi_{,i} (1 - 2\\Phi) \\approx \\Phi_{,i}$5. Thus, $a^\\mu = (0, \\Phi_{,1}, \\Phi_{,2}, \\Phi_{,3})$ to lowest order. The spatial components $a^i = \\Phi_{,i}$ exactly correspond to the Newtonian gravitational field strength (the force per unit mass required to remain stationary).6. The covariant spatial components are $a_i = g_{ij} a^j \\approx \\delta_{ij} \\Phi_{,j} = \\Phi_{,i}$.7. The magnitude squared of the spatial acceleration is $a_i a^i = g_{ij} a^i a^j \\approx \\Phi_{,i} \\Phi_{,i} = |\\nabla \\Phi|^2$.8. This result reveals a direct physical connection to the seed problem: the Landau-Lifshitz pseudotensor energy density in the Newtonian limit is $t_{LL}^{00} = \\frac{1}{8\\pi} |\\nabla \\Phi|^2$, which implies $a_i a^i = 8\\pi t_{LL}^{00}$. The gravitational field energy density is precisely proportional to the magnitude squared of the acceleration required to resist the field."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.metric_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "Solution 步骤4中，$a^i = \\Gamma^i_{00} (u^0)^2$ 的展开 $\\Phi_{,i} (1 - 2\\Phi)$ 存在近似不一致（factor error）的错误。正确的计算中，$\\Gamma^i_{00} = -\\\\frac{1}{2} g^{ij} g_{00,j} = (1+2\\\\Phi)\\\\Phi_{,i}$（保留一阶因子），而 $(u^0)^2 \\\\approx 1 - 2\\\\Phi$，两者相乘应为 $(1+2\\\\Phi)(1-2\\\\Phi)\\\\Phi_{,i} = (1 - 4\\\\Phi^2)\\\\Phi_{,i}$。因此，正确的展开中一阶修正项应为0，而不应出现虚假的 $-2\\\\Phi \\\\Phi_{,i}$ 项。虽然最终最低阶结论 $\\\\Phi_{,i}$ 是正确的，但中间过程引入了不存在的修正项。此外，步骤2解释坐标导数项消失的理由不完整：$u^0_{,i} \\\\approx -\\\\Phi_{,i}$ 并不为0，只是因为 $u^i=0$ 使得 $u^j u^0_{,j} = 0$，原文仅提及 $u^i=0$ 和 $\\\\partial_0 \\\\Phi \\\\approx 0$，容易误导读者以为所有坐标导数项 $u^\\\\mu_{,\\\\nu}$ 均为零。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

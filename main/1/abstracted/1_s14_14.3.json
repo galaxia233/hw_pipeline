@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s14_14.3",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "perfect_fluid",
+      "scenario": "projection_tensor",
+      "method": "newtonian_limit"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.3",
+    "source_id": "1_s14_14.3",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "守恒律投影推导结合非相对论极限近似，具天体流体物理背景",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^i$",
+      "$\\tau$",
+      "$\\rho$",
+      "$p$",
+      "$u^\\mu$",
+      "$g^{\\mu\\nu}$",
+      "$\\Gamma^\\lambda_{\\mu\\nu}$"
+    ],
+    "target": [
+      "$(\\rho + p) u^\\nu \\nabla_\\nu u^\\alpha$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 14.3. Derive the Euler equation $(\\rho + p)\\nabla_{\\mathbf{u}}\\mathbf{u} = -[\\nabla p + (\\nabla_{\\mathbf{u}}p)\\mathbf{u}]$ from $\\mathbf{T}^{\\mu \\nu}_{;\\nu} = 0$ , and show that this equation has the correct Newtonian limit.",
+    "answer": "$(\\rho + p)\\nabla_{\\mathbf{u}}\\mathbf{u} = -[\\nabla p + (\\nabla_{\\mathbf{u}}p)\\mathbf{u}]$; Newtonian limit: $dv_j/d\\tau = -\\phi_{,j} - p_{,j}/\\rho_0$",
+    "solution": "Solution 14.3. For a perfect fluid the stress-energy tensor is $\\mathbf{T}^{\\mu \\nu} = (\\rho + p) \\mathbf{u}^{\\mu} \\mathbf{u}^{\\nu} + p \\mathbf{g}^{\\mu \\nu}$ , thus the equations of motions read$$0 = \\mathrm {T}_{; \\nu}^{\\mu \\nu} = (\\rho + \\mathrm {p})_{; \\nu} \\mathrm {u}^{\\mu} \\mathrm {u}^{\\nu} + (\\rho + \\mathrm {p}) \\left(\\mathrm {u}_{; \\nu}^{\\mu} \\mathrm {u}^{\\nu} + \\mathrm {u}^{\\mu} \\mathrm {u}_{; \\nu}^{\\nu}\\right) + \\mathrm {p}_{, \\nu} \\mathrm {g}^{\\mu \\nu}.$$To get the Euler equation, project this equation perpendicular to $\\mathbf{u}$ using the projection tensor$$\\mathrm {P}_{\\alpha \\beta} = \\mathrm {u}_{\\alpha} \\mathrm {u}_{\\beta} + \\mathrm {g}_{\\alpha \\beta}.$$The result is$$\\begin{array}{l} 0 = \\mathrm {P}_{\\alpha \\mu} \\mathrm {T}_{\\nu}^{\\mu \\nu} \\\\ = 0 + P_{a \\mu} (\\rho + p) u^{\\mu}_{; \\nu} u^{\\nu} + 0 + p_{, \\nu} g^{\\mu \\nu} P_{a \\mu} \\\\ = (\\rho + p) u_{\\alpha ; \\nu} u^{\\nu} + p, a + p, \\nu u^{\\nu} u_{\\alpha} \\\\ \\end{array}$$which is the Euler equation.To take the Newtonian limit (see Solution 14.8), write the Euler equation as$$\\rho_{0} (1 + \\pi + p / \\rho_{0}) (u_{j, \\nu} u^{\\nu} - \\Gamma_{\\nu j}^{a} u_{a} u^{\\nu}) = - p_{, j} - u_{j} d p / d \\tau .$$Set $\\mathbf{u}^0 = 1$ , $\\mathbf{u}_0 = -1$ , $\\mathbf{u}_j = \\mathbf{v}_j$ and get$$\\rho_{0} \\left(\\mathrm {d v}_{\\mathrm {j}} / \\mathrm {d} \\tau + \\Gamma_{0 \\mathrm {j}}^{0}\\right) \\approx - \\mathrm {p},$$But$$\\Gamma_{0 j}^{0} \\approx - \\Gamma_{0 0 j} = - \\frac {1}{2} g_{0 0, j} \\approx \\phi_{, j}.$$Thus$$\\frac {\\mathrm {d} \\mathbf {v}_{\\mathrm {j}}}{\\mathrm {d} \\tau} = - \\phi_{, \\mathrm {j}} - \\frac {1}{\\rho_{0}} \\mathbf {p}_{, \\mathrm {j}}.$$"
+  },
+  "verification": null
+}

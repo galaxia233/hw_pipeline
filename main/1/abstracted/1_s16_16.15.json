@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s16_16.15",
+    "type": "calculate",
+    "tags": {
+      "metric": "isotropic_coordinates",
+      "target_object": "curvature_radius",
+      "coordinate": "spherical_shell",
+      "scenario": "dominant_energy_condition",
+      "method": "thin_shell_integration"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.15",
+    "source_id": "1_s16_16.15",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.15"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "结合主导能量条件与薄壳积分，需完成不等式推导与坐标变换求物理半径下限",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$M$",
+      "$R$",
+      "$\\mathcal{R}$",
+      "$T^{\\hat{0}\\hat{0}}$",
+      "$T^{\\hat{k}\\hat{k}}$"
+    ],
+    "target": [
+      "$\\mathcal{R}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.15. What is the smallest possible proper circumference of a self-supporting spherical shell of mass $M$ , if its matter satisfies the dominant energy condition (as do all known forms of matter)?",
+    "answer": "$\\mathcal{R} > \\frac{25}{12}M$",
+    "solution": "Solution 16.15. The dominant energy condition requires$$\\left| \\mathbf {T}^{\\widehat {0} \\widehat {0}}\\right| > \\left| \\mathbf {T}^{\\widehat {\\mathrm {k}} \\widehat {\\mathrm {k}}}\\right|. \\tag {1}$$Using the results of Problem 16.14, and integrating Equation (1) through the thin shell, we have the inequality$$\\left(1 + \\frac {\\mathrm {M}}{2 \\mathrm {R}}\\right)^{- 3} > \\frac {1}{2} \\frac {\\mathrm {M} / 2 \\mathrm {R}}{1 - \\mathrm {M} / 2 \\mathrm {R}} \\left(1 + \\frac {\\mathrm {M}}{2 \\mathrm {R}}\\right)^{- 3} \\tag {2}$$where $\\mathbf{R}$ is the isotropic radial coordinate. Letting $\\mathbf{x} = \\mathbf{M} / 2\\mathbf{R}$ we have $2 - 2\\mathbf{x} > \\mathbf{x}$ or $\\mathbf{x} < 2/3$ , giving $\\mathbf{R} > \\frac{3}{4}\\mathbf{M}$ , or for the curvature radial coordinate $\\mathcal{R}$$$\\mathcal {R} = \\mathrm {R} \\left(1 + \\frac {\\mathrm {M}}{2 \\mathrm {R}}\\right)^{2} > \\frac {2 5}{1 2} \\mathrm {M}, \\tag {3}$$about 1.04 Schwarzschild radii."
+  },
+  "verification": null
+}

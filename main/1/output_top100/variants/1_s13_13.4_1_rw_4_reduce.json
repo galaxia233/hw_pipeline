@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_1-3-4",
+    "type": "calculate",
+    "tags": {
+      "target_object": "critical cosmological constant",
+      "coordinate": "static de Sitter-like coordinates",
+      "scenario": "cosmology reduce to flat spacetime",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.4_1",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.4_1",
+      "1_s13_13.4_1-3",
+      "1_s13_13.4_1-3-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "DeSitter",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$\\Lambda_{crit}$ in flat spacetime limit"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，考虑度规 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$ 描述的弯曲时空，其中 $\\alpha$ 为表征时空曲率的特征长度参数。已知在该时空中，使得 $x=0$ 处物质能量密度精确为零所需的临界宇宙学常数为 $\\Lambda_{crit} = -\\frac{1}{\\alpha^2}$。当参数 $\\alpha \\to \\inf ty$ 时，度规分量 $e^{2x/\\alpha} \\to 1$，时空曲率消失并回到无源的闵可夫斯基平直时空。请通过取 $\\alpha \\to \\inf ty$ 的极限，求临界宇宙学常数 $\\Lambda_{crit}$ 回到经典平直时空的对应值，并简述其物理意义。",
+    "answer": "$\\Lambda_{crit} \\to 0$。物理意义：当 $\\alpha \\to \\inf ty$ 时，时空曲率趋于零，几何本身不再贡献任何等效的真空能量密度，因此无需任何宇宙学常数来抵消几何效应以使物质能量密度为零，即平直时空对应的临界宇宙学常数自然归零，与闵可夫斯基时空的零宇宙学常数性质一致。",
+    "solution": "1. 已知 GR 语境下的结果：$\\Lambda_{crit} = -\\frac{1}{\\alpha^2}$。2. 取 $\\alpha \\to \\inf ty$ 的极限，使得时空曲率趋于零，度规退化为闵可夫斯基度规 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$。3. 计算极限：$\\lim_{\\alpha \\to \\inf ty} \\Lambda_{crit} = \\lim_{\\alpha \\to \\inf ty} \\left(-\\frac{1}{\\alpha^2}\\right) = 0$。4. 物理意义分析：在平直时空极限下，Ricci标量和爱因斯坦张量均趋于零，时空几何不再提供任何背景能量密度，因此使得总能量密度为零所需的临界宇宙学常数自然消失，回到平直时空 $\\Lambda=0$ 的经典物理对应。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目存在两个严重错误：\\n1. **度规与物理场景严重矛盾（张冠李戴）**：摘要声称度规为 DeSitter，但题目给出的度规 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$ 并非 De Sitter 度规。真正的 De Sitter 度规在膨胀坐标下应为时间指数 $e^{2t/\\alpha}$（具有10个Killing矢量、常数Ricci标量 $12/\\\\alpha^2$、Kretschmann标量 $12/\\\\alpha^2$），而出题者误将指数写为空间坐标 $x$。这导致该度规退化为一个具有负常曲率空间截面的静态时空（仅有1个Killing矢量，Kretschmann标量为 $2/\\\\alpha^4$），与 De Sitter 的最大对称性和正曲率性质完全相反。题目的 $\\Lambda_{crit} = -1/\\\\alpha^2$ 也是基于这个错误度规算出的，若用真 De Sitter 度规该值应为 $-3/\\\\alpha^2$。\\n2. **排版拼写错误**：题目和解答中多次将无穷大符号写为 `$\\\\inf ty$`，正确的 LaTeX 符号应为 `$\\\\infty$`。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

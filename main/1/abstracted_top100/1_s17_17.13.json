@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s17_17.13",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "area",
+      "coordinate": "Boyer-Lindquist",
+      "scenario": "Kerr-Newman_black_hole",
+      "method": "surface_integral"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.13",
+    "source_id": "1_s17_17.13",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.13"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.8,
+      "rationale": "需结合视界方程降维计算二维子流形度规行列式并积分，具明确天体物理背景",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$Q$",
+      "$a$",
+      "$r_{+}$",
+      "$A$"
+    ],
+    "target": [
+      "$A$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 17.13. Show that the surface area of the horizon of a Kerr-Newman black hole (area of surface $\\mathbf{r} = \\mathbf{r}_{+}$ , $t = \\text{constant}$ , in Boyer-Lindquist coordinates) is $4\\pi \\left[\\left[\\mathbf{M} + (\\mathbf{M}^{2} - \\mathbf{Q}^{2} - \\mathbf{a}^{2})^{\\frac{1}{2}}\\right]^{2} + \\mathbf{a}^{2}\\right]$ .",
+    "answer": "$4\\pi \\left[\\left[\\mathbf{M} + (\\mathbf{M}^{2} - \\mathbf{Q}^{2} - \\mathbf{a}^{2})^{\\frac{1}{2}}\\right]^{2} + \\mathbf{a}^{2}\\right]$",
+    "solution": "Solution 17.13. At the outer horizon $(\\mathbf{r} = \\mathbf{r}_{+})$ the metric with $\\mathrm{dt} = \\mathrm{dr} = 0$ becomes$$\\mathrm {d s}^{2} = \\left(\\mathrm {r}_{+}^{2} + \\mathrm {a}^{2} \\cos^{2} \\theta\\right) \\mathrm {d} \\theta^{2} + \\frac {\\left(\\mathrm {r}_{+}^{2} + \\mathrm {a}^{2}\\right)^{2} \\sin^{2} \\theta \\mathrm {d} \\phi^{2}}{\\left(\\mathrm {r}_{+}^{2} + \\mathrm {a}^{2} \\cos^{2} \\theta\\right)} .$$The area of the horizon is then$$A = \\iint g^{\\frac {1}{2}} d \\theta d \\phi = \\iint \\left(r_{+}^{2} + a^{2}\\right) \\sin \\theta d \\theta d \\phi = 4 \\pi \\left(r_{+}^{2} + a^{2}\\right).$$Since $\\mathbf{r}_{+}$ is the larger solution of $\\Delta = 0$ we have $\\mathbf{r}_{+} = \\mathbf{M} + (\\mathbf{M}^{2} + \\mathbf{Q}^{2} - \\mathbf{a}^{2})^{\\frac{1}{2}}$ from which the result follows."
+  },
+  "verification": null
+}

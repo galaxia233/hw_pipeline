@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s15_15.18-8-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "critical_flow_velocity",
+      "coordinate": "static_spherical",
+      "scenario": "spherical_accretion_contrast",
+      "method": "metric_derivative_comparison",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.18",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.18",
+      "1_s15_15.18-8",
+      "1_s15_15.18-8-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$v_c^2(r)$ in AdS vs Schwarzschild",
+      "asymptotic_behavior_divergence"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "广义相对论流体动力学研究表明，静态球对称时空中球面吸积流声速临界点处的无量纲临界流速由度规分量严格决定：$v_c^2 = \\frac{1}{2} \\frac{d \\ln(-g_{tt})}{d \\ln r}$。\\n\\n请在以下两种静态球对称时空背景下，分别推导 $v_c^2(r)$ 的表达式，并对比这两种临界流速随径向坐标演化的行为差异，解释该差异所反映的时空几何与引力势阱的物理本质。\\n\\n**背景一：反德西特静态时空 (Anti-de Sitter)**\\n度规定义：\\n$ds^2 = -\\cos h^2(r) dt^2 + dr^2 + \\sin h^2(r) d\\theta^2 + \\sin^2(\\theta) \\sin h^2(r) d\\phi^2$\\n\\n**背景二：施瓦西时空 (Schwarzschild)**\\n度规定义：\\n$ds^2 = -\\left(1 - \\frac{r_s}{r}\\right) dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2(\\theta) d\\phi^2$",
+    "answer": "**推导结果：**\\n背景一（反德西特时空）：$v_c^2 = r \\tan h(r)$\\n背景二（施瓦西时空）：$v_c^2 = \\frac{r_s}{2(r - r_s)}$\\n\\n**对比与物理含义：**\\n1. **演化行为差异**：在反德西特时空中，$v_c^2$ 随 $r$ 单调递增，在中心 $r \\to 0$ 处趋于零，在无穷远边界 $r \\to \\inf ty$ 处发散（$v_c^2 \\to \\inf ty$）；在施瓦西时空中，$v_c^2$ 随 $r$ 单调递减，在无穷远处趋于零（$v_c^2 \\to 0$），而在靠近中心视界 $r \\to r_s$ 处发散。\\n2. **物理含义**：反德西特时空具有负宇宙学常数，时空整体呈收缩的“引力势阱”结构，无穷远边界并非平直空间而是强引力势垒，物质需要无穷大的流速才能克服引力势阱逃逸至无穷远，因此临界流速在远处发散；施瓦西时空渐近平直，无穷远处引力势为零，物质只需极小速度即可维持声速点，而靠近中心黑洞视界时引力极强，吸积流加速导致临界流速急剧增加直至视界处发散。",
+    "solution": "1. 对于背景一（反德西特时空）：\\n   $g_{tt} = -\\cos h^2(r)$\\n   $v_c^2 = \\frac{1}{2} \\frac{d \\ln(\\cos h^2(r))}{d \\ln r} = \\frac{1}{2} \\frac{2\\cos h(r)\\sin h(r)}{\\cos h^2(r)} \\cdot r = r \\tan h(r)$\\n\\n2. 对于背景二（施瓦西时空）：\\n   $g_{tt} = -(1 - r_s/r)$\\n   $v_c^2 = \\frac{1}{2} \\frac{d \\ln(1 - r_s/r)}{d \\ln r} = \\frac{1}{2} \\frac{r_s/r^2}{1 - r_s/r} \\cdot r = \\frac{r_s}{2(r - r_s)}$\\n\\n3. 对比两者极限行为：\\n   - AdS: $r \\to 0$ 时 $v_c^2 \\to 0$；$r \\to \\inf ty$ 时 $v_c^2 \\to \\inf ty$。\\n   - Schwarzschild: $r \\to \\inf ty$ 时 $v_c^2 \\to 0$；$r \\to r_s$ 时 $v_c^2 \\to \\inf ty$。"
+  },
+  "verification": null
+}

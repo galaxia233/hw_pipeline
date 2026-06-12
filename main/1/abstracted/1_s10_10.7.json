@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s10_10.7",
+    "type": "prove",
+    "tags": {
+      "metric": "killing_vector",
+      "target_object": "riemann_tensor",
+      "coordinate": "covariant_derivative",
+      "scenario": "commutator",
+      "method": "identity_proof"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s10_10.7",
+    "source_id": "1_s10_10.7",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s10_10.7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.5,
+      "rationale": "利用Ricci恒等式、Riemann张量循环对称性与Killing方程进行多步张量推导，逻辑链条完整且具有一般流形普适性",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\xi$",
+      "$\\mu$",
+      "$\\alpha$",
+      "$\\beta$",
+      "$\\gamma$",
+      "$\\mathsf{R}$"
+    ],
+    "target": [
+      "$\\xi_{\\mu;\\alpha\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "10.7. If $\\pmb{\\xi}$ is a Killing vector, prove that$$\\xi_{\\mu ; \\alpha \\beta} = \\mathsf {R}_{\\gamma \\beta \\alpha \\mu} \\xi^{\\gamma}.$$",
+    "answer": "$\\xi_{\\mu ; \\alpha \\beta} = \\mathsf{R}_{\\gamma \\beta \\alpha \\mu} \\xi^{\\gamma}$.",
+    "solution": "## SolutionSolution 10.7. For any vector $\\xi$$$\\xi_{\\sigma ; \\rho \\mu} - \\xi_{\\sigma ; \\mu \\rho} = \\mathrm {R}_{\\sigma \\rho \\mu}^{\\lambda} \\xi_{\\lambda} \\tag {1}$$by the definition of $\\mathbf{R}_{\\alpha \\beta \\gamma} \\delta$ . Add to Equation (1) its two permutations and use the cyclic identity for the Riemann tensor$$\\mathbf {R}_{\\sigma \\rho \\mu}^{\\lambda} + \\mathbf {R}_{\\mu \\sigma \\rho}^{\\lambda} + \\mathbf {R}_{\\rho \\mu \\sigma}^{\\lambda} = 0$$to obtain the identity$$0 = \\xi_{\\sigma ; \\rho \\mu} - \\xi_{\\sigma ; \\mu \\rho} + \\xi_{\\mu ; \\sigma \\rho} - \\xi_{\\mu ; \\rho \\sigma} + \\xi_{\\rho ; \\mu \\sigma} - \\xi_{\\rho ; \\sigma \\mu}. (2).$$For a Killing vector, Equation (2) becomes$$0 = \\xi_{\\sigma ; \\rho \\mu} - \\xi_{\\sigma ; \\mu \\rho} - \\xi_{\\mu ; \\rho \\sigma}, (3),$$and substituting Equation (3) into Equation (1), one obtains$$\\xi_{\\mu ; \\rho \\sigma} = \\mathrm {R}_{\\sigma \\rho \\mu}^{\\lambda} \\xi_{\\lambda}. \\tag {4}.$$"
+  },
+  "verification": null
+}

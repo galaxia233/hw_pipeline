@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "geodesic_deviation",
+      "coordinate": "schwarzschild",
+      "scenario": "black_hole_tidal_force",
+      "method": "riemann_calculation",
+      "generalization_axis": "extend",
+      "metric": "schwarzschild_metric"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "schwarzschild_metric",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$v$",
+      "$\\sigma$"
+    ],
+    "target": [
+      "$a^r$",
+      "$a^\\theta$"
+    ],
+    "metric": [
+      [
+        "$-(1-\\frac{2M}{r})$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$\\frac{1}{1-\\frac{2M}{r}}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑 Schwarzschild 黑洞度规：$$ds^2 = -\\frac{r-r_{s}}{r} dt^2 + \\frac{r}{r-r_{s}} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$其中 $r_{s} = 2M$ 为 Schwarzschild 视界半径。被黑洞俘获的下落粒子在视界外不可避免地将受到极强的潮汐拉伸与挤压效应。请推导一个在半径 $r$ 处径向静止的观察者（其4速度仅沿时间方向）所感受到的径向和横向（沿 $\\theta$ 方向）测地线偏离加速度 $a^r$ 和 $a^\\theta$ 的精确表达式（设空间分离矢量分量分别为 $\\xi^r$ 和 $\\xi^\\theta$）。进一步，取远场极限 $r \\gg r_{s}$，证明你的结果将退化为牛顿力学中的经典潮汐力公式 $a^r_{N} = -\\frac{2M}{r^3} \\xi^r$ 与 $a^\\theta_{N} = \\frac{M}{r^3} \\xi^\\theta$。",
+    "answer": "$a^r = -\\frac{r_{s}}{r^2(r-r_{s})} \\xi^r$ , $a^\\theta = \\frac{r_{s}}{2r^2(r-r_{s})} \\xi^\\theta$",
+    "solution": "1. 静止观察者的 4-速度为 $u^\\mu = (u^0, 0, 0, 0)$，由类时条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$ 得：   $g_{00} (u^0)^2 = -1 \\implies u^0 = \\frac{1}{\\sqrt{|g_{00}|}} = \\sqrt{\\frac{r}{r-r_{s}}}$。2. 测地线偏离方程为 $a^\\alpha = \\frac{D^2 \\xi^\\alpha}{d\\tau^2} = -R^\\alpha_{\\beta\\gamma\\delta} u^\\beta \\xi^\\gamma u^\\delta$。因为观察者静止 $u^j = 0$，且分离矢量与4速度正交 $\\xi^0 = 0$，所以只有 $\\beta=0, \\delta=0$ 的项不为零，方程简化为：   $a^i = -R^i_{0 j 0} (u^0)^2 \\xi^j$。3. 计算所需的 Riemann 曲率张量混合分量：   径向分量 $R^1_{010} = g^{11} R_{0101} = \\frac{r}{r-r_{s}} \\cdot \\frac{r_{s}}{r^2(r-r_{s})} = \\frac{r_{s}}{r^3}$。   横向分量 $R^2_{020} = g^{22} R_{0202} = \\frac{1}{r^2} \\cdot \\left(-\\frac{r_{s}}{2r}\\right) = -\\frac{r_{s}}{2r^3}$。4. 将 $(u^0)^2 = \\frac{r}{r-r_{s}}$ 及各分量代入偏离方程：   $a^r = -R^1_{010} (u^0)^2 \\xi^r = -\\frac{r_{s}}{r^3} \\cdot \\frac{r}{r-r_{s}} \\xi^r = -\\frac{r_{s}}{r^2(r-r_{s})} \\xi^r$。   $a^\\theta = -R^2_{020} (u^0)^2 \\xi^\\theta = \\frac{r_{s}}{2r^3} \\cdot \\frac{r}{r-r_{s}} \\xi^\\theta = \\frac{r_{s}}{2r^2(r-r_{s})} \\xi^\\theta$。5. 取远场极限 $r \\gg r_{s}$：   此时 $\\frac{r}{r-r_{s}} \\approx 1$，且代入 $r_{s} = 2M$。   $a^r \\approx -\\frac{2M}{r^3} \\xi^r = a^r_{N}$。   $a^\\theta \\approx \\frac{2M}{2r^3} \\xi^\\theta = \\frac{M}{r^3} \\xi^\\theta = a^\\theta_{N}$。   这与牛顿引力势 $\\Phi = -M/r$ 产生的潮汐力完全一致，证毕。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_metric_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目和解答中存在多处严重的符号错误，导致物理结论（潮汐力的拉伸与挤压效应）完全反转：1. Question 给出的牛顿潮汐力公式符号错误：经典牛顿力学中径向潮汐力应为正号（拉伸）$a^r_N = +\\frac{2M}{r^3} \\xi^r$，横向应为负号（挤压）$a^\\theta_N = -\\frac{M}{r^3} \\xi^\\theta$，题目写成了完全相反的符号。2. Solution 中 Riemann 张量指标收缩错误：计算 $R^1_{010}$ 时写成 $R^1_{010} = g^{11} R_{0101}$，但实际上 $R^1_{010} = g^{1\\mu} R_{\\mu 010} = g^{11} R_{1010} = -g^{11} R_{0101} = -\\frac{r_s}{r^3}$（期望值为负，solution算成正）；计算 $R^2_{020}$ 时写成 $R^2_{020} = g^{22} R_{0202}$，但实际上 $R^2_{020} = g^{22} R_{2020} = -g^{22} R_{0202} = +\\frac{r_s}{2r^3}$（期望值为正，solution算成负）。3. Answer 结论完全反转：由于推导错误，导致 answer 给出的径向加速度为负（径向挤压），横向为正（横向拉伸），与黑洞潮汐力的真实物理效应（径向拉伸、横向挤压）完全相反。正确的 answer 应为 $a^r = +\\frac{r_s}{r^2(r-r_s)} \\xi^r$, $a^\\theta = -\\frac{r_s}{2r^2(r-r_s)} \\xi^\\theta$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

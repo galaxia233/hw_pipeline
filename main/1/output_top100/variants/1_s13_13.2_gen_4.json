@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s13_13.2-4",
+    "type": "calculate",
+    "tags": {
+      "target_object": "critical_density",
+      "coordinate": "FLRW",
+      "scenario": "cosmology",
+      "method": "Einstein_field_equation",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s13_13.2",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.2",
+      "1_s13_13.2-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\rho_c"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论宇宙学中，时空由 FLRW 度规描述：$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2}dr^2 + r^2 a^2(t)d\\theta^2 + r^2 a^2(t)\\sin^2\\theta d\\phi^2$$其中 $a(t)$ 为标度因子，$k$ 为曲率常数（$k=+1, 0, -1$）。假设宇宙中的物质可建模为完美流体，其能动张量为 $T_{\\mu\\nu} = (\\rho+p)u_\\mu u_\\nu + p g_{\\mu\\nu}$，其中 $\\rho$ 为能量密度，$p$ 为压强，流体静止四维速度 $u^\\mu = (1,0,0,0)$（满足 $g_{\\mu\\nu}u^\\mu u^\\nu = -1$）。Einstein 场方程为 $G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$。定义哈勃参数 $H = \\dot{a}/a$。请利用上述度规的 Einstein 张量分量与场方程，计算使得宇宙空间平直（即 $k=0$）的临界能量密度 $\\rho_c$ 的表达式（用 $H$ 表示）。",
+    "answer": "\\rho_c = \\frac{3H^2}{8\\pi}",
+    "solution": "1. 首先计算完美流体的能动张量时间分量 $T_{00}$。由于 $u^\\mu = (1,0,0,0)$，降指标得到 $u_\\mu = g_{\\mu\\nu}u^\\nu = g_{\\mu 0}$，所以 $u_0 = g_{00} = -1$。代入能动张量定义：$T_{00} = (\\rho+p)u_0 u_0 + p g_{00} = (\\rho+p)(-1)(-1) + p(-1) = \\rho+p - p = \\rho$。2. 根据 Einstein 场方程的时间分量：$G_{00} = 8\\pi T_{00} = 8\\pi \\rho$。3. 由几何属性数据可知，FLRW 度规的 Einstein 张量时间分量为：$$G_{00} = \\frac{3(k + \\dot{a}^2)}{a^2}$$代入场方程得到：$$\\frac{3(k + \\dot{a}^2)}{a^2} = 8\\pi \\rho$$整理为第一 Friedmann 方程的形式：$$H^2 + \\frac{k}{a^2} = \\frac{8\\pi \\rho}{3}$$其中 $H = \\dot{a}/a$。4. 当宇宙空间平直时，曲率常数 $k=0$。此时对应的能量密度即为临界能量密度 $\\rho_c$，代入上式得：$$H^2 = \\frac{8\\pi \\rho_c}{3}$$解得：$$\\rho_c = \\frac{3H^2}{8\\pi}$$"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 0.9,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

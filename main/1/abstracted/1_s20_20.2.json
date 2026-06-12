@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s20_20.2",
+    "type": "calculate",
+    "tags": {
+      "metric": "calculate",
+      "target_object": "light_deflection",
+      "coordinate": "newtonian_approximation",
+      "scenario": "freely_falling_observer",
+      "method": "weak_field_limit"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s20_20.2",
+    "source_id": "1_s20_20.2",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s20_20.2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "通过局部惯性系序列拼接与洛伦兹角度变换进行多步积分推导，结合真实天体物理观测背景探讨牛顿与广义相对论结果差异",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$M$",
+      "$G$",
+      "$R_0$",
+      "$\\ell$",
+      "$\\phi$",
+      "$\\beta$",
+      "$\\theta$",
+      "$\\delta$"
+    ],
+    "target": [
+      "$\\delta$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 20.2. Calculate the gravitational light deflection of a ray passing near the sun using Newtonian gravity and the fact that light moves along straight lines in the local frame of a freely falling observer. Since the light is always in a weak gravitational field, the Newtonian approximation seems justifiable. Why doesn't this answer agree with the general relativistic answer?",
+    "answer": "$\\frac{2GM}{R_0}$",
+    "solution": "Solution 20.2.![](images/d749c9c96299741b90e7b93e8de4bf9c23fe6970905d288bd55cf8535e6abc33.jpg)![](images/6a05f796f8a9362c29b8cff8e0fda96789f65fcc6b265c6b2257267d47fe1385.jpg)![](images/e2dd41a074dd107e23273027cc1527c0ecc6cf3684a3b2ec09c009bde25c2ac0.jpg)Consider a sequence of freely falling observers, each occupying a local inertial frame of length \\mathrm{d}\\ell . Let the \\mathfrak{n}^{\\text{th}} freely falling observer S_{\\mathbf{n}} be momentarily at rest relative to the sun when the photon hits the left side of his frame and let him see the photon move at an angle \\theta relative to its inertial direction (see figure). When the photon leaves his frame and enters S_{\\mathbf{n + 1}} , which is now momentarily at rest, he is falling with speed \\beta = \\gcd \\ell = \\frac{\\mathbf{GM}}{\\mathbf{R}^2} in the \\phi direction. This photon enters frame S_{\\mathbf{n + 1}} moving in the direction \\theta + \\mathrm{d}\\theta : the transformation of photon angles (see Problem 1.8) is$$\\cos \\psi = \\frac {\\cos \\bar {\\psi} - \\beta}{1 - \\beta \\cos \\bar {\\psi}} = \\cos \\bar {\\psi} - \\beta \\sin^{2} \\bar {\\psi} + \\mathcal {O} (\\beta^{2})$$so that$$\\cos \\psi - \\cos \\bar {\\psi} = - \\beta \\sin^{2} \\bar {\\psi}$$and$$\\begin{array}{l} \\mathrm {d} \\theta = \\beta \\sin \\psi \\approx \\beta \\sin \\phi \\\\\\= \\left(\\frac {\\mathrm {G M}}{\\mathrm {R}_{0}^{2} + \\ell^{2}}\\right) \\frac {\\mathrm {R}_{0}}{\\left(\\mathrm {R}_{0}^{2} + \\ell^{2}\\right)^{\\frac {1}{2}}} \\mathrm {d} \\ell . \\tag {1} \\\\ \\end{array}$$Thus the total deflection, \\delta is$$\\delta = \\int d \\theta = G M R_{0} \\int_{- \\inf ty}^{\\inf ty} \\frac {d \\ell}{\\left(R_{0}^{2} + \\ell^{2}\\right)^{\\frac {3}{2}}} = \\frac {2 G M}{R_{0}} \\tag {2}$$which is one half the observed value!In performing the calculation we assumed that a sequence of rulers was placed along the line \\mathbf{y} = \\mathbb{R}_0 parallel to the line \\mathbf{y} = 0 , with the (\\mathfrak{n} + 1)^{\\mathrm{th}} ruler locally parallel to the \\mathfrak{n}^{\\mathrm{th}} ruler. It was the deflection with respect to these rulers that we calculated. But we did not correct for the fact that spacetime around the sun is curved (tidal forces!); in fact, a locally parallel sequence of rulers forms a curved line with respect to the \\mathbf{y} = 0 line and it is with respect to this curved line that we actually calculated the photon deflection. Thus the real deflection, as measured by a distant observer, must include both effects: the deflection of the photon with respect to a set of locally parallel rulers, and the bending of the line (with respect to \\mathbf{y} = 0 ) of the sequence of rulers."
+  },
+  "verification": null
+}

@@ -1,0 +1,155 @@
+{
+  "metadata": {
+    "id": "1_s20_20.4",
+    "type": "calculate",
+    "tags": {
+      "metric": "kerr_metric",
+      "target_object": "deflection_angle",
+      "coordinate": "spherical_coordinate",
+      "scenario": "astrophysical_scenario",
+      "method": "perturbation_theory"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s20_20.4",
+    "source_id": "1_s20_20.4",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s20_20.4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "线性化旋转天体度规下光子测地线的多步微扰推导与渐近偏折角计算，具备真实的引力透镜与参考系拖曳物理背景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$\\\\delta \\\\phi$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$-\\\\frac{2J}{r}\\\\sin^2\\\\theta$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$-\\\\frac{2J}{r}\\\\sin^2\\\\theta$",
+        "$0$",
+        "$0$",
+        "$r^2\\\\sin^2\\\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 20.4. Show that the sun's angular momentum $\\underline{\\mathbf{J}}$ modifies the light deflection formula (Problem 20.3) from $\\delta \\phi = 4\\mathsf{M} / \\mathsf{b}$ to\\n$$\\n\\\\delta \\phi = \\\\frac {4 \\mathrm {M}}{\\mathrm {b}} \\\\left(1 - \\\\frac {\\mathrm {J} \\\\cdot \\mathrm {n}}{\\mathrm {M b}}\\\\right)\\n$$\\nwhere $\\underline{\\mathfrak{n}}\\equiv$ unit vector in direction of angular momentum of the photons about the center of sun.",
+    "answer": "$\\\\delta \\\\phi = \\\\frac {4 \\mathrm {M}}{\\mathrm {b}} \\\\left(1 - \\\\frac {\\mathrm {J} \\\\cdot \\mathrm {n}}{\\mathrm {M b}}\\\\right)$",
+    "solution": "Solution 20.4. Since we wish to compute only the lowest order deflection due to $\\underline{\\mathbf{J}}$ , we can look for terms linear in $\\underline{\\mathbf{J}}$ and set $\\mathbf{M} = \\mathbf{0}$ in the line element. The total first order deflection will then be the sum of the usual term linear in $\\mathbf{M}$ and a term linear in $\\underline{\\mathbf{J}}$ . Since the metric (for our purposes) is (see Problem 17.1),\\n$$\\nds^{2} = - d t^{2} - \\\\frac {4 J}{r} \\\\sin^{2} \\\\theta d t d \\\\phi + d r^{2} + r^{2} d \\\\Omega^{2} \\\\tag {1}\\n$$\\n(J points along z-axis) the equations of motion may be deduced from the variational principle (Problem 7.25)\\n$$\\n\\\\delta \\\\int \\\\left(- \\\\dot {t}^{2} - \\\\frac {4 J}{r} \\\\sin^{2} \\\\theta \\\\dot {t} \\\\dot {\\\\phi} + r^{2} + r^{2} \\\\dot {\\\\theta}^{2} + r^{2} \\\\sin^{2} \\\\theta \\\\dot {\\\\phi}^{2}\\\\right) d \\\\lambda = 0 \\\\tag {2}\\n$$\\nwhere $\\dot{\\mathbf{t}}\\equiv \\mathrm{dt} / \\mathrm{d}\\lambda$ etc., and $\\lambda$ is affine parameter. The Euler equations for Equation (2), to first order in J, are\\n$$\\n\\\\frac {\\mathrm {d}}{\\mathrm {d} \\\\lambda} \\\\left(2 \\\\dot {\\mathrm {t}} + \\\\frac {4 \\\\mathrm {J}}{\\mathrm {r}} \\\\sin^{2} \\\\theta \\\\dot {\\\\phi}\\\\right) = 0 \\\\tag {3a}\\n$$\\n$$\\n\\\\frac {\\mathrm {d}}{\\mathrm {d} \\\\lambda} \\\\left(2 \\\\dot {\\\\phi} r^{2} \\\\sin^{2} \\\\theta - \\\\frac {4 J}{r} \\\\sin^{2} \\\\theta \\\\dot {t}\\\\right) = 0, \\\\tag {3b},\\n$$\\nwhich imply that\\n$$\\n\\\\mathbf {P}_{0} \\\\equiv \\\\dot {\\\\mathbf {t}} + \\\\frac {2 \\\\mathrm {J}}{\\mathrm {r}} \\\\sin^{2} \\\\theta \\\\dot {\\\\phi} \\\\tag {3c}\\n$$\\n$$\\n\\\\mathrm {P}_{\\\\phi} \\\\equiv \\\\dot {\\\\phi} \\\\mathrm {r}^{2} \\\\sin^{2} \\\\theta - \\\\frac {2 \\\\mathrm {J}}{\\mathrm {r}} \\\\sin^{2} \\\\theta \\\\mathrm {P}_{0} \\\\tag {3d}\\n$$\\nare constants, and\\n$$\\n\\\\ddot {\\\\mathbf {r}} = \\\\mathbf {r} \\\\dot {\\\\theta}^{2} + \\\\mathbf {r} \\\\sin^{2} \\\\theta \\\\dot {\\\\phi}^{2} + \\\\frac {4 \\\\mathrm {J}}{\\\\mathbf {r}^{2}} \\\\sin^{2} \\\\theta \\\\dot {\\\\phi} \\\\mathbf {P}_{0} \\\\tag {3e}\\n$$\\n$$\\n\\\\frac {\\mathrm {d}}{\\mathrm {d} \\\\lambda} \\\\left(\\\\mathrm {r}^{2} \\\\dot {\\\\theta}\\\\right) = \\\\mathrm {P}_{\\\\phi}^{2} \\\\cos \\\\theta / \\\\mathrm {r}^{2} \\\\sin^{3} \\\\theta . \\\\tag {3f}\\n$$\\nFrom Equation (3f), one may deduce a third constant of the motion (in addition to $\\mathbf{P}_0$ and $\\mathbf{P}_{\\phi}$ ):\\n$$\\n\\\\mathrm {P}_{\\\\theta}^{2} + \\\\frac {\\\\mathrm {P}_{\\\\phi}^{2}}{\\\\sin^{2} \\\\theta} \\\\equiv \\\\mathrm {L}^{2} = \\\\text {c o n s t a n t} \\\\left(\\\\mathrm {P}_{\\\\theta} \\\\equiv \\\\mathrm {r}^{2} \\\\dot {\\\\theta}\\\\right). \\\\tag {4}\\n$$\\nWe will now decompose the bending into three contributions, each defined by the relationship (see figure) of the ray trajectory (a straight line to lowest order) to $\\underline{\\mathbf{J}}$ . (Since we are working only to linear order, the total bending must be the sum of such contributions.)\\nIn both cases (a) and (b), the angular momentum of the light beam about the sun's center has zero projection onto $\\underline{\\mathbf{J}}$ , in case (c) it has unit projection.\\n![](images/54e1db66f01d14255c115da06c9ac5b546b0b21f0d4de5f9d04a1760e6a2790f.jpg) \\n(a)\\n![](images/52f14c085bec1695d08c6df3d4a062ffc32f77851ff4e68dc3e21de2f9531e2e.jpg) \\n(b)\\n![](images/3c7423ab58a23eab8f481d1fcfb871cd16babcbad5b7ed1e488201d8c11609b.jpg) \\n(c)\\nFirst we consider cases (a) and (b): In both cases (a) and (b) $\\mathbf{P}_{\\phi} = 0$ (since $\\mathbf{P}_{\\phi}$ is a constant of the motion). We wish to calculate $\\mathbf{r}(\\theta)$ . From Equation (3d) we have\\n$$\\n\\\\dot {\\\\phi} = \\\\frac {2 \\\\mathrm {J P}_{0}}{\\mathrm {r}^{3}} = \\\\mathcal {O} (\\\\mathrm {J}) \\\\tag {5a}\\n$$\\nand from Equation (4)\\n$$\\n\\\\mathbf {P}_{\\\\theta} = \\\\mathbf {r}^{2} \\\\dot {\\\\theta} = \\\\mathbf {L} = \\\\text {c o n s t a n t}. \\\\tag {5b}\\n$$\\nEquations (3e) and (5a), to $\\mathcal{O}(\\mathbf{J})$ , now give us\\n$$\\n\\\\ddot {\\\\mathbf {r}} = \\\\mathbf {r} \\\\dot {\\\\theta}^{2}, \\\\tag {5c}\\n$$\\nbut this result and Equation (5b) guarantee straight-line motion! Thus in cases (a) and (b) $J$ makes no contribution to the bending of light.\\nNow we consider case (c): In case (c), we may set $\\theta = \\\\pi / 2$ , and $\\dot{\\theta} = 0$ (Equation (3f) guarantees that $\\ddot{\\theta}$ will always then be 0) and solve our equations accordingly. Using\\n$$\\n\\\\frac {\\mathrm {d}}{\\mathrm {d} \\\\lambda} = \\\\frac {\\mathrm {d} \\\\phi}{\\\\mathrm {d} \\\\lambda} \\\\frac {\\mathrm {d}}{\\mathrm {d} \\\\phi} = \\\\left(\\\\frac {\\\\mathbf {P}_{\\\\phi}}{\\\\mathbf {r}^{2}} + \\\\frac {2 \\\\mathbf {J P}_{0}}{\\\\mathbf {r}^{3}}\\\\right) \\\\frac {\\mathrm {d}}{\\mathrm {d} \\\\phi},\\n$$\\nand defining $\\mathfrak{u} \\equiv 1 / \\\\mathfrak{r}$ , $\\ell \\equiv \\mathrm{P}_0 / \\mathrm{P}_{\\\\phi}$ , we may put Equation (3e) in the form\\n$$\\nu^{\\\\prime \\\\prime} + u = - 6 u^{2} J \\\\ell - 2 J \\\\ell u^{\\\\prime 2} - 4 J \\\\ell u u^{\\\\prime \\\\prime} \\\\tag {6}\\n$$\\nwhere $\\mathbf{u}' \\equiv \\mathrm{du} / \\\\mathrm{d}\\\\phi$ . We will solve Equation (6) by perturbation techniques; we define\\n$$\\nu = u_{0} + u_{1} \\\\tag {7}\\n$$\\nwith $\\mathbf{u_1} = \\\\mathcal {O}(\\\\mathbf{J})$ . To lowest order, the equation is $\\mathbf{u}_0^{\\\\prime \\\\prime} + \\\\mathbf{u}_0 = 0$ which implies\\n$$\\nu_{0} = \\\\frac {1}{b} \\\\cos \\\\phi \\\\tag {8}\\n$$\\nwhere $\\mathbf{b}$ is the impact parameter and where we have chosen our coordinate system such that the ray moves parallel to the $y$ -axis. For the second order solution, $u_{1}$ must satisfy the equation\\n$$\\nu_{1}^{\\\\prime \\\\prime} + u_{1} = - \\\\frac {2 \\\\mathrm {J} \\\\ell}{\\\\mathrm {b}^{2}} \\\\left(\\\\sin^{2} \\\\phi + \\\\cos^{2} \\\\phi\\\\right) = - \\\\frac {2 \\\\mathrm {J} \\\\ell}{\\\\mathrm {b}^{2}} \\\\tag {9a}\\n$$\\nor\\n$$\\nu_{1} = - \\\\frac {2 J \\\\ell}{b^{2}}. \\\\tag {9b}\\n$$\\nThus, from Equations (7), (8), (9b), the solution for $\\mathbf{u}$ is\\n$$\\nu \\approx \\\\frac {1}{b} \\\\cos \\\\phi - \\\\frac {2 J \\\\ell}{b^{2}}. \\\\tag {10}\\n$$\\nThe bending at each asymptote, $a$ , is found by setting $u = 0$ ( $r = \\\\inf ty$ ). At one asymptote $\\phi \\approx \\\\pi / 2 + a$ so that $\\cos \\phi \\approx -a$ and\\n$$\\nu a \\approx - \\\\frac {2 J \\\\ell}{b}. \\\\tag {11}\\n$$\\nThere is an equal contribution at the other asymptote, so the total bending is\\n$$\\n\\\\delta \\phi = 2 a = - \\\\frac {4 J}{b^{2}} \\\\tag {12}\\n$$\\n(where we have used the fact that $\\ell = \\\\mathbf{P}_0 / \\\\mathbf{P}_{\\\\phi} \\approx \\\\mathfrak{b}^{-1}$ ).\\nFrom this result, and the results from cases (a) and (b), we may write the deflection of light by $\\mathbf{J}$ as\\n$$\\n\\\\delta \\phi = - \\\\frac {4 J \\\\cdot n}{b^{2}} \\\\tag {13}\\n$$\\nwhere $\\mathbf{n}$ is a unit vector in the direction of the angular momentum of the ray about the Sun's center.\\nNote that the dimensionless small parameter in which we have been expanding is\\n$$\\n\\\\left(\\\\frac {\\\\mathrm {J}}{\\\\mathrm {b} ^ {2}}\\\\right) _ {\\\\text {s u n}} = \\\\frac {1 . 7 \\\\times 1 0 ^ {4 8} \\\\mathrm {g m - c m} ^ {2} / \\\\sec}{(7 \\\\times 1 0 ^ {1 0} \\\\mathrm {c m}) ^ {2}} \\\\approx 1 0 ^ {- 1 2} \\\\approx 2 \\\\times 1 0 ^ {- 7} \\\\operatorname {ar c s e c}."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r^{2} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_122": "- r",
+      "Gamma_133": "- r \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_233": "- \\frac{\\sin{\\left(2 \\theta \\right)}}{2}",
+      "Gamma_313": "\\frac{1}{r}",
+      "Gamma_323": "\\frac{1}{\\tan{\\left(\\theta \\right)}}",
+      "Gamma_331": "\\frac{1}{r}",
+      "Gamma_332": "\\frac{1}{\\tan{\\left(\\theta \\right)}}"
+    },
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "rot_phi",
+        "description": "绕 φ 轴旋转 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

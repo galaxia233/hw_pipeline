@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s17_17.16_c",
+    "type": "calculate",
+    "tags": {
+      "metric": "kerr_metric_context",
+      "target_object": "radial_wavefunction_R",
+      "coordinate": "tortoise_coordinate",
+      "scenario": "rotating_black_hole_scenario",
+      "method": "asymptotic_expansion_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.16_c",
+    "source_id": "1_s17_17.16_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.16_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "涉及弯曲时空波动方程在乌龟坐标下的渐近行为推导，逻辑链条完整且适用于各类旋转黑洞微扰场景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$r$",
+      "$r^*$",
+      "$a$",
+      "$\\Delta$",
+      "$\\omega$",
+      "$m$",
+      "$M$",
+      "$R$"
+    ],
+    "target": [
+      "$R$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s17_17.16_c.md]Problem 17.16 (c) Find the asymptotic form of $\\Phi$ for $\\mathbf{r} \\to \\inf ty$ .## Solution(c) It is convenient (but not essential) to introduce a “tortoise” coordinate $\\mathbf{r}^*$ which satisfies $\\mathrm{dr}^* / \\mathrm{dr} = (\\mathbf{r}^2 + \\mathbf{a}^2) / \\Delta$ . Note that the interval $(\\mathbf{r}_+, \\inf ty)$ in the r-coordinate is stretched to $(- \\inf ty, \\inf ty)$ in $\\mathbf{r}^*$ . Equation (4) now becomes$$\\frac {\\mathrm {d}^{2} \\mathrm {R}}{\\mathrm {d r}^{* 2}} + \\frac {2 \\mathrm {r} \\Delta}{\\left(\\mathrm {r}^{2} + \\mathrm {a}^{2}\\right)^{2}} \\frac {\\mathrm {d R}}{\\mathrm {d r}^{*}} + \\left[ \\omega^{2} + \\frac {\\mathrm {a}^{2} \\mathrm {m}^{2} - 4 \\operatorname {M a r m} \\omega - \\Delta \\mathrm {A}}{\\left(\\mathrm {r}^{2} + \\mathrm {a}^{2}\\right)^{2}}\\right] \\mathrm {R} = 0. \\tag {5}$$As $\\mathbf{r} \\to \\inf ty$ , we get$$\\frac {\\mathrm {d}^{2} \\mathrm {R}}{\\mathrm {d r}^{* 2}} + \\frac {2}{\\mathrm {r}} \\frac {\\mathrm {d R}}{\\mathrm {d r}^{*}} + \\omega^{2} \\mathrm {R} \\approx 0$$which has solutions$$R \\sim r^{- 1} e^{\\pm i \\omega r^{*}}$$corresponding to ingoing and outgoing waves.",
+    "answer": "$R \\sim r^{-1} e^{\\pm i \\omega r^*}$",
+    "solution": "(c) It is convenient (but not essential) to introduce a “tortoise” coordinate $\\mathbf{r}^*$ which satisfies $\\mathrm{dr}^* / \\mathrm{dr} = (\\mathbf{r}^2 + \\mathbf{a}^2) / \\Delta$ . Note that the interval $(\\mathbf{r}_+, \\inf ty)$ in the r-coordinate is stretched to $(- \\inf ty, \\inf ty)$ in $\\mathbf{r}^*$ . Equation (4) now becomes$$\\frac {\\mathrm {d}^{2} \\mathrm {R}}{\\mathrm {d r}^{* 2}} + \\frac {2 \\mathrm {r} \\Delta}{\\left(\\mathrm {r}^{2} + \\mathrm {a}^{2}\\right)^{2}} \\frac {\\mathrm {d R}}{\\mathrm {d r}^{*}} + \\left[ \\omega^{2} + \\frac {\\mathrm {a}^{2} \\mathrm {m}^{2} - 4 \\operatorname {M a r m} \\omega - \\Delta \\mathrm {A}}{\\left(\\mathrm {r}^{2} + \\mathrm {a}^{2}\\right)^{2}}\\right] \\mathrm {R} = 0. \\tag {5}$$As $\\mathbf{r} \\to \\inf ty$ , we get$$\\frac {\\mathrm {d}^{2} \\mathrm {R}}{\\mathrm {d r}^{* 2}} + \\frac {2}{\\mathrm {r}} \\frac {\\mathrm {d R}}{\\mathrm {d r}^{*}} + \\omega^{2} \\mathrm {R} \\approx 0$$which has solutions$$R \\sim r^{- 1} e^{\\pm i \\omega r^{*}}$$corresponding to ingoing and outgoing waves."
+  },
+  "verification": null
+}

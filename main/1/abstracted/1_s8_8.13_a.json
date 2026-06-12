@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s8_8.13_a",
+    "type": "concept",
+    "tags": {
+      "metric": "lie_derivative",
+      "target_object": "rank_1_tensor",
+      "coordinate": "coordinate_independence",
+      "scenario": "theoretical_derivation",
+      "method": "commutator_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.13_a",
+    "source_id": "1_s8_8.13_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.13_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.5,
+      "generalizability": 0.8,
+      "completeness": 0.4,
+      "realism": 0.3,
+      "rationale": "抽象张量算子定义推导，逻辑链条适中且数学结构普适，但缺乏具体物理场景应用与完整解题过程",
+      "overall": 0.5
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathbf{x}$",
+      "$\\\\mathbf{f}$",
+      "$\\\\mathbf{y}$",
+      "$\\\\omega$"
+    ],
+    "target": [
+      "$\\\\omega_{\\\\mu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 8.13. The Lie derivative of a scalar function is defined to be the directional derivative: $\\mathcal{L}_{\\mathbf{x}}\\mathbf{f} = \\nabla_{\\mathbf{x}}\\mathbf{f}$ . For a vector field $\\mathbf{y}$ , we define Lie differentiation as $\\mathcal{L}_{\\mathbf{x}}\\mathbf{y} \\equiv [\\mathbf{x},\\mathbf{y}] = \\nabla_{\\mathbf{x}}\\mathbf{y} - \\nabla_{\\mathbf{y}}\\mathbf{x}$ . The Lie derivative obeys all the usual rules for a derivative operator and always gives a tensor of the same rank as the tensor differentiated.\\n(a) What is the Lie derivative of a 1-form?",
+    "answer": "$\\\\mathcal{L}_{\\\\mathbf{x}}\\\\omega_{\\\\mu} = x^{\\\\nu}\\\\nabla_{\\\\nu}\\\\omega_{\\\\mu} + \\\\omega_{\\\\nu}\\\\nabla_{\\\\mu}x^{\\\\nu}$",
+    "solution": null
+  },
+  "verification": null
+}

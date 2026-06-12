@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s19_19.35",
+    "type": "prove",
+    "tags": {
+      "metric": "cosmology",
+      "target_object": "friedmann_equations",
+      "coordinate": "homogeneity",
+      "scenario": "isotropy",
+      "method": "static_universe"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.35",
+    "source_id": "1_s19_19.35",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.35"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "基于FLRW对称性假设，通过爱因斯坦场方程导出弗里德曼方程，结合静态条件与正能量条件完成多步逻辑推导",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$R$",
+      "$\\rho$",
+      "$p$",
+      "$G$",
+      "$k$"
+    ],
+    "target": [
+      "$G_{00}$",
+      "$G_{ii}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.35. Prove that for a physically possible perfect fluid no solution of the Einstein equations is homogeneous, everywhere isotropic, and static. (Before Hubble's discovery, Einstein considered this a failing of the theory and introduced the \"cosmological constant\" term as a remedy.)",
+    "answer": "No solution exists for fluids with positive energy density and pressure ($\\rho > 0, p > 0$).",
+    "solution": "Solution 19.35. The Friedmann equations (Problem 19.15) are$$\\ddot {\\mathbf {R}} = - \\frac {4}{3} \\pi \\mathrm {G} (\\rho + 3 \\mathrm {p}) \\mathbf {R}$$$$\\ddot {\\mathbf {R}} \\ddot {\\mathbf {R}} + 2 \\mathbf {R} + 2 \\mathbf {k} = 4 \\pi \\mathbf {G} (\\rho - \\mathbf {p}) \\mathbf {R}^{2}.$$For a static solution, all time derivatives must vanish, so we get two conditions, $\\rho + 3p = 0$ and $\\rho = 3k / 8\\pi GR^2$ , which have no solution for a fluid with positive energy density and pressure (i.e. any known fluid)."
+  },
+  "verification": null
+}

@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-1",
+    "type": "calculate",
+    "tags": {
+      "target_object": "Earth_quadrupole_moment",
+      "coordinate": "Newtonian_potential",
+      "scenario": "Axial_precession",
+      "method": "Tidal_torque_inversion",
+      "generalization_axis": "invert",
+      "metric": "weak_field_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "weak_field_metric",
+    "soft_variant": "invert",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$X$",
+      "$Y$",
+      "$Z$",
+      "$r_s$",
+      "$r_M$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\psi$",
+      "$J$",
+      "$C$",
+      "$A$",
+      "$\\omega$",
+      "$T$"
+    ],
+    "target": [
+      "$J_2$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "地球自转轴的进动是由太阳和月球的引力潮汐力矩与地球的赤道隆起（四极矩）耦合产生的。已知地球自转轴进动周期的观测值约为 $T = 25772$ 年（即 $8.14 \\times 10^{11}$ 秒）。假设地球可近似为均匀球体，其极向转动惯量为 $C = \\frac{2}{5} M_E R_E^2$。已知地球质量 $M_E = 5.97 \\times 10^{24}$ kg，半径 $R_E = 6.37 \\times 10^{6}$ m，自转角速度 $\\omega_E = 7.29 \\times 10^{-5}$ rad/s，黄赤交角 $\\epsilon = 23.44^{\\circ}$；太阳质量 $M_S = 1.99 \\times 10^{30}$ kg，日地距离 $R_S = 1.50 \\times 10^{11}$ m；月球质量 $M_M = 7.35 \\times 10^{22}$ kg，月地距离 $R_M = 3.84 \\times 10^{8}$ m；引力常数 $G = 6.67 \\times 10^{-11}$ $\\text{m}^3/(\\text{kg} \\cdot \\text{s}^2)$。请根据上述进动周期的观测值，反推地球的无量纲四极矩 $J_2$ 的近似值。",
+    "answer": "$J_2 \\approx 1.29 \\times 10^{-3}$",
+    "solution": "1. 计算观测到的进动角频率 $\\Omega_p = \\frac{2\\pi}{T} = \\frac{2\\pi}{8.14 \\times 10^{11}} \\approx 7.72 \\times 10^{-12}$ rad/s。2. 日月潮汐力矩引起的总进动角速率公式为 $\\Omega_p = \\frac{3}{2} \\left( \\frac{GM_S}{R_S^3} + \\frac{GM_M}{R_M^3}\\right) \\frac{C-A}{C \\omega_E} \\cos \\epsilon$，其中 $C-A = M_E R_E^2 J_2$ 为地球的极向与赤道转动惯量之差。3. 代入均匀球体假设 $C = \\frac{2}{5} M_E R_E^2$, 得到 $\\frac{C-A}{C} = \\frac{5}{2} J_2$，因此进动公式化为 $\\Omega_p = \\frac{15}{4} \\left( \\frac{GM_S}{R_S^3} + \\frac{GM_M}{R_M^3}\\right) \\frac{J_2}{\\omega_E} \\cos \\epsilon$。4. 计算外部天体的潮汐项之和：$\\frac{GM_S}{R_S^3} \\approx 3.96 \\times 10^{-14} \\text{s}^{-2}$，$\\frac{GM_M}{R_M^3} \\approx 8.78 \\times 10^{-14} \\text{s}^{-2}$，两者之和约为 $1.274 \\times 10^{-13} \\text{s}^{-2}$。5. 从进动公式反解 $J_2$: $J_2 = \\frac{4}{15} \\frac{\\Omega_p \\omega_E}{\\cos \\epsilon \\left( \\frac{GM_S}{R_S^3} + \\frac{GM_M}{R_M^3}\\right)}$。6. 代入数值计算：$J_2 = \\frac{4}{15} \\times \\frac{7.72 \\times 10^{-12} \\times 7.29 \\times 10^{-5}}{0.9175 \\times 1.274 \\times 10^{-13}} \\approx 1.29 \\times 10^{-3}$。"
+  },
+  "verification": null
+}

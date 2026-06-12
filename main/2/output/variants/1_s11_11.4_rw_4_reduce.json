@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-3-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "spin_velocity_inner_product_derivative",
+      "coordinate": "schwarzschild",
+      "scenario": "black_hole_reduce_flat",
+      "method": "limit_M_to_0",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-3",
+      "1_s11_11.4-3-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\nabla_{\\mathbf{u}} (S^\\mu u_\\mu)$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，不受外力矩的陀螺仪沿测地线自由下落，其自旋矢量 $\\mathbf{S}$ 与四速度 $\\mathbf{u}$ 的正交性沿轨迹守恒，即 $\\nabla_{\\mathbf{u}} (S^\\mu u_\\mu) = 0$。度规线元为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。请通过取质量极限 $M \\to 0$（即 Schwarzschild 半径 $r_s \\to 0$），说明该协变导数表达式中的时空几何元素如何退化，并指出此广义相对论守恒律回到平直时空中的何种经典对应物理规律？",
+    "answer": "当取极限 $r_s \\to 0$ 时：\\n1. 度规退化：度规系数 $g_{00} \\to -1$, $g_{11} \\to 1$，线元全局退化为 Minkowski 平直时空度规 $ds^2 = -dt^2 + dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。\\n2. Christoffel 符号退化：所有含有 $r_s$ 的 Christoffel 符号（如 $\\Gamma^0_{01} = \\frac{r_s}{2 r (r - r_s)} \\to 0$, $\\Gamma^1_{00} = \\frac{r_s (r - r_s)}{2 r^3} \\to 0$ 等）均退化为 0，时空曲率消失。\\n3. 协变导数退化：由于 Christoffel 符号均为 0，协变导数 $\\nabla_{\\mathbf{u}}$ 退化为沿世界线的普通导数 $d/d\\tau$。\\n4. 守恒律退化与经典对应：原 GR 结论 $\\nabla_{\\mathbf{u}}(S^\\mu u_\\mu) = 0$ 退化为 $d(S^\\mu u_\\mu)/d\\tau = 0$。在经典平直时空（惯性系）中，这表示自由物体做匀速直线运动时，无外力矩的陀螺仪自旋矢量大小和方向保持恒定（角动量守恒），且自旋与速度的内积保持不变，对应惯性系中自旋始终表现为纯空间矢量（无时间分量）的物理直觉。",
+    "solution": null
+  },
+  "verification": null
+}

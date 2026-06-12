@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s15_15.12-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "tidal_acceleration",
+      "coordinate": "schwarzschild",
+      "scenario": "circular_orbit_geodesic_deviation",
+      "method": "riemann_tensor_calculation",
+      "generalization_axis": "extend",
+      "metric": "schwarzschild_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s15_15.12",
+      "1_s15_15.12-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "schwarzschild_metric",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$\\tau$"
+    ],
+    "target": [
+      "$K$"
+    ],
+    "metric": [
+      [
+        "$-1+2M/r$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2M/r)^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\sin^2 \\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 时空的赤道面 ($\\theta = \\pi/2$) 上，Paul 以径向坐标 $r = 4M$ 做圆轨道运动。考虑一个与 Paul 相邻的自由质点，它与 Paul 之间仅存在极微小的径向间距 $\\xi^r$（其他方向间距为零）。请利用测地偏离方程及该时空的 Riemann 曲率张量，推导该相邻质点相对于 Paul 的径向潮汐加速度 $a^r$，将结果表示为 $a^r = K \\xi^r$，并求出比例系数 $K$ 在 $r = 4M$ 时的具体表达式（可用 $M$ 或 $r$ 表示）。（注：需首先推导 Paul 在此圆轨道上的四维速度 $u^\\mu$。度规符号约定为 $(-,+,+,+)$，类时条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$，能量守恒量定义为 $E = -g_{tt} \\dot{t}$，角动量为 $L = g_{\\phi\\phi} \\dot{\\phi}$。度规中 $r_s = 2M$。）度规定义：$ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$",
+    "answer": "$K = \\frac{5}{128 M^2}$ 或等价的 $K = \\frac{5}{8 r^2}$",
+    "solution": "1. **推导 Paul 的四维速度 $u^\\mu$**：   对于赤道面上的圆轨道，$u^r = 0, u^\\theta = 0$。由守恒量定义，$E = -g_{tt} u^t = (1-2M/r) u^t$，$L = g_{\\phi\\phi} u^\\phi = r^2 u^\\phi$。   有效势为 $V_{eff} = \\frac{1}{2}\\left(-1 + \\frac{2M}{r} + \\frac{L^2}{r^2} - \\frac{2ML^2}{r^3}\\right)$。圆轨道条件要求 $\\frac{dV_{eff}}{dr} = 0$，解得 $L^2 = \\frac{Mr^2}{r-3M}$。   代入 $r = 4M$，得 $L^2 = \\frac{M(16M^2)}{4M-3M} = 16M^3 \\implies L = 4M$。   由类时条件 $E^2 = -g_{tt}\\left(1 + \\frac{L^2}{r^2}\\right) = (1-2M/r)\\left(1 + \\frac{16M^3}{16M^2}\\right) = \\frac{1}{2} \\times 2 = 1 \\implies E = 1$。   因此 $u^t = \\frac{E}{-g_{tt}} = \\frac{1}{1/2} = 2$，$u^\\phi = \\frac{L}{g_{\\phi\\phi}} = \\frac{4M}{16M^2} = \\frac{1}{4M}$。   所以 $u^\\mu = \\left(2, 0, 0, \\frac{1}{4M}\\right)$。2. **应用测地偏离方程**：   相对加速度公式为 $a^r = - R^r_{\\ \\nu\\rho\\sigma} u^\\nu \\xi^\\rho u^\\sigma$。   由于分离矢量仅有径向分量 $\\xi^\\rho = (0, \\xi^r, 0, 0)$，且 $u^\\mu$ 仅含 $t$ 和 $\\phi$ 分量，方程简化为：   $a^r = - \\left( R^r_{\\ trt} u^t u^t + R^r_{\\ \\phi r \\phi} u^\\phi u^\\phi\\right) \\xi^r$。3. **计算所需的 Riemann 张量分量**：   $R^r_{\\ trt} = g^{rr} R_{rtrt} = g^{rr} R_{1010}$。   由数据 $R_{1010} = \\frac{r_s(-r+r_s)}{r^4}$，代入 $r_s = 2M, r = 4M$，得 $R_{1010} = \\frac{2M(-4M+2M)}{(4M)^4} = -\\frac{1}{64M^2}$。   $g^{rr} = \\frac{r-r_s}{r} = \\frac{1}{2}$。   故 $R^r_{\\ trt} = \\frac{1}{2} \\times \\left(-\\frac{1}{64M^2}\\right) = -\\frac{1}{128M^2}$。   $R^r_{\\ \\phi r \\phi} = g^{rr} R_{r\\phi r\\phi} = g^{rr} R_{1313}$。   由数据 $R_{1313} = -\\frac{r_s \\sin^2\\theta}{2r}$，代入 $r_s = 2M, r = 4M, \\theta = \\pi/2$，得 $R_{1313} = -\\frac{1}{4}$。   故 $R^r_{\\ \\phi r \\phi} = \\frac{1}{2} \\times \\left(-\\frac{1}{4}\\right) = -\\frac{1}{8}$。4. **计算径向潮汐加速度比例系数 $K$**：   $K = - \\left( R^r_{\\ trt} (u^t)^2 + R^r_{\\ \\phi r \\phi} (u^\\phi)^2\\right)$   $= - \\left( \\left(-\\frac{1}{128M^2}\\right) \\times 2^2 + \\left(-\\frac{1}{8}\\right) \\times \\left(\\frac{1}{4M}\\right)^2\\right)$   $= - \\left( -\\frac{4}{128M^2} - \\frac{1}{128M^2}\\right)$   $= - \\left( -\\frac{5}{128M^2}\\right) = \\frac{5}{128M^2}$。   若用 $r$ 表示（因 $r=4M \\implies M=r/4$），则 $K = \\frac{5}{128 (r/4)^2} = \\frac{5}{8 r^2}$。物理意义备注：在 Newtonian 引力中，圆轨道上的径向潮汐力表现为向心压缩（系数为负），但在 $r=4M$ 的强场区域，广义相对论效应导致径向潮汐力变为向外拉伸（系数为正），体现了强引力场下时空曲率的显著反直觉特征。"
+  },
+  "verification": null
+}

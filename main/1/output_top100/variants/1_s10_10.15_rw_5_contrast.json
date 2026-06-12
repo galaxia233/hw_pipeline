@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-4-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "max_radius_and_escape_condition",
+      "coordinate": "static_spherical",
+      "scenario": "radial_geodesic_contrast",
+      "method": "energy_minimum_condition",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-4",
+      "1_s10_10.15-4-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$r_{max}$ 与逃逸条件"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在反德西特时空与施瓦西时空中，分别考察测试粒子沿径向向外发射后的运动极限。已知两时空均具有时间平移 Killing 矢量 $\\boldsymbol{\\xi} = \\partial_t$，质量为 $\\mu$ 的测试粒子守恒能量定义为 $E = -\\boldsymbol{p} \\cdot \\boldsymbol{\\xi}$，且粒子在径向速度降为零的最远距离处，其能量恰好等于该处的能量下限 $E_{min} = \\mu \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$。背景 A（反德西特时空）：度规为 $ds^2 = - \\cos h^{2}{\\left(r\\right)} dt^2 + dr^2 + \\sin h^{2}{\\left(r\\right)} d\\theta^2 + \\sin^{2}{\\left(\\theta\\right)} \\sin h^{2}{\\left(r\\right)} d\\phi^2$。粒子从中心 $r=0$ 处以局域静止观测者测量的径向速率 $v_0$ ($0 < v_0 < 1$) 发射。背景 B（施瓦西时空）：度规为 $ds^2 = \\frac{-r+r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^{2}{\\left(\\theta\\right)} d\\phi^2$。粒子从某半径 $r_0 > r_s$ 处以局域静止观测者测量的径向速率 $v_0$ 发射。请分别推导两种背景下粒子能达到的最远坐标半径 $r_{max}$（或判定其不存在）的条件与解析表达式，并对比结果差异，解释其反映的时空禁闭性质。",
+    "answer": "背景 A（反德西特时空）：在中心 $r=0$ 处，度规退化为平直，粒子4速度分量为 $\\dot{t} = 1/\\sqrt{1-v_0^2}$，$\\dot{r} = v_0/\\sqrt{1-v_0^2}$。守恒能量 $E = -\\mu g_{tt} \\dot{t} = \\mu/\\sqrt{1-v_0^2}$。在最远距离 $r_{max}$ 处，粒子能量等于局域下限 $E = \\mu \\sqrt{-g_{tt}(r_{max})} = \\mu \\cos h{\\left(r_{max}\\right)}$。联立得 $\\cos h{\\left(r_{max}\\right)} = 1/\\sqrt{1-v_0^2}$。因 $0<v_0<1$ 时右侧恒大于1，且 $\\cos h(r)$ 单调无界，方程总有解，解得 $r_{max} = \\text{arctanh}(v_0) = \\frac{1}{2} \\ln \\frac{1+v_0}{1-v_0}$。粒子在任何初始速率下都会折返。背景 B（施瓦西时空）：在 $r_0$ 处，局域静止观测者测得速率 $v_0$，4速度分量为 $\\dot{t} = \\frac{1}{\\sqrt{1-v_0^2}\\sqrt{1-r_s/r_0}}$，$\\dot{r} = \\frac{v_0}{\\sqrt{1-v_0^2}}\\sqrt{1-r_s/r_0}$。守恒能量 $E = -\\mu g_{tt} \\dot{t} = \\frac{\\mu \\sqrt{1-r_s/r_0}}{\\sqrt{1-v_0^2}}$。在最远距离处，$E = \\mu \\sqrt{1-r_s/r_{max}}$。联立得 $\\sqrt{1-r_s/r_{max}} = \\frac{\\sqrt{1-r_s/r_0}}{\\sqrt{1-v_0^2}}$。由于施瓦西时空中 $\\sqrt{-g_{tt}} \\le 1$，方程有解要求右侧 $\\le 1$，即 $v_0^2 \\le r_s/r_0$（此为局域逃逸速率条件）。若 $v_0^2 \\le r_s/r_0$，解得 $1-r_s/r_{max} = \\frac{1-r_s/r_0}{1-v_0^2}$，从而 $r_{max} = \\frac{r_0 r_s (1-v_0^2)}{r_s - r_0 v_0^2}$，粒子被引力拉回；若 $v_0^2 > r_s/r_0$，方程无解，不存在有限 $r_{max}$，粒子将逃逸至无穷远。对比与物理含义：反德西特时空的 Killing 矢量范数 $\\sqrt{-\\boldsymbol{\\xi}\\cdot\\boldsymbol{\\xi}} = \\cos h(r)$ 随 $r$ 无限增长，对应无限高的引力势垒。任何有限能量的粒子均无法克服，必然折返，时空具有“禁闭”效应。施瓦西时空的 Killing 矢量范数 $\\sqrt{-\\boldsymbol{\\xi}\\cdot\\boldsymbol{\\xi}} = \\sqrt{1-r_s/r}$ 随 $r$ 增长趋于上限1，对应有限引力势垒。只要粒子初始局域速率超过逃逸速率 $v_{esc} = \\sqrt{r_s/r_0}$（使得总能量 $E>\\mu$），粒子即可逃逸至无穷远，时空不具有禁闭性质。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 0.9,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

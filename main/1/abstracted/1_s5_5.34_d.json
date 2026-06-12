@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s5_5.34_d",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.34_d",
+    "source_id": "1_s5_5.34_d",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.34_d"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "相对论动理论矩积分推导+热力学状态方程证明+完整解答",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$P^\\\\mu$",
+      "$u^\\\\mu$",
+      "$J^\\\\mu$",
+      "$T^{\\\\mu\\\\nu}$",
+      "$n$",
+      "$p$",
+      "$T$",
+      "$\\\\chi$",
+      "$\\\\beta$"
+    ],
+    "target": [
+      "$p$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.34. The invariant equilibrium distribution function of a relativistic gas is (25-1) $\\frac{1}{4}$ .\\n$$ \\\\mathcal {N} \\left(\\mathrm {p}^{\\alpha}, \\mathrm {x}^{\\alpha}\\right) \\equiv \\frac {\\mathrm {d N}}{\\mathrm {d}^{3} \\mathrm {x d}^{3} \\mathrm {P}} = \\frac {(2 \\mathrm {J} + 1) / \\mathrm {h}^{3}}{\\exp \\left[ - \\frac {\\mathrm {P} \\cdot \\mathrm {u}}{\\mathrm {k T}} - \\theta\\right] - \\varepsilon}. $$\\nHere $\\mathbf{J} =$ spin of particles, $\\mathbf{h} =$ Planck's constant, $\\mathbf{u} =$ mean 4-velocity of gas, $\\varepsilon = 1,0$ or $-1$ for Bose-Einstein, Maxwell-Boltzmann or Fermi-Dirac statistics respectively. The parameter $\\theta$ is independent of $\\mathbf{P}$ . The first two moments of $\\mathfrak{N}$ are\\n$$ \\mathrm {J}^{\\mu} \\equiv \\int \\mathcal {N} \\mathrm {P}^{\\mu} \\frac {\\mathrm {d}^{3} \\mathrm {P}}{(- \\mathrm {P} \\cdot \\mathrm {u})}, \\qquad \\mathrm {T}^{\\mu \\nu} \\equiv \\int \\mathcal {N} \\mathrm {P}^{\\mu} \\mathrm {P}^{\\nu} \\frac {\\mathrm {d}^{3} \\mathrm {P}}{(- \\mathrm {P} \\cdot \\mathrm {u})}. $$\\nSince $\\mathbf{u}$ is the only free vector, these integrals must have the form\\n$$ J^{\\mu} = n u^{\\mu}, \\quad T^{\\mu \\nu} = (\\rho + p) u^{\\mu} u^{\\nu} + p g^{\\mu \\nu}. $$\\n(This is the kinetic-theory definition of $\\mathfrak{n},\\rho ,\\mathfrak{p}$ .)\\n(d) Show that for a Maxwell-Boltzmann gas, $p = nkT$ for all $T$ .",
+    "answer": "$p = nkT$",
+    "solution": "(d) For $\\varepsilon = 0$\\n$$ \\\\frac {\\mathsf {p}}{\\mathsf {n}} = \\\\frac {\\\\frac {\\mathsf {m}}{3} \\int_{0}^{\\inf ty} \\\\sin h^{4} \\chi \\mathsf {e}^{- \\\\beta \\cos h \\chi} \\mathsf {d} \\chi}{\\int_{0}^{\\inf ty} \\\\sin h^{2} \\chi \\cos h \\chi \\mathsf {e}^{- \\\\beta \\cos h \\chi} \\mathsf {d} \\chi}, $$\\nbut\\n$$ \\\\begin{array}{l} \\int_{0}^{\\inf ty} \\\\sin h^{4} \\chi \\exp (- \\\\beta \\cos h \\chi) d \\chi = - \\\\frac {1}{\\\\beta} \\\\sin h^{3} \\chi \\exp (- \\\\beta \\cos h \\chi) |_{0}^{\\inf ty} \\\\\\\\ + \\\\frac {3}{\\\\beta} \\int_{0}^{\\inf ty} \\\\sin h^{3} \\chi \\cos h \\chi \\exp (- \\\\beta \\cos h \\chi) d \\chi . \\\\\\\\ \\end{array} $$\\nThe first term on the right vanishes, so\\n$$ \\mathbf {p} = \\mathbf {n k T}. $$"
+  },
+  "verification": null
+}

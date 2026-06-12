@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "Killing_vector_limit",
+      "coordinate": "spherical",
+      "scenario": "cosmic_string",
+      "method": "tensor_calculation",
+      "generalization_axis": "verify",
+      "metric": "BarriolaVilekin"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "BarriolaVilekin",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\mu",
+      "\\nu"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "k**2*r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "k**2*r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在描述宇宙弦/全局单极子缺陷的 Barriola-Vilekin 度规 $ds^2 = -dt^2 + dr^2 + k^{2} r^{2} d\\theta^{2} + k^{2} r^{2} \\sin^{2}(\\theta) d\\phi^{2}$ 中，时空具有静态和轴对称性，对应两个对合的 Killing 矢量 $\\xi_{(t)} = \\partial_t$ 和 $\\xi_{(\\phi)} = \\partial_\\phi$。请验证该对称性结构在平直时空退化条件 $k \\to 1$ 下的连续过渡性质：通过计算协变 Killing 方程 $\\nabla_\\mu \\xi_{(\\phi)\\nu} + \\nabla_\\nu \\xi_{(\\phi)\\mu} = 0$ 中涉及径向与角向的非零混合项，证明 $\\xi_{(\\phi)}$ 满足 Killing 条件，并由此得出在 $k \\to 1$ 极限下协变分量 $\\xi_{(\\phi)\\mu}$ 精确还原为 Minkowski 时空轴旋转 Killing 矢量的结论。",
+    "answer": "协变 Killing 方程的非零混合项计算结果为 0，证明 $\\xi_{(\\phi)}$ 是合法的 Killing 矢量；在 $k \\to 1$ 极限下，其协变分量 $\\xi_{(\\phi)\\mu}$ 还原为 $(0, 0, 0, r^{2} \\sin^{2}(\\theta))$，这精确对应 Minkowski 时空轴旋转 Killing 矢量的协变形式，验证了对合对称性在缺陷消失时的连续过渡。",
+    "solution": "1. 确定轴对称 Killing 矢量 $\\xi_{(\\phi)}$ 的分量。其逆变分量为 $\\xi_{(\\phi)}^\\mu = (0, 0, 0, 1)$，利用度规降指标可得协变分量为 $\\xi_{(\\phi)\\mu} = g_{\\mu\\phi} = (0, 0, 0, k^{2} r^{2} \\sin^{2}(\\theta))$。\\n2. 写出协变 Killing 方程的展开形式：$\\nabla_\\mu \\xi_{(\\phi)\\nu} + \\nabla_\\nu \\xi_{(\\phi)\\mu} = \\partial_\\mu \\xi_{(\\phi)\\nu} + \\partial_\\nu \\xi_{(\\phi)\\mu} - 2 \\Gamma^\\lambda_{\\mu\\nu} \\xi_{(\\phi)\\lambda}$。由于 $\\xi_{(\\phi)\\lambda}$ 仅在 $\\lambda=3$ 时非零，方程中的 Christoffel 项只涉及 $\\Gamma^3_{\\mu\\nu}$。\\n3. 计算非零混合项 $\\mu=1, \\nu=3$（即 $r, \\phi$ 分量）：\\n   - $\\partial_1 \\xi_{(\\phi)3} = 2 k^{2} r \\sin^{2}(\\theta)$，$\\partial_3 \\xi_{(\\phi)1} = 0$\\n   - $\\Gamma^3_{13} \\xi_{(\\phi)3} = \\frac{1}{r} \\cdot k^{2} r^{2} \\sin^{2}(\\theta) = k^{2} r \\sin^{2}(\\theta)$\\n   - 结果：$2 k^{2} r \\sin^{2}(\\theta) - 2 k^{2} r \\sin^{2}(\\theta) = 0$\\n4. 计算非零混合项 $\\mu=2, \\nu=3$（即 $\\theta, \\phi$ 分量）：\\n   - $\\partial_2 \\xi_{(\\phi)3} = 2 k^{2} r^{2} \\sin(\\theta) \\cos(\\theta) = k^{2} r^{2} \\sin(2\\theta)$，$\\partial_3 \\xi_{(\\phi)2} = 0$\\n   - $\\Gamma^3_{23} \\xi_{(\\phi)3} = \\frac{1}{\\tan(\\theta)} \\cdot k^{2} r^{2} \\sin^{2}(\\theta) = k^{2} r^{2} \\sin(\\theta) \\cos(\\theta) = \\frac{1}{2} k^{2} r^{2} \\sin(2\\theta)$\\n   - 结果：$k^{2} r^{2} \\sin(2\\theta) - 2 \\cdot \\frac{1}{2} k^{2} r^{2} \\sin(2\\theta) = 0$\\n5. 上述计算证明了 $\\xi_{(\\phi)}$ 完全满足 Killing 方程，是合法的轴对称 Killing 矢量。\\n6. 验证退化条件 $k \\to 1$：此时协变分量 $\\xi_{(\\phi)\\mu} \\to (0, 0, 0, r^{2} \\sin^{2}(\\theta))$，这精确对应 Minkowski 平直时空在球坐标下沿 z 轴旋转的 Killing 矢量 $\\partial_\\phi$ 的协变形式。同时，Killing 方程各项也平滑过渡为平直时空的对应项，从而验证了对合对称性结构在缺陷消失（$k \\to 1$）时连续还原为经典平直时空对称性的性质。"
+  },
+  "verification": null
+}

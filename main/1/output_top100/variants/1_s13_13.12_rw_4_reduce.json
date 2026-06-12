@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-2-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "gauge vector wave equation",
+      "coordinate": "Minkowski",
+      "scenario": "linearized gravity reduce to static field",
+      "method": "Newtonian limit",
+      "generalization_axis": "limit",
+      "metric": "metric_tensor"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-2",
+      "1_s13_13.12-2-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric_tensor",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\mu$",
+      "$\\\\xi^\\\\mu$",
+      "$h_{\\\\mu\\\\nu}$",
+      "$g_{\\\\mu\\\\nu}$",
+      "$\\\\eta_{\\\\mu\\\\nu}$"
+    ],
+    "target": [
+      "\\nabla^2 \\xi_i = \\partial^j \\bar{h}_{ji}"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In linearized gravity, the spacetime metric is given by $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$, where $\\eta_{\\mu\\nu}$ is the Minkowski metric with signature $(-,+,+,+)$ and $|h_{\\mu\\nu}| \\ll 1$. An infinitesimal coordinate transformation $x'^\\mu = x^\\mu + \\xi^\\mu(x)$ induces a change in the perturbation. To enforce the Lorenz gauge condition $\\partial^\\mu \\bar{h}'_{\\mu\\nu} = 0$ on the transformed trace-reversed perturbation, the gauge vector $\\xi_\\nu$ must satisfy the relativistic wave equation $\\partial^\\mu \\partial_\\mu \\xi_\\nu = \\partial^\\mu \\bar{h}_{\\mu\\nu}$. Now, consider the Newtonian limit (or static/instantaneous propagation limit) of this equation, where the speed of light $c \\to \\inf ty$ (or equivalently, temporal derivatives are negligible, $\\partial_t \\to 0$). Reduce this wave equation for the spatial components $\\xi_i$ (where $i = 1, 2, 3$) to its corresponding classical static field form, expressed in terms of spatial derivatives of the trace-reversed perturbation.",
+    "answer": "In the Newtonian limit ($c \\to \\inf ty$), the temporal derivatives vanish ($\\partial_t \\to 0$). The d'Alembertian operator $\\partial^\\mu \\partial_\\mu = -\\frac{1}{c^2}\\partial_t^2 + \\nabla^2$ reduces to the spatial Laplacian $\\nabla^2$. The divergence on the right-hand side for spatial indices $i$ becomes $\\partial^\\mu \\bar{h}_{\\mu i} = -\\partial_t \\bar{h}_{0 i} + \\partial^j \\bar{h}_{j i} \\to \\partial^j \\bar{h}_{j i}$ (where $j = 1, 2, 3$). Thus, the relativistic wave equation reduces to the classical Poisson equation: $$ \\nabla^2 \\xi_i = \\partial^j \\bar{h}_{ji} $$",
+    "solution": "1. Expand the d'Alembertian operator in terms of temporal and spatial derivatives: $\\partial^\\mu \\partial_\\mu = -\\frac{1}{c^2}\\partial_t^2 + \\nabla^2$. In the Newtonian limit $c \\to \\inf ty$, the temporal derivative term vanishes, leaving $\\partial^\\mu \\partial_\\mu \\to \\nabla^2$. 2. Expand the right-hand side divergence for spatial index $\\nu = i$: $\\partial^\\mu \\bar{h}_{\\mu i} = -\\partial_t \\bar{h}_{0 i} + \\partial^j \\bar{h}_{j i}$. 3. Apply the Newtonian limit $\\partial_t \\to 0$ to the right-hand side, which removes the time derivative term: $\\partial^\\mu \\bar{h}_{\\mu i} \\to \\partial^j \\bar{h}_{j i}$. 4. Substitute both limits into the original wave equation to obtain the reduced static Poisson equation: $\\nabla^2 \\xi_i = \\partial^j \\bar{h}_{ji}$."
+  },
+  "verification": null
+}

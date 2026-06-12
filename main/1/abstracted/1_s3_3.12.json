@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s3_3.12",
+    "type": "prove",
+    "tags": {
+      "metric": "tensor_algebra",
+      "target_object": "vector_space_basis",
+      "coordinate": "outer_product",
+      "scenario": "direct_product",
+      "method": "decomposition"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.12",
+    "source_id": "1_s3_3.12",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.12"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.4,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.3,
+      "rationale": "基础张量代数性质证明，逻辑链条较短且偏纯数学推导，解答完整清晰但无具体物理场景",
+      "overall": 0.57
+    }
+  },
+  "physical_data": {
+    "dimension": "$n$",
+    "variables": [
+      "$n$",
+      "$\\mathbf{e}_i$",
+      "$\\mathbf{e}_j$",
+      "$T_{ij}$"
+    ],
+    "target": [
+      "$T_{ij}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.12. Prove that the general second-rank tensor in $n$ -dimensions cannot be represented as a simple direct product of two vectors, but can be expressed as a sum over many such products.## SolutionSolution 3.12. A direct product of two vectors (see Problem 3.11) has all of its columns proportional to each other (similarly for all of its rows). This is not true for a general second rank tensor. If $\\mathbf{e}_i$ $i = 1, n$ are the basis vectors $(0, 0, \\dot s, 1, \\dot s, 0, 0)$ where the 1 is in the $i^{th}$ slot, then the $n^2$ products $\\mathbf{e}_i \\otimes \\mathbf{e}_j$ obviously span the space of second rank tensors, since there is one with a 1 uniquely in any row and column. Sums over these times constants obviously can give the general tensor. (Any one specific tensor can be represented as a sum of $n$ outer products, as the reader is invited to verify.)",
+    "answer": "A general second-rank tensor $T$ cannot be written as a single direct product $u \\otimes v$ because its components do not satisfy proportionality across rows/columns ($T_{ij} \\neq u_i v_j$ generally). It can always be decomposed into a basis expansion: $T = \\sum_{i,j} c^{ij} \\mathbf{e}_i \\otimes \\mathbf{e}_j$, confirming it requires a sum over multiple outer products.",
+    "solution": "Solution 3.12. A direct product of two vectors (see Problem 3.11) has all of its columns proportional to each other (similarly for all of its rows). This is not true for a general second rank tensor. If $\\mathbf{e}_i$ $i = 1, n$ are the basis vectors $(0, 0, \\dot s, 1, \\dot s, 0, 0)$ where the 1 is in the $i^{th}$ slot, then the $n^2$ products $\\mathbf{e}_i \\otimes \\mathbf{e}_j$ obviously span the space of second rank tensors, since there is one with a 1 uniquely in any row and column. Sums over these times constants obviously can give the general tensor. (Any one specific tensor can be represented as a sum of $n$ outer products, as the reader is invited to verify.)"
+  },
+  "verification": null
+}

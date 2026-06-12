@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s9_9.26",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "riemann_curvature_tensor",
+      "coordinate": "isotropic_manifold",
+      "scenario": "bianchi_identity",
+      "method": "index_contraction"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.26",
+    "source_id": "1_s9_9.26",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.26"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "需结合度规协变导数为零与第一比安基恒等式进行多重指标缩并，逻辑链条完整，属经典微分几何定理的标准推导",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\gamma$",
+      "$\\\\delta$",
+      "$\\\\lambda$",
+      "$K$"
+    ],
+    "target": [
+      "$K_{,\\\\lambda}=0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.26. If the Riemann curvature is isotropic, the Riemann curvature tensor can be written as\\n$$\\n\\\\mathrm {R}_{a \\\\beta \\\\gamma \\\\delta} = \\\\mathrm {K} (\\\\mathrm {g}_{a \\\\gamma} \\\\mathrm {g}_{\\\\beta \\\\delta} - \\\\mathrm {g}_{a \\\\delta} \\\\mathrm {g}_{\\\\beta \\\\gamma}).\\n$$\\nUse the Bianchi identities to show (Schur's theorem) that $\\mathbf{K}$ must be a constant.",
+    "answer": "$K$ is a constant.",
+    "solution": "Solution 9.26. Since the metric is always covariantly constant\\n$$\\n\\\\mathsf {R}_{a \\\\beta \\\\gamma \\\\delta ; \\\\lambda} = \\\\mathsf {K}_{, \\\\lambda} (\\\\mathsf {g}_{a \\\\gamma} \\\\mathsf {g}_{\\\\beta \\\\delta} - \\\\mathsf {g}_{a \\\\delta} \\\\mathsf {g}_{\\\\beta \\\\gamma}) .\\n$$\\nNow substitute in the Bianchi identities\\n$$\\n0 = \\\\mathrm {R}_{a} \\\\beta \\\\gamma \\\\delta ; \\\\lambda + \\\\mathrm {R}_{a} \\\\beta \\\\lambda \\\\gamma ; \\\\delta + \\\\mathrm {R}_{a} \\\\beta \\\\delta \\\\lambda ; \\\\gamma\\n$$\\nand contract on $\\alpha, \\gamma$ and $\\beta, \\delta$ to find $K_{,\\lambda} = 0$ i.e. $K$ is constant."
+  },
+  "verification": null
+}

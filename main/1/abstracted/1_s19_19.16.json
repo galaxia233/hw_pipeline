@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s19_19.16",
+    "type": "calculate",
+    "tags": {
+      "metric": "FLRW_metric",
+      "target_object": "stress_energy_tensor_target",
+      "coordinate": "comoving_coordinate_system",
+      "scenario": "expanding_universe_scenario",
+      "method": "covariant_divergence_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.16",
+    "source_id": "1_s19_19.16",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.16"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "基于FLRW度规与完美流体假设，通过应力-能量张量协变散度完成多步微分与联络替换，推导链条完整且具明确宇宙学物理动机",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mathfrak{p}$",
+      "$\\rho$",
+      "$\\mathbf{R}(t)$",
+      "$t$"
+    ],
+    "target": [
+      "$\\mathbf{T}^{0}_{\\nu;\\nu}=0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.16. For a Friedmann cosmology what equations relating $\\mathfrak{p}$ , $\\rho$ , and $\\mathbf{R}(t)$ result from the equation of energy conservation, $\\mathbf{T}_{\\mu ;\\nu}^{\\nu} = 0$ ?",
+    "answer": "$\\mathrm {d} (\\rho \\mathrm {R}^{3}) = - 3 \\mathrm {p R}^{2} \\mathrm {d R}$",
+    "solution": "Solution 19.16. Using $\\mathbf{T}_0^0 = -\\rho$ , and $\\mathbf{T}_{\\mathbf{j}}^{\\mathbf{j}}$ (no sum) = $\\mathbf{p}$ , and $\\mathbf{p}_{,\\mathbf{j}} = 0$ (homogeneity) the $\\mu = \\mathbf{j}$ component is$$\\begin{array}{l} 0 = \\mathrm {T}_{\\mathrm {j}, \\nu}^{\\mathrm {j}} = \\mathrm {T}_{\\mathrm {j}, \\nu}^{\\mathrm {v}} - \\mathrm {T}_{\\alpha}^{\\nu} \\mathrm {T}_{\\mathrm {j} \\nu}^{\\alpha} + \\mathrm {T}_{\\mathrm {j}}^{\\alpha} \\mathrm {T}_{\\alpha \\nu}^{\\nu} \\\\ = p, j + \\rho \\Gamma_{j 0}^{0} - p \\Gamma_{j k}^{k} + p \\Gamma_{j \\nu}^{\\nu} = (\\rho + p) \\Gamma_{j 0}^{0} = 0 \\\\ \\end{array}$$which is a tautology. The $\\mu = 0$ component gives$$\\begin{array}{l} 0 = \\mathrm {T}_{0; \\nu}^{\\nu} = \\mathrm {T}_{0, \\nu}^{\\nu} - \\mathrm {T}_{a}^{\\nu} \\Gamma_{0 \\nu}^{a} + \\mathrm {T}_{0}^{a} \\Gamma_{a \\nu}^{\\nu} \\\\ = - \\frac {\\mathrm {d} \\rho}{\\mathrm {d} t} + \\rho \\Gamma_{0 0}^{0} - (\\rho + p) \\left(\\log | g^{\\frac {1}{2}}\\right),_{0} \\\\ \\end{array}$$where $\\Gamma_{\\alpha \\beta}^{\\alpha} = (\\log |g|^{\\frac{1}{2}}),\\beta$ has been used (see Problem 7.7). Thus$$\\mathrm {d} \\rho / \\mathrm {d t} = - \\frac {(\\rho + \\mathrm {p})}{\\mathrm {R}^{3}} \\frac {\\mathrm {d}}{\\mathrm {d t}} (\\mathrm {R}^{3})$$and$$\\mathrm {d} (\\rho \\mathrm {R}^{3}) = - 3 \\mathrm {p R}^{2} \\mathrm {d R}$$which we recognize as one of the first-order Friedmann equations (see Problem 19.14)."
+  },
+  "verification": null
+}

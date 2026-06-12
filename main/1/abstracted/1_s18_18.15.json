@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "id": "1_s18_18.15",
+    "type": "calculate",
+    "tags": {
+      "metric": "wave-matter-interaction",
+      "target_object": "hard-sphere-gas",
+      "coordinate": "relativistic-heating",
+      "scenario": "wave-damping",
+      "method": "kinetic-theory"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s18_18.15",
+    "source_id": "1_s18_18.15",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s18_18.15"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.9,
+      "rationale": "基于引力波与稀薄气体碰撞的能量交换模型，结合动力学理论与热力学估计，推导出加热至相对论温区的时间尺度及波振幅阻尼长度，物理图像清晰且计算链条完整。",
+      "overall": 0.9
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\omega$",
+      "$h$",
+      "$T$",
+      "$\\ell$",
+      "$c$",
+      "$t$",
+      "$d$",
+      "$v$",
+      "$m$",
+      "$n_0$",
+      "$k$",
+      "$E_{\\text{int}}$",
+      "$t_0$",
+      "$L_{\\text{damping}}$"
+    ],
+    "target": [
+      "$t_0$",
+      "$L_{\\text{damping}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 18.15. A weak, plane gravitational wave of frequency $\\omega$ and dimensionless amplitude $h$ passes through a \"hard-sphere\" gas of temperature $T$ . The mean free path of atoms in the gas is $\\ell$ , and the gas is dilute enough so that $\\ell >> c / \\omega$ . Show that in a finite amount of time the particles in the gas will be heated to relativistic temperatures. Estimate this time. Estimate the distance over which the wave is damped by a factor of $e$ in amplitude.",
+    "answer": "$t_0 \\sim \\frac{\\ell}{h^2}\\left(\\frac{m}{kT}\\right)^{1/2}, \\quad L_{\\text{damping}} \\sim \\ell \\left(\\frac{c}{v_{\\text{thermal}}}\\right)^3 \\left(\\frac{\\omega^2}{G m n_0}\\right)$",
+    "solution": "Solution 18.15. Consider two particles a distance $d$ apart. Their relative velocity fluctuates under the influence of the wave by an amount $\\Delta v \\approx h\\omega d$ . If the two particles collide during this cycle of the wave, their distance must have been of order $d \\sim v / \\omega$ , so $\\Delta v \\sim hv$ . On the average then, particles collide with energies fractionally larger by $(\\Delta v / v)^2$ than they would in the absence of the wave. Since the collision randomizes their direction of motion, this energy is not subtracted out half a cycle later when the wave is reversed. Another effect also adds of order $(\\Delta v / v)^2$ fractional energy per collision: the fact that particles moving toward each other at $v + \\Delta v$ have a greater chance of colliding than do particles with $v - \\Delta v$ . We conclude that at temperature $T$ every collision is, on the average, increased in energy by order $(\\Delta v / v)^2 kT \\sim h^2 kT$ . The number of collisions per volume per time is $n_0 v / \\ell \\sim (n_0 / \\ell) (kT / m)^{\\frac{1}{2}}$ , where $n_0$ is the number density and $m$ the mass of the particles. Thus the internal energy absorbed per volume per time is approximately$$\\frac {\\mathrm {d} \\mathrm {E}_{\\text {i n t}}}{\\mathrm {d} t} \\sim \\frac {\\mathrm {h}^{2}}{\\mathrm {n}_{0}^{1 / 2} \\mathrm {m}^{1 / 2} \\ell} \\left(\\mathrm {n}_{0} \\mathrm {k T}\\right)^{3/2} \\sim \\frac {\\mathrm {h}^{2}}{\\mathrm {n}_{0}^{1 / 2} \\mathrm {m}^{1 / 2} \\ell} \\mathrm {E}_{\\text {i n t}}^{3/2}. \\tag {1}$$This is integrated to give$$E_{i n t}^{1 / 2} (t) \\sim \\frac {t_{0} E_{i n t}^{1 / 2} (t = 0)}{t_{0} - t} \\tag {2}$$where $t_0 \\sim (\\ell / h^2)(m / kT)^{\\frac{1}{2}}$ . Thus, $E_{\\mathrm{int}} \\to \\inf ty$ in a finite time $t_0$ ; of course this does not happen: our Newtonian treatment breaks down at a time $t' \\sim t_0$ when the gas becomes relativistic.The \"front\" of the wave loses energy at the rate given by Equation (1). Since its internal energy density is of order $\\omega^2\\mathrm{h}^2\\mathrm{c}^2/\\mathrm{G}$ , it is damped in a distance$$\\begin{array}{l}\\ell_{\\text {d a m p i n g}} \\sim c \\tau_{\\text {d a m p i n g}} \\sim \\frac {\\omega^{2} h^{2} c^{3} / G}{h^{2} \\left(n_{0} k T\\right)^{3/2} / \\left(n_{0}^{1 / 2} m^{1 / 2} \\ell\\right)} \\\\\\sim \\ell \\left(\\frac {c}{v_{t h e r m a l}}\\right)^{3} \\left(\\frac {\\omega^{2}}{G m n_{0}}\\right). \\\\\\end{array}$$(The first term in parenthesis approaches unity for a relativistic gas; the second approaches unity for a wave at the “gravitational plasma frequency” of the gas.)"
+  },
+  "verification": null
+}

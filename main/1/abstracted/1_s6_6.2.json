@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "id": "1_s6_6.2",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "hypersphere",
+      "coordinate": "coordinate_transformation",
+      "scenario": "geometry",
+      "method": "proof"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s6_6.2",
+    "source_id": "1_s6_6.2",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s6_6.2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.5,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "标准高维球面坐标参数化与微分代换验证内蕴度规，逻辑链条完整但属纯几何推导",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 3,
+    "variables": [
+      "$a$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$ds^2$"
+    ],
+    "metric": [
+      [
+        "$R^2$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$R^2 \\sin^2 a$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$R^2 \\sin^2 a \\sin^2 \\theta$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "R**2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "R**2*sin(a)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "R**2*(sin(a)**2*sin(theta)**2)"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 6.2. Show that the line element$$\\mathrm {d s}^{2} = \\mathsf {R}^{2} [ \\mathrm {d} a^{2} + \\sin^{2} \\alpha (\\mathrm {d} \\dot {\\theta}^{2} + \\sin^{2} \\theta \\mathrm {d} \\phi^{2}) ]$$represents a hypersphere of radius $\\mathbf{R}$ in Euclidean 4-space, i.e. a locus of points a distance $\\mathbf{R}$ from a given point.## SolutionSolution 6.2. The metric in Euclidean 4-space is$$\\mathrm {d s}^{2} = \\mathrm {d x}_{1}^{2} + \\mathrm {d x}_{2}^{2} + \\mathrm {d x}_{3}^{2} + \\mathrm {d x}_{4}^{2}. \\tag {1}$$The equation of a hypersphere of radius $\\mathbb{R}$ is$$\\mathbf {x}_{1}^{2} + \\mathbf {x}_{2}^{2} + \\mathbf {x}_{3}^{2} + \\mathbf {x}_{4}^{2} = R^{2}. \\tag {2}$$By analogy with the 3-dimensional case, introduce coordinates on the hypersphere:$$\\begin{array}{l}\\mathbf {x}_{4} = \\text sf {R c o s} \\alpha \\\\\\mathbf {x}_{3} = \\mathbf {R} \\sin a \\cos \\theta \\tag {3} \\\\\\mathbf {x}_{2} = \\mathrm {R} \\sin a \\sin \\theta \\cos \\phi \\\\\\mathbf {x}_{1} = \\mathrm {R} \\sin \\alpha \\sin \\theta \\sin \\phi . \\\\\\end{array}$$Then Equation (2) is automatically satisfied; taking the differential of Equation (3) with $R$ constant, and substituting in Equation (1) yields the required metric of the hypersphere.",
+    "answer": "$ds^2 = R^2 [ da^2 + \\sin^2 \\alpha (d\\theta^2 + \\sin^2 \\theta d\\phi^2) ]$",
+    "solution": "The metric in Euclidean 4-space is$$\\mathrm {d s}^{2} = \\mathrm {d x}_{1}^{2} + \\mathrm {d x}_{2}^{2} + \\mathrm {d x}_{3}^{2} + \\mathrm {d x}_{4}^{2}. \\tag {1}$$The equation of a hypersphere of radius $\\mathbb{R}$ is$$\\mathbf {x}_{1}^{2} + \\mathbf {x}_{2}^{2} + \\mathbf {x}_{3}^{2} + \\mathbf {x}_{4}^{2} = R^{2}. \\tag {2}$$By analogy with the 3-dimensional case, introduce coordinates on the hypersphere:$$\\begin{array}{l}\\mathbf {x}_{4} = \\text sf {R c o s} \\alpha \\\\\\mathbf {x}_{3} = \\mathbf {R} \\sin a \\cos \\theta \\tag {3} \\\\\\mathbf {x}_{2} = \\mathrm {R} \\sin a \\sin \\theta \\cos \\phi \\\\\\mathbf {x}_{1} = \\mathrm {R} \\sin \\alpha \\sin \\theta \\sin \\phi . \\\\\\end{array}$$Then Equation (2) is automatically satisfied; taking the differential of Equation (3) with $R$ constant, and substituting in Equation (1) yields the required metric of the hypersphere."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 3,
+    "variables": [
+      "a",
+      "\\theta",
+      "\\phi"
+    ],
+    "metric_latex": [
+      [
+        "R^{2}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "R^{2} \\sin^{2}{\\left(a \\right)}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "R^{2} \\sin^{2}{\\left(a \\right)} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_011": "- \\frac{\\sin{\\left(2 a \\right)}}{2}",
+      "Gamma_022": "- \\sin{\\left(a \\right)} \\sin^{2}{\\left(\\theta \\right)} \\cos{\\left(a \\right)}",
+      "Gamma_101": "\\frac{1}{\\tan{\\left(a \\right)}}",
+      "Gamma_110": "\\frac{1}{\\tan{\\left(a \\right)}}",
+      "Gamma_202": "\\frac{1}{\\tan{\\left(a \\right)}}",
+      "Gamma_220": "\\frac{1}{\\tan{\\left(a \\right)}}"
+    },
+    "riemann": {
+      "R_0101": "\\sin^{2}{\\left(a \\right)}",
+      "R_0110": "- \\sin^{2}{\\left(a \\right)}",
+      "R_0202": "\\sin^{2}{\\left(a \\right)} \\sin^{2}{\\left(\\theta \\right)}",
+      "R_0220": "- \\sin^{2}{\\left(a \\right)} \\sin^{2}{\\left(\\theta \\right)}",
+      "R_1001": "-1",
+      "R_1010": "1",
+      "R_1212": "- \\sin^{2}{\\left(\\theta \\right)} \\cos^{2}{\\left(a \\right)}",
+      "R_1221": "\\sin^{2}{\\left(\\theta \\right)} \\cos^{2}{\\left(a \\right)}",
+      "R_2002": "-1",
+      "R_2020": "1",
+      "R_2112": "\\cos^{2}{\\left(a \\right)}",
+      "R_2121": "- \\cos^{2}{\\left(a \\right)}"
+    },
+    "ricci_tensor": {
+      "R_00": "2",
+      "R_11": "- \\cos{\\left(2 a \\right)}",
+      "R_22": "- \\sin^{2}{\\left(\\theta \\right)} \\cos{\\left(2 a \\right)}"
+    },
+    "ricci_scalar": "\\frac{2 \\left(2 - \\frac{1}{\\tan^{2}{\\left(a \\right)}}\\right)}{R^{2}}",
+    "kretschmann": "\\frac{2 \\left(\\left(\\sin^{2}{\\left(\\theta \\right)} + 1\\right) \\sin^{6}{\\left(a \\right)} \\sin^{2}{\\left(\\theta \\right)} + \\sin^{2}{\\left(a \\right)} \\sin^{2}{\\left(\\theta \\right)} + \\sin^{2}{\\left(a \\right)} + \\sin^{4}{\\left(\\theta \\right)} \\cos^{4}{\\left(a \\right)} + \\cos^{4}{\\left(a \\right)}\\right)}{R^{4} \\sin^{4}{\\left(a \\right)} \\sin^{2}{\\left(\\theta \\right)}}",
+    "einstein_tensor": {
+      "G_00": "\\frac{1}{\\tan^{2}{\\left(a \\right)}}",
+      "G_11": "- \\sin^{2}{\\left(a \\right)}",
+      "G_22": "- \\sin^{2}{\\left(a \\right)} \\sin^{2}{\\left(\\theta \\right)}"
+    },
+    "killing_vectors": []
+  }
+}

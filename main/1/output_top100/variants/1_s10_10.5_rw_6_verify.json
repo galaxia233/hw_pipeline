@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-4-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "Killing_vectors_and_conserved_quantities",
+      "coordinate": "cylindrical",
+      "scenario": "cosmology_verify",
+      "method": "covariant_derivative",
+      "generalization_axis": "verify",
+      "metric": "Davidson"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-4",
+      "1_s10_10.5-4-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Davidson",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "z",
+      "phi"
+    ],
+    "target": [
+      "校验Killing方程推导及守恒量计算中的错误，并修正"
+    ],
+    "metric": [
+      [
+        "-(r**2 + 1)**(6/5)",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "t**(4/3)*(r**2 + 1)**(2/5)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/(t**(2/3)*(r**2 + 1)**(2/5))",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*t**(4/3)/(r**2 + 1)**(2/5)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In the Davidson cosmological model, the spacetime metric is given by$ds^2 = -(r^2+1)^{6/5} dt^2 + t^{4/3}(r^2+1)^{2/5} dr^2 + \\frac{1}{t^{2/3}(r^2+1)^{2/5}} dz^2 + \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}} d\\phi^2$.A student attempts to verify that $\\pmb{\\xi}_{(z)} = \\partial_z$ and $\\pmb{\\xi}_{(\\phi)} = \\partial_\\phi$ are Killing vectors by checking the mixed time-space components $(0,2)$ and $(0,3)$ of the Killing equation, and to derive the conserved linear momentum $p_z$ and angular momentum $L$. The student's derivation is as follows:1. For $\\pmb{\\xi}_{(z)} = \\partial_z$, the covariant components are $\\xi_{(z)\\mu} = g_{\\mu 2}$. Since the metric is diagonal, $\\xi_{(z)0} = 0$ and $\\xi_{(z)2} = g_{22} = \\frac{1}{t^{2/3}(r^2+1)^{2/5}}$.2. The Killing equation for $(\\mu, \\nu) = (0,2)$ evaluates to:   $\\nabla_0 \\xi_{(z)2} + \\nabla_2 \\xi_{(z)0} = \\partial_0 \\xi_{(z)2} + \\partial_2 \\xi_{(z)0} - \\Gamma^2_{02} \\xi_{(z)2}$.   Since $\\xi_{(z)0}=0$, $\\partial_2 \\xi_{(z)0} = 0$.3. The partial derivative is $\\partial_0 \\xi_{(z)2} = \\partial_0 g_{22} = -\\frac{2}{3} t^{-5/3} (r^2+1)^{-2/5}$.4. The Christoffel symbol is calculated as $\\Gamma^2_{02} = g^{22} \\partial_0 g_{22} = t^{2/3}(r^2+1)^{2/5} \\times \\left(-\\frac{2}{3} t^{-5/3} (r^2+1)^{-2/5}\\right) = -\\frac{2}{3t}$.5. Substituting these into step 2 gives:   $-\\frac{2}{3} t^{-5/3} (r^2+1)^{-2/5} - \\left(-\\frac{2}{3t}\\right) \\frac{1}{t^{2/3}(r^2+1)^{2/5}} = 0$.   Thus, $\\pmb{\\xi}_{(z)}$ satisfies the Killing equation for this component.6. For $\\pmb{\\xi}_{(\\phi)} = \\partial_\\phi$, the covariant components are $\\xi_{(\\phi)\\mu} = g_{\\mu 3}$, giving $\\xi_{(\\phi)0} = 0$ and $\\xi_{(\\phi)3} = g_{33} = \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}}$.7. The Killing equation for $(\\mu, \\nu) = (0,3)$ evaluates to:   $\\nabla_0 \\xi_{(\\phi)3} + \\nabla_3 \\xi_{(\\phi)0} = \\partial_0 \\xi_{(\\phi)3} - \\Gamma^3_{03} \\xi_{(\\phi)3}$.8. The partial derivative is $\\partial_0 \\xi_{(\\phi)3} = \\partial_0 g_{33} = \\frac{4}{3} r^2 t^{1/3} (r^2+1)^{-2/5}$.9. The Christoffel symbol is $\\Gamma^3_{03} = g^{33} \\partial_0 g_{33} = \\frac{(r^2+1)^{2/5}}{r^2 t^{4/3}} \\times \\frac{4}{3} r^2 t^{1/3} (r^2+1)^{-2/5} = \\frac{4}{3t}$.10. Substituting into step 7 gives:   $\\frac{4}{3} r^2 t^{1/3} (r^2+1)^{-2/5} - \\frac{4}{3t} \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}} = 0$.   Thus, $\\pmb{\\xi}_{(\\phi)}$ satisfies the Killing equation for this component.11. The conserved quantities along geodesics with 4-velocity $\\dot{x}^\\mu$ are derived from $g^{\\mu\\nu} \\xi^\\mu \\dot{x}^\\nu$. Therefore:   $p_z = g^{22} \\dot{z} = t^{2/3}(r^2+1)^{2/5} \\dot{z}$,   $L = g^{33} \\dot{\\phi} = \\frac{(r^2+1)^{2/5}}{r^2 t^{4/3}} \\dot{\\phi}$.Identify all errors in the student's derivation, specify their types, and provide the correct expressions.",
+    "answer": "1. **Step 2**: Factor error. The Christoffel term should have a factor of 2 because $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = \\partial_\\mu \\xi_\\nu + \\partial_\\nu \\xi_\\mu - 2 \\Gamma^\\lambda_{\\mu\\nu} \\xi_\\lambda$. The correct expression is $-2 \\Gamma^2_{02} \\xi_{(z)2}$.2. **Step 4**: Factor error. The Christoffel symbol definition is missing the factor $1/2$. The correct expression is $\\Gamma^2_{02} = \\frac{1}{2} g^{22} \\partial_0 g_{22} = -\\frac{1}{3t}$.3. **Step 7**: Factor error. Similar to Step 2, the Christoffel term should be $-2 \\Gamma^3_{03} \\xi_{(\\phi)3}$, and the $\\partial_3 \\xi_{(\\phi)0}$ term was omitted. The correct expression is $\\nabla_0 \\xi_{(\\phi)3} + \\nabla_3 \\xi_{(\\phi)0} = \\partial_0 \\xi_{(\\phi)3} + \\partial_3 \\xi_{(\\phi)0} - 2 \\Gamma^3_{03} \\xi_{(\\phi)3}$.4. **Step 9**: Factor error. The Christoffel symbol definition is missing the factor $1/2$. The correct expression is $\\Gamma^3_{03} = \\frac{1}{2} g^{33} \\partial_0 g_{33} = \\frac{2}{3t}$.5. **Step 11**: Metric/Index error. The inner product defining the conserved quantity should use the covariant metric components, $p = g_{\\mu\\nu} \\xi^\\mu \\dot{x}^\\nu$, not the contravariant ones $g^{\\mu\\nu} \\xi^\\mu \\dot{x}^\\nu$. The correct expressions are $p_z = g_{22} \\dot{z} = \\frac{1}{t^{2/3}(r^2+1)^{2/5}} \\dot{z}$ and $L = g_{33} \\dot{\\phi} = \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}} \\dot{\\phi}$.",
+    "solution": "1. For $\\pmb{\\xi}_{(z)} = \\partial_z$, the covariant components are $\\xi_{(z)\\mu} = g_{\\mu 2}$. Thus, $\\xi_{(z)0} = 0$ and $\\xi_{(z)2} = g_{22} = \\frac{1}{t^{2/3}(r^2+1)^{2/5}}$.2. The Killing equation for $(0,2)$ is:   $\\nabla_0 \\xi_{(z)2} + \\nabla_2 \\xi_{(z)0} = \\partial_0 \\xi_{(z)2} + \\partial_2 \\xi_{(z)0} - 2 \\Gamma^2_{02} \\xi_{(z)2}$.   Since $\\xi_{(z)0}=0$, $\\partial_2 \\xi_{(z)0} = 0$.3. $\\partial_0 \\xi_{(z)2} = \\partial_0 g_{22} = -\\frac{2}{3} t^{-5/3} (r^2+1)^{-2/5}$.4. $\\Gamma^2_{02} = \\frac{1}{2} g^{22} \\partial_0 g_{22} = \\frac{1}{2} t^{2/3}(r^2+1)^{2/5} \\times \\left(-\\frac{2}{3} t^{-5/3} (r^2+1)^{-2/5}\\right) = -\\frac{1}{3t}$.5. Substituting gives: $-\\frac{2}{3} t^{-5/3} (r^2+1)^{-2/5} - 2\\left(-\\frac{1}{3t}\\right) \\frac{1}{t^{2/3}(r^2+1)^{2/5}} = 0$.6. For $\\pmb{\\xi}_{(\\phi)} = \\partial_\\phi$, the covariant components are $\\xi_{(\\phi)\\mu} = g_{\\mu 3}$, giving $\\xi_{(\\phi)0} = 0$ and $\\xi_{(\\phi)3} = g_{33} = \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}}$.7. The Killing equation for $(0,3)$ is:   $\\nabla_0 \\xi_{(\\phi)3} + \\nabla_3 \\xi_{(\\phi)0} = \\partial_0 \\xi_{(\\phi)3} + \\partial_3 \\xi_{(\\phi)0} - 2 \\Gamma^3_{03} \\xi_{(\\phi)3}$.8. $\\partial_0 \\xi_{(\\phi)3} = \\partial_0 g_{33} = \\frac{4}{3} r^2 t^{1/3} (r^2+1)^{-2/5}$.9. $\\Gamma^3_{03} = \\frac{1}{2} g^{33} \\partial_0 g_{33} = \\frac{1}{2} \\frac{(r^2+1)^{2/5}}{r^2 t^{4/3}} \\times \\frac{4}{3} r^2 t^{1/3} (r^2+1)^{-2/5} = \\frac{2}{3t}$.10. Substituting gives: $\\frac{4}{3} r^2 t^{1/3} (r^2+1)^{-2/5} - 2\\left(\\frac{2}{3t}\\right) \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}} = 0$.11. The conserved quantities are $p_z = g_{\\mu\\nu} \\xi_{(z)}^\\mu \\dot{x}^\\nu = g_{22} \\dot{z} = \\frac{1}{t^{2/3}(r^2+1)^{2/5}} \\dot{z}$ and $L = g_{33} \\dot{\\phi} = \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}} \\dot{\\phi}$."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.davidson_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

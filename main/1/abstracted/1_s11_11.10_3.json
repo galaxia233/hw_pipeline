@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s11_11.10_3",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "stationary_spacetime_scenario",
+      "method": "fermi_walker_transport_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s11_11.10_3",
+    "source_id": "1_s11_11.10_3",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s11_11.10_3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.5,
+      "realism": 0.7,
+      "rationale": "需结合Killing矢量性质与Fermi-Walker输运方程进行多步微分几何推导，适用于任意稳态时空并具有明确的天体物理观测背景，但原题未提供详细解答过程",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\xi^\\mu$",
+      "$\\omega^a$",
+      "$\\varepsilon^{\\mu\\nu\\sigma\\lambda}$",
+      "$s^\\mu$"
+    ],
+    "target": [
+      "$\\omega^a$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 11.10. Consider a family of stationary observers in a stationary spacetime, i.e. their 4-velocity is proportional to the time Killing vector $\\pmb{\\xi}$ . Each observer arranges his spatial basis vectors so that they connect to the same neighboring observers for all time $t$ , where $\\pmb{\\xi} = \\frac{\\partial}{\\partial t}$ .(3) The stationary observer carries a gyroscope with him applying no torques to it. Show that the gyroscope's spin vector precesses (Lens-Thirring effect) with an angular velocity relative to the stationary observer, as measured in units of proper time,$$$\\omega^{a} = \\frac {\\varepsilon^{a \\nu \\sigma \\lambda} \\xi_{\\nu} \\xi_{\\sigma ; \\lambda}}{2 \\xi^{\\gamma} \\xi_{\\gamma}}.$$",
+    "answer": "$$\\omega^a = \\frac{\\varepsilon^{a\\nu\\sigma\\lambda}\\xi_\\nu \\xi_{\\sigma;\\lambda}}{2\\xi^\\gamma\\xi_\\gamma}.$$",
+    "solution": null
+  },
+  "verification": null
+}

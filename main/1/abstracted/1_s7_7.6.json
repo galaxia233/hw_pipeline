@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s7_7.6",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.6",
+    "source_id": "1_s7_7.6",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.7,
+      "realism": 0.4,
+      "rationale": "纯几何张量推导，逻辑链条完整且严格依赖对角度规零交叉项特性，可直接迁移至任意具体度规验证",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^0$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$\\Gamma_{12}^{0}$",
+      "$\\Gamma_{11}^{0}$",
+      "$\\Gamma_{01}^{0}$",
+      "$\\Gamma_{00}^{0}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.6. For a diagonal metric, prove that (in a coordinate frame) the Christoffel symbols are given by$$\\begin{array}{l} \\Gamma_{\\nu \\lambda}^{\\mu} = 0, \\qquad \\Gamma_{\\lambda \\lambda}^{\\mu} = - \\frac {1}{2 \\mathrm {g}_{\\mu \\mu}} \\frac {\\partial \\mathrm {g}_{\\lambda \\lambda}}{\\partial \\mathbf {x}^{\\mu}} \\\\\\Gamma_{\\mu \\lambda}^{\\mu} = \\frac {\\partial}{\\partial \\mathbf {x}^{\\lambda}} \\left(\\log \\left(| \\mathrm {g}_{\\mu \\mu} |\\right)^{\\frac {1}{2}}\\right), \\quad \\Gamma_{\\mu \\mu}^{\\mu} = \\frac {\\partial}{\\partial \\mathbf {x}^{\\mu}} \\left(\\log \\left(| \\mathrm {g}_{\\mu \\mu} |\\right)^{\\frac {1}{2}}\\right). \\\\\\end{array}$$Here $\\mu \\neq \\nu \\neq \\lambda$ and there is no summation over repeated indices.",
+    "answer": "$\\Gamma_{\\nu\\lambda}^{\\mu} = 0$; $\\Gamma_{\\lambda\\lambda}^{\\mu} = - \\frac {1}{2 \\mathrm {g}_{\\mu \\mu}} \\frac {\\partial \\mathrm {g}_{\\lambda \\lambda}}{\\partial \\mathbf {x}^{\\mu}}$; $\\Gamma_{\\mu\\lambda}^{\\mu} = \\Gamma_{\\mu\\mu}^{\\mu} = \\frac {\\partial}{\\partial \\mathbf {x}^{\\lambda/\\mu}} \\left(\\log \\left(| \\mathrm {g}_{\\mu \\mu} |\\right)^{\\frac {1}{2}}\\right)$",
+    "solution": null
+  },
+  "verification": null
+}

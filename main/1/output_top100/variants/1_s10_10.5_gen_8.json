@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "angular momentum L",
+      "coordinate": "cylindrical",
+      "scenario": "cosmology",
+      "method": "geodesic equation",
+      "generalization_axis": "verify",
+      "metric": "Davidson"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Davidson",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "z",
+      "phi"
+    ],
+    "target": [
+      "$\\frac{d L}{d \\tau}$"
+    ],
+    "metric": [
+      [
+        "-(r**2 + 1)**(6/5)",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "t**(4/3)*(r**2 + 1)**(2/5)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/(t**(2/3)*(r**2 + 1)**(2/5))",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*t**(4/3)/(r**2 + 1)**(2/5)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In the axially symmetric rotating star spacetime, the Killing vectors $\\xi_{(t)}$ and $\\xi_{(\\phi)}$ commute, a property that guarantees the independent conservation of energy and angular momentum. The Davidson metric describes a cosmological spacetime that lacks a timelike Killing vector $\\xi_{(t)}$ due to its time-dependence, but retains the axial Killing vector $\\xi_{(\\phi)} = \\partial_\\phi$. Verify that this axial symmetry indeed leads to a conserved angular momentum $L = g_{\\phi\\phi} \\dot{\\phi}$ along geodesics by explicitly calculating the derivative $\\frac{dL}{d\\tau}$ using the geodesic equation for $\\phi$ and the relevant Christoffel symbols $\\Gamma_{03}^3$ and $\\Gamma_{13}^3$, demonstrating that it vanishes identically. \\n\\nThe Davidson metric is given by:\\n$ds^2 = -(r^2+1)^{6/5} dt^2 + t^{4/3}(r^2+1)^{2/5} dr^2 + \\frac{1}{t^{2/3}(r^2+1)^{2/5}} dz^2 + \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}} d\\phi^2$",
+    "answer": "0",
+    "solution": "To verify the conservation of angular momentum, we compute the derivative of $L = g_{\\phi\\phi} \\dot{\\phi}$ along a geodesic:\\n$\\frac{dL}{d\\tau} = \\dot{\\phi} \\frac{d g_{\\phi\\phi}}{d\\tau} + g_{\\phi\\phi} \\ddot{\\phi}$\\n\\nThe total derivative of the metric component is:\\n$\\frac{d g_{\\phi\\phi}}{d\\tau} = \\partial_t g_{\\phi\\phi} \\dot{t} + \\partial_r g_{\\phi\\phi} \\dot{r}$\\n\\nFrom the geodesic equation for $\\phi$:\\n$\\ddot{\\phi} + 2\\Gamma_{03}^3 \\dot{t}\\dot{\\phi} + 2\\Gamma_{13}^3 \\dot{r}\\dot{\\phi} = 0 \\implies \\ddot{\\phi} = -2\\Gamma_{03}^3 \\dot{t}\\dot{\\phi} - 2\\Gamma_{13}^3 \\dot{r}\\dot{\\phi}$\\n\\nSubstituting this into the derivative expression:\\n$\\frac{dL}{d\\tau} = \\dot{\\phi} (\\partial_t g_{\\phi\\phi} \\dot{t} + \\partial_r g_{\\phi\\phi} \\dot{r}) - 2 g_{\\phi\\phi} \\Gamma_{03}^3 \\dot{t}\\dot{\\phi} - 2 g_{\\phi\\phi} \\Gamma_{13}^3 \\dot{r}\\dot{\\phi}$\\n\\nFor a metric diagonal in $\\phi$, the Christoffel symbols are given by $\\Gamma_{03}^3 = \\frac{1}{2} g^{33} \\partial_t g_{33}$ and $\\Gamma_{13}^3 = \\frac{1}{2} g^{33} \\partial_r g_{33}$. Since $g_{\\phi\\phi} g^{33} = 1$, we have the general identities $g_{\\phi\\phi} \\Gamma_{03}^3 = \\frac{1}{2} \\partial_t g_{\\phi\\phi}$ and $g_{\\phi\\phi} \\Gamma_{13}^3 = \\frac{1}{2} \\partial_r g_{\\phi\\phi}$. We now verify these identities explicitly using the provided geometric data:\\n\\n1. For the time derivative term:\\n$\\partial_t g_{\\phi\\phi} = \\frac{4 r^2 t^{1/3}}{3 (r^2+1)^{2/5}}$\\n$g_{\\phi\\phi} \\Gamma_{03}^3 = \\left( \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}}\\right) \\left( \\frac{2}{3t}\\right) = \\frac{2 r^2 t^{1/3}}{3 (r^2+1)^{2/5}} = \\frac{1}{2} \\partial_t g_{\\phi\\phi}$\\n\\n2. For the radial derivative term:\\n$\\partial_r g_{\\phi\\phi} = \\frac{2r(3r^2+5) t^{4/3}}{5 (r^2+1)^{7/5}}$\\n$g_{\\phi\\phi} \\Gamma_{13}^3 = \\left( \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}}\\right) \\left( \\frac{3r^2+5}{5r(r^2+1)}\\right) = \\frac{r(3r^2+5) t^{4/3}}{5 (r^2+1)^{7/5}} = \\frac{1}{2} \\partial_r g_{\\phi\\phi}$\\n\\nSubstituting these verified identities back into the total derivative:\\n$\\frac{dL}{d\\tau} = \\dot{\\phi} \\dot{t} \\partial_t g_{\\phi\\phi} + \\dot{\\phi} \\dot{r} \\partial_r g_{\\phi\\phi} - \\dot{\\phi} \\dot{t} \\partial_t g_{\\phi\\phi} - \\dot{\\phi} \\dot{r} \\partial_r g_{\\phi\\phi} = 0$\\n\\nThis explicitly verifies that $L$ is a conserved quantity along geodesics, a direct physical consequence of the axial Killing vector $\\xi_{(\\phi)}$."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.davidson_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 0.85,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

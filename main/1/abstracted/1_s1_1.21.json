@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s1_1.21",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "inertial_coordinates",
+      "scenario": "mössbauer_effect",
+      "method": "four_vector_invariant_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.21",
+    "source_id": "1_s1_1.21",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.21"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于四维速度标量积不变性推导相对论多普勒频移，逻辑链条完整且具实际核物理观测背景",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\nu_0$",
+      "$\\underline{\\beta}$",
+      "$\\underline{\\mathbf{n}}$",
+      "$\\gamma$",
+      "$\\nu_{\\text{observed}}$"
+    ],
+    "target": [
+      "$\\nu_{\\text{observed}}"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.21. An iron nucleus emits a Mössbauer gamma ray with frequency $\\nu_{0}$ as measured in its own rest frame. The nucleus is traveling with velocity $\\underline{\\beta}$ with respect to some inertial observer. What frequency does the observer measure when the gamma ray reaches him? Express the answer in terms of $\\underline{\\beta}$ , $\\nu_{0}$ , and the unit vector $\\underline{\\mathbf{n}}$ pointing towards the nucleus at the time it emitted the $\\gamma$ -ray, as measured by the observer.",
+    "answer": "$\\nu_{\\text{observed}} = \\frac{\\nu_0}{\\gamma(1 + \\underline{\\beta} \\cdot \\underline{\\mathbf{n}})}$",
+    "solution": "Solution 1.21. There are three 4-velocities to consider. The laboratory observer has $\\mathbf{u}_{\\mathrm{lab}} = (1,0)$ ; the nucleus has $\\mathbf{u}_{\\mathrm{Fe}} = (\\gamma, \\gamma \\underline{\\beta})$ , where $\\gamma = (1 - \\underline{\\beta} \\cdot \\underline{\\beta})^{-\\frac{1}{2}}$ ; the photon has a 4-momentum $\\mathbf{p}_{\\gamma} = \\text{constant} \\times (1, -\\underline{\\mathfrak{n}})$ since it is traveling toward the observer. Also notice that the photon is null, $\\mathbf{p}_{\\gamma} \\cdot \\mathbf{p}_{\\gamma} \\propto -1 + (-\\underline{\\mathfrak{n}}) \\cdot (-\\underline{\\mathfrak{n}}) = 0$ . From Problem 1.20, now$$\\frac {\\nu_{\\text {o b s e r v e d}}}{\\nu_{\\text {e m i t t e d}}} = \\frac {\\mathrm {E}_{\\mathrm {l a b}}}{\\mathrm {E}_{\\mathrm {F e}}} = \\frac {- \\mathbf {u}_{\\mathrm {l a b}} \\cdot \\mathbf {p}_{\\gamma}}{- \\mathbf {u}_{\\mathrm {F e}} \\cdot \\mathbf {p}_{\\gamma}} = \\frac {1}{\\gamma (1 + \\beta \\cdot \\underline {{n}})}. \\quad (\\text {A n s w e r}).$$"
+  },
+  "verification": null
+}

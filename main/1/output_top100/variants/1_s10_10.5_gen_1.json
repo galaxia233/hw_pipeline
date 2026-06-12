@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "$[\\xi_{(t)}, \\xi_{(\\phi)}]$",
+      "coordinate": "arbitrary",
+      "scenario": "stationary_axisymmetric_spacetime",
+      "method": "invert_condition",
+      "generalization_axis": "invert",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "killing_vector",
+    "soft_variant": "invert",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$[\\xi_{(t)}, \\xi_{(\\phi)}]$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Consider a general 4-dimensional spacetime that admits a timelike Killing vector field $\\pmb{\\xi}_{(t)}$ and a spacelike Killing vector field $\\pmb{\\xi}_{(\\phi)}$ whose orbits are closed circles. We want to construct a coordinate system $(t, r, \\theta, \\phi)$ in which the metric takes a manifestly stationary and axisymmetric form, meaning all metric components $g_{\\mu\\nu}$ are completely independent of both $t$ and $\\phi$. From this desired metric property, infer the necessary and sufficient algebraic condition that the two Killing vectors $\\pmb{\\xi}_{(t)}$ and $\\pmb{\\xi}_{(\\phi)}$ must satisfy in order for such a coordinate construction to be possible. Briefly explain the differential geometric principle that connects this algebraic condition to the existence of the desired coordinate system.",
+    "answer": "The necessary and sufficient condition is that the two Killing vectors must commute, i.e., their Lie bracket must vanish: $[\\pmb{\\xi}_{(t)}, \\pmb{\\xi}_{(\\phi)}] = 0$.",
+    "solution": "According to a fundamental theorem in differential geometry, two linearly independent vector fields can serve as coordinate basis vectors for two of the coordinates in some coordinate patch if and only if they commute (their Lie bracket vanishes). If $[\\pmb{\\xi}_{(t)}, \\pmb{\\xi}_{(\\phi)}] = 0$, we can construct coordinates such that $\\pmb{\\xi}_{(t)} = \\partial / \\partial t$ and $\\pmb{\\xi}_{(\\phi)} = \\partial / \\partial \\phi$. Since they are Killing vectors, the metric components in this coordinate system must be independent of $t$ and $\\phi$. Conversely, if a coordinate system exists where the metric is independent of $t$ and $\\phi$, the vectors $\\partial / \\partial t$ and $\\partial / \\partial \\phi$ are Killing vectors that trivially commute. Since the Lie bracket is coordinate-independent, the abstract Killing vectors $\\pmb{\\xi}_{(t)}$ and $\\pmb{\\xi}_{(\\phi)}$ must also commute. Therefore, the commutation of the Killing vectors is the necessary and sufficient condition for the spacetime to admit a manifestly stationary and axisymmetric coordinate representation."
+  },
+  "verification": null
+}

@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-3",
+    "type": "calculate",
+    "tags": {
+      "target_object": "ISCO_radius",
+      "coordinate": "Schwarzschild",
+      "scenario": "black_hole",
+      "method": "effective_potential_extrema",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$3 r_s$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规线元为：$$ ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2 $$其中 $r_s$ 为 Schwarzschild 半径。已知该时空存在时间平移和绕 $\\phi$ 轴旋转的 Killing 矢量场，根据 Killing 矢量与测地线切向量内积的守恒性质，测地线运动具有守恒的能量 $E$ 和角动量 $L$（定义为 $E = -g_{tt} \\dot{t}$，$L = g_{\\phi\\phi} \\dot{\\phi}$）。\\n\\n考虑一个在赤道面（$\\theta = \\pi/2$）上运动的有质量粒子（满足类时测地线条件 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$）。请利用上述守恒量推导出该粒子径向运动的有效势 $V_{\\text{eff}}(r)$（即满足 $\\dot{r}^2 = E^2 - V_{\\text{eff}}(r)$ 的表达式），并通过求解有效势极值与临界稳定条件（$V_{\\text{eff}}' = 0$ 且 $V_{\\text{eff}}'' = 0$），计算最小稳定圆轨道（ISCO）的半径 $r_{\\text{isco}}$ 以 $r_s$ 表示的表达式。",
+    "answer": "$3 r_s$",
+    "solution": "1. **写出守恒量与类时条件**：\\n在赤道面 $\\theta = \\pi/2$ 上，$\\dot{\\theta} = 0$。守恒量定义为：\\n$E = -g_{tt} \\dot{t} = \\frac{r-r_s}{r} \\dot{t}$，\\n$L = g_{\\phi\\phi} \\dot{\\phi} = r^2 \\dot{\\phi}$。\\n类时测地线条件为 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$，展开得：\\n$g_{tt} \\dot{t}^2 + g_{rr} \\dot{r}^2 + g_{\\phi\\phi} \\dot{\\phi}^2 = -1$。\\n\\n2. **推导径向方程与有效势**：\\n将 $\\dot{t} = \\frac{E r}{r-r_s}$ 和 $\\dot{\\phi} = \\frac{L}{r^2}$ 代入类时条件：\\n$-\\frac{r-r_s}{r} \\left( \\frac{E r}{r-r_s}\\right)^2 + \\frac{r}{r-r_s} \\dot{r}^2 + r^2 \\left( \\frac{L}{r^2}\\right)^2 = -1$。\\n化简得：\\n$-E^2 \\frac{r}{r-r_s} + \\frac{r}{r-r_s} \\dot{r}^2 + \\frac{L^2}{r^2} = -1$。\\n两边乘以 $\\frac{r-r_s}{r}$ 并移项：\\n$\\dot{r}^2 = E^2 - \\frac{r-r_s}{r} \\left( 1 + \\frac{L^2}{r^2}\\right)$。\\n因此有效势为：\\n$V_{\\text{eff}}(r) = \\frac{r-r_s}{r} \\left( 1 + \\frac{L^2}{r^2}\\right) = 1 - \\frac{r_s}{r} + \\frac{L^2}{r^2} - \\frac{r_s L^2}{r^3}$。\\n\\n3. **求圆轨道条件（极值）**：\\n圆轨道要求径向速度和加速度为零，即 $V_{\\text{eff}}' = 0$：\\n$\\frac{dV_{\\text{eff}}}{dr} = \\frac{r_s}{r^2} - \\frac{2L^2}{r^3} + \\frac{3 r_s L^2}{r^4} = 0$。\\n乘以 $r^4$ 得：$r_s r^2 - 2 L^2 r + 3 r_s L^2 = 0$。\\n解出 $L^2$：$L^2 = \\frac{r_s r^2}{2r - 3r_s}$。\\n\\n4. **求最小稳定圆轨道（ISCO）条件**：\\n稳定圆轨道要求 $V_{\\text{eff}}'' \\ge 0$，ISCO 是临界稳定轨道，满足 $V_{\\text{eff}}'' = 0$：\\n$\\frac{d^2V_{\\text{eff}}}{dr^2} = -\\frac{2r_s}{r^3} + \\frac{6L^2}{r^4} - \\frac{12 r_s L^2}{r^5} = 0$。\\n乘以 $r^5$ 得：$-2r_s r^2 + 6 L^2 r - 12 r_s L^2 = 0$。\\n\\n5. **求解 $r_{\\text{isco}}$**：\\n将步骤3中求得的 $L^2$ 代入步骤4的方程：\\n$-2r_s r^2 + 6 \\left( \\frac{r_s r^2}{2r - 3r_s}\\right) r - 12 r_s \\left( \\frac{r_s r^2}{2r - 3r_s}\\right) = 0$。\\n方程两边除以 $r_s r^2$（排除 $r=0$ 或 $r_s=0$ 的平凡解）：\\n$-2 + \\frac{6r}{2r - 3r_s} - \\frac{12 r_s}{2r - 3r_s} = 0$。\\n通分并合并：\\n$-2(2r - 3r_s) + 6r - 12 r_s = 0$。\\n$-4r + 6r_s + 6r - 12 r_s = 0$。\\n$2r - 6r_s = 0$。\\n解得：$r_{\\text{isco}} = 3 r_s$。"
+  },
+  "verification": null
+}

@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "id": "1_s18_18.22",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "vacuum_field_equations",
+      "coordinate": "pp_wave",
+      "scenario": "ricci_tensor",
+      "method": "harmonic_potential"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s18_18.22",
+    "source_id": "1_s18_18.22",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s18_18.22"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "Multi-step curvature derivation from exact pp-wave metric to vacuum Einstein equations, linking harmonic potential condition directly to physical gravitational wave characterization.",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x$",
+      "$y$",
+      "$u$",
+      "$v$"
+    ],
+    "target": [
+      "$R_{uu}$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$2H$",
+        "$-\\\\frac{1}{2}$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$-\\\\frac{1}{2}$",
+        "$0$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "2*H",
+        "-1/2"
+      ],
+      [
+        "0",
+        "0",
+        "-1/2",
+        "0"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "[文件 1: 1_s18_18.22.md]\\n\\nProblem 18.22. Consider the metric $\\mathrm{ds}^2 = \\mathrm{dx}^2 + \\mathrm{dy}^2 - \\mathrm{dudv} + 2\\mathrm{H}(\\mathbf{x}, \\mathbf{y}, \\mathbf{u})\\mathrm{du}^2$ . What form must the function $\\mathbf{H}$ have for this to represent a (strong) plane gravitational wave propagating in vacuum?\\n\\n## Solution\\n\\nSolution 18.22. The function $H$ is determined by the vacuum field equations $R_{\\alpha \\beta} = 0$ . We first compute the Christoffel symbols from the Lagrangian for geodesics (see Problem 7.25)\\n$$\\n\\mathbf {L} = \\dot {\\mathbf {x}}^{2} + \\dot {\\mathbf {y}}^{2} - \\dot {\\mathbf {u}} \\dot {\\mathbf {v}} + 2 \\mathrm {H} \\dot {\\mathbf {u}}^{2}.\\n$$\\nFrom the Euler-Lagrange equation\\n$$\\n\\frac {d}{d s} \\left(\\frac {\\partial L}{\\partial \\dot {\\mathbf {x}}}\\right) - \\frac {\\partial L}{\\partial \\mathbf {x}} = 0\\n$$\\nwe get\\n$$\\n\\ddot {\\mathbf {x}} + \\mathrm {H}_{, \\mathbf {x}} \\dot {\\mathbf {u}}^{2} = 0\\n$$\\nand therefore $\\Gamma_{uu}^{\\mathbf{x}} = H_{,x}$ . Similarly $\\ddot{y} + H_{,y} \\dot{u}^{2} = 0$ implies $\\Gamma_{uu}^{\\mathbf{y}} = H_{,y}$ and $u = 0$ implies $\\Gamma_{\\alpha \\beta}^{\\mathbf{u}} = 0$ . From\\n$$\\n\\ddot {\\mathrm {v}} - 2 \\mathrm {H}_{, \\mathrm {u}} \\dot {\\mathrm {u}}^{2} - 4 \\mathrm {H}_{, \\mathrm {x}} \\dot {\\mathrm {x}} \\dot {\\mathrm {u}} - 4 \\mathrm {H}_{, \\mathrm {y}} \\dot {\\mathrm {y}} \\dot {\\mathrm {u}} = 0\\n$$\\nwe get\\n$$\\n\\Gamma_{u u}^{v} = - 2 H_{, u} \\quad \\Gamma_{x u}^{v} = - 2 H_{, x} \\quad \\Gamma_{y u}^{v} = - 2 H_{, y}.\\n$$\\nAll other $\\Gamma$ 's are zero. In the expression (MTW, Equation 8.51b)\\n$$\\n\\mathrm {R}_{\\alpha \\beta} = \\Gamma^{\\mu}_{\\alpha \\beta , \\mu} - (\\log (- \\mathbf {g})^{\\frac {1}{2}})_{, \\alpha \\beta} + (\\log (- \\mathbf {g})^{\\frac {1}{2}})_{, \\mu} \\Gamma^{\\mu}_{\\alpha \\beta} - \\Gamma^{\\mu}_{\\sigma \\beta} \\Gamma^{\\sigma}_{\\alpha \\mu}\\n$$\\nonly the first term contributes (note that $(-g)^{\\frac{1}{2}} = 1$ ). We find the only nonzero term to be\\n$$\\n\\mathrm {R}_{\\mathrm {u u}} = \\mathrm {H}_{, \\mathrm {x x}} + \\mathrm {H}_{, \\mathrm {y y}}.\\n$$\\nAny harmonic function in $\\mathbf{x}$ and $\\mathbf{y}$ will therefore satisfy the field equations. For a plane wave, $\\mathbf{H}$ is a quadratic function in $\\mathbf{x}$ and $\\mathbf{y}$ , so that (exercise!) the Riemann tensor is a function of $\\mathbf{u}$ alone and has no singularities in the $\\mathbf{x} - \\mathbf{y}$ plane.",
+    "answer": "$H_{,xx} + H_{,yy} = 0$; for a plane wave, $H$ is a quadratic polynomial in $x$ and $y$.",
+    "solution": "The function $H$ is determined by the vacuum field equations $R_{\\alpha \\beta} = 0$ . We first compute the Christoffel symbols from the Lagrangian for geodesics (see Problem 7.25)\\n$$\\n\\mathbf {L} = \\dot {\\mathbf {x}}^{2} + \\dot {\\mathbf {y}}^{2} - \\dot {\\mathbf {u}} \\dot {\\mathbf {v}} + 2 \\mathrm {H} \\dot {\\mathbf {u}}^{2}.\\n$$\\nFrom the Euler-Lagrange equation\\n$$\\n\\frac {d}{d s} \\left(\\frac {\\partial L}{\\partial \\dot {\\mathbf {x}}}\\right) - \\frac {\\partial L}{\\partial \\mathbf {x}} = 0\\n$$\\nwe get\\n$$\\n\\ddot {\\mathbf {x}} + \\mathrm {H}_{, \\mathbf {x}} \\dot {\\mathbf {u}}^{2} = 0\\n$$\\nand therefore $\\Gamma_{uu}^{\\mathbf{x}} = H_{,x}$ . Similarly $\\ddot{y} + H_{,y} \\dot{u}^{2} = 0$ implies $\\Gamma_{uu}^{\\mathbf{y}} = H_{,y}$ and $u = 0$ implies $\\Gamma_{\\alpha \\beta}^{\\mathbf{u}} = 0$ . From\\n$$\\n\\ddot {\\mathrm {v}} - 2 \\mathrm {H}_{, \\mathrm {u}} \\dot {\\mathrm {u}}^{2} - 4 \\mathrm {H}_{, \\mathrm {x}} \\dot {\\mathrm {x}} \\dot {\\mathrm {u}} - 4 \\mathrm {H}_{, \\mathrm {y}} \\dot {\\mathrm {y}} \\dot {\\mathrm {u}} = 0\\n$$\\nwe get\\n$$\\n\\Gamma_{u u}^{v} = - 2 H_{, u} \\quad \\Gamma_{x u}^{v} = - 2 H_{, x} \\quad \\Gamma_{y u}^{v} = - 2 H_{, y}.\\n$$\\nAll other $\\Gamma$ 's are zero. In the expression (MTW, Equation 8.51b)\\n$$\\n\\mathrm {R}_{\\alpha \\beta} = \\Gamma^{\\mu}_{\\alpha \\beta , \\mu} - (\\log (- \\mathbf {g})^{\\frac {1}{2}})_{, \\alpha \\beta} + (\\log (- \\mathbf {g})^{\\frac {1}{2}})_{, \\mu} \\Gamma^{\\mu}_{\\alpha \\beta} - \\Gamma^{\\mu}_{\\sigma \\beta} \\Gamma^{\\sigma}_{\\alpha \\mu}\\n$$\\nonly the first term contributes (note that $(-g)^{\\frac{1}{2}} = 1$ ). We find the only nonzero term to be\\n$$\\n\\mathrm {R}_{\\mathrm {u u}} = \\mathrm {H}_{, \\mathrm {x x}} + \\mathrm {H}_{, \\mathrm {y y}}.\\n$$\\nAny harmonic function in $\\mathbf{x}$ and $\\mathbf{y}$ will therefore satisfy the field equations. For a plane wave, $\\mathbf{H}$ is a quadratic function in $\\mathbf{x}$ and $\\mathbf{y}$ , so that (exercise!) the Riemann tensor is a function of $\\mathbf{u}$ alone and has no singularities in the $\\mathbf{x} - \\mathbf{y}$ plane."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "x",
+      "y",
+      "u",
+      "v"
+    ],
+    "metric_latex": [
+      [
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "2 H",
+        "- \\frac{1}{2}"
+      ],
+      [
+        "0",
+        "0",
+        "- \\frac{1}{2}",
+        "0"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

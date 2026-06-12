@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_1-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "Ricci_tensor_and_scalar",
+      "coordinate": "general",
+      "scenario": "vacuum_energy_dominated_spacetime",
+      "method": "trace_of_field_equations",
+      "generalization_axis": "extend",
+      "metric": "metric_properties"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.4_1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.4_1",
+      "1_s13_13.4_1-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric_properties",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$g_{\\mu\\nu}$",
+      "$T_{\\mu\\nu}$",
+      "$\\Lambda$",
+      "$R_{\\mu\\nu}$",
+      "$\\kappa$"
+    ],
+    "target": [
+      "$R_{\\mu\\nu}$",
+      "$R$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，若要求真空不存在偏好的参考系，其能动张量必须正比于度规张量，即 $T_{\\mu\\nu}^{\\text{vac}} = -\\rho_{\\text{vac}} g_{\\mu\\nu}$，这在场方程中等效于引入了一个有效宇宙学常数 $\\Lambda_{\\text{eff}} = 8\\pi \\rho_{\\text{vac}}$。考虑一个四维时空完全由这种真空能量主导（不存在任何其他物质分布），请利用爱因斯坦场方程推导该时空的 Ricci 张量 $R_{\\mu\\nu}$ 的具体形式，并由此求出曲率标量 $R$ 与有效宇宙学常数 $\\Lambda_{\\text{eff}}$ 的定量关系式。（采用 $(-,+,+,+)$ 符号约定）",
+    "answer": "$R_{\\mu\\nu} = \\Lambda_{\\text{eff}} g_{\\mu\\nu}$，$R = 4 \\Lambda_{\\text{eff}}$",
+    "solution": "1. 纯真空能量主导时空的爱因斯坦场方程为 $R_{\\mu\\nu} - \\frac{1}{2} R g_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}^{\\text{vac}}$。2. 代入真空能动张量的形式 $T_{\\mu\\nu}^{\\text{vac}} = -\\rho_{\\text{vac}} g_{\\mu\\nu}$，得到 $R_{\\mu\\nu} - \\frac{1}{2} R g_{\\mu\\nu} = -8\\pi \\rho_{\\text{vac}} g_{\\mu\\nu}$。3. 对方程两边取迹。在 $(-,+,+,+)$ 约定下，度规张量的迹为 $g^{\\mu\\nu} g_{\\mu\\nu} = -1+1+1+1 = 4$。能动张量的迹为 $T = g^{\\mu\\nu} T_{\\mu\\nu}^{\\text{vac}} = -4 \\rho_{\\text{vac}}$。因此取迹后得到：$R - \\frac{1}{2} R \\times 4 = 8\\pi (-4 \\rho_{\\text{vac}})$，即 $R - 2R = -32\\pi \\rho_{\\text{vac}}$。4. 解得曲率标量 $-R = -32\\pi \\rho_{\\text{vac}} \\implies R = 32\\pi \\rho_{\\text{vac}}$。5. 根据种子题结论，有效宇宙学常数 $\\Lambda_{\\text{eff}} = 8\\pi \\rho_{\\text{vac}}$，代入上式可得曲率标量与有效宇宙学常数的定量关系：$R = 4 \\Lambda_{\\text{eff}}$。6. 将 $R = 4 \\Lambda_{\\text{eff}}$ 代回原方程求 Ricci 张量：$R_{\\mu\\nu} = \\frac{1}{2} (4 \\Lambda_{\\text{eff}}) g_{\\mu\\nu} - \\Lambda_{\\text{eff}} g_{\\mu\\nu} = 2 \\Lambda_{\\text{eff}} g_{\\mu\\nu} - \\Lambda_{\\text{eff}} g_{\\mu\\nu} = \\Lambda_{\\text{eff}} g_{\\mu\\nu}$。7. 因此，纯真空主导时空的 Ricci 张量为 $R_{\\mu\\nu} = \\Lambda_{\\text{eff}} g_{\\mu\\nu}$，曲率标量为 $R = 4 \\Lambda_{\\text{eff}}$。"
+  },
+  "verification": null
+}

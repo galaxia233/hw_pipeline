@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s13_13.1-1-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "curvature scalar R",
+      "coordinate": "general",
+      "scenario": "verify modified field equation derivation",
+      "method": "covariant derivative and Bianchi identity",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.1",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.1",
+      "1_s13_13.1-1",
+      "1_s13_13.1-1-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$a$",
+      "$R_{\\mu \\nu}$",
+      "$g_{\\mu \\nu}$",
+      "$R$",
+      "$T_{\\mu \\nu}$",
+      "$\\rho$",
+      "$v$"
+    ],
+    "target": [
+      "校验推导中的符号与系数错误"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一种广义的引力场方程，设时空度规为一般的4维洛伦兹度规 $g_{\\mu\\nu}$（采用 $(-,+,+,+)$ 符号约定），场方程形式为 $R_{\\mu\\nu} - a g_{\\mu\\nu} R = 8\\pi T_{\\mu\\nu}$，其中 $a$ 是无量纲常数。标准广义相对论对应于 $a = \\frac{1}{2}$。在标准理论中，Einstein 场方程的左边由于满足缩并的 Bianchi 恒等式，自然保证了能动张量的守恒 $\\nabla^\\mu T_{\\mu\\nu} = 0$。对于上述广义场方程，如果要求能动张量守恒 $\\nabla^\\mu T_{\\mu\\nu} = 0$，且参数 $a \\neq \\frac{1}{2}$，我们需要证明时空的曲率标量 $R$ 必须是常数（即 $\\nabla_\\nu R = 0$）。某同学给出了如下推导：1. 对广义场方程两边取协变散度 $\\nabla^\\mu$，得到 $\\nabla^\\mu R_{\\mu\\nu} - a \\nabla^\\mu (g_{\\mu\\nu} R) = 8\\pi \\nabla^\\mu T_{\\mu\\nu}$。2. 由于度规的协变导数为零，即 $\\nabla_\\alpha g_{\\mu\\nu} = 0$，将度规移出协变导数：$a \\nabla^\\mu (g_{\\mu\\nu} R) = -a g_{\\mu\\nu} \\nabla^\\mu R = -a \\nabla_\\nu R$。3. 根据缩并的 Bianchi 恒等式，将第一项替换为曲率标量的协变导数：$\\nabla^\\mu R_{\\mu\\nu} = \\nabla_\\nu R$。4. 将步骤2和步骤3的结果代入步骤1的方程，并利用能动张量守恒 $\\nabla^\\mu T_{\\mu\\nu} = 0$，得到 $\\nabla_\\nu R - a \\nabla_\\nu R = 0$。5. 整理得 $(1 - a) \\nabla_\\nu R = 0$，由于 $a \\neq \\frac{1}{2}$，因此必须有 $\\nabla_\\nu R = 0$，证毕。请找出上述推导中的所有错误，指出错误位置、错误类型，并给出正确值。",
+    "answer": "错误1：步骤2中，将度规移出协变导数时引入了负号。错误类型：sign error。正确值应为 $a g_{\\mu\\nu} \\nabla^\\mu R = a \\nabla_\\nu R$。错误2：步骤3中，使用缩并的 Bianchi 恒等式时遗漏了系数 $\\frac{1}{2}$。错误类型：factor error。正确值应为 $\\nabla^\\mu R_{\\mu\\nu} = \\frac{1}{2} \\nabla_\\nu R$。修正后的最终方程应为 $(\\frac{1}{2} - a) \\nabla_\\nu R = 0$。",
+    "solution": "1. 对广义场方程两边取协变散度 $\\nabla^\\mu$，得到 $\\nabla^\\mu R_{\\mu\\nu} - a \\nabla^\\mu (g_{\\mu\\nu} R) = 8\\pi \\nabla^\\mu T_{\\mu\\nu}$。2. 由于度规的协变导数为零，即 $\\nabla_\\alpha g_{\\mu\\nu} = 0$，第二项可以写为 $a g_{\\mu\\nu} \\nabla^\\mu R = a \\nabla_\\nu R$。3. 根据缩并的 Bianchi 恒等式，Ricci 张量的协变散度满足 $\\nabla^\\mu R_{\\mu\\nu} = \\frac{1}{2} \\nabla_\\nu R$。4. 将上述结果代入，左边化简为 $\\frac{1}{2} \\nabla_\\nu R - a \\nabla_\\nu R = (\\frac{1}{2} - a) \\nabla_\\nu R$。5. 根据能动张量守恒的条件，右边为 $8\\pi \\nabla^\\mu T_{\\mu\\nu} = 0$。6. 因此，我们得到 $(\\frac{1}{2} - a) \\nabla_\\nu R = 0$。7. 如果参数 $a \\neq \\frac{1}{2}$，则必须有 $\\nabla_\\nu R = 0$，这意味着时空的曲率标量 $R$ 必须是一个常数。"
+  },
+  "verification": null
+}

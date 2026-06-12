@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-0-3",
+    "type": "calculate",
+    "tags": {
+      "target_object": "Riemann curvature component and singularity location",
+      "coordinate": "JNW-like spherical coordinates",
+      "scenario": "Bare singularity spacetime curvature analysis",
+      "method": "evaluate curvature component and analyze limits",
+      "generalization_axis": "substitute",
+      "metric": "JanisNewmanWinicour"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-0",
+      "1_s15_15.11-0-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "JanisNewmanWinicour",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$R^{0101}R_{0101}|_{r=M/\\gamma}$",
+      "$r_{singularity}$"
+    ],
+    "metric": [
+      [
+        "-(-2*M/(gam*r) + 1)**gam",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "(-2*M/(gam*r) + 1)**(-gam)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2*(-2*M/(gam*r) + 1)**(1 - gam)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*(-2*M/(gam*r) + 1)**(1 - gam)*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在某一带有参数 $\\gamma$ 的广义球对称时空中，度规为 $ds^2 = -\\left(1-\\frac{2M}{\\gamma r}\\right)^{\\gamma} dt^2 + \\left(1-\\frac{2M}{\\gamma r}\\right)^{-\\gamma} dr^2 + r^2\\left(1-\\frac{2M}{\\gamma r}\\right)^{1-\\gamma} d\\Omega^2$，其中 $d\\Omega^2 = d\\theta^2 + \\sin^2\\theta d\\phi^2$。该时空的度规分量 $g_{tt}$ 在 $r = 2M/\\gamma$ 处为零，看似形成了一个视界。已知其 Riemann 张量的一个坐标分量为 $R_{0101} = - \\frac{2 M \\gamma (M(\\gamma-1) + 2M - \\gamma r)}{r^2 (2M - \\gamma r)^2}$，且度规的逆变分量满足 $g^{00}g^{11} = -1$。请计算在 $r = M/\\gamma$ 处的曲率不变量分量 $R^{0101}R_{0101}$ 的值，并通过分析 $R^{0101}R_{0101}$ 在 $r \\to 2M/\\gamma$ 和 $r \\to 0$ 处的极限行为，指出该时空真正的物理奇点位置，并说明 $r = 2M/\\gamma$ 处的曲率性质。",
+    "answer": "$R^{0101}R_{0101}|_{r=M/\\gamma} = \\frac{4\\gamma^6(\\gamma+1)^2}{M^4}$; 真正物理奇点位于 $r=0$ 和 $r=2M/\\gamma$ ($\\gamma \\neq 1$ 时); $r=2M/\\gamma$ 处曲率发散，为真正的物理奇点（裸奇点），而非仅仅是坐标奇点。",
+    "solution": "1. 将 $r = M/\\gamma$ 代入 $R_{0101}$ 的表达式计算曲率分量值：   $$2M - \\gamma r = 2M - M = M$$ $$M(\\gamma-1) + 2M - \\gamma r = M\\gamma - M + 2M - M = M(\\gamma+1)$$ $$R_{0101}|_{r=M/\\gamma} = - \\frac{2 M \\gamma M(\\gamma+1)}{(M/\\gamma)^2 M^2} = - \\frac{2\\gamma^3(\\gamma+1)}{M^2}$$ 由于 $g^{00}g^{11} = -1$，所以 $R^{0101} = -R_{0101}$，曲率不变量分量为： $$R^{0101}R_{0101} = -(R_{0101})^2 = \\frac{4\\gamma^6(\\gamma+1)^2}{M^4}$$2. 分析 $r \\to 2M/\\gamma$ 处的极限： 当 $r \\to 2M/\\gamma$ 时，$2M - \\gamma r \\to 0$，此时分子趋于 $M(\\gamma-1)$。若 $\\gamma \\neq 1$，分子不为零，而分母趋于零，使得 $R_{0101} \\to \\inf ty$，从而 $R^{0101}R_{0101} \\to \\inf ty$。曲率标量分量发散，表明 $r = 2M/\\gamma$ 处是无论何种坐标变换都无法消除的真正物理奇点（裸奇点），而非仅仅是坐标选择不佳引起的坐标奇点。3. 分析 $r \\to 0$ 处的极限： 当 $r \\to 0$ 时，分母中的 $r^2(2M)^2$ 趋于零，分子趋于有限值 $-2M\\gamma(M(\\gamma+1))$，使得 $R_{0101} \\to \\inf ty$，曲率发散。因此，$r=0$ 也是物理奇点。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.janisnewmanwinicour_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目存在两个严重错误：1. 给出的 $R_{0101}$ 公式完全错误。正确的 $R_{0101}$ 应包含度规因子 $(1-2M/\\gamma r)$ 的幂次项 $\\gamma-1$ 和 $\\gamma-2$，而题目公式将其错误地省略。代入 $\\gamma=1$（即 Schwarzschild 度规）检验，题目公式给出 $R_{0101} = -2M/(r^2(2M-r))$，而公认的正确值为 $-2M/r^3$，两者明显矛盾。2. 答案存在符号错误。题目已给出条件 $g^{00}g^{11} = -1$，由此可得 $R^{0101} = g^{00}g^{11}R_{0101} = -R_{0101}$，因此曲率不变量分量 $R^{0101}R_{0101} = -(R_{0101})^2$ 必然为负数。但题目答案却给出正数 $\\frac{4\\gamma^6(\\gamma+1)^2}{M^4}$，且 solution 中竟然写出 $-(R_{0101})^2 = \\frac{4\\gamma^6(\\gamma+1)^2}{M^4}$，这是明显的数学符号错误。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s19_19.29_ii",
+    "type": "concept",
+    "tags": {
+      "metric": "big_bang_nucleosynthesis",
+      "target_object": "weak_interaction",
+      "coordinate": "cosmology",
+      "scenario": "qualitative_analysis",
+      "method": "fundamental_constants"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.29_ii",
+    "source_id": "1_s19_19.29_ii",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.29_ii"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.5,
+      "generalizability": 0.7,
+      "completeness": 0.3,
+      "realism": 0.8,
+      "rationale": "考查大爆炸核合成中弱相互作用常数对冻结温度及核合成产物的影响，物理逻辑链条清晰且具有明确的宇宙学观测背景，但原题仅提供设问缺乏完整解答过程",
+      "overall": 0.57
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$T$",
+      "$Y_p$",
+      "$G_F$",
+      "$n_n/n_p$"
+    ],
+    "target": [
+      "$Y_p$",
+      "$(D/H)$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Under which of the following suppositions would the hot big bang have produced less $\\mathbf{He}^4$ than predicted by the \"standard\" model? Less $\\mathbf{H}^2$ (deuterium)? (ii) Suppose the weak interaction constant is smaller than we now think.",
+    "answer": "Less $\\mathbf{He}^4$, More $\\mathbf{H}^2$ (deuterium)",
+    "solution": null
+  },
+  "verification": null
+}

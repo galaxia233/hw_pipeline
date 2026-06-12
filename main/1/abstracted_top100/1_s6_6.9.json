@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "id": "1_s6_6.9",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "manifold_topology",
+      "coordinate": "coordinate_systems",
+      "scenario": "conical_singularity",
+      "method": "analytic_extension"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s6_6.9",
+    "source_id": "1_s6_6.9",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s6_6.9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于局部展开推导周期性边界条件并比较极点正则性，物理逻辑完整且易于迁移至其他度规变形场景",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$\\theta$",
+      "$\\chi$"
+    ],
+    "target": [
+      "$g_{\\chi\\chi}$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(\\theta - \\theta^3)^2$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "(-theta**3 + theta)**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 6.9. A manifold which has the topology of a 2-sphere has - in a neighborhood of $\\theta = \\frac{1}{2}$ , $\\chi = 0$ - the metric$$\\mathrm {d s}^{2} = \\mathrm {d} \\theta^{2} + (\\theta - \\theta^{3})^{2} \\mathrm {d} \\chi^{2}.$$The manifold has precisely one point which is not locally flat, and that point is a “conical” singularity. Show that there are two different maximal analytic extensions of the metric, i.e. that there are two different ways of extending the metric, and satisfying the condition that there is only one conical singularity. Note that this shows that a metric in a local coordinate patch does not always pin down the global nature of the manifold. (Hint: consider the periodicity of the $\\chi$ coordinate.)",
+    "answer": "Thus we can either take $\\mathbf{P} = 2\\pi$ and have a conical singularity at $\\theta = 1$ , or $\\mathbf{P} = \\pi$ and have it at $\\theta = 0$ . These are two different global extensions of the manifold.",
+    "solution": "Solution 6.9. If we had $\\sin^2\\theta$ instead of $(\\theta - \\theta^3)$ the metric would just be that of the Euclidean 2-sphere. As given, it is obviously some sort of axially symmetric \"warped\" 2-sphere with singularities possible at $\\theta = 0, \\pm 1$ . From the given value of $\\theta = \\frac{1}{2}$ , it is obvious that the range of $\\theta$ can be extended to $0 < \\theta < 1$ . We must examine the cases $\\theta = 0$ and $\\theta = 1$ with some care to decide what range $\\chi$ can take. We know that $\\chi$ must be periodic because, as the metric shows, the coordinates $(\\theta = 0, \\text{all} \\chi)$ and $(\\theta = 1, \\text{all} \\chi)$ each represent just one point.For $\\theta \\approx 0$ , we have$$\\mathrm {d s}^{2} \\approx \\mathrm {d} \\theta^{2} + \\theta^{2} \\mathrm {d} \\chi^{2}.$$If $\\chi$ is periodic with period $P$ , then the proper circumference of a small circle of radius $\\Delta \\theta$ is $\\int (\\Delta \\theta) \\, \\mathrm{d}\\chi = (\\Delta \\theta) P$ . If we are to avoid a conical singularity this must equal $2\\pi \\Delta \\theta$ , so $P = 2\\pi$ . But now consider $\\theta \\approx 1$ : The metric is$$\\mathrm {d s}^{2} \\approx \\mathrm {d} \\theta^{2} + (\\theta - 1)^{2} (2)^{2} \\mathrm {d} \\chi^{2}$$so the condition avoiding a conical singularity, is$$\\int_{0}^{P} 2 (\\Delta \\theta) d \\chi = 2 \\pi (\\Delta \\theta),$$implies that $\\mathbf{P} = \\pi$ . Thus we can either take $\\mathbf{P} = 2\\pi$ and have a conical singularity at $\\theta = 1$ , or $\\mathbf{P} = \\pi$ and have it at $\\theta = 0$ . These are two different global extensions of the manifold. (This problem is due to Gilbert Miller.)"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 2,
+    "variables": [
+      "\\theta",
+      "\\chi"
+    ],
+    "metric_latex": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "\\left(- \\theta^{3} + \\theta\\right)^{2}"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

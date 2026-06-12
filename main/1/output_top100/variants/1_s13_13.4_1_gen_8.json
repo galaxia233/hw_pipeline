@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_1-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "Einstein_tensor_and_metric_degeneration",
+      "coordinate": "closed_AdS",
+      "scenario": "cosmology",
+      "method": "limit_analysis_and_coordinate_transform",
+      "generalization_axis": "limit",
+      "metric": "AntiDeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.4_1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.4_1",
+      "1_s13_13.4_1-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "AntiDeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "chi",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$G_{\\mu\\nu} \\to 0$",
+      "$ds^2 \\to -dt^2 + dr^2 + r^2(d\\theta^2 + \\sin^2(\\theta)d\\phi^2)$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "cos(t)**2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "cos(t)**2*sinh(chi)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*cos(t)**2*sinh(chi)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，反德西特 (Anti-de Sitter, AdS) 时空对应一个具有负宇宙学常数的真空解，其几何可由真空应力-能量张量 $T_{\\mu\\nu}^{\\text{vac}}$ 驱动。考虑带有尺度参数 $\\alpha$ 的闭合坐标 AdS 度规：$$ds^2 = -dt^2 + \\alpha^2 \\cos^2\\left(\\frac{t}{\\alpha}\\right) \\left[ d\\chi^2 + \\sin h^2(\\chi) (d\\theta^2 + \\sin^2(\\theta) d\\phi^2)\\right]$$其中 $\\alpha$ 与等效宇宙学常数的关系为 $\\Lambda = -\\frac{3}{\\alpha^2}$。请证明：当尺度参数 $\\alpha \\to \\inf ty$（即宇宙学常数 $\\Lambda \\to 0$）时，该时空的 Einstein 张量 $G_{\\mu\\nu}$ 退化为零，并在引入径向坐标 $r = \\alpha \\chi$ 的条件下，证明度规退化为 Minkowski 平直时空度规，从而还原为无宇宙学常数的经典真空。",
+    "answer": "当 $\\alpha \\to \\inf ty$ 时，Einstein 张量 $G_{\\mu\\nu} = -\\frac{3}{\\alpha^2} g_{\\mu\\nu} \\to 0$；在径向坐标 $r = \\alpha \\chi$ 下，度规空间部分退化为 $dr^2 + r^2 d\\Omega^2$，整体度规退化为 $ds^2 = -dt^2 + dr^2 + r^2(d\\theta^2 + \\sin^2(\\theta) d\\phi^2)$。",
+    "solution": "1. **Einstein 张量的极限退化**：根据几何属性数据，当 $\\alpha = 1$ 时，度规的 Einstein 张量分量为 $G_{00} = -3, G_{11} = 3\\cos^2(t), G_{22} = 3\\cos^2(t)\\sin h^2(\\chi), G_{33} = 3\\sin^2(\\theta)\\cos^2(t)\\sin h^2(\\chi)$。这表明 Einstein 张量严格正比于度规张量，即 $G_{\\mu\\nu} = -3 g_{\\mu\\nu}$。引入尺度参数 $\\alpha$ 后，曲率标量变为 $R = -\\frac{12}{\\alpha^2}$，相应的 Einstein 张量形式变为 $G_{\\mu\\nu} = -\\frac{3}{\\alpha^2} g_{\\mu\\nu}$。当 $\\alpha \\to \\inf ty$ 时，显然 $-\\frac{3}{\\alpha^2} \\to 0$，因此 $G_{\\mu\\nu} \\to 0$。此时场方程 $G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}^{\\text{vac}} + \\Lambda g_{\\mu\\nu}$ 中等效的真空能量驱动项消失，还原为 $G_{\\mu\\nu} = 0$ 的无物质真空场方程。2. **度规的极限退化**：在度规表达式中引入径向坐标变换 $r = \\alpha \\chi$，则 $d\\chi = \\frac{dr}{\\alpha}$。度规的空间部分变为：$$\\alpha^2 \\cos^2\\left(\\frac{t}{\\alpha}\\right) \\left[ \\frac{dr^2}{\\alpha^2} + \\sin h^2\\left(\\frac{r}{\\alpha}\\right) (d\\theta^2 + \\sin^2(\\theta) d\\phi^2)\\right]$$$$= \\cos^2\\left(\\frac{t}{\\alpha}\\right) dr^2 + \\alpha^2 \\cos^2\\left(\\frac{t}{\\alpha}\\right) \\sin h^2\\left(\\frac{r}{\\alpha}\\right) (d\\theta^2 + \\sin^2(\\theta) d\\phi^2)$$当 $\\alpha \\to \\inf ty$ 时，时间相关因子 $\\cos\\left(\\frac{t}{\\alpha}\\right) \\to \\cos(0) = 1$；径向相关因子利用近似 $\\sin h(x) \\approx x$ (当 $x \\to 0$)，有 $\\alpha \\sin h\\left(\\frac{r}{\\alpha}\\right) \\approx \\alpha \\cdot \\frac{r}{\\alpha} = r$。因此空间部分退化为 $dr^2 + r^2 (d\\theta^2 + \\sin^2(\\theta) d\\phi^2)$。时间部分 $-dt^2$ 不含 $\\alpha$，保持不变。故整体度规退化为 $ds^2 = -dt^2 + dr^2 + r^2 (d\\theta^2 + \\sin^2(\\theta) d\\phi^2)$，这正是 Minkowski 平直时空度规。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.antidesitter_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "1. Einstein张量符号严重错误与自相矛盾：answer和solution均声称 $G_{\\mu\\nu} = -\\\\frac{3}{\\\\alpha^2} g_{\\\\mu\\nu}$，但由 $R_{\\\\mu\\nu} = -\\\\frac{3}{\\\\alpha^2} g_{\\\\mu\\nu}$ 和 $R=-\\\\frac{12}{\\\\alpha^2}$ 推导，正确的比例关系应为正号 $G_{\\\\mu\\nu} = +\\\\frac{3}{\\\\alpha^2} g_{\\\\mu\\nu}$；solution内部更是自相矛盾，它给出分量 $G_{00}=-3$（对应 $G_{00}=+3 g_{00}$），却得出总结 $G_{\\\\mu\\nu}=-3 g_{\\\\mu\\nu}$（这将得出 $G_{00}=3$，与自身的-3矛盾）；2. 场方程符号错误：solution中将场方程写为 $G_{\\\\mu\\nu} = 8\\\\pi T_{\\\\mu\\nu}^{\\\\text{vac}} + \\\\Lambda g_{\\\\mu\\nu}$，标准形式应为 $G_{\\\\mu\\nu}+\\\\Lambda g_{\\\\mu\\nu}=8\\\\pi T_{\\\\mu\\nu}$ 或将宇宙学常数移至右侧 $G_{\\\\mu\\nu}=8\\\\pi T_{\\\\mu\\nu}-\\\\Lambda g_{\\\\mu\\nu}$，此处符号写反；3. 度规切片命名错误：题目声称该度规为‘闭合坐标 AdS 度规’，但度规空间部分包含 $\\\\sin h^2(\\\\chi)$，这是开放切片（$k=-1$，双曲空间）的特征，闭合切片应为 $\\\\sin^2(\\\\chi)$；4. 与摘要物理性质冲突：摘要明确指出该度规‘非真空度规: Ricci 张量非零’，但题目开头错误地将其描述为‘真空解’；5. 错别字：极限符号多处写成 $\\\\inf ty$ 而非 $\\\\infty$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

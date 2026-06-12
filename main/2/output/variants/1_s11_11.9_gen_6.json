@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-6",
+    "type": "calculate",
+    "tags": {
+      "target_object": "Einstein_tensor",
+      "coordinate": "static",
+      "scenario": "cosmology",
+      "method": "parameter_inversion",
+      "generalization_axis": "invert",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$\\alpha$",
+      "$G_{11}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在宇宙学时空几何中，曲率效应会导致静止观测者的自旋矢量发生测地线进动（类似于 de Sitter 进动）。考虑由度规 $ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}}(dx^2 + dy^2 + dz^2)$ 描述的时空，理论分析表明，位于 $x=0$ 处的静止观测者所携带的、初始指向 $y$ 轴的自旋矢量，会在 $y$-$z$ 平面内发生进动，其进动角频率的理论公式为 $\\Omega = \\frac{1}{\\alpha}$。假设天文观测实验测得该自旋进动的周期为 $T$，请利用这一观测结论反推度规参数 $\\alpha$ 的表达式，并据此推断该时空 Einstein 张量的分量 $G_{11}$。",
+    "answer": "$\\alpha = \\frac{T}{2\\pi}$, $G_{11} = \\frac{4\\pi^{2}}{T^{2}}$",
+    "solution": "1. 根据进动角频率与周期的基本物理关系，有 $\\Omega = \\frac{2\\pi}{T}$。2. 已知理论推导给出的进动角频率公式为 $\\Omega = \\frac{1}{\\alpha}$，将上式代入可得 $\\frac{1}{\\alpha} = \\frac{2\\pi}{T}$，从而反推得到度规特征参数 $\\alpha = \\frac{T}{2\\pi}$。3. 根据该度规的几何属性数据，Einstein 张量的分量表达式为 $G_{11} = \\frac{1}{\\alpha^{2}}$。4. 将反推得到的 $\\alpha$ 表达式代入，即可推断出该时空 Einstein 张量的分量 $G_{11} = \\frac{1}{(\\frac{T}{2\\pi})^{2}} = \\frac{4\\pi^{2}}{T^{2}}$。"
+  },
+  "verification": null
+}

@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s8_8.1_a",
+    "type": "concept",
+    "tags": {
+      "metric": "coordinate_system",
+      "target_object": "tensor_basis",
+      "coordinate": "metric_contraction",
+      "scenario": "abstract_spacetime",
+      "method": "basic_tensor_algebra"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.1_a",
+    "source_id": "1_s8_8.1_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.1_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.1,
+      "generalizability": 0.2,
+      "completeness": 0.3,
+      "realism": 0.2,
+      "rationale": "纯数学基矢与对偶基定义题，无具体物理场景，且附带的解答与题干完全无关导致完整性受损",
+      "overall": 0.2
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^0$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$\\\\langle \\\\widetilde{\\\\mathrm{d}x}^0, \\\\partial/\\\\partial x^0 \\\\rangle$",
+      "$\\\\langle \\\\widetilde{\\\\mathrm{d}x}^2, \\\\partial/\\\\partial x^3 \\\\rangle$",
+      "$\\\\partial/\\\\partial x^0 \\\\cdot \\\\partial/\\\\partial x^1$",
+      "$\\\\widetilde{\\\\mathrm{d}x}^0 \\\\cdot \\\\widetilde{\\\\mathrm{d}x}^1$",
+      "$\\\\widetilde{\\\\mathrm{d}x}^0 \\\\cdot \\\\widetilde{\\\\mathrm{d}x}^0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "# Problem 8.1.\\n(a) A spacetime has coordinates $\\mathbf{x}^a$ with basis vectors $\\partial/\\partial \\mathbf{x}^a$ and basis one-forms $\\widetilde{\\mathrm{dx}}^a$ . What are the values of:\\n$$\\n< \\\\widetilde {\\\\mathbf {d x}}^{0}, \\\\partial / \\\\partial \\\\mathbf {x}^{0} >, < \\\\widetilde {\\\\mathbf {d x}}^{2}, \\\\partial / \\\\partial \\\\mathbf {x}^{3} >, (\\\\partial / \\\\partial \\\\mathbf {x}^{0}) \\\\cdot (\\\\partial / \\\\partial \\\\mathbf {x}^{1}), \\\\widetilde {\\\\mathbf {d x}}^{0} \\\\cdot \\\\widetilde {\\\\mathbf {d x}}^{1}, \\\\widetilde {\\\\mathbf {d x}}^{0} \\\\cdot \\\\widetilde {\\\\mathbf {d x}}^{0}?\\n$$",
+    "answer": "$\\\\langle \\\\widetilde{\\\\mathrm{d}x}^0, \\\\partial/\\\\partial x^0 \\\\rangle = 1$, $\\\\langle \\\\widetilde{\\\\mathrm{d}x}^2, \\\\partial/\\\\partial x^3 \\\\rangle = 0$, $\\\\partial/\\\\partial x^0 \\\\cdot \\\\partial/\\\\partial x^1 = g_{01}$, $\\\\widetilde{\\\\mathrm{d}x}^0 \\\\cdot \\\\widetilde{\\\\mathrm{d}x}^1 = g^{01}$, $\\\\widetilde{\\\\mathrm{d}x}^0 \\\\cdot \\\\widetilde{\\\\mathrm{d}x}^0 = g_{00}$",
+    "solution": "# Solution 8.1.\\n$$\\n\\\\mathbf {d} \\\\left(\\\\mathscr {L}_{\\\\mathbf {X}} \\\\tilde {\\\\mathbf {U}}\\\\right) = \\\\mathscr {L}_{\\\\mathbf {X}} (\\\\mathbf {d} \\\\tilde {\\\\mathbf {U}}).\\n$$\\nThe generalization of this method from 1-form to p-form is straightforward."
+  },
+  "verification": null
+}

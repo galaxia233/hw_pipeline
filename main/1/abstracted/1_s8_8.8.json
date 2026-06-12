@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s8_8.8",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_signature",
+      "target_object": "tangent_vector_classification",
+      "coordinate": "local_orthonormal_coordinates",
+      "scenario": "causal_hypersurface",
+      "method": "tetrad_formalism_and_lorentz_invariance"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.8",
+    "source_id": "1_s8_8.8",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "Requires tetrad alignment, orthogonality analysis, and Lorentz invariance argument across three causal cases.",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$\\eta_{\\hat{0}\\hat{0}}$",
+      "$\\eta_{\\hat{1}\\hat{1}}$",
+      "$\\eta_{\\hat{2}\\hat{2}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 8.8. A 3-surface in spacetime is spacelike, timelike, or null, if its normal vector is timelike, spacelike, or null respectively. It is desired to find three orthogonal linearly independent vectors in a 3-surface. Show that for a spacelike surface, these are all spacelike; for a timelike surface,two spacelike and one timelike; for a null surface, one null and two spacelike.",
+    "answer": "For a spacelike surface, the three orthogonal tangent vectors are all spacelike; for a timelike surface, two are spacelike and one is timelike; for a null surface, one is null and two are spacelike.",
+    "solution": "At any point on the surface choose a local orthonormal tetrad $\\mathbf{e}_{\\hat{\\mathbf{x}}}, \\mathbf{e}_{\\hat{\\mathbf{x}}}, \\mathbf{e}_{\\hat{\\mathbf{y}}}, \\mathbf{e}_{\\hat{\\mathbf{z}}}$ . If the surface is spacelike, we can choose the tetrad so that $\\mathbf{e}_{\\hat{\\mathbf{x}}}$ is the unit normal. The 3 orthogonal, linearly independent vectors lying in the surface are then spacelike $(\\mathbf{e}_{\\hat{\\mathbf{x}}}, \\mathbf{e}_{\\hat{\\mathbf{y}}}, \\mathbf{e}_{\\hat{\\mathbf{z}}})$ . Now any other orthonormal tetrad we might have chosen is related to the first one by a Lorentz transformation, which does not affect whether a vector is spacelike or not. Hence the three vectors are always spacelike when the surface is spacelike.In the null case, choose $\\mathbf{e}_{\\hat{\\mathbf{t}}} + \\mathbf{e}_{\\hat{\\mathbf{x}}}$ to be normal to the surface. A null vector is orthogonal to itself, so the 3 orthogonal vectors in the surface are $\\mathbf{e}_{\\hat{\\mathbf{y}}}$ and $\\mathbf{e}_{\\hat{\\mathbf{z}}}$ (spacelike) and $\\mathbf{e}_{\\hat{\\mathbf{t}}} + \\mathbf{e}_{\\hat{\\mathbf{x}}}$ (null). In the timelike case, choose $\\mathbf{e}_{\\hat{\\mathbf{x}}}$ to be normal. Then in the surface, $\\mathbf{e}_{\\hat{\\mathbf{t}}}$ is timelike; $\\mathbf{e}_{\\hat{\\mathbf{y}}}$ and $\\mathbf{e}_{\\hat{\\mathbf{z}}}$ are spacelike. Again these results are unchanged by Lorentz transformations."
+  },
+  "verification": null
+}

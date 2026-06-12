@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-4",
+    "type": "calculate",
+    "tags": {
+      "target_object": "max_radius",
+      "coordinate": "static_ads",
+      "scenario": "radial_geodesic",
+      "method": "energy_minimum_condition",
+      "generalization_axis": "apply",
+      "metric": "AntiDeSitterStatic"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "AntiDeSitterStatic",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$r_{max}$"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在反德西特时空中，取静态坐标 $(t, r, \\theta, \\phi)$，度规为 $ds^2 = - \\cos h^{2}{\\left(r\\right)} dt^2 + dr^2 + \\sin h^{2}{\\left(r\\right)} d\\theta^2 + \\sin h^{2}{\\left(r\\right)} \\sin^{2}{\\left(\\theta\\right)} d\\phi^2$。已知该度规具有时间平移 Killing 矢量 $\\boldsymbol{\\xi} = \\partial_t$。对于有质量 $\\mu$ 的测试粒子，其守恒能量定义为 $E = -\\boldsymbol{p} \\cdot \\boldsymbol{\\xi}$，且粒子在任意时空点处的能量下限为 $E_{min} = \\mu \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$。考虑一个角动量为零的测试粒子，在时空中心 $r=0$ 处以局域静止观测者测量的径向速率 $v_0$ ($0 < v_0 < 1$) 沿径向向外发射。当粒子到达最远距离时，其径向速度降为零，此时粒子的能量恰好等于该处的能量下限。利用这一物理结论，直接求出该粒子在径向运动中能达到的最远坐标半径 $r_{max}$ 的精确解析表达式（用 $v_0$ 表示）。",
+    "answer": "$r_{max} = \\text{arctanh}(v_0) = \\frac{1}{2} \\ln \\frac{1+v_0}{1-v_0}$",
+    "solution": "在时空中心 $r=0$ 处，度规退化为 $ds^2 = -dt^2 + dr^2$，局域静止观测者测量的径向速率为 $v_0 = \\dot{r} / \\dot{t}$。由类时条件 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$，在 $r=0$ 处有 $-1 = -\\dot{t}^2 + \\dot{r}^2 = -\\dot{t}^2 (1 - v_0^2)$，解得 $\\dot{t} = 1 / \\sqrt{1 - v_0^2}$。守恒能量 $E = -p_t = -\\mu g_{tt} \\dot{t} = \\mu \\cos h^{2}{\\left(r\\right)} \\dot{t}$，在 $r=0$ 处 $E = \\mu \\dot{t} = \\mu / \\sqrt{1 - v_0^2}$。当粒子到达最远距离 $r_{max}$ 时，其径向速度 $\\dot{r} = 0$，4速度仅含时间分量，与时间 Killing 矢量平行。根据能量下限结论，此时粒子的能量恰好等于该点的能量下限，即 $E = \\mu \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}|_{r_{max}}} = \\mu \\cos h{\\left(r_{max}\\right)}$。代入能量表达式得 $\\mu \\cos h{\\left(r_{max}\\right)} = \\mu / \\sqrt{1 - v_0^2}$，即 $\\cos h{\\left(r_{max}\\right)} = 1 / \\sqrt{1 - v_0^2}$。由于 $0 < v_0 < 1$ 且 $r_{max} \\ge 0$，解得 $r_{max} = \\text{arctanh}(v_0) = \\frac{1}{2} \\ln \\frac{1 + v_0}{1 - v_0}$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.antidesitterstatic_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "度规和solution中双曲函数的 LaTeX 符号存在严重拼写/排版错误：将 \\cosh^2(r) 和 \\sinh^2(r) 错误地写成了 \\cos h^{2}{\\left(r\\right)} 和 \\sin h^{2}{\\left(r\\right)}。这种写法在数学排版中会被渲染为普通余弦/正弦函数与变量 h^2(r) 的组合（如 \\cos(h^2(r))），而非预期的双曲余弦/正弦函数的平方 (\\cosh(r))^2。如果做题者按字面意思理解，整个度规和推导逻辑将完全不成立。正确的 LaTeX 符号应为 \\cosh 和 \\sinh。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

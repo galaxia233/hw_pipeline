@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-7-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "geodetic_precession_oscillation_frequency",
+      "coordinate": "spherical",
+      "scenario": "Schwarzschild_circular_orbit_reduce_flat",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-7",
+      "1_s11_11.11-7-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "omega_S",
+      "Omega_orb_flat_limit"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，考虑赤道面（\\theta = \\pi/2）上一个半径为 r 的圆轨道。一个不受外力矩的陀螺仪在此轨道上自由下落，其自旋矢量空间分量 S^r 在固有时 \\tau 下的振荡角频率已知为 \\omega_S = \\sqrt{\\frac{r_s}{2r^2}}，其中 r_s = 2M。同时，该圆轨道的坐标角速度为 \\Omega_{orb} = u^\\phi = \\sqrt{\\frac{r_s}{r(2r-3r_s)}}。度规为 ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2。\\n\\n请取平直时空极限（r_s \\to 0），证明 \\omega_S \\to \\Omega_{orb}，并解释此极限为何还原了经典物理中陀螺仪自旋方向相对于遥远恒星不发生测地进动的预期。",
+    "answer": "当 r_s \\to 0 时，轨道坐标角速度 \\Omega_{orb} = \\sqrt{\\frac{r_s}{r(2r-3r_s)}} \\to \\sqrt{\\frac{r_s}{2r^2}} = \\omega_S。经典物理中，在平直时空极坐标系下，沿圆轨道平行移动的矢量会在坐标基矢量中以轨道角速度 \\Omega_{orb} 旋转，这恰好抵消了坐标系的旋转，使得矢量相对于全局笛卡尔坐标（遥远恒星）保持方向不变（无测地进动）。\\omega_S \\to \\Omega_{orb} 说明在 GR 的弱场极限下，自旋振荡纯粹源于坐标基矢的旋转，经典测地进动的附加效应消失。",
+    "solution": "1. 取极限：当 r_s \\to 0 时，\\Omega_{orb} = \\sqrt{\\frac{r_s}{r(2r-3r_s)}} 的分母中 -3r r_s 项相比于 2r^2 可忽略，因此 \\Omega_{orb} \\to \\sqrt{\\frac{r_s}{2r^2}}。\\n2. 比较结果：已知 \\omega_S = \\sqrt{\\frac{r_s}{2r^2}}，因此 \\omega_S \\to \\Omega_{orb}。\\n3. 物理意义解释：在平直时空（极坐标）下，一个沿圆轨道平行移动的矢量必须随坐标基矢以轨道角速度 \\Omega_{orb} 旋转，才能在全局笛卡尔基矢（对应遥远恒星）下保持方向不变。\\omega_S 趋于 \\Omega_{orb} 表明 GR 中测地进动的附加效应在弱场极限下消失，仅保留了平直时空坐标变换带来的表观振荡。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "1. 数学逻辑错误（极限与近似混淆）：题目要求“取极限 r_s -> 0 证明 omega_S -> Omega_orb”，但在极限 r_s -> 0 下，omega_S 和 Omega_orb 的数值均趋于0，证明二者“趋于对方”在数学上无意义，正确的表述应为证明二者比值趋于1（lim(omega_S/Omega_orb)=1）或使用弱场近似符号（Omega_orb ≈ omega_S）。Answer 和 Solution 错误地将极限过程写为 Omega_orb -> sqrt(r_s/2r^2) = omega_S，把含有变量 r_s 的表达式当作极限值。实际上，lim(r_s->0) Omega_orb = 0，而不是 sqrt(r_s/2r^2)，这属于将泰勒展开的首项近似与极限概念彻底混淆。\n2. 物理表述瑕疵：Answer 中称“经典测地进动的附加效应消失”，测地进动是广义相对论效应，经典（平直）时空本就不存在测地进动，应表述为“GR 测地进动效应在弱场极限下消失，仅保留平直时空极坐标带来的表观振荡”。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

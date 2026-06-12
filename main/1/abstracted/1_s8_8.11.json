@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s8_8.11",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "tensor_algebra",
+      "coordinate": "locally_inertial_frame",
+      "scenario": "equivalence_principle",
+      "method": "general_covariance"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.11",
+    "source_id": "1_s8_8.11",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.11"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.7,
+      "rationale": "基于局部惯性系与等效原理的张量构造性证明，逻辑链条完整且高度抽象普适",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\mu$"
+    ],
+    "target": [
+      "$g_{\\\\alpha\\\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s8_8.11.md]\\n\\nProblem 8.11. Show that there exists no tensor with components constructed from the 10 metric coefficients $\\mathbf{g}_{\\alpha \\beta}$ and their 40 first derivatives $\\mathbf{g}_{\\alpha \\beta, \\mu}$ - except $\\mathbf{g}$ itself and products of it with itself, e.g. $\\mathbf{g} \\otimes \\mathbf{g}$ .\\n\\n## Solution",
+    "answer": "不存在除 $g$ 本身及其自乘积外的其他独立张量；在任意点该张量必为平直度规 $\\eta_{\\\\alpha\\\\beta}$ 的代数组合，故全局上只能由 $g$ 构成。",
+    "solution": "Solution 8.11. Suppose there were such a tensor. What would be its components at some arbitrary point in a freely falling local orthonormal frame? In this frame all the $\\mathbf{g}_{\\alpha \\beta, \\mu}$ vanish (because all the $\\Gamma_{\\alpha \\beta \\mu}$ vanish), and $\\mathbf{g}_{\\alpha \\beta} = \\eta_{\\alpha \\beta}$ . Thus the tensor must be some algebraic combination of $\\eta_{\\alpha \\beta}$ , \"zero,\" and possibly $\\delta^{\\alpha}{}_{\\beta}$ and $\\varepsilon^{a\\beta\\gamma\\delta}$ . You can very quickly convince yourself that the only nontrivial one is $\\eta \\otimes \\eta \\otimes \\dot s \\otimes \\eta$ (the $\\delta$ only renames indices, e.g. $\\delta^{\\alpha}{}_{\\beta}\\eta_{\\alpha\\gamma} = \\eta_{\\beta\\gamma}$ and the $\\varepsilon^{a\\beta\\gamma\\delta}$ gives zero by its antisymmetries, or else just gets some of its indices lowered). Since we chose an arbitrary point, the conclusion holds at all points."
+  },
+  "verification": null
+}

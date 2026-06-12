@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-1-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "Komar_mass_integral",
+      "coordinate": "general_stationary",
+      "scenario": "stationary_spacetime_conservation_verify",
+      "method": "Stokes_theorem_Einstein_equations",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-1",
+      "1_s10_10.12-1-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T^{\\\\alpha}_{\\\\beta}$",
+      "$\\\\xi^{\\\\beta}$",
+      "$\\\\Sigma_{\\\\alpha}$",
+      "$|g|$",
+      "$x^{a}$"
+    ],
+    "target": [
+      "Komar质量积分推导的错误校验"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Consider a stationary spacetime possessing a timelike Killing vector field $\\xi^{\\alpha}$. The Komar mass associated with this spacetime is defined on a closed 2-dimensional spacelike surface $S$ as the surface integral:$$M_K = \\frac{1}{8\\pi} \\oint_S \\nabla^{\\alpha} \\xi^{\\beta} dS_{\\alpha\\beta}$$where $dS_{\\alpha\\beta}$ is the surface element of $S$. Below is a derivation attempting to express the Komar mass as a 3-dimensional volume integral over a spacelike hypersurface $V$ bounded by $S$, expressed in terms of $T_{\\alpha\\beta}$, $R$, and $\\xi^{\\alpha}$. Find and correct all errors in the derivation.Step 1: Apply the generalized Stokes theorem to convert the 2-surface integral into a 3-volume integral over $V$ whose boundary is $S$:$$\\oint_S \\nabla^{\\alpha} \\xi^{\\beta} dS_{\\alpha\\beta} = \\int_V \\nabla_{\\alpha} (\\nabla^{\\alpha} \\xi^{\\beta}) d\\Sigma_{\\beta}$$Step 2: Evaluate the covariant derivative divergence term $\\nabla_{\\alpha} (\\nabla^{\\alpha} \\xi^{\\beta})$. Using the metric to lower the index, this is $g^{\\beta\\gamma} \\nabla_{\\alpha} \\nabla_{\\gamma} \\xi^{\\alpha}$. By the Killing vector identity $\\nabla_{\\alpha} \\nabla_{\\beta} \\xi_{\\gamma} = R_{\\gamma\\beta\\alpha\\delta} \\xi^{\\delta}$, we have $\\nabla_{\\alpha} \\nabla_{\\gamma} \\xi^{\\alpha} = -R_{\\gamma\\delta} \\xi^{\\delta}$. Therefore:$$\\nabla_{\\alpha} (\\nabla^{\\alpha} \\xi^{\\beta}) = -R^{\\beta}{}_{\\delta} \\xi^{\\delta}$$Step 3: Substitute the Einstein field equations $R_{\\alpha\\beta} - \\frac{1}{2} g_{\\alpha\\beta} R = 4\\pi T_{\\alpha\\beta}$ (where $T_{\\alpha\\beta}$ is the energy-momentum tensor) to express the Ricci tensor:$$R^{\\beta}{}_{\\delta} = 4\\pi \\left( T^{\\beta}{}_{\\delta} - \\frac{1}{2} g^{\\beta}{}_{\\delta} R\\right)$$Contracting with the Killing vector $\\xi^{\\delta}$ gives:$$-R^{\\beta}{}_{\\delta} \\xi^{\\delta} = -4\\pi \\left( T^{\\beta}{}_{\\delta} \\xi^{\\delta} - \\frac{1}{2} \\xi^{\\beta} R\\right)$$Step 4: Substitute this result back into the volume integral:$$\\oint_S \\nabla^{\\alpha} \\xi^{\\beta} dS_{\\alpha\\beta} = \\int_V -4\\pi \\left( T^{\\beta}{}_{\\delta} \\xi^{\\delta} - \\frac{1}{2} \\xi^{\\beta} R\\right) d\\Sigma_{\\beta}$$Step 5: Finally, plug this into the definition of Komar mass:$$M_K = \\frac{1}{8\\pi} \\left[ \\int_V -4\\pi \\left( T^{\\beta}{}_{\\delta} \\xi^{\\delta} - \\frac{1}{2} \\xi^{\\beta} R\\right) d\\Sigma_{\\beta}\\right] = -\\frac{1}{2} \\int_V \\left( T^{\\beta}{}_{\\delta} \\xi^{\\delta} - \\frac{1}{2} \\xi^{\\beta} R\\right) d\\Sigma_{\\beta}$$(Hint: The correct final expression should be $M_K = -\\int_V \\left( T^{\\alpha}{}_{\\beta} \\xi^{\\beta} - \\frac{1}{2} \\xi^{\\alpha} R \\right) d\\Sigma_{\\alpha}$)",
+    "answer": "1. Definition sign error: $M_K = +\\frac{1}{8\\pi}$ is wrong, it should be $M_K = -\\frac{1}{8\\pi}$.2. Stokes theorem index error: $\\nabla_{\\alpha} (\\nabla^{\\alpha} \\xi^{\\beta}) d\\Sigma_{\\beta}$ is wrong. The divergence should be taken on the second index of the 2-form to match the boundary element, so it should be $\\nabla_{\\beta} (\\nabla^{\\alpha} \\xi^{\\beta}) d\\Sigma_{\\alpha}$.3. Killing identity sign error: $\\nabla_{\\alpha} \\nabla_{\\gamma} \\xi^{\\alpha} = -R_{\\gamma\\delta} \\xi^{\\delta}$ is wrong, it should be $+R_{\\gamma\\delta} \\xi^{\\delta}$.4. Einstein equation factor error: $4\\pi$ is wrong, it should be $8\\pi$.With these corrections, the derivation yields the correct expression $M_K = -\\int_V (T^{\\alpha}{}_{\\beta} \\xi^{\\beta} - \\frac{1}{2} \\xi^{\\alpha} R) d\\Sigma_{\\alpha}$.",
+    "solution": "1. Start with the correct Komar mass definition: $M_K = -\\frac{1}{8\\pi} \\oint_S \\nabla^{\\alpha} \\xi^{\\beta} dS_{\\alpha\\beta}$.2. Apply Stokes theorem correctly: $\\oint_S \\nabla^{\\alpha} \\xi^{\\beta} dS_{\\alpha\\beta} = \\int_V \\nabla_{\\beta} (\\nabla^{\\alpha} \\xi^{\\beta}) d\\Sigma_{\\alpha}$.3. Evaluate divergence: $\\nabla_{\\beta} (\\nabla^{\\alpha} \\xi^{\\beta}) = g^{\\alpha\\gamma} \\nabla_{\\beta} \\nabla_{\\gamma} \\xi^{\\beta} = g^{\\alpha\\gamma} R_{\\gamma\\delta} \\xi^{\\delta} = R^{\\alpha}{}_{\\delta} \\xi^{\\delta}$.4. Substitute correct Einstein equation $R_{\\alpha\\beta} - \\frac{1}{2} g_{\\alpha\\beta} R = 8\\pi T_{\\alpha\\beta}$: $R^{\\alpha}{}_{\\delta} = 8\\pi (T^{\\alpha}{}_{\\delta} - \\frac{1}{2} g^{\\alpha}{}_{\\delta} R)$.5. Contract with $\\xi^{\\delta}$: $R^{\\alpha}{}_{\\delta} \\xi^{\\delta} = 8\\pi (T^{\\alpha}{}_{\\delta} \\xi^{\\delta} - \\frac{1}{2} \\xi^{\\alpha} R)$.6. Integrate: $\\oint_S \\nabla^{\\alpha} \\xi^{\\beta} dS_{\\alpha\\beta} = 8\\pi \\int_V (T^{\\alpha}{}_{\\beta} \\xi^{\\beta} - \\frac{1}{2} \\xi^{\\alpha} R) d\\Sigma_{\\alpha}$.7. Substitute back into definition: $M_K = -\\frac{1}{8\\pi} \\times 8\\pi \\int_V (T^{\\alpha}{}_{\\beta} \\xi^{\\beta} - \\frac{1}{2} \\xi^{\\alpha} R) d\\Sigma_{\\alpha} = -\\int_V (T^{\\alpha}{}_{\\beta} \\xi^{\\beta} - \\frac{1}{2} \\xi^{\\alpha} R) d\\Sigma_{\\alpha}$."
+  },
+  "verification": null
+}

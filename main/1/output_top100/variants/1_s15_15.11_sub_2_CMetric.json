@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-1-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "光子圆形轨道条件",
+      "coordinate": "x-y坐标",
+      "scenario": "函数度规时空",
+      "method": "测地线方程",
+      "generalization_axis": "substitute",
+      "metric": "CMetric"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-1",
+      "1_s15_15.11-1-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "CMetric",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "phi"
+    ],
+    "target": [
+      "$x$",
+      "$y$"
+    ],
+    "metric": [
+      [
+        "-h(y)/(x + y)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1/((x + y)**2*f(x))",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/((x + y)**2*h(y))",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "f(x)/(x + y)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在给定度规的时空中，光子可以在特定坐标位置形成圆形轨道。已知在该轨道处，光子在 $x$ 和 $y$ 方向的速度与加速度均为零（即 $\\dot{x} = 0, \\ddot{x} = 0$ 且 $\\dot{y} = 0, \\ddot{y} = 0$），且光子仅沿 $\\phi$ 方向运动。请根据这些轨道性质与零测地线约束，利用测地线方程及度规的 Christoffel 符号，推导光子圆形轨道所在的坐标 $x$ 和 $y$ 必须满足的关于度规函数 $f(x)$ 和 $h(y)$ 的微分条件。度规定义为：$ds^2 = -\\frac{h(y)}{(x+y)^2} dt^2 + \\frac{1}{(x+y)^2 f(x)} dx^2 + \\frac{1}{(x+y)^2 h(y)} dy^2 + \\frac{f(x)}{(x+y)^2} d\\phi^2$",
+    "answer": "$\\frac{d f(x)}{d x} = 0$ 且 $\\frac{d h(y)}{d y} = 0$",
+    "solution": "1. 确定约束条件：对于圆形轨道，$\\dot{x} = 0, \\dot{y} = 0$；加速度 $\\ddot{x} = 0, \\ddot{y} = 0$。且光子仅沿 $\\phi$ 方向运动，$\\dot{\\phi} \\neq 0$。2. 零测地线条件给出：$g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = 0$。代入 $\\dot{x}=0, \\dot{y}=0$，得：   $-\\frac{h(y)}{(x+y)^2} \\dot{t}^2 + \\frac{f(x)}{(x+y)^2} \\dot{\\phi}^2 = 0$    解得 $\\dot{t}^2$ 与 $\\dot{\\phi}^2$ 的关系：$\\dot{t}^2 = \\frac{f(x)}{h(y)} \\dot{\\phi}^2$。3. 写出 $x$ 方向的测地线方程：$\\ddot{x} + \\Gamma^1_{00} \\dot{t}^2 + \\Gamma^1_{33} \\dot{\\phi}^2 = 0$。   计算所需 Christoffel 符号：   $\\Gamma^1_{00} = -\\frac{f(x) h(y)}{x+y}$   $\\Gamma^1_{33} = \\frac{f(x) [2 f(x) - (x+y) f'(x)]}{2(x+y)}$   将 $\\dot{t}^2$ 和 Christoffel 符号代入，并利用 $\\ddot{x} = 0$：   $-\\frac{f(x) h(y)}{x+y} \\frac{f(x)}{h(y)} \\dot{\\phi}^2 + \\frac{f(x) [2 f(x) - (x+y) f'(x)]}{2(x+y)} \\dot{\\phi}^2 = 0$    化简提取公因子 $\\frac{f(x)}{x+y} \\dot{\\phi}^2$（由于光子在运动 $\\dot{\\phi} \\neq 0$，且坐标有意义 $f(x) \\neq 0, x+y \\neq 0$）：   $-f(x) + \\frac{2f(x) - (x+y)f'(x)}{2} = 0 \\implies -f(x) + f(x) - \\frac{1}{2}(x+y)f'(x) = 0 \\implies f'(x) = 0$。4. 写出 $y$ 方向的测地线方程：$\\ddot{y} + \\Gamma^2_{00} \\dot{t}^2 + \\Gamma^2_{33} \\dot{\\phi}^2 = 0$。   计算所需 Christoffel 符号：   $\\Gamma^2_{00} = \\frac{h(y) [(x+y)h'(y) - 2h(y)]}{2(x+y)}$   $\\Gamma^2_{33} = \\frac{f(x) h(y)}{x+y}$   将 $\\dot{t}^2$ 和 Christoffel 符号代入，并利用 $\\ddot{y} = 0$：   $\\frac{h(y) [(x+y)h'(y) - 2h(y)]}{2(x+y)} \\frac{f(x)}{h(y)} \\dot{\\phi}^2 + \\frac{f(x) h(y)}{x+y} \\dot{\\phi}^2 = 0$    化简提取公因子 $\\frac{f(x)}{x+y} \\dot{\\phi}^2$：   $\\frac{(x+y)h'(y) - 2h(y)}{2} + h(y) = 0 \\implies \\frac{1}{2}(x+y)h'(y) - h(y) + h(y) = 0 \\implies h'(y) = 0$。5. 由此推导得出光子圆形轨道所处的坐标必须满足的微分条件为：$\\frac{df(x)}{dx} = 0$ 且 $\\frac{dh(y)}{dy} = 0$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.cmetric_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 0.9,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

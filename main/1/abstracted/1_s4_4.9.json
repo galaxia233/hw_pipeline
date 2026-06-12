@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s4_4.9",
+    "type": "prove",
+    "tags": {
+      "metric": "electromagnetism",
+      "target_object": "maxwell_equations",
+      "coordinate": "tensor_calculus",
+      "scenario": "dual_tensor",
+      "method": "covariant_derivative"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.9",
+    "source_id": "1_s4_4.9",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "需掌握反对称张量微分性质与对偶定义，逻辑链条清晰连接电磁场基本方程，解答步骤完整",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\nu$",
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\varepsilon^{\\\\alpha\\\\beta\\\\mu\\\\nu}$",
+      "$\\\\mathbf{F}^{\\\\mu\\\\nu}$",
+      "${\\\\bf *F}^{\\\\mu\\\\nu}$"
+    ],
+    "target": [
+      "$\\\\mathbf{F}^{\\\\mu\\\\nu}_{,\\\\nu} = 0$",
+      "${\\\\bf *F}^{\\\\mu\\\\nu}_{,\\\\nu} = 0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 4.9. If $\\mathbf{F}^{\\mu \\nu}$ is the electromagnetic tensor, show that Maxwell's equations in vacuum can be written as $\\mathbf{F}_{,\\nu}^{\\mu \\nu} = 0$ and ${\\bf *F}^{\\mu \\nu}_{,\\nu} = 0$ . [Here, ${\\bf *F}^{\\mu \\nu}$ is the dual of $\\mathbf{F}^{\\mu \\nu}$ ; see Problem 3.25.]",
+    "answer": "$\\\\mathbf{F}_{,\\\\nu}^{\\\\mu \\\\nu} = 0$ 与 ${\\\\bf *F}^{\\\\mu \\\\nu}_{,\\\\nu} = 0$ 即为真空麦克斯韦方程组的张量表述。",
+    "solution": "Solution 4.9. It has already been shown (Problem 4.8) that $\\mathbf{F}^{\\\\mu \\\\nu}_{,\\\\nu} = 0$ is equivalent to the \"electric\" Maxwell equations (in vacuum). As for the magnetic equations:\\n$$\\n\\\\begin{array}{l}\\n* \\\\mathrm {F}^{\\\\mu \\\\nu}, \\\\nu = \\\\frac {1}{2} \\\\left(\\\\mathrm {F}_{\\\\alpha \\\\beta} \\\\varepsilon^{\\\\alpha \\\\beta \\\\mu \\\\nu}\\\\right) , \\\\nu = \\\\frac {1}{2} \\\\mathrm {F}_{\\\\alpha \\\\beta} , \\\\nu \\\\varepsilon^{\\\\alpha \\\\beta \\\\mu \\\\nu} \\\\\\\\\\n= \\\\frac {1}{2} F_{[ \\\\alpha \\\\beta , \\\\nu ]} \\\\varepsilon^{\\\\alpha \\\\beta \\\\mu \\\\nu}, \\\\\\\\\\n\\\\end{array}\\n$$\\nso that ${\\\\bf \\\\nabla}^{*}{\\\\bf F}^{\\\\mu \\\\nu}_{,\\\\nu} = 0$ is equivalent to $\\mathbf{F}_{a\\\\beta ,\\\\nu} + \\mathbf{F}_{\\\\nu a,\\\\beta} + \\mathbf{F}_{\\\\beta \\\\nu ,a} = 0.$"
+  },
+  "verification": null
+}

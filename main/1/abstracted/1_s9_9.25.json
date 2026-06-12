@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s9_9.25",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "riemann_tensor",
+      "coordinate": "constant_curvature",
+      "scenario": "tensor_symmetry",
+      "method": "index_algebra"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.25",
+    "source_id": "1_s9_9.25",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.25"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "基于纯张量对称性与循环恒等式的多步推导，逻辑链条完整，属经典微分几何常曲率空间结构证明",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\gamma$",
+      "$\\\\delta$"
+    ],
+    "target": [
+      "$\\\\mathrm{R}_{\\\\alpha \\\\beta \\\\gamma \\\\delta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.25. Suppose that the curvature $\\mathbf{K}$ at a point $\\mathbf{P}$ , as defined in Problem 9.23, does not depend on the 2-surface which is chosen through that point. Show then that\\n$$ \\\\mathrm {R}_{a \\\\beta \\\\gamma \\\\delta} = \\\\mathrm {K} (\\\\mathrm {g}_{a \\\\gamma} \\\\mathrm {g}_{\\\\beta \\\\delta} - \\\\mathrm {g}_{a \\\\delta} \\\\mathrm {g}_{\\\\beta \\\\gamma}) . $$",
+    "answer": "$$ \\\\mathrm {R}_{a \\\\beta \\\\gamma \\\\delta} = \\\\mathrm {K} (\\\\mathrm {g}_{a \\\\gamma} \\\\mathrm {g}_{\\\\beta \\\\delta} - \\\\mathrm {g}_{a \\\\delta} \\\\mathrm {g}_{\\\\beta \\\\gamma}) $$",
+    "solution": "Solution 9.25. Define\\n$$ \\\\mathrm {W}_{a \\\\gamma \\\\beta \\\\delta} \\\\equiv \\\\mathrm {K} \\\\left(\\\\mathrm {g}_{a \\\\beta} \\\\mathrm {g}_{\\\\gamma \\\\delta} - \\\\mathrm {g}_{a \\\\delta} \\\\mathrm {g}_{\\\\beta \\\\gamma}\\\\right) - \\\\mathrm {R}_{a \\\\gamma \\\\beta \\\\delta} \\\\tag {1}\\nand note that $\\mathbb{W}_{\\\\alpha \\\\gamma \\\\beta \\\\delta}$ has the same symmetries as $\\mathbb{R}_{\\\\alpha \\\\gamma \\\\beta \\\\delta}$ . If $\\mathbf{K}$ is independent of the vectors $\\mathbf{A}$ and $\\mathbf{B}$ at the given point, then by the definition of $\\mathbf{K}$ (Problem 9.23)\\n$$ \\\\mathrm {W}_{\\\\alpha \\\\gamma \\\\beta \\\\delta} \\\\mathrm {A}^{\\\\alpha} \\\\mathrm {A}^{\\\\beta} \\\\mathrm {B}^{\\\\gamma} \\\\mathrm {B}^{\\\\delta} = 0 \\\\tag {2}\\nfor all A, B, thus\\n$$ \\\\mathrm {W}_{a \\\\gamma \\\\beta \\\\delta} + \\\\mathrm {W}_{\\\\beta \\\\delta a \\\\gamma} + \\\\mathrm {W}_{a \\\\delta \\\\beta \\\\gamma} + \\\\mathrm {W}_{\\\\beta \\\\gamma a \\\\delta} = 0. \\\\tag {3}\\nThe symmetries of $\\mathbb{W}_{\\\\alpha \\\\gamma \\\\beta \\\\delta}$ allow us to rewrite Equation (3) as\\n$$ \\\\mathrm {W}_{\\\\alpha \\\\gamma \\\\beta \\\\delta} = \\\\mathrm {W}_{\\\\alpha \\\\delta \\\\gamma \\\\beta}. \\\\tag {4}\\nPermute $(\\\\gamma \\\\beta \\\\delta)$ cyclically:\\n$$ \\\\mathrm {W}_{\\\\alpha \\\\delta \\\\gamma \\\\beta} = \\\\mathrm {W}_{\\\\alpha \\\\beta \\\\delta \\\\gamma}. \\\\tag {5}\\nSubstitute Equations (4) and (5) in the cyclic identity\\n$$ \\\\mathrm {W}_{\\\\alpha \\\\gamma \\\\beta \\\\delta} + \\\\mathrm {W}_{\\\\alpha \\\\delta \\\\gamma \\\\beta} + \\\\mathrm {W}_{\\\\alpha \\\\beta \\\\delta \\\\gamma} = 0 \\\\tag {6}\\nand find\\n$$ \\\\mathbf {W} _ {\\\\alpha \\\\gamma \\\\beta \\\\delta} = 0\\nwhich is the required result."
+  },
+  "verification": null
+}

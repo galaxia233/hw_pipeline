@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "tidal_force_component_R_hat_trtr",
+      "coordinate": "spherical",
+      "scenario": "static_observer_tidal_force",
+      "method": "tetrad_projection",
+      "generalization_axis": "extend",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}}$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规为 $ds^2 = -\\frac{r - r_{s}}{r} dt^2 + \\frac{r}{r - r_{s}} dr^2 + r^{2} d\\theta^{2} + r^{2} \\sin^{2}{\\theta} d\\phi^{2}$，测地进动描述了陀螺自旋矢量沿轨道由于时空曲率而产生的旋转效应。曲率的另一个核心物理体现是潮汐力，它决定了相邻自由下落粒子间的相对加速度。考虑一个在事件视界外固定径向坐标 $r$ ($r > r_{s}$) 处的静态观测者，其局部正交四分体 $(e_{\\hat{t}}, e_{\\hat{r}}, e_{\\hat{\\theta}}, e_{\\hat{\\phi}})$ 与坐标基矢量方向对齐。请利用 Fact Sheet 中提供的 Riemann 张量坐标分量，推导该静态观测者在局部正交框架下感受到的径向潮汐力分量 $R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}}$ 的表达式，并用 Schwarzschild 半径 $r_{s}$ 和径向坐标 $r$ 表示。（提示：你需要首先由度规构造静态观测者的正交四分体，然后将 Riemann 张量投影到该四分体上。）",
+    "answer": "$\\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}$",
+    "solution": "1. 首先构造静态观测者的局部正交四分体。静态观测者的四维速度 $u^{\\mu}$ 必须满足类时条件 $g_{\\mu\\nu} u^{\\mu} u^{\\nu} = -1$ 且仅具有时间分量。由度规 $g_{tt} = -\\frac{r - r_{s}}{r}$，可得 $u^{t} = \\sqrt{\\frac{r}{r - r_{s}}}$。因此时间基矢为 $e_{\\hat{t}}^{\\mu} = (\\sqrt{\\frac{r}{r - r_{s}}}, 0, 0, 0)$。2. 径向空间基矢 $e_{\\hat{r}}^{\\mu}$ 沿 $r$ 方向，必须满足类空归一化条件 $g_{\\mu\\nu} e_{\\hat{r}}^{\\mu} e_{\\hat{r}}^{\\nu} = 1$。由度规 $g_{rr} = \\frac{r}{r - r_{s}}$，可得 $e_{\\hat{r}}^{r} = \\sqrt{\\frac{r - r_{s}}{r}}$。因此径向基矢为 $e_{\\hat{r}}^{\\mu} = (0, \\sqrt{\\frac{r - r_{s}}{r}}, 0, 0)$。3. 潮汐力分量由 Riemann 张量在正交四分体上的投影给出：$R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}} = R_{\\mu\\nu\\rho\\sigma} e_{\\hat{t}}^{\\mu} e_{\\hat{r}}^{\\nu} e_{\\hat{t}}^{\\rho} e_{\\hat{r}}^{\\sigma}$。4. 由于 $e_{\\hat{t}}^{\\mu}$ 仅在 $\\mu=0$ (即 $t$ 分量) 不为零，$e_{\\hat{r}}^{\\nu}$ 仅在 $\\nu=1$ (即 $r$ 分量) 不为零，投影式中唯一非零的项对应于指标 $\\mu=\\rho=0$ 且 $\\nu=\\sigma=1$。5. 代入 Fact Sheet 中的坐标分量 $R_{0101} = \\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}$ 以及四分体分量，得到：   $R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}} = R_{0101} (e_{\\hat{t}}^{0})^{2} (e_{\\hat{r}}^{1})^{2} = \\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)} \\left(\\sqrt{\\frac{r}{r - r_{s}}}\\right)^{2} \\left(\\sqrt{\\frac{r - r_{s}}{r}}\\right)^{2}$6. 计算四分体系数的乘积：$\\left(\\frac{r}{r - r_{s}}\\right) \\left(\\frac{r - r_{s}}{r}\\right) = 1$。7. 最终结果简化为：$R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}} = \\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}$。该结果表明，与弱场极限下的牛顿潮汐力 $2M/r^{3}$ 不同，静态观测者在靠近事件视界 ($r \\to r_{s}$) 时，径向潮汐拉伸效应将显著发散。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "题目和解答存在严重的物理与张量指标错误，且题目不自洽。\n1. **张量指标混淆**：解答步骤5声称 Fact Sheet 中的坐标分量 $R_{0101} = \\frac{r_s}{r^2(r-r_s)}$，这个值实际上是混合分量 $R^0_{101}$（即 $R^t_{rtr}$），而非全协变分量 $R_{0101}$。根据度规降指标法则，正确的 $R_{0101} = g_{00} R^0_{101} = -\\frac{r-r_s}{r} \\times \\frac{r_s}{r^2(r-r_s)} = -\\frac{r_s}{r^3}$。代入正确的 $R_{0101}$ 后，推导出的径向潮汐力应为 $R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}} = -\\frac{r_s}{r^3}$。\n2. **物理矛盾**：给出的答案 $\\frac{r_s}{r^2(r-r_s)}$ 在事件视界 $r=r_s$ 处发散，而局部正交框架下的物理潮汐力必须在该处有限（这正是引入局部惯性系消除坐标奇异性的意义）。摘要中提供的 Kretschmann 标量 $\\frac{48M^2}{r^6}$ 在视界处有限，直接证明任何正交框架下的 Riemann 分量都不应发散，与题目答案矛盾。\n3. **不自含**：题目要求利用\"Fact Sheet 中提供的 Riemann 张量坐标分量\"进行推导，但题目文本中并未提供该 Fact Sheet，做题者无法仅凭题目本身完成求解。且引用的 Fact Sheet 本身包含了错误的分量数据。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

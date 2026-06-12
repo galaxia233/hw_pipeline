@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s17_17.15",
+    "type": "prove",
+    "tags": {
+      "metric": "black_hole",
+      "target_object": "kerr_metric",
+      "coordinate": "superradiance",
+      "scenario": "black_hole_thermodynamics",
+      "method": "perturbation_theory"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.15",
+    "source_id": "1_s17_17.15",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.15"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "结合黑洞面积定理与波模式微扰，通过变分法严格推导超辐射频率阈值，物理逻辑严密且具备明确的天体物理背景",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$M$",
+      "$J$",
+      "$A$",
+      "$t$",
+      "$\\\\phi$",
+      "$\\\\omega$",
+      "$m$",
+      "$a$",
+      "$r_+$"
+    ],
+    "target": [
+      "$0 \\\\leqslant \\\\omega \\\\leqslant \\\\frac {\\\\mathrm {m a}}{2 \\\\mathrm {M r}_{+}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 17.15. Use the theorem that the area of a black hole is nondecreasing (cf. Problem 17.14) to prove that a Kerr black hole amplifies (rather than absorbs) certain modes of an incident radiation field.",
+    "answer": "$0 \\\\leqslant \\\\omega \\\\leqslant \\\\frac {\\\\mathrm {m a}}{2 \\\\mathrm {M r}_{+}}$",
+    "solution": "Solution 17.15. The area A and “reduced area” $\\tilde{\\\\mathbf{A}}$ of a Kerr black hole are\\n$$\\nA \\\\equiv 8 \\\\pi \\\\tilde {A} = 8 \\\\pi \\\\left[ M^{2} + \\\\left(M^{4} - J^{2}\\\\right)^{\\\\frac {1}{2}} \\\\right] \\\\tag {1}\\n$$\\nor equivalently,\\n$$\\n\\\\tilde {\\\\mathbf {A}}^{2} - 2 \\\\tilde {\\\\mathbf {A}} \\\\mathbf {M}^{2} + \\\\mathbf {J}^{2} = 0. \\\\tag {2}\\n$$\\nTaking the first variation, we have\\n$$\\n\\\\left(\\\\tilde {\\\\mathbf {A}} - \\\\mathbf {M}^{2}\\\\right) \\\\delta \\\\tilde {\\\\mathbf {A}} = 2 \\\\tilde {\\\\mathbf {A}} \\\\mathbf {M} \\\\delta \\\\mathbf {M} - \\\\mathbf {J} \\\\delta \\\\mathbf {J}. \\\\tag {3}\\n$$\\nThe left-hand side is nonnegative by the second law. Let a particular wave mode have the $t$ and $\\phi$ dependence $\\exp(-\\\\mathrm{i}\\\\omega t + \\\\mathrm{i}m\\\\phi)$ . All scalar, electromagnetic and gravitational waves satisfy\\n$$\\n\\\\delta \\\\mathbf {M} = \\\\frac {\\\\omega}{\\\\mathrm {m}} \\\\delta \\\\mathbf {J} \\\\tag {4}\\n$$\\nso we have\\n$$\\n\\\\left(2 \\\\mathrm {A M} - \\\\mathrm {J} \\\\frac {\\\\mathrm {m}}{\\\\omega}\\\\right) \\\\delta \\\\mathrm {M} \\\\geq 0. \\\\tag {5}\\n$$\\nFor an amplified wave conservation of energy requires that the mass of the hole decrease, so we want $\\delta \\\\mathbf{M} < 0$ ; thus the term in parentheses in Equation (5) must be negative. This condition can be rewritten as\\n$$\\n\\\\frac {2 \\\\mathrm {M r}_{+}}{\\\\mathrm {a}} - \\\\frac {\\\\mathrm {m}}{\\\\bar {\\\\omega}} < 0 \\\\tag {6}\\n$$\\nwhere $\\mathbf{r}_{+}$ is the coordinate radius of the event horizon, or (if we take into account that $\\mathfrak{m}$ and $\\omega$ can have either sign) the condition is\\n$$\\n0 \\\\leqslant \\\\omega \\\\leqslant \\\\frac {\\\\mathrm {m a}}{2 \\\\mathrm {M r}_{+}} \\\\tag {7}\\n$$\\nwhere $\\lesseqqgtr$ means \"lies between.\" Note that $a / 2\\\\mathrm{Mr}_{+}$ is just $\\Omega$ the \"angular velocity of the black hole\" (see Problem 17.10)."
+  },
+  "verification": null
+}

@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "id": "1_s13_13.14",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "gauge_transformation",
+      "coordinate": "linearized_gravity",
+      "scenario": "lorentz_gauge",
+      "method": "wave_equation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.14",
+    "source_id": "1_s13_13.14",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.14"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "线性引力规范固定标准推导，含多步张量缩并与达朗贝尔方程求解，逻辑严密且可平移至任意微扰背景。",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$\\\\partial^{\\\\beta}\\\\overline{h}_{\\\\alpha\\\\beta}$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 13.14. In linearized theory one often uses the \"trace reversed\" form of the metric perturbations $\\overline{\\mathbf{h}}_{\\alpha}\\beta \\equiv \\mathbf{h}_{\\alpha}\\beta -\\frac{1}{2}\\eta_{\\alpha \\beta}\\mathbf{h}_{\\sigma}^{\\sigma}$ . Show that there always exists a gauge transformation to the \"Lorentz gauge\", in which the divergence of $\\overline{\\mathbf{h}}_{\\alpha}\\beta$ vanishes. Is this gauge transformation unique?",
+    "answer": "存在满足波动方程 $\\square\\xi_{\\alpha}=\\partial^{\\beta}\\overline{h}_{\\alpha\\beta}$ 的四维矢量函数族 $\\xi_{\\alpha}$，选取其一即可实现Lorentz规范；该规范变换不唯一，可叠加齐次波动方程 $\\square\\xi_{\\alpha}=0$ 的任意解。",
+    "solution": "Solution 13.14. Under a gauge transformation (see Problem 13.12) the metric perturbations become\\n$$\\n\\\\mathsf {h}_{\\\\alpha \\\\beta}^{\\\\prime} = \\\\mathsf {h}_{\\\\alpha \\\\beta} - 2 \\\\xi_{(\\alpha , \\\\beta)} .\\n$$\\nIf we contract this we see that the trace $(\\\\mathbf{h} \\\\equiv \\\\mathbf{h}_{\\\\sigma}^{\\\\sigma} \\\\equiv \\\\eta^{\\\\sigma \\\\lambda} \\\\mathbf{h}_{\\\\sigma \\\\lambda})$ transforms\\nas $\\\\mathbf{h}' = \\\\mathbf{h} - 2\\\\xi_{, \\\\sigma}^{\\\\sigma}$ , (where $\\\\xi^{\\\\sigma} \\\\equiv \\\\eta^{\\\\sigma \\\\lambda} \\\\xi_{\\\\lambda}$ ). The transformation law for $\\\\overline{\\\\mathbf{h}}_{\\\\alpha \\\\beta}$ is then\\n$$\\n\\\\begin{array}{l} \\\\overline {{\\\\mathrm {h}}}_{\\\\alpha}^{\\\\prime} \\\\beta = \\\\mathrm {h}_{\\\\alpha}^{\\\\prime} \\\\beta - \\\\frac {1}{2} \\\\eta_{\\\\alpha} \\\\beta \\\\mathrm {h}^{\\\\prime} = \\\\mathrm {h}_{\\\\alpha} \\\\beta - 2 \\\\xi_{(\\\\alpha , \\\\beta)} - \\\\frac {1}{2} \\\\eta_{\\\\alpha} \\\\beta (\\\\mathrm {h} - 2 \\\\xi_{, \\\\sigma}^{\\\\sigma}) \\\\\\\\\\n= \\\\overline {{\\\\mathsf {h}}}_{\\\\alpha \\\\beta} - \\\\xi_{\\\\alpha , \\\\beta} - \\\\xi_{\\\\beta , \\\\alpha} + \\\\eta_{\\\\alpha \\\\beta} \\\\xi^{\\\\sigma}_{, \\\\sigma} \\\\\\\\\\n\\\\end{array}\\n$$\\nand\\n$$\\n\\\\begin{array}{l} \\\\overline {{\\\\mathfrak {h}}}_{\\\\alpha}^{\\\\prime} \\\\beta^{\\\\prime}^{\\\\beta} = \\\\eta^{\\\\lambda \\\\beta} \\\\overline {{\\\\mathfrak {h}}}_{\\\\alpha}^{\\\\prime} \\\\beta , \\\\lambda = \\\\overline {{\\\\mathfrak {h}}}_{\\\\alpha} \\\\beta^{\\\\prime}^{\\\\beta} - \\\\xi_{\\\\alpha ,} \\\\beta^{\\\\prime}^{\\\\beta} - \\\\xi_{\\\\beta ,}^{\\\\prime}^{\\\\beta} + \\\\xi_{\\\\sigma ,}^{\\\\prime}^{\\\\sigma}, \\\\\\\\\\n= \\\\bar {h}_{\\\\alpha} \\\\beta^{\\\\prime}^{\\\\beta} - \\\\xi_{\\\\alpha}, \\\\beta^{\\\\prime}^{\\\\beta} = \\\\bar {h}_{\\\\alpha} \\\\beta^{\\\\prime}^{\\\\beta} - \\\\square \\\\xi_{\\\\alpha}. \\\\\\\\\\n\\\\end{array}\\n$$\\nSo we need only choose the four functions $\\\\xi_{\\\\alpha}$ such that they satisfy the familiar wave equation $\\\\square \\\\xi_{\\\\alpha} = \\\\overline{h}_{\\\\alpha} \\\\beta^{\\\\prime \\\\beta}$ .\\nSuch a solution can always be found (e.g. the retarded integral of classical electromagnetic wave theory). The solution, of course, is not unique. We can always add to $\\\\xi_{a}$ any solution of $\\\\square \\\\xi_{a} = 0$ ."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

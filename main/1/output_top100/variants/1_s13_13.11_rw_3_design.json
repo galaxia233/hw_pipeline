@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "id": "1_s13_13.11-2-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "Euler equation",
+      "coordinate": "Cartesian",
+      "scenario": "Newtonian limit design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.11",
+      "1_s13_13.11-2",
+      "1_s13_13.11-2-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "验证 \\partial_\\mu H^{\\mu i} = 0 在牛顿极限下退化为欧拉方程 \\rho \\frac{d v^i}{dt} = -\\partial_i p - \\rho \\partial_i \\Phi"
+    ],
+    "metric": [
+      [
+        "$-(1+2\\Phi)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2\\Phi)$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$(1-2\\Phi)$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$(1-2\\Phi)$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "-2*Phi - 1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1 - 2*Phi",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1 - 2*Phi",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1 - 2*Phi"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "在广义相对论中，Landau-Lifshitz 应力-能量赝张量 $t^{\\mu\\nu}_{\\rm LL}$ 定义了守恒的总应力-能量复体 $H^{\\mu\\nu} = (-g)(T^{\\mu\\nu} + t^{\\mu\\nu}_{\\rm LL})$，满足守恒律 $\\partial_\\mu H^{\\mu\\nu} = 0$。考虑“近牛顿”度规 $\\mathrm{d}s^2 = -(1+2\\Phi)\\mathrm{d}t^2 + (1-2\\Phi)\\delta_{ij}\\mathrm{d}x^i\\mathrm{d}x^j$，其中 $\\Phi \\ll 1$ 为牛顿引力势且忽略其时间导数。在此极限下，赝张量最低非零阶分量为 $t^{00}_{\\rm LL} = \\frac{1}{8\\pi} |\\nabla \\Phi|^2$ 和 $t^{ij}_{\\rm LL} = \\frac{1}{4\\pi} \\left( \\Phi_{,i}\\Phi_{,j} - \\frac{1}{2}\\delta_{ij} \\Phi_{,k}\\Phi_{,k}\\right)$，而 $t^{0i}_{\\rm LL} = 0$。对于完美流体 $T^{\\mu\\nu} = (\\rho+p)u^\\mu u^\\nu + p g^{\\mu\\nu}$，理论推导表明，在牛顿极限（$v \\ll c$, $p \\ll \\rho$）下，空间守恒律 $\\partial_\\mu H^{\\mu i} = 0$ 精确退化为经典欧拉方程 $\\rho \\frac{d v^i}{dt} = -\\partial_i p - \\rho \\partial_i \\Phi$。请从零设计一个数值相对论流体动力学模拟方案，来验证上述“空间守恒律在牛顿极限下退化为欧拉方程”的核心结论。你的方案应包含：如何设定满足牛顿极限的初始条件（流体与引力场），如何基于相对论守恒律演化系统，需要提取与测量哪些物理量，以及预期如何通过数据比对完成验证。",
+    "answer": "1. **初始条件设定**：在一个三维立方计算域中，设定初态满足牛顿极限：流体速度 $v^i/c \\sim 10^{-3}$（即 $u^0 \\approx 1$, $u^i \\approx v^i$），压力 $p/\\rho \\sim 10^{-6}$，并给定一个随空间缓慢变化的弱引力势初态 $\\Phi(x^i)$（例如 $\\Phi \\sim 10^{-6}$），使得 $\\nabla^2 \\Phi = 4\\pi \\rho$（泊松方程成立）。2. **系统演化**：不直接使用欧拉方程，而是严格基于相对论守恒复体演化系统：计算 $H^{\\mu\\nu} = (-g)(T^{\\mu\\nu} + t^{\\mu\\nu}_{\\rm LL})$，利用时间步进求解 $\\partial_\\mu H^{\\mu 0} = 0$ 更新流体密度与速度，同时求解 $\\partial_\\mu H^{\\mu i} = 0$ 更新流体的空间动量；引力势 $\\Phi$ 则根据每步更新的 $\\rho$ 通过泊松方程实时更新。3. **物理量提取**：在演化的每个时间步，提取流体元的随体加速度 $a^i = \\frac{d v^i}{dt}$（通过相邻步的速度差分计算），同时提取该时空点的压力梯度 $\\partial_i p$、密度 $\\rho$ 以及引力势梯度 $\\partial_i \\Phi$。4. **验证比对**：计算相对论演化给出的左端项 $L^i = \\rho a^i$ 与右端项 $R^i = -\\partial_i p - \\rho \\partial_i \\Phi$，绘制 $L^i$ 与 $R^i$ 随时间及空间的散点图。预期结果：在牛顿极限参数下，$L^i$ 与 $R^i$ 应在数值误差范围内严格一致（线性拟合斜率为1，截距为0），从而验证相对论守恒律在弱场低速下确实退化为欧拉方程。",
+    "solution": "该方案通过“不使用经典欧拉方程，而仅使用相对论守恒复体 $H^{\\mu\\nu}$ 驱动演化”的方式，隔离了理论推导的因果链。如果在弱场低速的参数空间（$v\\ll c, p\\ll\\rho, \\Phi\\ll1$）下，由 $\\partial_\\mu H^{\\mu i}=0$ 演化出的流体宏观运动轨迹与状态变化，能够被 $-\\partial_i p - \\rho \\partial_i \\Phi$ 精确预测（即随体加速度完全由压力梯度与牛顿引力势梯度解释），则从动力学实证角度证明了 $\\partial_\\mu H^{\\mu i} = 0$ 在该极限下与欧拉方程等价。此设计避免了解析展开的繁琐，直接通过数值演化映射了宏观物理量间的动力学关系，抓住了“赝张量散度提供引力项 $\\rho \\nabla \\Phi$”这一核心物理本质。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.metric_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "answer 中存在多处严重的物理与逻辑错误：1. 验证逻辑根本性失效：题目要求验证‘相对论守恒律退化为欧拉方程’，但 answer 在演化步骤中直接使用泊松方程 ∇²Φ = 4πρ 实时更新引力势 Φ。泊松方程是牛顿引力理论的核心，而非由广义相对论的爱因斯坦场方程演化得出。这种‘用牛顿理论去验证牛顿理论’的做法，无法证明相对论在极限下退化，验证逻辑完全失效。正确做法应使用爱因斯坦场方程（或其线性化形式）演化度规来提取 Φ。2. 与题目前提条件直接矛盾：题目明确设定‘忽略其时间导数’（即 Φ_,0 = 0），并以此得出 t^0i_LL = 0。但 answer 要求‘引力势 Φ 则根据每步更新的 ρ 通过泊松方程实时更新’，这意味着 Φ 随时间变化，Φ_,t ≠ 0，破坏了题目给定的前提。若 Φ_,0 ≠ 0，t^0i_LL 将不为零，推导出的方程也不再是标准欧拉方程。3. 演化方程不自洽且物理错误：Answer 声称利用 ∂_μ H^μ0 = 0 和 ∂_μ H^μi = 0 更新流体密度与速度。但这 4 个方程无法完整确定流体的 5 个自由度（缺少状态方程/能量方程）。更致命的是，H^μ0 包含了引力场能量密度 t^00_LL，∂_μ H^μ0 = 0 包含引力场能量密度的时间导数，用它更新流体密度会导致流体质量不守恒，偏离连续性方程，物理上完全错误。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

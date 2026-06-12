@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_1-4",
+    "type": "calculate",
+    "tags": {
+      "target_object": "Big Crunch time",
+      "coordinate": "cosmological time t",
+      "scenario": "Anti-de Sitter cosmology",
+      "method": "Friedmann equation",
+      "generalization_axis": "apply",
+      "metric": "AntiDeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.4_1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.4_1",
+      "1_s13_13.4_1-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "AntiDeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "chi",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$t_c$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "cos(t)**2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "cos(t)**2*sinh(chi)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*cos(t)**2*sinh(chi)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In relativistic quantum mechanics, it is speculated that the vacuum possesses a nonzero stress-energy tensor. To avoid introducing a preferred vacuum frame, this vacuum stress-energy tensor must take the form $T_{\\mu\\nu}^{\\text{vac}} = -\\frac{\\Lambda}{8\\pi} g_{\\mu\\nu}$, effectively acting as a cosmological constant $\\Lambda$. Consider the Anti-de Sitter cosmological model described by the metric:$$ ds^2 = -dt^2 + \\cos^{2}(t) d\\chi^2 + \\cos^{2}(t) \\sin h^{2}(\\chi) (d\\theta^2 + \\sin^{2}(\\theta) d\\phi^2) $$This metric represents a homogeneous universe with negative spatial curvature ($k=-1$) and scale factor $a(t)$. Assuming the universe starts at its maximum expansion with $a(0)=1$ and $\\dot{a}(0)=0$, and applying the Friedmann equation $\\left(\\frac{\\dot{a}}{a}\\right)^2 = \\frac{\\Lambda}{3} - \\frac{k}{a^2}$ for a vacuum-dominated universe, predict the critical time $t_c$ at which this universe collapses to a Big Crunch (i.e., when the scale factor $a(t_c) = 0$).",
+    "answer": "$t_c = \\frac{\\pi}{2}$",
+    "solution": "1. From the Einstein tensor data of the given metric, we have $G_{00} = -3$ and $G_{11} = 3 \\cos^{2}(t)$. The corresponding metric components are $g_{00} = -1$ and $g_{11} = \\cos^{2}(t)$. We can observe that the relation $G_{\\mu\\nu} = 3 g_{\\mu\\nu}$ holds for all components.2. The vacuum field equations with a cosmological constant are $G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 0$, which implies $G_{\\mu\\nu} = -\\Lambda g_{\\mu\\nu}$. Comparing this with $G_{\\mu\\nu} = 3 g_{\\mu\\nu}$, we find $-\\Lambda = 3$, so the cosmological constant is $\\Lambda = -3$.3. The scale factor is identified from the spatial part of the metric as $a(t)$. By examining the metric, $a(t)$ corresponds to $\\cos(t)$. At $t=0$, $a(0)=1$.4. The Friedmann equation for a vacuum-dominated universe with $k=-1$ is:$$ H^2 = \\left(\\frac{\\dot{a}}{a}\\right)^2 = \\frac{\\Lambda}{3} - \\frac{k}{a^2} $$Substituting $\\Lambda = -3$ and $k=-1$:$$ \\left(\\frac{\\dot{a}}{a}\\right)^2 = \\frac{-3}{3} - \\frac{-1}{a^2} = -1 + \\frac{1}{a^2} $$5. This gives the differential equation for the scale factor: $\\dot{a}^2 = a^2(-1 + 1/a^2) = 1 - a^2$.6. Since the universe is collapsing from its maximum expansion at $t=0$, we have $\\dot{a} < 0$, so $\\dot{a} = -\\sqrt{1 - a^2}$.7. Separating variables and integrating from the initial state $a=1$ at $t=0$ to the Big Crunch $a=0$ at $t=t_c$:$$ \\int_1^0 \\frac{da}{\\sqrt{1-a^2}} = -\\int_0^{t_c} dt $$$$ \\arcsin(0) - \\arcsin(1) = -t_c $$$$ 0 - \\frac{\\pi}{2} = -t_c \\implies t_c = \\frac{\\pi}{2} $$Alternatively, solving the ODE directly gives $\\arcsin(a) = -t + \\frac{\\pi}{2}$, so $a(t) = \\sin(\\frac{\\pi}{2} - t) = \\cos(t)$, which confirms the metric's form. Setting $\\cos(t_c) = 0$ for $t_c > 0$ yields $t_c = \\frac{\\pi}{2}$."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.antidesitter_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "1. 度规表达式存在严重的 LaTeX 排版错误：使用了 `\\sin h^{2}(\\chi)`，这在 LaTeX 中会被渲染为 $\\sin h^2(\\chi)$（即正弦函数作用于未定义的 $h^2(\\chi)$），而不是 Anti-de Sitter 空间所必需的双曲正弦函数 $\\sinh^2(\\chi)$。该错误直接改变了度规的数学含义，导致度规形式不合法。\n2. Solution 逻辑存在明显缺陷与跳跃：Solution 第1步声称 'From the Einstein tensor data of the given metric'，但题目文本中并未提供 Einstein 张量数据，属于引入未经题目给出或证明的假设；同时，Solution 完全忽略了题目明确给出的初始条件 $a(0)=1$ 和 $\\dot{a}(0)=0$。根据题意，将 $H(0)=0$ 与 $k=-1$ 代入 Friedmann 方程 $0 = \\Lambda/3 - (-1)/1^2$ 即可极自然地得出 $\\Lambda=-3$，而 Solution 遗漏了这一关键步骤，绕远路去计算复杂的 Einstein 张量，使得推导逻辑与题目设定脱节。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

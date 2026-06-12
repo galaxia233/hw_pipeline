@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s7_7.1",
+    "type": "prove",
+    "tags": {
+      "metric": "differential_geometry",
+      "target_object": "tensor_transformation",
+      "coordinate": "connection_coefficients",
+      "scenario": "coordinate_transformation",
+      "method": "direct_verification"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.1",
+    "source_id": "1_s7_7.1",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.5,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.6,
+      "rationale": "完整多步基矢变换与协变导数推导，逻辑严密，属广义相对论基础理论构建题",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\Gamma^{\\\\alpha}_{\\\\beta\\\\gamma}$",
+      "$L^{\\\\mu}_{\\\\nu'}$",
+      "$x^{\\\\alpha}$"
+    ],
+    "target": [
+      "$\\\\Gamma^{\\\\alpha}_{\\\\beta\\\\gamma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s7_7.1.md]\\n\\nProblem 7.1. Show that the connection coefficients $\\Gamma_{\\beta \\gamma}^{\\alpha}$ do not obey the tensor transformation law.",
+    "answer": "The second term in this equation would not be present in a tensor transformation.",
+    "solution": "Solution 7.1. Let the transformation be given by $\\mathbf{e}_{\\mu^{\\prime}} = \\mathbf{L}_{\\mu^{\\prime}}^{\\sigma}\\mathbf{e}_{\\sigma}$ , then\\n$$\\n\\\\begin{array}{l}\\n\\\\nabla_{\\mathbf {e}_{\\beta}^{\\prime}} \\mathbf {e}_{\\alpha}^{\\prime} = \\Gamma_{\\alpha^{\\prime}}^{\\tau^{\\prime}} \\mathbf {e}_{\\tau^{\\prime}} = \\nabla_{(\\mathrm {L}_{\\beta^{\\prime}}^{\\lambda} \\mathbf {e}_{\\lambda})} (\\mathrm {L}_{\\alpha^{\\prime}}^{\\mu} \\mathbf {e}_{\\mu}) = \\mathrm {L}_{\\beta^{\\prime}}^{\\lambda} \\nabla_{\\mathbf {e}_{\\lambda}} (\\mathrm {L}_{\\alpha^{\\prime}}^{\\mu} \\mathbf {e}_{\\mu}) \\\\\\\\\\n= \\mathrm {L}^{\\lambda}_{\\beta^{\\prime}} \\left(\\mathrm {L}_{\\alpha^{\\prime}, \\lambda}^{\\mu} \\mathrm {e}_{\\mu} + \\mathrm {L}_{\\alpha^{\\prime}}^{\\mu} \\Gamma_{\\mu \\lambda}^{\\tau} \\mathrm {e}_{\\tau}\\\\right) \\\\\\\\\\n= L^{\\lambda} \\beta^{\\prime} \\left(L^{\\mu}_{\\alpha^{\\prime}, \\lambda} L^{\\tau^{\\prime}}_{\\mu} e_{\\tau^{\\prime}} + L^{\\mu}_{\\alpha^{\\prime}} L^{\\tau^{\\prime}}_{\\gamma} \\Gamma^{\\gamma}_{\\mu \\lambda} e_{\\tau^{\\prime}}\\\\right), \\\\\\\\\\n\\\\end {array},\\n$$\\nand therefore\\n$$\\n\\Gamma_{\\alpha}^{\\tau^{'}} \\beta^{'} = \\mathrm {L}_{\\beta^{'}}^{\\lambda} \\mathrm {L}_{\\alpha^{'}}^{\\mu} \\mathrm {L}_{\\gamma}^{\\tau^{'}} \\Gamma_{\\mu \\lambda}^{\\gamma} + \\mathrm {L}_{\\beta^{'}}^{\\lambda} \\mathrm {L}_{\\mu}^{\\tau^{'}} \\mathrm {L}_{\\alpha^{'}, \\lambda}^{\\mu}.\\n$$\\nThe second term in this equation would not be present in a tensor transformation."
+  },
+  "verification": null
+}

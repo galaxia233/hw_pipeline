@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s3_3.7",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "electromagnetic_tensor",
+      "coordinate": "Cartesian_coordinates",
+      "scenario": "classical_field_theory",
+      "method": "index_manipulation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.7",
+    "source_id": "1_s3_3.7",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.4,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.5,
+      "rationale": "标准电磁场张量缩并恒等式证明，涉及指标升降、偏导法则与反对称性，逻辑链条完整但属常规代数练习",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\mu$",
+      "$\\\\nu$",
+      "$\\\\gamma$",
+      "$\\\\sigma$"
+    ],
+    "target": [
+      "$\\\\mathrm{F}_{\\\\mu,\\\\nu}^{\\\\alpha} \\\\mathrm{F}_{\\\\alpha}^{\\\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.7. $\\mathbf{F}^{\\alpha \\beta}$ is antisymmetric on its two indices. Show that\\n$$\\n\\\\mathrm {F}_{\\\\mu}^{\\\\alpha}, \\\\nu \\\\mathrm {F}_{\\\\alpha}^{\\\\nu} = - \\\\mathrm {F}_{\\\\mu \\\\alpha , \\\\beta} \\\\mathrm {F}^{\\\\alpha \\\\beta}.\\n$$",
+    "answer": "\\\\mathrm {F} _ {\\\\mu} ^ {\\\\alpha}, \\\\nu \\\\mathrm {F} _ {\\\\alpha} ^ {\\\\nu} = - \\\\mathrm {F} _ {\\\\mu \\\\alpha , \\\\beta} \\\\mathrm {F} ^ {\\\\alpha \\\\beta}",
+    "solution": "Solution 3.7. Since $\\eta^{\\alpha \\beta}$ is constant we have\\n$$\\n\\\\begin{array}{l} \\\\mathbf {F}_{\\\\mu , \\\\beta}^{\\\\alpha} \\\\mathbf {F}_{\\\\alpha}^{\\\\beta} = (\\\\mathbf {F}_{\\\\mu \\\\gamma} \\\\eta^{\\\\gamma \\\\alpha})_{, \\\\beta} (\\\\mathbf {F}^{\\\\beta \\\\sigma} \\\\eta_{\\\\sigma \\\\alpha}) \\\\\\\\\\n = \\\\mathbf {F}_{\\\\mu \\\\gamma , \\\\beta} \\\\mathbf {F}^{\\\\beta \\\\sigma} (\\\\eta^{\\\\gamma \\\\alpha} \\\\eta_{\\\\sigma \\\\alpha}) = \\\\mathbf {F}_{\\\\mu \\\\gamma , \\\\beta} \\\\mathbf {F}^{\\\\beta \\\\sigma} \\\\delta_{\\\\sigma}^{\\\\alpha} = \\\\mathbf {F}_{\\\\mu \\\\gamma , \\\\beta} \\\\mathbf {F}^{\\\\beta \\\\gamma} \\\\\\\\\\n = - \\\\mathrm {F}_{\\\\mu a, \\\\beta} \\\\mathrm {F}^{\\\\alpha \\\\beta}, \\\\\\\\\\n \\\\end{array}\\n$$\\nwhere the last equality follows from relabelling dummy indices, and by antisymmetry."
+  },
+  "verification": null
+}

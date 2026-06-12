@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s14_14.16-2-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "vector wave equation promotion ambiguity",
+      "coordinate": "general",
+      "scenario": "contrast flat vs Schwarzschild",
+      "method": "Ricci identity",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s14_14.16",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.16",
+      "1_s14_14.16-2",
+      "1_s14_14.16-2-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$A^\\\\mu$",
+      "$J^\\\\mu$",
+      "$F^{\\\\mu\\\\nu}$",
+      "$R^\\\\mu_\\\\sigma$"
+    ],
+    "target": [
+      "$A^{\\mu;\\nu}_{\\phantom{\\mu;\\nu};\\nu} - \\nabla^\\nu \\nabla_\\nu A^\\mu$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在平直时空与 Schwarzschild 时空下，矢量场 $A^\\mu$ 的波动方程有两种基于最小耦合原则的提升方式：$A^{\\mu;\\nu}_{\\phantom{\\mu;\\nu};\\nu}=0$ 与 $\\nabla^\\nu \\nabla_\\nu A^\\mu=0$。**平直时空度规**：$ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$**Schwarzschild 时空度规**：$ds^2 = \\frac{-r+r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$ （其黎曼张量分量不为零，如 Fact Sheet 所示）请在两种度规背景下，利用协变导数的交换关系（Ricci 恒等式）推导这两种提升方式的差值 $A^{\\mu;\\nu}_{\\phantom{\\mu;\\nu};\\nu} - \\nabla^\\nu \\nabla_\\nu A^\\mu$。对比两者的推导结果，并解释：既然 Schwarzschild 时空具有非零的黎曼曲率，为何这两种提升方式的差值仍与平直时空一样为零？这一结论揭示了波动方程提升歧义的本质物理来源是什么？",
+    "answer": "在平直时空下，黎曼曲率张量 $R^\\mu_{\\phantom{\\mu}\\sigma\\nu\\rho} = 0$，协变导数完全可交换，因此差值 $A^{\\mu;\\nu}_{\\phantom{\\mu;\\nu};\\nu} - \\nabla^\\nu \\nabla_\\nu A^\\mu = 0$。在 Schwarzschild 时空下，黎曼曲率张量非零，协变导数不可交换。根据 Ricci 恒等式推导差值为：$A^{\\mu;\\nu}_{\\phantom{\\mu;\\nu};\\nu} - \\nabla^\\nu \\nabla_\\nu A^\\mu = g^{\\nu\\rho}(\\nabla_\\nu \\nabla_\\rho A^\\mu - \\nabla_\\rho \\nabla_\\nu A^\\mu) = g^{\\nu\\rho} R^\\mu_{\\phantom{\\mu}\\sigma\\nu\\rho} A^\\sigma = R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma$。由于 Schwarzschild 时空是真空解，满足 Ricci 平坦条件 $R^\\mu_{\\phantom{\\mu}\\sigma} = 0$，因此差值仍为 0。对比物理含义：在具有弯曲的 Schwarzschild 时空中，虽然协变导数的不可交换性（黎曼曲率非零）在中间步骤引入了修正，但最终缩并后的差值却因为 Ricci 曲率为零而消失。这揭示了波动方程提升的歧义本质上并非由时空的“几何弯曲”（黎曼曲率）单独引起，而是由时空中的“物质源分布”（Ricci 曲率非零）决定。只有在存在物质分布的非真空弯曲时空中，最小耦合原则才会产生实质性的物理歧义。",
+    "solution": "1. 写出两种提升方式的展开式：$A^{\\mu;\\nu}_{\\phantom{\\mu;\\nu};\\nu} = \\nabla_\\nu \\nabla^\\nu A^\\mu = g^{\\nu\\rho} \\nabla_\\nu \\nabla_\\rho A^\\mu$，而 $\\nabla^\\nu \\nabla_\\nu A^\\mu = g^{\\nu\\rho} \\nabla_\\rho \\nabla_\\nu A^\\mu$。2. 计算差值：$A^{\\mu;\\nu}_{\\phantom{\\mu;\\nu};\\nu} - \\nabla^\\nu \\nabla_\\nu A^\\mu = g^{\\nu\\rho} (\\nabla_\\nu \\nabla_\\rho A^\\mu - \\nabla_\\rho \\nabla_\\nu A^\\mu)$。3. 应用 Ricci 恒等式替换括号内项：$\\nabla_\\nu \\nabla_\\rho A^\\mu - \\nabla_\\rho \\nabla_\\nu A^\\mu = R^\\mu_{\\phantom{\\mu}\\sigma\\nu\\rho} A^\\sigma$。4. 与度规缩并得：$g^{\\nu\\rho} R^\\mu_{\\phantom{\\mu}\\sigma\\nu\\rho} A^\\sigma = R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma$。5. 在平直时空中，$R^\\mu_{\\phantom{\\mu}\\sigma\\nu\\rho} = 0$，故差值为0。6. 在 Schwarzschild 时空中，黎曼张量不为0，但由于是真空解，Ricci 张量 $R^\\mu_{\\phantom{\\mu}\\sigma} = 0$，故差值亦为0。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": false,
+      "training_value": 0.6,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

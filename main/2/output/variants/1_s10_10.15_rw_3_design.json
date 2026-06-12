@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-3-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "escape_velocity",
+      "coordinate": "schwarzschild",
+      "scenario": "black_hole_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-3",
+      "1_s10_10.15-3-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "设计数值模拟方案验证Schwarzschild时空逃逸速度公式"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 时空（线元 $ds^2 = -(1-r_s/r)dt^2 + (1-r_s/r)^{-1}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2{\\theta} d\\phi^2$）中，一个有质量粒子从半径 $r_0$ ($r_0 > r_s$) 处沿径向向外发射。根据 Killing 矢量与守恒量的理论推导，为了使该粒子能够逃逸到无穷远（即到达 $r \\to \\inf ty$ 且不返回），其在 $r_0$ 处相对于局部静止观察者的最小局部径向速度为 $v_{\\min} = \\sqrt{r_s / r_0}$。请设计一个数值模拟实验方案，通过模拟测试粒子在 Schwarzschild 时空中的径向测地线运动，来验证这一逃逸速度公式的正确性。",
+    "answer": "1. **建立测地线方程**：利用 Schwarzschild 度规写出径向测地线方程（设 $d\\theta = d\\phi = 0$），或基于哈密顿量 $H = \\frac{1}{2} g^{\\mu\\nu} p_\\mu p_\\nu$ 演化粒子的坐标与动量。2. **设定初始条件映射**：对于给定的初始半径 $r_0$ 和局部径向速度 $v$，计算粒子初始 4-速度分量。局部静止观察者 4-速度为 $e_0^t = 1/\\sqrt{1-r_s/r_0}$，径向空间单位矢量为 $e_1^r = \\sqrt{1-r_s/r_0}$，粒子初始 4-速度为 $u^t = \\gamma e_0^t$ 和 $u^r = \\gamma v e_1^r$，其中 $\\gamma = 1/\\sqrt{1-v^2}$。3. **参数扫描与轨迹演化**：选取多个初始半径 $r_0$（如 $r_0 = 3r_s, 4r_s, 5r_s$）。对于每个 $r_0$，扫描一系列初始局部速度 $v$，数值演化测地线方程至足够长的坐标时间。若粒子 $r(t)$ 单调递增并到达远边界（如 $r_{\\max} = 1000 r_s$），判定为“逃逸”；若 $r(t)$ 开始减小，判定为“返回”。4. **确定临界速度**：使用二分法在逃逸与返回的 $v$ 值之间迭代，精确找到每个 $r_0$ 下粒子刚好逃逸的临界局部速度 $v_{\\text{crit}}$。5. **对比与验证**：计算理论预测值 $v_{\\min} = \\sqrt{r_s / r_0}$，绘制 $v_{\\text{crit}}$ 随 $r_0$ 变化的曲线，并与理论曲线进行对比，计算相对误差以验证公式正确性。",
+    "solution": "该方案通过数值求解测地线方程直接追踪粒子的时空轨迹，避免了理论推导中对无穷远边界条件的先验假设，从纯动力学演化结果出发界定“逃逸”与“返回”。将局部速度 $v$ 映射为全局坐标下的初始 4-速度分量，是连接理论预测与数值实验的关键物理步骤，确保了数值输入量与理论公式中的变量严格对应。通过参数扫描与二分法提取临界速度，将定性轨迹行为转化为定量数据，从而严谨地验证了 $v_{\\min} = \\sqrt{r_s / r_0}$ 这一相对论性逃逸速度结论。"
+  },
+  "verification": null
+}

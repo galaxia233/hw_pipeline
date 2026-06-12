@@ -1,0 +1,186 @@
+{
+  "metadata": {
+    "id": "1_s15_15.12",
+    "type": "calculate",
+    "tags": {
+      "metric": "schwarzschild_metric",
+      "target_object": "proper_time_comparison",
+      "coordinate": "circular_and_radial_geodesics",
+      "scenario": "parametric_solution",
+      "method": "gravitational_time_dilation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s15_15.12",
+    "source_id": "1_s15_15.12",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s15_15.12"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "史瓦西度规下圆周运动与径向往返测地线对比+多步参数积分求解+强引力场时间膨胀物理情境",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$\\tau$"
+    ],
+    "target": [
+      "$\\Delta \\tau$"
+    ],
+    "metric": [
+      [
+        "$-1+2M/r$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2M/r)^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\sin^2 \\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 15.12. Suppose that Paul is orbiting a neutron star in a circular orbit at radial coordinate $r = 4M$ . Peter, his colleague, has been fired radially from a cannon on the neutron star with less than escape velocity; he flies outward just meeting Paul as he crosses his orbit, reaches a maximum radius and falls back down just happening to meet Paul again. Between their two meetings Paul has completed 10 orbits of the neutron star. Peter and Paul have an obsession about comparing their clocks whenever they meet. They set their clocks to agree on their first meetingas Peter flies outward. When they again compare their clocks, by how much do they disagree?",
+    "answer": "$\\Delta \\tau_{\\text{Peter}} - \\Delta \\tau_{\\text{Paul}} \\approx 217.2 M$",
+    "solution": "## SolutionSolution 15.12. Choose Paul's orbit to be in the $\\theta = \\pi /2$ plane. Since the orbit is circular $\\mathbf{u}^{\\mathbf{r}} = 0$ and from the r-component of the geodesic equation, $\\mathrm{Du}^{\\mathrm{r}} / \\mathrm{d}\\tau = 0$ , we get$$\\Gamma_{t t}^{\\mathbf {r}} \\left(\\mathbf {u}^{\\mathbf {t}}\\right)^{2} + \\Gamma_{\\phi \\phi}^{\\mathbf {r}} \\left(\\mathbf {u}^{\\phi}\\right)^{2} = 0$$and hence$$\\omega^{2} \\equiv \\left(\\frac {\\mathrm {d} \\phi}{\\mathrm {d} t}\\right)^{2} = \\left(\\frac {\\mathrm {u} \\phi}{\\mathrm {u}^{\\mathrm {t}}}\\right)^{2} = - \\frac {\\Gamma_{\\mathrm {t t}}^{\\mathrm {r}}}{\\Gamma_{\\phi \\phi}^{\\mathrm {r}}} = \\frac {\\mathrm {M}}{\\mathrm {r}^{3}} = \\frac {1}{6 4 \\mathrm {M}^{2}}$$for Paul's orbit. Since $\\mathrm{d}\\phi/\\mathrm{d}t = 1/8\\mathbf{M}$ and he traverses $20\\pi$ radians between meetings, the coordinate time elapsed between meetings is$$\\Delta t = 1 6 0 \\pi \\mathrm {M}.$$From $\\mathbf{g}_{tt}(\\mathbf{u}^{\\mathrm{t}})^2 +\\mathbf{g}_{\\phi \\phi}(\\mathbf{u}^{\\phi})^2 = -1$ we get$$\\mathrm {u}^{\\mathrm {t}} \\equiv \\frac {\\mathrm {d t}}{\\mathrm {d r}} = \\left(1 - \\frac {3 \\mathrm {M}}{\\mathrm {r}}\\right)^{- \\frac {1}{2}} = 2$$for Paul's orbit. Thus Paul measures an elapsed proper time$$\\Delta \\tau_{\\text {P a u l}} = \\frac {1}{2} \\Delta t = 8 0 \\pi \\mathrm {M} \\approx 2 5 1. 5 \\mathrm {M}.$$For Peter's orbit we use the equations describing radial fall (Problem 15.4). The time for Peter to fall from $\\mathbf{R}$ to $\\mathbf{r} = 4\\mathbf{M}$ must be $\\frac{1}{2}\\Delta t = 80\\pi \\mathbf{M}$ . We must find the values of $\\mathbf{R}$ and $\\eta$ corresponding to a lapse in $t$ of $80\\pi \\mathbf{M}$ . We can then find Peter's proper time from Solution 15.4, Equation (6):$$\\Delta \\tau_{\\text {P e t e r}} = 2 \\left(\\frac {\\mathrm {R}^{3}}{8 \\mathrm {M}}\\right)^{\\frac {1}{2}} (\\eta + \\sin \\eta). \\tag {1}$$The equations for R and $\\eta$ are Equations (7) and (5) of Solution 15.4$$\\begin{array}{l} 4 0 \\pi = \\log \\left[ \\frac {\\left(\\mathrm {X} - 1\\right)^{\\frac {1}{2}} + \\tan \\frac {1}{2} \\eta}{\\left(\\mathrm {X} - 1\\right)^{\\frac {1}{2}} - \\tan \\frac {1}{2} \\eta}\\right] + (\\mathrm {X} - 1)^{\\frac {1}{2}} \\left[ \\eta + \\frac {1}{2} \\mathrm {X} (\\eta + \\sin \\eta)\\right] (2) \\\\\\\\ 4 = \\mathrm {X} (1 + \\cos \\eta) (3) \\\\\\\\ \\end{array}$$where $\\mathbf{X} = \\mathbf{R} / 2\\mathbf{M}$ .Now use physical intuition: Peter travels outward for a considerable time while Paul orbits. Therefore $\\mathbf{X}$ should be quite large and $\\eta \\approx \\pi$ . Since logarithms are slowly varying functions, ignore the logarithm term and approximate$$4 0 \\pi \\approx \\mathrm {X}^{\\frac {1}{2}} \\left(\\pi + \\frac {1}{2} \\mathrm {X} \\pi\\right) .$$This gives $\\mathbf{X}^{\\frac{3}{2}} \\approx 80\\pi$ and $\\mathbf{X} \\approx 18.5$ . From Equation (3) then, $1 + \\cos \\eta \\approx .216$ implies $\\eta = 2.47$ . More accurately,$$\\begin{array}{l} \\eta = 2. 4 6 0 2 9 \\quad X = \\frac {R}{2 M} = 1 7. 9 1 7 3 7 \\\\\\\\ \\Delta \\tau_{\\text {P e t e r}} = 4 6 8. 7 2 \\mathrm {M}. \\\\\\\\ \\end{array}$$Paul measures a much smaller (about half) proper time interval than Peter. This makes sense because Paul remains in a highly relativistic orbit deep within a gravitational well - both factors make his clocks \"go slow.\" Peter spends most of his time at fairly small velocities and not very deep in a gravitational well (remember $\\mathbb{R} / 2\\mathbb{M} \\sim 18$ )."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "metric_latex": [
+      [
+        "\\frac{- r + r_{s}}{r}",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "\\frac{r}{r - r_{s}}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r^{2} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_001": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_010": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_100": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{3}}",
+      "Gamma_111": "- \\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_122": "- r + r_{s}",
+      "Gamma_133": "\\left(- r + r_{s}\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_233": "- \\frac{\\sin{\\left(2 \\theta \\right)}}{2}",
+      "Gamma_313": "\\frac{1}{r}",
+      "Gamma_323": "\\frac{1}{\\tan{\\left(\\theta \\right)}}",
+      "Gamma_331": "\\frac{1}{r}",
+      "Gamma_332": "\\frac{1}{\\tan{\\left(\\theta \\right)}}"
+    },
+    "riemann": {
+      "R_0101": "\\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0110": "- \\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0202": "- \\frac{r_{s}}{2 r}",
+      "R_0220": "\\frac{r_{s}}{2 r}",
+      "R_0303": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_0330": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1001": "\\frac{r_{s} \\left(r - r_{s}\\right)}{r^{4}}",
+      "R_1010": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{r^{4}}",
+      "R_1212": "- \\frac{r_{s}}{2 r}",
+      "R_1221": "\\frac{r_{s}}{2 r}",
+      "R_1313": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1331": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_2002": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_2020": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_2112": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2121": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2323": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_2332": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_3003": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_3030": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_3113": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3131": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3223": "- \\frac{r_{s}}{r}",
+      "R_3232": "\\frac{r_{s}}{r}"
+    },
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "\\frac{48 M^{2}}{r^{6}}",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量 (∂_t)，对应能量守恒",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "rot_phi",
+        "description": "绕 φ 轴旋转 Killing 矢量 (∂_φ)，对应角动量守恒",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

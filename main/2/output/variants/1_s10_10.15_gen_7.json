@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "energy_limit",
+      "coordinate": "schwarzschild",
+      "scenario": "black_hole",
+      "method": "taylor_expansion",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$E/\\mu$ 的弱场极限展开"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s = 2M$ 为 Schwarzschild 半径。时间平移 Killing 矢量为 $\\boldsymbol{\\xi} = \\partial_t$，对应粒子的能量守恒量定义为 $E = -\\mathbf{p} \\cdot \\boldsymbol{\\xi}$。已知类时粒子（质量为 $\\mu$）在某径向坐标 $r$ 处静止时的最小可能单位能量为 $E/\\mu = |\\boldsymbol{\\xi}| = \\sqrt{-g_{tt}}$。请证明在远距离极限（Newtonian 极限）$r \\gg M$ 下，将此最小单位能量按小量 $M/r$ 进行 Taylor 展开至一阶项，其结果如何还原为经典 Newtonian 力学中的总单位能量（即单位静止质量能与 Newtonian 引力势能之和），并给出该展开式的具体形式。",
+    "answer": "最小单位能量展开至一阶为 $E/\\mu \\approx 1 - \\frac{M}{r}$，这恰好等于 Newtonian 力学中单位质量的静止能量（1）与单位质量的引力势能（$-M/r$）之和。",
+    "solution": "1. 根据 Schwarzschild 度规，时间分量为 $g_{tt} = -\\frac{r - r_s}{r} = -(1 - \\frac{2M}{r})$。2. 时间 Killing 矢量 $\\boldsymbol{\\xi} = \\partial_t$ 的范数为 $|\\boldsymbol{\\xi}| = \\sqrt{-g_{tt}} = \\sqrt{1 - \\frac{2M}{r}}$。3. 粒子在某点的最小单位能量为 $E/\\mu = \\sqrt{1 - \\frac{2M}{r}}$。4. 在远距离极限 $r \\gg M$ 下，小量 $\\epsilon = 2M/r \\ll 1$。对上式进行 Taylor 展开：   $\\sqrt{1 - \\epsilon} \\approx 1 - \\frac{1}{2}\\epsilon = 1 - \\frac{M}{r}$。5. 因此，$E/\\mu \\approx 1 - \\frac{M}{r}$。6. 物理意义还原：在经典 Newtonian 力学中，单位质量的总能量为单位静止质量能（$c^2=1$ 下的 1）与单位引力势能之和。Newtonian 引力势能为 $V_N = -\\frac{M\\mu}{r}$，故单位质量引力势能为 $-\\frac{M}{r}$。对于静止粒子，动能 $K_N = 0$。因此单位总能量为 $1 - \\frac{M}{r}$。7. 结论：广义相对论中的守恒量 $E$（能量at infinity）在弱场极限下，完美还原为 Newtonian 力学中包含静止质量的总机械能，证明了两者的物理对应关系。"
+  },
+  "verification": null
+}

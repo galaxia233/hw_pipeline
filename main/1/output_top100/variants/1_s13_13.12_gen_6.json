@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "metric_perturbation_variation",
+      "coordinate": "Cartesian",
+      "scenario": "linearized_gravity",
+      "method": "comparison_and_symmetry_analysis",
+      "generalization_axis": "compare",
+      "metric": "Minkowski"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Minkowski",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$\\delta h_{\\mu\\nu}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Minkowski 时空的线性化引力理论中，度规写为 $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$，其中背景度规 $\\eta_{\\mu\\nu} = \\text{diag}(-1, 1, 1, 1)$，$|h_{\\mu\\nu}| \\ll 1$ 为一阶微扰。已知在无限小坐标变换 $x^\\mu \\to x^\\mu + \\xi^\\mu$ 下，微扰度规的变换律为 $h_{\\mu\\nu}^{\\text{new}} = h_{\\mu\\nu}^{\\text{old}} - 2 \\xi_{(\\mu,\\nu)}$，其中 $\\xi_{(\\mu,\\nu)} = \\frac{1}{2}(\\xi_{\\mu,\\nu} + \\xi_{\\nu,\\mu})$ 且 $\\xi_\\mu = \\eta_{\\mu\\nu}\\xi^\\nu$。请对比以下两种变换对微扰度规的影响：(A) 取 $\\xi^\\mu$ 为 Minkowski 时空的时间平移 Killing 矢量 $\\xi^\\mu_{(t)} = (1, 0, 0, 0)$；(B) 取 $\\xi^\\mu$ 为一个一般的非 Killing 矢量，例如 $\\xi^\\mu_{(f)} = (0, t, 0, 0)$。要求：同时推导在 (A) 和 (B) 两种条件下微扰度规的变换量 $\\delta h_{\\mu\\nu} = h_{\\mu\\nu}^{\\text{new}} - h_{\\mu\\nu}^{\\text{old}}$，并基于推导结果解释这两种变换在物理意义上的根本差异（即为何一种代表真实的物理对称性，而另一种仅代表坐标的规范冗余）。",
+    "answer": "情况 (A) 的变换量 $\\delta h_{\\mu\\nu}^{(A)} = 0$；情况 (B) 的变换量 $\\delta h_{tx}^{(B)} = -1$，其余分量为 0。物理差异解释：Killing 矢量生成的变换是等度规变换，不仅保持时空内蕴几何不变，还保持度规分量形式不变，反映时空真实的物理对称性（对应守恒律）；非 Killing 矢量生成的变换改变了度规分量形式，但不改变内蕴几何和可观测量，仅代表广义相对论的规范冗余。",
+    "solution": "首先计算两种情况下的协变矢量 $\\xi_\\mu = \\eta_{\\mu\\nu} \\xi^\\nu$ 及其偏导数 $\\xi_{\\mu,\\nu} = \\partial_\\nu \\xi_\\mu$，进而求出对称化导数 $\\xi_{(\\mu,\\nu)}$ 并代入变换律 $\\delta h_{\\mu\\nu} = -2 \\xi_{(\\mu,\\nu)}$。对于情况 (A)：矢量 $\\xi^\\mu_{(t)} = (1, 0, 0, 0)$，降指标得 $\\xi_\\mu = (-1, 0, 0, 0)$。由于它是常数矢量，所有偏导数 $\\xi_{\\mu,\\nu} = 0$，因此 $\\xi_{(\\mu,\\nu)} = 0$。代入变换律得 $\\delta h_{\\mu\\nu}^{(A)} = 0$。微扰度规的形式完全不变。对于情况 (B)：矢量 $\\xi^\\mu_{(f)} = (0, t, 0, 0)$，降指标得 $\\xi_\\mu = (0, t, 0, 0)$。计算偏导数：仅有 $\\partial_t \\xi_x = \\partial_t (t) = 1$，其余偏导数均为 0。因此，$\\xi_{(t,x)} = \\frac{1}{2}(\\xi_{t,x} + \\xi_{x,t}) = \\frac{1}{2}(0 + 1) = \\frac{1}{2}$，其余对称化导数为 0。代入变换律得 $\\delta h_{tx}^{(B)} = -2 \\times \\frac{1}{2} = -1$，其余分量变化为 0。微扰度规的分量形式发生了改变。物理差异解释：1. Killing 矢量满足 Killing 方程 $\\xi_{(\\mu,\\nu)} = 0$，它生成的无限小坐标变换是等度规变换。这意味着时空几何在变换下保持绝对不变，度规张量作为流形上的几何对象其配置不变，因此在新旧坐标系中分量形式相同（$\\delta h_{\\mu\\nu}=0$）。这反映了时空本身具有真实的物理对称性，例如时间平移对称性直接对应于能量守恒定律。2. 非 Killing 矢量不满足 Killing 方程，其生成的变换改变了度规分量的数学形式（$\\delta h_{\\mu\\nu} \\neq 0$）。然而，在广义相对论中，任何无限小坐标变换都是微分同胚，属于规范变换。尽管 $h_{\\mu\\nu}$ 的分量形式改变，但时空的内蕴几何（如线性化 Riemann 曲率张量）在此变换下保持不变。因此，这种改变不代表任何真实的物理效应差异，仅仅是坐标标记的冗余（规范自由度），类似于电磁场中势的规范变换不改变电磁场本身。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.minkowski_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

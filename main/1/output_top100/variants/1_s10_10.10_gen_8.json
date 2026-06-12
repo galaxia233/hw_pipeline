@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-8",
+    "type": "concept",
+    "tags": {
+      "target_object": "Killing_vector",
+      "coordinate": "spherical",
+      "scenario": "cosmology",
+      "method": "inversion_from_conservation",
+      "generalization_axis": "invert",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\xi^\\mu$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，Killing 矢量场与时空的对称性紧密相关，且存在一个基本定理：若 $\\boldsymbol{\\xi}$ 是 Killing 矢量场，$\\mathbf{u}$ 是测地线的切矢量，则它们的内积 $\\boldsymbol{\\xi} \\cdot \\mathbf{u}$ 沿测地线为常数（即对应一个守恒量）。\\n\\n考虑具有 FLRW 度规的宇宙学时空：\\n$$ds^2 = -dt^2 + \\frac{a^2(t)}{-kr^2 + 1} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$$\\n\\n通过分析该时空中自由粒子的测地线运动方程，我们发现粒子的广义动量 $p_\\phi = r^2 a^2(t) \\sin^2\\theta \\dot{\\phi}$ 是沿测地线守恒的量。请你利用 \\\"Killing 矢量与切矢量内积守恒\\\" 的定理，从守恒量 $p_\\phi$ 反推产生该守恒量的那个 Killing 矢量场 $\\boldsymbol{\\xi}$ 的坐标分量形式，并说明该矢量场反映了时空的何种几何对称性。",
+    "answer": "Killing 矢量场坐标分量为 $(0, 0, 0, 1)$；它反映了时空绕 z 轴（即 $\\phi$ 坐标轴）的旋转对称性（轴对称性）。",
+    "solution": "根据已知定理，Killing 矢量场 $\\boldsymbol{\\xi}$ 与测地线切矢量 $\\mathbf{u}$ 的内积守恒，且该守恒量等于广义动量 $p_\\phi$，即：\\n$$ \\boldsymbol{\\xi} \\cdot \\mathbf{u} = g_{\\mu\\nu} \\xi^\\mu u^\\nu = p_\\phi $$\\n由于度规是对角的，广义动量 $p_\\phi$ 可表示为：\\n$$ p_\\phi = g_{\\phi\\nu} u^\\nu = g_{\\phi\\phi} u^\\phi = r^2 a^2(t) \\sin^2\\theta \\dot{\\phi} $$\\n将此代入内积表达式：\\n$$ g_{\\mu\\nu} \\xi^\\mu u^\\nu = g_{\\phi\\phi} u^\\phi $$\\n对于任意测地线切矢量 $u^\\nu$，要使上式恒成立，唯一的解是 $\\xi^\\phi = 1$，且其他分量 $\\xi^t = \\xi^r = \\xi^\\theta = 0$。\\n因此，对应的 Killing 矢量场为 $\\boldsymbol{\\xi} = \\frac{\\partial}{\\partial \\phi}$，其坐标分量为 $(0, 0, 0, 1)$。\\n该矢量场代表时空沿 $\\phi$ 坐标方向的平移不变性，在球坐标物理语境下，这对应于时空绕 z 轴的旋转不变性，即轴对称性。这也印证了 FLRW 度规空间部分的球对称特征。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "1. 度规摘要中声称 FLRW 度规的 Killing 矢量为 1 个，这与 FLRW 度规的已知物理性质严重矛盾。FLRW 度规的空间部分是最大对称空间（各向同性），必然包含 6 个 Killing 矢量（3个平移和3个旋转）。摘要中的错误表明出题者对该度规的对称性存在根本性误解。2. Answer 中将旋转对称性表述为“绕 z 轴（即 $\\phi$ 坐标轴）的旋转对称性”，术语不规范。在球坐标系中不存在所谓的“$\\phi$ 坐标轴”，$\\phi$ 是方位角坐标，$\\partial/\\partial\\phi$ 是沿 $\\phi$ 坐标方向的切矢量，物理上对应绕 z 轴的旋转，不能将 $\\phi$ 称作坐标轴。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

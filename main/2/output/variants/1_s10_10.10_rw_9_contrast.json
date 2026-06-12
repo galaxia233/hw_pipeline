@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-1-9",
+    "type": "concept",
+    "tags": {
+      "target_object": "acceleration of rot_phi integral curves",
+      "coordinate": "spherical",
+      "scenario": "contrast FLRW and Schwarzschild phi-lines",
+      "method": "Killing vector norm gradient",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-1",
+      "1_s10_10.10-1-9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\mathbf{x}^{\\\\mu}$",
+      "$\\\\mathbf{u}^{\\\\alpha}$",
+      "$\\\\boldsymbol{\\\\xi}_{\\\\alpha}$"
+    ],
+    "target": [
+      "acceleration components of rot_phi",
+      "norm of rot_phi"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 FLRW 宇宙与 Schwarzschild 黑洞两种时空中，均存在绕 $\\phi$ 轴旋转的 Killing 矢量场 $\\boldsymbol{\\xi} = \\partial_\\phi$。根据 Killing 矢量场积分曲线加速度恒等式 $a^\\nu = \\xi^\\mu \\nabla_\\mu \\xi^\\nu = -\\frac{1}{2} \\nabla^\\nu (\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi})$，请分别在以下两种度规下计算 $\\boldsymbol{\\xi}$ 的加速度分量 $a^\\nu$，对比两者的差异，并解释为何在 FLRW 时空中加速度具有时间分量 $a^0 \\neq 0$，而在 Schwarzschild 时空中 $a^0 = 0$ 的物理原因。背景 1 (FLRW 度规)：$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$背景 2 (Schwarzschild 度规)：$ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$",
+    "answer": "在 FLRW 时空中，$\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = r^2 a^2(t) \\sin^2\\theta$。加速度分量为：$a^0 = -\\frac{1}{2} g^{00} \\partial_t (r^2 a^2 \\sin^2\\theta) = r^2 a(t) \\dot{a}(t) \\sin^2\\theta \\neq 0$$a^1 = -\\frac{1}{2} g^{11} \\partial_r (r^2 a^2 \\sin^2\\theta) = r(kr^2-1) \\sin^2\\theta$$a^2 = -\\frac{1}{2} g^{22} \\partial_\\theta (r^2 a^2 \\sin^2\\theta) = -\\frac{1}{2} \\sin(2\\theta)$在 Schwarzschild 时空中，$\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = r^2 \\sin^2\\theta$。加速度分量为：$a^0 = -\\frac{1}{2} g^{00} \\partial_t (r^2 \\sin^2\\theta) = 0$$a^1 = -\\frac{1}{2} g^{11} \\partial_r (r^2 \\sin^2\\theta) = (r_s - r) \\sin^2\\theta$$a^2 = -\\frac{1}{2} g^{22} \\partial_\\theta (r^2 \\sin^2\\theta) = -\\frac{1}{2} \\sin(2\\theta)$对比差异：FLRW 时空中加速度具有非零的时间分量 $a^0$，而 Schwarzschild 时空中 $a^0 = 0$。物理原因：Schwarzschild 时空是静态的，Killing 矢量模方 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}$ 不依赖于时间 $t$，因此其梯度没有时间分量，$\\phi$ 坐标线偏离测地线的加速度纯粹是空间上的（对应做圆周运动所需的向心加速度）。而在 FLRW 宇宙中，度规依赖于宇宙标度因子 $a(t)$，导致 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}$ 随时间演化而变化。宇宙膨胀动态地改变了角向矢量的模长，使得 $\\phi$ 坐标线的非测地线性质不仅体现在空间加速度上，还不可避免地与时间演化耦合，产生了时间分量 $a^0 \\neq 0$。",
+    "solution": "1. 计算两种度规下 $\\boldsymbol{\\xi} = \\partial_\\phi$ 的模方 $g_{\\phi\\phi}$。2. 利用恒等式 $a^\\nu = -\\frac{1}{2} \\nabla^\\nu (\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}) = -\\frac{1}{2} g^{\\nu\\rho} \\partial_\\rho (g_{\\phi\\phi})$ 计算各分量。3. 对比 $a^0$ 分量：FLRW 中 $g_{\\phi\\phi}$ 含 $a(t)$ 导致 $\\partial_t g_{\\phi\\phi} \\neq 0$；Schwarzschild 中 $g_{\\phi\\phi}$ 不含 $t$ 导致 $\\partial_t g_{\\phi\\phi} = 0$。4. 解释物理意义：时间分量的有无反映了时空是否静态，宇宙膨胀使得原本纯空间的坐标线与时间演化产生耦合。"
+  },
+  "verification": null
+}

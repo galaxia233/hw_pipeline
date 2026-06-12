@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s15_15.18",
+    "type": "calculate",
+    "tags": {
+      "metric": "schwarzschild_metric",
+      "target_object": "spherical_accretion",
+      "coordinate": "supersonic_transition_radius",
+      "scenario": "spacetime_coordinates",
+      "method": "astrophysical_fluid_dynamics"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s15_15.18",
+    "source_id": "1_s15_15.18",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s15_15.18"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "Requires multi-step derivation combining relativistic Bernoulli equation, mass conservation, thermodynamic EOS, and critical point analysis for a realistic black hole accretion scenario.",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$r_s$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "15.18. A perfectly adiabatic gas with equation of state $p = \\mathrm{Kn}^{\\gamma}$ , $4/3 \\leq \\gamma \\leq 5/3$ , $\\gamma$ constant, accretes spherically onto a Schwarzschild black hole of mass $M$ . The speed of sound in the gas at radial infinity is $a_{\\inf ty}$ . At what radius does the inward flow become supersonic? (Give answer only to leading term in $a_{\\inf ty}/c$ .)",
+    "answer": "For $\\gamma \\neq 5/3$: $r_s = \\left(\\frac{5 - 3\\gamma}{8}\\right) \\frac{2M}{a_\\inf ty^2}$; For $\\gamma = 5/3$: $r_s = \\frac{\\sqrt{3} M}{4 a_\\inf ty}$.",
+    "solution": "Solution 15.18. The relativistic Bernoulli equation (Problem 14.7)$$u_{0} = \\left(\\frac {n}{\\rho + p}\\right) \\left(\\frac {n_{\\inf ty}}{p_{\\inf ty} + \\rho_{\\inf ty}}\\right)^{- 1} \\tag {1}$$can be expressed in terms of the fluid's proper radial velocity $\\mathbf{v} = (1 - 2\\mathbf{M} / \\mathbf{r})\\mathrm{d}\\mathbf{r} / \\mathrm{d}t$ , by using the relationship between $\\mathbf{u}_0$ and $\\mathrm{dr} / \\mathrm{dt}$$$\\mathrm {g}_{0 0} \\left(\\mathrm {u}^{0}\\right)^{2} + \\mathrm {g}_{\\mathrm {rr}} \\left(\\mathrm {u}^{\\mathrm {r}}\\right)^{2} = - 1,$$to yield$$v^{2} = 1 - \\frac {\\left(1 - \\frac {2 M}{r}\\right) \\left(\\frac {\\rho + p}{n}\\right)^{2}}{\\left(\\frac {\\rho_{\\inf ty} + p_{\\inf ty}}{n_{\\inf ty}}\\right)^{2}}. \\tag {2}$$One can now rest mass conservation $(\\mathbf{u}^{\\alpha}\\mathbf{n}|\\mathbf{g}|^{\\frac{1}{2}})_{,\\alpha} = 0$ to obtain (after again expressing $\\mathbf{u}^{\\mathbf{r}}$ in terms of $\\mathbf{v}$ )$$\\frac {\\mathrm {v} \\left(1 - 2 \\mathrm {M} / \\mathrm {r}\\right)^{\\frac {1}{2}} \\mathrm {n r}^{2}}{\\left(1 - \\mathrm {v}^{2}\\right)^{\\frac {1}{2}}} = \\text {c o n s t a n t} \\equiv \\frac {\\dot {\\mathrm {M}}}{4 \\pi}. \\tag {3}$$Incidentally, in this solution $\\mathfrak{n}$ is a rest mass density, not a number density: $\\mathfrak{n}_{\\text{here}} \\equiv \\mathfrak{m}_{\\mathfrak{p}} \\mathfrak{n}_{\\text{usual}}$ .Now, we would like to express $n$ in terms of the sound speed $a$ (using $p = Kn^{\\gamma}$ ; compare Solution 5.25):$$a^{2} = \\frac {\\mathrm {d p}}{\\mathrm {d} \\rho} = \\frac {\\gamma \\mathrm {K n}^{\\gamma - 1}}{1 + \\gamma \\mathrm {K n}^{\\gamma - 1} / (\\gamma - 1)}.$$ This implies$$\\gamma \\mathrm {K n}^{\\gamma - 1} = \\frac {\\mathrm {a}^{2}}{1 - \\mathrm {a}^{2} / (\\gamma - 1)} = \\frac {\\mathrm {a}^{2} (\\rho + \\mathrm {p})}{\\mathrm {n}} \\tag {4}$$or$$n = \\left[ \\frac {a^{2}}{\\gamma K \\left(1 - a^{2} / (\\gamma - 1)\\right)}\\right]^{\\frac {1}{\\gamma} - 1}. \\tag {5}$$For the purposes of finding a self-consistent solution for some constant M and some v(r), Equations (2), (3) and (5) can be thought of as defining M as a function of r and v. We can then find the radius at which the flow becomes supersonic by setting v = a and setting dM = 0. First we must express r in terms of a. Using Equations (3) and (4), (with v=a), we get$$r = \\frac {2 M}{1 - \\left(1 - a^{2} / (y - 1)\\right)^{2} \\left(1 - a^{2}\\right) \\tau_{\\inf ty}} \\tag {6}$$where$$\\tau_{\\inf ty} \\equiv \\left(\\frac {\\rho + \\mathrm {p}}{\\mathrm {n}}\\right)_{\\inf ty}.$$ Substituting Equations (6), (5) into Equation (3), we get$$\\frac {\\dot {\\mathrm {M}}}{4 \\pi} = \\frac {4 \\mathrm {M}^{2} \\mathrm {a} \\left(1 - \\frac {\\mathrm {a}^{2}}{\\gamma - 1}\\right) \\left[ \\frac {\\mathrm {a}^{2}}{\\gamma \\mathrm {K} \\left(1 - \\mathrm {a}^{2} / (\\gamma - 1)\\right)}\\right]^{\\frac {1}{\\gamma - 1}}}{\\left[ 1 - \\left(1 - \\mathrm {a}^{2}\\right) \\left(1 - \\mathrm {a}^{2} / (\\gamma - 1)\\right)^{2} r_{\\inf ty}\\right]^{2}}. \\tag {7}$$Now, we expand Equation (4)$$\\tau_{\\inf ty} \\approx 1 + \\frac {a_{\\inf ty}^{2}}{\\gamma - 1}$$and work to lowest order in a. From $d\\log M / da = 0$ , we have$$a^{2} = \\frac {2 a_{\\inf ty}^{2}}{5 - 3 \\gamma}, \\quad \\gamma \\neq 5 / 3 \\tag {8a}$$$$a^{2} = 2 \\cdot 3^{\\frac {- 1}{2}} a_{\\inf ty}, \\quad \\gamma = 5 / 3. \\tag {8b}$$Using Equations (8) and Equation (6), we conclude finally that the radius at which the flow becomes supersonic is$$r_{s} = \\left(\\frac {5 - 3 \\gamma}{8}\\right) \\frac {2 M}{a_{\\inf ty}^{2}} \\quad \\gamma \\neq 5 / 3 \\tag {9a}$$$$\\mathrm {r}_{\\mathrm {s}} = \\frac {3^{\\frac {1}{2}} \\mathrm {M}}{4 \\mathrm {a}_{\\inf ty}} \\quad \\gamma = 5 / 3. \\tag {9b}.$$ "
+  },
+  "verification": null
+}

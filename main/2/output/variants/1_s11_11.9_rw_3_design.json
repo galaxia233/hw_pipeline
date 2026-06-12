@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-5-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "Schwarzschild radius",
+      "coordinate": "spherical",
+      "scenario": "photon sphere orbit design",
+      "method": "numerical_simulation_design",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-5",
+      "1_s11_11.9-5-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "验证光子球轨道周期与Schwarzschild半径的解析关系"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞的赤道面 ($\\theta = \\pi/2$) 上，存在一个特殊的半径使得光子可以形成闭合的圆轨道（即光子球）。理论上，远处静止观测者测量到光子在该圆轨道上绕行一周所需的坐标时间周期 $T$ 与黑洞的 Schwarzschild 半径 $r_s$ 满足解析关系：$r_s = \\frac{T}{3\\sqrt{3}\\pi}$。度规形式为：$$ds^2 = \\frac{-r + r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$$请你设计一个数值模拟实验方案，通过追踪光子在赤道面上的测地线演化，来验证上述解析结论的准确性。方案需包含：初始条件设定、演化方程的选择、需要提取的模拟数据以及最终验证的定量分析方法。",
+    "answer": "1. 初始条件设定：选取任意 Schwarzschild 半径 $r_s$（如设定 $r_s=1$）。将光子初始位置设定在理论预测的光子球半径 $r = 1.5 r_s$ 处，且位于赤道面 $\\theta = \\pi/2, \\phi = 0$。设定初始四维速度，为维持圆轨道必须令径向速度 $u^r = 0$ 和极向速度 $u^\\theta = 0$；由类光条件 $g_{tt}(u^t)^2 + g_{\\phi\\phi}(u^\\phi)^2 = 0$ 确定初始 $u^\\phi / u^t$ 的比值。2. 演化方程：使用测地线方程 $\\frac{d^2 x^\\mu}{d\\lambda^2} + \\Gamma^\\mu_{\\alpha\\beta} \\frac{dx^\\alpha}{d\\lambda} \\frac{dx^\\beta}{d\\lambda} = 0$ 进行数值积分（如采用四阶 Runge-Kutta 法），积分参数为仿射参数 $\\lambda$，同时记录坐标时间 $t$ 和方位角 $\\phi$ 的演化。3. 数据提取：追踪光子轨迹直到方位角 $\\phi$ 增加恰好 $2\\pi$，提取此时对应的坐标时间增量 $\\Delta t$，即为周期 $T$。4. 定量验证：计算比值 $T / (3\\sqrt{3}\\pi)$，验证其是否与初始设定的 $r_s$ 精确一致。改变 $r_s$ 的设定值重复实验，验证该关系的普适性。",
+    "solution": "方案论证：数值模拟验证解析结论的核心在于精确复现圆轨道条件。理论上，圆轨道要求 $u^r=0$ 且径向加速度为零，这对应于测地线方程中 $\\Gamma^1_{00} (u^t)^2 + \\Gamma^1_{33} (u^\\phi)^2 = 0$，结合类光条件可唯一确定 $r=1.5 r_s$ 及角速度 $\\omega$。在数值实验中，通过硬性设定 $u^r=0$ 与正确的初始角速度，径向坐标 $r$ 应在演化中保持恒定（误差仅来源于数值积分的截断误差），这就隐式验证了 Christoffel 符号与度规的动力学自洽性。最终提取的坐标时间周期 $T$ 是可观测量，若 $T/(3\\sqrt{3}\\pi)$ 在不同 $r_s$ 下均等于设定值，则从数值层面证实了理论推导中由测地线方程与类光条件联立得到的解析关系。"
+  },
+  "verification": null
+}

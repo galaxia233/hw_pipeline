@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "divergence of Ricci-Killing current",
+      "coordinate": "general",
+      "scenario": "conserved_current",
+      "method": "Bianchi_identity_and_tensor_symmetry",
+      "generalization_axis": "extend",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T^{\\\\alpha}_{\\\\beta}$",
+      "$\\\\xi^{\\\\beta}$",
+      "$\\\\Sigma_{\\\\alpha}$",
+      "$|g|$",
+      "$x^{a}$"
+    ],
+    "target": [
+      "\\nabla_{\\alpha} (R^{\\alpha\\beta} \\xi_{\\beta})",
+      "\\frac{1}{2} \\xi^{\\beta} \\nabla_{\\beta} R"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，若时空具有 Killing 矢量场 $\\xi^{\\alpha}$（满足 Killing 方程 $\\nabla_{\\alpha} \\xi_{\\beta} + \\nabla_{\\beta} \\xi_{\\alpha} = 0$），由能动张量构造的流 $T^{\\alpha\\beta} \\xi_{\\beta}$ 是协变守恒的，其空间积分与超曲面选择无关。现在考虑由 Ricci 张量与该 Killing 矢量构造的几何流 $J^{\\alpha} = R^{\\alpha\\beta} \\xi_{\\beta}$。请利用缩并的 Bianchi 恒等式与张量的对称性质，推导该流的协变散度 $\\nabla_{\\alpha} J^{\\alpha} = \\nabla_{\\alpha} (R^{\\alpha\\beta} \\xi_{\\beta})$ 的具体表达式，并说明在何种物理条件下，该几何流退化为一个真正的守恒流（即散度变为零）。",
+    "answer": "该流的协变散度为 $\\nabla_{\\alpha} (R^{\\alpha\\beta} \\xi_{\\beta}) = \\frac{1}{2} \\xi^{\\beta} \\nabla_{\\beta} R$。当 Ricci 标量 $R$ 沿 Killing 矢量方向的导数为零（即 $\\xi^{\\beta} \\nabla_{\\beta} R = 0$）时，该流退化为守恒流；最典型的物理条件是真空（无物质且宇宙学常数为零），此时 $R=0$ 恒满足此条件。",
+    "solution": "推导过程如下：\\n1. 将协变散度展开为两项：\\n   $$ \\nabla_{\\alpha} (R^{\\alpha\\beta} \\xi_{\\beta}) = (\\nabla_{\\alpha} R^{\\alpha\\beta}) \\xi_{\\beta} + R^{\\alpha\\beta} (\\nabla_{\\alpha} \\xi_{\\beta}) $$\\n2. 对于第一项，利用缩并的 Bianchi 恒等式 $\\nabla_{\\alpha} R^{\\alpha\\beta} = \\frac{1}{2} \\nabla^{\\beta} R$，代入得：\\n $$ (\\nabla_{\\alpha} R^{\\alpha\\beta}) \\xi_{\\beta} = \\frac{1}{2} (\\nabla^{\\beta} R) \\xi_{\\beta} = \\frac{1}{2} \\xi^{\\beta} \\nabla_{\\beta} R $$\\n3. 对于第二项，由于 Ricci 张量是对称的（$R^{\\alpha\\beta} = R^{\\beta\\alpha}$），而 Killing 方程表明 $\\nabla_{\\alpha} \\xi_{\\beta}$ 是反对称的（$\\nabla_{\\alpha} \\xi_{\\beta} = -\\nabla_{\\beta} \\xi_{\\alpha}$），对称张量与反对称张量的缩并恒为零：\\n $$ R^{\\alpha\\beta} \\nabla_{\\alpha} \\xi_{\\beta} = \\frac{1}{2} R^{\\alpha\\beta} (\\nabla_{\\alpha} \\xi_{\\beta} - \\nabla_{\\beta} \\xi_{\\alpha}) = \\frac{1}{2} (R^{\\alpha\\beta} \\nabla_{\\alpha} \\xi_{\\beta} - R^{\\beta\\alpha} \\nabla_{\\beta} \\xi_{\\alpha}) = 0 $$\\n4. 综合两项结果，得到：\\n $$ \\nabla_{\\alpha} (R^{\\alpha\\beta} \\xi_{\\beta}) = \\frac{1}{2} \\xi^{\\beta} \\nabla_{\\beta} R $$\\n5. 要使该流成为守恒流，必须满足 $\\xi^{\\beta} \\nabla_{\\beta} R = 0$，即 Ricci 标量在 Killing 矢量方向上不变。在真空条件下（$T^{\\alpha\\beta}=0$ 且 $\\Lambda=0$），Einstein 场方程给出 $R_{\\alpha\\beta}=0$，从而 $R=0$，显然满足 $\\nabla R = 0$，此时 $R^{\\alpha\\beta} \\xi_{\\beta}$ 构成真正的守恒流。"
+  },
+  "verification": null
+}

@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_1-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "stress_energy_tensor",
+      "coordinate": "static_coordinates",
+      "scenario": "cosmology",
+      "method": "limit_analysis",
+      "generalization_axis": "limit",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.4_1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.4_1",
+      "1_s13_13.4_1-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$T_{\\mu\\nu}$",
+      "$\\lim_{\\alpha \\to \\inf ty} T_{\\mu\\nu}$",
+      "$\\lim_{\\alpha \\to \\inf ty} g_{\\mu\\nu}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在相对论量子力学中，如果真空不存在偏倚的参考系，则真空能动张量必须正比于度规张量，即 $T_{\\mu\\nu}^{\\text{vac}} = -\\rho_{\\text{vac}} g_{\\mu\\nu}$，这在爱因斯坦场方程中表现为有效宇宙学常数项 $\\Lambda g_{\\mu\\nu}$。然而，对于某些各向异性弯曲时空，其几何所需的能动张量形式将有所不同。考虑如下时空度规：\\n$$ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}}(dx^2 + dy^2 + dz^2)$$\\n其中 $\\alpha$ 为表征时空曲率的几何参数。请推导产生该几何所需的能动张量 $T_{\\mu\\nu}$ 的具体表达式（设裸宇宙学常数为0，场方程为 $G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$），并指出其与纯真空能动张量形式的根本差异。进一步，通过取物理极限 $\\alpha \\to \\inf ty$，证明该时空几何及其所需的能动张量将如何还原为经典的平直时空真空。",
+    "answer": "所需能动张量为 $T_{00} = -\\frac{1}{8\\pi\\alpha^2} e^{-\\frac{2x}{\\alpha}}$, $T_{11} = \\frac{1}{8\\pi\\alpha^2}$, $T_{22} = 0$, $T_{33} = 0$。其与 $T_{\\mu\\nu} \\propto g_{\\mu\\nu}$ 的根本差异在于它具有极强的各向异性（$T_{22}=T_{33}=0$ 而 $g_{22}, g_{33} \\neq 0$），不能由纯宇宙学常数产生。当 $\\alpha \\to \\inf ty$ 时，度规退化为 Minkowski 度规 $\\eta_{\\mu\\nu}$，且 $T_{\\mu\\nu} \\to 0$，还原为没有任何真空能量或宇宙学常数的经典平直时空真空。",
+    "solution": "1. **计算能动张量**：由爱因斯坦场方程 $G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$，可直接利用 Einstein 张量的分量得出能动张量。根据给定的几何数据：\\n   $$G_{00} = -\\frac{1}{\\alpha^2} e^{-\\frac{2x}{\\alpha}} \\implies T_{00} = \\frac{G_{00}}{8\\pi} = -\\frac{1}{8\\pi\\alpha^2} e^{-\\frac{2x}{\\alpha}}$$\\n $$G_{11} = \\frac{1}{\\alpha^2} \\implies T_{11} = \\frac{G_{11}}{8\\pi} = \\frac{1}{8\\pi\\alpha^2}$$\\n 对于其他分量，根据 Ricci 张量 $R_{22} = -1/\\alpha^2$, $R_{33} = -1/\\alpha^2$ 以及 Ricci 标量 $R = -2 e^{-2x/\\alpha} / \\alpha^2$，计算可得：\\n $$G_{22} = R_{22} - \\frac{1}{2} g_{22} R = -\\frac{1}{\\alpha^2} - \\frac{1}{2} e^{\\frac{2x}{\\alpha}} \\left(-\\frac{2 e^{-\\frac{2x}{\\alpha}}}{\\alpha^2}\\right) = 0 \\implies T_{22} = 0$$\\n $$G_{33} = R_{33} - \\frac{1}{2} g_{33} R = 0 \\implies T_{33} = 0$$\\n2. **与纯真空能动张量的差异**：若时空仅由有效宇宙学常数（即纯真空能动张量 $T_{\\mu\\nu}^{\\text{vac}} = -\\rho_{\\text{vac}} g_{\\mu\\nu}$）产生，则 Einstein 张量必须正比于度规，即 $G_{\\mu\\nu} \\propto g_{\\mu\\nu}$。但在此度规中，$G_{22}=0$ 而 $g_{22} = e^{2x/\\alpha} \\neq 0$，$G_{11}$ 为常数而 $g_{11}$ 依赖于 $x$。这意味着产生该时空的“真空”具有强烈的各向异性压力，不满足无偏倚参考系的各向同性条件，因此不能简单归结为宇宙学常数。\\n3. **取极限 $\\alpha \\to \\inf ty$ 还原经典真空**：当曲率参数 $\\alpha \\to \\inf ty$ 时，度规的空间部分指数因子趋于 1：\\n $$\\lim_{\\alpha \\to \\inf ty} e^{\\frac{2x}{\\alpha}} = 1$$\\n 此时度规退化为平直时空的 Minkowski 度规 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$。同时，能动张量的各分量均趋于零：\\n $$\\lim_{\\alpha \\to \\inf ty} T_{00} = 0, \\quad \\lim_{\\alpha \\to \\inf ty} T_{11} = 0, \\quad \\lim_{\\alpha \\to \\inf ty} T_{22} = 0, \\quad \\lim_{\\alpha \\to \\inf ty} T_{33} = 0$$\\n 这表明，当时空曲率趋于零（即 $\\alpha \\to \\inf ty$）时，原本各向异性的真空能量密度与压力完全消失，系统还原为没有任何有效宇宙学常数或物质源的绝对经典平直真空。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目和摘要存在严重的事实与逻辑错误：1. 题目和摘要声称该度规为 De Sitter 度规，但真正的 De Sitter 时空是最大对称的真空时空，其 Ricci 标量必须是常数（$R = 12/\\alpha^2$），Ricci 张量必须正比于度规张量（$R_{\\mu\\nu} = 4/\\alpha^2 g_{\\mu\\nu}$）。而题目中推导出的 Ricci 标量 $R = -2 e^{-2x/\\alpha} / \\alpha^2$ 依赖于坐标 $x$（非常数），Ricci 张量不正比于度规，且能动张量高度各向异性（$T_{22}=T_{33}=0$），这直接证明该度规绝对不是 De Sitter 度规。2. 摘要中给出的 Kretschmann 标量 $\\frac{12}{\\alpha^{2}}$ 是真正的 De Sitter 度规的已知性质，但通过计算题目所给度规的 Riemann 张量，其 Kretschmann 标量实际为 $2 e^{-4x/\\alpha} / \\alpha^4$，与摘要中的常数严重不符。3. 题目和解答中存在明显的排版错误：极限符号写成了 `\\inf ty`，应为 `\\infty`。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

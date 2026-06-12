@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s19_19.14",
+    "type": "prove",
+    "tags": {
+      "metric": "flrw_cosmology",
+      "target_object": "friedmann_equations",
+      "coordinate": "scale_factor_dynamics",
+      "scenario": "energy_continuity",
+      "method": "derivative_elimination"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.14",
+    "source_id": "1_s19_19.14",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.14"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.9,
+      "rationale": "基于FLRW宇宙模型的多步微分推导，串联动力学与热力学恒等式，具有明确的宇宙学演化物理背景。",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$R$",
+      "$t$",
+      "$\\rho$",
+      "$p$",
+      "$k$",
+      "$G$"
+    ],
+    "target": [
+      "$\\dot {R}^{2} + k = \\frac {8 \\pi G}{3} \\rho R^{2}$",
+      "$\\frac {d}{d R} (\\rho R^{3}) = - 3 p R^{2}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.14. Show that the two second-order equations of Problem 19.13 are equivalent to the first order equations$$\\dot {\\mathbf {R}}^{2} + \\mathbf {k} = \\frac {8 \\pi G}{3} \\rho \\mathbf {R}^{2} \\tag {1}$$$$\\frac {\\mathrm {d}}{\\mathrm {d} \\mathrm {R}} (\\rho \\mathrm {R}^{3}) = - 3 \\mathrm {p R}^{2}. \\tag {2}$$",
+    "answer": "$\\dot {R}^{2} + k = \\frac {8 \\pi G}{3} \\rho R^{2}$ 与 $\\frac {d}{d R} (\\rho R^{3}) = - 3 p R^{2}$ 成立（等价性得证）。",
+    "solution": "Solution 19.14. Simply eliminating $\\overline{\\mathbf{R}}$ from the simultaneous equations in Problem 19.13 gives the first equation here. The second follows from this, from the identity $\\frac{1}{2} \\mathrm{d}[(\\dot{\\mathbf{R}})^2] / \\mathrm{d}\\mathbf{R} = \\ddot{\\mathbf{R}}$ , and from Equation (1) of Problem 19.13:$$\\frac {1}{2} \\frac {\\mathrm {d}}{\\mathrm {d} \\mathrm {R}} \\left(\\frac {8 \\pi \\mathrm {G}}{3} \\rho \\mathrm {R}^{2}\\right) = \\frac {1}{2} \\frac {\\mathrm {d}}{\\mathrm {d} \\mathrm {R}} (\\dot {\\mathrm {R}})^{2} = \\ddot {\\mathrm {R}} = - \\frac {4}{3} \\pi \\mathrm {G} (\\rho + 3 \\mathrm {p}) \\mathrm {R}$$$$\\frac {d}{d R} (\\rho R^{2}) = - (\\rho + 3 p) R$$$$\\frac {\\mathrm {d}}{\\mathrm {d} R} \\left(\\rho R^{3}\\right) = - 3 p R^{2}.$$"
+  },
+  "verification": null
+}

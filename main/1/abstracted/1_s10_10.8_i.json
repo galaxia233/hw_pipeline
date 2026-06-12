@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s10_10.8_i",
+    "type": "concept",
+    "tags": {
+      "metric": "metric",
+      "target_object": "Killing_vector_field",
+      "coordinate": "time_coordinate",
+      "scenario": "asymptotically_flat",
+      "method": "symmetry_classification"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s10_10.8_i",
+    "source_id": "1_s10_10.8_i",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s10_10.8_i"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.3,
+      "generalizability": 0.6,
+      "completeness": 0.3,
+      "realism": 0.5,
+      "rationale": "概念辨析题，题干截断但涉及标准时空对称性分类与基灵矢量性质",
+      "overall": 0.42
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\xi$"
+    ],
+    "target": [
+      "$g_{\\mu\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "10.8 (i) A metric is \"stationary\" if and only if it has a Killing vector field $\\xi$ which is timelike at infinity (the \"time\" direction is $\\partial/\\partial t$ ). There are two ways to define a \"static\" metric:(i) stationary and invariant under time reversal, $\\partial/\\partial t \\to -\\partial/\\partial t$ , or",
+    "answer": "第二定义为：度规不仅平稳，且其时间基灵矢量场超曲面正交（hypersurface-orthogonal），等价于在适配坐标系下时间-空间交叉项为零：$g_{ti}=0$（或几何条件 $\\xi \\wedge d\\xi = 0$）。",
+    "solution": null
+  },
+  "verification": null
+}

@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "id": "1_s14_14.2-2-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "local temperature",
+      "coordinate": "static",
+      "scenario": "weak field thermal equilibrium verify",
+      "method": "limit expansion",
+      "generalization_axis": "verify",
+      "metric": "static_spacetime"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.2",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.2",
+      "1_s14_14.2-2",
+      "1_s14_14.2-2-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "static_spacetime",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T$",
+      "$g_{00}$"
+    ],
+    "target": [
+      "校验推导局部温度$T$在弱场近似下的表达式"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In general relativity, the condition for thermal equilibrium of a static system is $T \\sqrt{-g_{00}} = \\text{constant}$, where $T$ is the local temperature measured by a static observer. In the Newtonian limit of a weak gravitational field, the time-time component of the metric is given by $g_{00} = -(1 + 2\\Phi/c^2)$, where $\\Phi$ is the Newtonian gravitational potential (which is negative near a massive body) and $c$ is the speed of light. A student attempts to derive the first-order approximate expression for the local temperature $T$ as a function of $\\Phi$ and a reference temperature $T_0$ (defined as the temperature at the location where $\\Phi = 0$). Recall that physical consistency requires the local temperature to be higher where the gravitational potential is lower (more negative). The student's derivation is as follows:1. At the reference point where $\\Phi = 0$ (flat spacetime limit), $g_{00} = -1$ and $T = T_0$. The condition becomes $T_0 \\sqrt{-(-1)} = T_0$, so the constant is $T_0$. Thus, $T \\sqrt{-g_{00}} = T_0$.2. Substituting the weak-field metric component $g_{00} = -(1 + 2\\Phi/c^2)$, we multiply by -1 to get $-g_{00} = 1 - 2\\Phi/c^2$.3. The equilibrium condition becomes $T \\sqrt{1 - 2\\Phi/c^2} = T_0$.4. For a weak gravitational field, $|2\\Phi/c^2| \\ll 1$. Applying the first-order Taylor expansion to the square root yields $\\sqrt{1 - 2\\Phi/c^2} \\approx 1 + \\Phi/c^2$.5. Substituting this approximation back into the equation gives $T(1 + \\Phi/c^2) \\approx T_0$.6. Solving for $T$ by moving the factor to the right-hand side yields $T \\approx T_0(1 + \\Phi/c^2)$.Please identify all the errors in the student's derivation, specify their locations and types, and provide the correct values.",
+    "answer": "There are 3 errors in the student's derivation:1. **Step 2**: Sign error in algebraic distribution. The student incorrectly distributed the negative sign. For $g_{00} = -(1 + 2\\Phi/c^2)$, the correct expression is $-g_{00} = 1 + 2\\Phi/c^2$, not $1 - 2\\Phi/c^2$.2. **Step 4**: Sign error in Taylor expansion. The first-order Taylor expansion of $\\sqrt{1-x}$ is $1 - x/2$, not $1 + x/2$. The correct approximation for the student's flawed expression should be $\\sqrt{1 - 2\\Phi/c^2} \\approx 1 - \\Phi/c^2$. (Note: Once Step 2 is corrected, the expression becomes $\\sqrt{1 + 2\\Phi/c^2}$, whose correct expansion is $1 + \\Phi/c^2$. These two sign errors accidentally cancelled out to yield the correct intermediate equation in Step 5, but both steps must be corrected for the derivation to be logically sound.)3. **Step 6**: Sign error / Factor error in reciprocal expansion. The equation $T(1 + \\Phi/c^2) = T_0$ implies $T = T_0 / (1 + \\Phi/c^2)$. Using the first-order approximation $(1+x)^{-1} \\approx 1-x$, the correct result is $T \\approx T_0(1 - \\Phi/c^2)$, not $T_0(1 + \\Phi/c^2)$. This also aligns with the physical requirement that temperature increases when potential decreases.",
+    "solution": "1. Start with the general relativistic thermal equilibrium condition: $T \\sqrt{-g_{00}} = \\text{constant}$.2. Let the constant be evaluated at a reference point where $\\Phi = 0$ (flat spacetime limit). At this point, $g_{00} = -1$ and the local temperature is $T_0$. The condition becomes $T_0 \\sqrt{-(-1)} = T_0$, which means the constant is simply $T_0$.3. Thus, the equilibrium condition can be written as $T \\sqrt{-g_{00}} = T_0$.4. Substitute the weak-field metric component $g_{00} = -(1 + 2\\Phi/c^2)$ into the equation. Correctly extracting the negative sign gives $-g_{00} = 1 + 2\\Phi/c^2$, so we have $T \\sqrt{1 + 2\\Phi/c^2} = T_0$.5. For a weak gravitational field, $|2\\Phi/c^2| \\ll 1$. Using the Taylor expansion $\\sqrt{1 + x} \\approx 1 + x/2$ to first order, we get $\\sqrt{1 + 2\\Phi/c^2} \\approx 1 + \\Phi/c^2$.6. The equation becomes $T (1 + \\Phi/c^2) \\approx T_0$, which implies $T \\approx \\frac{T_0}{1 + \\Phi/c^2}$.7. Expanding the denominator to first order in $\\Phi/c^2$ using $(1+x)^{-1} \\approx 1-x$, this yields the final approximate expression: $T \\approx T_0 (1 - \\Phi/c^2)$.8. This result correctly implies that for a lower (more negative) gravitational potential $\\Phi$, the local temperature $T$ is higher, consistent with the Tolman-Ehrenfest effect."
+  },
+  "verification": null
+}

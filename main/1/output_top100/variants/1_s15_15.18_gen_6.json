@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s15_15.18-6",
+    "type": "prove",
+    "tags": {
+      "target_object": "timelike_geodesic_effective_potential",
+      "coordinate": "static_Ads",
+      "scenario": "spherical_accretion_limit",
+      "method": "local_flat_limit",
+      "generalization_axis": "limit",
+      "metric": "AntiDeSitterStatic"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.18",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s15_15.18",
+      "1_s15_15.18-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "AntiDeSitterStatic",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\left(\\frac{dr}{dt}\\right)^2 + r^2 = r_0^2$"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Anti-de Sitter (AdS) 时空具有独特的边界引力势阱，常被用于研究从边界向中心的球对称气体吸积，这与 Schwarzschild 黑洞的吸积场景形成对比。作为流体吸积的零压极限，我们可以先考察自由下落粒子的测地线运动。给定 Anti-de Sitter 静态度规 $ds^2 = -\\cos h^{2}{\\left(r\\right)} dt^2 + dr^2 + \\sin h^{2}{\\left(r\\right)} d\\theta^2 + \\sin^{2}{\\left(\\theta\\right)} \\sin h^{2}{\\left(r\\right)} d\\phi^2$，利用度规的时间平移 Killing 矢量推导角动量 $L=0$ 的类时测地线的径向坐标速度 $\\frac{dr}{dt}$ 的表达式。然后，通过取时空中心附近 $r \\ll 1$ 的局域平直极限，并考虑粒子从极小半径 $r_0$ 处以零初速释放的低能近似（即能量参数 $E \\approx 1$），证明该径向运动方程退化为 Newtonian 谐振子方程 $\\left(\\frac{dr}{dt}\\right)^2 + r^2 = r_0^2$。据此解释：为何在 AdS 势阱的流体吸积中，流体质点不像 Schwarzschild 黑洞吸积那样存在一个固定的外部超音速临界半径 $r_s$，而是表现出振荡内流的特征？",
+    "answer": "$\\left(\\frac{dr}{dt}\\right)^2 + r^2 = r_0^2$；AdS势阱在中心局域极限下退化为谐振子势（线性回复力），粒子下落至中心后会反弹振荡，而Schwarzschild黑洞势为 $-M/r$（单调下落），故AdS吸积不存在固定的超音速临界半径。",
+    "solution": "1. **推导类时测地线径向速度**：\\n由度规的时间平移 Killing 矢量，定义守恒能量 $E = -g_{tt} \\dot{t} = \\cos h^{2}{\\left(r\\right)} \\dot{t}$。\\n类时测地线条件为 $g_{\\mu\\nu} \\dot{x}^{\\mu} \\dot{x}^{\\nu} = -1$，代入度规并设 $L=0$（即 $\\dot{\\theta}=0, \\dot{\\phi}=0$）：\\n$-\\cos h^{2}{\\left(r\\right)} \\dot{t}^2 + \\dot{r}^2 = -1$。\\n将 $\\dot{t} = \\frac{E}{\\cos h^{2}{\\left(r\\right)}}$ 代入上式，得：\\n$-\\frac{E^2}{\\cos h^{2}{\\left(r\\right)}} + \\dot{r}^2 = -1 \\implies \\dot{r}^2 = \\frac{E^2}{\\cos h^{2}{\\left(r\\right)}} - 1$。\\n径向坐标速度为：\\n$\\frac{dr}{dt} = \\frac{\\dot{r}}{\\dot{t}} = \\frac{\\sqrt{\\frac{E^2}{\\cos h^{2}{\\left(r\\right)}} - 1}}{\\frac{E}{\\cos h^{2}{\\left(r\\right)}}} = \\frac{\\cos h^{2}{\\left(r\\right)}}{E} \\sqrt{\\frac{E^2 - \\cos h^{2}{\\left(r\\right)}}{\\cos h^{2}{\\left(r\\right)}}} = \\frac{\\cos h{\\left(r\\right)}}{E} \\sqrt{E^2 - \\cos h^{2}{\\left(r\\right)}}$。\\n\\n2. **取局域平直与低能极限**：\\n在时空中心附近 $r \\ll 1$，对双曲函数作泰勒展开：$\\cos h{\\left(r\\right)} \\approx 1 + \\frac{r^2}{2}$。\\n考虑粒子从极小半径 $r_0 \\ll 1$ 处静止释放，初始条件 $\\dot{r}=0$，代入能量方程得 $E = \\cos h{\\left(r_0\\right)} \\approx 1 + \\frac{r_0^2}{2}$，故 $E^2 \\approx 1 + r_0^2$（保留主导项）。\\n将这些近似代入坐标速度方程：\\n$\\left(\\frac{dr}{dt}\\right)^2 \\approx \\frac{1}{E^2} \\left(1 + \\frac{r^2}{2}\\right)^2 \\left( E^2 - \\left(1 + \\frac{r^2}{2}\\right)^2\\right)$。\\n由于 $E \\approx 1$ 且 $r \\ll 1$，略去高阶小量：\\n$\\left(\\frac{dr}{dt}\\right)^2 \\approx 1 \\cdot \\left( (1 + r_0^2) - (1 + r^2)\\right) = r_0^2 - r^2$。\\n即证：$\\left(\\frac{dr}{dt}\\right)^2 + r^2 = r_0^2$，这正是 Newtonian 谐振子方程。\\n\\n3. **物理差异解释**：\\n在 Schwarzschild 黑洞吸积（种子题场景）中，有效势为 $-M/r$，引力单调加速，气体持续下落并在临界半径 $r_s$ 处越过声速点，形成稳定超音速吸积流。而在 AdS 势阱中，中心局域极限还原为谐振子势 $\\propto r^2$，产生线性回复力。下落粒子到达中心后会被势阱反弹，形成振荡；流体吸积质点在中心附近不会保持单调超音速内流，而是减速、驻留或振荡，故不存在类似黑洞吸积的外部固定超音速临界半径 $r_s$。"
+  },
+  "verification": null
+}

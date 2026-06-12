@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "id": "1_s13_13.2-1-9",
+    "type": "concept",
+    "tags": {
+      "target_object": "Weyl curvature and conformal flatness",
+      "coordinate": "t, r, theta, phi",
+      "scenario": "Nordström scalar gravity contrast",
+      "method": "geometric analysis",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.2",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.2",
+      "1_s13_13.2-1",
+      "1_s13_13.2-1-9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\nu$",
+      "$\\\\rho$",
+      "$\\\\sigma$",
+      "$\\\\kappa$",
+      "$\\\\phi$",
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "FLRW Weyl tensor",
+      "Schwarzschild Weyl tensor",
+      "Conformal flatness comparison",
+      "Physical limitation of scalar gravity"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Nordström 第二标量引力理论假设物理时空处处共形平坦（即 Weyl 张量 $C_{\\mu\\nu\\rho\\sigma} = 0$），使得物理度规可写为 $g_{\\mu\\nu} = \\phi^2 \\eta_{\\mu\\nu}$，从而推导出场方程 $\\Box_{\\eta} \\phi = -\\frac{\\kappa}{6} \\phi \\bar{T}$。请分别在以下两种背景下判断其是否满足共形平坦条件，并对比解释这一几何差异为何导致 Nordström 理论只能适用于其中一种背景而无法描述另一种背景的引力现象：背景 A (FLRW)：度规为 $ds^2 = -dt^2 + \\frac{a^2(t)}{- k r^{2} + 1} dr^2 + r^{2} a^{2}(t) d\\theta^2 + r^{2} a^{2}(t) \\sin^{2}\\theta d\\phi^2$。提示：该度规可通过引入共形时间 $d\\eta = dt/a(t)$ 及适当的径向坐标变换写为 $ds^2 = a^{2}(\\eta) (-d\\eta^{2} + d\\tilde{r}^{2} + \\tilde{r}^{2} d\\Omega^{2})$。背景 B (Schwarzschild)：度规为 $ds^2 = \\frac{-r+r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^{2} d\\theta^2 + r^{2} \\sin^{2}\\theta d\\phi^2$。提示：该度规对应真空解，其 Ricci 张量恒为零（$R_{\\mu\\nu}=0$）且 Ricci 标量为零，但 Riemann 张量非零（例如 $R_{0101} = \\frac{r_s}{r^{2}(r-r_s)} \\neq 0$）。",
+    "answer": "背景 A (FLRW)：通过引入共形时间可将度规写成 $g_{\\mu\\nu} = a^{2}(\\eta) \\eta_{\\mu\\nu}$ 的形式，这直接证明了其 Weyl 张量恒为零，时空是共形平坦的。因此 Nordström 标量引力理论适用，能推导出 conformal factor $\\phi=a$ 的场方程。背景 B (Schwarzschild)：该时空为真空解，Ricci 张量和 Ricci 标量均为零，但 Riemann 张量不为零。这意味着 Weyl 张量等于 Riemann 张量（$C_{\\mu\\nu\\rho\\sigma} = R_{\\mu\\nu\\rho\\sigma} \\neq 0$），时空不是共形平坦的，无法写成 $\\phi^2 \\eta_{\\mu\\nu}$。对比物理含义：Weyl 张量代表了不受物质源（Ricci 曲率）直接约束的自由引力曲率（如引力波、潮汐力、黑洞的真空曲率）。Nordström 理论要求时空共形平坦（Weyl=0），意味着它只能描述由物质分布直接产生的引力效应（Ricci），而无法描述自由传播的引力场。FLRW 宇宙的曲率完全源于宇宙物质分布，故适用；Schwarzschild 黑洞是真空解，引力效应全由 Weyl 曲率主导，标量理论在此彻底失效。",
+    "solution": "1. 对于背景 A (FLRW)，根据提示的坐标变换，度规可全局写为背景度规（Minkowski）与共形因子 $a^{2}(\\eta)$ 的乘积，这在数学上等价于 Weyl 张量为零。因此该时空满足 Nordström 理论的基本假设，能够推导出标量场方程。2. 对于背景 B (Schwarzschild)，Weyl 张量与 Riemann 张量的关系为 $C_{\\mu\\nu\\rho\\sigma} = R_{\\mu\\nu\\rho\\sigma} - \\frac{1}{2}(g_{\\mu\\rho}R_{\\nu\\sigma} - \\dot s) + \\frac{1}{6}R(g_{\\mu\\rho}g_{\\nu\\sigma} - \\dot s)$。由于真空解 $R_{\\mu\\nu}=0$ 且 $R=0$，此关系退化为 $C_{\\mu\\nu\\rho\\sigma} = R_{\\mu\\nu\\rho\\sigma}$。已知其 Riemann 张量非零，故 Weyl 张量非零，时空不共形平坦。3. 物理含义对比：标量引力理论的局限性在于它仅耦合于 Ricci 曲率（物质源的局域效应），而丢弃了 Weyl 曲率（引力的自由度）。在充满物质的 FLRW 宇宙中，引力由 Ricci 主导；但在 Schwarzschild 真空时空中，引力现象（如光线偏折、潮汐力）完全由 Weyl 主导，这揭示了标量引力理论无法描述黑洞与引力波的本质缺陷。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "1. FLRW 度规提示与 answer 错误：题目给出的 FLRW 度规包含曲率参数 $k$（$-kr^2+1$），但提示及 answer 错误地声称其可通过坐标变换写成与 Minkowski 度规全局共形的形式 $ds^2 = a^{2}(\\eta) (-d\\\\eta^{2} + d\\\\tilde{r}^{2} + \\\\tilde{r}^{2} d\\\\Omega^{2})$。事实上，只有当 $k=0$ 时 FLRW 度规才能全局与 Minkowski 度规共形；对于 $k \\\\neq 0$，其空间部分为常曲率空间（球面或双曲面），不可能通过坐标变换化为平坦空间形式 $d\\\\tilde{r}^2 + \\\\tilde{r}^2 d\\\\Omega^2$。题目混淆了“Weyl张量为0（局部共形平坦）”与“与Minkowski度规全局共形”的概念。2. Schwarzschild 提示指标错误：提示中给出的 Riemann 张量分量 $R_{0101} = \\\\frac{r_s}{r^{2}(r-r_s)}$ 实际上是混合指标分量 $R^0_{101}$ 的值，且正负号有误。对于全下指标，正确的值应为 $R_{0101} = -\\\\frac{r_s}{r^3}$，题目混淆了上下指标位置。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

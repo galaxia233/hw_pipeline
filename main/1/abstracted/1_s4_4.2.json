@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s4_4.2",
+    "type": "prove",
+    "tags": {
+      "metric": "electromagnetism",
+      "target_object": "lorentz_transformation",
+      "coordinate": "field_tensor",
+      "scenario": "invariant_quantities",
+      "method": "special_relativity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.2",
+    "source_id": "1_s4_4.2",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "场强到电磁张量映射+标量缩并证明+旋转对称性与独立性论证",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^0$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$",
+      "$\\\\mathbf{E}$",
+      "$\\\\mathbf{B}$",
+      "$\\\\mathbf{F}^{\\\\alpha\\\\beta}$",
+      "$\\\\varepsilon_{\\\\mu\\\\nu\\\\alpha\\\\beta}$"
+    ],
+    "target": [
+      "$\\\\mathbf{F}^{\\\\alpha\\\\beta}\\\\mathbf{F}_{\\\\alpha\\\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 4.2. For electric and magnetic fields, show that $\\mathbf{B}^2 -\\mathbf{E}^2$ and $\\underline{\\mathbf{E}}\\cdot \\underline{\\mathbf{B}}$ are invariant under changes of coordinates and Lorentz transformations. Are there any invariants which are not merely algebraic combinations of these two?\\n\\n## Solution",
+    "answer": "不存在独立的第三不变量；所有洛伦兹不变量均为 $\\mathbf{B}^2 - \\mathbf{E}^2$ 与 $\\underline{\\mathbf{E}}\\cdot \\underline{\\mathbf{B}}$ 的代数组合。",
+    "solution": "The invariance of these quantities follows from the fact that they are equal to scalars:\\n$$\\n\\\\mathbf {B}^{2} - \\\\mathbf {E}^{2} = \\\\frac {1} {2} \\\\mathbf {F}^{\\\\alpha \\\\beta} \\\\mathbf {F}_{\\\\alpha \\\\beta}\\n$$\\n$$\\n\\\\underline {{{\\\\mathbf {E}}}} \\\\cdot \\\\underline {{{\\\\mathbf {B}}}} = \\\\frac {1} {4} * \\\\mathbf {F}_{\\\\alpha \\\\beta} \\\\mathbf {F}^{\\\\alpha \\\\beta} = \\\\frac {1} {8} \\\\varepsilon_{\\\\mu \\\\nu \\\\alpha \\\\beta} \\\\mathbf {F}^{\\\\mu \\\\nu} \\\\mathbf {F}^{\\\\alpha \\\\beta} = \\\\det ( \\\\mathbf {F}^{\\\\mu \\\\nu}) .\\n$$\\nAny invariant must be an invariant for rotations in 3-space. Thus the invariants can only be constructed from the scalars $\\\\underline{\\\\mathbf{E}}\\\\cdot \\\\underline{\\\\mathbf{B}}$ , $\\\\underline{\\\\mathbf{E}}\\\\cdot \\\\underline{\\\\mathbf{E}}$ and $\\\\underline{\\\\mathbf{B}}\\\\cdot \\\\underline{\\\\mathbf{B}}$ . If there were three independent invariants, then it would follow that e.g. $\\\\underline{\\\\mathbf{B}}\\\\cdot \\\\underline{\\\\mathbf{B}}$ would be invariant. This is obviously untrue, since $\\\\mathbf{B}^2$ changes in general under a Lorentz transformation."
+  },
+  "verification": null
+}

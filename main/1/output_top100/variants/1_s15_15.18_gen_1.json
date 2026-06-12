@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s15_15.18-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "sonic_point_condition",
+      "coordinate": "spherical",
+      "scenario": "spherical_accretion",
+      "method": "differential_equations",
+      "generalization_axis": "limit",
+      "metric": "schwarzschild_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.18",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s15_15.18",
+      "1_s15_15.18-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "schwarzschild_metric",
+    "soft_variant": "limit",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$a_c^2$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In the relativistic theory of spherical accretion onto a Schwarzschild black hole (Michel flow), the condition determining the sonic point involves relativistic corrections due to spacetime curvature. However, in the Newtonian limit where the gravitational field is weak ($r_s \\gg 2GM/c^2$), the flow must reproduce the classical Bondi accretion dynamics. To establish this classical correspondence, start from the Newtonian steady-state equations for a spherically symmetric, adiabatic gas: the mass conservation equation $\\dot{M} = 4\\pi r^2 \\rho v$ (with constant accretion rate $\\dot{M}$) and the Euler equation $v \\frac{dv}{dr} = -\\frac{1}{\\rho} \\frac{dp}{dr} - \\frac{GM}{r^2}$, along with the equation of state $p = K \\rho^{\\gamma}$ ($4/3 \\leq \\gamma \\leq 5/3$). Prove that at the sonic radius $r_s$ where the inward flow velocity equals the local sound speed ($v = a_c$), the local sound speed must satisfy the critical point condition $a_c^2 = \\frac{GM}{2r_s}$.",
+    "answer": "$a_c^2 = \\frac{GM}{2r_s}$",
+    "solution": "To find the critical point condition, we first express the density gradient $\\frac{d\\rho}{dr}$ in terms of the velocity gradient $\\frac{dv}{dr}$ using the mass conservation equation $\\dot{M} = 4\\pi r^2 \\rho v$. Since $\\dot{M}$ is constant, taking the derivative yields:$\\frac{d}{dr}(r^2 \\rho v) = 0 \\implies r^2 \\left( v \\frac{d\\rho}{dr} + \\rho \\frac{dv}{dr}\\right) + 2r \\rho v = 0$.Solving for $\\frac{d\\rho}{dr}$ gives:$\\frac{d\\rho}{dr} = -\\frac{\\rho}{v} \\frac{dv}{dr} - \\frac{2\\rho}{r}$.Next, we use the adiabatic equation of state $p = K \\rho^{\\gamma}$ to relate the pressure gradient to the density gradient. The local sound speed is defined as $a^2 = \\frac{dp}{d\\rho} = \\gamma K \\rho^{\\gamma-1} = \\frac{\\gamma p}{\\rho}$. Therefore, the pressure gradient is:$\\frac{dp}{dr} = a^2 \\frac{d\\rho}{dr}$.Substitute $\\frac{dp}{dr}$ and $\\frac{d\\rho}{dr}$ into the Euler equation:$v \\frac{dv}{dr} = -\\frac{a^2}{\\rho} \\left( -\\frac{\\rho}{v} \\frac{dv}{dr} - \\frac{2\\rho}{r}\\right) - \\frac{GM}{r^2}$.$v \\frac{dv}{dr} = \\frac{a^2}{v} \\frac{dv}{dr} + \\frac{2a^2}{r} - \\frac{GM}{r^2}$.Rearrange the equation to isolate the velocity gradient terms on one side:$\\left( v - \\frac{a^2}{v}\\right) \\frac{dv}{dr} = \\frac{2a^2}{r} - \\frac{GM}{r^2}$.At the sonic radius $r_s$, the flow velocity equals the local sound speed, so $v = a_c$. This causes the coefficient on the left side, $(v - \\frac{a^2}{v})$, to vanish. For the derivative $\\frac{dv}{dr}$ to remain finite and well-defined at this critical point (avoiding a divergent velocity gradient), the right side of the equation must also vanish simultaneously:$\\frac{2a_c^2}{r_s} - \\frac{GM}{r_s^2} = 0$.Solving for $a_c^2$ yields the Newtonian critical point condition:$a_c^2 = \\frac{GM}{2r_s}$."
+  },
+  "verification": null
+}

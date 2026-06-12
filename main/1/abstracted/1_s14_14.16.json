@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s14_14.16",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_tensor",
+      "target_object": "target_object",
+      "coordinate": "generalized_coords",
+      "scenario": "curved_spacetime_physics",
+      "method": "comma_to_semicolon_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.16",
+    "source_id": "1_s14_14.16",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.16"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "最小耦合原则的数学自洽性证明，需运用协变导数非对易性与黎曼恒等式导出曲率耦合项，逻辑严密且具深厚理论物理背景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$A^\\\\mu$",
+      "$J^\\\\mu$",
+      "$F^{\\\\mu\\\\nu}$",
+      "$R^\\\\mu_\\\\sigma$"
+    ],
+    "target": [
+      "$A^{\\\\mu;\\\\nu}_{\\\\phantom{\\\\mu;\\\\nu};\\\\nu}$",
+      "$R^\\\\mu_{\\\\phantom\\\\mu\\\\sigma}A^\\\\sigma$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 14.16. The generalization of Maxwell's equations to curved spacetime by the \"comma-goes-to-semicolon\" rule (or principle of equivalence) is not completely unambiguous. Show that the use of this rule with the vector potential $\\mathbf{A}^{\\mu}$ can lead to two different results for a relativistic equation.\\n\\n## Solution",
+    "answer": "两式相差一项曲率耦合项 $R^\\\\mu_\\\\sigma A^\\\\sigma$，原则上产生可测量的不同后果。",
+    "solution": "Solution 14.16. In flat spacetime we have\\n$$\\n\\\\begin{array}{l}\\n\\\\mathrm {F}_{, \\\\nu}^{\\\\mu \\\\nu} = 4 \\\\pi \\\\mathrm {J}^{\\\\mu}\\n\\\\\\\\ \\\\mathbf {F}_{\\\\mu \\\\nu} = \\\\mathbf {A}_{\\\\nu , \\\\mu} - \\\\mathbf {A}_{\\\\mu , \\\\nu}\\n\\\\\\\\\\n\\\\end{array}\\n$$\\nand hence\\n$$\\n- \\\\mathrm {A}^{\\\\mu , \\\\nu} ,_{\\\\nu} + \\\\mathrm {A}^{\\\\nu , \\\\mu} ,_{\\\\nu} = 4 \\\\pi \\\\mathrm {J}^{\\\\mu}. \\\\tag {1}\\n$$\\nIf we interchange $\\\\mu$ and $\\\\nu$ differentiation on the second term, as is allowed in flat spacetime, and then apply the “comma to semicolon” rule we get\\n$$\\n- \\\\mathrm {A}^{\\\\mu ; \\\\nu} ;_{\\\\nu} + \\\\mathrm {A}^{\\\\nu} ;_{\\\\nu}^{; \\\\mu} = 4 \\\\pi \\\\mathrm {J}^{\\\\mu}. \\\\tag {2}\\n$$\\nIf, on the other hand, we apply the rule directly to Equation (1) we get\\n$$\\n- \\\\mathrm {A}_{; \\\\nu}^{\\\\mu ; \\\\nu} + \\\\mathrm {A}_{; \\\\nu}^{\\\\nu ; \\\\mu} = 4 \\\\pi \\\\mathrm {J}^{\\\\mu}.\\n$$\\nThe derivates on the second term can be exchanged by introducing a curvature term (see Problem 9.8)\\n$$\\n- \\\\mathrm {A}_{; \\\\nu}^{\\\\mu ; \\\\nu} + \\\\mathrm {A}_{; \\\\nu}^{\\\\nu ; \\\\mu} + \\\\mathrm {R}_{\\\\sigma}^{\\\\mu} \\\\mathrm {A}^{\\\\sigma} = 4 \\\\pi \\\\mathrm {J}^{\\\\mu}. \\\\tag {3}\\n$$\\nEquations (2) and (3) have, in principle, measurably different consequences. As of 1975, there is no experimental evidence to tell which is correct."
+  },
+  "verification": null
+}

@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s1_1.23",
+    "type": "concept",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "lorentz_group",
+      "coordinate": "little_group",
+      "scenario": "photon_momentum",
+      "method": "boost_rotation_composition"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.23",
+    "source_id": "1_s1_1.23",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.23"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "深入洛伦兹群结构与无质量粒子小群性质，涉及Boost与Rotation的非对易性及Wigner旋转物理背景，题目与解答完整。",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$E$",
+      "$\\alpha$",
+      "$v$",
+      "$\\gamma$"
+    ],
+    "target": [
+      "$\\Lambda$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s1_1.23.md]Problem 1.23. Suppose in some inertial frame S a photon has 4-momentum components$$\\mathbf {p}^{0} = \\mathbf {p}^{\\mathbf {x}} = \\mathbf {E}, \\quad \\mathbf {p}^{\\mathbf {y}} = \\mathbf {p}^{\\mathbf {z}} = 0.$$There is a special class of Lorentz transformations - called the \"little group of $\\mathbf{p}$ \" - which leave the components of $\\mathbf{p}$ unchanged, e.g. a pure rotation through an angle $\\alpha$ in the $y-z$ plane$$\\left[ \\begin{array}{c c c c} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & \\cos \\alpha & - \\sin \\alpha \\\\ 0 & 0 & \\sin \\alpha & \\cos \\alpha \\end{array}\\right] \\left[ \\begin{array}{c} E \\\\ E \\\\ 0 \\\\ 0 \\end{array}\\right] = \\left[ \\begin{array}{c} E \\\\ E \\\\ 0 \\\\ 0 \\end{array}\\right]$$is such a transformation. Find a sequence of pure boosts and pure rotations whose product is not a pure rotation in the $y-z$ plane, but is in the little group of $p$ .",
+    "answer": "A boost in the $y-z$ plane, followed by a rotation to realign the momentum along the $x$-axis, and finally a boost along $x$ to restore the original energy/momentum magnitude. The composite transformation leaves $\\mathbf{p}$ invariant but contains a net boost component.",
+    "solution": "Solution 1.23. Make an arbitrary boost in a direction which lies in the $y-z$ plane. The photon now may have nonvanishing $p^y$ and $p^z$ as well as $p^x$ . A pure rotation lines up the coordinate frame again so that only $p^x$ is nonvanishing, but $p^x$ does not now have its original magnitude. So, make a final boost along $p^x$ either to redshift it or to blueshift it to the original value. Since $E^2 - p^2 = 0$ , $E$ also has its original value. You can easily convince yourself that the product of these transformations is not a pure rotation; there is in general a net boost left over. An example is:$$\\left[ \\begin{array}{c c c c} \\gamma^{\\prime} & \\gamma^{\\prime} \\mathbf {v}^{\\prime} & 0 & 0 \\\\ \\gamma^{\\prime} \\mathbf {v}^{\\prime} & \\gamma^{\\prime} & 0 & 0 \\\\ 0 & 0 & 1 & 0 \\\\ 0 & 0 & 0 & 1 \\end{array}\\right] \\left[ \\begin{array}{c c c c} 1 & 0 & 0 & 0 \\\\ 0 & (1 - \\mathbf {v}^{2})^{\\frac {1}{2}} & \\mathbf {v} & 0 \\\\ 0 & - \\mathbf {v} & (1 - \\mathbf {v}^{2})^{\\frac {1}{2}} & 0 \\\\ 0 & 0 & 0 & 1 \\end{array}\\right] \\left[ \\begin{array}{c c c c} \\gamma & 0 & \\gamma \\mathbf {v} & 0 \\\\ 0 & 1 & 0 & 0 \\\\ \\gamma \\mathbf {v} & 0 & \\gamma & 0 \\\\ 0 & 0 & 0 & 1 \\end{array}\\right] \\left[ \\begin{array}{c} \\mathbf {E} \\\\ \\mathbf {E} \\\\ 0 \\\\ 0 \\end{array}\\right] = \\left[ \\begin{array}{c} \\mathbf {E} \\\\ \\mathbf {E} \\\\ 0 \\\\ 0 \\end{array}\\right],$$where $\\mathbf{v}'$ is chosen to satisfy the equality"
+  },
+  "verification": null
+}

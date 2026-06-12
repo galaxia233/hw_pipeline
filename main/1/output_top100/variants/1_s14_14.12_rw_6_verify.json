@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-5-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "tidal tensor",
+      "coordinate": "spherical",
+      "scenario": "black hole",
+      "method": "orthonormal projection",
+      "generalization_axis": "verify",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-5",
+      "1_s14_14.12-5-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "校验潮汐张量对角分量推导"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "已知 Schwarzschild 黑洞外部的度规为 $ds^2 = -\\frac{r-r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，坐标基下的黎曼张量非零分量包括 $R_{0101} = \\frac{r_s}{r^2(r-r_s)}$, $R_{0202} = -\\frac{r_s}{2r}$, $R_{0303} = -\\frac{r_s \\sin^2\\theta}{2r}$。某同学推导静止观测者所测得的潮汐张量对角分量过程如下：1. 静止观测者的4-速度为 $e_{\\hat{t}}^\\mu = (\\dot{t}, 0, 0, 0)$。由类时归一化条件 $g_{\\mu\\nu} e_{\\hat{t}}^\\mu e_{\\hat{t}}^\\nu = -1$，得 $\\dot{t} = \\sqrt{\\frac{r}{r-r_s}}$，因此 $e_{\\hat{t}}^\\mu = (\\sqrt{\\frac{r}{r-r_s}}, 0, 0, 0)$。2. 空间正交基矢量取为：$e_{\\hat{r}}^\\mu = (0, \\sqrt{\\frac{r-r_s}{r}}, 0, 0)$，$e_{\\hat{\\theta}}^\\mu = (0, 0, \\frac{1}{r}, 0)$，$e_{\\hat{\\phi}}^\\mu = (0, 0, 0, \\frac{1}{r\\sin\\theta})$。3. 径向潮汐力：$E_{\\hat{r}\\hat{r}} = R_{0101} (e_{\\hat{t}}^0)^2 (e_{\\hat{r}}^1)^2 = \\frac{r_s}{r^2(r-r_s)} \\cdot \\frac{r}{r-r_s} \\cdot \\frac{r-r_s}{r} = \\frac{2r_s}{r^2(r-r_s)}$。4. 极向潮汐力：$E_{\\hat{\\theta}\\hat{\\theta}} = R_{0220} (e_{\\hat{t}}^0)^2 (e_{\\hat{\\theta}}^2)^2 = \\frac{r_s}{2r} \\cdot \\frac{r}{r-r_s} \\cdot \\frac{1}{r^2} = \\frac{r_s}{2r^2(r-r_s)}$。5. 方位向潮汐力：$E_{\\hat{\\phi}\\hat{\\phi}} = R_{0303} (e_{\\hat{t}}^0)^2 (e_{\\hat{\\phi}}^3)^2 = -\\frac{r_s \\sin^2\\theta}{2r} \\cdot \\frac{r}{r-r_s} \\cdot \\frac{1}{r^2 \\sin\\theta} = -\\frac{r_s \\sin\\theta}{2r^2(r-r_s)}$。6. 验证总和：$E_{\\hat{r}\\hat{r}} + E_{\\hat{\\theta}\\hat{\\theta}} + E_{\\hat{\\phi}\\hat{\\phi}} = \\frac{2r_s}{r^2(r-r_s)} + \\frac{r_s}{2r^2(r-r_s)} - \\frac{r_s \\sin\\theta}{2r^2(r-r_s)} = \\frac{5r_s - r_s \\sin\\theta}{2r^2(r-r_s)} \\neq 0$，这与真空场方程的要求矛盾。请找出上述推导步骤3至5中的所有错误，指出错误类型并给出正确值。",
+    "answer": "1. 步骤3（径向潮汐力）：计算结果 $\\frac{2r_s}{r^2(r-r_s)}$ 存在系数错误（factor error），无故多出因子2；正确值应为 $\\frac{r_s}{r^2(r-r_s)}$。2. 步骤4（极向潮汐力）：黎曼张量指标错误引用 $R_{0220}$ 导致符号错误（sign error/index error），$R_{0220}=\\frac{r_s}{2r}$ 为正，而正确的分量应为 $R_{0202} = -\\frac{r_s}{2r}$；正确值应为 $-\\frac{r_s}{2r^2(r-r_s)}$。3. 步骤5（方位向潮汐力）：基矢量 $e_{\\hat{\\phi}}^3$ 的平方漏写了 $\\sin\\theta$ 的平方，误将 $\\frac{1}{r^2 \\sin^2\\theta}$ 写为 $\\frac{1}{r^2 \\sin\\theta}$，属于度规分量错误引用（metric component error），导致结果多出 $\\sin\\theta$；正确值应为 $-\\frac{r_s}{2r^2(r-r_s)}$。",
+    "solution": "1. 径向潮汐力：$E_{\\hat{r}\\hat{r}} = R_{0101} (e_{\\hat{t}}^0)^2 (e_{\\hat{r}}^1)^2 = \\frac{r_s}{r^2(r-r_s)} \\cdot \\frac{r}{r-r_s} \\cdot \\frac{r-r_s}{r} = \\frac{r_s}{r^2(r-r_s)}$。2. 极向潮汐力：$E_{\\hat{\\theta}\\hat{\\theta}} = R_{0202} (e_{\\hat{t}}^0)^2 (e_{\\hat{\\theta}}^2)^2 = -\\frac{r_s}{2r} \\cdot \\frac{r}{r-r_s} \\cdot \\frac{1}{r^2} = -\\frac{r_s}{2r^2(r-r_s)}$。3. 方位向潮汐力：$E_{\\hat{\\phi}\\hat{\\phi}} = R_{0303} (e_{\\hat{t}}^0)^2 (e_{\\hat{\\phi}}^3)^2 = -\\frac{r_s \\sin^2\\theta}{2r} \\cdot \\frac{r}{r-r_s} \\cdot \\frac{1}{r^2 \\sin^2\\theta} = -\\frac{r_s}{2r^2(r-r_s)}$。4. 验证总和：$\\frac{r_s}{r^2(r-r_s)} - \\frac{r_s}{2r^2(r-r_s)} - \\frac{r_s}{2r^2(r-r_s)} = 0$，符合无迹条件。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目声称给出了Schwarzschild度规坐标基下的黎曼张量分量，但这些分量是完全捏造且错误的。对于Schwarzschild度规，正确的黎曼张量分量应为 $R_{0101} = -\\frac{r_s}{r^3}$，$R_{0202} = \\frac{r_s(r-r_s)}{2r^2}$，$R_{0303} = \\frac{r_s(r-r_s)\\sin^2\\theta}{2r^2}$。题目中给出的 $R_{0101} = \\frac{r_s}{r^2(r-r_s)}$（缺少 $r$ 因子且符号可能错）、$R_{0202} = -\\frac{r_s}{2r}$（缺少 $r$ 和 $(r-r_s)$ 因子）、$R_{0303} = -\\frac{r_s \\sin^2\\theta}{2r}$（缺少 $r$ 和 $(r-r_s)$ 因子）均与真实分量不符，且与摘要中给出的 Kretschmann 标量 $\\frac{12r_s^2}{r^6}$ 严重矛盾。Answer 仅指出了推导过程中的算术与指标错误，却未发现题目给定的黎曼张量前提本身就是错误的，导致最终得出的“正确”潮汐力结果 $\\frac{r_s}{r^2(r-r_s)}$ 等与真实的物理结果 $\\frac{r_s}{r^3}$ 等完全矛盾。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

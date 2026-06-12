@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s11_11.6",
+    "type": "calculate",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "spin_vector",
+      "coordinate": "Cartesian_coordinates",
+      "scenario": "inelastic_collision",
+      "method": "angular_momentum_conservation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s11_11.6",
+    "source_id": "1_s11_11.6",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s11_11.6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "多步张量运算与守恒律结合，相对论碰撞场景结构清晰且可泛化至各类合并模型",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^i$",
+      "$\\\\mu$",
+      "$\\\\nu$",
+      "$\\\\alpha$",
+      "$\\\\beta$"
+    ],
+    "target": [
+      "$\\\\mathbf{S}_C$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 11.6. Two bodies A and B have momenta $\\mathbf{P}_{\\mathbf{A}}$ and $\\mathbf{P}_{\\mathbf{B}}$ and spin $\\mathbf{S}_{\\mathbf{A}}$ and $\\mathbf{S}_{\\mathbf{B}}$ ; their centers of mass are on a collision course. After colliding they stick together to form a composite body C (spin $\\mathbf{S}_{\\mathbf{C}}$ ). Calculate $\\mathbf{S}_{\\mathbf{C}}$ in terms of $\\mathbf{P}_{\\mathbf{A}}, \\mathbf{P}_{\\mathbf{B}}, \\mathbf{S}_{\\mathbf{A}}$ and $\\mathbf{S}_{\\mathbf{B}}$ .",
+    "answer": "$\\\\mathbf{S}_C^\\\\sigma = - S_A^\\\\sigma (u_A \\\\cdot u_C) - S_B^\\\\sigma (u_B \\\\cdot u_C) + u_C^\\\\sigma (S_A \\\\cdot u_A + S_B \\\\cdot u_B)$, with $\\\\mathbf{u} = (\\\\mathbf{P}_A + \\\\mathbf{P}_B)/|\\\\mathbf{P}_A + \\\\mathbf{P}_B|$",
+    "solution": "Solution 11.6. First we calculate the total angular momentum. We work in the center-of-momentum frame and take as our origin 0 the event at which the center of mass of A and that of B would collide. About this origin both systems A and B have only intrinsic angular momentum (see Problem 11.5), so\\n$$\\n\\\\mathbf {J}_{\\\\mathbf {A} + \\\\mathbf {B}}^{\\\\alpha \\\\beta} (\\\\mathbf {0}) = \\\\mathbf {S}_{\\\\mathbf {A}}^{\\\\alpha \\\\beta} + \\\\mathbf {S}_{\\\\mathbf {B}}^{\\\\alpha \\\\beta} = - \\\\varepsilon^{\\\\alpha \\\\beta \\\\mu \\\\nu} (\\\\mathbf {S}_{\\\\mathbf {A}^{\\\\mu} \\\\mathbf {A}^{\\\\nu}} + \\\\mathbf {S}_{\\\\mathbf {B}^{\\\\mu} \\\\mathbf {B}^{\\\\nu}})\\n$$\\nand by conservation of angular momentum this is equal to $\\int_{\\mathbf{C}}^{\\alpha \\beta} (\\mathbf{0}) \\, \\mathrm{d}\\mathbf{C}$ . We can now use this result in the definition of the spin vector to find\\n$$\\n\\\\begin{array}{l} \\\\mathbf {\\\\Delta}_{\\\\mathbf {C}^{\\\\sigma}} = - \\\\frac {1}{2} \\\\varepsilon_{\\\\sigma a \\\\beta \\\\lambda} \\\\mathbf {\\\\Delta}_{\\\\mathbf {C}}^{a \\\\beta} \\\\mathbf {\\\\Delta}_{\\\\mathbf {C}}^{\\\\mathbf {u}^{\\\\lambda}} \\\\\\\\ = \\\\frac {1}{2} \\\\varepsilon_{\\\\sigma \\\\alpha \\\\beta \\\\lambda} \\\\varepsilon^{\\\\alpha \\\\beta \\\\mu \\\\nu}_{\\\\mathbf {A}^{\\\\mu} \\\\mathbf {A}^{\\\\nu}} (\\\\mathbf {S}_{\\\\mu} \\\\mathbf {u}_{\\\\nu} + \\\\mathbf {S}_{\\\\mu} \\\\mathbf {\\\\Gamma}_{\\\\mathbf {B}} \\\\mathbf {u}_{\\\\nu}) \\\\mathbf {\\\\Gamma}_{\\\\mathbf {C}}^{\\\\lambda}. \\\\\\\\ \\\\end{array}\\n$$\\nAccording to Problem 3.28 (see also Problem 3.27)\\n$$\\n\\\\varepsilon_{\\\\sigma \\\\alpha \\\\beta \\\\lambda} \\\\varepsilon^{\\\\alpha \\\\beta \\\\mu \\\\nu} = - 2 \\\\delta_{\\\\sigma \\\\lambda}^{\\\\mu \\\\nu}\\n$$\\nso that\\n$$\\n\\\\begin{array}{l} \\\\mathop{\\\\rm S}\\\\lim its_{\\\\mathbf{C}}\\\\sigma = -\\\\delta^{\\\\mu \\\\nu}_{\\\\sigma \\\\lambda}(\\\\mathop{\\\\rm S}\\\\lim its_{\\\\mathbf{A}}{}^{\\\\mu}\\\\mathop{\\\\rm u}\\\\lim its_{\\\\mathbf{A}} + \\\\mathop{\\\\rm S}\\\\lim its_{\\\\mathbf{B}}{}^{\\\\mu}\\\\mathop{\\\\rm u}\\\\lim its_{\\\\mathbf{B}})^{\\\\mathsf{u}^{\\\\lambda}}_{\\\\mathbf{C}} \\\\\\\\ = - \\\\mathrm {S}_{\\\\sigma} (\\\\mathbf {u} \\\\cdot \\\\mathbf {u}) - \\\\mathrm {S}_{\\\\sigma} (\\\\mathbf {u} \\\\cdot \\\\mathbf {u}) + \\\\mathrm {u}_{\\\\sigma} (\\\\mathbf {S} \\\\cdot \\\\mathbf {u}) + \\\\mathrm {u}_{\\\\sigma} (\\\\mathbf {S} \\\\cdot \\\\mathbf {u}) . \\\\\\\\ \\\\end{array}\\n$$\\nWe can now substitute $\\frac{(\\mathbf{P} + \\mathbf{P})}{|\\mathbf{P} + \\mathbf{P}|}$ for $\\mathbf{u}$ to complete the solution."
+  },
+  "verification": null
+}

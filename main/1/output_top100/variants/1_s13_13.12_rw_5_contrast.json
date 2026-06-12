@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-6-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "gauge_transformation_variation",
+      "coordinate": "mixed_cartesian_spherical",
+      "scenario": "linearized_gravity_contrast",
+      "method": "covariant_derivative_calculation",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-6",
+      "1_s13_13.12-6-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$\\delta h_{\\mu\\nu}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论的线性化引力理论中，微扰度规 $h_{\\mu\\nu}$ 在无限小坐标变换 $x^\\mu \\to x^\\mu + \\xi^\\mu$ 下的变换律为 $\\delta h_{\\mu\\nu} = -2 \\xi_{(\\mu;\\nu)}$，其中 $\\xi_{(\\mu;\\nu)} = \\frac{1}{2}(\\xi_{\\mu;\\nu} + \\xi_{\\nu;\\mu})$，分号表示对背景度规的协变导数。请在以下两种不同的时空背景下，分别推导由同一个坐标表达的矢量场 $\\xi^\\mu = (0, t, 0, 0)$ 引起的微扰度规变换量 $\\delta h_{\\mu\\nu}$ 的非零分量，对比结果的差异，并解释为何在 Schwarzschild 背景下结果包含度规因子，以及协变导数如何确保各自的 Killing 矢量都对应真实的物理对称性。**背景 A (Minkowski 时空)**：度规 $\\eta_{\\mu\\nu} = \\text{diag}(-1, 1, 1, 1)$，坐标 $(t, x, y, z)$，时间平移 Killing 矢量 $\\xi^\\mu_{(t)} = (1, 0, 0, 0)$。**背景 B (Schwarzschild 时空)**：度规 $ds^2 = -\\left(1-\\frac{r_{s}}{r}\\right)dt^2 + \\left(1-\\frac{r_{s}}{r}\\right)^{-1}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，坐标 $(t, r, \\theta, \\phi)$，时间平移 Killing 矢量 $\\xi^\\mu_{(t)} = (1, 0, 0, 0)$。",
+    "answer": "背景 A 的变换量 $\\delta h_{tx} = -1$，其余分量为 0；背景 B 的变换量 $\\delta h_{tr} = -\\frac{r}{r - r_{s}}$，其余分量为 0。差异对比与物理含义：1. 结果差异：Minkowski 时空中的变换量是常数 $-1$，而 Schwarzschild 时空中的变换量是依赖时空坐标的函数 $-\\frac{r}{r - r_{s}}$。当曲率效应消失（$r_{s} \\to 0$）时，Schwarzschild 的结果退化为 $-1$，与 Minkowski 一致。2. 度规因子来源：由于 Schwarzschild 时空具有非零的 Christoffel 符号（反映时空弯曲），矢量场降指标时出现度规因子 $\\xi_r = g_{rr} t = \\frac{r}{r-r_s} t$，同时协变导数中的 Christoffel 修正项使得变换量形式与平坦时空截然不同。这表明同一坐标表达的矢量场在不同几何下并非相同的几何对象，规范效应的形式受时空背景几何的直接约束。3. 协变导数与物理对称性：协变导数的引入保证了在两种背景下，时间平移 Killing 矢量 $\\xi^\\mu_{(t)} = (1,0,0,0)$ 都满足 Killing 方程 $\\xi_{(\\mu;\\nu)} = 0$，从而其引起的微扰变换量 $\\delta h_{\\mu\\nu}$ 恒为 0。无论时空是否弯曲，Killing 矢量始终对应真实的物理对称性（时间平移不变性对应能量守恒），而不产生虚假的规范微扰；而偏导数形式 $\\xi_{(\\mu,\\nu)}$ 仅在平坦时空下才能保证 Killing 矢量的变换量为 0。",
+    "solution": "1. **背景 A (Minkowski)**：矢量场 $\\xi^\\mu = (0, t, 0, 0)$，降指标得 $\\xi_\\mu = \\eta_{\\mu\\nu}\\xi^\\nu = (0, t, 0, 0)$。协变导数退化为偏导数，计算对称化偏导数：$\\xi_{(t,x)} = \\frac{1}{2}(\\xi_{t,x} + \\xi_{x,t}) = \\frac{1}{2}(0 + 1) = \\frac{1}{2}$，其余为0。代入变换律得 $\\delta h_{tx} = -2 \\times \\frac{1}{2} = -1$。2. **背景 B (Schwarzschild)**：矢量场 $\\xi^\\mu = (0, t, 0, 0)$，降指标得 $\\xi_t = g_{tt}\\xi^t = 0$，$\\xi_r = g_{rr}\\xi^r = \\frac{r}{r-r_s} t$。计算协变导数：- $\\xi_{r;t} = \\partial_t \\xi_r - \\Gamma^\\lambda_{rt} \\xi_\\lambda = \\frac{r}{r-r_s} - \\Gamma^t_{rt}\\xi_t - \\Gamma^r_{rt}\\xi_r = \\frac{r}{r-r_s}$（因为 $\\Gamma^r_{rt}=0$ 且 $\\xi_t=0$）。- $\\xi_{t;r} = \\partial_r \\xi_t - \\Gamma^\\lambda_{tr} \\xi_\\lambda = 0 - \\Gamma^r_{tr}\\xi_r = 0$（因为 $\\Gamma^r_{tr}=0$ 且 $\\xi_t=0$）。- 因此 $\\xi_{(t;r)} = \\frac{1}{2}(\\xi_{t;r} + \\xi_{r;t}) = \\frac{1}{2} \\frac{r}{r-r_s}$，其余为0。代入变换律得 $\\delta h_{tr} = -\\frac{r}{r-r_s}$。3. **对比与解释**：Minkowski下为常数，Schwarzschild下为包含度规因子的函数。当 $r_s \\to 0$ 时，后者退化为前者。差异来源于时空曲率（Christoffel符号）对协变导数和降指标的修正。协变导数的引入使得两种背景下的 Killing 矢量 $\\xi^\\mu_{(t)}=(1,0,0,0)$ 均满足 $\\xi_{(\\mu;\\nu)}=0$，保证了其对应的真实物理对称性不被曲率干扰。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "answer 和 solution 错误地声称在 Schwarzschild 背景下 '其余分量为 0'，严重漏算了非零分量 $\\delta h_{tt}$ 和 $\\delta h_{rr}$。具体推导如下：矢量场 $\\xi^\\mu = (0, t, 0, 0)$ 降指标得 $\\xi_t = 0$, $\\xi_r = \\\\frac{r}{r-r_s} t$。计算协变导数时：1) $\\xi_{t;t} = \\\\partial_t \\xi_t - \\\\Gamma^\\\\lambda_{tt} \\\\xi_\\\\lambda = 0 - \\\\Gamma^r_{tt} \\\\xi_r = -\\\\frac{r_s(r-r_s)}{2r^3} \\\\cdot \\\\frac{r}{r-r_s} t = -\\\\frac{r_s}{2r^2} t \\\\neq 0$，从而 $\\delta h_{tt} = -2 \\\\xi_{(t;t)} = \\\\frac{r_s}{r^2} t \\\\neq 0$；2) $\\xi_{r;r} = \\\\partial_r \\xi_r - \\\\Gamma^\\\\lambda_{rr} \\\\xi_\\\\lambda = \\\\frac{-r_s}{(r-r_s)^2} t - \\\\Gamma^r_{rr} \\\\xi_r = \\\\frac{-r_s}{(r-r_s)^2} t - \\\\left(-\\\\frac{r_s}{2r(r-r_s)}\\\\right) \\\\cdot \\\\frac{r}{r-r_s} t = \\\\frac{-r_s}{2(r-r_s)^2} t \\\\neq 0$，从而 $\\delta h_{rr} = -2 \\\\xi_{(r;r)} = \\\\frac{r_s}{(r-r_s)^2} t \\\\neq 0$。solution 仅仅计算了 $\\xi_{t;r}$ 和 $\\xi_{r;t}$，完全忽略了由于 Christoffel 符号和度规因子对 $\\\\xi_t=0$ 及 $\\\\partial_r \\\\xi_r$ 的修正引起的非零贡献，错误地得出了 '其余为0' 的结论。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

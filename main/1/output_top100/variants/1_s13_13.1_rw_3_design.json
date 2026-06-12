@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s13_13.1-7-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "Newtonian limit of geodesic equation",
+      "coordinate": "Schwarzschild",
+      "scenario": "black hole numerical design",
+      "method": "design",
+      "generalization_axis": "simulation",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.1",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.1",
+      "1_s13_13.1-7",
+      "1_s13_13.1-7-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "设计数值模拟实验验证弱场低速极限下 Schwarzschild 径向测地线退化为牛顿加速度轨迹"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，合理的引力理论必须在弱场和低速条件下还原为牛顿引力。考虑 Schwarzschild 黑洞度规：$$ds^{2} = -\\frac{r-r_{s}}{r} dt^{2} + \\frac{r}{r-r_{s}} dr^{2} + r^{2} d\\theta^{2} + r^{2} \\sin^{2}(\\theta) d\\phi^{2}$$其中 $r_{s} = 2M$ 为 Schwarzschild 半径。理论上可以证明，对于沿径向自由下落的粒子，在远距离弱场极限（$r \\gg r_{s}$）和低速极限（$dr/dt \\ll 1$）下，其测地线方程退化为经典的牛顿引力加速度形式 $\\frac{d^{2} r}{d t^{2}} = -\\frac{r_{s}}{2 r^{2}}$。请设计一个数值模拟实验方案，通过对比广义相对论测地线与牛顿引力轨迹的演化，来定量验证这一极限结论的有效性。",
+    "answer": "1. 建立两组演化方程：一组基于 Schwarzschild 度规的完整径向测地线方程计算 $r_{GR}(t)$，另一组基于牛顿加速度 $\\frac{d^{2}r}{dt^{2}} = -\\frac{r_{s}}{2r^{2}}$ 计算 $r_{Newton}(t)$；2. 设定多组初始条件：选取不同初始半径 $r_{0}$（满足 $r_{0} \\gg r_{s}$，例如 $r_{0} = 10 r_{s}, 100 r_{s}, 500 r_{s}$）和不同初始径向速度 $v_{0}$（满足 $v_{0} \\ll 1$），确保粒子从弱场低速状态开始下落；3. 使用数值积分方法（如龙格-库塔法）分别求解两组方程，得到轨迹随坐标时间 $t$ 的演化数据；4. 计算相对偏差 $\\Delta r(t) / r(t) = |r_{GR}(t) - r_{Newton}(t)| / r_{GR}(t)$；5. 分析相对偏差随参数 $r_{0}/r_{s}$ 和 $v_{0}$ 的变化趋势，预期在 $r_{0}/r_{s} \\to \\inf ty$ 和 $v_{0} \\to 0$ 时，相对偏差单调趋近于零，从而验证结论。",
+    "solution": "该数值实验通过定量计算广义相对论与牛顿力学在相同初始条件下的轨迹偏差来验证极限等效性。在弱场低速区，Christoffel 符号的高阶修正项以及固有时间 $\\tau$ 与坐标时间 $t$ 的差异均表现为小量。数值积分能够精确捕捉这些微小差异随参数的变化：当初始距离增大（$r_{0}/r_{s}$ 增大）或初始速度减小（$v_{0}$ 减小）时，相对论效应减弱，轨迹偏差将单调减小并趋近于零。这种数值收敛行为直观且定量地验证了理论推导中关于极限近似的正确性。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "1. 物理逻辑严重错误：Answer 第5点和 Solution 声称轨迹偏差将“单调减小并趋近于零”。对于沿径向自由下落的粒子，随着时间演化，粒子逐渐靠近黑洞（引力场增强）且下落速度增加（偏离低速条件），相对论修正项（如 $3v_r^2$ 项）会越来越大，广义相对论与牛顿力学的轨迹偏差必然**逐渐增大**，绝不可能随演化时间单调减小或趋近于零。若是指不同初始参数间的偏差比较，也必须明确在相同演化时间或下落距离下对比，当前表述严重违背物理直觉且极具误导性。\n2. 实验方案缺乏实质执行内容：Answer 第1点要求“基于Schwarzschild度规的完整径向测地线方程计算 $r_{GR}(t)$”，但并未给出该方程的具体形式（如以坐标时间 $t$ 参数化的二阶微分方程，或以固有时间 $\tau$ 参数化的方程组及其与 $t$ 的转换关系），导致该数值模拟方案无法被实际执行。\n3. 排版错误：Answer 第5点中的 $\\inf ty$ 是明显的拼写错误，应为 $\\infty$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

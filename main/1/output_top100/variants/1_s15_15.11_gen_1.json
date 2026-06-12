@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "光子球半径",
+      "coordinate": "球坐标",
+      "scenario": "Schwarzschild黑洞",
+      "method": "测地线方程",
+      "generalization_axis": "invert",
+      "metric": "schwarzschild_metric"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "schwarzschild_metric",
+    "soft_variant": "invert",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$v$",
+      "$\\sigma$"
+    ],
+    "target": [
+      "$r$"
+    ],
+    "metric": [
+      [
+        "$-(1-\\frac{2M}{r})$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$\\frac{1}{1-\\frac{2M}{r}}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空的外部区域，光子可以在特定半径处形成不稳定圆形轨道，构成所谓的“光子球”。这一光子球的半径直接决定了黑洞对远处光子的俘获截面临界碰撞参数。已知在赤道面 ($\\theta = \\pi/2$) 上，光子球的轨道满足径向速度与径向加速度均为零的几何特征（即 $\\dot{r} = 0$ 且 $\\ddot{r} = 0$），且光子沿方位角 $\\phi$ 方向运动。请根据这些轨道性质与零测地线约束，利用测地线方程及度规的 Christoffel 符号，反推光子球轨道所处的径向坐标 $r$ 与 Schwarzschild 半径 $r_s$ 的定量关系式。\\n\\n度规定义为：$ds^2 = \\frac{- r + r_{s}}{r} dt^2 + \\frac{r}{r - r_{s}} dr^2 + r^{2} d\\theta^{2} + r^{2} \\sin^{2}{\\left(\\theta\\right)} d\\phi^{2}$",
+    "answer": "$r = \\frac{3}{2} r_s$",
+    "solution": "1. 确定约束条件：对于赤道面 ($\\theta = \\pi/2$) 上的零测地线，有 $\\dot{\\theta} = 0$。光子处于圆形轨道，径向速度 $\\dot{r} = 0$，径向加速度 $\\ddot{r} = 0$。\\n2. 零测地线条件给出：$g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = 0$。代入 $\\dot{r} = 0$ 和 $\\dot{\\theta} = 0$，得：\\n   $\\frac{-r + r_s}{r} \\dot{t}^2 + r^2 \\dot{\\phi}^2 = 0$ \\n   解得 $\\dot{t}^2$ 与 $\\dot{\\phi}^2$ 的关系：$\\dot{t}^2 = \\frac{r^3}{r - r_s} \\dot{\\phi}^2$。\\n3. 写出径向测地线方程：$\\ddot{r} + \\Gamma^1_{\\alpha\\beta} \\dot{x}^\\alpha \\dot{x}^\\beta = 0$。\\n   由于 $\\dot{r} = 0$ 且 $\\dot{\\theta} = 0$，展开后仅保留包含 $\\dot{t}$ 和 $\\dot{\\phi}$ 的项：\\n   $\\ddot{r} + \\Gamma^1_{00} \\dot{t}^2 + \\Gamma^1_{33} \\dot{\\phi}^2 = 0$。\\n4. 利用几何属性数据代入 Christoffel 符号：\\n   $\\Gamma^1_{00} = \\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{3}}$ \\n   $\\Gamma^1_{33} = \\left(- r + r_{s}\\right) \\sin^{2}{\\left(\\theta\\right)}$。在赤道面 $\\theta = \\pi/2$ 时，$\\sin^2(\\theta) = 1$，故 $\\Gamma^1_{33} = -r + r_s$。\\n5. 将 Christoffel 符号与 $\\dot{t}^2$ 表达式代入径向测地线方程（注意 $\\ddot{r} = 0$）：\\n   $\\frac{r_s(r - r_s)}{2r^3} \\left( \\frac{r^3}{r - r_s} \\dot{\\phi}^2\\right) + (-r + r_s) \\dot{\\phi}^2 = 0$ \\n6. 化简方程：第一项约化为 $\\frac{r_s}{2} \\dot{\\phi}^2$，提取公因子 $\\dot{\\phi}^2$（由于光子在运动 $\\dot{\\phi} \\neq 0$）：\\n   $\\frac{r_s}{2} + (-r + r_s) = 0$ \\n   $\\frac{3}{2} r_s - r = 0$ \\n7. 由此反推得出光子球半径与 Schwarzschild 半径的定量关系：$r = \\frac{3}{2} r_s$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_metric_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.3,
+      "issue": "题干存在广义相对论物理概念错误：将坐标加速度 $\\ddot{r}=0$ 等同于'径向加速度为零'。在广义相对论中，物理意义上的径向加速度（四维加速度的径向分量）定义为 $a^r = \\ddot{r} + \\Gamma^r_{\\\\alpha\\\\beta} \\\\dot{x}^\\\\alpha \\\\dot{x}^\\\\beta$，对于沿测地线运动的光子，其固有加速度必然恒为零（即 $a^r=0$），但这并不意味着坐标加速度 $\\ddot{r}=0$。圆形轨道要求 $\\dot{r}=0$ 且 $\\ddot{r}=0$ 是为了维持圆轨道的数学条件（防止参数导数 $\\dot{r}$ 发生变化），这属于坐标加速度为零，而非物理上的加速度为零。题目将 $\\ddot{r}=0$ 称为'径向加速度为零的几何特征'，混淆了坐标加速度与固有加速度（物理加速度）的概念，极易误导做题者认为广义相对论中自由落体的物理加速度就是坐标的二阶导数，属于典型的牛顿力学概念残留错误。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

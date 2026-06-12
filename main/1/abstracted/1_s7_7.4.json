@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "id": "1_s7_7.4",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.4",
+    "source_id": "1_s7_7.4",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.7,
+      "rationale": "需计算度规导数与联络系数，结合变分原理与欧拉-拉格朗日方程积分求解测地线，逻辑链条完整且可推广至一般共形平坦时空",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$x$",
+      "$t$"
+    ],
+    "target": [
+      "$\\\\Gamma_{ttt}$",
+      "$\\\\Gamma_{xxt}$",
+      "$\\\\Gamma_{xtx}$",
+      "$\\\\Gamma_{txx}$"
+    ],
+    "metric": [
+      [
+        "$\\\\frac{1}{t^2}$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "-$\\\\frac{1}{t^2}$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.4. For the 2-dimensional metric $\\mathrm{ds}^2 = (\\mathrm{dx}^2 -\\mathrm{dt}^2) / \\mathrm{t}^2$ , find all connection coefficients $\\Gamma_{\\alpha \\beta \\gamma}$ , and find all timelike geodesic curves.",
+    "answer": "$\\\\Gamma_{ttt} = 1/t^3$, $\\\\Gamma_{xxt} = \\\\Gamma_{xtx} = -\\\\Gamma_{txx} = -1/t^3$；测地线曲线为 $(x - x_0)^2 = t^2 + a^2$（渐近于光锥的双曲线）",
+    "solution": "Solution 7.4. The nonvanishing derivatives of the metric tensor are $\\\\mathbf{g}_{\\\\mathbf{x}\\\\mathbf{x},t} = -\\\\mathbf{g}_{\\\\mathbf{tt},t} = -2 / t^3$ . Thus the nonvanishing connection coefficients are\\n$$\\n$\\\\Gamma_{ttt} = 1 / t^3$, \\quad $\\\\Gamma_{xxt} = \\\\Gamma_{xtx} = - \\\\Gamma_{txx} = - 1 / t^3$.\\n$$\\nTo find the geodesics it is easiest to proceed directly from their definition as curves of extreme length. Let a geodesic be $\\\\mathbf{x}(t)$ . Then (dot represents $d/dt$ )\\n$$\\n0 = \\\\delta \\\\int (\\\\mathrm{ds}^2)^{\\\\frac{1}{2}} = \\\\delta \\\\int (1 - \\\\dot{x}^2)^{\\\\frac{1}{2}} \\\\frac{\\\\mathrm{dt}}{t}.\\n$$\\nThe Euler-Lagrange equation for this extremization is\\n$$\\n\\\\frac{\\\\mathrm{d}}{\\\\mathrm{dt}} \\\\left[ \\\\frac{\\\\dot{x}}{t (1 - \\\\dot{x}^2)^{\\\\frac{1}{2}}} \\\\right] = 0.\\n$$\\nThis is easily solved by letting $\\\\tan h \\\\theta \\\\equiv \\\\dot{x}$ :\\n$$\\n\\\\frac{\\\\sin h \\\\theta}{t} = \\\\text{constant},\\n$$\\nwhich integrates to\\n$$\\n$(x - x_0)^2 = t^2 + a^2$.\\n$$\\nThus the geodesics are hyperbolas asymptotic to the light cones:"
+  },
+  "verification": null
+}

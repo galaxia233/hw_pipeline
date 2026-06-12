@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-6",
+    "type": "calculate",
+    "tags": {
+      "target_object": "Einstein tensor current",
+      "coordinate": "spherical",
+      "scenario": "cosmology",
+      "method": "tensor contraction",
+      "generalization_axis": "extend",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$J^0$",
+      "$J^1$",
+      "$J^2$",
+      "$J^3$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Friedmann-Lemaître-Robertson-Walker (FLRW) 宇宙学模型中，时空度规为：$$ds^2 = -dt^2 + \\frac{a^{2}(t)}{1-kr^{2}} dr^{2} + r^{2} a^{2}(t) d\\theta^{2} + r^{2} a^{2}(t) \\sin^{2}\\theta d\\phi^{2}$$其中 $a(t)$ 为标度因子，$k \\in \\{-1, 0, 1\\}$ 为空间曲率参数。与静态时空不同，FLRW 度规不存在类时 Killing 矢量，这意味着宇宙学尺度上的全局能量是不守恒的。然而，由于其空间均匀性和各向同性，它存在类空 Killing 矢量。其中一个代表绕 $\\phi$ 轴旋转的 Killing 矢量为 $\\xi^\\mu = (0, 0, 0, 1)$。根据守恒流理论，将能动张量与 Killing 矢量缩并可以得到守恒流。由爱因斯坦场方程可知，能动张量与 Einstein 张量成正比：$T^\\alpha_\\beta = \\frac{1}{8\\pi} G^\\alpha_\\beta$。**问题**：计算与该旋转 Killing 矢量 $\\xi^\\mu$ 相关的守恒流 $J^\\alpha = G^\\alpha_\\beta \\xi^\\beta$ 的显式表达式。请写出所有四个分量 $(J^0, J^1, J^2, J^3)$ 在标度因子 $a(t)$ 及其时间导数 $\\dot{a}(t)$、$\\ddot{a}(t)$ 和曲率参数 $k$ 下的具体形式。",
+    "answer": "$J^0 = 0, J^1 = 0, J^2 = 0, J^3 = \\frac{-k - 2a(t)\\ddot{a}(t) - \\dot{a}^{2}(t)}{a^{2}(t)}$",
+    "solution": "守恒流定义为 $J^\\alpha = G^\\alpha_\\beta \\xi^\\beta$。已知 Killing 矢量 $\\xi^\\mu = (0, 0, 0, 1)$，因此 $J^\\alpha = G^\\alpha_3$。混合指标的 Einstein 张量可以通过逆变度规与协变 Einstein 张量缩并得到：$G^\\alpha_\\beta = g^{\\alpha\\mu} G_{\\mu\\beta}$。由于 FLRW 度规的协变 Einstein 张量 $G_{\\mu3}$ 在 $\\mu \\neq 3$ 时均为 0（即 $G_{03}=0, G_{13}=0, G_{23}=0$），守恒流仅依赖于 $G_{33}$：$J^\\alpha = g^{\\alpha 3} G_{33}$。对于 $\\alpha = 0, 1, 2$，逆变度规分量 $g^{03}, g^{13}, g^{23}$ 均为 0，因此：$J^0 = 0, \\quad J^1 = 0, \\quad J^2 = 0$。对于 $\\alpha = 3$，$J^3 = g^{33} G_{33}$。由度规可得 $g^{33} = \\frac{1}{r^{2} a^{2}(t) \\sin^{2}\\theta}$。由几何属性数据，协变 Einstein 张量分量为：$G_{33} = r^{2} \\sin^{2}\\theta \\left( -k - 2a(t)\\ddot{a}(t) - \\dot{a}^{2}(t)\\right)$。将两者相乘，消去空间坐标 $r$ 和 $\\theta$：$J^3 = \\frac{1}{r^{2} a^{2}(t) \\sin^{2}\\theta} \\times r^{2} \\sin^{2}\\theta \\left( -k - 2a(t)\\ddot{a}(t) - \\dot{a}^{2}(t)\\right) = \\frac{-k - 2a(t)\\ddot{a}(t) - \\dot{a}^{2}(t)}{a^{2}(t)}$。因此，守恒流的四个分量为：$J^0 = 0$$J^1 = 0$$J^2 = 0$$J^3 = \\frac{-k - 2a(t)\\ddot{a}(t) - \\dot{a}^{2}(t)}{a^{2}(t)}$该结果表明守恒流纯粹是 Killing 矢量本身乘以一个仅依赖于时间的标量函数，即 $J^\\alpha = f(t) \\xi^\\alpha$，这反映了 FLRW 宇宙中理想流体的各向同性特征。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.3,
+      "issue": "1. 物理几何概念表述错误：题目称 Killing 矢量 $\\xi^\\mu = (0,0,0,1)$ 代表“绕 $\\phi$ 轴旋转”。在球坐标系中，方位角 $\\phi$ 的变化对应的物理旋转是绕极轴（z轴）旋转，不存在“绕 $\\phi$ 轴旋转”的物理或几何概念，这是对称性生成元表述的常识性错误。2. 题目逻辑脱节：题目先铺垫物理常识“将能动张量与 Killing 矢量缩并可以得到守恒流”，并给出 $T^\\alpha_\\beta = \\frac{1}{8\\pi} G^\\alpha_\\beta$，但随后却强行将守恒流重新定义为 $J^\\alpha = G^\\alpha_\\beta \\xi^\\beta$，导致前面的物理铺垫与最终计算目标割裂，极易造成做题者概念混淆（通常守恒流指 $T^\\alpha_\\beta \\xi^\\beta$，虽然比例缩并仍满足守恒律，但语义不连贯）。3. 度规摘要存在严重事实错误：摘要称 FLRW 度规 Killing 矢量为 1 个，这与其空间各向同性的性质矛盾（各向同性至少需要 3 个旋转 Killing 矢量生成 $SO(3)$ 群）。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

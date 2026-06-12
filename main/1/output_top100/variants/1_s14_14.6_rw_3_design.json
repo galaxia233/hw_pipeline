@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-1-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "metric_coefficients_constraint",
+      "coordinate": "cartesian_static",
+      "scenario": "weighing_in_gravity_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-1",
+      "1_s14_14.6-1-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "验证：当静止容器重量仅由内部能量密度决定而与横向应力无关时，引力场度规必须满足 \\frac{d g_{xx}}{d z} = 0 且 \\frac{d g_{yy}}{d z} = 0"
+    ],
+    "metric": [
+      [
+        "$g_{tt}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$g_{zz}$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，一个静止在静态引力场中的容器，其底部所受的支撑力（即“重量”）可以由积分 $W(z) = \\int T^{\\hat{z}\\hat{z}} dx dy$ 给出。在某些特定的引力场中，重量仅由内部能量密度 $T^{\\hat{t}\\hat{t}}$ 决定，而与横向应力 $T^{\\hat{x}\\hat{x}}$、$T^{\\hat{y}\\hat{y}}$ 无关。已知该引力场的度规形式为 $ds^2 = g_{tt}(z) dt^2 + g_{xx}(z) dx^2 + g_{yy}(z) dy^2 + g_{zz}(z) dz^2$。核心结论指出：当重量仅由能量密度决定而与横向应力无关时，该度规必须满足几何约束 $\\frac{d g_{xx}}{d z} = 0$ 且 $\\frac{d g_{yy}}{d z} = 0$（即横向度规分量 $g_{xx}$ 和 $g_{yy}$ 必须是与 $z$ 无关的常数）。请设计一个数值模拟实验方案，验证这一核心结论（即证明横向应力不影响重量的物理条件，正是度规横向分量为常数这一几何约束）。",
+    "answer": "1. 设定度规族：构造两组对角静态度规进行对比。A组（满足几何约束）：设 $g_{xx}=1, g_{yy}=1$ 为常数，$g_{tt}(z), g_{zz}(z)$ 任意非零函数；B组（不满足约束）：设 $g_{xx}=1+z^2, g_{yy}=1+z^2$，其他分量与A组相同。2. 构造物质模型：在给定度规下设定容器的物理截面，使得总能量积分 $\\int T^{\\hat{t}\\hat{t}} dx dy = E_0$ 保持不变。在同一度规下，分别设定两种内部物质状态：模型1无横向应力（$T^{\\hat{x}\\hat{x}}=0, T^{\\hat{y}\\hat{y}}=0$），模型2有横向应力（$T^{\\hat{x}\\hat{x}}=P, T^{\\hat{y}\\hat{y}}=P$，且 $P \\neq 0$）。3. 计算重量：利用能量-动量守恒方程 $\\nabla_{\\mu} T^{\\mu\\nu} = 0$，在 $\\nu = z$ 分量上展开并在容器横向边界积分，数值计算容器底部的支撑力 $W(z) = \\int T^{\\hat{z}\\hat{z}} dx dy$。4. 结果对比：在A组度规下，模型1和模型2计算出的重量 $W(z)$ 应完全相同（等于仅由 $E_0$ 决定的值）；在B组度规下，模型2的重量 $W(z)$ 会随横向应力 $P$ 的引入而发生变化。由此验证核心结论。",
+    "solution": "本方案利用了因果反证逻辑的数值验证。由理论推导可知，横向应力对重量的贡献来自于守恒方程中的 $\\Gamma^z_{xx} T^{xx}$ 和 $\\Gamma^z_{yy} T^{yy}$ 项。当度规分量 $g_{xx}$ 和 $g_{yy}$ 依赖 $z$ 时，Christoffel 符号 $\\Gamma^z_{xx} = -\\frac{1}{2} \\frac{g_{xx,z}}{g_{zz}} \\neq 0$，横向应力必然作为额外等效重力源参与 $z$ 方向的受力平衡，导致重量改变。只有当 $g_{xx}$ 和 $g_{yy}$ 为常数（$g_{xx,z}=0, g_{yy,z}=0$）时，$\\Gamma^z_{xx}$ 和 $\\Gamma^z_{yy}$ 为零，横向应力项消失，重量才仅由能量密度决定。数值实验通过控制变量（能量密度相同而应力不同），直接对比几何约束满足与否对物理观测量的影响，从而验证几何条件与物理结论的必然关联。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.metric_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "1. 题目与度规摘要严重矛盾：度规摘要明确指出该度规为 Minkowski（平坦时空，$g_{xx}=1, g_{yy}=1$ 且无引力场），但题目讨论的是“静止在静态引力场中”的容器重量，并在答案中构造了 $g_{xx}=1+z^2$ 的非平坦度规（B组），这完全违背了 Minkowski 度规的前提。在 Minkowski 空间中根本不存在引力场和“重量”（支撑力），且 $dg_{xx}/dz=0$ 是平凡成立的常数条件，无需也无法通过引入非 Minkowski 度规来验证。2. 物理设定违背广义相对论基本逻辑：答案假设“在同一度规下，分别设定两种内部物质状态”以改变横向应力，但在广义相对论中，物质是时空曲率的源，改变应力-能量张量必然通过 Einstein 场方程改变度规，不能在同一度规下随意切换物质状态（除非声明为无反作用的测试物质，题目未声明）。3. 能量-动量守恒不自洽：答案中人为设定横向应力 $T^{\\hat{x}\\hat{x}}=P$ 而保持能量密度 $T^{\\hat{t}\\hat{t}}$ 不变，这种强行剥离通常违反局部能量-动量守恒方程 $\\nabla_\\mu T^{\\mu\\nu}=0$ 的自洽性约束，导致后续的重量计算失去物理基础。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

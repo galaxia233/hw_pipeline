@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "divergence of comoving energy current",
+      "coordinate": "comoving FLRW",
+      "scenario": "cosmology",
+      "method": "product rule and static limit",
+      "generalization_axis": "limit",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$3p \\frac{\\dot{a}}{a}$",
+      "$0$ (在静态极限下)"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Friedmann-Lemaître-Robertson-Walker (FLRW) 宇宙中，度规为 $ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$。尺度因子 $a(t)$ 的演化意味着时空不存在时间 Killing 矢量，导致共动参考系下的能量流 $J^\\mu = T^{\\mu}_{\\ \\nu} \\xi^\\nu$ （其中时间平移矢量 $\\xi^\\nu = \\partial_t$）的散度不为零。考虑共动坐标系下的理想流体，其能动张量为 $T^{\\mu}_{\\ \\nu} = \\text{diag}(-\\rho, p, p, p)$。请推导该能量流散度 $\\nabla_\\mu (T^{\\mu}_{\\ \\nu} \\xi^\\nu)$ 的表达式，并证明在静态宇宙极限 $\\dot{a} \\to 0$ （度规退化为静态时空，如 $k=0$ 时为平直 Minkowski 空间）下，该散度退化为零，从而还原了经典能量守恒定律，使得能量流在类空超曲面上的积分与超曲面的选取无关。",
+    "answer": "$3p \\frac{\\dot{a}}{a}$；在静态宇宙极限下退化为 0",
+    "solution": "1. 利用张量乘积的散度公式展开：$\\nabla_\\mu (T^{\\mu}_{\\ \\nu} \\xi^\\nu) = (\\nabla_\\mu T^{\\mu}_{\\ \\nu}) \\xi^\\nu + T^{\\mu}_{\\ \\nu} \\nabla_\\mu \\xi^\\nu$。2. 根据能动张量守恒定律 $\\nabla_\\mu T^{\\mu}_{\\ \\nu} = 0$，第一项为零，故散度仅由第二项贡献：$T^{\\mu}_{\\ \\nu} \\nabla_\\mu \\xi^\\nu$。3. 计算时间平移矢量 $\\xi^\\nu = \\partial_t$ 的协变导数：$\\nabla_\\mu \\xi^\\nu = \\partial_\\mu \\xi^\\nu + \\Gamma^\\nu_{\\mu \\alpha} \\xi^\\alpha = \\Gamma^\\nu_{\\mu 0}$。4. 代入理想流体的能动张量 $T^{\\mu}_{\\ \\nu} = \\text{diag}(-\\rho, p, p, p)$，由于它是对角的，求和时仅保留 $\\mu = \\nu$ 的项：$T^{\\mu}_{\\ \\mu} \\Gamma^\\mu_{\\mu 0}$。5. 由 Fact Sheet 中的 Christoffel 符号数据，非零的对角分量为 $\\Gamma^1_{10} = \\frac{\\dot{a}}{a}$, $\\Gamma^2_{20} = \\frac{\\dot{a}}{a}$, $\\Gamma^3_{30} = \\frac{\\dot{a}}{a}$，而 $\\Gamma^0_{00} = 0$。6. 计算求和：$T^0_{\\ 0} \\Gamma^0_{00} + T^1_{\\ 1} \\Gamma^1_{10} + T^2_{\\ 2} \\Gamma^2_{20} + T^3_{\\ 3} \\Gamma^3_{30} = -\\rho \\cdot 0 + p \\frac{\\dot{a}}{a} + p \\frac{\\dot{a}}{a} + p \\frac{\\dot{a}}{a} = 3p \\frac{\\dot{a}}{a}$。7. 取静态宇宙极限 $\\dot{a} \\to 0$，此时 $\\Gamma^i_{i0} \\to 0$，意味着 $\\nabla_\\mu \\xi^\\nu \\to 0$（时间平移矢量成为 Killing 矢量），因此散度 $3p \\frac{\\dot{a}}{a} \\to 0$。这还原了经典平直时空中的能量守恒定律，使得 $\\int T^{\\mu}_{\\ \\nu} \\xi^\\nu d^3 \\Sigma_\\mu$ 与类空超曲面的选取无关。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "Solution 第4步中存在严重的张量符号错误：将求和 $T^{\\mu}_{\\ \\nu} \\nabla_{\\mu} \\xi^{\\nu}$ 简化为对角项时，写成了 $T^{\\mu}_{\\ \\mu} \\Gamma^{\\mu}_{\\mu 0}$。在 Einstein 求和约定中，同一指标最多只能出现两次（一上一下），出现四次是非法的张量表达式，且这种写法容易误解为对迹 $T^{\\mu}_{\\mu}$ 和 $\\Gamma^{\\mu}_{\\mu 0}$ 的缩并（若如此则结果错误）。正确的做法是保留独立的哑指标或直接写展开式。此外，题目中“时间平移矢量 $\\xi^{\\nu} = \\partial_t$”将矢量分量 $\\xi^{\\nu}$（应为标量数组）与矢量本身 $\\partial_t$（坐标基矢量）混淆，正确的分量表示应为 $\\xi^{\\nu} = \\delta^{\\nu}_0$ 或 $(1,0,0,0)$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

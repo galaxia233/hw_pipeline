@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s4_4.15",
+    "type": "prove",
+    "tags": {
+      "metric": "minkowski-metric",
+      "target_object": "electromagnetic-stress-energy-tensor",
+      "coordinate": "abstract-index-coordinate",
+      "scenario": "source-free-scenario",
+      "method": "tensor-divergence-and-maxwell-eq"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.15",
+    "source_id": "1_s4_4.15",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.15"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "多步张量乘积求导结合自由场麦克斯韦方程与反对称性抵消，逻辑链条完整且可推广至弯曲时空协变导数形式",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\nu$",
+      "$a$",
+      "$\\\\alpha$",
+      "$\\\\beta$"
+    ],
+    "target": [
+      "$T^{\\\\mu \\\\nu}_{, \\\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 4.15. Show that the stress-energy tensor for the electromagnetic field is divergenceless (i.e. $\\mathbf{T}^{\\mu \\nu}_{,\\nu} = 0$ ) in the absence of charge sources.",
+    "answer": "$\\mathbf{T}^{\\mu \\nu}_{,\\nu} = 0$",
+    "solution": "Solution 4.15. The form of the electromagnetic stress-energy is given in the introduction. Taking its divergence we have:\\\\n$$\\\\n\\\\begin{array}{l} 4 \\\\pi \\\\mathrm {T}^{\\\\mu \\\\nu} ,_{\\\\nu} = \\\\mathrm {F}^{\\\\mu a} ,_{\\\\nu} \\\\mathrm {F}^{\\\\nu}_{a} + \\\\mathrm {F}^{\\\\mu a} \\\\mathrm {F}^{\\\\nu}_{a , \\\\nu} - \\\\frac {1}{2} \\\\mathrm {F}_{a} \\\\beta \\\\mathrm {F}^{\\\\alpha \\\\beta , \\\\mu} \\\\\\\\\\\\\\\\ = \\\\mathrm {F}^{\\\\mu a} \\\\mathrm {F}_{\\\\alpha , \\\\nu}^{\\\\nu} + \\\\mathrm {F}_{\\\\nu a} \\\\left(\\\\mathrm {F}^{\\\\mu a , \\\\nu} - \\\\frac {1}{2} \\\\mathrm {F}^{\\\\nu a , \\\\mu}\\\\right) \\\\\\\\\\\\\\\\ = \\\\mathrm {F}^{\\\\mu \\\\alpha} \\\\mathrm {F}_{\\\\alpha , \\\\nu}^{\\\\nu} + \\\\frac {1}{2} \\\\mathrm {F}_{\\\\nu \\\\alpha} \\\\left(\\\\mathrm {F}^{\\\\alpha \\\\nu , \\\\mu} + \\\\mathrm {F}^{\\\\mu \\\\alpha , \\\\nu} + \\\\mathrm {F}^{\\\\nu \\\\mu , \\\\alpha}\\\\right). \\\\\\\\\\\\\\\\ \\\\end{array}\\\\n$$\\\\nAccording to the free field Maxwell equations, both $\\mathbf{F}^{\\nu}_{\\alpha,\\nu}$ and the terms in parentheses vanish, hence $\\mathbf{T}^{\\mu\\nu}_{,\\nu} = 0$ . Note: If a charge current $\\mathbf{J}$ is present this result is modified to $\\mathbf{T}^{\\mu\\nu}_{,\\nu} = -\\mathbf{F}^{\\mu\\alpha}\\mathbf{J}_{\\alpha}$ , as is easily verified."
+  },
+  "verification": null
+}

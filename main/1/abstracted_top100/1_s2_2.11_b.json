@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s2_2.11_b",
+    "type": "prove",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "four_momentum",
+      "coordinate": "center_of_mass_frame",
+      "scenario": "particle_collision",
+      "method": "frame_invariance"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.11_b",
+    "source_id": "1_s2_2.11_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.11_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于四维动量标量积的洛伦兹不变性跨参考系关联运动学量，需多步代数推导，属标准高能物理散射运动学模型",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$E_1^{\\mathrm{CM}}$",
+      "$E_{\\mathrm{total}}^{\\mathrm{CM}}$",
+      "$m_1$",
+      "$m_2$",
+      "$P_1$",
+      "$P_2$"
+    ],
+    "target": [
+      "$E_1^{\\mathrm{CM}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 2.11. Consider the reaction $1 + 2\\rightarrow 3 + 4$ . The lab frame is defined to be the one in which $\\underline{\\mathbf{P}}_2 = 0$ . The C.M. frame is defined to be the one in which $\\underline{\\mathbf{P}}_1^{\\mathbf{C.M.}} + \\underline{\\mathbf{P}}_2^{\\mathbf{C.M.}} = 0$ . Show that:\\n(b) $\\mathbf{E}_1^{\\mathbf{C.M.}} = \\left[\\left(\\mathbf{E}_{\\mathrm{total}}^{\\mathbf{C.M.}}\\right)^2 +\\mathbf{m}_1^2 -\\mathbf{m}_2^2\\right] / 2\\mathbf{E}_{\\mathrm{total}}^{\\mathbf{C.M.}}$",
+    "answer": "$\\mathbf {E}_{1}^{\\mathbf{C}. \\mathbf{M}.} = [ (\\mathbf {E}_{\\mathrm {t o t a l}}^{\\mathbf{C}. \\mathbf{M}.})^{2} + \\mathbf {m}_{1}^{2} - \\mathbf {m}_{2}^{2} ] / 2 \\mathbf {E}_{\\mathrm {t o t a l}}^{\\mathbf{C}. \\mathbf{M}.}.$",
+    "solution": "(b) In the equation\\n$$\\n\\mathbf {P}_{1} \\cdot \\mathbf {P}_{\\text {t o t a l}} = \\mathbf {P}_{1} \\cdot \\left(\\mathbf {P}_{1} + \\mathbf {P}_{2}\\right)\\n$$\\nevaluate the left side in the C.M. frame and the right side in the lab frame:\\n$$\\n\\begin{array}{l}\\n - \\mathrm {E}_{1}^{\\mathrm {C . M .}} \\mathrm {E}_{\\text {t o t a l}}^{\\mathrm {C . M .}} = - \\mathrm {m}_{1}^{2} - \\mathrm {E}_{1} \\mathrm {m}_{2} \\\\\\\\n= - \\mathrm {m}_{1}^{2} - \\frac {1}{2} \\left[ \\left(\\mathrm {E}_{\\text {t o t a l}}^{\\mathrm {C . M .}}\\right)^{2} - \\mathrm {m}_{1}^{2} - \\mathrm {m}_{2}^{2}\\right] \\quad (\\text {f r o m (a)}) \\\\\\\\n\\end{array}\\n$$\\nHence, the result:\\n$$\\n\\mathbf {E}_{1}^{\\mathbf{C}. \\mathbf{M}.} = [ (\\mathbf {E}_{\\mathrm {t o t a l}}^{\\mathbf{C}. \\mathbf{M}.})^{2} + \\mathbf {m}_{1}^{2} - \\mathbf {m}_{2}^{2} ] / 2 \\mathbf {E}_{\\mathrm {t o t a l}}^{\\mathbf{C}. \\mathbf{M}.}.\\n$$"
+  },
+  "verification": null
+}

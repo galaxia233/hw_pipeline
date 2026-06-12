@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-7-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "E_Newtonian_limit",
+      "coordinate": "mixed",
+      "scenario": "contrast_flat_vs_curved_weak_field",
+      "method": "asymptotic_expansion",
+      "generalization_axis": "compare",
+      "metric": "Minkowski"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-7",
+      "1_s10_10.12-7-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Minkowski",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "守恒能量牛顿极限对比"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在平直时空与弯曲时空中，时间平移对称性对应的守恒能量在低速极限下的形式有何不同？**背景 A：Minkowski 时空**度规为 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$。时空具有时间平移 Killing 矢量 $\\xi^{\\mu} = (1, 0, 0, 0)$。**背景 B：Schwarzschild 时空**度规为 $ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$（其中 $r_s = 2M$ 为 Schwarzschild 半径）。时空同样具有时间平移 Killing 矢量 $\\xi^{\\mu} = (1, 0, 0, 0)$。对于沿测地线运动的单位质量（$m=1$）测试粒子，两种背景下时间平移 Killing 矢量均给出守恒能量 $E = -g_{tt} \\dot{t}$（其中 $\\dot{t} = dt/d\\tau$）。请分别在两种背景下计算低速极限（在背景 B 中还需满足弱场极限 $r \\gg M$）下的守恒能量 $E$，并对比两者结果的差异，解释该差异项的物理含义。",
+    "answer": "在背景 A (Minkowski 时空) 中，由类时测地线归一化条件 $- \\dot{t}^2 + v_A^2 = -1$ 可得 $\\dot{t}^2 = 1 + v_A^2$，其中空间速度平方 $v_A^2 = \\dot{x}^2 + \\dot{y}^2 + \\dot{z}^2$。在低速极限 $v_A \\ll 1$ 下，$\\dot{t} \\approx 1 + \\frac{1}{2}v_A^2$，代入 $E = -g_{tt} \\dot{t} = \\dot{t}$，得到守恒能量：$$ E_A \\approx 1 + \\frac{1}{2}v_A^2 $$这对应于粒子的静质量能与动能。在背景 B (Schwarzschild 时空) 中，定义空间坐标速度平方 $v_B^2 = \\dot{r}^2 + r^2 \\dot{\\theta}^2 + r^2 \\sin^2\\theta \\dot{\\phi}^2$。在弱场低速极限下（$v_B \\ll 1$, $M/r \\ll 1$），归一化条件近似为 $-(1 - \\frac{2M}{r})\\dot{t}^2 + v_B^2 \\approx -1$，解出 $\\dot{t} \\approx 1 + \\frac{1}{2}v_B^2 + \\frac{M}{r}$。代入守恒能量 $E = (1 - \\frac{2M}{r})\\dot{t}$ 并展开到一阶小量，得到：$$ E_B \\approx 1 + \\frac{1}{2}v_B^2 - \\frac{M}{r} $$对比两者结果，差异项为 $\\Delta E = E_B - E_A \\approx -\\frac{M}{r}$。该差异项正是牛顿力学中的引力势能。其物理含义是：弯曲时空（背景 B）中的时间分量 $g_{tt}$ 偏离了平直时空（背景 A）的 $-1$，这种偏离度 $g_{tt} \\approx -1 + \\frac{2M}{r}$ 在守恒能量中直接体现为引力势能项，反映了中心质量 $M$ 所造成的时空弯曲对测试粒子能量的引力贡献。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.minkowski_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "1. 度规摘要存在严重事实错误：摘要声称 Minkowski 时空的 Killing 量为 4 个，但实际上 Minkowski 时空具有 10 个 Killing 量（4个平移，3个旋转，3个洛伦兹boost），这反映了题目/摘要生成者对平直时空对称性的根本误解。\n2. answer 推导中存在未经声明的物理近似违规：答案定义空间坐标速度平方 $v_B^2 = \\dot{r}^2 + r^2 \\dot{\\theta}^2 + r^2 \\sin^2\\theta \\dot{\\phi}^2$，并将其直接代入归一化条件 $-(1-2M/r)\\dot{t}^2 + v_B^2 \\approx -1$。然而，严格的四速度归一化条件要求使用固有速度（即由度规分量加权的坐标速度），空间部分应为 $g_{rr}\\dot{r}^2 + g_{\\theta\\theta}\\dot{\\theta}^2 + g_{\\phi\\phi}\\dot{\\phi}^2 = \\frac{1}{1-2M/r}\\dot{r}^2 + r^2\\dot{\\theta}^2 + r^2\\sin^2\\theta\\dot{\\phi}^2$。答案在此处偷偷将 $g_{rr} \\approx 1$ 近似掉而未作任何声明，导致中间步骤的形式违反了归一化条件 $g_{\\mu\\nu}u^\\mu u^\\nu = -1$ 的严格定义。\n3. answer 对比结论存在逻辑跳跃：答案声称差异项 $\\Delta E = E_B - E_A \\approx -M/r$，直接将动能项 $\\frac{1}{2}v_B^2$ 和 $\\frac{1}{2}v_A^2$ 抵消。由于 $v_A$ 和 $v_B$ 是在笛卡尔坐标系和球坐标系下分别定义的坐标速度，两者在数学表达式上不同，不能在代数上直接相减抵消。必须明确指出它们在弱场低速极限下代表相同的物理固有速度才能消去，此处直接抵消属于逻辑跳跃。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

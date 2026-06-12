@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-2-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "lateral_stress_radial_force_contribution",
+      "coordinate": "z_vs_r",
+      "scenario": "static_equilibrium_contrast",
+      "method": "conservation_christoffel",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-2",
+      "1_s14_14.6-2-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "横向应力对竖直/径向力平衡的贡献及其几何起源对比"
+    ],
+    "metric": [
+      [
+        "$g_{tt}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$g_{zz}$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在背景A（静态均匀引力场）与背景B（Schwarzschild时空）中，分别考虑静止物质分布的竖直/径向力学平衡。背景A的度规为：$ds^2 = g_{tt}(z) dt^2 + g_{xx}(z) dx^2 + g_{yy}(z) dy^2 + g_{zz}(z) dz^2$。背景B的度规为：$ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。请从能动张量守恒方程出发，分别推导横向应力物理分量（背景A中的 $T^{\\hat{x}\\hat{x}}, T^{\\hat{y}\\hat{y}}$ 与背景B中的 $T^{\\hat{\\theta}\\hat{\\theta}}, T^{\\hat{\\phi}\\hat{\\phi}}$）对竖直/径向力平衡的贡献表达式，并对比说明：两种背景下横向应力是否必然参与竖直/径向力平衡，其根本几何差异与横向度规分量对竖直/径向坐标的依赖性有何物理关联？",
+    "answer": "在背景A中，横向应力对竖直力平衡的贡献包含因子 $\\Gamma^z_{xx} = -\\frac{1}{2} g^{zz} \\partial_z g_{xx}$ 与 $\\Gamma^z_{yy} = -\\frac{1}{2} g^{zz} \\partial_z g_{yy}$。当 $\\partial_z g_{xx} = 0$ 且 $\\partial_z g_{yy} = 0$ 时，横向应力不参与竖直力平衡。在背景B中，横向应力对径向力平衡的贡献包含因子 $\\Gamma^r_{\\theta\\theta} = -\\frac{1}{2} g^{rr} \\partial_r g_{\\theta\\theta} = -(r-r_s)$ 与 $\\Gamma^r_{\\phi\\phi} = -\\frac{1}{2} g^{rr} \\partial_r g_{\\phi\\phi} = -(r-r_s) \\sin^2\\theta$。由于 $\\partial_r g_{\\theta\\theta} = 2r \\neq 0$ 且 $\\partial_r g_{\\phi\\phi} = 2r \\sin^2\\theta \\neq 0$，横向应力必然参与径向力平衡。物理关联：横向应力是否产生竖直/径向力，取决于横向空间几何尺度是否随竖直/径向坐标发生梯度变化。背景A中，若横向空间不随高度缩放（度规与z无关），横向应力不贡献竖直力；背景B中，球面横向面积随径向坐标增大而增加，横向应力必然通过这种空间尺度的径向梯度转化为径向力。",
+    "solution": "1. 对于静态物质分布，能动张量守恒方程 $T^{\\mu\\nu}_{;\\nu} = 0$ 在竖直/径向分量上展开：$0 = |g|^{-1/2} \\partial_\\beta(|g|^{1/2} T^{\\alpha\\beta}) + \\Gamma^\\alpha_{\\beta\\gamma} T^{\\beta\\gamma}$，取 $\\alpha = z$ (背景A) 或 $\\alpha = r$ (背景B)。2. 针对静态分布，时间与横向动量通量为零，对横向坐标积分后，横向应力对力平衡的贡献项分别为：背景A：$\\Gamma^z_{xx} \\int T^{xx} dx dy + \\Gamma^z_{yy} \\int T^{yy} dx dy$背景B：$\\Gamma^r_{\\theta\\theta} \\int T^{\\theta\\theta} d\\Omega + \\Gamma^r_{\\phi\\phi} \\int T^{\\phi\\phi} d\\Omega$3. 将坐标分量转换为物理分量（正交基）：$T^{xx} = T^{\\hat{x}\\hat{x}} / g_{xx}$，$T^{\\theta\\theta} = T^{\\hat{\\theta}\\hat{\\theta}} / g_{\\theta\\theta}$ 等。4. 代入 Christoffel 符号：背景A：$\\Gamma^z_{xx} = -\\frac{1}{2} g^{zz} \\partial_z g_{xx}$，$\\Gamma^z_{yy} = -\\frac{1}{2} g^{zz} \\partial_z g_{yy}$。可见贡献直接取决于 $\\partial_z g_{xx}$ 和 $\\partial_z g_{yy}$ 是否为零。背景B：$\\Gamma^r_{\\theta\\theta} = -\\frac{1}{2} g^{rr} \\partial_r g_{\\theta\\theta} = -(r-r_s)$，$\\Gamma^r_{\\phi\\phi} = -\\frac{1}{2} g^{rr} \\partial_r g_{\\phi\\phi} = -(r-r_s) \\sin^2\\theta$。由于 $\\partial_r g_{\\theta\\theta} = 2r \\neq 0$，横向应力必然贡献径向力。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "题目明确要求推导‘横向应力物理分量（$T^{\\hat{\\theta}\\hat{\\theta}}, T^{\\hat{\\phi}\\hat{\\phi}}$）对径向力平衡的贡献表达式’，但 Answer 和 Solution 仅停留在给出坐标基下的 Christoffel 符号（$\\Gamma^r_{\\theta\\theta} = -(r-r_s)$ 与 $\\Gamma^r_{\\phi\\phi} = -(r-r_s)\\sin^2\\theta$），并未完成物理分量的表达式推导。根据 Solution 自身步骤3提到的转换关系 $T^{\\theta\\theta} = T^{\\hat{\\theta}\\hat{\\theta}} / g_{\\theta\\theta}$ 及 $T^{\\phi\\phi} = T^{\\hat{\\phi}\\hat{\\phi}} / g_{\\phi\\phi}$，横向应力物理分量对径向力平衡的实际贡献项应为 $\\Gamma^r_{\\theta\\theta} T^{\\theta\\theta} + \\Gamma^r_{\\phi\\phi} T^{\\phi\\phi} = -\\frac{r-r_s}{r^2} T^{\\hat{\\theta}\\hat{\\theta}} - (r-r_s)\\sin^2\\theta \\frac{T^{\\hat{\\phi}\\hat{\\phi}}}{r^2\\sin^2\\theta} = -\\frac{r-r_s}{r^2} (T^{\\hat{\\theta}\\hat{\\theta}} + T^{\\hat{\\phi}\\hat{\\phi}})$。在正确的物理分量贡献表达式中，坐标分量特有的 $\\sin^2\\theta$ 因子理应与度规分量消去，而 Answer 却将其作为‘贡献包含因子’列出，混淆了坐标分量与物理分量，且未给出最终表达式。此外，Solution 步骤2中的积分项 $\\int T^{\\theta\\theta} d\\Omega$ 缺少必要的体积元 $\\sqrt{-g}$ 因子，无法正确对应物理上的力学平衡积分。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

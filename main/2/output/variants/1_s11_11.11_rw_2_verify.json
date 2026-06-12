@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-6-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "spin_vector_evolution",
+      "coordinate": "comoving_FLRW",
+      "scenario": "cosmology_verify",
+      "method": "parallel_transport",
+      "generalization_axis": "verify",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-6",
+      "1_s11_11.11-6-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "FLRW",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "自旋矢量演化推导校验"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，自由下落陀螺仪的自旋矢量 $S^\\mu$ 满足平行移动方程且与四速度正交。考虑 FLRW 宇宙度规 $$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2}dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$$，一个随哈勃流共动的观察者的四速度为 $u^\\mu=(1,0,0,0)$。已知正确的演化结论应为 $S^i(t) = S^i(t_0) \\frac{a(t_0)}{a(t)}$。\\n\\n以下是一段关于该结论的推导过程，其中包含若干错误，请找出并修正所有错误：\\n1. 平行移动方程展开为 $\\frac{dS^\\mu}{d\\tau} - \\Gamma^\\mu_{\\alpha\\beta} u^\\alpha S^\\beta = 0$。\\n2. 对于共动观察者 $u^\\mu = (1, 0, 0, 0)$，代入上式得到 $\\frac{dS^\\mu}{d\\tau} - \\Gamma^\\mu_{0\\beta} S^\\beta = 0$。\\n3. 对于时间分量 $\\mu=0$，由于 FLRW 度规中 $\\Gamma^0_{0\\beta}=0$，方程退化为 $\\frac{dS^0}{d\\tau}=0$，即 $S^0$ 为常数。由正交条件 $S^\\mu u_\\mu = S^\\mu \\delta^\\mu_0 u^0 = S^0 = 0$，可得 $S^0 = 0$。\\n4. 对于空间分量 $\\mu=i$，计算 Christoffel 符号：度规分量 $g_{11} = \\frac{a^2}{1-kr^2}$，对其时间求导得 $\\dot{g}_{11} = \\frac{2\\dot{a}a}{1-kr^2}$，因此 $\\Gamma^1_{01} = \\frac{\\dot{g}_{11}}{g_{11}} = \\frac{2\\dot{a}}{a}$。同理，$\\Gamma^2_{02} = \\frac{2\\dot{a}}{a}$，$\\Gamma^3_{03} = \\frac{2\\dot{a}}{a}$。\\n5. 将 Christoffel 符号代入空间分量方程，由于非对角项为零，方程变为 $\\frac{dS^i}{dt} - \\frac{2\\dot{a}}{a} S^i = 0$。\\n6. 求解该微分方程：$\\frac{dS^i}{S^i} = \\frac{2da}{a}$，两边积分得到 $\\ln S^i = 2\\ln a + C$，即 $S^i(t) = S^i(t_0) \\left(\\frac{a(t)}{a(t_0)}\\right)^2$。",
+    "answer": "错误1：位置在步骤1，类型为 sign error。平行移动方程中的 Christoffel 符号项应为加号，正确值为 $\\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{\\alpha\\beta} u^\\alpha S^\\beta = 0$。\\n错误2：位置在步骤3，类型为度规分量遗漏（factor error）。正交条件展开时忽略了度规分量 $g_{00}=-1$，不能直接用 $\\delta^\\mu_0$ 替代 $g_{\\mu\\nu}$。正确展开为 $S^\\mu u_\\mu = g_{\\mu\\nu} S^\\mu u^\\nu = -S^0 = 0$。\\n错误3：位置在步骤4，类型为 factor error。计算对角度规的 Christoffel 符号时遗漏了系数 $1/2$。对于对角度规，正确公式为 $\\Gamma^i_{0i} = \\frac{1}{2} \\frac{\\dot{g}_{ii}}{g_{ii}}$。正确值为 $\\Gamma^1_{01} = \\Gamma^2_{02} = \\Gamma^3_{03} = \\frac{\\dot{a}}{a}$，而非 $\\frac{2\\dot{a}}{a}$。",
+    "solution": "推导过程如下：\\n1. 平行移动方程展开为 $\\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{\\alpha\\beta} u^\\alpha S^\\beta = 0$。\\n2. 对于共动观察者，其四速度为 $u^\\mu = (1, 0, 0, 0)$，代入上式得到 $\\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{0\\beta} S^\\beta = 0$。\\n3. 对于时间分量 $\\mu=0$，由于 FLRW 度规中 $\\Gamma^0_{0\\beta}=0$，方程退化为 $\\frac{dS^0}{d\\tau}=0$，即 $S^0$ 为常数。由正交条件 $S^\\mu u_\\mu = g_{\\mu\\nu} S^\\mu u^\\nu = -S^0 = 0$，可得 $S^0 = 0$。\\n4. 对于空间分量 $\\mu=i$ ($i=1,2,3$)，代入 Christoffel 符号 $\\Gamma^1_{01} = \\frac{\\dot{a}}{a}$, $\\Gamma^2_{02} = \\frac{\\dot{a}}{a}$, $\\Gamma^3_{03} = \\frac{\\dot{a}}{a}$，且非对角的 $\\Gamma^i_{0j}=0$ ($i \\neq j$)，方程变为 $\\frac{dS^i}{dt} + \\frac{\\dot{a}(t)}{a(t)} S^i = 0$。\\n5. 求解该一阶微分方程：$\\frac{dS^i}{S^i} = -\\frac{da}{a}$，两边积分得到 $\\ln S^i = -\\ln a + C$，即 $S^i(t) \\propto \\frac{1}{a(t)}$。\\n6. 设初始时刻 $t_0$ 的自旋分量为 $S^i(t_0)$，则显式函数关系为 $S^i(t) = S^i(t_0) \\frac{a(t_0)}{a(t)}$。"
+  },
+  "verification": null
+}

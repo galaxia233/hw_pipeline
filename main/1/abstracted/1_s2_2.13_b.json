@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s2_2.13_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "Minkowski_spacetime_metric",
+      "target_object": "proper_time_target",
+      "coordinate": "rectilinear_coordinates",
+      "scenario": "constant_proper_acceleration_interstellar_travel",
+      "method": "hyperbolic_kinematics_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.13_b",
+    "source_id": "1_s2_2.13_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.13_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于狭义相对论匀加速双曲运动模型，结合星际航行背景，逻辑链条清晰且具备良好物理可推广性",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\tau$",
+      "$x$",
+      "$g$"
+    ],
+    "target": [
+      "$\\tau$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 2.13 (b) Compute the proper time for the occupants of a rocket ship to travel the 30,000 light years from the Earth to the center of the galaxy. Assume they maintain an acceleration of $1\\mathrm{g}$ for half the trip and decelerate at $1\\mathrm{g}$ for the remaining half.",
+    "answer": "20.6 years.",
+    "solution": "(b) To travel halfway requires $\\mathbf{x} = 15,000$ L.Y., or$$\\tau \\approx \\cos h^{- 1} (1 5, 0 0 0 + 1) \\mathrm {yr} \\approx 10. 3 \\mathrm {yr}. \\tag {10}$$The deceleration half of the trip is identical, so the total time is 20.6 years."
+  },
+  "verification": null
+}

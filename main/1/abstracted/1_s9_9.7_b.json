@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s9_9.7_b",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "curvature_tensor",
+      "coordinate": "dimension_reduction",
+      "scenario": "tensor_symmetry",
+      "method": "coordinate_invariant"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.7_b",
+    "source_id": "1_s9_9.7_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.7_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.3,
+      "rationale": "基于二维度规与曲率张量固有对称性进行缩并推导，逻辑链条完整且结论具普遍意义，但属纯微分几何模型缺乏具体物理观测背景",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$g_{\\alpha\\beta}$",
+      "$R$",
+      "$R_{\\alpha\\beta\\gamma\\delta}$"
+    ],
+    "target": [
+      "$R_{\\alpha\\beta\\gamma\\delta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.7. In a space of fewer than 4 dimensions simple expressions can be given for the Riemann tensor.(b) Express the Riemann tensor for a 2-dimensional space in terms of the metric and the Ricci scalar.",
+    "answer": "$R_{\\alpha \\beta \\gamma \\delta} = \\frac{1}{2} (g_{\\alpha \\gamma} g_{\\beta \\delta} - g_{\\alpha \\delta} g_{\\beta \\gamma}) R$",
+    "solution": "(b) In two dimensions the relations, due to symmetries, among the components of the Riemann tensor may be summarized in any coordinate system as$$R_{\\alpha \\beta \\gamma \\delta} = (g_{\\alpha \\gamma} g_{\\beta \\delta} - g_{\\alpha \\delta} g_{\\beta \\gamma}) f$$but$$\\mathbf {R} = \\mathbf {R}_{\\alpha \\beta}^{\\alpha \\beta} = (\\mathbf {g}_{\\alpha}^{\\alpha} \\mathbf {g}_{\\beta}^{\\beta} - \\mathbf {g}_{\\beta}^{\\alpha} \\mathbf {g}_{\\alpha}^{\\beta}) \\mathbf {f} = (4 - 2) \\mathbf {f} = 2 \\mathbf {f}.$$Thus, in any coordinate system$$\\mathsf {R}_{a \\beta \\gamma \\delta} = \\frac {1}{2} \\left(\\mathsf {g}_{a \\gamma} \\mathsf {g}_{\\beta \\delta} - \\mathsf {g}_{a \\delta} \\mathsf {g}_{\\beta \\gamma}\\right) \\mathsf {R} .$$"
+  },
+  "verification": null
+}

@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s19_19.2",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "curvature_tensor",
+      "coordinate": "Schwarzschild_coordinates",
+      "scenario": "vacuum_environment",
+      "method": "Birkhoff_theorem"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.2",
+    "source_id": "1_s19_19.2",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基于各向同性与球对称性结合Birkhoff定理进行多步逻辑推导，从真空条件到正则性要求层层递进，理论深度与完整性俱佳。",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$R^\\rho_{\\sigma\\mu\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.2. A spacetime contains no matter and is everywhere isotropic. Prove that it is flat Minkowski space.",
+    "answer": "Flat Minkowski space.",
+    "solution": "Solution 19.2. Since the spacetime is isotropic everywhere, it is in particular spherically symmetric around some nonsingular observer. But by Birkhoff's theorem (Problem 16.3) the only vacuum spherical solutions are the Schwarzschild metrics, and the only one which is regular at the origin - where our observer is - is the \\mathbf{M} = 0 case, i.e. flat Minkowski space."
+  },
+  "verification": null
+}

@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s2_2.13_a",
+    "type": "calculate",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "proper_acceleration",
+      "coordinate": "hyperbolic_motion",
+      "scenario": "reference_frames",
+      "method": "relativistic_kinematics"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.13_a",
+    "source_id": "1_s2_2.13_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.13_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "恒定固有加速度推导双曲运动方程，结合地球与火箭参考系条件进行积分换算，具备星际航行物理背景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$\\\\tau$",
+      "$g$"
+    ],
+    "target": [
+      "$x$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 2.13 (a) If a rocket has engines that give it a constant acceleration of $1 \\, \\text{g}$ (relative to its instantaneous inertial frame, of course), and the rocket starts from rest near the earth, how far from the earth (as measured in the earth's frame) will the rocket be in 40 years as measured on the earth? How far after 40 years as measured in the rocket?",
+    "answer": "Earth frame ($t=40$ yr): $x \\\\approx 39.01 \\\\text{L.Y.}$; Rocket frame ($\\\\tau=40$ yr): $x \\\\approx 10^{17} \\\\text{L.Y.}$",
+    "solution": "$$\\\\frac {\\\\mathrm {d}^{2} \\\\mathbf {u}^{\\\\mathbf {x}}}{\\\\mathrm {d} r^{2}} = \\\\frac {\\\\mathrm {d} \\\\mathbf {a}^{\\\\mathbf {x}}}{\\\\mathrm {d} r} = \\\\text bf {g} \\\\frac {\\\\mathrm {d} \\\\mathbf {u}^{\\\\mathbf {t}}}{\\\\mathrm {d} r} = \\\\text bf {g} \\\\mathbf {a}^{\\\\mathbf {t}} = \\\\text bf {g}^{2} \\\\mathbf {u}^{\\\\mathbf {x}},$$\\nwith solutions $\\mathbf{u}^{\\\\mathbf{x}} = \\\\mathbf{A}\\\\sin h \\\\mathbf{g}\\\\tau +\\\\mathbf{B}\\\\cos h \\\\mathbf{g}\\\\tau$ . Since the initial conditions on the motion are $\\mathbf{u}^{\\\\mathbf{x}} = 0,\\\\mathrm{d}\\\\mathbf{u}^{\\\\mathbf{x}} / \\\\mathrm{d}\\\\tau = \\\\mathbf{g},$ at $\\pmb {\\\\tau} = 0$ , u must be\\n$$\\n\\\\mathrm {u}^{\\\\mathrm {x}} = \\\\mathrm {d} x / \\\\mathrm {d} r = \\\\sin h \\\\mathrm {g} r. \\\\tag {6}\\n$$\\n$$\\nu^{t} = d t / d r = \\\\cos h g r \\\\quad (f r o m E q u a t i o n (1))\\n$$\\nThe integrals of these equations (with $\\mathbf{x} = \\\\mathbf{t} = 0$ at $\\tau = 0$ ) give us\\n$$\\n\\\\mathbf {x} = \\\\mathbf {g}^{- 1} (\\\\cos h \\\\mathbf {g} \\\\tau - 1) \\\\quad \\\\mathrm {t} = \\\\mathbf {g}^{- 1} (\\\\sin h \\\\mathbf {g} \\\\tau). \\\\tag {7}\\n$$\\nIn units with $c = 1$ , it turns out by numerical coincidence that $g(=980\\\\mathrm{cm/sec}^2)$ is almost exactly equal to one inverse year (as a time) or one inverse light-year (as a distance). Thus for 40 years as measured on Earth ( $t = 40$ yr), (7) gives\\n$$\\n\\\\tau \\\\approx [ \\\\sin h^{- 1} (4 0) ] \\\\mathrm {y r} \\\\approx 4. 3 8 \\\\mathrm {y r}\\n$$\\nand\\n$$\\n\\\\mathbf {x} \\\\approx [ \\\\cos h [ \\\\sin h^{- 1} (4 0) ] - 1 ] L. Y. \\\\approx 3 9. 0 1 L. Y. \\\\tag {8}\\n$$\\nFor 40 years in the rocket $\\tau = 40$ yr and from (7)\\n$$\\n\\\\mathbf {x} \\\\approx [ \\\\cos h (4 0) - 1 ] \\\\mathrm {L . Y}. \\\\approx 1 0^{1 7} \\\\mathrm {L . Y}. \\\\tag {9}\\n$$"
+  },
+  "verification": null
+}

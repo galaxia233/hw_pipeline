@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-2-2-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "g_tt",
+      "coordinate": "t,x,y,z",
+      "scenario": "anisotropic_field_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-2",
+      "1_s14_14.6-2-2",
+      "1_s14_14.6-2-2-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "DeSitter",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "\\partial_x g_{tt} = 0"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在一个具有沿 $x$ 方向引力场的时空中，坐标线元为 $ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}} dx^2 + e^{\\frac{2x}{\\alpha}} dy^2 + e^{\\frac{2x}{\\alpha}} dz^2$，其中 $\\alpha$ 为内禀参数。对于放置在此场中的静态物质分布，其在秤上测得的 $x$ 方向重量定义为 $W(x) = \\int T^{\\hat{x}\\hat{x}} dy dz$。理论推导表明，该时空的度规分量 $g_{tt}$ 必须满足几何约束条件 $\\partial_x g_{tt} = 0$（即时间度规分量与坐标 $x$ 无关）。请设计一个数值模拟方案，通过构造不同静态物质分布并测量其观测重量，来验证 $\\partial_x g_{tt} = 0$ 这一核心结论。要求：1. 明确模拟中需要构造的物质分布模型参数（需说明如何控制能量密度与横向应力的异同）；2. 写出计算重量 $W(x)$ 所需求解的物理方程；3. 给出若 $\\partial_x g_{tt} = 0$ 成立时，模拟应得到的预期数值结果。",
+    "answer": "1. 物质分布模型设计：构造两组静态物质分布（容器），放置在相同的 $x$ 位置。第一组具有高能量密度物理分量 $T^{\\hat{t}\\hat{t}}_1 = \\rho_1$，第二组具有低能量密度 $T^{\\hat{t}\\hat{t}}_2 = \\rho_2$（$\\rho_1 \\neq \\rho_2$）。关键控制变量：通过调节物质内部状态（例如选择不同密度的固体或流体材料），使得两组分布的横向应力物理分量严格相等，即 $T^{\\hat{y}\\hat{y}}_1 = T^{\\hat{y}\\hat{y}}_2$ 且 $T^{\\hat{z}\\hat{z}}_1 = T^{\\hat{z}\\hat{z}}_2$。2. 计算步骤与方程：求解能动张量守恒方程 $T^{\\alpha\\beta}_{;\\beta} = 0$ 的 $x$ 分量。展开为 $\\sqrt{-g}^{-1} \\partial_\\beta (\\sqrt{-g} T^{x\\beta}) + \\Gamma^x_{\\beta\\gamma} T^{\\beta\\gamma} = 0$。对于静态分布，对 $y,z$ 积分并利用边界条件（容器外部张量为零），提取观测重量 $W(x)$ 的表达式。将坐标分量转换为物理分量，方程中与能量密度相关的项为 $\\Gamma^x_{tt} \\int \\frac{T^{\\hat{t}\\hat{t}}}{|g_{tt}|} dy dz$。3. 预期结果：若 $\\partial_x g_{tt} = 0$ 成立，则 Christoffel 符号 $\\Gamma^x_{tt} = -\\frac{1}{2} g^{xx} \\partial_x g_{tt} = 0$。此时，重量计算方程中包含 $T^{\\hat{t}\\hat{t}}$ 的项完全消失。因此，预期数值结果为：尽管两组物质分布的总能量密度 $\\rho_1 \\neq \\rho_2$，但由于横向应力相等且 $\\Gamma^x_{tt}=0$，模拟测得的两组重量 $W_1(x)$ 与 $W_2(x)$ 必须严格相等，即 $\\Delta W = 0$，从而验证了 $\\partial_x g_{tt} = 0$ 的结论。",
+    "solution": "方案论证：核心结论 $\\partial_x g_{tt} = 0$ 在物理上等效于静态物质的 $x$ 方向重量完全独立于其能量密度 $T^{\\hat{t}\\hat{t}}$。数值模拟通过控制变量法，构造了横向应力相同但能量密度不同的两组物质分布。在能动张量守恒方程中，能量密度 $T^{\\hat{t}\\hat{t}}$ 对重量的贡献系数为 $\\Gamma^x_{tt}$，而 $\\Gamma^x_{tt} \\propto \\partial_x g_{tt}$。若模拟输出 $W_1(x) = W_2(x)$，则直接证伪了 $T^{\\hat{t}\\hat{t}}$ 对重量的影响，从而反推证实了系数 $\\Gamma^x_{tt} = 0$，即几何约束 $\\partial_x g_{tt} = 0$ 成立。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "1. **逻辑谬误（循环论证/验证已知前提）**：题目要求设计数值模拟方案来验证核心结论 $\\partial_x g_{tt} = 0$。然而，题目直接给出的度规线元为 $ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}} dx^2 + ...$，这已经显式确定了 $g_{tt} = -1$。因此 $\\partial_x g_{tt} = 0$ 是直接从给定度规求导得出的已知数学事实，无需任何物理模拟来“验证”，更不能作为“必须满足的几何约束条件”或“核心结论”。答案与解答试图通过模拟物质重量来“反推证实” $\\partial_x g_{tt} = 0$，属于严重的循环论证。\\n2. **物理场景矛盾**：题目声称该时空“具有沿 $x$ 方向引力场”，但若 $\\partial_x g_{tt} = 0$，则沿 $x$ 方向的自由落体加速度 $\\Gamma^x_{tt} = -\\frac{1}{2}g^{xx}\\partial_x g_{tt} = 0$，这意味着沿 $x$ 方向根本没有引力场（无引力加速度），与题目的物理前提直接矛盾。\\n3. **度规与摘要严重不符/量纲错误**：摘要声称该度规为 DeSitter 度规且 Kretschmann 标量为 $\\frac{12}{\\alpha^{2}}$。但题目给出的度规指数为空间坐标 $x$（$e^{\\frac{2x}{\\alpha}}$），这是静态平面对称度规，绝非 De Sitter 度规（De Sitter 的膨胀切片依赖时间坐标 $t$，即 $e^{\\frac{2t}{\\alpha}}$）。此外，Kretschmann 标量 $\\frac{12}{\\alpha^{2}}$ 存在量纲错误：度规参数 $\\alpha$ 具有长度量纲，Kretschmann 标量应具有 $L^{-4}$ 量纲（即正比于 $1/\\alpha^4$），而非 $1/\\alpha^2$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-3",
+    "type": "prove",
+    "tags": {
+      "target_object": "innermost_stable_circular_orbit",
+      "coordinate": "schwarzschild",
+      "scenario": "black_hole",
+      "method": "effective_potential",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$V_{eff}(r)$",
+      "$r_{ISCO}$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In the Schwarzschild black hole spacetime, the line element is given by:$$ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2{\\theta} d\\phi^2$$The time translation Killing vector $\\xi^\\mu_{(t)} = (1,0,0,0)$ and the rotation Killing vector $\\xi^\\mu_{(\\phi)} = (0,0,0,1)$ give rise to conserved currents $J^\\mu_E = T^\\mu_\\nu \\xi^\\nu_{(t)}$ and $J^\\mu_L = T^\\mu_\\nu \\xi^\\nu_{(\\phi)}$. As established by the conservation of these currents, the integral over a spacelike hypersurface yields the conserved specific energy $E = -g_{tt} \\dot{t}$ and specific angular momentum $L = g_{\\phi\\phi} \\dot{\\phi}$ for a test particle.Consider a massive test particle confined to the equatorial plane $\\theta = \\pi/2$. Using these conserved quantities and the timelike normalization condition $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$, derive the effective radial potential $V_{eff}(r)$ such that $\\dot{r}^2 = E^2 - V_{eff}(r)$, and determine the radius $r_{ISCO}$ of the innermost stable circular orbit in terms of the Schwarzschild radius $r_s$.",
+    "answer": "$V_{eff}(r) = \\left(1 - \\frac{r_s}{r}\\right) \\left(1 + \\frac{L^2}{r^2}\\right)$, $r_{ISCO} = 3 r_s$",
+    "solution": "1. From the conserved currents and Killing vectors, the specific energy and specific angular momentum for a test particle are:$$E = -g_{tt} \\dot{t} = \\frac{r - r_s}{r} \\dot{t}$$$$L = g_{\\phi\\phi} \\dot{\\phi} = r^2 \\sin^2{\\theta} \\dot{\\phi}$$2. For a particle in the equatorial plane, $\\theta = \\pi/2$, so $\\sin \\theta = 1$ and $\\dot{\\theta} = 0$. This gives:$$\\dot{t} = \\frac{r E}{r - r_s}$$$$\\dot{\\phi} = \\frac{L}{r^2}$$3. The normalization condition for a massive particle is $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$. Expanding using the metric:$$-\\frac{r - r_s}{r} \\dot{t}^2 + \\frac{r}{r - r_s} \\dot{r}^2 + r^2 \\dot{\\phi}^2 = -1$$4. Substitute $\\dot{t}$ and $\\dot{\\phi}$ into the normalization condition:$$-\\frac{r - r_s}{r} \\left( \\frac{r E}{r - r_s}\\right)^2 + \\frac{r}{r - r_s} \\dot{r}^2 + r^2 \\left( \\frac{L}{r^2}\\right)^2 = -1$$5. Simplify the equation:$$-\\frac{r E^2}{r - r_s} + \\frac{r}{r - r_s} \\dot{r}^2 + \\frac{L^2}{r^2} = -1$$6. Multiply both sides by $\\frac{r - r_s}{r}$:$$-E^2 + \\dot{r}^2 + \\frac{(r - r_s) L^2}{r^3} = -\\frac{r - r_s}{r}$$7. Rearrange for $\\dot{r}^2$:$$\\dot{r}^2 = E^2 - \\frac{r - r_s}{r} \\left( 1 + \\frac{L^2}{r^2}\\right)$$8. By definition, $\\dot{r}^2 = E^2 - V_{eff}(r)$, so the effective radial potential is:$$V_{eff}(r) = \\left( 1 - \\frac{r_s}{r}\\right) \\left( 1 + \\frac{L^2}{r^2}\\right)$$9. For a circular orbit, we require $\\dot{r} = 0$ and $\\frac{d V_{eff}}{d r} = 0$. The first condition gives $E^2 = V_{eff}$. The second condition gives:$$V_{eff}'(r) = \\frac{r_s}{r^2} \\left( 1 + \\frac{L^2}{r^2}\\right) + \\left( 1 - \\frac{r_s}{r}\\right) \\left( -\\frac{2 L^2}{r^3}\\right) = \\frac{r_s}{r^2} - \\frac{2 L^2}{r^3} + \\frac{3 r_s L^2}{r^4} = 0$$10. Multiplying by $\\frac{r^4}{r_s}$ gives the equation for $L^2$:$$r^2 - \\frac{2 L^2}{r_s} r + 3 L^2 = 0 \\implies L^2 = \\frac{r_s r^2}{2 r - 3 r_s}$$11. The innermost stable circular orbit (ISCO) corresponds to the marginal stability condition, which requires the second derivative of the effective potential to be zero: $V_{eff}''(r) = 0$.12. Compute the second derivative:$$V_{eff}''(r) = -\\frac{2 r_s}{r^3} + \\frac{6 L^2}{r^4} - \\frac{12 r_s L^2}{r^5}$$13. Substitute $L^2 = \\frac{r_s r^2}{2 r - 3 r_s}$ into $V_{eff}''(r)$:$$V_{eff}''(r) = -\\frac{2 r_s}{r^3} + \\frac{6}{r^4} \\left( \\frac{r_s r^2}{2 r - 3 r_s}\\right) - \\frac{12 r_s}{r^5} \\left( \\frac{r_s r^2}{2 r - 3 r_s}\\right)$$$$V_{eff}''(r) = \\frac{r_s}{r^3 (2 r - 3 r_s)} \\left[ -2 (2 r - 3 r_s) + 6 r - 12 r_s\\right]$$$$V_{eff}''(r) = \\frac{r_s}{r^3 (2 r - 3 r_s)} \\left[ 2 r - 6 r_s\\right] = \\frac{2 r_s (r - 3 r_s)}{r^3 (2 r - 3 r_s)}$$14. Setting $V_{eff}''(r) = 0$, we find that the numerator must vanish, giving:$$r - 3 r_s = 0 \\implies r_{ISCO} = 3 r_s$$"
+  },
+  "verification": null
+}

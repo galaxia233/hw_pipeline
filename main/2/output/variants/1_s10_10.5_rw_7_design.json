@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-7-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "Killing_vector_phi",
+      "coordinate": "cylindrical_like",
+      "scenario": "symmetry_verification_design",
+      "method": "numerical_experiment",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-7",
+      "1_s10_10.5-7-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "设计数值实验方案验证 $\\xi_{(\\phi)}^\\mu = (0, 0, 0, 1)$ 满足 Killing 方程"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一类具有特殊空间几何的时空，其度规定义为 $ds^2 = -dt^2 + dr^2 + k^2 r^2 d\\theta^2 + k^2 r^2 \\sin^2\\theta d\\phi^2$，其中 $k$ 为常数。理论分析指出，该度规具有绕 $\\phi$ 轴的旋转对称性，对应的 Killing 矢量逆变分量为 $\\xi_{(\\phi)}^\\mu = (0, 0, 0, 1)$，它应当满足 Killing 方程 $\\nabla_\\mu \\xi_{(\\phi)\\nu} + \\nabla_\\nu \\xi_{(\\phi)\\mu} = 0$。请设计一个数值实验方案，从零开始通过离散化坐标空间并计算相关张量分量，来验证该矢量确实满足 Killing 方程，从而确认度规的轴对称性。",
+    "answer": "**数值实验方案步骤：**1. **网格构建**：在选定区域（如 $r \\in [r_0, R], \\theta \\in [\\theta_0, \\pi-\\theta_0]$ 避开奇点）内构建离散坐标网格，设定步长 $\\Delta r$ 和 $\\Delta \\theta$。2. **度规与逆变度规计算**：在网格节点上计算度规分量 $g_{\\mu\\nu}$ 及其逆 $g^{\\mu\\nu}$。3. **矢量分量降阶**：利用 $g_{\\mu\\nu}$ 将 Killing 矢量逆变分量 $\\xi^\\mu=(0,0,0,1)$ 转化为协变分量 $\\xi_\\nu = g_{\\nu 3}$，得到 $\\xi_\\phi = k^2 r^2 \\sin^2\\theta$，其余为0。4. **Christoffel 符号计算**：在节点上计算第二类 Christoffel 符号 $\\Gamma^\\lambda_{\\mu\\nu}$，重点关注与 $\\xi_\\phi$ 相关的非零分量 $\\Gamma^3_{13} = 1/r$ 和 $\\Gamma^3_{23} = 1/\\tan\\theta$。5. **协变导数数值计算**：利用中心差分法计算偏导数 $\\partial_\\mu \\xi_\\nu$，并结合 Christoffel 符号计算协变导数 $\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu - \\Gamma^\\lambda_{\\mu\\nu} \\xi_\\lambda$。6. **Killing 方程组合计算**：计算对称张量 $K_{\\mu\\nu} = \\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu$。重点验证非平庸分量 $(r, \\phi)$ 和 $(\\theta, \\phi)$。7. **预期结果**：在所有网格节点上，$K_{\\mu\\nu}$ 的各分量均应在数值误差容限（如 $10^{-6}$）内趋近于0，特别是 $K_{r\\phi}$ 和 $K_{\\theta\\phi}$ 应精确为0，验证 $\\xi_{(\\phi)}$ 是 Killing 矢量。",
+    "solution": "本方案通过数值离散化实现了 Killing 方程的计算机验证。由于 $\\xi_\\nu$ 仅在 $\\phi$ 分量非零且依赖 $r$ 和 $\\theta$，Killing 方程的非平庸分量只涉及 $\\nabla_r \\xi_\\phi$ 和 $\\nabla_\\theta \\xi_\\phi$。数值计算中心差分能精确逼近解析偏导数 $\\partial_r \\xi_\\phi = 2k^2 r \\sin^2\\theta$ 和 $\\partial_\\theta \\xi_\\phi = 2k^2 r^2 \\sin\\theta \\cos\\theta$，再减去包含连接项 $\\Gamma^3_{13} \\xi_\\phi$ 和 $\\Gamma^3_{23} \\xi_\\phi$ 的贡献，其差值组合 $K_{r\\phi}$ 和 $K_{\\theta\\phi}$ 的解析结果严格为0。数值实验预期输出极小误差值，证明了离散计算与解析几何的吻合，从而可靠地验证了度规的轴对称性。"
+  },
+  "verification": null
+}

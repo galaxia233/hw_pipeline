@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "Komar_mass_vs_conserved_charge",
+      "coordinate": "general_static",
+      "scenario": "global_conservation",
+      "method": "tensor_integration",
+      "generalization_axis": "apply",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T^{\\\\alpha}_{\\\\beta}$",
+      "$\\\\xi^{\\\\beta}$",
+      "$\\\\Sigma_{\\\\alpha}$",
+      "$|g|$",
+      "$x^{a}$"
+    ],
+    "target": [
+      "$M_K$",
+      "$Q$",
+      "$T$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In a stationary spacetime with a timelike Killing vector field $\\xi^\\alpha$, previous analysis has established that the integral $Q = \\int_\\Sigma T^\\alpha_\\beta \\xi^\\beta d^3\\Sigma_\\alpha$ over any spacelike hypersurface $\\Sigma$ is independent of the choice of $\\Sigma$, thus defining a globally conserved charge (the total internal energy of the source).The gravitational mass of the spacetime can be characterized by the Komar mass, defined via a 2-surface integral at spatial infinity:$$ M_K = -\\frac{1}{8\\pi} \\oint_S \\nabla^\\alpha \\xi^\\beta dS_{\\alpha\\beta} $$Using the generalized Stokes theorem for antisymmetric tensors in 4-dimensions, $\\oint_S F^{\\alpha\\beta} dS_{\\alpha\\beta} = \\int_\\Sigma \\nabla_\\beta F^{\\alpha\\beta} d\\Sigma_\\alpha$, along with the Killing vector identity $\\nabla_\\beta \\nabla^\\alpha \\xi^\\beta = R^\\alpha_\\beta \\xi^\\beta$ and the Einstein field equations $R_{\\alpha\\beta} - \\frac{1}{2}R g_{\\alpha\\beta} = 8\\pi T_{\\alpha\\beta}$ (with $(-,+,+,+)$ signature), derive the explicit relationship between the Komar mass $M_K$, the conserved charge $Q$, and the trace of the energy-momentum tensor $T = T^\\alpha_\\alpha$.",
+    "answer": "$M_K = -Q + \\frac{1}{2} \\int_\\Sigma T \\xi^\\alpha d^3\\Sigma_\\alpha$",
+    "solution": "1. Apply the generalized Stokes theorem to the Komar mass boundary integral, identifying $F^{\\alpha\\beta} = \\nabla^\\alpha \\xi^\\beta$:$$ M_K = -\\frac{1}{8\\pi} \\oint_S \\nabla^\\alpha \\xi^\\beta dS_{\\alpha\\beta} = -\\frac{1}{8\\pi} \\int_\\Sigma \\nabla_\\beta (\\nabla^\\alpha \\xi^\\beta) d^3\\Sigma_\\alpha $$2. Substitute the Killing vector identity $\\nabla_\\beta \\nabla^\\alpha \\xi^\\beta = R^\\alpha_\\beta \\xi^\\beta$ into the volume integral:$$ M_K = -\\frac{1}{8\\pi} \\int_\\Sigma R^\\alpha_\\beta \\xi^\\beta d^3\\Sigma_\\alpha $$3. Use the Einstein field equations $R_{\\alpha\\beta} - \\frac{1}{2}R g_{\\alpha\\beta} = 8\\pi T_{\\alpha\\beta}$ to express the Ricci tensor in terms of the energy-momentum tensor:$$ R^\\alpha_\\beta = 8\\pi T^\\alpha_\\beta + \\frac{1}{2}R g^\\alpha_\\beta $$Multiply by $\\xi^\\beta$:$$ R^\\alpha_\\beta \\xi^\\beta = 8\\pi T^\\alpha_\\beta \\xi^\\beta + \\frac{1}{2}R \\xi^\\alpha $$4. Substitute this back into the expression for $M_K$:$$ M_K = -\\frac{1}{8\\pi} \\int_\\Sigma \\left( 8\\pi T^\\alpha_\\beta \\xi^\\beta + \\frac{1}{2}R \\xi^\\alpha\\right) d^3\\Sigma_\\alpha = - \\int_\\Sigma T^\\alpha_\\beta \\xi^\\beta d^3\\Sigma_\\alpha - \\frac{1}{16\\pi} \\int_\\Sigma R \\xi^\\alpha d^3\\Sigma_\\alpha $$5. Express the Ricci scalar $R$ in terms of the trace $T$. Contracting the Einstein equations with $g^{\\alpha\\beta}$ in the $(-,+,+,+)$ convention yields:$$ R - 2R = 8\\pi T \\implies -R = 8\\pi T \\implies R = -8\\pi T $$6. Substitute $R = -8\\pi T$ into the integral:$$ M_K = - \\int_\\Sigma T^\\alpha_\\beta \\xi^\\beta d^3\\Sigma_\\alpha - \\frac{1}{16\\pi} \\int_\\Sigma (-8\\pi T) \\xi^\\alpha d^3\\Sigma_\\alpha $$$$ M_K = - \\int_\\Sigma T^\\alpha_\\beta \\xi^\\beta d^3\\Sigma_\\alpha + \\frac{1}{2} \\int_\\Sigma T \\xi^\\alpha d^3\\Sigma_\\alpha $$7. Recognizing the first term as the conserved charge $Q$ defined in the premise, we arrive at the final relation:$$ M_K = -Q + \\frac{1}{2} \\int_\\Sigma T \\xi^\\alpha d^3\\Sigma_\\alpha $$"
+  },
+  "verification": null
+}

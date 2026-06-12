@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s5_5.33",
+    "type": "prove",
+    "tags": {
+      "metric": "thermodynamics",
+      "target_object": "adiabatic_process",
+      "coordinate": "equation_of_state",
+      "scenario": "perfect_gas",
+      "method": "cosmology_scenario"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.33",
+    "source_id": "1_s5_5.33",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.33"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于热力学第一定律与定熵导数关系的多步推导，逻辑链条完整且适用于宇宙学膨胀气体模型",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\gamma$",
+      "$p$",
+      "$n$",
+      "$K$",
+      "$\\rho$",
+      "$m$"
+    ],
+    "target": [],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.33. For a perfect Maxwell-Boltzmann gas, show that if $\\gamma$ is approximately constant in some regime of interest, then $p = Kn^{\\gamma}$ and $\\rho = mn + Kn^{\\gamma} / (\\gamma - 1)$ under adiabatic conditions. (K = constant, m = mass of particles.)",
+    "answer": "$p = Kn^{\\gamma}$ and $\\rho = mn + \\frac{Kn^{\\gamma}}{\\gamma - 1}$",
+    "solution": "Solution 5.33. From Problem 5.32,$$\\gamma = \\Gamma_{1} = \\left. \\frac {\\partial \\log p}{\\partial \\log n}\\right|_{s}$$so if $\\gamma =$ constant,$$\\mathbf {p} = \\mathbf {K n}^{\\gamma}.$$For adiabatic changes the first law of thermodynamics is$$\\mathrm {d} \\rho = \\frac {\\rho + \\mathrm {p}}{\\mathrm {n}} \\mathrm {d n} = \\left(\\frac {\\rho}{\\mathrm {n}} + \\mathrm {K n}^{\\gamma - 1}\\right) \\mathrm {d n},$$or$$\\frac {\\mathrm {d}}{\\mathrm {d} n} \\left(\\frac {\\rho}{n}\\right) = K n^{\\gamma - 2}$$so that the solution is$$\\frac {\\rho}{n} = \\frac {K n^{\\gamma - 1}}{\\gamma - 1} + c o n s t a n t.$$But when $\\mathfrak{n} \\to 0$ , then $\\rho / \\mathfrak{n} \\to \\mathfrak{m}$ , so$$\\rho = \\operatorname {m n} + \\frac {\\operatorname {K n}^{\\gamma}}{\\gamma - 1}.$$"
+  },
+  "verification": null
+}

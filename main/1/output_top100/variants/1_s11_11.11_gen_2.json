@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "\\Omega",
+      "coordinate": "spherical",
+      "scenario": "geodetic_precession",
+      "method": "limit_analysis",
+      "generalization_axis": "limit",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "limit",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\phi$",
+      "$M$",
+      "$\\mathbf{v}$",
+      "$\\mathbf{S}$",
+      "$h_j$",
+      "$\\Gamma_{\\hat{j}\\hat{k}\\hat{0}}$"
+    ],
+    "target": [
+      "\\Omega"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，绕非旋转球体质量 $M$ 做半径为 $r$ 的圆轨道运动的陀螺会产生测地进动，其进动角速度为 $\\Omega = \\frac{3 (GM)^{3/2}}{2 c^2 r^{5/2}}$。请从时空曲率与矢量平行移动的几何角度，论证为何在无质量极限（$M \\to 0$）下，该测地进动角速度 $\\Omega$ 必然衰减为零。",
+    "answer": "在无质量极限下 $\\Omega \\to 0$；因为 $M \\to 0$ 时时空恢复平直，曲率为零，矢量沿闭合路径平行移动不发生旋转，故测地进动必然消失。",
+    "solution": "1. 从数学表达式出发，进动角速度 $\\Omega = \\frac{3 (GM)^{3/2}}{2 c^2 r^{5/2}}$。当取无质量极限 $M \\to 0$ 时，由于分子中包含因子 $M^{3/2}$，而分母与 $M$ 无关，因此 $\\lim_{M \\to 0} \\Omega = 0$，即测地进动角速度严格衰减为零。2. 从几何角度论证：测地进动本质上是弯曲时空中的几何效应。在质量为 $M$ 的史瓦西时空中，空间截面具有非零曲率，导致自旋矢量沿圆轨道平行移动一周后累积一个转角。当 $M \\to 0$ 时，引力场消失，时空恢复为平直的闵可夫斯基时空，黎曼曲率张量 $R^{\\rho}_{\\sigma\\mu\\nu}$ 严格为零。在平直的欧几里得空间中，矢量沿任何闭合路径（包括圆轨道）平行移动后都不会发生方向改变，将严格回到初始方向。因此，陀螺自旋矢量相对遥远恒星保持固定，不产生任何进动，必然导致 $\\Omega = 0$。数学极限与几何退化性质完美对应。"
+  },
+  "verification": null
+}

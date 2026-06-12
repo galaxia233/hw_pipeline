@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-2-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "\\Omega",
+      "coordinate": "spherical",
+      "scenario": "geodetic_precession_verify",
+      "method": "limit_analysis",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-2",
+      "1_s11_11.11-2-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\phi$",
+      "$M$",
+      "$\\mathbf{v}$",
+      "$\\mathbf{S}$",
+      "$h_j$",
+      "$\\Gamma_{\\hat{j}\\hat{k}\\hat{0}}$"
+    ],
+    "target": [
+      "\\Omega 推导校验"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，绕非旋转球体质量 $M$ 做半径为 $r$ 的圆轨道运动的陀螺自旋矢量会产生测地进动。某学生给出了如下推导来论证其进动角速度 $\\Omega$ 及其物理意义：1. 基础方程与度规：陀螺自旋矢量 $S_\\mu$ 的演化由平行移动方程描述：$$\\frac{dS_\\mu}{d\\tau} + \\Gamma_{\\mu}^{\\alpha\\beta} u^\\alpha S_\\beta = 0$$ 其中 $u^\\alpha$ 为陀螺的四维速度。此运动发生在史瓦西时空中，其度规为：$$ds^2 = -\\left(1 - \\frac{2GM}{c^2 r}\\right)c^2 dt^2 + \\left(1 - \\frac{2GM}{c^2 r}\\right) dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$$2. 曲率与转角计算：在 $\\theta = \\pi/2$ 的圆轨道平面上，空间截面的二维黎曼曲率标量可计算得 $K = -\\frac{2GM}{c^2 r^3}$。自旋矢量沿闭合圆轨道平行移动一周后的转角 $\\Delta \\Phi$ 直接由曲率标量乘以轨道面积给出，即 $\\Delta \\Phi = K A$，其中圆面积 $A = \\pi r^2$。代入得：$$\\Delta \\Phi = -\\frac{2GM}{c^2 r^3} \\cdot \\pi r^2 = -\\frac{2\\pi GM}{c^2 r}$$3. 进动角速度：圆轨道的角速度为 $\\omega = \\sqrt{\\frac{GM}{r^3}}$，周期 $T = \\frac{2\\pi}{\\omega}$。测地进动角速度 $\\Omega = \\frac{\\Delta \\Phi}{T}$，代入得：$$\\Omega = -\\frac{(GM)^{3/2}}{c^2 r^{5/2}}$$4. 物理极限讨论：在无质量极限 $M \\to 0$ 下，由于上述推导中曲率 $K \\propto M$，面积 $A$ 与 $M$ 无关，因此 $\\Delta \\Phi \\propto M$，从而 $\\Omega \\propto M^{3/2}$。当 $M \\to 0$ 时，$\\Omega$ 严格衰减为零，这与时空恢复平直、曲率消失的物理直觉完全一致。已知正确的测地进动角速度应为 $\\Omega = \\frac{3 (GM)^{3/2}}{2 c^2 r^{5/2}}$。请仔细校验上述推导，找出并修正其中所有的错误（包括符号错误、系数遗漏、上下标混淆及度规分量错误等）。",
+    "answer": "推导中存在5处错误：1. **位置**：第1步平行移动方程；**类型**：上下标混淆；**正确值**：应为 $\\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{\\alpha\\beta} u^\\alpha S^\\beta = 0$（或对应的协变形式 $\\frac{dS_\\mu}{d\\tau} - \\Gamma^\\alpha_{\\mu\\beta} u^\\beta S_\\alpha = 0$），原式的 $\\Gamma_{\\mu}^{\\alpha\\beta}$ 记法错误且不符合张量演化规律。2. **位置**：第1步度规表达式；**类型**：度规分量错误；**正确值**：$g_{rr}$ 分量应为 $(1 - \\frac{2GM}{c^2 r})^{-1}$，而不是未求逆的 $(1 - \\frac{2GM}{c^2 r})$。3. **位置**：第2步曲率标量；**类型**：符号错误与系数错误；**正确值**：对应总进动转角的等效曲率应为正值 $K_{eff} = \\frac{3GM}{c^2 r^3}$，而不是 $-\\frac{2GM}{c^2 r^3}$。4. **位置**：第2步转角公式；**类型**：因子遗漏；**正确值**：平行移动转角公式应包含几何因子及 Thomas 进动修正，即 $\\Delta \\Phi = \\frac{3}{2} K_{spatial} A$（其中 $K_{spatial} = \\frac{2GM}{c^2 r^3}$ 为纯空间曲率贡献），而不是简单的 $\\Delta \\Phi = K A$。5. **位置**：第3步最终角速度；**类型**：符号错误与系数遗漏；**正确值**：最终结果应为正的 $\\Omega = \\frac{3 (GM)^{3/2}}{2 c^2 r^{5/2}}$, 而不是 $-\\frac{(GM)^{3/2}}{c^2 r^{5/2}}$。",
+    "solution": null
+  },
+  "verification": null
+}

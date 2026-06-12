@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "conserved_current",
+      "coordinate": "spherical",
+      "scenario": "cosmology",
+      "method": "tensor_calculation_limit",
+      "generalization_axis": "limit",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\dot{\\rho} + 3 \\frac{\\dot{a}}{a} (\\rho + p) = 0$",
+      "$\\partial_{\\mu} T^{\\mu}_0 = 0$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 FLRW 宇宙学度规下，描述宇宙内容物的理想流体能动张量为 $T^{\\mu\\nu} = (\\rho+p) u^{\\mu} u^{\\nu} + p g^{\\mu\\nu}$，其中共动观测者的四维速度为 $u^{\\mu} = (1,0,0,0)$。由于宇宙膨胀，一般不存在时间 Killing 矢量，能量不守恒。\\n\\n请推导该流体能量分量的协变守恒方程 $\\nabla_{\\mu} T^{\\mu}_0 = 0$ 的具体表达式，得到宇宙学连续性方程。然后，证明在静态平直时空极限（即标度因子 $a(t) \\to 1$ 且 $\\dot{a} \\to 0$，曲率参数 $k \\to 0$，且流体压强 $p \\to 0$ 的尘埃极限）下，该方程还原为经典的平直时空能量守恒方程 $\\dot{\\rho} = 0$，并说明这一退化结果与度规在此极限下恢复时间平移 Killing 矢量 $\\xi^{\\mu} = (1,0,0,0)$ 的物理联系。\\n\\n度规定义为：\\n$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$$",
+    "answer": "协变守恒方程展开为 $\\dot{\\rho} + 3 \\frac{\\dot{a}}{a} (\\rho + p) = 0$。在静态平直时空极限（$a \\to 1, \\dot{a} \\to 0, k \\to 0, p \\to 0$）下，方程退化为 $\\dot{\\rho} = 0$，这对应于度规恢复时间 Killing 矢量 $\\xi^{\\mu}=(1,0,0,0)$ 时，守恒流 $J^{\\mu} = T^{\\mu}_{\\nu} \\xi^{\\nu}$ 的普通导数守恒 $\\partial_{\\mu} T^{\\mu}_0 = 0$。",
+    "solution": "1. 计算能动张量分量：\\n对于共动观测者 $u^{\\mu}=(1,0,0,0)$，有 $u_0 = g_{00} u^0 = -1$。\\n能动张量分量为：\\n$T^{00} = (\\rho+p)(-1)(-1) + p(-1) = \\rho$\\n$T^{0i} = 0$\\n$T^{ij} = p g^{ij}$\\n\\n2. 计算协变导数 $\\nabla_{\\mu} T^{\\mu 0}$：\\n$\\nabla_{\\mu} T^{\\mu 0} = \\partial_{\\mu} T^{\\mu 0} + \\Gamma^{\\mu}_{\\mu \\lambda} T^{\\lambda 0} + \\Gamma^{0}_{\\mu \\lambda} T^{\\mu \\lambda}$\\n\\n由于 $T^{0i}=0$ 且 $g_{00}$ 与空间坐标无关，$\\partial_i T^{i0} = 0$。时间导数项为 $\\partial_0 T^{00} = \\dot{\\rho}$。\\n\\n3. 计算 Christoffel 符号项：\\n第一项 $\\Gamma^{\\mu}_{\\mu 0} T^{00}$：由于 $\\Gamma^{0}_{00}=0$，$\\Gamma^{1}_{10} = \\frac{\\dot{a}}{a}$，$\\Gamma^{2}_{20} = \\frac{\\dot{a}}{a}$，$\\Gamma^{3}_{30} = \\frac{\\dot{a}}{a}$，得到 $\\Gamma^{\\mu}_{\\mu 0} = 3 \\frac{\\dot{a}}{a}$。\\n所以 $\\Gamma^{\\mu}_{\\mu 0} T^{00} = 3 \\frac{\\dot{a}}{a} \\rho$。\\n\\n第二项 $\\Gamma^{0}_{\\mu \\lambda} T^{\\mu \\lambda}$：由于 $T^{0\\lambda}=0$ 且 $\\Gamma^{0}_{i0}=0$，只需计算 $\\Gamma^{0}_{ij} T^{ij}$：\\n$\\Gamma^{0}_{11} T^{11} = \\frac{a \\dot{a}}{1-kr^2} \\cdot p \\frac{1-kr^2}{a^2} = p \\frac{\\dot{a}}{a}$\\n$\\Gamma^{0}_{22} T^{22} = r^2 a \\dot{a} \\cdot p \\frac{1}{r^2 a^2} = p \\frac{\\dot{a}}{a}$\\n$\\Gamma^{0}_{33} T^{33} = r^2 a \\dot{a} \\sin^2\\theta \\cdot p \\frac{1}{r^2 a^2 \\sin^2\\theta} = p \\frac{\\dot{a}}{a}$\\n所以 $\\Gamma^{0}_{ij} T^{ij} = 3 p \\frac{\\dot{a}}{a}$。\\n\\n4. 合并所有项：\\n$\\dot{\\rho} + 3 \\frac{\\dot{a}}{a} \\rho + 3 \\frac{\\dot{a}}{a} p = 0$，即 $\\dot{\\rho} + 3 \\frac{\\dot{a}}{a} (\\rho+p) = 0$。\\n\\n5. 取静态平直时空极限：\\n当 $a(t) \\to 1$, $\\dot{a} \\to 0$, $k \\to 0$ 时，度规退化为 Minkowski 度规。此时宇宙停止膨胀，$3 \\frac{\\dot{a}}{a} (\\rho+p) \\to 0$。若同时取尘埃极限 $p \\to 0$，方程退化为：\\n$\\dot{\\rho} = 0$\\n\\n6. 物理联系解释：\\n在 Minkowski 极限下，时空恢复了时间平移对称性，对应的时间 Killing 矢量为 $\\xi^{\\mu} = (1,0,0,0)$。根据 Killing 矢量与能动张量构造守恒流的性质，$J^{\\mu} = T^{\\mu}_{\\nu} \\xi^{\\nu}$ 必须满足协变守恒 $\\nabla_{\\mu} J^{\\mu} = 0$。在平直时空极限下，协变导数退化为普通导数，且 $\\xi^{\\nu}$ 的0分量给出 $J^{\\mu} = T^{\\mu}_0$。因此 $\\partial_{\\mu} T^{\\mu}_0 = 0$ 即 $\\dot{\\rho} = 0$，这正是种子题中积分守恒律在平直时空极限下的直接体现。"
+  },
+  "verification": null
+}

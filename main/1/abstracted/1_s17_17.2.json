@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s17_17.2",
+    "type": "calculate",
+    "tags": {
+      "metric": "no_explicit_metric",
+      "target_object": "black_hole_mass",
+      "coordinate": "orbital_coordinate",
+      "scenario": "astrophysical_waste_disposal",
+      "method": "tidal_force_estimation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.2",
+    "source_id": "1_s17_17.2",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.3,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基于潮汐压力与材料强度的单步不等式估算，物理逻辑清晰但相对论深度较浅，方法可迁移至其他尺度物体",
+      "overall": 0.62
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$M$",
+      "$L$",
+      "$L'$",
+      "$h$",
+      "$\\\\epsilon$",
+      "$G$",
+      "$m$"
+    ],
+    "target": [
+      "$M$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 17.2. A suggested use of small $(\\\\ll \\\\mathbb{M}_{\\\\oplus})$ black holes is to crush junked automobiles into neat spherical balls by allowing them to partially collapse around a black hole. Estimate what mass hole, in orbit around the Earth, would be appropriate for this application. How many wrecks per hour could be processed?\\n\\n## Solution\\n\\nSolution 17.2. Suppose the car has mass $m$ and length $L$ before crushing and length $L'$ and \"lumpiness\" $h$ afterward, and the hole has mass $M$ . Suppose the internal stress per mass that steel can support is $\\\\epsilon (\\sim 0.1$ electron volt per nuclear mass; see Problem 5.6). Comparing gravitational pressure forces to internal stresses, we see that the conditions for crushing are\\n$$\\n\\\\left(\\\\frac {\\\\mathrm {G M}}{\\\\mathrm {L}^{2}}\\\\right) \\\\mathrm {L} > \\\\epsilon \\\\quad \\\\text {(c o n d i t i o n f o r c r u s h i n g t o b e g i n)} \\\\tag {1}\\n$$\\n$$\\n\\\\left(\\\\frac {\\\\mathrm {G M}}{\\\\mathrm {L}^{\\\\prime 2}}\\\\right) \\\\mathrm {h} > \\\\epsilon \\\\quad \\\\text {(c o n d i t i o n f o r l u m p s n o l a r g e r} \\\\quad \\\\text {t h a n h a f t e r c r u s h i n g e n d s)}. \\\\tag {2}\\n$$\\nSince cars typically crush to .1 of their original dimension, we see that the two inequalities are equivalent for $\\mathrm{h} / \\mathrm{L}' = .1$ , which is a reasonable value. Taking $\\mathrm{L}' \\sim 100\\mathrm{cm}$ and $\\epsilon \\sim 10^{9}\\mathrm{ergs/gm}$ gives $\\mathbf{M} \\geq 10^{18}\\mathbf{gm}$ .\\nThe time to crush a wreck is set by the free-fall time $(\\mathbf{L}^3 / \\mathbf{GM})^{\\frac{1}{2}} \\sim 10^{-5}$ sec, so on the order of $10^{8}$ can be processed per hour.\\n![](images/da43ea8bb883b4f6cd4f1906c883740953.jpg)\\n![](images/cfc1f7270a1e9eafcd11c827ad0663569101bb4b57efdb9ec1910b8a3.jpg)",
+    "answer": "$M \\\\geq 10^{18}\\\\,\\\\mathrm{gm}$; approximately $10^{8}$ wrecks per hour",
+    "solution": "Solution 17.2. Suppose the car has mass $m$ and length $L$ before crushing and length $L'$ and \"lumpiness\" $h$ afterward, and the hole has mass $M$ . Suppose the internal stress per mass that steel can support is $\\\\epsilon (\\sim 0.1$ electron volt per nuclear mass; see Problem 5.6). Comparing gravitational pressure forces to internal stresses, we see that the conditions for crushing are\\n$$\\n\\\\left(\\\\frac {\\\\mathrm {G M}}{\\\\mathrm {L}^{2}}\\\\right) \\\\mathrm {L} > \\\\epsilon \\\\quad \\\\text {(condition for crushing to begin)}\\n$$\\n$$\\n\\\\left(\\\\frac {\\\\mathrm {G M}}{\\\\mathrm {L}^{\\\\prime 2}}\\\\right) \\\\mathrm {h} > \\\\epsilon \\\\quad \\\\text {(condition for lumps no larger than h after crushing ends)}.\\n$$\\nSince cars typically crush to .1 of their original dimension, we see that the two inequalities are equivalent for $\\mathrm{h} / \\mathrm{L}' = .1$ , which is a reasonable value. Taking $\\mathrm{L}' \\sim 100\\\\mathrm{cm}$ and $\\epsilon \\\\sim 10^{9}\\\\mathrm{ergs/gm}$ gives $M \\\\geq 10^{18}\\\\mathrm{gm}$ .\\nThe time to crush a wreck is set by the free-fall time $(L^3 / GM)^{1/2} \\\\sim 10^{-5}$ sec, so on the order of $10^{8}$ can be processed per hour."
+  },
+  "verification": null
+}

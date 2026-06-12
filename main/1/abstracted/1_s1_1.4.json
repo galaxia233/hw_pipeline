@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s1_1.4",
+    "type": "calculate",
+    "tags": {
+      "metric": "Minkowski_flat_metric",
+      "target_object": "relative_velocity_synthesis",
+      "coordinate": "laboratory_inertial_coordinate",
+      "scenario": "relativistic_multi_cart_chain",
+      "method": "rapidity_linear_addition_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.4",
+    "source_id": "1_s1_1.4",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.5,
+      "rationale": "利用快度参数线性叠加推导多车相对论速度合成公式，物理逻辑严密且解答步骤完整",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$v_n$",
+      "$\\beta$",
+      "$n$",
+      "$\\theta$"
+    ],
+    "target": [
+      "$v_n$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.4. A cart rolls on a long table with velocity $\\beta$ . A smaller cart rolls on the first cart in the same direction with velocity $\\beta$ relative to the first cart. A third cart rolls on the second cart in the same direction with relative velocity $\\beta$ , and so on up to $n$ carts. What is the velocity $v_{n}$ of the $n$ th cart in the frame of the table? What does $v_{n}$ tend to as $n \\to \\inf ty$ ?",
+    "answer": "$v_n = \\frac{1 - [(1 - \\beta)/(1 + \\beta)]^n}{1 + [(1 - \\beta)/(1 + \\beta)]^n}$, $\\lim_{n\\to\\inf ty} v_n = 1$",
+    "solution": "We use the fact that in one dimension the \"rapidity parameter\" $\\theta \\equiv \\tan h^{-1} v$ adds linearly. Thus $\\tan h^{-1} v_n = \\theta_n = n\\theta = n \\tan h^{-1} \\beta$ , or$$\\begin{array}{l} v_{n} = \\tan h (n \\tan h^{- 1} \\beta) \\\\= \\tan h \\log \\left(\\frac {1 + \\beta}{1 - \\beta}\\right)^{n / 2} \\quad (\\text {e a s i l y v e r i f i e d !}) \\\\= \\frac {1 - [ (1 - \\beta) / (1 + \\beta) ]^{n}}{1 + [ (1 - \\beta) / (1 + \\beta) ]^{n}}.\\end{array}$$As $n\\to \\inf ty$ , $[(1 - \\beta) / (1 + \\beta)]^{\\mathfrak{n}}\\to 0$ and $\\mathbf{v}_{\\mathfrak{n}}\\rightarrow \\mathbf{1}$ , the speed of light."
+  },
+  "verification": null
+}

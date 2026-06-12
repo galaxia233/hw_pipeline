@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "coordinate angular velocity of circular orbit",
+      "coordinate": "Schwarzschild",
+      "scenario": "black hole",
+      "method": "geodesic equation",
+      "generalization_axis": "extend",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\Omega$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑 Schwarzschild 黑洞时空，其度规为 $ds^2 = -\\frac{r-r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s = 2M$ 为 Schwarzschild 半径。一个测试粒子在该黑洞的赤道面 ($\\theta = \\pi/2$) 上做稳定的圆轨道自由运动（即满足径向速度和加速度为零：$\\dot{r}=0, \\ddot{r}=0$，且 $\\dot{\\theta}=0$）。请根据测地线方程推导该粒子相对于远处静止观察者的坐标角速度 $\\Omega = \\dot{\\phi}/\\dot{t}$ 的表达式。",
+    "answer": "$\\Omega = \\sqrt{\\frac{r_s}{2r^2}} = \\sqrt{\\frac{M}{r^3}}$",
+    "solution": "写下测地线方程的一般形式 $\\ddot{x}^\\mu + \\Gamma^\\mu_{\\alpha\\beta} \\dot{x}^\\alpha \\dot{x}^\\beta = 0$。对于径向分量 $\\mu = 1$ (对应坐标 $r$)，有：\\n$\\ddot{r} + \\Gamma^1_{00} (\\dot{t})^2 + \\Gamma^1_{11} (\\dot{r})^2 + \\Gamma^1_{22} (\\dot{\\theta})^2 + \\Gamma^1_{33} (\\dot{\\phi})^2 + 2\\Gamma^1_{01} \\dot{t}\\dot{r} + 2\\Gamma^1_{12} \\dot{r}\\dot{\\theta} + 2\\Gamma^1_{13} \\dot{r}\\dot{\\phi} = 0$。\\n代入圆轨道条件 $\\dot{r}=0, \\ddot{r}=0, \\dot{\\theta}=0$，方程大大简化，仅保留含有 $\\dot{t}$ 和 $\\dot{\\phi}$ 的项：\\n$\\Gamma^1_{00} (\\dot{t})^2 + \\Gamma^1_{33} (\\dot{\\phi})^2 = 0$。\\n将 Christoffel 符号 $\\Gamma^1_{00} = \\frac{r_s(r-r_s)}{2r^3}$ 和 $\\Gamma^1_{33} = (-r+r_s)\\sin^2(\\theta)$ 代入。在赤道面 $\\theta = \\pi/2$ 处，$\\sin^2(\\theta) = 1$，故 $\\Gamma^1_{33} = r_s - r$。\\n于是得到：\\n$\\frac{r_s(r-r_s)}{2r^3} (\\dot{t})^2 + (r_s - r) (\\dot{\\phi})^2 = 0$。\\n由于稳定圆轨道在黑洞视界之外，满足 $r > r_s$，可以提取并消去非零因子 $(r-r_s)$：\\n$\\frac{r_s}{2r^3} (\\dot{t})^2 - \\frac{1}{r} (\\dot{\\phi})^2 = 0$。\\n整理得 $\\frac{r_s}{2r^2} (\\dot{t})^2 = (\\dot{\\phi})^2$，因此坐标角速度为 $\\Omega = \\frac{\\dot{\\phi}}{\\dot{t}} = \\sqrt{\\frac{r_s}{2r^2}} = \\sqrt{\\frac{M}{r^3}}$。"
+  },
+  "verification": null
+}

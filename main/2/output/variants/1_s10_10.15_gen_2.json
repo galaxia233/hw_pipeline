@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "minimum_energy_at_infinity",
+      "coordinate": "general",
+      "scenario": "weak_field_limit",
+      "method": "taylor_expansion",
+      "generalization_axis": "limit",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "limit",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\xi$",
+      "$\\mathbf{E}$",
+      "$\\mathbf{p}$",
+      "$\\mu$"
+    ],
+    "target": [
+      "$\\mathbf{E}_{min}$",
+      "$\\Phi$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，对于具有时间 Killing 矢量 $\\boldsymbol{\\xi} = \\partial_t$ 的稳态时空，质量为 $\\mu$ 的测试粒子在时空某点所能具有的最小“无限远能量”为 $\\mathbf{E}_{min}/\\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$。考虑该时空的弱场极限区域，此时度规的时间分量可近似为 $g_{tt} \\approx -(1 + 2\\Phi)$，其中 $\\Phi$ 为牛顿引力势（取无穷远处为零势能参考点，且满足弱场条件 $|\\Phi| \\ll 1$）。请证明在该弱场极限下，最小能量 $\\mathbf{E}_{min}$ 退化为 $\\mu(1 + \\Phi)$，并解释为何该退化结果精确对应了牛顿力学中静止粒子在该点的总机械能（包含静止质量能）。",
+    "answer": "$\\mathbf{E}_{min} \\approx \\mu(1 + \\Phi)$，其中 $\\mu$ 对应静止质量能 $mc^2$（自然单位制下为 $\\mu$），$\\mu \\Phi$ 对应牛顿引力势能，无动能项，故精确对应牛顿力学中静止粒子的总机械能。",
+    "solution": "1. 已知最小无限远能量表达式为 $\\mathbf{E}_{min}/\\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$。对于时间 Killing 矢量 $\\boldsymbol{\\xi} = \\partial_t$，其内积为 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g_{tt}$，因此 $\\mathbf{E}_{min}/\\mu = \\sqrt{-g_{tt}}$。2. 在弱场极限下，度规时间分量近似为 $g_{tt} \\approx -(1 + 2\\Phi)$，代入得：   $\\mathbf{E}_{min}/\\mu = \\sqrt{-( -(1 + 2\\Phi) )} = \\sqrt{1 + 2\\Phi}$。3. 由于弱场条件 $|\\Phi| \\ll 1$，对上式进行泰勒展开（一阶近似）：   $\\sqrt{1 + 2\\Phi} \\approx 1 + \\Phi$。4. 因此，最小能量退化为：   $\\mathbf{E}_{min} \\approx \\mu(1 + \\Phi) = \\mu + \\mu \\Phi$。5. 物理解释：在自然单位制（$c=1$）下，粒子的静止质量 $\\mu$ 即为其静止能量 $E_{rest} = \\mu c^2 = \\mu$；$\\mu \\Phi$ 是牛顿力学中粒子在该点的引力势能（以无穷远为零势能点）。粒子在时空某点达到最小无限远能量，意味着其局部速度为零（局部静止），因此不包含动能项。综上，$\\mathbf{E}_{min} = \\mu + \\mu \\Phi$ 精确对应了牛顿力学中静止粒子包含静止质量能的总机械能（即静止能量与引力势能之和）。"
+  },
+  "verification": null
+}

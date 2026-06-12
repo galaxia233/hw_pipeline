@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_2",
+    "type": "calculate",
+    "tags": {
+      "metric": "vacuum_energy",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "quantum_fluctuations",
+      "scenario": "observational_constraints",
+      "method": "compton_wavelength"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.4_2",
+    "source_id": "1_s13_13.4_2",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.4_2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.4,
+      "realism": 0.9,
+      "rationale": "基于康普顿波长估算真空能密度并与观测边界对比，涉及跨尺度物理推理与宇宙学常数问题背景",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$c$",
+      "$\\hbar$",
+      "$m_p$",
+      "$m_e$",
+      "$\\lambda_C$",
+      "$\\rho$"
+    ],
+    "target": [
+      "$T_{00}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 13.4. In relativistic quantum mechanics empty space contains virtual particles. It is speculated that the vacuum therefore, has a nonzero stress-energy.(2) Suppose that the vacuum energy is due to the rest mass of virtual protons or electrons, produced with an average spacing of their Comp- ton wavelength. Is such vacuum stress-energy ruled out by observa- tions?",
+    "answer": "是，该模型估计的真空能量密度约为 $10^{96}\\,\\text{kg/m}^3$，比实际天文观测上限高出超过120个数量级，因此被观测严格排除。",
+    "solution": null
+  },
+  "verification": null
+}

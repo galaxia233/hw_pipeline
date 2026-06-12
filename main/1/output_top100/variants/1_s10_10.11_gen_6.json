@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-6",
+    "type": "calculate",
+    "tags": {
+      "target_object": "守恒流 J^mu",
+      "coordinate": "t, x, y, z",
+      "scenario": "cosmology",
+      "method": "tensor_algebra",
+      "generalization_axis": "extend",
+      "metric": "Godel"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "Godel",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$J^0$",
+      "$J^1$",
+      "$J^2$",
+      "$J^3$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "-exp(sqrt(2)*omega*x)",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "-exp(sqrt(2)*omega*x)",
+        "0",
+        "-exp(2*sqrt(2)*omega*x)/2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Gödel 度规描述了一个均匀旋转的宇宙模型，其线元为 $ds^2 = -dt^2 + dx^2 - 2 e^{\\sqrt{2} \\omega x} dt dy + dz^2 - \\frac{1}{2} e^{2 \\sqrt{2} \\omega x} dy^2$。已知该时空具有一个类时 Killing 矢量 $\\xi^\\mu = (1, 0, 0, 0)$。根据 Killing 矢量与能动张量 $\\mathbf{T}$ 构造的流 $J^\\mu = T^{\\mu\\nu} \\xi_\\nu$ 在理论上是一个守恒量。若假设该时空的 Einstein 张量直接对应能动张量（取 $T_{\\mu\\nu} = G_{\\mu\\nu}$），请计算该守恒流的四维分量表达式 $J^\\mu$，并基于度规的交叉项 $g_{02}$ 解释为什么能量流在 $y$ 方向的分量 $J^2$ 不为零。",
+    "answer": "$J^0 = \\omega^2 + 2\\omega^2 e^{2\\sqrt{2}\\omega x}$, $J^1 = 0$, $J^2 = -\\omega^2 e^{\\sqrt{2}\\omega x}$, $J^3 = 0$；$J^2$ 不为零是因为度规交叉项 $g_{02}$ 导致时间平移与 $y$ 方向平移发生耦合，宇宙的整体旋转使得时间平移对称性伴随着沿旋转轴向的能量-动量转移。",
+    "solution": "1. 首先求出 Killing 矢量的协变分量 $\\xi_\\nu = g_{\\nu\\mu} \\xi^\\mu$。由于 $\\xi^\\mu = (1,0,0,0)$，我们有 $\\xi_\\nu = g_{\\nu 0}$。根据度规矩阵，可得 $\\xi_0 = -1$, $\\xi_1 = 0$, $\\xi_2 = -e^{\\sqrt{2}\\omega x}$, $\\xi_3 = 0$。2. 计算度规的逆矩阵 $g^{\\mu\\nu}$。对于存在交叉项 $g_{02}$ 的 $t-y$ 子矩阵，求逆可得 $g^{00} = 1$, $g^{02} = g^{20} = -2 e^{-\\sqrt{2}\\omega x}$, $g^{22} = 2 e^{-2\\sqrt{2}\\omega x}$；其余分量为 $g^{11} = 1$, $g^{33} = 1$。3. 根据定义 $J^\\mu = T^{\\mu\\nu} \\xi_\\nu = g^{\\mu\\alpha} T_{\\alpha\\nu} \\xi_\\nu$，代入 $T_{\\alpha\\nu} = G_{\\alpha\\nu}$：   - 计算 $T_{\\alpha\\nu} \\xi_\\nu = T_{\\alpha 0} \\xi_0 + T_{\\alpha 2} \\xi_2$：     $\\alpha=0$: $G_{00}(-1) + G_{02}(-e^{\\sqrt{2}\\omega x}) = -\\omega^2 - \\omega^2 e^{2\\sqrt{2}\\omega x}$     $\\alpha=1$: 0     $\\alpha=2$: $G_{20}(-1) + G_{22}(-e^{\\sqrt{2}\\omega x}) = -\\omega^2 e^{\\sqrt{2}\\omega x} - \\frac{3}{2}\\omega^2 e^{3\\sqrt{2}\\omega x}$     $\\alpha=3$: 0   - 计算 $J^\\mu = g^{\\mu\\alpha} (T_{\\alpha\\nu} \\xi_\\nu)$：     $J^0 = g^{00}(-\\omega^2 - \\omega^2 e^{2\\sqrt{2}\\omega x}) + g^{02}(-\\omega^2 e^{\\sqrt{2}\\omega x} - \\frac{3}{2}\\omega^2 e^{3\\sqrt{2}\\omega x}) = -\\omega^2 - \\omega^2 e^{2\\sqrt{2}\\omega x} + 2\\omega^2 + 3\\omega^2 e^{2\\sqrt{2}\\omega x} = \\omega^2 + 2\\omega^2 e^{2\\sqrt{2}\\omega x}$     $J^1 = 0$     $J^2 = g^{20}(-\\omega^2 - \\omega^2 e^{2\\sqrt{2}\\omega x}) + g^{22}(-\\omega^2 e^{\\sqrt{2}\\omega x} - \\frac{3}{2}\\omega^2 e^{3\\sqrt{2}\\omega x}) = 2\\omega^2 e^{-\\sqrt{2}\\omega x} + 2\\omega^2 e^{\\sqrt{2}\\omega x} - 2\\omega^2 e^{-\\sqrt{2}\\omega x} - 3\\omega^2 e^{\\sqrt{2}\\omega x} = -\\omega^2 e^{\\sqrt{2}\\omega x}$     $J^3 = 0$4. 物理意义解释：在 Gödel 宇宙中，度规交叉项 $g_{02} \\neq 0$ 反映了时空的旋转结构。这使得时间平移对称性与沿 $y$ 轴的空间平移发生耦合（$\\xi_2$ 不为零）。因此，类时 Killing 矢量不仅体现了时间方向的能量密度流，也必然伴随沿 $y$ 方向的能量流分量 $J^2$。这表示在旋转宇宙中，静止观察者的时间演化必然携带沿旋转轴的动量转移，这正是全局旋转时空的固有特征。"
+  },
+  "verification": null
+}

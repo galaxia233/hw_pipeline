@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s8_8.12_b",
+    "type": "prove",
+    "tags": {
+      "metric": "orthonormal_frame",
+      "target_object": "connection_coefficients",
+      "coordinate": "antisymmetry",
+      "scenario": "metric_compatibility",
+      "method": "tetrad_formalism"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.12_b",
+    "source_id": "1_s8_8.12_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.12_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "利用正交标架下度规协变导数为零及乘积法则推导联络系数反对称性，逻辑严密且为微分几何标准结论",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\gamma$",
+      "$\\\\mu$"
+    ],
+    "target": [
+      "$\\\\Gamma_{\\\\alpha \\\\beta \\\\gamma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "# Problem 8.12.\\n(b) Show that in an orthonormal frame, $\\Gamma_{\\alpha \\beta \\gamma}$ is antisymmetric on the first two indices.",
+    "answer": "$\\\\Gamma_{\\\\alpha \\\\beta \\\\gamma} = -\\\\Gamma_{\\\\beta \\\\alpha \\\\gamma}$",
+    "solution": "(b) In an orthonormal frame\\n$$\\n\\\\begin{array}{l} \\\\Gamma_{\\\\mu \\\\alpha \\\\beta} + \\\\Gamma_{\\\\alpha \\\\mu \\\\beta} = \\\\mathbf {e}_{\\\\mu} \\\\cdot \\\\nabla_{\\\\beta} \\\\mathbf {e}_{\\\\alpha} + \\\\mathbf {e}_{\\\\alpha} \\\\cdot \\\\nabla_{\\\\beta} \\\\mathbf {e}_{\\\\mu} \\\\\\\\\\n= \\\\nabla_{\\\\beta} \\\\left(\\\\mathbf {e}_{\\\\mu} \\\\cdot \\\\mathbf {e}_{\\\\alpha}\\\\right) = \\\\nabla_{\\\\beta} \\\\left(\\\\eta_{\\\\mu a}\\\\right) = 0. \\\\\\\\\\n\\\\end{array}\\n$$"
+  },
+  "verification": null
+}

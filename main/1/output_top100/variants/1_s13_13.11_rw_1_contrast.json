@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "id": "1_s13_13.11-1-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "proper_acceleration_magnitude",
+      "coordinate": "mixed",
+      "scenario": "stationary_observer_contrast",
+      "method": "killing_vector_normalization_and_covariant_derivative",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.11",
+      "1_s13_13.11-1",
+      "1_s13_13.11-1-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$|a|_A$",
+      "$|a|_B$",
+      "$1/\\sqrt{-g_{00}}$"
+    ],
+    "metric": [
+      [
+        "$-(1+2\\Phi)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2\\Phi)$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$(1-2\\Phi)$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$(1-2\\Phi)$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "-2*Phi - 1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1 - 2*Phi",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1 - 2*Phi",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1 - 2*Phi"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "在两种不同的时空背景下，利用各自的时间平移 Killing 矢量确定静止观测者的四维速度，进而计算静止观测者所需的四加速度大小 $|a| = \\sqrt{a_\\mu a^\\mu}$，并对比两者结果差异的物理含义。背景 A：弱场近牛顿度规$\\mathrm{d} s^{2} = - (1 + 2 \\Phi) \\mathrm{d} t^{2} + (1 - 2 \\Phi) \\delta_{jk} \\mathrm{d} x^{j} \\mathrm{d} x^{k}$时间平移 Killing 矢量：$\\xi^\\mu_{(t)} = (1, 0, 0, 0)$背景 B：Schwarzschild 度规$\\mathrm{d} s^{2} = -\\frac{r-r_s}{r} \\mathrm{d} t^{2} + \\frac{r}{r-r_s} \\mathrm{d} r^{2} + r^{2} \\mathrm{d} \\theta^{2} + r^{2} \\sin^{2}\\theta \\mathrm{d} \\phi^{2}$时间平移 Killing 矢量：$\\xi^\\mu_{(t)} = (1, 0, 0, 0)$在对比时，取近牛顿度规中的引力势为球对称势 $\\Phi = -\\frac{r_s}{2r}$ 以对应同一中心质量源。请解释 Schwarzschild 时空四加速度大小中多出的因子与引力红移的关系，以及为何在 $r \\to r_s$ 时两者表现截然不同。",
+    "answer": "背景 A（近牛顿度规）：1. 利用 Killing 矢量归一化得四维速度 $u^\\mu = \\frac{\\xi^\\mu}{\\sqrt{-\\xi_\\nu \\xi^\\nu}} = \\frac{(1,0,0,0)}{\\sqrt{1+2\\Phi}} \\approx (1-\\Phi, 0, 0, 0)$。2. 四加速度 $a^\\mu = u^\\nu \\nabla_\\nu u^\\mu = \\Gamma^\\mu_{00} (u^0)^2 \\approx \\Gamma^\\mu_{00}$。3. 计算得空间分量 $a^i = \\Phi_{,i}$，其径向分量为 $a^r = \\frac{r_s}{2r^2}$。4. 四加速度大小 $|a|_A = \\sqrt{a_\\mu a^\\mu} \\approx |\\nabla \\Phi| = \\frac{r_s}{2r^2}$。背景 B（Schwarzschild 度规）：1. 利用 Killing 矢量归一化得四维速度 $u^\\mu = \\frac{\\xi^\\mu}{\\sqrt{-\\xi_\\nu \\xi^\\nu}} = (\\sqrt{\\frac{r}{r-r_s}}, 0, 0, 0)$。2. 四加速度 $a^\\mu = \\Gamma^\\mu_{00} (u^0)^2$。由 $\\Gamma^r_{00} = \\frac{r_s(r-r_s)}{2r^3}$，得 $a^r = \\frac{r_s}{2r^2}$，其余分量为 0。3. 四加速度大小 $|a|_B = \\sqrt{g_{rr} (a^r)^2} = \\frac{r_s}{2r^2 \\sqrt{1 - r_s/r}}$。对比与物理含义：两者的径向坐标分量 $a^r$ 完全相同，均为 $\\frac{r_s}{2r^2} = \\frac{M}{r^2}$，对应经典引力场力。然而，Schwarzschild 时空中四加速度大小多出因子 $\\frac{1}{\\sqrt{1 - r_s/r}} = \\frac{1}{\\sqrt{-g_{00}}}$。物理来源：该因子正是引力红移因子。当 $r \\to r_s$ 时，近牛顿度规给出有限加速度，而 Schwarzschild 时空的静止加速度趋于无穷大。这意味着在视界处，任何有限的物理力都无法使观测者保持静止，这是视界处无限时间膨胀（红移）效应的体现，牛顿极限无法捕捉这一广义相对论的因果结构特征。",
+    "solution": "1. 分别利用时间平移 Killing 矢量 $\\xi^\\mu$ 归一化得到静止观测者的四维速度 $u^\\mu = \\xi^\\mu / \\sqrt{-g_{\\mu\\nu} \\xi^\\mu \\xi^\\nu}$。2. 计算四加速度 $a^\\mu = u^\\nu \\nabla_\\nu u^\\mu = \\Gamma^\\mu_{00} (u^0)^2$。3. 在背景 A 中，保留最低阶得 $a^i = \\Phi_{,i}$，模长 $|\\nabla \\Phi|$；代入 $\\Phi = -r_s/2r$ 得径向分量与模长均为 $r_s/2r^2$。4. 在背景 B 中，代入精确 Christoffel 符号和度规分量，得 $a^r = r_s/2r^2$，模长为 $\\frac{r_s}{2r^2 \\sqrt{1-r_s/r}}$。5. 对比模长表达式，指出 Schwarzschild 结果中的额外因子 $1/\\sqrt{-g_{00}}$ 即引力红移因子，导致视界处静止所需加速度发散。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.2,
+      "issue": "Answer 中引入了未在题目中定义的符号 $M$，直接写出等式 $\\frac{r_s}{2r^2} = \\frac{M}{r^2}$。题目仅定义了 $r_s$ 和引力势 $\\Phi = -\\frac{r_s}{2r}$，并未说明 $M$ 代表质量或给出 $r_s=2M$ 的关系，做题者无法仅凭题目本身理解该等式，违反了 self-contained 原则。此外，背景 A 的度规使用笛卡尔坐标 $\\delta_{jk} dx^j dx^k$，但 answer 在得出笛卡尔坐标分量 $a^i = \\Phi_{,i}$ 后，直接跳跃到球坐标径向分量 $a^r = \\frac{r_s}{2r^2}$，缺乏坐标系转换的推导说明，逻辑不严谨。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

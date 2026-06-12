@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s3_3.17_b",
+    "type": "prove",
+    "tags": {
+      "metric": "tensor_algebra",
+      "target_object": "index_symmetrization",
+      "coordinate": "antisymmetrization",
+      "scenario": "general_coordinate_independence",
+      "method": "permutation_sum_manipulation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.17_b",
+    "source_id": "1_s3_3.17_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.17_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.3,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.3,
+      "rationale": "纯张量代数恒等式推导，逻辑链条较短且无具体物理场景，但题干与解答完整且数学结构具高泛化性。",
+      "overall": 0.57
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$a_1$",
+      "$a_2$",
+      "$a_p$",
+      "$\\ell$",
+      "$m$"
+    ],
+    "target": [
+      "$\\mathbf{V}_{((a_1 \\cdots a_p))} = \\mathbf{V}_{(a_1 \\cdots a_p)}$",
+      "$\\mathbf{V}_{[[a_1 \\cdots a_p]]} = \\mathbf{V}_{[a_1 \\cdots a_p]}$",
+      "$\\mathbf{V}_{(a_1 \\cdots [a_\\ell a_m] \\cdots a_p)} = 0$",
+      "$\\mathbf{V}_{[a_1 \\cdots [a_\\ell a_m] \\cdots a_p]} = \\mathbf{V}_{[a_1 \\cdots a_\\ell a_m \\cdots a_p]}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "(b) Establish the following formulae: $\\mathbf{V}((a_1 \\cdots a_p)) = \\mathbf{V}(a_1 \\cdots a_p)$ ; $\\mathbf{V}[[a_1 \\cdots a_p]] = \\mathbf{V}[a_1 \\cdots a_p]$ ; $\\mathbf{V}(a_1 \\cdots [a_\\ell a_m] \\cdots a_p) = 0$ ; $\\mathbf{V}[a_1 \\cdots [a_\\ell a_m] \\cdots a_p] = \\mathbf{V}[a_1 \\cdots a_\\ell a_m \\cdots a_p]$ .",
+    "answer": "$\\mathbf{V}_{((a_1 \\cdots a_p))} = \\mathbf{V}_{(a_1 \\cdots a_p)}$, $\\mathbf{V}_{[[a_1 \\cdots a_p]]} = \\mathbf{V}_{[a_1 \\cdots a_p]}$, $\\mathbf{V}_{(a_1 \\cdots [a_\\ell a_m] \\cdots a_p)} = 0$, $\\mathbf{V}_{[a_1 \\cdots [a_\\ell a_m] \\cdots a_p]} = \\mathbf{V}_{[a_1 \\cdots a_\\ell a_m \\cdots a_p]}$",
+    "solution": "(b) If $\\mathbf{A}_{\\mu \\nu \\dot s \\sigma}$ is a totally antisymmetric tensor, i.e.$$(- 1)^{\\pi} \\mathrm {A}_{\\alpha_{\\pi_{1}} \\dot s \\alpha_{\\pi_{p}}} = \\mathrm {A}_{\\alpha_{1}} \\dot s \\alpha_{p}$$then$$\\mathrm {A}_{[ \\alpha_{1} \\dot s \\alpha_{\\mathrm {p}} ]} = \\frac {1}{\\mathrm {p} !} \\sum (- 1)^{\\pi} \\mathrm {A}_{\\pi_{1} \\dot s \\alpha_{\\pi_{\\mathrm {p}}}} = \\mathrm {A}_{\\alpha_{1} \\dot s \\alpha_{\\mathrm {p}}}:$But $\\mathbf{A}_{\\alpha_1\\dot s \\alpha_{\\mathfrak{p}}}\\equiv \\mathbf{V}_{[\\alpha_1\\dot s \\alpha_{\\mathfrak{p}}]}$ is totally antisymmetric, so$$\\mathrm {A} \\left[ a_{1} \\dot s a_{\\mathrm {p}}\\right] = \\mathrm {V} \\left[ \\left[ a_{1} \\dot s a_{\\mathrm {p}}\\right]\\right] = \\mathrm {V} \\left[ a_{1} \\dot s a_{\\mathrm {p}}\\right].$The theorem for $\\mathbf{V}_{((\\alpha_1\\dot s \\alpha_{\\mathfrak{p}}))}$ follows analogously.By symmetry $\\mathbf{V}_{(a_1\\dot s [a_\\ell a_m]\\dot s a_p)} = \\mathbf{V}_{(a_1\\dot s [a_m a_\\ell ]\\dot s a_p)}$ but by antisymmetry $\\mathbf{V}_{(a_1\\dot s [a_\\ell a_m]\\dot s a_1)} = -\\mathbf{V}_{(a_1\\dot s [a_m a_\\ell ]\\dot s a_p)}$ . Hence $\\mathbf{V}$ must vanish.Antisymmetry on two indices is easily expressed as$$\\mathbf {V}_{\\alpha_{1} \\dot s [ a_{\\ell} \\alpha_{\\mathrm {m}} ] \\dot s \\alpha_{\\mathrm {p}}} = \\frac {1}{2} \\left[ \\mathbf {V}_{\\alpha_{1} \\dot s a_{\\ell} a_{\\mathrm {m}} \\dot s \\alpha_{\\mathrm {p}}} - \\mathbf {V}_{\\alpha_{1} \\dot s a_{\\mathrm {m}} a_{\\ell} \\dot s \\alpha_{\\mathrm {p}}}\\right] .$Thus$$\\mathrm {V}_{[ a_{1} \\dot s [ a_{\\ell} a_{m} ] \\dot s a_{p} ]} = \\frac {1}{2 p !} \\sum (- 1)^{\\pi} \\left(\\mathrm {V}_{a_{\\pi_{1}} \\dot s a_{\\pi_{m}} a_{\\pi_{\\ell}} \\dot s a_{\\pi_{p}}} - \\mathrm {V} \\dot s a_{\\pi_{\\ell}} a_{\\pi_{m}} \\dot s\\right).$$But $\\mathbf{V}_{\\alpha_{\\pi_1}\\dot s \\alpha_{\\pi_\\ell}\\alpha_{\\pi_{\\mathfrak{m}}}\\dot s \\alpha_{\\pi_{\\mathfrak{p}}}} = -\\mathbf{V}_{\\alpha_{\\pi_1}\\dot s \\alpha_{\\pi_{\\mathfrak{m}}}\\alpha_{\\pi_\\ell}\\dot s \\alpha_{\\pi_{\\mathfrak{p}}}}$ so that$$\\mathrm {V} [ a_{1} \\dot s [ a_{\\ell} a_{m} ] \\dot s a_{p} ] = \\mathrm {V} [ a_{1} \\dot s a_{\\ell} a_{m} \\dot s a_{p} ].$$"
+  },
+  "verification": null
+}

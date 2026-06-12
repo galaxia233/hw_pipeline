@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-1-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "$[\\pmb{\\xi}_{(t)}, \\pmb{\\xi}_{(\\phi)}]$",
+      "coordinate": "arbitrary",
+      "scenario": "stationary_axisymmetric_spacetime_verify",
+      "method": "invert_condition_verify",
+      "generalization_axis": "verify",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-1",
+      "1_s10_10.5-1-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "killing_vector",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$[\\pmb{\\xi}_{(t)}, \\pmb{\\xi}_{(\\phi)}]$ 的对易性推导校验"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Consider a general 4-dimensional spacetime that admits a timelike Killing vector field $\\pmb{\\xi}_{(t)}$ and a spacelike Killing vector field $\\pmb{\\xi}_{(\\phi)}$ whose orbits are closed circles. We want to construct a coordinate system $(t, r, \\theta, \\phi)$ in which the metric takes a manifestly stationary and axisymmetric form, meaning all metric components $g_{\\mu\\nu}$ are completely independent of both $t$ and $\\phi$. Below is a derivation attempting to infer the necessary and sufficient algebraic condition that the two Killing vectors must satisfy. The derivation contains several errors (e.g., sign errors, factor errors, index errors, or conceptual physics errors). Find and correct all the errors.**Derivation:**\"In order for the metric $g_{\\mu\\nu}$ to be completely independent of $t$ and $\\phi$ in the coordinate system $(t, r, \\theta, \\phi)$, we must first eliminate the cross-coupling between these two coordinates. This requires the two Killing vectors to be orthogonal, i.e., their inner product must vanish: $g(\\pmb{\\xi}_{(t)}, \\pmb{\\xi}_{(\\phi)}) = \\xi_{(t)}^\\mu \\xi_{(\\phi)\\mu} = 0$. Furthermore, according to a fundamental theorem in differential geometry, two linearly independent vector fields can serve as coordinate basis vectors for two of the coordinates in some coordinate patch if and only if their Lie bracket vanishes. The component form of the Lie bracket is defined as:$$ [\\pmb{\\xi}_{(t)}, \\pmb{\\xi}_{(\\phi)}]^\\mu = \\xi_{(t)}^\\nu \\partial_\\mu \\xi_{(\\phi)}^\\nu - \\xi_{(\\phi)}^\\nu \\partial_\\mu \\xi_{(t)}^\\nu $$If $[\\pmb{\\xi}_{(t)}, \\pmb{\\xi}_{(\\phi)}] = 0$, we can construct coordinates such that $\\pmb{\\xi}_{(t)} = \\partial_t$ and $\\pmb{\\xi}_{(\\phi)} = \\partial_\\phi$. Since they are Killing vectors, the metric components must be independent of $t$ and $\\phi$. Conversely, if such a coordinate system exists where the metric is independent of $t$ and $\\phi$, the Killing equations $\\nabla_{(\\mu} \\xi_{(t)\\nu)} = 0$ and $\\nabla_{(\\mu} \\xi_{(\\phi)\\nu)} = 0$ are satisfied. Because $\\partial_t g_{\\mu\\nu} = \\partial_\\phi g_{\\mu\\nu} = 0$, the partial derivatives of the Killing equations with respect to $t$ and $\\phi$ commute, which implies that the two Killing vector fields must also commute. Therefore, the necessary and sufficient condition is $[\\pmb{\\xi}_{(t)}, \\pmb{\\xi}_{(\\phi)}] = 0$.\"",
+    "answer": "1. **Conceptual Error (Unnecessary condition)**: The statement that the two Killing vectors must be orthogonal ($g(\\pmb{\\xi}_{(t)}, \\pmb{\\xi}_{(\\phi)}) = 0$) to eliminate cross-coupling is incorrect. Orthogonality is not a necessary condition for the metric to be independent of $t$ and $\\phi$ (e.g., the Kerr metric is stationary and axisymmetric but not orthogonal). This sentence and condition should be removed entirely.2. **Index Error**: The component form of the Lie bracket $[\\pmb{\\xi}_{(t)}, \\pmb{\\xi}_{(\\phi)}]^\\mu = \\xi_{(t)}^\\nu \\partial_\\mu \\xi_{(\\phi)}^\\nu - \\xi_{(\\phi)}^\\nu \\partial_\\mu \\xi_{(t)}^\\nu$ is incorrect. The free index on the left is $\\mu$, but on the right $\\mu$ appears as a derivative index and $\\nu$ is duplicated as both a summation and a component index. The correct definition is $[\\pmb{\\xi}_{(t)}, \\pmb{\\xi}_{(\\phi)}]^\\nu = \\xi_{(t)}^\\mu \\partial_\\mu \\xi_{(\\phi)}^\\nu - \\xi_{(\\phi)}^\\mu \\partial_\\mu \\xi_{(t)}^\\nu$.3. **Logical Error (Converse derivation)**: The argument that \"Because $\\partial_t g_{\\mu\\nu} = \\partial_\\phi g_{\\mu\\nu} = 0$, the partial derivatives of the Killing equations commute, which implies that the two Killing vector fields must also commute\" is physically and mathematically incorrect. The correct converse argument is: if such a coordinate system exists where the metric is independent of $t$ and $\\phi$, the coordinate basis vectors $\\partial_t$ and $\\partial_\\phi$ are themselves the Killing vectors. Coordinate basis vectors always commute by definition ($[\\partial_t, \\partial_\\phi] = 0$), so the abstract Killing vectors must commute since the Lie bracket is coordinate-independent.",
+    "solution": "According to a fundamental theorem in differential geometry, two linearly independent vector fields can serve as coordinate basis vectors for two of the coordinates in some coordinate patch if and only if they commute (their Lie bracket vanishes). The correct component form of the Lie bracket is $[\\pmb{\\xi}_{(t)}, \\pmb{\\xi}_{(\\phi)}]^\\nu = \\xi_{(t)}^\\mu \\partial_\\mu \\xi_{(\\phi)}^\\nu - \\xi_{(\\phi)}^\\mu \\partial_\\mu \\xi_{(t)}^\\nu$. If $[\\pmb{\\xi}_{(t)}, \\pmb{\\xi}_{(\\phi)}] = 0$, we can construct coordinates such that $\\pmb{\\xi}_{(t)} = \\partial / \\partial t$ and $\\pmb{\\xi}_{(\\phi)} = \\partial / \\partial \\phi$. Since they are Killing vectors, the metric components in this coordinate system must be independent of $t$ and $\\phi$. Conversely, if a coordinate system exists where the metric is independent of $t$ and $\\phi$, the vectors $\\partial / \\partial t$ and $\\partial / \\partial \\phi$ are Killing vectors that trivially commute because they are coordinate basis vectors. Since the Lie bracket is coordinate-independent, the abstract Killing vectors $\\pmb{\\xi}_{(t)}$ and $\\pmb{\\xi}_{(\\phi)}$ must also commute. Therefore, the commutation of the Killing vectors is the necessary and sufficient condition, and no orthogonality condition is required."
+  },
+  "verification": null
+}

@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s14_14.2-6-9",
+    "type": "concept",
+    "tags": {
+      "target_object": "local_energy_density",
+      "coordinate": "spherical",
+      "scenario": "static_observer_contrast",
+      "method": "Einstein_equation_projection",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.2",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.2",
+      "1_s14_14.2-6",
+      "1_s14_14.2-6-9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "局部能量密度对比",
+      "\\rho_{loc}"
+    ],
+    "metric": [
+      [
+        "-Q**2/(4*pi*r**2*eps_0) + 1 - r_s/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "4*pi*r**2*eps_0/(Q**2 + 4*pi*r**2*eps_0 - 4*pi*r*r_s*eps_0)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，静止观测者测量到的局部能量密度定义为能动张量在其四维速度上的投影：$\\rho_{\\text{loc}} = T_{\\mu\\nu} u^\\mu u^\\nu$，其中 $u^\\mu$ 为观测者的四维速度。考虑以下两种静态球对称时空（采用几何单位制 $4\\pi\\epsilon_0 = 1$）：背景一：带有电荷 $Q$ 的 Reissner-Nordstrom 黑洞，其度规为 $ds^2 = -f_{\\text{RN}}(r) dt^2 + f_{\\text{RN}}(r)^{-1} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $f_{\\text{RN}}(r) = 1 - \\frac{r_s}{r} + \\frac{Q^2}{r^2}$。该时空 Ricci 标量 $R=0$，且 Ricci 张量的时间分量为 $R_{00} = \\frac{Q^2}{r^4}$。背景二：无电荷的 Schwarzschild 黑洞，其度规为 $ds^2 = -f_{\\text{S}}(r) dt^2 + f_{\\text{S}}(r)^{-1} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $f_{\\text{S}}(r) = 1 - \\frac{r_s}{r}$。该时空为真空解，Ricci 标量 $R=0$，Ricci 张量的时间分量 $R_{00} = 0$。请分别在两种背景下推导静止观测者测量到的局部能量密度 $\\rho_{\\text{loc}}$，并对比两者结果的差异，解释该差异的物理含义。",
+    "answer": "背景一 RN 黑洞：$\\rho_{\\text{loc}}^{\\text{RN}} = \\frac{Q^2}{8\\pi r^4 f_{\\text{RN}}(r)}$；背景二 Schwarzschild 黑洞：$\\rho_{\\text{loc}}^{\\text{S}} = 0$。对比与物理含义：RN 黑洞外部的局部能量密度非零，而 Schwarzschild 黑洞外部为零。这一差异源于 RN 黑洞具有电荷 $Q$，其电磁场作为时空几何的源，产生了非零的 Ricci 曲率和能动张量；静止观测者通过投影直接测量到了该电磁场的局部能量密度。而 Schwarzschild 黑洞外部为纯粹的真空区域，没有任何物质或场源（Ricci 曲率处处为零，能动张量为零），因此观测者测量到的局部能量密度必然为零。",
+    "solution": "1. 根据爱因斯坦场方程 $R_{\\mu\\nu} - \\frac{1}{2}R g_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$，由于两种时空的 Ricci 标量 $R=0$，方程均简化为 $T_{\\mu\\nu} = \\frac{R_{\\mu\\nu}}{8\\pi}$。2. 对于 RN 黑洞，代入 $R_{00} = \\frac{Q^2}{r^4}$，得 $T_{00} = \\frac{Q^2}{8\\pi r^4}$；对于 Schwarzschild 黑洞，代入 $R_{00} = 0$，得 $T_{00} = 0$。3. 静止观测者的四维速度仅有时间分量非零，由类时条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$ 可得 $u^0 = \\frac{1}{\\sqrt{-g_{00}}} = \\frac{1}{\\sqrt{f(r)}}$，其余分量为零。4. 局部能量密度为投影 $\\rho_{\\text{loc}} = T_{\\mu\\nu} u^\\mu u^\\nu = T_{00} (u^0)^2$。5. RN 黑洞代入得 $\\rho_{\\text{loc}}^{\\text{RN}} = \\frac{Q^2}{8\\pi r^4} \\cdot \\frac{1}{f_{\\text{RN}}(r)} = \\frac{Q^2}{8\\pi r^4 f_{\\text{RN}}(r)}$；Schwarzschild 黑洞代入得 $\\rho_{\\text{loc}}^{\\text{S}} = 0$。6. 物理含义对比：RN黑洞的局部能量密度源于电荷产生的电磁场，Schwarzschild黑洞外部为真空无场源，故密度为零。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目中 RN 黑洞的 Ricci 张量分量和局部能量密度计算存在严重错误。1. 题目声称 RN 黑洞的 Ricci 张量时间分量为 $R_{00} = \\frac{Q^2}{r^4}$，这是错误的。实际上，RN 黑洞的 Ricci 张量混合分量为 $R^0_{\\;0} = -\\frac{Q^2}{r^4}$，协变分量为 $R_{00} = \\frac{Q^2 f_{\\text{RN}}(r)}{r^4}$。题目给出的值既混淆了上下指标（丢掉了符号），又忽略了度规分量 $g_{00}$（丢掉了 $f_{\\text{RN}}(r)$ 因子）。2. 由于使用了错误的 $R_{00}$，解答中得出 $T_{00} = \\frac{Q^2}{8\\pi r^4}$，进而得出局部能量密度 $\\rho_{\\text{loc}}^{\\text{RN}} = \\frac{Q^2}{8\\pi r^4 f_{\\text{RN}}(r)}$，这也是错误的。正确的能动张量协变分量应为 $T_{00} = \\frac{Q^2 f_{\\text{RN}}(r)}{8\\pi r^4}$，正确的局部能量密度应为 $\\rho_{\\text{loc}}^{\\text{RN}} = T_{00}(u^0)^2 = \\frac{Q^2}{8\\pi r^4}$（这正是静电场能量密度 $E^2/8\\pi$），不应包含度规因子 $1/f_{\\text{RN}}(r)$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s20_20.6",
+    "type": "calculate",
+    "tags": {
+      "metric": "optics_analog",
+      "target_object": "thin_lens_design",
+      "coordinate": "gravitational_light_deflection",
+      "scenario": "geometric_optics",
+      "method": "differential_equation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s20_20.6",
+    "source_id": "1_s20_20.6",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s20_20.6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "融合引力偏折公式与几何光学折射定律，通过几何关系建立微分方程积分求解厚度分布，具备天文观测实验模拟背景。",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$b$",
+      "$h$",
+      "$n$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\delta$",
+      "$h_0$"
+    ],
+    "target": [
+      "$h$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 20.6. The deflection angle of light passing near the sun is given by $\\delta = 1.75^{\\prime \\prime} / b$ , where $b$ is the impact parameter in solar radii. Design a thin lens (i.e. give thickness as a function of radius) which models this focal behavior. Take the solar disc to be a black mask of $8\\mathrm{mm}$ diameter in the center of the lens, so that you can simulate the light deflection experiment by holding the lens at arm's length. Assume an index of refraction appropriate to ordinary crown glass, $n = 1.52$ .",
+    "answer": "$h = h_0 - 1.6 \\times 10^{-5} \\log(b)$",
+    "solution": "## SolutionSolution 20.6.![](images/cfcd445977a3298f088f160ffed50eff63e726be547fd3e1fd8d4c93f04bd5e1.jpg)b and h are measured in units of 4mm.The relation of $\\phi$ and $\\theta$ (see figure) is given by Snell's law$$\\mathbf {n} = \\phi / \\theta . \\tag {1}$$The refraction required to simulate the sun's gravitational bending is$$\\delta \\equiv \\phi - \\theta = 1. 7 5^{\\prime \\prime} / b. \\tag {2}$$From Equations (1) and (2) $\\theta$ must be$$\\theta = 1. 7 5^{\\prime \\prime} / b (n - 1) = 1. 6 \\times 1 0^{- 5} / b. \\tag {3}$$From the geometry of the figure $\\theta = -\\mathrm{dh} / \\mathrm{db}$ , so Equation (3) gives$$\\frac {\\mathrm {d h}}{\\mathrm {d b}} = - \\frac {1 . 6 \\times 1 0^{- 5}}{\\mathrm{b}},$$$$h = h_{0} - 1. 6 \\times 1 0^{- 5} \\log(b).$$"
+  },
+  "verification": null
+}

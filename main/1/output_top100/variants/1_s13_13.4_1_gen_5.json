@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_1-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "stress_energy_tensor",
+      "coordinate": "static_cosmological",
+      "scenario": "vacuum_energy_and_cosmological_constant",
+      "method": "tensor_proportionality_analysis",
+      "generalization_axis": "extend",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.4_1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.4_1",
+      "1_s13_13.4_1-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$T_{00}$",
+      "$T_{11}$",
+      "proportionality_condition_proof"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 13.4 指出，若真空没有优越的参考系，则真空的应力-能量张量必须正比于度规张量，即 $T_{\\mu\\nu}^{\\text{vac}} = \\rho_{\\text{vac}} g_{\\mu\\nu}$，这等价于在场方程中引入一个有效的宇宙学常数。考虑由度规 $ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}}(dx^2 + dy^2 + dz^2)$ 描述的时空，假设 Einstein 场方程写为 $G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$（即未显式分离宇宙学常数，所有能量来源均包含在 $T_{\\mu\\nu}$ 中）。请利用该时空的 Einstein 张量分量 $G_{00} = -\\frac{e^{-\\frac{2x}{\\alpha}}}{\\alpha^2}$ 和 $G_{11} = \\frac{1}{\\alpha^2}$，推导总应力-能量张量的分量 $T_{00}$ 和 $T_{11}$，并证明 $T_{00}/g_{00} = T_{11}/g_{11}$ 且该比值依赖于坐标 $x$，从而说明该时空的总应力-能量张量并不符合“无优越参考系真空”所要求的正比于度规且比例系数为常数的形式。",
+    "answer": "$T_{00} = -\\frac{e^{-\\frac{2x}{\\alpha}}}{8\\pi \\alpha^2}$, $T_{11} = \\frac{1}{8\\pi \\alpha^2}$；比值 $T_{00}/g_{00} = T_{11}/g_{11} = \\frac{e^{-\\frac{2x}{\\alpha}}}{8\\pi \\alpha^2}$ 依赖于坐标 $x$，因此不满足无优越参考系真空要求的 $T_{\\mu\\nu} = \\rho_{\\text{vac}} g_{\\mu\\nu}$ 形式。",
+    "solution": "根据未显式分离宇宙学常数的 Einstein 场方程 $G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$，可以直接得出总应力-能量张量的分量：$T_{00} = \\frac{1}{8\\pi} G_{00} = \\frac{1}{8\\pi} \\left( -\\frac{e^{-\\frac{2x}{\\alpha}}}{\\alpha^2}\\right) = -\\frac{e^{-\\frac{2x}{\\alpha}}}{8\\pi \\alpha^2}$$T_{11} = \\frac{1}{8\\pi} G_{11} = \\frac{1}{8\\pi} \\left( \\frac{1}{\\alpha^2}\\right) = \\frac{1}{8\\pi \\alpha^2}$已知度规张量分量为 $g_{00} = -1$ 和 $g_{11} = e^{\\frac{2x}{\\alpha}}$。计算两者的比例：$\\frac{T_{00}}{g_{00}} = \\frac{-\\frac{e^{-\\frac{2x}{\\alpha}}}{8\\pi \\alpha^2}}{-1} = \\frac{e^{-\\frac{2x}{\\alpha}}}{8\\pi \\alpha^2}$$\\frac{T_{11}}{g_{11}} = \\frac{\\frac{1}{8\\pi \\alpha^2}}{e^{\\frac{2x}{\\alpha}}} = \\frac{e^{-\\frac{2x}{\\alpha}}}{8\\pi \\alpha^2}$可见，虽然 $T_{00}/g_{00} = T_{11}/g_{11}$，但该比值包含坐标 $x$ 的指数项 $e^{-\\frac{2x}{\\alpha}}$，并非一个常数 $\\rho_{\\text{vac}}$。若真空没有优越参考系，其应力-能量张量必须满足 $T_{\\mu\\nu} = \\rho_{\\text{vac}} g_{\\mu\\nu}$，其中 $\\rho_{\\text{vac}}$ 为常数。由于该时空的总应力-能量张量与度规的比例系数随坐标变化，说明该时空并非仅由纯粹的真空能量（宇宙学常数）主导，而是包含了坐标依赖的非真空物质分布，或者该坐标系并非真空的自然静止参考系。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "1. **度规与物理场景严重矛盾**：题目及摘要声称该度规为 De Sitter 时空，但真正的平面切片 De Sitter 度规应为 $ds^2 = -dt^2 + e^{2t/\\alpha}(dx^2+dy^2+dz^2)$（指数依赖于时间坐标 $t$）。题目将 $t$ 错误地替换为空间坐标 $x$，导致度规性质发生根本改变。对于 De Sitter 时空（最大对称空间），Ricci 张量必须满足 $R_{\\mu\\nu} = \\frac{3}{\\alpha^2} g_{\\mu\\nu}$，而该错误度规计算得到的 $R_{00}=0, R_{11}=0, R_{22}=-\\frac{1}{\\alpha^2}e^{2x/\\alpha}$，显然不正比于度规张量，因此它绝非 De Sitter 时空。\n2. **Solution 解释违反张量协变性原理**：Solution 中辩解“或者该坐标系并非真空的自然静止参考系”，试图解释为何 $T_{\\mu\\nu}$ 不正比于 $g_{\\mu\\nu}$。然而，$T_{\\mu\\nu} = \\rho_{\\text{vac}} g_{\\mu\\nu}$ 是一个张量等式，在坐标变换下保持协变性。如果某时空是纯真空（宇宙学常数）主导，该正比关系在任何坐标系下都严格成立，绝不会因为“坐标系不是自然静止系”而破坏正比关系或使比例系数依赖坐标。该度规下 $T_{\\mu\\nu}$ 不正比于 $g_{\\mu\\nu}$ 只能说明该度规描述的并非纯真空时空。\n3. **摘要中的 Kretschmann 标量量纲与数值错误**：摘要标记 Kretschmann 标量为 $\\frac{12}{\\alpha^2}$，但任何曲率标量的量纲应为长度倒数四次方，真正的 De Sitter 时空 Kretschmann 标量应为 $\\frac{12}{\\alpha^4}$。而该错误度规实际计算得到的 Kretschmann 标量为 $\\frac{4}{\\alpha^4}$，不仅数值不符，摘要甚至连量纲都写错了。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

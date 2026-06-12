@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-3-4",
+    "type": "calculate",
+    "tags": {
+      "target_object": "\\Delta\\Psi",
+      "coordinate": "Schwarzschild",
+      "scenario": "spin_precession_reduce",
+      "method": "weak_field_limit",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-3",
+      "1_s11_11.9-3-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\Delta\\Psi"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Schwarzschild 时空度规为 $ds^2 = -\\frac{r-r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。考虑一个自转陀螺在赤道平面 ($\\theta=\\pi/2$) 绕中心天体做圆轨道运行。已知该度规下圆轨道陀螺每完成一圈公转的 de Sitter 进动角 (测地线进动角) 为 $\\Delta\\Psi = \\frac{3\\pi r_s}{2r}$。请通过取弱场极限 $r_s \\to 0$ (即引力源质量 $M \\to 0$，时空趋于平直)，证明该 GR 结论回到经典 Newtonian 力学的对应结果，并说明其物理意义。",
+    "answer": "在弱场极限下取 $r_s \\to 0$ (即 $M \\to 0$)，进动角公式 $\\Delta\\Psi = \\frac{3\\pi r_s}{2r} \\to 0$。经典对应结果为：在 Newtonian 力学中，由于时空是平直的（三维欧氏空间），绕中心天体做圆轨道运动的陀螺不存在 de Sitter 进动（测地线进动），其自转轴方向（或轨道平面的法向量）在空间中保持不变。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题干和答案对“弱场极限”的物理定义和推导逻辑存在根本性错误。1. 弱场极限是指 $r_s/r \\ll 1$（即引力场强很弱），而不是令引力源质量 $M \\to 0$（$r_s \\to 0$）。若 $M \\to 0$，中心天体消失，根本不存在引力场和圆轨道，此时讨论“绕中心天体做圆轨道运行的陀螺”毫无物理意义。2. de Sitter 进动（测地线进动）是广义相对论的后牛顿效应，在经典 Newtonian 力学中该进动角确实为 0（不存在该效应）。GR 结论回到 Newtonian 结果的正确表述是：在弱场极限下，GR 的进动角展开式的零阶项与 Newtonian 结果一致（均为0），而 $3\\pi r_s/2r$ 是 Newtonian 理论无法预言的一阶修正项。答案通过令 $M \\to 0$ 使得进动角公式直接等于0，以此来“证明”回到 Newtonian 结果，逻辑是荒谬的——这只能证明没有引力时没有进动，而不能证明在弱引力下 GR 结果与 Newtonian 结果一致。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s3_3.19",
+    "type": "prove",
+    "tags": {
+      "metric": "tensor_property",
+      "target_object": "kronceker_delta",
+      "coordinate": "coordinate_transformation",
+      "scenario": "general_relativity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.19",
+    "source_id": "1_s3_3.19",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.19"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.4,
+      "rationale": "标准张量变换证明题，逻辑完整但属基础定义推导，偏抽象数学背景",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^{\\mu}$",
+      "$x^{\\nu}$",
+      "$x^{\\mu'}$",
+      "$\\\\delta_{\\\\nu}^{\\\\mu}$"
+    ],
+    "target": [
+      "$\\\\delta_{\\\\nu}^{\\\\mu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.19. Prove that the Kronecker delta, $\\\\delta_{\\\\nu}^{\\\\mu}$ , is a tensor.\\n\\n## Solution\\n\\nSolution 3.19. One way is to show that $\\\\delta_{\\\\nu}^{\\\\mu}$ can be combined with the components of two vectors to form a scalar. But $\\\\mathbf{A}^{\\\\nu}\\\\mathbf{B}_{\\\\mu}\\\\delta_{\\\\nu}^{\\\\mu} = \\\\mathbf{A}\\\\cdot \\\\mathbf{B}$ , hence $\\\\pmb{\\\\delta}$ is a tensor.\\nAlternately one can check the transformation properties\\n$$\\n\\\\frac {\\\\partial \\\\mathbf {x}^{\\\\mu^{\\\\prime}}}{\\\\partial \\\\mathbf {x}^{\\\\alpha}} \\\\frac {\\\\partial \\\\mathbf {x}^{\\\\beta}}{\\\\partial \\\\mathbf {x}^{\\\\nu^{\\\\prime}}} \\\\delta^{\\\\alpha} \\\\beta = \\\\frac {\\\\partial \\\\mathbf {x}^{\\\\mu^{\\\\prime}}}{\\\\partial \\\\mathbf {x}^{\\\\alpha}} \\\\frac {\\\\partial \\\\mathbf {x}^{\\\\alpha}}{\\\\partial \\\\mathbf {x}^{\\\\nu^{\\\\prime}}} = \\\\delta_{\\\\nu^{\\\\prime}}^{\\\\mu^{\\\\prime}},\\n$$\\nwhere the last equality follows from the fact that $\\\\partial_{\\\\mathbf{x}}^{\\\\mu'} / \\\\partial_{\\\\mathbf{x}}^{\\\\alpha}$ and $\\\\partial_{\\\\mathbf{x}}^{\\\\alpha} / \\\\partial_{\\\\mathbf{x}}^{\\\\mu'}$ are matrix inverses of each other. Hence $\\\\delta_{\\\\nu}^{\\\\mu}$ transforms as a tensor.",
+    "answer": "$\\\\delta_{\\\\nu}^{\\\\mu} \\\\text{transforms as a tensor.}$",
+    "solution": "One way is to show that $\\\\delta_{\\\\nu}^{\\\\mu}$ can be combined with the components of two vectors to form a scalar. But $\\\\mathbf{A}^{\\\\nu}\\\\mathbf{B}_{\\\\mu}\\\\delta_{\\\\nu}^{\\\\mu} = \\\\mathbf{A}\\\\cdot \\\\mathbf{B}$ , hence $\\\\pmb{\\\\delta}$ is a tensor.\\nAlternately one can check the transformation properties\\n$$\\n\\\\frac {\\\\partial \\\\mathbf {x}^{\\\\mu^{\\\\prime}}}{\\\\partial \\\\mathbf {x}^{\\\\alpha}} \\\\frac {\\\\partial \\\\mathbf {x}^{\\\\beta}}{\\\\partial \\\\mathbf {x}^{\\\\nu^{\\\\prime}}} \\\\delta^{\\\\alpha} \\\\beta = \\\\frac {\\\\partial \\\\mathbf {x}^{\\\\mu^{\\\\prime}}}{\\\\partial \\\\mathbf {x}^{\\\\alpha}} \\\\frac {\\\\partial \\\\mathbf {x}^{\\\\alpha}}{\\\\partial \\\\mathbf {x}^{\\\\nu^{\\\\prime}}} = \\\\delta_{\\\\nu^{\\\\prime}}^{\\\\mu^{\\\\prime}},\\n$$\\nwhere the last equality follows from the fact that $\\\\partial_{\\\\mathbf{x}}^{\\\\mu'} / \\\\partial_{\\\\mathbf{x}}^{\\\\alpha}$ and $\\\\partial_{\\\\mathbf{x}}^{\\\\alpha} / \\\\partial_{\\\\mathbf{x}}^{\\\\mu'}$ are matrix inverses of each other. Hence $\\\\delta_{\\\\nu}^{\\\\mu}$ transforms as a tensor."
+  },
+  "verification": null
+}

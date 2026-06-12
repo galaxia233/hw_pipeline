@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s15_15.2_b",
+    "type": "prove",
+    "tags": {
+      "metric": "schwarzschild_metric",
+      "target_object": "orbit_stability_condition",
+      "coordinate": "spherical_coordinate",
+      "scenario": "astrophysical_keplerian_orbit",
+      "method": "linear_perturbation_technique"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s15_15.2_b",
+    "source_id": "1_s15_15.2_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s15_15.2_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "球对称度规下的轨道微扰分析，结合守恒量与泰勒展开推导二阶线性振子方程，逻辑严密且具有天体物理背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\lambda$",
+      "$L$",
+      "$p_\\phi$",
+      "$K$"
+    ],
+    "target": [
+      "$\\frac{d^2(\\delta\\theta)}{d\\lambda^2}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "# Problem 15.2.   (b) Prove that all orbits are stably planar.",
+    "answer": "Hence the orbits are stably planar.",
+    "solution": "(b) Using the constant of motion $\\mathbf{L}^2$ of Problem 15.1, we have$$\\left(\\frac {\\mathrm {d} \\theta}{\\mathrm {d} \\lambda}\\right)^{2} = \\left(\\mathrm {g}^{\\theta \\theta} \\mathrm {p}_{\\theta}\\right)^{2} = \\frac {1}{\\mathrm {r}^{4}} \\left(\\mathrm {L}^{2} - \\frac {\\mathrm {p}_{\\phi}^{2}}{\\sin^{2} \\theta}\\right). \\tag {1}$$Suppose that the unperturbed orbit is $\\theta = \\pi /2$ , $\\mathbf{L} = \\mathfrak{p}_{\\phi} = \\mathbf{K}$ . Let the particle be perturbed out of the plane of the orbit i.e. $\\theta = \\pi /2 + \\delta \\theta$ , $\\mathbf{L} = \\mathbf{K} + \\delta \\mathbf{L}$ , $\\mathfrak{p}_{\\phi} = \\mathbf{K} + \\delta \\mathfrak{p}_{\\phi}$ . To first order in $\\delta \\mathbf{L}$ and $\\delta \\mathfrak{p}_{\\phi}$ and second order in $\\delta \\theta$ , Equation (1) gives$$\\left[ \\frac {\\mathrm {d} (\\delta \\theta)}{\\mathrm {d} \\lambda}\\right]^{2} = \\frac {1}{\\mathrm {r}^{4}} \\left[ 2 \\mathrm {K} \\delta \\mathrm {L} - 2 \\mathrm {K} \\delta \\mathrm {p}_{\\phi} - \\mathrm {K}^{2} (\\delta \\theta)^{2}\\right]$$and hence$$\\frac {\\mathrm {d}^{2} (\\delta \\theta)}{\\mathrm {d} \\lambda^{2}} = - \\frac {\\mathrm {K}^{2}}{\\mathrm {r}^{4}} \\delta \\theta .$$This shows that $\\delta \\theta$ oscillates about $\\theta = \\pi / 2$ and does not grow in time. Hence the orbits are stably planar."
+  },
+  "verification": null
+}

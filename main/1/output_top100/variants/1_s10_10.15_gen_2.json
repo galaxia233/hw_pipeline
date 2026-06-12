@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "\\Phi",
+      "coordinate": "general_stationary",
+      "scenario": "newtonian_limit",
+      "method": "taylor_expansion",
+      "generalization_axis": "limit",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "limit",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\xi$",
+      "$\\mathbf{E}$",
+      "$\\mathbf{p}$",
+      "$\\mu$"
+    ],
+    "target": [
+      "\\Phi"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在稳态时空中，时间 Killing 矢量 $\\boldsymbol{\\xi}$ 的存在保证了粒子在无穷远处的能量 $\\mathbf{E} = -\\mathbf{p} \\cdot \\boldsymbol{\\xi}$ 守恒。已知粒子在某点所能具有的最小单位质量能量为 $\\mathbf{E}_{min} / \\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$。在弱场 Newtonian 极限下，度规的时间分量表现为 $g_{tt} \\approx -(1 + 2\\Phi)$，其中 $\\Phi$ 为 Newtonian 引力势（例如对于质点源 $\\Phi = -M/r$），且满足 $|\\Phi| \\ll 1$。请证明：在取弱场极限后，将粒子的最小单位质量能量扣除其静止质量对应的单位能量（即取 $\\mathbf{E}_{min} / \\mu - 1$），结果恰好还原为 Newtonian 引力势 $\\Phi$，并从 4-速度与 Killing 矢量的几何关系出发，解释为何该最小能量条件对应于经典力学中静止于该点的粒子。",
+    "answer": "证明在弱场极限下 $\\mathbf{E}_{min} / \\mu - 1 = \\Phi$，且最小能量条件对应粒子局部静止（4-速度与 Killing 矢量平行），即经典力学中的零动能状态，故能量纯粹表现为势能 $\\Phi$。",
+    "solution": "1. 在稳态时空中，时间 Killing 矢量取为 $\\boldsymbol{\\xi} = \\partial_t$，其范数为 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g_{tt}$。2. 粒子在某点所能具有的最小单位质量能量为 $\\mathbf{E}_{min} / \\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}} = \\sqrt{-g_{tt}}$。3. 在弱场 Newtonian 极限下，度规的时间分量退化为 $g_{tt} \\approx -(1 + 2\\Phi)$，代入上式得到：   $\\mathbf{E}_{min} / \\mu \\approx \\sqrt{1 + 2\\Phi}$。4. 由于在弱场极限下引力势远小于1（$|\\Phi| \\ll 1$），对根号进行一阶 Taylor 展开：   $\\sqrt{1 + 2\\Phi} \\approx 1 + \\Phi$。5. 在广义相对论中，守恒量 $\\mathbf{E}$ 包含了粒子的静止质量能量（取 $c=1$ 时为 $\\mu$）。为了与不含静止质量的 Newtonian 力学能量对比，需要扣除静止质量对应的单位质量能量1：   $\\mathbf{E}_{min} / \\mu - 1 \\approx (1 + \\Phi) - 1 = \\Phi$。6. 物理解释：最小能量条件 $\\mathbf{E}_{min} / \\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$ 是在粒子的 4-速度 $\\mathbf{u}$ 与 Killing 矢量 $\\boldsymbol{\\xi}$ 平行时取得的（即 $\\mathbf{u} = \\boldsymbol{\\xi} / \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$）。这意味着粒子相对于静态参考系局部静止（空间速度为零）。在经典力学中，静止粒子的动能 $K = 0$，其单位总机械能纯粹由引力势能贡献，恰好等于 $\\Phi$。因此，广义相对论的最小能量条件在 Newtonian 极限下完美还原了经典静止粒子的势能状态。"
+  },
+  "verification": null
+}

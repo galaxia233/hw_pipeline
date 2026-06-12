@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s2_2.9",
+    "type": "calculate",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "threshold_kinetic_energy",
+      "coordinate": "laboratory_frame",
+      "scenario": "two_body_collision",
+      "method": "invariant_mass_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.9",
+    "source_id": "1_s2_2.9",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.9,
+      "rationale": "四动量守恒结合不变质量平方消去末态未知粒子，利用散射角正交条件与阈值能量极小化条件完成多步推导，涉及真实粒子物理反应运动学",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$E_{\\\\pi}$",
+      "$E_{\\\\mathrm{K}}$",
+      "$\\\\mathbf{p}_{\\\\pi}$",
+      "$\\\\mathbf{p}_{\\\\mathrm{K}}$",
+      "$m_{\\\\pi}$",
+      "$m_{\\\\mathrm{n}}$",
+      "$m_{\\\\mathrm{K}}$",
+      "$m_{\\\\Lambda}$"
+    ],
+    "target": [
+      "$K_{\\\\pi}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s2_2.9.md]\\n\\nProblem 2.9. Consider the reaction $\\pi^{+} + n\\rightarrow K^{+} + \\Lambda^{0}$ . The rest masses of the particles are $m_{\\pi} = 140 \\, \\\\text{MeV}$ , $m_{n} = 940 \\, \\\\text{MeV}$ , $m_{K} = 494 \\, \\\\text{MeV}$ , $m_{\\Lambda} = 1115 \\, \\\\text{MeV}$ . What is the threshold kinetic energy of the $\\pi$ to create a $K$ at an angle of $90^{\\\\circ}$ in the lab in which the $n$ is at rest?",
+    "answer": "1009 \\\\, \\\\mathrm{MeV}",
+    "solution": "Solution 2.9. We proceed by conserving 4-momentum and removing information about the $\\\\Lambda$ particle:\\n$$\\n\\\\mathbf {P}_{\\\\pi} + \\\\mathbf {P}_{\\\\mathbf {n}} = \\\\mathbf {P}_{\\\\mathbf {K}} + \\\\mathbf {P}_{\\\\Lambda}\\n$$\\n$$\\n\\\\mathbf {P}_{\\\\Lambda}^{2} = - \\\\mathbf {m}_{\\\\Lambda}^{2} = (\\\\mathbf {P}_{\\\\pi} + \\\\mathbf {P}_{\\\\mathrm {n}} - \\\\mathbf {P}_{\\\\mathrm {K}})^{2} = - \\\\mathbf {m}_{\\\\pi}^{2} - \\\\mathbf {m}_{\\\\mathrm {n}}^{2} - \\\\mathbf {m}_{\\\\mathrm {K}}^{2} + 2 \\\\mathbf {P}_{\\\\pi} \\\\cdot \\\\mathbf {P}_{\\\\mathrm {n}} - 2 \\\\mathbf {P}_{\\\\mathrm {n}} \\\\cdot \\\\mathbf {P}_{\\\\mathrm {K}} - 2 \\\\mathbf {P}_{\\\\pi} \\\\cdot \\\\mathbf {P}_{\\\\mathrm {K}}.\\n$$\\nIn the lab\\n$$\\n\\\\begin{array}{l}\\n\\\\mathbf {P}_{\\\\pi} = \\\\left(\\\\mathrm {E}_{\\\\pi}, \\\\underline {{\\\\mathbf {P}}}_{\\\\pi}\\\\right)\\n\\\\\\\\\\n\\\\mathbf {P}_{\\\\mathbf {n}} = \\\\left(\\\\mathrm {m}_{\\\\mathbf {n}}, 0\\\\right), \\\\quad \\\\mathbf {P}_{\\\\mathbf {K}} = \\\\left(\\\\mathrm {E}_{\\\\mathbf {K}}, \\\\underline {{\\\\mathrm {P}}}_{\\\\mathbf {K}}\\\\right)\\n\\\\\\\\\\n\\\\end{array}\\n$$\\nso,\\n$$\\n- \\\\mathsf {m}_{\\\\pi}^{2} - \\\\mathsf {m}_{\\\\mathsf {n}}^{2} - \\\\mathsf {m}_{\\\\mathbf {K}}^{2} - 2 \\\\mathsf {m}_{\\\\mathsf {n}} \\\\mathbf {E}_{\\\\pi} + 2 \\\\mathsf {m}_{\\\\mathsf {n}} \\\\mathbf {E}_{\\\\mathbf {K}} + 2 \\\\mathbf {E}_{\\\\pi} \\\\mathbf {E}_{\\\\mathbf {K}} - 2 \\\\mathbf {\\\\widetilde {P}}_{\\\\pi} \\\\boldsymbol{\\\\cdot} \\\\mathbf {\\\\widetilde {P}}_{\\\\mathbf {K}} = - \\\\mathsf {m}_{\\\\boldsymbol{\\\\Lambda}}^{2} .\\n$$\\nWe now set $\\\\underline{\\\\mathbf{P}}_{\\\\pi} \\\\cdot \\\\underline{\\\\mathbf{P}}_{\\\\mathbf{K}} = 0$ ($90^{\\\\circ}$ scattering) and find\\n$$\\n\\\\mathrm {E}_{\\\\pi} = \\\\frac {\\\\mathrm {m}_{\\\\Lambda}^{2} - \\\\mathrm {m}_{\\\\pi}^{2} - \\\\mathrm {m}_{\\\\mathrm {n}}^{2} - \\\\mathrm {m}_{\\\\mathrm {K}}^{2} + 2 \\\\mathrm {m}_{\\\\mathrm {n}} \\\\mathrm {E}_{\\\\mathrm {K}}}{2 (\\\\mathrm {m}_{\\\\mathrm {n}} - \\\\mathrm {E}_{\\\\mathrm {K}})} .\\n$$\\nThus, to make $\\\\mathbf{E}_{\\\\pi}$ a minimum we must make $\\\\mathbf{E}_{\\\\mathbf{K}}$ as small as possible (as you might have guessed!), so we try $\\\\mathbf{E}_{\\\\mathbf{K}} = \\\\mathfrak{m}_{\\\\mathbf{K}}$ . Thus\\n$$\\n\\\\begin{array}{l}\\nE_{\\\\pi (\\\\text {t h r e s h o l d})} = \\\\frac {m_{\\\\Lambda}^{2} - m_{\\\\pi}^{2} - m_{n}^{2} - m_{K}^{2} + 2 m_{n} m_{K}}{2 \\\\left(m_{n} - m_{K}\\\\right)} \\\\\\\\ = \\\\frac {m_{\\\\Lambda}^{2} - m_{\\\\pi}^{2}}{2 \\\\left(m_{n} - m_{K}\\\\right)} - \\\\frac {m_{n} - m_{K}}{2} = \\\\frac {1 1 1 5^{2} - 1 4 0^{2}}{2 (9 4 0 - 4 9 4)} - \\\\frac {9 4 0 - 4 9 4}{2} \\\\\\\\ = 1 1 4 9 \\\\mathrm {M e V}.\\n\\\\\\\\\\n\\\\end{array}\\n$$\\nhence threshold kinetic energy $= 1149 - 140 = 1009\\\\mathrm{MeV}$"
+  },
+  "verification": null
+}

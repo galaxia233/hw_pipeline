@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "vector_and_metric_perturbations",
+      "coordinate": "Cartesian",
+      "scenario": "linearized_gravity_gauge_transformation",
+      "method": "tensor_transformation_and_symmetry_analysis",
+      "generalization_axis": "compare",
+      "metric": "MinkowskiCartesian"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "MinkowskiCartesian",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "\\bar{V}_\\mu",
+      "\\bar{h}_{\\mu\\nu}",
+      "symmetric_derivative_difference"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Minkowski 真空时空中，度规为 $\\eta_{\\mu\\nu} = \\text{diag}(-1,1,1,1)$。考虑一个无穷小坐标变换（规范变换） $x^\\mu_{\\text{new}} = x^\\mu_{\\text{old}} + \\xi^\\mu(x)$。在此变换下，度规可表示为 $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$。请同时推导以下两种情况的一阶线性化变换规律：(1) 协变矢量场 $V_\\mu$ 的变换律 $\\bar{V}_\\mu(x)$；(2) 度规扰动 $h_{\\mu\\nu}$ 的变换律 $\\bar{h}_{\\mu\\nu}(x)$。对比两者的推导结果，从张量指标的对称性角度解释为何度规扰动的变换律中偏导数项表现为对称导数 $\\xi_{(\\mu,\\nu)}$，而协变矢量变换律中的偏导数项不具备这一对称化特征。",
+    "answer": "协变矢量变换律为 $\\bar{V}_\\mu = V_\\mu - \\partial_\\mu \\xi^\\nu V_\\nu - \\xi^\\nu \\partial_\\nu V_\\mu$；度规扰动变换律为 $\\bar{h}_{\\mu\\nu} = h_{\\mu\\nu} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu - \\xi^\\rho \\partial_\\rho h_{\\mu\\nu} = h_{\\mu\\nu} - 2\\xi_{(\\mu,\\nu)} - \\xi^\\rho \\partial_\\rho h_{\\mu\\nu}$。差异根源在于：矢量 $V_\\mu$ 为一阶张量，变换矩阵仅作用一次产生偏导项 $\\partial_\\mu \\xi^\\nu$；而度规 $g_{\\mu\\nu}$ 为二阶对称张量，变换矩阵作用两次产生两项偏导 $\\partial_\\mu \\xi_\\nu$ 与 $\\partial_\\nu \\xi_\\mu$，且因度规及其扰动的内禀对称性 $h_{\\mu\\nu}=h_{\\nu\\mu}$，这两项必须组合为对称导数 $2\\xi_{(\\mu,\\nu)}$ 以保持变换后的对称性。",
+    "solution": "1. 协变矢量场 $V_\\mu$ 的变换推导：\\n协变矢量的精确变换为 $\\bar{V}_\\mu(\\bar{x}) = \\frac{\\partial x^\\nu}{\\partial \\bar{x}^\\mu} V_\\nu(x)$。\\n由 $\\bar{x}^\\mu = x^\\mu + \\xi^\\mu$，有 $\\frac{\\partial x^\\nu}{\\partial \\bar{x}^\\mu} \\approx \\delta^\\nu_\\mu - \\partial_\\mu \\xi^\\nu$。\\n同时，将 $\\bar{V}_\\mu$ 在 $x$ 处展开：$\\bar{V}_\\mu(x+\\xi) \\approx \\bar{V}_\\mu(x) + \\xi^\\nu \\partial_\\nu \\bar{V}_\\mu(x)$。\\n代入精确变换并保留一阶小量：\\n$\\bar{V}_\\mu(x) + \\xi^\\nu \\partial_\\nu V_\\mu = (\\delta^\\nu_\\mu - \\partial_\\mu \\xi^\\nu) V_\\nu(x)$ \\n$\\bar{V}_\\mu(x) = V_\\mu(x) - \\partial_\\mu \\xi^\\nu V_\\nu(x) - \\xi^\\nu \\partial_\\nu V_\\mu(x)$。\\n\\n2. 度规扰动 $h_{\\mu\\nu}$ 的变换推导：\\n度规的精确变换为 $\\bar{g}_{\\mu\\nu}(\\bar{x}) = \\frac{\\partial x^\\rho}{\\partial \\bar{x}^\\mu} \\frac{\\partial x^\\sigma}{\\partial \\bar{x}^\\nu} g_{\\rho\\sigma}(x)$。\\n类似地，展开 $\\bar{g}_{\\mu\\nu}$ 并代入雅可比行列式：\\n$\\bar{g}_{\\mu\\nu}(x) + \\xi^\\rho \\partial_\\rho \\eta_{\\mu\\nu} = (\\delta^\\rho_\\mu - \\partial_\\mu \\xi^\\rho)(\\delta^\\sigma_\\nu - \\partial_\\nu \\xi^\\sigma)(\\eta_{\\rho\\sigma} + h_{\\rho\\sigma})$ \\n展开至一阶，注意 $\\partial_\\rho \\eta_{\\mu\\nu}=0$，并利用 $\\eta_{\\rho\\sigma}$ 降低指标：\\n$\\eta_{\\mu\\nu} + \\bar{h}_{\\mu\\nu} = \\eta_{\\mu\\nu} - \\partial_\\mu \\xi^\\rho \\eta_{\\rho\\nu} - \\partial_\\nu \\xi^\\sigma \\eta_{\\mu\\sigma} + h_{\\mu\\nu}$ \\n$\\bar{h}_{\\mu\\nu}(x) = h_{\\mu\\nu}(x) - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu - \\xi^\\rho \\partial_\\rho h_{\\mu\\nu}$ \\n定义对称导数 $\\xi_{(\\mu,\\nu)} = \\frac{1}{2}(\\partial_\\mu \\xi_\\nu + \\partial_\\nu \\xi_\\mu)$，则主要偏导项写为 $-2\\xi_{(\\mu,\\nu)}$。\\n\\n3. 差异解释：\\n协变矢量 $V_\\mu$ 为一阶张量，仅有一个下标 $\\mu$，坐标变换矩阵对其作用一次，产生偏导数项 $\\partial_\\mu \\xi^\\nu$，不存在对称化结构。而度规 $g_{\\mu\\nu}$ 是二阶张量，具有两个下标 $\\mu$ 和 $\\nu$，变换矩阵对其作用两次，分别独立产生 $\\partial_\\mu \\xi_\\nu$ 和 $\\partial_\\nu \\xi_\\mu$。由于度规张量本身具有内禀对称性 $g_{\\mu\\nu}=g_{\\nu\\mu}$，其扰动 $h_{\\mu\\nu}$ 亦必须保持对称 $h_{\\mu\\nu}=h_{\\nu\\mu}$，这要求规范变换后的扰动 $\\bar{h}_{\\mu\\nu}$ 也必须是对称的。偏导数项 $\\partial_\\mu \\xi_\\nu + \\partial_\\nu \\xi_\\mu$ 正是维持这种对称性的唯一组合方式（即对称导数 $2\\xi_{(\\mu,\\nu)}$），反对称部分 $\\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu$ 将破坏对称性，因此不会出现在度规的变换律中。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.minkowskicartesian_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "在 solution 的度规扰动推导步骤中，存在严重的推导逻辑不自洽与中间等式漏项错误。原文将 $\\bar{g}_{\\mu\\nu}(\\bar{x})$ 展开时写为 $\\bar{g}_{\\mu\\nu}(x) + \\xi^\\rho \\partial_\\rho \\eta_{\\mu\\nu}$，错误地将一阶泰勒展开项 $\\xi^\\rho \\partial_\\rho \\bar{g}_{\\mu\\nu}(x)$ 替换成了 $\\xi^\\rho \\partial_\\rho \\eta_{\\mu\\nu}$（后者为0），导致关键的拖拽项 $\\xi^\\rho \\partial_\\rho h_{\\mu\\nu}$ 在中间等式 $\\eta_{\\mu\\nu} + \\bar{h}_{\\mu\\nu} = \\eta_{\\mu\\nu} - \\partial_\\mu \\xi^\\rho \\eta_{\\rho\\nu} - \\partial_\\nu \\xi^\\sigma \\eta_{\\mu\\sigma} + h_{\\mu\\nu}$ 中完全丢失。依据该中间等式进行移项，只能得出 $\\bar{h}_{\\mu\\nu} = h_{\\mu\\nu} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu$，而紧接着的最终结果 $\\bar{h}_{\\mu\\nu}(x) = h_{\\mu\\nu}(x) - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu - \\xi^\\rho \\partial_\\rho h_{\\mu\\nu}$ 却凭空出现了本该在中间等式左侧存在的 $-\\xi^\\rho \\partial_\\rho h_{\\mu\\nu}$ 项。推导过程存在明显的逻辑跳跃，中间等式数学上不成立，无法自洽地支撑最终结论。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

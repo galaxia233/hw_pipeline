@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-6-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "geodesic deviation",
+      "coordinate": "spherical_comoving",
+      "scenario": "cosmology_verify",
+      "method": "riemann_tensor_index_raising",
+      "generalization_axis": "verify",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-6",
+      "1_s11_11.11-6-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "FLRW",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "校验测地线偏离方程推导",
+      "Riemann张量指标提升",
+      "测地线偏离方程符号",
+      "Riemann张量对称性符号"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑度规：$$ ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^{2}{\\left(\\theta\\right)} d\\phi^2 $$其中 $a(t)$ 为尺度因子，$k$ 为空间曲率参数。现考虑两个相邻的共动观测者，他们仅在径向方向 $r$ 上具有微小空间分离矢量 $\\xi^1$（其余分量为零）。已知共动观测者的四维速度为 $u^\\mu = (1, 0, 0, 0)$。某同学推导这两个观测者之间相对加速度的测地线偏离方程（即计算 $\\frac{D^2 \\xi^1}{d \\tau^2}$ 的表达式）的过程如下：> 测地线偏离方程描述了时空曲率对相邻自由下落粒子相对运动的影响，其一般形式为：> $$ \\frac{D^2 \\xi^\\mu}{d \\tau^2} = R^\\mu_{\\; \\nu \\alpha \\beta} u^\\nu \\xi^\\alpha u^\\beta $$> 对于共动观测者，其四维速度为 $u^\\mu = (1, 0, 0, 0)$，且分离矢量仅在径向方向，即 $\\xi^\\alpha$ 中只有 $\\xi^1 \\neq 0$。代入方程可得：> $$ \\frac{D^2 \\xi^1}{d \\tau^2} = R^1_{\\; 010} \\xi^1 $$> 我们需要计算 $R^1_{\\; 010}$。根据 Riemann 张量的定义与指标提升规则：> $$ R^1_{\\; 010} = g_{11} R_{1010} $$> 由于 Riemann 张量的对称性 $R_{1010} = R_{0101}$，由度规几何属性数据可知：> $$ R_{0101} = - \\frac{a(t) \\ddot{a}(t)}{k r^2 - 1} $$> 因此：> $$ R_{1010} = - \\frac{a(t) \\ddot{a}(t)}{k r^2 - 1} $$> 度规的空间分量 $g_{11}$ 为：> $$ g_{11} = \\frac{a^2(t)}{1-kr^2} $$> 将 $g_{11}$ 和 $R_{1010}$ 代入指标提升公式：> $$ R^1_{\\; 010} = \\frac{a^2(t)}{1-kr^2} \\cdot \\left( - \\frac{a(t) \\ddot{a}(t)}{k r^2 - 1}\\right) = \\frac{a^2(t)}{1-kr^2} \\cdot \\frac{a(t) \\ddot{a}(t)}{1-kr^2} = \\frac{a^3(t) \\ddot{a}(t)}{(1-kr^2)^2} $$> 最后代入测地线偏离方程：> $$ \\frac{D^2 \\xi^1}{d \\tau^2} = \\frac{a^3(t) \\ddot{a}(t)}{(1-kr^2)^2} \\xi^1 $$已知正确结论仅依赖于尺度因子 $a(t)$，形式为 $\\frac{D^2 \\xi^1}{d \\tau^2} = \\frac{\\ddot{a}(t)}{a(t)} \\xi^1$，与 $k$ 和 $r$ 无关。请找出上述推导过程中的所有错误，指出其位置、错误类型，并给出正确值。",
+    "answer": "1. 位置：测地线偏离方程一般形式；错误类型：符号错误；正确值：等式右侧应带有负号，即 $\\frac{D^2 \\xi^\\mu}{d \\tau^2} = - R^\\mu_{\\; \\nu \\alpha \\beta} u^\\nu \\xi^\\alpha u^\\beta$。2. 位置：Riemann 张量指标提升公式；错误类型：指标错误（使用了协变度规分量代替逆变分量）；正确值：提升指标应使用度规的逆变分量，应为 $R^1_{\\; 010} = g^{11} R_{1010}$。3. 位置：Riemann 张量对称性关系；错误类型：符号错误（忽略了前两指标的反对称性）；正确值：应为 $R_{1010} = - R_{0101}$。",
+    "solution": "测地线偏离方程描述了时空曲率对相邻自由下落粒子相对运动的影响，其一般形式为：$$ \\frac{D^2 \\xi^\\mu}{d \\tau^2} = - R^\\mu_{\\; \\nu \\alpha \\beta} u^\\nu \\xi^\\alpha u^\\beta $$对于共动观测者，其四维速度为 $u^\\mu = (1, 0, 0, 0)$，且分离矢量仅在径向方向，即 $\\xi^\\alpha$ 中只有 $\\xi^1 \\neq 0$。代入方程可得：$$ \\frac{D^2 \\xi^1}{d \\tau^2} = - R^1_{\\; 010} \\xi^1 $$我们需要计算 $R^1_{\\; 010}$。根据 Riemann 张量的定义与指标提升规则：$$ R^1_{\\; 010} = g^{11} R_{1010} $$由于 Riemann 张量的对称性 $R_{1010} = - R_{0101}$，由度规几何属性数据可知：$$ R_{0101} = - \\frac{a(t) \\ddot{a}(t)}{k r^2 - 1} $$因此：$$ R_{1010} = \\frac{a(t) \\ddot{a}(t)}{k r^2 - 1} $$度规的逆空间分量 $g^{11}$ 为：$$ g^{11} = \\frac{1-kr^2}{a^2(t)} = \\frac{- (k r^2 - 1)}{a^2(t)} $$将 $g^{11}$ 和 $R_{1010}$ 代入指标提升公式：$$ R^1_{\\; 010} = \\frac{- (k r^2 - 1)}{a^2(t)} \\cdot \\frac{a(t) \\ddot{a}(t)}{k r^2 - 1} = - \\frac{\\ddot{a}(t)}{a(t)} $$最后代入测地线偏离方程：$$ \\frac{D^2 \\xi^1}{d \\tau^2} = - \\left( - \\frac{\\ddot{a}(t)}{a(t)}\\right) \\xi^1 = \\frac{\\ddot{a}(t)}{a(t)} \\xi^1 $$该结果表明，径向分离矢量的相对加速度正比于宇宙膨胀的加速度 $\\ddot{a}(t)$，这正是宇宙加速膨胀（$\\ddot{a}>0$）拉伸物质间距离的几何动力学体现。"
+  },
+  "verification": null
+}

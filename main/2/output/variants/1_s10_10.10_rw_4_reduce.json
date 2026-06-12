@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-6-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "L",
+      "coordinate": "spherical",
+      "scenario": "schwarzschild_reduce",
+      "method": "geodesic_killing_limit",
+      "generalization_axis": "limit",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-6",
+      "1_s10_10.10-6-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$L$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 时空中，度规张量定义为 $ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。该度规存在绕 $\\phi$ 轴的旋转 Killing 矢量场 $\\boldsymbol{\\xi}$，其坐标分量为 $\\xi^\\mu = (0, 0, 0, 1)$。对于沿测地线运动的自由粒子，该 Killing 矢量产生的守恒量定义为 $L = g_{\\mu\\nu} \\xi^\\mu u^\\nu$。请写出 $L$ 的表达式，并通过对 $\\phi$ 分量的测地线方程取 $r_s \\to 0$ 的极限（即零质量极限，回到无引力的平直时空），说明该方程如何退化为经典力学中的角动量守恒方程。",
+    "answer": "守恒量表达式为 $L = g_{\\phi\\phi} \\xi^\\phi u^\\phi = r^2 \\sin^2\\theta \\dot{\\phi}$。$\\phi$ 分量的测地线方程为：$\\ddot{\\phi} + 2 \\Gamma^3_{13} \\dot{r} \\dot{\\phi} + 2 \\Gamma^3_{23} \\dot{\\theta} \\dot{\\phi} = 0$。代入 Fact Sheet 中的 Christoffel 符号 $\\Gamma^3_{13} = 1/r$ 和 $\\Gamma^3_{23} = 1/\\tan\\theta$，得到：$\\ddot{\\phi} + \\frac{2}{r} \\dot{r} \\dot{\\phi} + \\frac{2 \\cos\\theta}{\\sin\\theta} \\dot{\\theta} \\dot{\\phi} = 0$。在 $r_s \\to 0$ 的极限下，Schwarzschild 度规退化为平直时空度规 $ds^2 = -dt^2 + dr^2 + r^2 d\\Omega^2$。由于方程中的 Christoffel 符号不含 $r_s$，极限下方程形式不变，这正是经典力学中三维欧几里得平直空间球坐标系下的自由粒子测地线方程。对该方程积分即得到 $\\frac{d}{d\\tau}(r^2 \\sin^2\\theta \\dot{\\phi}) = 0$，说明 GR 中的守恒量 $L$ 在零质量极限下平滑回到了经典力学中的单位质量角动量守恒。",
+    "solution": "1. 根据 Killing 矢量定义写出守恒量 $L$；2. 写出 $\\phi$ 分量测地线方程并代入 Christoffel 符号；3. 分析 $r_s \\to 0$ 极限下 Christoffel 符号的退化情况，说明其回到经典平直空间球坐标的测地线方程。"
+  },
+  "verification": null
+}

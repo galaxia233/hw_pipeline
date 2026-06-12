@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_1-6-8",
+    "type": "calculate",
+    "tags": {
+      "target_object": "vacuum_energy_density",
+      "coordinate": "closed_slicing",
+      "scenario": "cosmology_reduce_to_flat",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "AntiDeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.4_1",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.4_1",
+      "1_s13_13.4_1-6",
+      "1_s13_13.4_1-6-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "AntiDeSitter",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "chi",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\rho_{\\text{vac}}"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "cos(t)**2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "cos(t)**2*sinh(chi)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*cos(t)**2*sinh(chi)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In relativistic quantum mechanics, it is speculated that the vacuum has a nonzero stress-energy tensor $T_{\\mu\\nu}^{\\text{vac}}$. To ensure there is no preferred vacuum frame, this tensor must be proportional to the metric, interpreted as an effective cosmological constant $\\Lambda$. A pure vacuum spacetime with cosmological constant $\\Lambda$ satisfies $G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 0$, and the effective vacuum stress-energy tensor is defined as $T_{\\mu\\nu}^{\\text{vac}} = -\\frac{\\Lambda}{8\\pi} g_{\\mu\\nu}$. The vacuum energy density is $\\rho_{\\text{vac}} = T_{00}^{\\text{vac}}$. \\n\\nConsider the Anti-de Sitter spacetime, a vacuum solution with a constant negative curvature. Its metric in closed slicing can be generalized by the curvature radius parameter $\\alpha$ as: \\n$ds^2 = -dt^2 + \\alpha^2 \\cos^2(t/\\alpha) d\\chi^2 + \\alpha^2 \\cos^2(t/\\alpha) \\sin h^2(\\chi) d\\theta^2 + \\alpha^2 \\sin^2(\\theta) \\cos^2(t/\\alpha) \\sin h^2(\\chi) d\\phi^2$ \\n(When $\\alpha=1$, this metric reduces to the standard form given in the original geometric data). For this parameterized metric, the Einstein tensor satisfies $G_{\\mu\\nu} = \\frac{3}{\\alpha^2} g_{\\mu\\nu}$. \\n\\nWhen the curvature radius of the AdS spacetime tends to infinity (i.e., $\\alpha \\to \\inf ty$), the spacetime curvature vanishes and it physically reduces to the classical flat Minkowski spacetime. Under this physical limit, what is the limiting value of the vacuum energy density $\\rho_{\\text{vac}}$?",
+    "answer": "1. For the parameterized metric, the Einstein tensor is $G_{\\mu\\nu} = \\frac{3}{\\alpha^2} g_{\\mu\\nu}$. \\n2. Substituting into the pure vacuum Einstein field equations $G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 0$, we get $\\frac{3}{\\alpha^2} g_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 0$, which yields the cosmological constant $\\Lambda = -\\frac{3}{\\alpha^2}$. \\n3. The vacuum stress-energy tensor is $T_{\\mu\\nu}^{\\text{vac}} = -\\frac{\\Lambda}{8\\pi} g_{\\mu\\nu} = \\frac{3}{8\\pi\\alpha^2} g_{\\mu\\nu}$. \\n4. The vacuum energy density is $\\rho_{\\text{vac}} = T_{00}^{\\text{vac}} = \\frac{3}{8\\pi\\alpha^2} g_{00} = \\frac{3}{8\\pi\\alpha^2} (-1) = -\\frac{3}{8\\pi\\alpha^2}$. \\n5. Taking the limit $\\alpha \\to \\inf ty$ (curvature radius tends to infinity, spacetime returns to flat Minkowski), we get $\\rho_{\\text{vac}} = -\\frac{3}{8\\pi\\alpha^2} \\to 0$. \\nTherefore, the limiting value of the vacuum energy density $\\rho_{\\text{vac}}$ is 0.",
+    "solution": "Derive the cosmological constant $\\Lambda(\\alpha)$, then find the expression for $\\rho_{\\text{vac}}(\\alpha)$, and finally take the limit $\\alpha \\to \\inf ty$ to obtain 0. The physical meaning is that as the negative curvature vanishes, the vacuum energy density degenerates to zero, corresponding to the flat spacetime limit."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.antidesitter_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.2,
+      "issue": "题目中存在多处严重的排版与拼写错误，破坏了数学表达式的规范性与可读性：1. 度规表达式中双曲函数排版错误，\\sin h^2(\\chi) 出现两次，应为 \\sinh^2(\\chi)，错误排版会导致渲染为毫无意义的 $sin h^2(\\chi)$；2. 极限符号拼写错误，\\inf ty 出现两次（question 和 answer 中），应为标准 LaTeX 符号 \\infty，错误拼写导致渲染为非标准文本 \\inf ty。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

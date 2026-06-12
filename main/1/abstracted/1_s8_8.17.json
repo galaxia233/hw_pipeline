@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s8_8.17",
+    "type": "prove",
+    "tags": {
+      "metric": "lie_derivative",
+      "target_object": "tensor_transformation",
+      "coordinate": "diffeomorphism",
+      "scenario": "infinitesimal_transformation",
+      "method": "geometric_fields"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.17",
+    "source_id": "1_s8_8.17",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.17"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基于无穷小微分同胚的多步张量变换推导，逻辑严密且具有一般性",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\mu$",
+      "$\\xi^\\mu$",
+      "$\\Phi^{\\mathbf{A}}$",
+      "$A_\\mu$",
+      "$T_\\nu^\\mu$"
+    ],
+    "target": [
+      "$\\mathcal{L}_{\\boldsymbol{\\xi}} \\Phi^{\\mathbf{A}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 8.17. Another definition of the Lie derivative of a geometric object $\\Phi^{\\mathbf{A}}[\\mathbf{x}^{\\mu}(\\mathbf{P})]$ (A represents all the tensor indices, $\\mathbf{x}^{\\mu}(\\mathbf{P})$ are the coordinates of a point $\\mathbf{P}$ ) is as follows: Make an infinitesimal point transformation $\\mathbf{P}_0 \\to \\mathbf{P_N}$ by $\\mathbf{x}^{\\mu}(\\mathbf{P}_0) = \\mathbf{x}^{\\mu}(\\mathbf{P_N}) + \\xi^{\\mu}(\\mathbf{P_N})$ . (Since $\\xi^{\\mu}$ is infinitesimal, it can in fact be evaluated at either $\\mathbf{P}_0$ or $\\mathbf{P_N}$ .) Also make an infinitesimal coordinate transformation that makes the numerical values of the coordinates of $\\mathbf{P_N}$ the same as those of $\\mathbf{P}_0$ in the original coordinates:$$\\overline {{\\mathbf {x}}}^{\\mu} (\\mathbf {P_{N}}) = \\mathbf {x}^{\\mu} (\\mathbf {P_{0}}).$$Then define$$\\mathcal {L}_{\\boldsymbol {\\xi}} \\Phi^{\\mathbf{A}} (\\mathrm {P}_{0}) = \\underset {\\boldsymbol {\\xi} \\to 0} {\\text {L I M}} \\left[ \\Phi^{\\mathbf{A}} (\\mathrm {P}_{0}) - \\overline {{\\Phi}}^{\\mathbf{A}} (\\mathrm {P}_{\\mathrm {N}})\\right] .$$Show that this definition is equivalent to that of Problem 8.13 by examining the cases (i) $\\Phi^{\\mathbf{A}} = \\mathbf{a}$ scalar field (ii) $\\Phi^{\\mathbf{A}} = \\mathbf{A}_{\\mu}$ (iii) $\\Phi^{\\mathbf{A}} = \\mathbf{T}_{\\mu}^{\\nu}$ .",
+    "answer": "(i) $\\mathcal{L}_{\\xi} \\Phi = \\xi^\\mu \\Phi_{,\\mu}$(ii) $\\mathcal{L}_{\\boldsymbol{\\xi}} A_\\mu = A_{\\mu,\\beta} \\xi^\\beta + A_\\alpha \\xi^\\alpha_{,\\mu}$(iii) $\\mathcal{L}_{\\boldsymbol{\\xi}} T_\\nu^\\mu = T_{\\nu,\\gamma}^\\mu \\xi^\\gamma + T_\\beta^\\mu \\xi^\\beta_{,\\nu} - T_\\nu^\\alpha \\xi^\\mu_{,\\alpha}$",
+    "solution": "Solution 8.17.(i) First the scalar case:$$\\begin{array}{l} \\Phi (\\mathrm {P}_{\\mathrm {N}}) = \\Phi (\\mathrm {P}_{0}) + [ \\mathrm {x}^{\\mu} (\\mathrm {P}_{\\mathrm {N}}) - \\mathrm {x}^{\\mu} (\\mathrm {P}_{0}) ] \\Phi_{, \\mu} (\\mathrm {P}_{0}) + \\dot s \\\\ \\mathbf {\\Phi} = \\Phi (\\mathbf {P}_{0}) - \\xi^{\\mu} \\Phi_{, \\mu}, \\\\ \\end{array}$$and $\\overline{\\Phi} (\\mathbf{P}_{\\mathbf{N}}) = \\Phi (\\mathbf{P}_{\\mathbf{N}})$ since $\\Phi$ is a scalar, hence$$\\mathcal {L}_{\\xi} \\Phi = \\Phi_{, \\mu} \\xi^{\\mu}.$$(ii) Since $\\overline{\\mathbf{x}}^{\\mu}(\\mathbf{P}_{\\mathbf{N}}) = \\mathbf{x}^{\\mu}(\\mathbf{P}_{0}) = \\mathbf{x}^{\\mu}(\\mathbf{P}_{\\mathbf{N}}) + \\boldsymbol{\\xi}^{\\mu}$ , we have for vector fields$$\\overline {{{\\mathsf {A}}}}_{\\mu} (\\mathbf {P_{N}}) = (\\partial \\mathbf {x}^{a} / \\partial \\overline {{{\\mathbf {x}}}}^{\\mu}) \\mathsf {A}_{\\mu} (\\mathbf {P_{N}}) = (\\delta_{\\mu}^{a} - \\xi_{, \\mu}^{a}) \\mathsf {A}_{\\mu} (\\mathbf {P_{N}}).$$Now we combine this with$$\\mathbf {A}_{\\mu} (\\mathbf {P_{N}}) = \\mathbf {A}_{\\mu} (\\mathbf {P_{0}}) - \\mathbf {A}_{\\mu , \\beta} \\xi^{\\beta}$$to get$$\\begin{array}{l} \\mathcal {L}_{\\boldsymbol {\\xi}} \\mathrm {A}_{\\mu} = \\mathrm {A}_{\\mu} \\left(\\mathrm {P}_{0}\\right) - \\overline {{\\mathrm {A}}}_{\\mu} \\left(\\mathrm {P}_{\\mathrm {N}}\\right) \\\\ = \\mathrm {A}_{\\mu} (\\mathrm {P}_{0}) - \\left(\\delta_{\\mu}^{\\alpha} - \\xi_{, \\mu}^{\\alpha}\\right) \\left(\\mathrm {A}_{\\alpha} (\\mathrm {P}_{0}) - \\mathrm {A}_{\\alpha , \\beta} \\xi^{\\beta}\\right) \\\\ = \\mathrm {A}_{\\mu , \\beta} \\xi^{\\beta} + \\mathrm {A}_{\\alpha} \\xi^{\\alpha}, \\mu . \\\\ \\end{array}$$(iii) The tensor case is handled similarly:$$\\begin{array}{l} \\bar {\\mathrm {T}}_{\\nu}^{\\mu} \\left(\\mathrm {P}_{\\mathrm {N}}\\right) = \\left(\\partial \\bar {\\mathrm {x}}^{\\mu} / \\partial \\mathrm {x}^{a}\\right) \\left(\\partial_{\\mathrm {x}}^{\\beta} / \\partial \\bar {\\mathrm {x}}^{\\nu}\\right) \\mathrm {T}_{\\beta}^{a} \\left(\\mathrm {P}_{\\mathrm {N}}\\right) \\\\ = \\left(\\delta_{\\alpha}^{\\mu} + \\xi_{, \\alpha}^{\\mu}\\right) \\left(\\delta_{\\nu}^{\\beta} - \\xi_{, \\nu}^{\\beta}\\right) \\left[ T_{\\beta}^{\\alpha} (P_{0}) - T_{\\beta , \\gamma}^{\\alpha} \\xi^{\\gamma}\\right] \\\\ = \\mathrm {T}_{\\nu}^{\\mu} (\\mathrm {P}_{0}) - \\mathrm {T}_{\\nu , \\gamma}^{\\mu} \\xi^{\\gamma} - \\mathrm {T}_{\\beta}^{\\mu} \\xi^{\\beta},_{\\nu} + \\mathrm {T}_{\\nu}^{a} \\xi^{\\mu},_{a} \\\\ \\mathcal {L}_{\\boldsymbol {\\xi}} \\mathrm {T}_{\\nu}^{\\mu} = \\mathrm {T}_{\\nu , \\gamma}^{\\mu} \\xi^{\\gamma} + \\mathrm {T}_{\\beta}^{\\mu} \\xi^{\\beta},_{\\nu} - \\mathrm {T}_{\\nu}^{a} \\xi^{\\mu},_{a}. \\\\ \\end{array}$$"
+  },
+  "verification": null
+}

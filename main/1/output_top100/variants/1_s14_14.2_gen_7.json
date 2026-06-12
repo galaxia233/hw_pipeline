@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s14_14.2-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "T(r)",
+      "coordinate": "r",
+      "scenario": "black hole",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.2",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.2",
+      "1_s14_14.2-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$T(r) \\approx T_0 \\left( 1 + \\frac{M}{r}\\right)$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Consider a static system in thermal equilibrium around a Schwarzschild black hole of mass $M$. The general relativistic condition for thermal equilibrium is $T(r) \\sqrt{-g_{00}} = \\text{constant}$, where $T(r)$ is the local temperature measured by a static observer at radial coordinate $r$, and $T_0$ is the temperature measured by an observer at spatial infinity. The metric component is $g_{00} = -(1 - r_s/r)$, where $r_s = 2M$. Prove that in the weak-field Newtonian limit ($r_s/r \\ll 1$), the local temperature profile reduces to $T(r) \\approx T_0 \\left( 1 + \\frac{M}{r}\\right)$, and explain the physical meaning of this first-order correction in terms of the Newtonian gravitational potential $\\Phi(r) = -M/r$.",
+    "answer": "$T(r) \\approx T_0 \\left( 1 + \\frac{M}{r}\\right)$, where the correction term $M/r$ corresponds to $-\\Phi(r)$, indicating that the local temperature must be higher in regions of lower (more negative) gravitational potential to compensate for the gravitational redshift of photons.",
+    "solution": "1. At spatial infinity ($r \\to \\inf ty$), the metric component $g_{00} \\to -1$, so $\\sqrt{-g_{00}} \\to 1$. The equilibrium condition $T(r) \\sqrt{-g_{00}} = \\text{constant}$ implies that the constant is exactly the temperature at infinity, $T_0$. Thus, $T(r) \\sqrt{-g_{00}} = T_0$.2. For the Schwarzschild metric, $g_{00} = -\\left(1 - \\frac{r_s}{r}\\right) = -\\left(1 - \\frac{2M}{r}\\right)$. The equilibrium condition becomes $T(r) \\sqrt{1 - \\frac{2M}{r}} = T_0$.3. In the weak-field Newtonian limit, we assume $\\frac{2M}{r} \\ll 1$. We can perform a first-order Taylor expansion on the square root: $\\sqrt{1 - \\frac{2M}{r}} \\approx 1 - \\frac{M}{r}$.4. Substituting this back into the equilibrium condition gives $T(r) \\left( 1 - \\frac{M}{r}\\right) \\approx T_0$.5. Solving for $T(r)$ and keeping only terms up to first order in $M/r$, we get $T(r) \\approx T_0 \\left( 1 + \\frac{M}{r}\\right)$.6. The Newtonian gravitational potential is defined as $\\Phi(r) = -\\frac{M}{r}$. Therefore, the temperature profile can be written as $T(r) \\approx T_0 (1 - \\Phi(r))$. This relation shows that in the Newtonian limit, the local temperature is higher closer to the gravitating mass (where $\\Phi$ is more negative). Physically, this is because photons climbing out of a deeper gravitational well experience a stronger gravitational redshift, losing more energy; to maintain thermal equilibrium (equal energy fluxes up and down), the local temperature at the bottom must be correspondingly higher to emit more energetic photons that will redshift to exactly match the ambient temperature at the top."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "1. Solution 第1步中存在明显的 LaTeX 排版拼写错误：'$r \\\\to \\\\inf ty$' 应为 '$r \\\\to \\\\infty$'。2. 提供的度规关键信息摘要中存在物理事实错误：摘要声称 Schwarzschild 度规的 Killing 矢量为 2 个，但实际上 Schwarzschild 度规具有 4 个 Killing 矢量（1个时间平移矢量 $\\partial_t$ 和 3个空间旋转矢量对应于 $SO(3)$ 群）。3. 题目将牛顿引力势直接定义为 $\\Phi(r) = -M/r$ 而未显式声明采用了 $G=c=1$ 的几何单位制使其无量纲化，在标准牛顿力学中势能应具有速度平方的量纲，此定义若脱离几何单位制语境存在量纲不一致的轻微不严谨。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

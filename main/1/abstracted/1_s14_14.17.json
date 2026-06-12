@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s14_14.17",
+    "type": "calculate",
+    "tags": {
+      "metric": "flat_metric_approximation",
+      "target_object": "curvature_fractional_error",
+      "coordinate": "cartesian_coordinates",
+      "scenario": "terrestrial_physical_system",
+      "method": "order_of_magnitude_estimation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.17",
+    "source_id": "1_s14_14.17",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.17"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "量纲分析与爱因斯坦场方程结合估算曲率耦合修正，逻辑链条完整且具备明确地球物理实验背景",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$c$",
+      "$\\\\nu$",
+      "$\\\\ell$",
+      "$\\\\rho$",
+      "$G$",
+      "$\\\\mathbf{A}^{\\\\mu}$",
+      "$\\\\mathbf{R}_{\\\\nu}^{\\\\mu}$"
+    ],
+    "target": [
+      "$\\\\frac{\\\\delta \\\\mathrm{A}^{\\\\mu}}{\\\\mathrm{A}^{\\\\mu}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 14.17. Estimate the fractional error introduced into Maxwell's equations (applied to some earthbound process of characteristic frequency $\\\\nu$ and size $\\\\ell$ ) by our ignorance of what curvature coupling terms there may be.",
+    "answer": "$(5 \\\\times 10^{-6})^{2}$",
+    "solution": "Solution 14.17. If the curvature coupling term is of the sort found in Problem 14.16, we have (in a Lorentz gauge i.e. $\\\\mathbf{A}_{; \\\\mu}^{\\\\mu} = 0$ ) $\\\\square \\\\mathbf{A}^{\\\\mu} + (\\\\mathbf{R}_{\\\\nu}^{\\\\mu} \\\\mathbf{A}^{\\\\nu}) = 4\\\\pi \\\\mathbf{J}^{\\\\mu}$ , where the term in parentheses may or may not be present. Since the Ricci tensor vanishes in vacuum, the only hope of detecting its term would be by experiments in matter (e.g. in glass). The first term is of order $\\\\mathbf{A}^{\\\\mu}$ [minimum $(\\\\frac{\\\\mathsf {C}}{\\\\nu}, \\\\ell)]^{-2}$ . The magnitude of the Ricci tensor is (by the field equations) of order $\\\\mathbf{G} \\\\rho / c^{2} \\\\approx .74 \\\\times 10^{-28} \\\\mathrm{~cm}^{-2} \\\\times \\\\left(\\\\frac{\\\\rho}{\\\\mathbf{gm} \\\\cdot \\\\mathrm{cm}^{-3}}\\\\right)$ . The fractional correction of the second term is thus$$\\\\frac {\\\\delta \\\\mathrm {A}^{\\\\mu}}{\\\\mathrm {A}^{\\\\mu}} \\\\sim \\\\left(\\\\frac {\\\\operatorname* {m i n i m u m} \\\\left(\\\\frac {\\\\mathsf {C}}{\\\\nu} , \\\\ell\\\\right) (\\\\rho / \\\\mathrm {g m .} \\\\cdot \\\\mathrm {c m}^{- 3})^{\\\\frac {1}{2}}}{1 . 1 6 \\\\times 1 0^{1 4} \\\\mathrm {c m}}\\\\right)^{2}.$$Since an earthbound processes is presumably no larger than the size of the earth $\\\\sim 6 \\\\times 10^{8} \\\\mathrm{~cm}$ , this is bounded by $(\\\\delta \\\\mathrm{A}^{\\\\mu} / \\\\mathrm{A}^{\\\\mu}) \\\\lesssim (5 \\\\times 10^{-6})^{2}$ for$\\\\rho = 1$ . One can also dream up fancier curvature coupling terms like $\\\\mathrm{KR}^{\\\\alpha \\\\beta \\\\gamma \\\\delta} \\\\mathrm{R}_{\\\\alpha \\\\beta \\\\gamma \\\\delta} \\\\mathrm{A}^{\\\\mu}$ where $\\\\mathbf{K}$ is a dimensional constant. Because there is no natural value to assume for $\\\\mathbf{K}$ , there is no a priori way to estimate the magnitude of the effect resulting from such terms. Since the equations are similar to the Proca equation $\\\\square \\\\mathrm{A}^{\\\\mu} + \\\\mathrm{mA}^{\\\\mu} = 0$ , experiments to measure the photon rest mass do put some limits on $\\\\mathbf{K}$ , but so far they are not useful ones."
+  },
+  "verification": null
+}

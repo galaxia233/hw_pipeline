@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s1_1.22",
+    "type": "calculate",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "relativistic_doppler_shift",
+      "coordinate": "light_propagation",
+      "scenario": "observation_angle",
+      "method": "formula_manipulation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.22",
+    "source_id": "1_s1_1.22",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.22"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于相对论多普勒效应公式推导零红移观测角，需代数与三角运算，具有天体物理观测背景",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\mathbf{v}$",
+      "$v$",
+      "$\\theta$",
+      "$\\mathbf{n}$"
+    ],
+    "target": [
+      "$\\theta$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.22. An observer receives light from a source of light which is moving with a velocity $\\mathbf{v}$ ; the angle between $\\mathbf{v}$ and the line between observer and source is $\\theta$ at the time the light is emitted. If the observer sees no net redshift or blueshift, what is $\\theta$ in terms of $|\\mathbf{v}|$ ?",
+    "answer": "$\\theta = \\cos^{- 1} \\left[ \\frac {\\left(1 - v^{2}\\right)^{\\frac {1}{2}} - 1}{v}\\right]$",
+    "solution": "The doppler-shift formula (Problem 1.21) gives$$1 = \\frac {\\nu_{\\mathrm {o b s}}}{\\nu} = \\frac {\\left(1 - v^{2}\\right)^{\\frac {1}{2}}}{1 + \\underline {{v \\cdot n}}}$$$$\\cos \\theta = \\frac {\\mathbf {v} \\cdot \\mathbf {n}}{\\mathbf {v}} = \\frac {\\left(1 - \\mathbf {v}^{2}\\right)^{\\frac {1}{2}} - 1}{\\mathbf {v}}$$$$\\theta = \\cos^{- 1} \\left[ \\frac {\\left(1 - v^{2}\\right)^{\\frac {1}{2}} - 1}{v}\\right].$$"
+  },
+  "verification": null
+}

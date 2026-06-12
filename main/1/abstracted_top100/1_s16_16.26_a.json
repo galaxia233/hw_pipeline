@@ -1,0 +1,192 @@
+{
+  "metadata": {
+    "id": "1_s16_16.26_a",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "coordinate",
+      "coordinate": "spherically_symmetric_collapsing_star",
+      "scenario": "perfect_fluid",
+      "method": "target_object"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.26_a",
+    "source_id": "1_s16_16.26_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.26_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.7,
+      "realism": 0.9,
+      "rationale": "球对称坍缩星度规结合流体热力学与爱因斯坦场方程G^t_R=0的多步推导，具有明确天体物理背景",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$R$",
+      "$\\theta$",
+      "$\\phi$",
+      "$r$",
+      "$\\Phi$",
+      "$\\Lambda$",
+      "$m$",
+      "$U$",
+      "$\\Gamma$",
+      "$\\rho$",
+      "$p$"
+    ],
+    "target": [
+      "$\\dot{m} = -4 \\pi p r^2 \\dot{r}$"
+    ],
+    "metric": [
+      [
+        "$-e^{2\\Phi}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$e^{2\\Lambda}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s16_16.26_a.md]Problem 16.26. If $\\mathbf{R}$ is a comoving coordinate, the metric for a spherically symmetric collapsing star (see Problem 16.25) can be written as$$\\mathrm {d s}^{2} = - \\mathrm {e}^{2 \\Phi} \\mathrm {d t}^{2} + \\mathrm {e}^{2 \\Lambda} \\mathrm {d R}^{2} + \\mathrm {r}^{2} (\\mathrm {t}, \\mathrm {R}) \\mathrm {d} \\Omega^{2}$$where $\\Phi$ and $\\Lambda$ are functions of $\\mathbb{R}$ , t. If the star is made of a perfect fluid it is often useful to define the following functions:$$\\begin{array}{l} m \\equiv \\int_{0}^{R} 4 \\pi r^{2} \\rho r^{\\prime} d R \\\\ \\mathrm {U} \\equiv \\mathrm {e}^{- \\Phi} \\dot{r} \\\\ \\Gamma^{2} \\equiv e^{- 2 \\Lambda} (r^{\\prime})^{2}. \\\\ \\end{array}$$Here primes denote partial differentiation with respect to $\\mathbf{R}$ , and dots with respect to $t$ . The function $m$ is interpreted as the mass interior to the shell at $\\mathbf{R}$ , and $U$ is the rate at which a shell is moving with respect to the proper time of a comoving observer.Prove the following relations:$$\\dot {\\mathrm {m}} = - 4 \\pi \\mathrm {p r}^{2} \\dot {\\mathrm {r}}. \\tag {a}$$[Hint: Use the first law of thermodynamics (Problem 5.19), baryon conservation, the equations of motion, and $\\mathbf{G}_{\\mathbf{R}}^{\\mathbf{t}} = 0$ (Problem 9.20).]",
+    "answer": "$\\dot{m} = -4 \\pi p r^2 \\dot{r}$",
+    "solution": null
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "metric_latex": [
+      [
+        "\\frac{- r + r_{s}}{r}",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "\\frac{r}{r - r_{s}}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r^{2} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_001": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_010": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_100": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{3}}",
+      "Gamma_111": "- \\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_122": "- r + r_{s}",
+      "Gamma_133": "\\left(- r + r_{s}\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_233": "- \\frac{\\sin{\\left(2 \\theta \\right)}}{2}",
+      "Gamma_313": "\\frac{1}{r}",
+      "Gamma_323": "\\frac{1}{\\tan{\\left(\\theta \\right)}}",
+      "Gamma_331": "\\frac{1}{r}",
+      "Gamma_332": "\\frac{1}{\\tan{\\left(\\theta \\right)}}"
+    },
+    "riemann": {
+      "R_0101": "\\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0110": "- \\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0202": "- \\frac{r_{s}}{2 r}",
+      "R_0220": "\\frac{r_{s}}{2 r}",
+      "R_0303": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_0330": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1001": "\\frac{r_{s} \\left(r - r_{s}\\right)}{r^{4}}",
+      "R_1010": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{r^{4}}",
+      "R_1212": "- \\frac{r_{s}}{2 r}",
+      "R_1221": "\\frac{r_{s}}{2 r}",
+      "R_1313": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1331": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_2002": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_2020": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_2112": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2121": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2323": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_2332": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_3003": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_3030": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_3113": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3131": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3223": "- \\frac{r_{s}}{r}",
+      "R_3232": "\\frac{r_{s}}{r}"
+    },
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "\\frac{48 M^{2}}{r^{6}}",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量 (∂_t)，对应能量守恒",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "rot_phi",
+        "description": "绕 φ 轴旋转 Killing 矢量 (∂_φ)，对应角动量守恒",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

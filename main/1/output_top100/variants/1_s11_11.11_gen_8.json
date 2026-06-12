@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "\\Omega",
+      "coordinate": "spherical",
+      "scenario": "FLRW_comoving_gyroscope",
+      "method": "parallel_transport_limit",
+      "generalization_axis": "limit",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\Omega"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In the Friedmann-Lemaître-Robertson-Walker (FLRW) universe, described by the metric $ds^2 = -dt^2 + \\frac{a^{2}(t)}{1 - k r^{2}} dr^2 + r^{2} a^{2}(t) d\\theta^{2} + r^{2} a^{2}(t) \\sin^{2}{\\theta} d\\phi^{2}$, distant galaxies define the comoving cosmological reference frame. Consider a gyroscope placed at a fixed comoving coordinate position $(r_{0}, \\theta_{0}, \\phi_{0})$ and at rest with respect to these distant stars (i.e., a comoving observer). Prove that the angular velocity of precession $\\Omega$ of its spin vector relative to the cosmological frame is exactly zero. Furthermore, verify this result by taking the static flat universe limit where the scale factor $a(t) \\to 1$ (so $\\dot{a} \\to 0$, $\\ddot{a} \\to 0$) and $k \\to 0$, showing that the spin transport equation reduces to that of flat Minkowski spacetime where any geodetic precession is absent.",
+    "answer": "$\\Omega = 0$; In the limit $a(t) \\to 1, \\dot{a} \\to 0, k \\to 0$, the Christoffel symbols $\\Gamma^{i}_{0 j}$ vanish, yielding $dS^{i}/d\\tau = 0$, which matches the Minkowski spacetime result of zero precession.",
+    "solution": "1. The tangent vector of the comoving observer is $u^{\\mu} = (1, 0, 0, 0)$. The spin vector $S^{\\mu}$ must satisfy the orthogonality condition $g_{\\mu \\nu} u^{\\mu} S^{\\nu} = 0$. With the given metric, this implies $-S^{0} = 0$, so $S^{0} = 0$. Thus, $S^{\\mu}$ is purely spatial: $S^{\\mu} = (0, S^{1}, S^{2}, S^{3})$.2. The parallel transport equation along the worldline is $\\frac{d S^{\\mu}}{d \\tau} + \\Gamma^{\\mu}_{\\alpha \\beta} u^{\\alpha} S^{\\beta} = 0$. Since $u^{\\alpha} = (1, 0, 0, 0)$, this reduces to $\\frac{d S^{\\mu}}{d \\tau} + \\Gamma^{\\mu}_{0 j} S^{j} = 0$.3. From the metric components, the only non-zero Christoffel symbols of the form $\\Gamma^{i}_{0 j}$ are $\\Gamma^{1}_{0 1} = \\Gamma^{1}_{1 0} = \\frac{\\dot{a}}{a}$, $\\Gamma^{2}_{0 2} = \\Gamma^{2}_{2 0} = \\frac{\\dot{a}}{a}$, and $\\Gamma^{3}_{0 3} = \\Gamma^{3}_{3 0} = \\frac{\\dot{a}}{a}$. The time component equation $\\frac{d S^{0}}{d \\tau} = 0$ preserves $S^{0} = 0$. The spatial equations are decoupled: $\\frac{d S^{i}}{d t} = - \\frac{\\dot{a}}{a} S^{i}$, which yields the solution $S^{i}(t) = S^{i}(t_{0}) \\frac{a(t_{0})}{a(t)}$.4. The physical spatial components relative to the cosmological orthonormal frame are $\\hat{S}^{1} = \\frac{a}{\\sqrt{1 - k r^{2}}} S^{1}$, $\\hat{S}^{2} = a r S^{2}$, and $\\hat{S}^{3} = a r \\sin{\\theta} S^{3}$. Since $r, \\theta, \\phi$ are constant for a comoving observer, substituting $S^{i}(t)$ shows that all physical components $\\hat{S}^{i}$ are strictly constant in time. Thus, the direction of the spin vector does not change, and the angular velocity of precession $\\Omega = 0$.5. In the static flat universe limit where $a(t) \\to 1$ ($\\dot{a} \\to 0$, $\\ddot{a} \\to 0$) and $k \\to 0$, the Christoffel symbols $\\Gamma^{i}_{0 j} = \\frac{\\dot{a}}{a} \\to 0$. The parallel transport equation becomes $\\frac{d S^{i}}{d \\tau} = 0$, meaning both coordinate and physical components are strictly constant. This exactly matches the behavior of a static gyroscope in Minkowski spacetime, confirming the absence of precession in the limit."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "Solution在推导陀螺仪自旋矢量的演化时，直接使用了平行平移方程 $\\\\frac{d S^{\\\\mu}}{d \\\\tau} + \\\\Gamma^{\\\\mu}_{\\\\alpha \\\\beta} u^{\\\\alpha} S^{\\\\beta} = 0$，这是一个关键的概念错误与逻辑跳跃。在广义相对论中，陀螺仪自旋矢量的严格传输方程是费米-沃克平移（Fermi-Walker transport），即 $\\\\frac{DS^\\\\mu}{d\\\\tau} = (u^\\\\mu a_\\\\nu - a^\\\\mu u_\\\\nu) S^\\\\nu$，只有在观测者沿测地线运动（四维加速度 $a^\\\\mu = 0$）时，费米-沃克平移才退化为平行平移。Solution未证明共动观测者沿测地线运动（即未计算 $a^\\\\mu = \\\\frac{Du^\\\\mu}{d\\\\tau}$ 并验证其为零），就直接对自旋矢量套用平行平移方程，属于未经证明的假设和关键步骤遗漏。虽然最终结论 $\\Omega=0$ 在物理上是正确的（因为共动观测者确实是测地线的），但推导过程在逻辑上不严谨，缺乏关键的物理前提论证。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

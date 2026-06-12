@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "$\\omega_{drag}$",
+      "coordinate": "isotropic_spherical",
+      "scenario": "weak_field_rotating_star",
+      "method": "metric_component_ratio",
+      "generalization_axis": "extend",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\phi$",
+      "$M$",
+      "$\\mathbf{v}$",
+      "$\\mathbf{S}$",
+      "$h_j$",
+      "$\\Gamma_{\\hat{j}\\hat{k}\\hat{0}}$"
+    ],
+    "target": [
+      "$\\omega_{drag}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "地球周围的慢旋转弱场引力场可由线性化的 Kerr 度规（即 Lense-Thirring 度规）描述。在等距球坐标 $(t, r, \\theta, \\phi)$ 下，度规分量分别为：$g_{tt} = -(1-2M/r)$, $g_{rr} = (1+2M/r)$, $g_{\\theta\\theta} = (1+2M/r) r^2$, $g_{\\phi\\phi} = (1+2M/r) r^2 \\sin^2\\theta$, $g_{t\\phi} = g_{\\phi t} = -\\frac{2J}{r} \\sin^2\\theta$。其中 $M$ 为星体质量，$J$ 为星体角动量。坐标拖曳角速度定义为 $\\omega_{drag} = -\\frac{g_{t\\phi}}{g_{\\phi\\phi}}$，它表示零角动量观测者（ZAMO）相对于远处固定恒星坐标系的局部角速度。请推导在赤道面 ($\\theta = \\pi/2$) 上的坐标拖曳角速度 $\\omega_{drag}$ 的解析表达式，并保留到关于 $M$ 和 $J$ 的一阶弱场近似。",
+    "answer": "$\\omega_{drag} \\approx \\frac{2J}{r^3}$",
+    "solution": "1. 提取赤道面度规分量：代入 $\\theta = \\pi/2$，即 $\\sin\\theta = 1$。此时度规分量简化为：   $g_{t\\phi} = -\\frac{2J}{r}$   $g_{\\phi\\phi} = (1+\\frac{2M}{r}) r^2$2. 代入坐标拖曳角速度的定义公式：   $\\omega_{drag} = -\\frac{g_{t\\phi}}{g_{\\phi\\phi}} = -\\frac{-\\frac{2J}{r}}{(1+\\frac{2M}{r}) r^2} = \\frac{2J}{r^3 (1+\\frac{2M}{r})}$3. 展开并保留一阶近似：对于弱场条件， $2M/r \\ll 1$ ，可以将分母中的因子进行泰勒展开：   $(1+\\frac{2M}{r})^{-1} \\approx 1 - \\frac{2M}{r}$   代入上式得到：   $\\omega_{drag} = \\frac{2J}{r^3} (1 - \\frac{2M}{r}) \\approx \\frac{2J}{r^3}$4. 结论：赤道面上的坐标拖曳角速度近似为 $\\frac{2J}{r^3}$。这一纯几何量反映了旋转星体对其周围时空产生的拖曳效应，是 Lense-Thirring 效应的核心几何基础，与种子题中通过费米-沃克平移和引力磁势旋度求得的陀螺仪总进动角速度在推导逻辑和物理量定义上均不同。"
+  },
+  "verification": null
+}

@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-6",
+    "type": "prove",
+    "tags": {
+      "target_object": "Einstein_tensor_and_Friedmann_equation",
+      "coordinate": "comoving",
+      "scenario": "cosmology",
+      "method": "tensor_calculation_and_field_equations",
+      "generalization_axis": "extend",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "00"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "FLRW 度规描述了均匀各向同性膨胀的宇宙。正如 Killing 矢量场保证了沿测地线的运动学守恒量（种子题结论），Einstein 张量这一核心几何量所满足的 Bianchi 恒等式，通过场方程保证了物质场的动力学守恒，并导出了宇宙的演化方程。给定 FLRW 度规 $ds^2 = -dt^2 + \\frac{a^{2}(t)}{1-kr^{2}} dr^2 + r^{2} a^{2}(t) d\\theta^{2} + r^{2} a^{2}(t) \\sin^{2}(\\theta) d\\phi^{2}$，已知其 Ricci 张量时间分量 $R_{00} = -\\frac{3 \\ddot{a}}{a}$ 与 Ricci 标量 $R = \\frac{6(k + a \\ddot{a} + \\dot{a}^{2})}{a^{2}}$。请利用这些几何量计算 Einstein 张量分量 $G_{00}$，将其表示为哈勃参数 $H = \\dot{a}/a$ 和空间曲率参数 $k/a^{2}$ 的组合，并据此推导第一个 Friedmann 方程 $H^{2} + k/a^{2} = \\rho/3$（设 Einstein 场方程为 $G_{\\mu\\nu} = T_{\\mu\\nu}$，即取几何单位制使得 $8\\pi G = 1$ 且 $\\Lambda = 0$，宇宙由密度为 $\\rho$ 的理想流体主导）。",
+    "answer": "$H^{2} + k/a^{2} = \\rho/3$",
+    "solution": "种子题证明了由 Killing 矢量场导致的沿测地线运动的守恒量；而在宇宙学中，Einstein 张量这一核心几何量本身满足的 Bianchi 恒等式，通过场方程保证了物质场的动力学守恒，导出了宇宙的演化方程。我们通过计算 Einstein 张量来具体推导这一动力学方程：1. Einstein 张量的定义为 $G_{\\mu\\nu} = R_{\\mu\\nu} - \\frac{1}{2} R g_{\\mu\\nu}$。2. 对于时间-时间分量，代入已知几何量：$R_{00} = -\\frac{3 \\ddot{a}}{a}$，$R = \\frac{6(k + a \\ddot{a} + \\dot{a}^{2})}{a^{2}}$，以及度规分量 $g_{00} = -1$。3. 计算 $G_{00}$：   $$ G_{00} = -\\frac{3 \\ddot{a}}{a} - \\frac{1}{2} \\frac{6(k + a \\ddot{a} + \\dot{a}^{2})}{a^{2}} (-1) $$ $$ G_{00} = -\\frac{3 \\ddot{a}}{a} + \\frac{3(k + a \\ddot{a} + \\dot{a}^{2})}{a^{2}} $$ $$ G_{00} = -\\frac{3 \\ddot{a}}{a} + \\frac{3k}{a^{2}} + \\frac{3 \\ddot{a}}{a} + \\frac{3 \\dot{a}^{2}}{a^{2}} $$ $$ G_{00} = \\frac{3k}{a^{2}} + 3 \\left( \\frac{\\dot{a}}{a}\\right)^{2} $$4. 引入哈勃参数 $H = \\dot{a}/a$，上式化简为： $$ G_{00} = 3 \\left( H^{2} + \\frac{k}{a^{2}}\\right) $$5. 应用 Einstein 场方程 $G_{\\mu\\nu} = T_{\\mu\\nu}$ （取 $8\\pi G = 1$ 且 $\\Lambda = 0$）。对于理想流体，其能动张量的时间分量为 $T_{00} = \\rho$。6. 将 $G_{00}$ 和 $T_{00}$ 代入场方程： $$ 3 \\left( H^{2} + \\frac{k}{a^{2}}\\right) = \\rho $$7. 两边同除以 3，即得第一个 Friedmann 方程： $$ H^{2} + \\frac{k}{a^{2}} = \\frac{\\rho}{3} $$"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

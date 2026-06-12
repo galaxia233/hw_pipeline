@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s4_4.5",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "electromagnetic_field_parallelization_target",
+      "coordinate": "Cartesian_coordinates",
+      "scenario": "special_relativity_scenario",
+      "method": "Lorentz_boost_velocity_construction_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.5",
+    "source_id": "1_s4_4.5",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.8,
+      "rationale": "基于电磁场独立不变量的多情形分类证明，逻辑链条完整且具明确狭义相对论语境",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$\\\\alpha$",
+      "$\\\\mathbf{E}$",
+      "$\\\\mathbf{B}$",
+      "$\\\\mathbf{v}$"
+    ],
+    "target": [
+      "$\\\\mathbf{E}' \\\\times \\\\mathbf{B}' = 0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 4.5. Prove that except when $(\\\\underline{\\\\mathbf{B}}\\\\cdot \\\\underline{\\\\mathbf{E}})^2 +(\\\\mathbf{B}^2 -\\\\mathbf{E}^2)^2 = 0$ , there is a Lorentz transformation which will make E and B parallel $(\\\\underline{\\\\mathbf{E}}^{\\\\prime}\\\\times \\\\underline{\\\\mathbf{B}}^{\\\\prime} = 0)$ [Hint: Try $\\\\underline{\\\\mathbf{v}} = a(\\\\underline{\\\\mathbf{E}}\\\\times \\\\underline{\\\\mathbf{B}})$ for some $\\alpha .$]",
+    "answer": "当 $(\\\\underline{\\\\mathbf{B}}\\\\cdot \\\\underline{\\\\mathbf{E}})^2 +(\\\\mathbf{B}^2 -\\\\mathbf{E}^2)^2 \\\\neq 0$ 时，存在沿 $\\\\mathbf{v} \\\\propto \\\\mathbf{E}\\\\times \\\\mathbf{B}$ 方向的洛伦兹变换使得 $\\\\underline{\\\\mathbf{E}}^{\\\\prime}\\\\times \\\\underline{\\\\mathbf{B}}^{\\\\prime} = 0$。",
+    "solution": "Solution 4.5. Let $\\\\underline{\\\\mathbf{v}} = \\\\alpha (\\\\underline{\\\\mathbf{E}}\\\\times \\\\underline{\\\\mathbf{B}})$ , then\\n$$\\n\\\\begin{array}{l} \\\\underline {{{\\\\underline {{{\\\\mathbf {E}}}}}}} \\\\dot {\\\\gamma}^{- 1} = \\\\underline {{{\\\\underline {{{\\\\mathbf {E}}}}}}} + \\\\underline {{{\\\\underline {{{\\\\mathbf {v}}}}}}} \\\\times \\\\underline {{{\\\\underline {{{\\\\mathbf {B}}}}}}} = (1 - \\\\alpha \\\\mathbf {B}^{2} ) \\\\underline {{{\\\\underline {{{\\\\mathbf {E}}}}}}} + \\\\alpha ( \\\\underline {{{\\\\mathbf {E}}}} \\\\cdot \\\\underline {{{\\\\mathbf {B}}}} ) \\\\underline {{{\\\\mathbf {B}}}} \\\\\\\\ \\\\underline {{{\\\\mathbf {B}}}} \\\\dot {\\\\gamma}^{- 1} = \\\\underline {{{\\\\mathbf {B}}}} - \\\\underline {{{\\\\mathbf {v}}}} \\\\times \\\\underline {{{\\\\mathbf {E}}}} = (1 - a \\\\mathbf {E}^{2} ) \\\\underline {{{\\\\mathbf {B}}}} + a ( \\\\underline {{{\\\\mathbf {E}}}} \\\\cdot \\\\underline {{{\\\\mathbf {B}}}} ) \\\\underline {{{\\\\mathbf {E}}}} \\\\\\\\ \\\\end{array}\\n$$\\nCase i) If $\\\\underline{\\\\mathbf{E}}\\\\cdot \\\\underline{\\\\mathbf{B}} = 0$ and $|\\\\mathbf{E}| = |\\\\mathbf{B}|$ , the transformation is equivalent to the redshift of a plane wave, and $\\\\underline{\\\\mathbf{E}}$ and $\\\\underline{\\\\mathbf{B}}$ cannot be made parallel.\\nCase ii) If $\\\\underline{\\\\mathbf{E}}\\\\cdot \\\\underline{\\\\mathbf{B}} = 0$ but $\\\\mathbf{E}^2\\\\neq \\\\mathbf{B}^2$ choose $a = 1 / \\\\max (\\\\mathbf{E}^2,\\\\mathbf{B}^2)$ to make $\\\\underline{\\\\mathbf{E}}'$ or $\\\\underline{\\\\mathbf{B}}'$ vanish. Then $\\\\underline{\\\\mathbf{E}}^{\\\\prime}\\\\times \\\\underline{\\\\mathbf{B}}^{\\\\prime} = 0$\\nCase iii) If $\\\\underline{\\\\mathbf{E}}\\\\cdot \\\\underline{\\\\mathbf{B}}\\\\neq 0$ , then $\\\\underline{\\\\mathbf{E}}^{\\\\prime}$ and $\\\\underline{\\\\mathbf{B}}^{\\\\prime}$ can be made parallel by choosing $\\\\alpha$ to satisfy $a^2 [(\\\\underline{\\\\mathbf{E}}\\\\cdot \\\\underline{\\\\mathbf{B}})^2 -\\\\mathbf{E}^2\\\\mathbf{B}^2 ] = 1 - a(\\\\mathbf{E}^2 +\\\\mathbf{B}^2)$ , so that\\n$$\\n\\\\frac { \\\\mathbf { \\\\underline { { { \\\\mathbf { v } } } } } } { 1 + \\\\mathbf { v } ^ { 2 } } = \\\\frac { a ( \\\\mathbf { \\\\underline { { { \\\\mathbf { E } } } } } \\\\times \\\\mathbf { \\\\underline { { { \\\\mathbf { B } } } } } ) } { 1 + a ^ { 2 } [ ( \\\\mathbf { \\\\underline { { { \\\\mathbf { E } } } } } \\\\times \\\\mathbf { \\\\underline { { { \\\\mathbf { B } } } } } ) ] ^ { 2 } } = \\\\frac { a ( \\\\mathbf { \\\\underline { { { \\\\mathbf { E } } } } } \\\\times \\\\mathbf { \\\\underline { { { \\\\mathbf { B } } } } } ) } { 1 + a ^ { 2 } [ \\\\mathbf { E } ^ { 2 } \\\\mathbf { B } ^ { 2 } - ( \\\\mathbf { \\\\underline { { { \\\\mathbf { E } } } } } \\\\cdot \\\\mathbf { \\\\underline { { { \\\\mathbf { B } } } } } ) ^ { 2 } ] } = \\\\frac { \\\\mathbf { \\\\underline { { { \\\\mathbf { E } } } } } \\\\times \\\\mathbf { \\\\underline { { { \\\\mathbf { B } } } } } } { \\\\mathbf { E } ^ { 2 } + \\\\mathbf { B } ^ { 2 } }."
+  },
+  "verification": null
+}

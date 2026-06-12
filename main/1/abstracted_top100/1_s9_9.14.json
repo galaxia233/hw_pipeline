@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "id": "1_s9_9.14",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.14",
+    "source_id": "1_s9_9.14",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.14"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "弱场度规结合测地线偏离方程求解潮汐相对运动，需多步坐标变换与微分方程求解，逻辑链条完整且贴近实际卫星实验场景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$",
+      "$M$",
+      "$\\\\omega$",
+      "$\\\\xi^i$"
+    ],
+    "target": [
+      "$\\\\xi^x(t)$",
+      "$\\\\xi^y(t)$",
+      "$\\\\xi^z(t)$"
+    ],
+    "metric": [
+      [
+        "$-(1-2M/r)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1+2M/r$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2(1+2M/r)$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2(1+2M/r)\\\\sin^2\\\\theta$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "(2*M)/r - 1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "(2*M)/r + 1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2*((2*M)/r + 1)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*(((2*M)/r + 1)*sin(theta)**2)"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 9.14. In a suitable coordinate system the gravitational field of the Earth is approximately (to lowest nontrivial order in $\\mathbf{M} / \\mathbf{r}$ )\\n$$\\n\\\\begin{array}{l} \\\\mathrm {d s}^{2} = - (1 - 2 \\\\mathrm {M} / \\\\mathrm {r}) \\\\mathrm {d t}^{2} + (1 + 2 \\\\mathrm {M} / \\\\mathrm {r}) (\\\\mathrm {d x}^{2} + \\\\mathrm {d y}^{2} + \\\\mathrm {d z}^{2}) \\\\\\\\ r \\\\equiv (x^{2} + y^{2} + z^{2})^{\\\\frac {1}{2}} \\\\\\\\ \\\\mathbf {M} = \\\\text {m a s s o f E a r t h} (\\\\mathbf {c} = \\\\mathbf {G} = 1). \\\\\\\\ \\\\end{array}\\n$$\\nSuppose a Skylab satellite orbits the Earth in a circular equatorial orbit. What is the orbital period? An astronaut jettisons a bag of garbage into a nearby orbit and watches it move relative to the satellite. At a given time the separation of the Skylab and its garbage is described by the vector\\n$$\\n\\\\xi^{\\\\mathrm {i}} \\\\equiv \\\\mathrm {x}^{\\\\mathrm {i}} (\\\\text {g a r b a g e}) - \\\\mathrm {x}^{\\\\mathrm {i}} (\\\\text {s k y l a b}).\\n$$\\nUsing the equation of geodesic deviation, find the components of the relative motion $\\xi^{\\mathbf{i}}$ as a function of time.",
+    "answer": "Orbital frequency: $\\\\omega^2 = M/r^3$.\\nVertical relative motion: $\\\\xi^z \\\\propto \\\\sin \\\\omega t$.\\nIn-plane relative motion:\\n$\\\\xi^x = A[\\\\cos 2\\\\omega t - 3 + 2\\\\cos \\\\omega t + 3\\\\omega t \\\\sin \\\\omega t] + B[4\\\\sin \\\\omega t - \\\\sin 2\\\\omega t]$\\n$\\\\xi^y = A[\\\\sin 2\\\\omega t + 2\\\\sin \\\\omega t - 3\\\\omega t \\\\cos \\\\omega t] + B[\\\\cos 2\\\\omega t + 3 - 4\\\\cos \\\\omega t]$\\n(其中 $A$ 和 $B$ 由垃圾抛出时的初速度决定，含随时间线性增长的 secular terms)。",
+    "solution": "Solution 9.14. It is convenient to transform the spatial coordinates to spherical polars and to write the metric as\\n$$\\n\\\\mathrm {d s}^{2} = - (1 - 2 \\\\mathrm {M} / \\\\mathrm {r}) \\\\mathrm {d t}^{2} + (1 + 2 \\\\mathrm {M} / \\\\mathrm {r}) (\\\\mathrm {d r}^{2} + \\\\mathrm {r}^{2} [ \\\\mathrm {d}\\\\theta^{2} + \\\\sin^2 \\\\theta \\\\mathrm {d}\\\\phi^{2} ]).\\n$$\\nFor a circular equatorial orbit, $\\\\mathbf{u}^{\\\\mathrm{r}} = \\\\mathbf{u}^{\\\\theta} = 0$ so\\n$$\\n\\\\mathrm {D u^{r} / d r = 0 = u^{\\\\alpha} \\\\Gamma_{\\\\alpha \\\\beta}^{r} u^{\\\\beta} = (u^{0})^{2} \\\\Gamma_{0 0}^{r} + (u^{\\\\phi})^{2} \\\\Gamma_{\\\\phi \\\\phi}^{r}}\\n$$\\nand therefore\\n$$\\n(\\\\mathrm {d}\\\\phi / \\\\mathrm {d} t)^{2} = \\\\omega^{2} = - \\\\Gamma_{0 0}^{\\\\mathrm {r}} / \\\\Gamma_{\\\\phi \\\\phi}^{\\\\mathrm {r}}.\\n$$\\nThe Christoffel symbols are easily calculated and we find\\n$$\\n\\\\omega^{2} = (2 \\\\pi / \\\\text {P e r i o d})^{2} = \\\\mathrm {M} / \\\\mathrm {r}^{3}.\\n$$\\nThis is the same as the Newtonian result. In Problem 9.13 the equation of motion is derived for $\\\\mathfrak{n}$ , the vector joining points of equal proper time on two geodesics. We are required in this problem to deal with $\\\\xi$ , the separation of points on the two geodesics at a given coordinate time. From the diagram, however, it is clear that the fractional difference between $\\\\mathfrak{n}$ and $\\\\xi$ is proportional to the relative velocity of garbage and the Skylab, and hence can be ignored to lowest order.\\nSince all the Christoffel symbols in the $t, x, y, z$ system are of order $\\\\mathbf{M} / \\\\mathbf{r}^2$ , and $d / d\\\\tau$ is of order $\\\\omega \\\\sim (\\\\mathbf {M} / \\\\mathbf {r})^{\\\\frac {1}{2}}\\\\mathbf {r}^{-1}$ , we can approximate\\n$$\\n\\\\frac {\\\\mathrm {D}}{\\\\mathrm {d} r} = \\\\frac {\\\\mathrm {d}}{\\\\mathrm {d} r} + \\\\Gamma u \\\\approx \\\\frac {\\\\mathrm {d}}{\\\\mathrm {d} r}.\\n$$\\nFurthermore\\n$$\\n\\\\frac {\\\\mathrm {d}}{\\\\mathrm {d} \\\\tau} = \\\\mathrm {u}^{0} \\\\frac {\\\\mathrm {d}}{\\\\mathrm {d} t} = \\\\left[ 1 + \\\\mathcal {O} \\\\left(\\\\frac {\\\\mathrm {M}}{\\\\mathrm {r}}\\\\right) \\\\right] \\\\frac {\\\\mathrm {d}}{\\\\mathrm {d} t},\\n$$\\nso we can approximate $\\\\mathbf{D}^2 /\\\\mathrm{d}\\\\tau^2\\\\approx \\\\mathbf{d}^2 /\\\\mathrm{d}t^2$ . Using these approximations and the equation of geodesic deviation we have\\n$$\\n\\\\frac {d^{2} \\\\xi^{i}}{d t^{2}} + R_{0 j 0}^{i} (u^{0})^{2} \\\\xi^{j} = 0 \\\\quad i = x, y, z.\\n$$\\nTo lowest order the Riemann components are\\n$$\\nR_{0 j 0}^{i} \\\\approx \\\\Gamma_{0 0, j}^{i} - \\\\Gamma_{0 j, 0}^{i} = - \\\\frac {1}{2} g_{0 0, i j} = \\\\frac {M}{r^{3}} \\\\left(\\\\delta_{i j} - \\\\frac {3 x^{i} x^{j}}{r^{2}}\\\\right).\\n$$\\nIf we choose to describe the Skylab orbit as\\n$$\\n\\\\mathbf {x} = \\\\mathbf {r} \\\\cos \\\\omega t, \\\\quad \\\\mathbf {y} = \\\\mathbf {r} \\\\sin \\\\omega t,\\n$$\\nthen the equations of motion for $\\\\xi$ become\\n$$\\n\\\\ddot {\\\\xi}^{z} + \\\\omega^{2} \\\\xi^{z} = 0\\n$$\\n$$\\n\\\\ddot {\\\\xi}^{x} + \\\\omega^{2} \\\\xi^{x} = 3 \\\\omega^{2} \\\\cos \\\\omega t (\\\\cos \\\\omega t \\\\xi^{x} + \\\\sin \\\\omega t \\\\xi^{y})\\n$$\\n$$\\n\\\\ddot {\\\\xi}^{y} + \\\\omega^{2} \\\\xi^{y} = 3 \\\\omega^{2} \\\\sin \\\\omega t (\\\\cos \\\\omega t \\\\xi^{x} + \\\\sin \\\\omega t \\\\xi^{y}).\\n$$\\nThe relative motion in the $z$ -direction is obviously\\n$$\\n\\\\zeta^{z} \\\\propto \\\\sin \\\\omega t\\n$$\\nif the garbage was jettisoned at $t = 0$ .\\nTo find the relative motion in the xy plane introduce new variables $\\\\eta^1, \\\\eta^2$ defined by\\n$$\\n\\\\xi^{\\\\mathrm {x}} = \\\\eta^{1} \\\\cos \\\\omega t + \\\\eta^{2} \\\\sin \\\\omega t, \\\\quad \\\\xi^{\\\\mathrm {y}} = \\\\eta^{1} \\\\sin \\\\omega t - \\\\eta^{2} \\\\cos \\\\omega t\\n$$\\nand the equations of motion become:\\n$$\\n\\\\begin{array}{l}\\n\\\\ddot {\\\\eta}^{2} - 2 \\\\omega \\\\dot {\\\\eta}^{1} = 0 \\\\\\\\\\n\\\\ddot {\\\\eta}^{1} + 2 \\\\omega \\\\dot {\\\\eta}^{2} - 3 \\\\omega^{2} \\\\eta^{1} = 0. \\\\\\\\\\n\\\\end{array}\\n$$\\nThese can be solved quite easily to find the four independent solutions:\\n$$\\n[ \\\\eta^{1}, \\\\eta^{2} ] = [ 1, \\\\frac {3}{2} \\\\omega t ], [ 0, 1 ], [ \\\\cos \\\\omega t, 2 \\\\sin \\\\omega t ], [ \\\\sin \\\\omega t, - 2 \\\\cos \\\\omega t ].\\n$$\\nThe linear combination of solutions which correspond to the garbage jettisoned at $t = 0$ (i.e. $\\\\xi^{\\\\mathbf{x}} = \\\\xi^{\\\\mathbf{y}} = 0$ at $t = 0$ ) is\\n$$\\n\\\\begin{array}{l}\\n\\\\xi^{x} = A [ \\\\cos 2\\\\omega t - 3 + 2 \\\\cos \\\\omega t + 3 \\\\omega t \\\\sin \\\\omega t ] + B [ 4 \\\\sin \\\\omega t - \\\\sin 2\\\\omega t ] \\\\\\\\\\n\\\\xi^{y} = A [ \\\\sin 2\\\\omega t + 2 \\\\sin \\\\omega t - 3 \\\\omega t \\\\cos \\\\omega t ] + B [ \\\\cos 2\\\\omega t + 3 - 4 \\\\cos \\\\omega t ]. \\\\\\\\\\n\\\\end{array}\\n$$\\nThe constants A and B depend on the x and y components of the velocity with which the garbage was jettisoned. The nonperiodic terms in the solution correspond to the fact that the two orbits are of a slightly different period, so the relative distance will exhibit a secular growth in time."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "\\\\theta",
+      "\\\\phi"
+    ],
+    "metric_latex": [
+      [
+        "\\frac{2 M}{r} - 1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "\\frac{2 M}{r} + 1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r^{2} \\left(\\frac{2 M}{r} + 1\\right)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r^{2} \\left(\\frac{2 M}{r} + 1\\right) \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_001": "\\frac{M}{r \\left(- 2 M + r\\right)}",
+      "Gamma_010": "\\frac{M}{r \\left(- 2 M + r\\right)}",
+      "Gamma_100": "\\frac{M}{r \\left(2 M + r\\right)}",
+      "Gamma_111": "- \\frac{M}{r \\left(2 M + r\\right)}",
+      "Gamma_122": "\\frac{r \\left(- M - r\\right)}{2 M + r}",
+      "Gamma_133": "\\frac{r \\left(- M - r\\right) \\sin^{2}{\\left(\\theta \\right)}}{2 M + r}",
+      "Gamma_212": "\\frac{M + r}{r \\left(2 M + r\\right)}",
+      "Gamma_221": "\\frac{M + r}{r \\left(2 M + r\\right)}",
+      "Gamma_313": "\\frac{M + r}{r \\left(2 M + r\\right)}",
+      "Gamma_331": "\\frac{M + r}{r \\left(2 M + r\\right)}"
+    },
+    "riemann": {
+      "R_0101": "\\frac{2 M \\left(- 2 M^{2} + r^{2}\\right)}{r^{2} \\left(8 M^{3} - 4 M^{2} r - 2 M r^{2} + r^{3}\\right)}",
+      "R_0110": "\\frac{2 M \\left(2 M^{2} - r^{2}\\right)}{r^{2} \\left(8 M^{3} - 4 M^{2} r - 2 M r^{2} + r^{3}\\right)}",
+      "R_0202": "\\frac{M \\left(M + r\\right)}{4 M^{2} - r^{2}}",
+      "R_0220": "\\frac{M \\left(M + r\\right)}{- 4 M^{2} + r^{2}}",
+      "R_0303": "\\frac{M \\left(M + r\\right) \\sin^{2}{\\left(\\theta \\right)}}{4 M^{2} - r^{2}}",
+      "R_0330": "\\frac{M \\left(M + r\\right) \\sin^{2}{\\left(\\theta \\right)}}{- 4 M^{2} + r^{2}}",
+      "R_1001": "\\frac{2 M \\left(2 M^{2} - r^{2}\\right)}{r^{2} \\left(8 M^{3} + 4 M^{2} r - 2 M r^{2} - r^{3}\\right)}",
+      "R_1010": "\\frac{2 M \\left(2 M^{2} - r^{2}\\right)}{r^{2} \\left(- 8 M^{3} - 4 M^{2} r + 2 M r^{2} + r^{3}\\right)}",
+      "R_1212": "- \\frac{M r}{4 M^{2} + 4 M r + r^{2}}",
+      "R_1221": "\\frac{M r}{4 M^{2} + 4 M r + r^{2}}",
+      "R_1313": "- \\frac{M r \\sin^{2}{\\left(\\theta \\right)}}{4 M^{2} + 4 M r + r^{2}}",
+      "R_1331": "\\frac{M r \\sin^{2}{\\left(\\theta \\right)}}{4 M^{2} + 4 M r + r^{2}}",
+      "R_2002": "- \\frac{M \\left(M + r\\right)}{r^{2} \\left(2 M + r\\right)^{2}}",
+      "R_2020": "\\frac{M \\left(M + r\\right)}{r^{2} \\left(2 M + r\\right)^{2}}",
+      "R_2112": "\\frac{M}{r \\left(4 M^{2} + 4 M r + r^{2}\\right)}",
+      "R_2121": "- \\frac{M}{r \\left(4 M^{2} + 4 M r + r^{2}\\right)}",
+      "R_2323": "- \\frac{\\left(M + r\\right)^{2} \\sin^{2}{\\left(\\theta \\right)}}{\\left(2 M + r\\right)^{2}}",
+      "R_2332": "\\frac{\\left(M + r\\right)^{2} \\sin^{2}{\\left(\\theta \\right)}}{\\left(2 M + r\\right)^{2}}",
+      "R_3003": "- \\frac{M \\left(M + r\\right)}{r^{2} \\left(2 M + r\\right)^{2}}",
+      "R_3030": "\\frac{M \\left(M + r\\right)}{r^{2} \\left(2 M + r\\right)^{2}}",
+      "R_3113": "\\frac{M}{r \\left(4 M^{2} + 4 M r + r^{2}\\right)}",
+      "R_3131": "- \\frac{M}{r \\left(4 M^{2} + 4 M r + r^{2}\\right)}",
+      "R_3223": "\\frac{\\left(M + r\\right)^{2}}{\\left(2 M + r\\right)^{2}}",
+      "R_3232": "- \\frac{\\left(M + r\\right)^{2}}{\\left(2 M + r\\right)^{2}}"
+    },
+    "ricci_tensor": {
+      "R_00": "\\frac{2 M^{2}}{r \\left(8 M^{3} + 4 M^{2} r - 2 M r^{2} - r^{3}\\right)}",
+      "R_11": "\\frac{M^{2} \\left(- 8 M^{2} - 12 M r + 12 r^{2}\\right)}{r^{2} \\left(16 M^{4} - 8 M^{2} r^{2} + r^{4}\\right)}",
+      "R_22": "\\frac{r \\left(- 2 M^{2} + 2 M r + r^{2}\\right)}{8 M^{3} + 4 M^{2} r - 2 M r^{2} - r^{3}}",
+      "R_33": "\\frac{r \\left(- 2 M^{2} + 2 M r + r^{2}\\right) \\sin^{2}{\\left(\\theta \\right)}}{8 M^{3} + 4 M^{2} r - 2 M r^{2} - r^{3}}"
+    },
+    "ricci_scalar": "\\frac{2 \\left(- 4 M^{4} - 8 M^{3} r + 13 M^{2} r^{2} - r^{4}\\right)}{r \\left(32 M^{5} + 16 M^{4} r - 16 M^{3} r^{2} - 8 M^{2} r^{3} + 2 M r^{4} + r^{5}\\right)}",
+    "kretschmann": "\\frac{2 \\left(32 M^{9} r^{2} + 32 M^{9} + 48 M^{8} r^{3} + 16 M^{8} r - 48 M^{7} r^{4} - 16 M^{7} r^{2} - 72 M^{6} r^{5} - 88 M^{6} r^{3} + 42 M^{5} r^{6} + 106 M^{5} r^{4} + 39 M^{4} r^{7} - 43 M^{4} r^{5} - 24 M^{3} r^{8} + 6 M^{3} r^{6} - 6 M^{2} r^{9} + 6 M r^{10} - r^{11} + \\left(32 M^{9} r^{4} \\sin^{2}{\\left(\\theta \\right)} + 32 M^{9} r^{4} + 32 M^{9} r^{2} \\sin^{2}{\\left(\\theta \\right)} + 256 M^{9} r^{2} + 32 M^{9} + 80 M^{8} r^{5} \\sin^{2}{\\left(\\theta \\right)} + 80 M^{8} r^{5} + 48 M^{8} r^{3} \\sin^{2}{\\left(\\theta \\right)} + 128 M^{8} r^{3} + 16 M^{8} r + 80 M^{7} r^{6} \\sin^{2}{\\left(\\theta \\right)} + 80 M^{7} r^{6} - 48 M^{7} r^{4} \\sin^{2}{\\left(\\theta \\right)} - 192 M^{7} r^{4} - 16 M^{7} r^{2} - 104 M^{6} r^{7} \\sin^{2}{\\left(\\theta \\right)} - 104 M^{6} r^{7} - 72 M^{6} r^{5} \\sin^{2}{\\left(\\theta \\right)} - 96 M^{6} r^{5} - 88 M^{6} r^{3} + 50 M^{5} r^{8} \\sin^{2}{\\left(\\theta \\right)} + 50 M^{5} r^{8} + 42 M^{5} r^{6} \\sin^{2}{\\left(\\theta \\right)} + 106 M^{5} r^{4} - 43 M^{4} r^{9} \\sin^{2}{\\left(\\theta \\right)} - 43 M^{4} r^{9} + 39 M^{4} r^{7} \\sin^{2}{\\left(\\theta \\right)} - 43 M^{4} r^{5} + 14 M^{3} r^{10} \\sin^{2}{\\left(\\theta \\right)} + 14 M^{3} r^{10} - 24 M^{3} r^{8} \\sin^{2}{\\left(\\theta \\right)} + 16 M^{3} r^{8} + 6 M^{3} r^{6} - 6 M^{2} r^{9} \\sin^{2}{\\left(\\theta \\right)} + 8 M^{2} r^{9} + 6 M r^{10} \\sin^{2}{\\left(\\theta \\right)} - r^{11} \\sin^{2}{\\left(\\theta \\right)}\\right) \\sin^{2}{\\left(\\theta \\right)}\\right)}{r^{4} \\left(2048 M^{11} + 1024 M^{10} r - 2560 M^{9} r^{2} - 1280 M^{8} r^{3} + 1280 M^{7} r^{4} + 640 M^{6} r^{5} - 320 M^{5} r^{6} - 160 M^{4} r^{7} + 40 M^{3} r^{8} + 20 M^{2} r^{9} - 2 M r^{10} - r^{11}\\right) \\sin^{2}{\\left(\\theta \\right)}}",
+    "einstein_tensor": {
+      "G_00": "\\frac{2 M^{3} + 7 M^{2} r - 2 M r^{2} - r^{3}}{r^{2} \\left(8 M^{3} + 12 M^{2} r + 6 M r^{2} + r^{3}\\right)}",
+      "G_11": "\\frac{2 M^{3} + 3 M^{2} r + 2 M r^{2} + r^{3}}{r^{2} \\left(- 8 M^{3} - 4 M^{2} r + 2 M r^{2} + r^{3}\\right)}",
+      "G_22": "\\frac{M^{2} \\left(4 M^{2} + 4 M r - 7 r^{2}\\right)}{16 M^{4} - 8 M^{2} r^{2} + r^{4}}",
+      "G_33": "\\frac{M^{2} \\left(4 M^{2} + 4 M r - 7 r^{2}\\right) \\sin^{2}{\\left(\\theta \\right)}}{16 M^{4} - 8 M^{2} r^{2} + r^{4}}"
+    },
+    "killing_vectors": []
+  }
+}

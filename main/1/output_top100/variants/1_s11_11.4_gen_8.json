@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "Spin vector S^\\mu",
+      "coordinate": "static coordinates (t, x, y, z)",
+      "scenario": "cosmology DeSitter",
+      "method": "Fermi-Walker transport and Killing vector symmetry",
+      "generalization_axis": "verify",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "S^\\mu"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，无外加扭矩的陀螺仪作自由下落时，其自旋矢量 $S^\\mu$ 满足 Fermi-Walker 输运方程 $\\frac{DS^\\mu}{d\\tau} = (a^\\mu u_\\nu - u^\\mu a_\\nu) S^\\nu$，在测地线上退化为平行输运 $\\frac{DS^\\mu}{d\\tau} = 0$。考虑如下 De Sitter 静态坐标度规：$ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}}(dx^2 + dy^2 + dz^2)$其中坐标为 $(t, x, y, z)$，该度规具有时间平移 Killing 矢量 $K^\\mu = (1, 0, 0, 0)$。请验证：对于沿该 Killing 矢量积分曲线运动（即空间坐标保持恒定）的自由下落陀螺仪，其自旋矢量的坐标分量随固有时间保持严格恒定（即 $\\frac{dS^\\mu}{d\\tau} = 0$）。要求在证明中展示 4-加速度与相关 Christoffel 符号的计算以确立该结论，并基于 Killing 矢量与度规分量 $g_{00}$ 的协变性质，解释为何此零进动结果是该度规对称性的必然推论。",
+    "answer": "对于沿时间平移 Killing 矢量积分曲线运动的自由下落陀螺仪，其自旋矢量坐标分量 $S^\\mu$ 随固有时间保持恒定，即 $\\frac{dS^\\mu}{d\\tau} = 0$。",
+    "solution": "1. 沿 Killing 矢量 $K^\\mu = (1,0,0,0)$ 积分曲线运动的观察者，其 4-速度为 $u^\\mu = K^\\mu = (1,0,0,0)$（已满足归一化条件 $g_{\\mu\\nu}u^\\mu u^\\nu = -1$）。其 4-加速度为 $a^\\mu = u^\\nu \\nabla_\\nu u^\\mu = \\nabla_0 u^\\mu$。由于 $u^\\mu = \\delta^\\mu_0$，有 $\\nabla_\\nu u^\\mu = \\partial_\\nu u^\\mu + \\Gamma^\\mu_{\\nu\\rho} u^\\rho = \\Gamma^\\mu_{\\nu 0}$。根据几何属性数据，Christoffel 符号列表中不存在任何包含时间指标 0 的非零分量，因此 $\\Gamma^\\mu_{00} = 0$，从而 $a^\\mu = \\Gamma^\\mu_{00} = 0$。这证明观察者作测地线运动，Fermi-Walker 输运退化为平行输运 $\\frac{DS^\\mu}{d\\tau} = 0$。2. 平行输运方程展开为 $\\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{\\nu\\rho} u^\\nu S^\\rho = \\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{0\\rho} S^\\rho = 0$。同样由 Christoffel 符号数据，所有 $\\Gamma^\\mu_{0\\rho} = 0$，因此方程直接退化为 $\\frac{dS^\\mu}{d\\tau} = 0$，即自旋矢量坐标分量恒定。3. 物理本质解释：Killing 矢量 $K^\\mu$ 的协变分量为 $K_\\mu = g_{\\mu0} = (-1, 0, 0, 0)$。由于度规分量 $g_{00} = -1$ 及 $g_{i0} = 0$ 在全空间为常数，$K_\\mu$ 的坐标分量也为常数。对于坐标分量为常数的矢量，其协变导数 $\\nabla_\\nu K_\\mu = \\partial_\\nu K_\\mu - \\Gamma^\\rho_{\\nu\\mu} K_\\rho = -\\Gamma^\\rho_{\\nu\\mu} K_\\rho$。结合 Killing 方程 $\\nabla_\\nu K_\\mu + \\nabla_\\mu K_\\nu = 0$，由于 $K_\\mu$ 的空间分量为零而时间分量非零，可以推断 $\\nabla_\\nu K_\\mu = 0$，即 $K^\\mu$ 是共变常矢量。共变常矢量必然满足 $K^\\nu \\nabla_\\nu K^\\mu = 0$（生成测地线汇，解释了 $a^\\mu=0$），且 $\\nabla_\\nu K^\\mu = \\Gamma^\\mu_{\\nu 0} = 0$（解释了 $\\Gamma^\\mu_{0\\rho}=0$），这从根本上保证了陀螺仪自旋无进动，坐标分量守恒。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "题目声称所给度规为 De Sitter 静态坐标度规，这是严重的物理场景与度规不匹配的错误。1. 真正的 De Sitter 静态坐标度规应为 $ds^2 = -(1 - \\frac{r^2}{\\alpha^2})dt^2 + (1 - \\frac{r^2}{\\alpha^2})^{-1}dr^2 + r^2 d\\Omega^2$，其 $g_{00}$ 依赖于空间坐标且不为常数 -1。题目所给度规 $g_{00}=-1$ 在全空间为常数，不可能描述具有宇宙学常数（引力红移）的 De Sitter 时空。2. 由题目所给度规计算得到的 Ricci 标量为 $-\\frac{3}{\\alpha^2} e^{-2x/\\alpha}$，非常数且为负，与 De Sitter 时空（Ricci 标量应为常数正曲率）完全矛盾。3. De Sitter 时空是最大对称空间，应有 10 个 Killing 矢量，而非仅有 1 个。4. 在真正的 De Sitter 时空中，空间坐标保持恒定的静态观察者并非自由下落（4-加速度不为零，存在引力场），陀螺仪自旋存在 De Sitter 进动，绝不会满足 $\\frac{dS^\\mu}{d\\tau} = 0$。题目的推导与结论仅在错误的假度规下成立，与真实的 De Sitter 物理完全相悖。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

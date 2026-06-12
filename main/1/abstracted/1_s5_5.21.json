@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s5_5.21",
+    "type": "prove",
+    "tags": {
+      "metric": "general_metric",
+      "target_object": "stress_energy_tensor_trace",
+      "coordinate": "general_coordinates",
+      "scenario": "perfect_fluid_cosmology",
+      "method": "thermodynamics_and_tensor_algebra"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.21",
+    "source_id": "1_s5_5.21",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.21"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "结合热力学第一定律与完美流体能动张量定义完成多步张量缩并与不等式变换，逻辑链条清晰且具有标准天体物理与宇宙学背景",
+      "overall": 0.83
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\rho$",
+      "$\\\\mathfrak{n}$",
+      "$P$",
+      "$u^{\\\\mu}$",
+      "$g_{\\\\mu\\\\nu}$"
+    ],
+    "target": [
+      "$T_{\\\\mu}^{\\\\mu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.21. For a perfect fluid with equation of state $\\rho = \\rho (\\mathfrak{n})$ (where $\\mathfrak{n} =$ baryon density) show that $\\mathbf{T}_{\\mu}^{\\mu}$ , the trace of the stress-energy tensor is negative if and only if\\n$$\\nd \\\\log \\\\rho / d \\\\log n < 4 / 3.\\n$$",
+    "answer": "$d \\\\log \\\\rho / d \\\\log \\\\mathfrak{n} < 4 / 3$",
+    "solution": "Solution 5.21. From the first law of thermodynamics for a perfect fluid (see Problem 5.20) having equation of state $\\rho = \\rho (\\mathfrak{n})$\\n$$\\n\\\\frac {\\\\mathrm {d} \\\\rho} {\\\\rho} = \\\\frac {\\\\rho + \\\\mathbf {P}} {\\\\rho} \\\\frac {\\\\mathrm {d} n} {\\\\mathbf {n}}\\n$$\\nso that\\n$$\\nd \\\\log \\\\rho / d \\\\ln n = (\\\\rho + P) / \\\\rho .\\n$$\\nThus $\\rho$ is greater than 3P if and only if $\\mathsf{d}\\\\log \\\\rho /\\\\mathsf{d}\\\\log \\\\mathfrak{n} < 4 / 3$ . Since\\n$$\\n\\\\mathrm {T}_{\\\\mu}^{\\\\mu} = ( \\\\rho + \\\\mathrm {P} ) \\\\mathrm {u}^{\\\\mu} \\\\mathrm {u}_{\\\\mu} + \\\\mathrm {p g}_{\\\\mu}^{\\\\mu} = - ( \\\\rho + \\\\mathrm {P} ) + 4 \\\\mathrm {P} = 3 \\\\mathrm {P} - \\\\rho\\n$$\\nfor a perfect fluid, the proof is complete."
+  },
+  "verification": null
+}

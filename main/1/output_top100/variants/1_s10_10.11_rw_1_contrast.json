@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-0-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "$v_0$",
+      "coordinate": "generic_and_schwarzschild",
+      "scenario": "dust_escape_contrast",
+      "method": "killing_vector_conservation_and_local_decomposition",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-0",
+      "1_s10_10.11-0-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mu$",
+      "$\\nu$"
+    ],
+    "target": [
+      "$v_0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Consider two physical backgrounds for a pressureless perfect fluid (dust) with 4-velocity $u^\\mu$ and stress-energy tensor $T^{\\mu\\nu} = \\rho u^\\mu u^\\nu$:Background A: A generic asymptotically flat stationary spacetime with a timelike Killing vector field $\\xi^\\mu$, normalized so that $\\xi^\\mu \\xi_\\mu \\to -1$ at spatial infinity.Background B: The Schwarzschild spacetime with metric $ds^2 = -(1 - r_s/r)dt^2 + (1 - r_s/r)^{-1}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$, which possesses a timelike Killing vector $\\xi^\\mu = \\partial_t$.From the conservation of the current $J^\\mu = T^{\\mu\\nu} \\xi_\\nu$ and the rest mass continuity equation $\\nabla_\\mu (\\rho u^\\mu) = 0$, it can be shown in both backgrounds that the scalar quantity $E_\\xi = -\\xi_\\mu u^\\mu$ is conserved along the dust flow lines. Apply this conservation law to derive the required local velocity $v_0$ (measured by a stationary observer at a finite radius) for a dust fluid element to marginally escape radially to spatial infinity (arriving there with zero local velocity). Contrast the expressions for $v_0$ in Background A versus Background B, and explain the physical significance of their difference.",
+    "answer": "In Background A, a stationary observer at a finite radius has 4-velocity $u_{obs}^\\mu = \\xi^\\mu / \\sqrt{-\\xi^\\nu \\xi_\\nu}$. The dust 4-velocity decomposes as $u^\\mu = \\gamma (u_{obs}^\\mu + v^\\mu)$ where $\\gamma = 1/\\sqrt{1-v^2}$, yielding $E_\\xi = \\gamma \\sqrt{-\\xi^\\nu \\xi_\\nu}$. For marginal escape to infinity, $E_\\xi = 1$ (since $v \\to 0$ and $-\\xi^\\nu \\xi_\\nu \\to 1$). Setting $E_\\xi = 1$ at a finite radius gives $\\sqrt{1-v_0^2} = \\sqrt{-\\xi^\\nu \\xi_\\nu}$, so the required local velocity is $v_0^2 = 1 + \\xi^\\mu \\xi_\\mu$.In Background B, the timelike Killing vector $\\xi^\\mu = \\partial_t$ has norm $\\xi^\\mu \\xi_\\mu = g_{tt} = -(1 - r_s/r)$. Substituting this into the Background A result gives $v_0^2 = 1 - (1 - r_s/r) = r_s/r$.Contrast and physical significance: The generic expression $v_0^2 = 1 + \\xi^\\mu \\xi_\\mu$ reveals that in general relativity, the depth of the gravitational potential is universally encoded by the norm of the timelike Killing vector. The Schwarzschild result $v_0^2 = r_s/r$ explicitly recovers the Newtonian escape velocity squared $v_{escape}^2 = 2GM/r$ (since $r_s = 2GM$). The difference shows that while both spacetimes require the identical conserved critical energy ($E_\\xi = 1$) to reach infinity, the local effort (velocity) required at a finite radius depends on the specific metric geometry, with Schwarzschild providing an exact covariant match to the Newtonian potential concept.",
+    "solution": "1. **Conserved Quantity**: In both backgrounds, using the respective timelike Killing vectors, the conserved energy per unit rest mass along dust flow lines is $E_\\xi = -\\xi_\\mu u^\\mu$.2. **Local Decomposition**: A stationary observer at a finite radius has 4-velocity $u_{obs}^\\mu = \\xi^\\mu / \\sqrt{-\\xi^\\nu \\xi_\\nu}$. The dust 4-velocity can be written as $u^\\mu = \\gamma (u_{obs}^\\mu + v^\\mu)$, where $v^\\mu$ is the local spatial velocity ($v^\\mu u_{obs\\mu} = 0$, $v^2 = v^\\mu v_\\mu$) and $\\gamma = 1/\\sqrt{1-v^2}$.3. **Express $E_\\xi$**: $E_\\xi = -\\xi_\\mu \\gamma (\\xi^\\mu / \\sqrt{-\\xi^\\nu \\xi_\\nu} + v^\\mu) = \\gamma \\sqrt{-\\xi^\\nu \\xi_\\nu}$ (where the $v^\\mu$ term vanishes because $\\xi_\\mu v^\\mu = 0$).4. **Asymptotic Condition**: At spatial infinity, a marginally escaping particle arrives with zero local velocity ($v \\to 0$, $\\gamma \\to 1$) and the Killing vector is normalized ($-\\xi^\\nu \\xi_\\nu \\to 1$). Thus, $E_\\xi \\to 1$. Conservation dictates $E_\\xi = 1$ throughout the trajectory.5. **Solve for $v_0$**: Setting $E_\\xi = 1$ at a finite radius gives $1 = \\frac{\\sqrt{-\\xi^\\nu \\xi_\\nu}}{\\sqrt{1-v_0^2}}$, which simplifies to $1 - v_0^2 = -\\xi^\\mu \\xi_\\mu$, or $v_0^2 = 1 + \\xi^\\mu \\xi_\\mu$.6. **Apply to Background A**: The required local velocity is the generalized potential depth $v_0^2 = 1 + \\xi^\\mu \\xi_\\mu$.7. **Apply to Background B**: For Schwarzschild, $\\xi^\\mu = \\partial_t$, so $\\xi^\\mu \\xi_\\mu = g_{tt} = -(1 - r_s/r)$. Thus, $v_0^2 = 1 - (1 - r_s/r) = r_s/r$.8. **Contrast**: Background A expresses the escape velocity covariantly via the Killing vector norm, while Background B reduces it to $r_s/r$, which is exactly the Newtonian escape velocity squared $2GM/r$, demonstrating how Schwarzschild preserves the Newtonian potential structure."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 0.9,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

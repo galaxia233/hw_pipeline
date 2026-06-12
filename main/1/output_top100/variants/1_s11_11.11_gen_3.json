@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-3",
+    "type": "calculate",
+    "tags": {
+      "target_object": "r",
+      "coordinate": "spherical",
+      "scenario": "black_hole",
+      "method": "precession_angle_per_orbit",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "r",
+      "physical_significance"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一个在 Schwarzschild 黑洞赤道面 (\\theta = \\pi/2) 圆形轨道上运行的陀螺仪。根据广义相对论的测地进动效应，陀螺仪自旋矢量相对于远处恒星固定参考系的进动角速度为 \\Omega = \\frac{3M}{2r} \\omega，其中 \\omega = \\sqrt{M/r^3} 是圆形轨道的轨道角速度。Schwarzschild 度规在几何单位下为 ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2，其中 r_s = 2M 为 Schwarzschild 半径。试计算使得陀螺仪每绕黑洞运行一周，其测地进动累积角度 \\Delta \\Phi 恰好为 \\frac{\\pi}{2} 的轨道半径 r (以 M 为单位)，并说明该半径在 Schwarzschild 黑洞圆形轨道稳定性中的物理意义。",
+    "answer": "r = 6M；该半径是 Schwarzschild 黑洞的最内稳定圆形轨道 (ISCO) 半径，是稳定与不稳定类时圆形轨道的临界分界点。",
+    "solution": "每轨道的测地进动角为轨道进动角速度 \\Omega 与轨道角速度 \\omega 的比值乘以一周的角度 2\\pi：\\Delta \\Phi = \\frac{\\Omega}{\\omega} \\times 2\\pi = 2\\pi \\frac{3M}{2r} = \\frac{3\\pi M}{r}。令每轨道进动角 \\Delta \\Phi = \\frac{\\pi}{2}，则有：\\frac{3\\pi M}{r} = \\frac{\\pi}{2}。解此方程得：r = 6M。在 Schwarzschild 度规下，r = 6M 是最内稳定圆形轨道 (Innermost Stable Circular Orbit, ISCO) 的半径。对于有质量粒子（类时测地线），当 r < 6M 时，有效势的二阶导数为负，径向扰动会导致粒子偏离圆形轨道且无法恢复，因此不存在稳定的圆形轨道；而当 r \\ge 6M 时，圆形轨道是稳定的。因此，使得每圈测地进动角恰好为 \\pi/2 的轨道半径 r=6M，正好对应于稳定与不稳定圆形轨道的临界分界点。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "solution 中推导每轨道进动角公式 ΔΦ = Ω/ω × 2π 时，声称这是'轨道进动角速度与轨道角速度的比值乘以一周的角度 2π'，此表述属于物理概念的拼凑与混淆。正确的物理推导应为进动角速度乘以时间间隔：ΔΦ = ΩΔt，其中 Δt 为轨道运行的坐标时间周期。由空间绕行一周 Δφ = 2π 及坐标角速度 ω = dφ/dt，可得 Δt = 2π/ω，从而 ΔΦ = Ω(2π/ω)。直接将角速度比值乘以空间角度，掩盖了 Ω 和 ω 必须基于同一时间参量（此处为坐标时间 t）的关键前提，跳过了时间积分的物理逻辑，属于推导逻辑跳跃与概念表述错误。此外，题目中 ω = √(M/r³) 亦未明确标注为坐标角速度，存在定义模糊的隐患。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

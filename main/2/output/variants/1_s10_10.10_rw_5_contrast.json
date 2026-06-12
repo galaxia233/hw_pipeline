@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-4-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "centrifugal_term",
+      "coordinate": "comoving_spatial",
+      "scenario": "cosmology_vs_blackhole_contrast",
+      "method": "geodesic_substitution",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-4",
+      "1_s10_10.10-4-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "effective_centrifugal_acceleration_FLRW",
+      "effective_centrifugal_acceleration_Schwarzschild"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在两种不同的时空背景下，考虑有质量粒子在赤道面（$\\theta = \\pi/2$）上的测地线运动。根据各自的 Fact Sheet，背景 A 仅具有旋转 Killing 矢量 $\\xi^\\mu = (0, 0, 0, 1)$；背景 B 具有旋转 Killing 矢量 $\\xi^\\mu = (0, 0, 0, 1)$ 和时间平移 Killing 矢量 $\\xi^\\mu = (1, 0, 0, 0)$。两者沿测地线均由旋转矢量给出守恒角动量 $L = g_{\\phi\\phi} \\dot{\\phi}$。**背景 A (平直 FLRW 宇宙)**：度规为 $ds^2 = -dt^2 + a^2(t)[dr^2 + r^2 d\\theta^2 + r^2 \\sin^2{\\theta} d\\phi^2]$。其赤道面上的径向测地线方程为：$\\ddot{r} + 2\\frac{\\dot{a}}{a}\\dot{t}\\dot{r} - r \\dot{\\phi}^2 = 0$**背景 B (Schwarzschild 黑洞)**：度规为 $ds^2 = -\\frac{r-r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2{\\theta} d\\phi^2$。其赤道面上的径向测地线方程为：$\\ddot{r} + \\frac{r_s(r-r_s)}{2r^3}\\dot{t}^2 - \\frac{r_s}{2r(r-r_s)}\\dot{r}^2 - (r-r_s) \\dot{\\phi}^2 = 0$请分别在背景 A 和背景 B 中，利用角动量守恒 $L$ 消除 $\\dot{\\phi}$，提取出各自径向方程中比例于 $L^2$ 的有效离心加速度项（即促使 $r$ 增大的项）。对比这两项相对于经典牛顿力学离心项 $\\frac{L^2}{r^3}$ 的修正因子，并解释这两种修正所反映的物理含义差异。",
+    "answer": "背景 A (FLRW) 的有效离心加速度项为 $\\frac{L^2}{a^4 r^3}$，相对于经典项的修正因子为 $a^{-4}(t)$。背景 B (Schwarzschild) 的有效离心加速度项为 $\\frac{L^2}{r^3} - \\frac{r_s L^2}{r^4}$，相对于经典项的修正因子为 $1 - \\frac{r_s}{r}$。物理含义差异：FLRW 宇宙的修正因子 $a^{-4}(t)$ 是全局的动态效应，表明随着宇宙膨胀，宇宙尺度的增大使得共动坐标下的离心排斥力被剧烈稀释（衰减为 $a^{-4}$），即膨胀“拉伸”了轨道几何；Schwarzschild 黑洞的修正因子 $-\\frac{r_s}{r}$ 是局部的静态曲率效应，表明在强引力场中，时空弯曲使得离心排斥比平直空间中弱（或者说等效的径向引力拉扯更强），导致闭合轨道无法维持，从而产生近心点进动。",
+    "solution": "1. 从旋转 Killing 矢量推导守恒量：- 背景 A：$L = g_{\\phi\\phi}\\dot{\\phi} = a^2(t) r^2 \\dot{\\phi} \\Rightarrow \\dot{\\phi} = \\frac{L}{a^2 r^2} \\Rightarrow \\dot{\\phi}^2 = \\frac{L^2}{a^4 r^4}$。- 背景 B：$L = g_{\\phi\\phi}\\dot{\\phi} = r^2 \\dot{\\phi} \\Rightarrow \\dot{\\phi} = \\frac{L}{r^2} \\Rightarrow \\dot{\\phi}^2 = \\frac{L^2}{r^4}$。2. 将 $\\dot{\\phi}^2$ 代入各自径向方程并提取 $L^2$ 项：- 背景 A：原方程项为 $- r \\dot{\\phi}^2 = - \\frac{L^2}{a^4 r^3}$，移项后得促使 $r$ 增大的有效离心项为 $\\frac{L^2}{a^4 r^3}$。- 背景 B：原方程项为 $- (r-r_s) \\dot{\\phi}^2 = - r\\dot{\\phi}^2 + r_s \\dot{\\phi}^2 = - \\frac{L^2}{r^3} + \\frac{r_s L^2}{r^4}$，移项后得有效离心项为 $\\frac{L^2}{r^3} - \\frac{r_s L^2}{r^4}$。3. 对比修正因子与物理含义：- 背景 A 相对经典 $\\frac{L^2}{r^3}$ 多了 $a^{-4}(t)$ 因子，代表宇宙膨胀导致轨道空间几何膨胀，离心效应随时间衰减。- 背景 B 相对经典 $\\frac{L^2}{r^3}$ 多了 $-\\frac{r_s}{r}$ 修正，代表引力曲率削弱了离心排斥，导致轨道进动。"
+  },
+  "verification": null
+}

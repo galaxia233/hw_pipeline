@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-5-4",
+    "type": "calculate",
+    "tags": {
+      "target_object": "covariant_derivative_of_killing_vector",
+      "coordinate": "schwarzschild",
+      "scenario": "black_hole_reduce_flat",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-5",
+      "1_s10_10.12-5-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\nabla_\\mu \\xi_\\nu"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Schwarzschild 黑洞度规描述了静态球对称真空引力场，其时间平移不变性对应一个 Killing 矢量场 $\\xi^\\mu = (1, 0, 0, 0)$。已知 Schwarzschild 度规为（采用 $(-,+,+,+)$ 约定）：$$ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$其中 $r_s = 2M$ 为 Schwarzschild 半径。在此度规下，该 Killing 矢量场的协变导数非零分量为 $\\nabla_0 \\xi_1 = \\frac{r_s}{2r^2}$ 与 $\\nabla_1 \\xi_0 = -\\frac{r_s}{2r^2}$。请对上述协变导数结果取质量趋于零的极限（$M \\to 0$，即 $r_s \\to 0$），指出其回到何种经典对应结果，并简述该极限的物理意义。",
+    "answer": "当取 $M \\to 0$（即 $r_s \\to 0$）极限时，协变导数的非零分量 $\\nabla_0 \\xi_1$ 和 $\\nabla_1 \\xi_0$ 均趋于 $0$，即所有 $\\nabla_\\mu \\xi_\\nu \\to 0$。这对应于回到 Minkowski 平直时空，时间平移 Killing 矢量 $\\xi^\\mu = (1,0,0,0)$ 成为全局常矢量（其偏导数为零，协变导数也为零）。其物理意义为：引力源质量消失，时空曲率趋于零，引力效应（体现在 Killing 矢量协变导数的非零性上）也随之消失。",
+    "solution": "取 $r_s \\to 0$极限：$\\nabla_0 \\xi_1 = \\frac{r_s}{2r^2} \\to 0$，$\\nabla_1 \\xi_0 = -\\frac{r_s}{2r^2} \\to 0$。此时度规退化为 Minkowski 度规 $ds^2 = -dt^2 + dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，Killing 矢量的协变导数退化为偏导数，且由于 $\\xi^\\mu$ 为常矢量，偏导数为零，故协变导数全为零，符合平直时空中全局时间平移矢量的经典性质。"
+  },
+  "verification": null
+}

@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-0-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "accessible_region_condition",
+      "coordinate": "r_vs_x_contrast",
+      "scenario": "stationary_spacetime_particle_motion_contrast",
+      "method": "cauchy-schwarz_inequality",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-0",
+      "1_s10_10.15-0-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\xi$",
+      "$\\mathbf{E}$",
+      "$\\mathbf{p}$",
+      "$\\mu$"
+    ],
+    "target": [
+      "accessible_region_condition",
+      "killing_vector_norm_spatial_dependency"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一个具有类时 Killing 矢量场 $\\boldsymbol{\\xi} = \\partial_t$ 的稳态时空，自由粒子的守恒特定能量为 $\\mathcal{E}_0 = -\\mathbf{u} \\cdot \\boldsymbol{\\xi}$。由 Cauchy-Schwarz 不等式知能量下界为 $\\mathcal{E}_0 \\ge \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$，因此粒子可达空间区域必须满足 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} \\ge -\\mathcal{E}_0^2$。**背景 A**：度规为 $ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}}(dx^2 + dy^2 + dz^2)$，类时 Killing 矢量为 $\\boldsymbol{\\xi} = \\partial_t$。**背景 B**：Schwarzschild 度规 $ds^2 = -\\left(1-\\frac{r_s}{r}\\right)dt^2 + \\left(1-\\frac{r_s}{r}\\right)^{-1}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，类时 Killing 矢量为 $\\boldsymbol{\\xi} = \\partial_t$。请推导在这两种度规下，可达区域条件 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} \\ge -\\mathcal{E}_0^2$ 所给出的显式空间坐标表达式；对比两者结果，并解释 Killing 矢量范数的空间依赖性如何导致粒子空间可达边界的物理差异。",
+    "answer": "背景 A 中，$\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g_{00} = -1$，代入条件得 $-1 \\ge -\\mathcal{E}_0^2$，即 $\\mathcal{E}_0 \\ge 1$。该条件对空间坐标 $(x, y, z)$ 无任何限制，只要能量阈值满足，粒子可到达空间中任何一点。背景 B 中，$\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g_{00} = -(1-r_s/r)$，代入条件得 $-(1-r_s/r) \\ge -\\mathcal{E}_0^2$，即 $r \\ge r_s / (1-\\mathcal{E}_0^2)$（设 $\\mathcal{E}_0 < 1$）。该条件将粒子限制在径向坐标 $r \\ge r_{\\text{min}}$ 的区域内。差异与物理含义：背景 A 的 Killing 范数为常数，能量约束仅充当粒子能否存在的绝对阈值，不限制空间轨迹（无空间转折点）；背景 B 的 Killing 范数依赖于 $r$（体现引力红移效应），能量约束形成了明确的空间边界 $r_{\\text{min}}$。在该边界处，满足 $\\mathcal{E}_0 = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$，粒子的四速度 $\\mathbf{u}$ 必须与 $\\boldsymbol{\\xi}$ 平行，即粒子在坐标系中瞬间静止（无空间速度），形成轨迹的转折点。",
+    "solution": "背景 A 中 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = -1$，代入条件得 $\\mathcal{E}_0 \\ge 1$，无空间限制。背景 B 中 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = -(1-r_s/r)$，代入条件得 $r \\ge r_s/(1-\\mathcal{E}_0^2)$。物理含义差异源于 Killing 范数的空间依赖性：A中范数常数，仅充当能量阈值；B中范数随 $r$ 变化（引力红移），形成空间转折边界，边界处粒子四速度与 Killing 矢量平行（空间速度为零）。"
+  },
+  "verification": null
+}

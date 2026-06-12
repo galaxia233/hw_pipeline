@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "id": "1_s19_19.38_c",
+    "type": "prove",
+    "tags": {
+      "metric": "coordinate",
+      "target_object": "cosmology",
+      "coordinate": "homogeneity",
+      "scenario": "symmetry",
+      "method": "general-relativity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.38_c",
+    "source_id": "1_s19_19.38_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.38_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.3,
+      "realism": 0.8,
+      "rationale": "宇宙学背景+对称性概念辨析+逻辑证明任务",
+      "overall": 0.65
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\tau$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$g_{0i}$",
+      "$g_{ij}$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$g_{01}$",
+        "$g_{02}$",
+        "$g_{03}$"
+      ],
+      [
+        "$g_{01}$",
+        "$g_{11}$",
+        "$g_{12}$",
+        "$g_{13}$"
+      ],
+      [
+        "$g_{02}$",
+        "$g_{12}$",
+        "$g_{22}$",
+        "$g_{23}$"
+      ],
+      [
+        "$g_{03}$",
+        "$g_{13}$",
+        "$g_{23}$",
+        "$g_{33}$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "19.38 In cosmology one usually uses coordinates comoving with the galaxies. Let $(r, x^i)$ be such a system, and let the metric take the general form\\n$$\\n\\\\mathrm {d s}^{2} = - \\\\mathrm {d} \\\\tau^{2} + 2 \\\\mathrm {g}_{0 \\\\mathrm {i}} \\\\mathrm {d} \\\\tau \\\\mathrm {d x}^{\\\\mathrm {i}} + \\\\mathrm {g}_{\\\\mathrm {i j}} \\\\mathrm {d x}^{\\\\mathrm {i}} \\\\mathrm {d x}^{\\\\mathrm {j}}\\n$$\\nwhere $\\mathbf{g}_{0\\mathrm{i}}$ and $\\mathbf{g}_{\\mathrm{ij}}$ can be functions of $\\pmb{\\tau}$ and $\\mathbf{x}^{\\mathrm{i}}$ . Show (c) that if $\\mathbf{g}_{0\\mathrm{i}}$ and $\\mathbf{g}_{ij}$ are independent of all $\\mathbf{x}^{\\mathrm{i}}$ , then the universe is homogeneous but that the converse is false;",
+    "answer": "若 $g_{0i}$ 与 $g_{ij}$ 仅为 $\\tau$ 的函数，则空间平移生成等距变换，宇宙呈均匀分布；反之不成立（几何均匀的时空可通过任意坐标变换引入显式的空间坐标依赖性）。",
+    "solution": null
+  },
+  "verification": null
+}

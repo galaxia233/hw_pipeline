@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-0-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "metric_transverse_conditions",
+      "coordinate": "cartesian_static",
+      "scenario": "static_gravitational_field_weight_verify",
+      "method": "covariant_conservation_inversion",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-0",
+      "1_s14_14.6-0-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "推导过程校验"
+    ],
+    "metric": [
+      [
+        "$g_{tt}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$g_{zz}$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一个沿 $z$ 轴方向的静态引力场，其度规为对角形式且仅依赖于 $z$：$$\\mathrm{d}s^2 = g_{tt}(z) \\mathrm{d}t^2 + g_{xx}(z) \\mathrm{d}x^2 + g_{yy}(z) \\mathrm{d}y^2 + g_{zz}(z) \\mathrm{d}z^2$$采用 $(-,+,+,+)$ 符号约定，因此 $g_{tt} < 0$ 且空间分量 $g_{xx}, g_{yy}, g_{zz} > 0$。已知实验观测表明，重量 $W(0)$ 严格仅取决于积分能量密度，而与横向应力无关。某同学利用协变守恒律 $T^{\\alpha\\beta}_{;\\beta} = 0$ 反推度规条件，推导过程如下：由 $T^{z\\beta}_{;\\beta} = 0$，展开并利用度规对角且仅依赖 $z$，有：$$|g|^{-1/2} \\left( |g|^{1/2} T^{zz}\\right)_{,z} + \\Gamma^z_{\\beta\\gamma} T_{\\beta\\gamma} = 0$$计算 Christoffel 符号，由于度规对角且仅依赖 $z$，非零带 $z$ 上指标的符号为：$$\\Gamma^z_{tt} = \\frac{1}{2} g^{zz} g_{tt,z}, \\quad \\Gamma^z_{xx} = \\frac{1}{2} g^{zz} g_{xx,z}, \\quad \\Gamma^z_{yy} = \\frac{1}{2} g^{zz} g_{yy,z}, \\quad \\Gamma^z_{zz} = \\frac{1}{2} g^{zz} g_{zz,z}$$代入守恒律并在横截面 $\\mathrm{d}x \\mathrm{d}y$ 上积分，得：$$|g|^{-1/2} \\left( |g|^{1/2} \\int T^{zz} \\mathrm{d}x \\mathrm{d}y\\right)_{,z} + \\Gamma^z_{tt} \\int T_{tt} \\mathrm{d}x \\mathrm{d}y + \\Gamma^z_{xx} \\int T_{xx} \\mathrm{d}x \\mathrm{d}y + \\Gamma^z_{yy} \\int T_{yy} \\mathrm{d}x \\mathrm{d}y + \\Gamma^z_{zz} \\int T^{zz} \\mathrm{d}x \\mathrm{d}y = 0$$已知重量定义 $W(z) = \\int T^{zz} \\mathrm{d}x \\mathrm{d}y$。由于 $W(0)$ 与横向应力无关，这意味着方程中 $\\int T_{xx} \\mathrm{d}x \\mathrm{d}y$ 和 $\\int T_{yy} \\mathrm{d}x \\mathrm{d}y$ 的系数必须恒为零，即：$$\\Gamma^z_{xx} = 0 \\quad \\text{且} \\quad \\Gamma^z_{yy} = 0$$代入 Christoffel 符号表达式，由于 $g^{zz} > 0$，要求 $g_{xx,z} = 0$ 且 $g_{yy,z} = 0$，这与正确结论一致。请找出上述推导中的所有错误，指出其位置、错误类型，并给出正确表达式。",
+    "answer": "1. 位置：协变守恒律展开式及积分式中使用了下指标的能动张量 $\\Gamma^z_{\\beta\\gamma} T_{\\beta\\gamma}$，$T_{tt}$，$T_{xx}$，$T_{yy}$；类型：指标错误；正确值：应使用上指标 $\\Gamma^z_{\\beta\\gamma} T^{\\beta\\gamma}$，$T^{tt}$，$T^{xx}$，$T^{yy}$。2. 位置：Christoffel符号计算 $\\Gamma^z_{tt} = \\frac{1}{2} g^{zz} g_{tt,z}$；类型：符号错误；正确值：$\\Gamma^z_{tt} = -\\frac{1}{2} g^{zz} g_{tt,z}$。3. 位置：Christoffel符号计算 $\\Gamma^z_{xx} = \\frac{1}{2} g^{zz} g_{xx,z}$；类型：符号错误；正确值：$\\Gamma^z_{xx} = -\\frac{1}{2} g^{zz} g_{xx,z}$。4. 位置：Christoffel符号计算 $\\Gamma^z_{yy} = \\frac{1}{2} g^{zz} g_{yy,z}$；类型：符号错误；正确值：$\\Gamma^z_{yy} = -\\frac{1}{2} g^{zz} g_{yy,z}$。5. 位置：重量定义 $W(z) = \\int T^{zz} \\mathrm{d}x \\mathrm{d}y$；类型：系数遗漏；正确值：$W(z) = \\int g_{zz} T^{zz} \\mathrm{d}x \\mathrm{d}y$。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.metric_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "Answer 1 给出的“正确表达式” $\\Gamma^z_{\\beta\\gamma} T^{\\beta\\gamma}$ 是错误的。根据协变守恒律 $T^{\\alpha\\beta}_{;\\beta} = 0$ 的标准展开，当 $\\alpha=z$ 且度规仅依赖于 $z$ 时，偏导只对 $z$ 非零，因此第二项中的下标 $\\beta$（即 $\\nu$）固定为 $z$，正确展开应为 $\\Gamma^z_{z\\lambda} T^{\\lambda z}$，而非对所有 $\\beta, \\gamma$ 求和的 $\\Gamma^z_{\\beta\\gamma} T^{\\beta\\gamma}$。原题错误地将固定的指标视作求和指标从而引入了 $\\Gamma^z_{tt} T_{tt}$ 等本不该存在的项，Answer 1 仅修正了上下标却保留了错误的求和结构，导致给出的“正确表达式”仍是一个错误的公式；Answer 5 将重量修正为 $W(z) = \\int g_{zz} T^{zz} \\mathrm{d}x \\mathrm{d}y$ 遗漏了横截面的面积度规因子 $\\sqrt{g_{xx}g_{yy}}$，物理上正确的力（重量）积分完整表达式应为 $W(z) = \\int g_{zz} \\sqrt{g_{xx}g_{yy}} T^{zz} \\mathrm{d}x \\mathrm{d}y$；此外，题目描述的度规仅依赖于 $z$ 并声称是静态引力场，而度规关键信息摘要显示该度规为 Minkowski，两者存在明显矛盾。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

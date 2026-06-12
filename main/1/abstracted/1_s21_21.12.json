@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s21_21.12",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "initial_value_formulation",
+      "coordinate": "time_symmetry",
+      "scenario": "conformal_mapping",
+      "method": "n_body_problem"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s21_21.12",
+    "source_id": "1_s21_21.12",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s21_21.12"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于ADM初值问题与时间对称性，结合共形变换求解拉普拉斯方程，完整推导N体瞬时空间度规",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 3,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$M_i$",
+      "$\\\\Phi$",
+      "$g_{ij}$",
+      "$K_{ij}$",
+      "$^{(3)} R$"
+    ],
+    "target": [
+      "$^{(3)} \\\\mathrm{R}$",
+      "$g_{i j}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 21.12. Find an instantaneous spatial metric which represents $N$ point masses at arbitrary positions at an instant of time symmetry.",
+    "answer": "$\\\\mathbf {g}_{\\\\mathbf {i j}} = \\\\left(1 + \\\\sum_{\\\\mathbf {i}} \\\\frac {\\\\mathbf {M}_{\\\\mathbf {i}}}{2 \\\\mathbf {r}_{\\\\mathbf {i}}}\\\\right)^{4} \\\\eta_{\\\\mathbf {i j}}.$",
+    "solution": "Solution 21.12. To find an instantaneous metric, we need only to consider the metric and field equations on a spacelike Cauchy surface $S$ , the surface of time symmetry. Six of the ten Einstein field equations determine the metric off $S$ ; these we do not need to worry about. The remaining four equations are initial-value equations and can be written in the form (see Equations (6) and (7) of Problem 9.33)\\n$$\\n\\\\frac {1}{2}^{(3)} \\\\mathrm {R} - \\\\frac {1}{2} \\\\left(\\\\mathrm {K}_{\\\\mathrm {i}}^{\\\\mathrm {i}}\\\\right)^{2} + \\\\frac {1}{2} \\\\mathrm {K}_{\\\\ell}^{\\\\mathrm {m}} \\\\mathrm {K}_{\\\\mathrm {m}}^{\\\\ell} = 0 \\\\tag {1a}\\n$$\\n$$\\n\\\\mathrm {K}_{\\\\mathrm {i}}^{\\\\mathrm {m}} |_{\\\\mathrm {m}} - \\\\mathrm {K}_{\\\\mathrm {m}}^{\\\\mathrm {m}} |_{\\\\mathrm {i}} = 0, \\\\tag {1b}\\n$$\\nwhere ${}^{(3)}\\\\mathbf{R}$ is the curvature scalar on $\\mathbf{S}$ , $\\mathbf{K}_{\\\\mathfrak{m}}^{\\\\mathbf{i}}$ is the extrinsic curvature, a slash represents covariant differentiation with respect to the three geometry ${}^{(3)}\\\\mathbf{g}_{ij}$ on $\\mathbf{S}$ , and where we have used the vacuum initial value equations.\\nAt a moment of time symmetry the (timelike) normal to S, from which $\\mathbf{K}_{ij}$ is computed, goes into minus itself under time reversal. Thus $\\mathbf{K}_{ij} = -\\\\mathbf{K}_{ij}$ and hence the extrinsic curvature of S must vanish. For $\\mathbf{K}_{ij} = 0$ on S, Equation (1b) is trivially satisfied and Equation (1a) takes the form\\n$$\\n\\\\left(^{3}\\\\right) \\\\mathrm {R} = 0. \\\\tag {2}\\n$$\\nAs a solution to Equation (2), we begin with the ansatz\\n$$\\n\\\\mathrm {g}_{\\\\mathrm {i j}} = \\\\Phi^{4} \\\\eta_{\\\\mathrm {i j}} \\\\tag {3}\\n$$\\nand see if there is a $\\Phi$ which satisfies Equation (2):\\n$$\\n\\\\left.^{(3)} \\\\mathbf {R} = \\\\mathbf {g}^{\\\\mathrm {i j}} \\\\left(\\\\Gamma_{\\\\mathrm {i m}, \\\\mathrm {j}}^{\\\\mathrm {m}} - \\\\Gamma_{\\\\mathrm {i j}, \\\\mathrm {m}}^{\\\\mathrm {m}} + \\\\Gamma_{\\\\mathrm {l i}}^{\\\\mathrm {m}} \\\\Gamma_{\\\\mathrm {j m}}^{\\\\ell} - \\\\Gamma_{\\\\mathrm {m l}}^{\\\\ell} \\\\Gamma_{\\\\mathrm {i j}}^{\\\\mathrm {m}}\\\\right). \\\\right. \\\\tag {4}\\n$$\\nWith the ansatz of Equation (3) we have, for the Christoffel symbols\\n$$\\n\\\\Gamma^{\\\\mathrm {m}}_{\\\\ell_{\\\\mathrm {i}}} = 2 \\\\Phi^{- 1} \\\\left(\\\\Phi_{, \\\\mathrm {i}} \\\\delta^{\\\\mathrm {m}}_{\\\\mathrm {i}} + \\\\Phi_{, \\\\ell} \\\\delta^{\\\\mathrm {m}}_{\\\\mathrm {i}} - \\\\Phi^{\\\\mathrm {, m}} \\\\eta_{\\\\ell_{\\\\mathrm {i}}}\\\\right), \\\\tag {5a}\\n$$\\n$$\\n\\\\mathrm {g}^{\\\\mathrm {i j}} \\\\Gamma_{\\\\mathrm {i m}, \\\\mathrm {j}}^{\\\\mathrm {m}} = - 6 \\\\Phi^{- 6} (\\\\nabla \\\\Phi)^{2} + 6 \\\\Phi^{- 5} \\\\nabla^{2} \\\\Phi \\\\tag {5b}\\n$$\\n$$\\n\\\\mathrm {g}^{\\\\mathrm {i j}} \\\\Gamma_{\\\\mathrm {i j}, \\\\mathrm {m}}^{\\\\mathrm {m}} = 2 \\\\Phi^{- 6} (\\\\nabla \\\\Phi)^{2} - 2 \\\\Phi^{- 5} \\\\nabla^{2} \\\\Phi \\\\tag {5c}\\n$$\\n$$\\n\\\\mathrm {g}^{\\\\mathrm {i j}} \\\\Gamma_{\\\\ell \\\\mathrm {i}}^{\\\\mathrm {m}} \\\\Gamma_{\\\\mathrm {j m}}^{\\\\ell} = - 4 \\\\Phi^{- 6} (\\\\nabla \\\\Phi)^{2} \\\\tag {5d}\\n$$\\n$$\\n\\\\mathrm {g}^{\\\\mathrm {i j}} \\\\Gamma_{\\\\mathrm {m} \\\\ell}^{\\\\ell} \\\\Gamma_{\\\\mathrm {i j}}^{\\\\mathrm {m}} = - 1 2 \\\\Phi^{- 6} (\\\\nabla \\\\Phi)^{2} \\\\tag {5e}\\n$$\\nwhere we have used the symbols\\n$$\\n(\\\\nabla \\\\Phi)^{2} \\\\equiv \\\\Phi_{, i} \\\\Phi_{, j} \\\\eta^{i j} \\\\tag {5f}\\n$$\\n$$\\n\\\\nabla^{2} \\\\Phi \\\\equiv \\\\Phi_{, i, j} \\\\eta^{i j}. \\\\tag {5g}\\n$$\\nCombining Equations (4)-(5), we see that Equation (2) reduces to\\n$$\\n\\\\left(^{(3)} \\\\mathbf {R} = 0 = 8 \\\\Phi^{- 5} \\\\nabla^{2} \\\\Phi , \\\\right. \\\\tag {6}\\n$$\\nwhich is satisfied by any solution of Laplace's equation. One such solution is\\n$$\\n\\\\Phi = 1 + \\\\sum_{i} \\\\frac {M_{i}}{2 r_{i}} \\\\tag {7}\\n$$\\nleading to a metric\\n$$\\n\\\\mathbf {g}_{\\\\mathbf {i j}} = \\\\left(1 + \\\\sum_{\\\\mathbf {i}} \\\\frac {\\\\mathbf {M}_{\\\\mathbf {i}}}{2 \\\\mathbf {r}_{\\\\mathbf {i}}}\\\\right)^{4} \\\\eta_{\\\\mathbf {i j}}. \\\\tag {8}\\n$$\\nThe lowest order term in $\\mathbf{M} / \\mathbf{r}$ for the metric in Equation (8) is\\n$$\\n\\\\mathbf {g}_{\\\\mathbf {i j}} \\\\approx \\\\left(1 + \\\\sum_{\\\\mathbf {i}} \\\\frac {2 \\\\mathrm {M}_{\\\\mathbf {i}}}{\\\\mathrm {r}_{\\\\mathbf {i}}}\\\\right) \\\\boldsymbol {\\\\eta}_{\\\\mathbf {i j}}\\n$$\\nwhich is the “Post-Newtonian” approximation to the spatial part of a metric generated by point masses $\\mathbf{M}_{\\\\mathrm{i}}$ located at positions $\\mathbf{r}_{\\\\mathrm{i}}$ . Thus the metric in Equation (8) is, in fact, the instantaneous spatial metric for point masses at arbitrary positions at a moment of time symmetry."
+  },
+  "verification": null
+}

@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s15_15.14_b-0-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "Kretschmann_scalar",
+      "coordinate": "hyperbolic_spherical",
+      "scenario": "coordinate_crunch",
+      "method": "limit_analysis",
+      "generalization_axis": "substitute",
+      "metric": "AntiDeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.14_b",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s15_15.14_b",
+      "1_s15_15.14_b-0",
+      "1_s15_15.14_b-0-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "AntiDeSitter",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "chi",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "Kretschmann_scalar",
+      "coordinate_singularity"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "cos(t)**2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "cos(t)**2*sinh(chi)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*cos(t)**2*sinh(chi)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "某时空的度规为 $ds^2 = -dt^2 + \\cos^2(t) d\\chi^2 + \\cos^2(t) \\sin h^2(\\chi) d\\theta^2 + \\sin^2(\\theta) \\cos^2(t) \\sin h^2(\\chi) d\\phi^2$。在该几何中，当 $t = \\pi/2$ 时，度规的空间部分系数 $\\cos^2(t)$ 退化为 0，这似乎表明时空在此处发生了“大挤压”式的收缩。已知该时空的 Kretschmann 标量为常数 $K = \\frac{12}{\\alpha^2}$（其中 $\\alpha$ 为时空的内禀尺度参数）。请利用此标量的值，分析时空在 $t = \\pi/2$ 处的奇点性质，指出该处是由于坐标选择造成的坐标奇点，还是不可消除的物理曲率奇点，并简述理由。",
+    "answer": "$t = \\pi/2$ 是坐标奇点（因为 $K$ 为有限常数，曲率不变量未发散）。",
+    "solution": "将 $t = \\pi/2$ 代入 Kretschmann 标量，得到 $K(\\pi/2) = \\frac{12}{\\alpha^2}$，这是一个不依赖于坐标的有限常数。有限的不变量表明时空曲率在 $t = \\pi/2$ 处并未发散，该处的度规奇异性仅仅是由坐标选择引起的（即度规系数 $g_{\\chi\\chi}$ 等在该坐标下退化为 0），可以通过坐标变换消除，因此 $t = \\pi/2$ 是坐标奇点，而非真正的物理曲率奇点。"
+  },
+  "verification": null
+}

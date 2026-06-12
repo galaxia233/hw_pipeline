@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s9_9.7_a",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "riemann_tensor",
+      "coordinate": "low_dimensional_geometry",
+      "scenario": "curvature",
+      "method": "symmetry_properties"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.7_a",
+    "source_id": "1_s9_9.7_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.7_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.2,
+      "generalizability": 0.8,
+      "completeness": 0.3,
+      "realism": 0.5,
+      "rationale": "题干明确考查一维空间黎曼张量形式，属基础概念题；但附带的解答为四维时空超曲面外微分方程（Gauss-Codazzi关系）推导，与题目完全无关，严重破坏完整性",
+      "overall": 0.45
+    }
+  },
+  "physical_data": {
+    "dimension": 1,
+    "variables": [
+      "$x^1$",
+      "$g_{11}$",
+      "$R_{1111}$"
+    ],
+    "target": [
+      "$R_{1111}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.7. In a space of fewer than 4 dimensions simple expressions can be given for the Riemann tensor.(a) What is the Riemann tensor in a 1-dimensional space?",
+    "answer": "$R_{abcd} = 0$（在一维空间中黎曼曲率张量恒等于零）",
+    "solution": "# Solution 9.7.\\beta_ {\\mathbf {k i j}} = \\mathbf {e} _ {\\mathbf {k}} \\cdot^ {(4)} \\nabla_ {\\mathbf {i}} \\mathbf {e} _ {\\mathbf {j}} = ^ {(4)} \\Gamma_ {\\mathbf {k j i}} = ^ {(3)} \\Gamma_ {\\mathbf {k j i}}.$$The last equality follows from the fact that the Christoffel symbol can be computed directly from ${}^{(3)}\\mathbf{g}_{ij}$ . With these coefficients Equation (1) becomes the \"Gauss-Weingarten equation.\"$$\\left(^{(4)} \\nabla_{i} e_{j} = \\varepsilon K_{i j} n +^{(3)} \\Gamma_{j i}^{k} e_{k}\\right). \\tag {2}$$The Riemann tensor can be computed from derivatives of the $\\Gamma$ 's; it is somewhat quicker to use the curvature operator (see Problem 9.12):$$\\mathbf {R}_{\\alpha \\beta \\gamma \\delta} = \\mathbf {e}_{\\alpha} \\cdot \\mathbf {R} (\\mathbf {e}_{\\gamma}, \\mathbf {e}_{\\delta}) \\mathbf {e}_{\\beta} \\tag {3}$$where$$\\mathbf {R} \\left(\\mathbf {e}_{\\gamma}, \\mathbf {e}_{\\delta}\\right) = \\left[ \\nabla_{\\gamma}, \\nabla_{\\delta}\\right] - \\nabla_{\\left[ \\mathbf {e}_{\\gamma}, \\mathbf {e}_{\\delta}\\right]} . \\tag {4}$$Evaluate Equation (4) for $\\mathbf{e}_{\\mathbf{j}}$ and $\\mathbf{e}_{\\mathbf{k}}$ . The last term vanishes because $[\\mathbf{e}_{\\mathbf{j}}, \\mathbf{e}_{\\mathbf{k}}] = 0$ for a coordinate basis, and$$\\begin{array}{l} {}^{( 4 )} \\nabla_{j} {}^{( 4 )} \\nabla_{k} \\mathbf {e}_{i} = {}^{( 4 )} \\nabla_{j} ( \\varepsilon K_{i k} \\mathbf {n} + {}^{( 3 )} \\Gamma_{i k}^{m} \\mathbf {e}_{m} ) \\\\ = \\varepsilon K_{i k, j} n - \\varepsilon K_{i k} K_{j}^{m} e_{m} +^{(3)} \\Gamma_{i k, j}^{m} e_{m} \\\\ +^{(3)} \\Gamma_{i k}^{m} \\left(\\varepsilon K_{j m} n +^{(3)} \\Gamma_{m j}^{n} e_{n}\\right). \\tag {5} \\\\ \\end{array}$$Evaluate Equation (5) with $j$ and $k$ interchanged and subtract the two equations. The result is$$\\mathbf {R} \\left(\\mathbf {e}_{j}, \\mathbf {e}_{k}\\right) \\mathbf {e}_{i} = \\varepsilon \\left(\\mathrm {K}_{i k} |_{j} - \\mathrm {K}_{i j} |_{k}\\right) n + \\mathbf {e}_{m} \\left[ \\varepsilon \\left(\\mathrm {K}_{i j} \\mathrm {K}_{k}^{\\mathrm {m}} - \\mathrm {K}_{i k} \\mathrm {K}_{j}^{\\mathrm {m}}\\right) +^{(3)} \\mathrm {R}_{i j k}^{\\mathrm {m}}\\right]. (6)$$Dotting Equation (6) with $\\mathbf{n}$ and $\\mathbf{e}_{\\mathbf{n}}$ respectively gives the Gauss-Codazzi equations.The components of the Riemann tensor with two $\\mathbf{n}$ 's can be found from $\\mathbf{R}(\\mathbf{e}_{\\mathbf{k}}, \\mathbf{n}) \\mathbf{n}$ . Since $\\mathbf{n}$ has been chosen to be a coordinate basis vector, $[\\mathbf{n}, \\mathbf{e}_{\\mathbf{k}}] = 0$ so the last term in Equation (4) vanishes and thus$$R \\left(e_{k}, n\\right) n =^{(4)} \\nabla_{k}^{\\prime}^{(4)} \\nabla_{n} n -^{(4)} \\nabla_{n}^{(4)} \\nabla_{k} n.$$But ${}^{(4)}\\nabla_{\\mathbf{n}}\\mathfrak{n} = 0$ because $\\mathbf{n}$ is tangent to a geodesic (Gaussian normal coordinates), so that$$\\mathbf {e}_{\\mathbf {i}} \\cdot \\mathbf {R} (\\mathbf {e}_{\\mathbf {k}}, \\mathbf {n}) \\mathbf {n} = \\mathbf {e}_{\\mathbf {i}} \\cdot \\mathbf {\\Sigma}^{(4)} \\nabla_{\\mathbf {n}} (\\mathbf {K}_{\\mathbf {k}}^{\\mathrm {m}} \\mathbf {e}_{\\mathbf {m}}) = \\mathbf {\\Sigma} \\mathbf {K}_{\\mathbf {k i}, \\mathbf {n}} - \\mathbf {K}_{\\mathbf {k}}^{\\mathrm {m}} \\mathbf {e}_{\\mathbf {m}} \\cdot \\nabla_{\\mathbf {n}} \\mathbf {e}_{\\mathbf {i}}.$$Now $[\\mathbf{e},\\mathbf{n}] = 0$ implies that$$\\left(^{(4)} \\nabla_{\\mathbf {n}} \\mathbf {e}_{\\mathbf {i}} =^{(4)} \\nabla_{\\mathbf {i}} \\mathbf {n} = - K_{\\mathbf {i}}^{\\mathbf {j}} \\mathbf {e}_{\\mathbf {j}}\\right.$$so finally$$\\mathrm {R}_{\\text {i n k n}} = \\varepsilon \\mathrm {R}_{\\text {i n k}}^{\\mathrm {n}} = \\mathrm {K}_{\\mathrm {k i}, \\mathrm {n}} + \\mathrm {K}_{\\mathrm {i}}^{\\mathrm {j}} \\mathrm {K}_{\\mathrm {j k}}.$$"
+  },
+  "verification": null
+}

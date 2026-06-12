@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "id": "1_s19_19.21",
+    "type": "calculate",
+    "tags": {
+      "metric": "frw_cosmology",
+      "target_object": "olbers_paradox",
+      "coordinate": "energy_density",
+      "scenario": "redshift_correction",
+      "method": "flux_integration"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.21",
+    "source_id": "1_s19_19.21",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.21"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "完整FRW度规背景+多步物理推导(尺度因子积分/红移能量衰减/各向同性通量转换)+经典奥伯斯佯谬观测场景",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$B$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$R(t)^2$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$R(t)^2 r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$R(t)^2 r^2 \\\\sin^2\\\\theta$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "R(t)**2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2*R(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "(r**2*sin(theta)**2)*R(t)**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "[文件 1: 1_s19_19.21.md]\\n\\nProblem 19.21. If an idealized $\\mathbf{k} = 0$ matter dominated Friedmann cosmology with Hubble constant $\\mathrm{H}_0$ contains homogeneously distributed sources of constant luminosity $\\mathrm{L}$ , and if the local number density of such sources in space is now $\\mathfrak{n}$ , what is the brightness $\\mathbf{B}$ of the night sky (energy per steradian of sky per collection area per time)? (If the universe were static and infinitely old the brightness would be infinite; this is called Olbers' Paradox.)",
+    "answer": "$B = \\\\frac{c}{10\\\\pi} H_0^{-1} L n$",
+    "solution": "Solution 19.21. For a $\\mathbf{k} = 0$ Friedmann universe we have\\n$$\\n\\\\mathrm {R (t) / R_{0}} = \\\\left(\\\\frac {3}{2} \\\\mathrm {H_{0} t}\\\\right)^{\\\\frac {2}{3}}.\\n$$\\nThe energy emitted per source per unit proper time is L. This is redshifted by a factor $\\mathbb{R}(\\\\mathfrak{t}) / \\mathbb{R}_0$ , so the total energy per star which is now\\npresent is\\n$$\\n\\\\tilde {\\\\mathcal {E}} = \\\\int_{0}^{t_{0}} L \\\\frac {R (t)}{R_{0}} d t = \\\\frac {3}{5} L \\\\left(\\\\frac {3}{2} H_{0}\\\\right)^{\\\\frac {2}{3}} t_{0}^{5 / 3}\\n$$\\nor $\\mathfrak{S} = 2\\\\mathrm{L} / 5\\\\mathrm{H}_0$ since $t_0 = 2 / 3\\\\mathrm{H}_0$ . The energy per volume, u, now is thus $\\frac{2}{5}\\\\mathrm{H}_0^{-1}\\\\mathrm{Ln}$ . Since the energy fills the universe isotropically, it corresponds to a flux\\n$$\\n\\\\mathrm {\\\\bf B} = \\\\frac {\\\\mathrm {\\\\bf c}}{4 \\\\pi} \\\\mathrm {\\\\bf u} = \\\\frac {\\\\mathrm {\\\\bf c}}{1 0 \\\\pi} \\\\mathrm {\\\\bf H}_{0}^{- 1} \\\\mathrm {\\\\bf L n}.\\n$$\\n[By comparison, a Newtonian universe where the stars “‘turned on’” a time $t_0 = \\\\left(\\\\frac{3}{2} H_0\\\\right)^{-1}$ ago would have\\n$$\\n\\\\mathfrak {E} = \\\\int_{0}^{t_{0}} L d t = \\\\frac {2}{3} H_{0}^{- 1} L\\n$$\\nand\\n$$\\n\\\\mathrm {\\\\bf B} = \\\\frac {\\\\mathrm {c}}{6 \\\\pi} \\\\left. \\\\mathrm {\\\\bf H}_{0}^{- 1} \\\\mathrm {\\\\bf L n .}\\\\right]\\n]$"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "\\\\theta",
+      "\\\\phi"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "R^{2}{\\left(t \\right)}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r^{2} R^{2}{\\left(t \\right)}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r^{2} R^{2}{\\left(t \\right)} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_011": "R{\\left(t \\right)} \\frac{d}{d t} R{\\left(t \\right)}",
+      "Gamma_022": "r^{2} R{\\left(t \\right)} \\frac{d}{d t} R{\\left(t \\right)}",
+      "Gamma_033": "r^{2} R{\\left(t \\right)} \\sin^{2}{\\left(\\theta \\right)} \\frac{d}{d t} R{\\left(t \\right)}",
+      "Gamma_101": "\\frac{\\frac{d}{d t} R{\\left(t \\right)}}{R{\\left(t \\right)}}",
+      "Gamma_110": "\\frac{\\frac{d}{d t} R{\\left(t \\right)}}{R{\\left(t \\right)}}",
+      "Gamma_122": "- r",
+      "Gamma_133": "- r \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_202": "\\frac{\\frac{d}{d t} R{\\left(t \\right)}}{R{\\left(t \\right)}}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_220": "\\frac{\\frac{d}{d t} R{\\left(t \\right)}}{R{\\left(t \\right)}}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_303": "\\frac{\\frac{d}{d t} R{\\left(t \\right)}}{R{\\left(t \\right)}}",
+      "Gamma_313": "\\frac{1}{r}",
+      "Gamma_330": "\\frac{\\frac{d}{d t} R{\\left(t \\right)}}{R{\\left(t \\right)}}",
+      "Gamma_331": "\\frac{1}{r}"
+    },
+    "riemann": {
+      "R_0101": "R{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}",
+      "R_0110": "- R{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}",
+      "R_0202": "r^{2} R{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}",
+      "R_0220": "- r^{2} R{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}",
+      "R_0303": "r^{2} R{\\left(t \\right)} \\sin^{2}{\\left(\\theta \\right)} \\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}",
+      "R_0330": "- r^{2} R{\\left(t \\right)} \\sin^{2}{\\left(\\theta \\right)} \\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}",
+      "R_1001": "\\frac{\\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}}{R{\\left(t \\right)}}",
+      "R_1010": "- \\frac{\\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}}{R{\\left(t \\right)}}",
+      "R_1212": "r^{2} \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2}",
+      "R_1221": "- r^{2} \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2}",
+      "R_1313": "r^{2} \\sin^{2}{\\left(\\theta \\right)} \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2}",
+      "R_1331": "- r^{2} \\sin^{2}{\\left(\\theta \\right)} \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2}",
+      "R_2002": "\\frac{\\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}}{R{\\left(t \\right)}}",
+      "R_2020": "- \\frac{\\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}}{R{\\left(t \\right)}}",
+      "R_2112": "- \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2}",
+      "R_2121": "\\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2}",
+      "R_2323": "\\left(r^{2} \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2} - 1\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "R_2332": "\\left(- r^{2} \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2} + 1\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "R_3003": "\\frac{\\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}}{R{\\left(t \\right)}}",
+      "R_3030": "- \\frac{\\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}}{R{\\left(t \\right)}}",
+      "R_3113": "- \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2}",
+      "R_3131": "\\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2}",
+      "R_3223": "- r^{2} \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2} + 1",
+      "R_3232": "r^{2} \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2} - 1"
+    },
+    "ricci_tensor": {
+      "R_00": "- \\frac{3 \\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}}{R{\\left(t \\right)}}",
+      "R_11": "R{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} R{\\left(t \\right)} + 2 \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2}",
+      "R_22": "r^{2} R{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} R{\\left(t \\right)} + 2 r^{2} \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2} - 1",
+      "R_33": "\\left(r^{2} R{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} R{\\left(t \\right)} + 2 r^{2} \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2} - 1\\right) \\sin^{2}{\\left(\\theta \\right)}"
+    },
+    "ricci_scalar": "\\frac{6 \\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}}{R{\\left(t \\right)}} + \\frac{6 \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2}}{R^{2}{\\left(t \\right)}} - \\frac{2}{r^{2} R^{2}{\\left(t \\right)}}",
+    "kretschmann": "\\frac{2 \\left(- r^{4} \\left(r^{2} \\sin^{2}{\\left(\\theta \\right)} + r^{2} + 1\\right) R^{4}{\\left(t \\right)} \\sin^{2}{\\left(\\theta \\right)} \\left(\\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}\\right)^{2} + r^{4} \\left(r^{2} \\sin^{2}{\\left(\\theta \\right)} \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{4} + r^{2} \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{4} - \\left(\\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}\\right)^{2}\\right) \\sin^{2}{\\left(\\theta \\right)} + r^{2} \\left(\\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{4} - \\left(\\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}\\right)^{2}\\right) \\sin^{2}{\\left(\\theta \\right)} + r^{2} \\left(\\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{4} - \\left(\\frac{d^{2}}{d t^{2}} R{\\left(t \\right)}\\right)^{2}\\right) + \\left(r^{2} \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2} - 1\\right)^{2} \\sin^{4}{\\left(\\theta \\right)} + \\left(r^{2} \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2} - 1\\right)^{2}\\right)}{r^{4} R^{4}{\\left(t \\right)} \\sin^{2}{\\left(\\theta \\right)}}",
+    "einstein_tensor": {
+      "G_00": "\\frac{3 r^{2} \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2} - 1}{r^{2} R^{2}{\\left(t \\right)}}",
+      "G_11": "- 2 R{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} R{\\left(t \\right)} - \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2} + \\frac{1}{r^{2}}",
+      "G_22": "r^{2} \\left(- 2 R{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} R{\\left(t \\right)} - \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2}\\right)",
+      "G_33": "r^{2} \\left(- 2 R{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} R{\\left(t \\right)} - \\left(\\frac{d}{d t} R{\\left(t \\right)}\\right)^{2}\\right) \\sin^{2}{\\left(\\theta \\right)}"
+    },
+    "killing_vectors": []
+  }
+}

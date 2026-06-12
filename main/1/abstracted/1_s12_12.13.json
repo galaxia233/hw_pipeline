@@ -1,0 +1,167 @@
+{
+  "metadata": {
+    "id": "1_s12_12.13",
+    "type": "calculate",
+    "tags": {
+      "metric": "minkowski_metric",
+      "target_object": "four_acceleration_vector",
+      "coordinate": "covariant_tensor_notation",
+      "scenario": "newtonian_action_at_distance_in_SR",
+      "method": "orthogonal_projection_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s12_12.13",
+    "source_id": "1_s12_12.13",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s12_12.13"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "多步张量构造与投影算子应用结合狭义相对论全局时间切片及因果性辨析",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$T^{\\mu\\nu}$",
+      "$\\mathbf{u}$",
+      "$\\mathbf{l}$",
+      "$\\mathbf{a}_{\\text{grav}}$",
+      "$\\nabla t$"
+    ],
+    "target": [
+      "$\\mathbf{a}_{\\text{grav}}$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s12_12.13.md]Problem 12.13. Write a Newtonian gravitational force law in covariant 4-dimensional language, using a scalar field as the universal Newtonian time function. Show that the resulting theory is consistent with special relativity. Show that signals can be sent faster than the speed of light. Is the theory acausal, i.e. can an observer send signals into his own past?",
+    "answer": "$\\mathbf {a}_{\\text {g r a v}} = \\mathrm {G} \\int \\frac {\\nabla \\mathbf {t} \\cdot \\mathbf {T} \\cdot \\nabla \\mathbf {t}}{(1 \\cdot 1)^{\\frac {3}{2}}} [ \\mathbf {l} + (\\mathbf {u} \\cdot \\mathbf {l}) \\mathbf {u} ] d^{3} x^{\\prime}$. 理论不是非因果的（not acausal），任何信号最多连接等 $t$ 事件，无法回到更早的 $t$。",
+    "solution": "Newtonian gravity is characterized by instant “action at a distance,” where simultaneity is defined by the slices of a ‘universal time’ field $t$ . We want a relativistically invariant expression for the gravitational acceleration at a point in terms of the matter density $T^{\\mu \\nu}$ in the rest of the universe. Spacetime is taken to have the Minkowski metric everywhere. Only $T^{00}$ should enter, so we first dot into two universal time vectors:$$\\nabla \\mathbf {t} \\cdot \\mathbf {T} \\cdot \\nabla \\mathbf {t} \\quad (\\mathrm {o r} \\quad \\mathbf {t}_{, \\alpha} \\mathbf {T}^{\\alpha \\beta} \\mathbf{t},_\\beta) .$$Thus the inverse square law acceleration of a particle at position $\\mathbf{x}$ becomes$$\\mathbf {a}_{\\text {g r a v}} = \\mathrm {G} \\int_{\\mathrm {t} = \\text {c o n s t a n t}} 1 \\frac {\\nabla \\mathrm {t} \\cdot \\mathrm {T} \\left(\\mathrm {x}^{\\prime}\\right) \\cdot \\nabla \\mathrm {t}}{\\left(\\mathrm {l} \\cdot \\mathrm {l}\\right)^{\\frac {3}{2}}} \\mathrm {d}^{3} \\mathrm {x}^{\\prime}$$where $l$ is the spacelike vector connecting $x'$ to $x$ and $d^3 x'$ is the proper volume element on the constant $t$ slice. This is not yet consistent with special relativity, because $a$ is not necessarily orthogonal to the particle's 4-velocity $u$ . We must apply a projection operator, giving a final answer$$\\mathbf {a}_{\\text {g r a v}} = \\mathrm {G} \\int \\frac {\\nabla \\mathbf {t} \\cdot \\mathbf {T} \\cdot \\nabla \\mathbf {t}}{(1 \\cdot 1)^{\\frac {3}{2}}} [ \\mathbf {l} + (\\mathbf {u} \\cdot \\mathbf {l}) \\mathbf {u} ] d^{3} x^{\\prime}.$$This is manifestly consistent with special relativity because it is (i) written in terms of geometrical objects, and (ii) defines a geometrical object (a with $\\mathbf{a} \\cdot \\mathbf{u} = 0$ ). Signals can be sent faster than light by changing the distribution of masses at a point. The gravitational field then changes on surfaces of constant t. Since these surfaces are spacelike, they are outside the lightcone of every observer. Nevertheless the theory is not acausal; since every observer's worldline is timelike, t is always increasing in his future direction. Likewise, t increases along any light ray he emits. So any signal can at best connect events of constant t; no sequence of signals can return to an observer at an earlier t than they started. This is to be contrasted with the case of tachyons (Problem 1.6) which are acausal. The reason for the difference is that this problem has some “pregeometry” in the scalar field t, which slices up spacetime in a universally time-ordered fashion. Tachyons “slice” spacetime in a manner that varies from observer to observer."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

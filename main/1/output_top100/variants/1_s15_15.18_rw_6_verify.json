@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s15_15.18-2-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "Ricci_tensor",
+      "coordinate": "cartesian_like",
+      "scenario": "verify_calculation",
+      "method": "component_calculation",
+      "generalization_axis": "verify",
+      "metric": "schwarzschild_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.18",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.18",
+      "1_s15_15.18-2",
+      "1_s15_15.18-2-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "schwarzschild_metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "R_{22}"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "已知度规 $ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}}(dx^2+dy^2+dz^2)$，某同学在计算 Ricci 张量分量 $R_{22}$ 时给出了如下推导：首先计算非零的 Christoffel 符号：$\\Gamma^1_{22} = \\frac{1}{2} g^{11} \\partial_1 g_{22} = \\frac{1}{2} e^{-\\frac{2x}{\\alpha}} \\cdot \\frac{2}{\\alpha} e^{\\frac{2x}{\\alpha}} = \\frac{1}{\\alpha}$$\\Gamma^2_{12} = \\frac{1}{2} g^{22} \\partial_1 g_{22} = \\frac{1}{2} e^{-\\frac{2x}{\\alpha}} \\cdot \\frac{2}{\\alpha} e^{\\frac{2x}{\\alpha}} = \\frac{1}{\\alpha}$$\\Gamma^1_{11} = \\frac{1}{2} g^{11} \\partial_1 g_{11} = \\frac{1}{2} e^{-\\frac{2x}{\\alpha}} \\cdot \\frac{2}{\\alpha} e^{\\frac{2x}{\\alpha}} = \\frac{1}{\\alpha}$$\\Gamma^3_{13} = \\frac{1}{2} g^{33} \\partial_1 g_{33} = \\frac{1}{2} e^{-\\frac{2x}{\\alpha}} \\cdot \\frac{2}{\\alpha} e^{\\frac{2x}{\\alpha}} = \\frac{1}{\\alpha}$接下来计算 Ricci 张量，由于对称性，仅对 $k=1$ 求和：$R_{22} = R^1_{212}$展开 Riemann 张量分量：$R^1_{212} = \\partial_1 \\Gamma^1_{22} - \\partial_2 \\Gamma^1_{21} + \\Gamma^1_{11}\\Gamma^1_{22} - \\Gamma^1_{21}\\Gamma^2_{12}$其中假设 $\\Gamma^1_{21} = \\frac{1}{\\alpha}$，代入 Christoffel 符号的值：$R^1_{212} = 0 - 0 + \\frac{1}{\\alpha}\\frac{1}{\\alpha} - \\frac{1}{\\alpha}\\frac{1}{\\alpha} = 0$因此，得出结论 $R_{22} = 0$。已知正确的结论为 $R_{22} = -\\frac{1}{\\alpha^2}$。请找出上述推导中的所有错误，指出其位置、错误类型并给出正确值。",
+    "answer": "1. 位置：计算 $\\Gamma^1_{22}$ 的等式。错误类型：符号错误。对于不含交叉项的度规，$\\Gamma^i_{jk}$ 中对 $g_{jj}$ 求导且指标 $i \\neq j, k$ 的项应为负号，即 $-\\frac{1}{2} g^{ii} \\partial_i g_{jj}$。正确值：$\\Gamma^1_{22} = -\\frac{1}{\\alpha}$。2. 位置：计算 Ricci 张量的求和式 $R_{22} = R^1_{212}$。错误类型：指标求和遗漏。Ricci 张量定义为对所有中间逆变指标求和 $R_{jl} = R^k_{jkl}$，这里遗漏了 $k=3$ 的项 $R^3_{232}$。正确表达式：$R_{22} = R^1_{212} + R^3_{232}$。3. 位置：展开 $R^1_{212}$ 中的最后一项 $- \\Gamma^1_{21}\\Gamma^2_{12}$。错误类型：指标混淆。根据 Riemann 张量定义 $R^i_{jkl} = \\partial_k \\Gamma^i_{jl} - \\partial_l \\Gamma^i_{jk} + \\Gamma^i_{km}\\Gamma^m_{jl} - \\Gamma^i_{lm}\\Gamma^m_{jk}$，最后一项应为 $-\\Gamma^1_{2m}\\Gamma^m_{12}$，其中 $m=2$ 的贡献为 $-\\Gamma^1_{22}\\Gamma^2_{12}$，而不是 $-\\Gamma^1_{21}\\Gamma^2_{12}$（且 $\\Gamma^1_{21}=0$）。正确项：$- \\Gamma^1_{22}\\Gamma^2_{12}$。",
+    "solution": "正确推导如下：1. Christoffel 符号计算：$\\Gamma^1_{22} = -\\frac{1}{2} g^{11} \\partial_1 g_{22} = -\\frac{1}{2} e^{-\\frac{2x}{\\alpha}} \\cdot \\frac{2}{\\alpha} e^{\\frac{2x}{\\alpha}} = -\\frac{1}{\\alpha}$$\\Gamma^2_{12} = \\frac{1}{2} g^{22} \\partial_1 g_{22} = \\frac{1}{\\alpha}$$\\Gamma^1_{11} = \\frac{1}{2} g^{11} \\partial_1 g_{11} = \\frac{1}{\\alpha}$$\\Gamma^3_{13} = \\frac{1}{2} g^{33} \\partial_1 g_{33} = \\frac{1}{\\alpha}$2. Ricci 张量计算需要对所有逆变指标求和：$R_{22} = R^1_{212} + R^3_{232}$3. 计算 $R^1_{212}$：$R^1_{212} = \\partial_1 \\Gamma^1_{22} - \\partial_2 \\Gamma^1_{21} + \\Gamma^1_{1m}\\Gamma^m_{22} - \\Gamma^1_{2m}\\Gamma^m_{12}$其中非零项为：$\\Gamma^1_{11}\\Gamma^1_{22} = \\frac{1}{\\alpha} \\cdot (-\\frac{1}{\\alpha}) = -\\frac{1}{\\alpha^2}$$-\\Gamma^1_{22}\\Gamma^2_{12} = -(-\\frac{1}{\\alpha}) \\cdot \\frac{1}{\\alpha} = \\frac{1}{\\alpha^2}$故 $R^1_{212} = 0 - 0 - \\frac{1}{\\alpha^2} + \\frac{1}{\\alpha^2} = 0$4. 计算 $R^3_{232}$：$R^3_{232} = \\partial_3 \\Gamma^3_{22} - \\partial_2 \\Gamma^3_{23} + \\Gamma^3_{3m}\\Gamma^m_{22} - \\Gamma^3_{2m}\\Gamma^m_{32}$其中非零项为：$\\Gamma^3_{31}\\Gamma^1_{22} = \\frac{1}{\\alpha} \\cdot (-\\frac{1}{\\alpha}) = -\\frac{1}{\\alpha^2}$故 $R^3_{232} = 0 - 0 - \\frac{1}{\\alpha^2} - 0 = -\\frac{1}{\\alpha^2}$5. 综合得 $R_{22} = 0 - \\frac{1}{\\alpha^2} = -\\frac{1}{\\alpha^2}$，与已知结论相符。"
+  },
+  "verification": null
+}

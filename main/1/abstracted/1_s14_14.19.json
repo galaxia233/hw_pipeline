@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s14_14.19",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "equations_of_motion",
+      "coordinate": "general_coordinates",
+      "scenario": "charged_particle_in_curved_spacetime",
+      "method": "hamiltonian_formalism"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.19",
+    "source_id": "1_s14_14.19",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.19"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于一般度规的多步哈密顿正则推导，串联联络定义与电磁场强张量，逻辑链条长且物理动机明确",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^0$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$",
+      "$\\pi_0$",
+      "$\\pi_1$",
+      "$\\pi_2$",
+      "$\\pi_3$"
+    ],
+    "target": [
+      "$\\Gamma_{\\beta\\mu}^{\\gamma}$",
+      "$F_{\\mu}^{\\gamma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 14.19. Show that $\\mathrm{H} = \\frac{1}{2}\\mathrm{g}^{\\mu \\nu}(\\pi_{\\mu} - \\mathrm{eA}_{\\mu})(\\pi_{\\nu} - \\mathrm{eA}_{\\nu})$ is a Hamiltonian giving the equations of motion of a test particle of charge e. Here $\\pi_{\\mu}$ is the canonical momentum. (The canonical momentum $\\pi^{\\mu}$ is not equal to $\\mathfrak{p}^{\\mu}$ , the particles 4-momentum unless the 4-potential $\\mathbf{A}^{\\mu}$ is zero.)",
+    "answer": "$\\frac{\\mathrm{d} p^{\\gamma}}{\\mathrm{d} \\lambda} + \\Gamma_{\\beta \\mu}^{\\gamma} p^{\\beta} p^{\\mu} = e F_{\\mu}^{\\gamma} p^{\\mu}$",
+    "solution": "Solution 14.19. First note that $\\mathbf{H}$ has been normalized to have dimensions of $(\\text{mass})^2$ ; this means that Hamilton's equations are$$\\begin{array}{l} \\mathrm {d} \\mathbf {x}^{\\mu} / \\mathrm {d} \\lambda = \\partial \\mathrm {H} / \\partial \\pi_{\\mu} (1) \\\\ \\partial \\pi_{\\mu} / \\mathrm {d} \\lambda = - \\partial \\mathrm {H} / \\partial \\mathbf {x}^{\\mu} (2) \\\\ \\end{array}$$where $\\lambda$ is an affine parameter ( $= \\tau / m$ for a particle of mass $m$ where $\\tau$ is proper time). If $H$ were divided by $m$ , one would replace $d / d\\lambda$ by $d / d\\tau$ in Equations (1) and (2); $d / d\\lambda$ has the advantage of being valid for massless particles as well.Since the particle's 4-momentum is $\\mathfrak{p}^{\\mu} = \\mathrm{d}\\mathbf{x}^{\\mu} / \\mathrm{d}\\lambda$ , and since $\\mathbf{g}^{\\mu \\nu}$ and $\\mathbf{A}_{\\mu}$ are functions of $\\mathbf{x}^{\\alpha}$ not $\\pi_{\\alpha}$ , Equation (1) gives$$\\mathrm {p}^{\\mu} = \\mathrm {g}^{\\mu \\nu} \\left(\\pi_{\\nu} - \\mathrm {eA}_{\\nu}\\right). \\tag {3}$$Equation (2) gives$$\\frac {\\mathrm {d} \\pi_{\\alpha}}{\\mathrm {d} \\lambda} = - \\frac {1}{2} \\mathbf {g}_{, \\alpha}^{\\mu \\nu} (\\pi_{\\mu} - \\mathsf {eA}_{\\mu}) (\\pi_{\\nu} - \\mathsf {eA}_{\\nu}) + \\mathbf {g}^{\\mu \\nu} \\mathsf {eA}_{\\mu , \\alpha} (\\pi_{\\nu} - \\mathsf {eA}_{\\nu}).$$But from Equation (3) we get$$\\begin{array}{l}\\frac {\\mathrm {d} \\pi_{a}}{\\mathrm {d} \\lambda} = \\frac {\\mathrm {d}}{\\mathrm {d} \\lambda} \\left(\\mathrm {g}_{a \\mu} \\mathrm {p}^{\\mu} + \\mathrm {eA}_{a}\\right) \\\\= \\mathrm {g}_{\\alpha \\mu} \\frac {\\mathrm {d p}^{\\mu}}{\\mathrm {d} \\lambda} + \\mathrm {g}_{\\alpha \\mu , \\beta} \\mathrm {p}^{\\beta} \\mathrm {p}^{\\mu} + \\mathrm {eA}_{\\alpha , \\beta} \\mathrm {p}^{\\beta} \\\\\\end{array}$$(where we have used $\\mathrm{d} / \\mathrm{d}\\lambda = \\mathrm{p}^{\\beta}\\partial /\\partial \\mathbf{x}^{\\beta}$ . Multiplying by $\\mathbf{g}^{\\alpha \\gamma}$ , we find$$\\frac {\\mathrm {d p}^{\\gamma}}{\\mathrm {d} \\lambda} + \\mathbf {g}^{\\alpha \\gamma} \\mathbf {g}_{\\alpha \\mu , \\beta} \\mathbf {p}^{\\beta} \\mathbf {p}^{\\mu} + \\frac {1}{2} \\mathbf {g}^{\\alpha \\gamma} \\mathbf {g}_{, \\alpha}^{\\mu \\nu} \\mathbf {p}_{\\mu} \\mathbf {p}_{\\nu} =. \\mathbf {g}^{\\alpha \\gamma} \\mathbf {e} (\\mathbf {A}_{\\mu , \\alpha} - \\mathbf {A}_{\\alpha , \\mu}) \\mathbf {p}^{\\mu}.$$Now rearrange the derivatives of $\\mathfrak{g}_{\\alpha \\beta}$ to form a Christoffel symbol.Since$$0 = (\\mathbf {g}^{\\mu \\beta} \\mathbf {g}_{\\beta \\gamma})_{, a} = \\mathbf {g}^{\\mu \\beta}_{, a} \\mathbf {g}_{\\beta \\gamma} + \\mathbf {g}^{\\mu \\beta} \\mathbf {g}_{\\beta \\gamma , a}$$we have on multiplying by $\\mathbf{g}^{\\gamma \\nu}$$$\\mathbf {g}_{, a}^{\\mu \\nu} = - \\mathbf {g}^{\\gamma \\nu} \\mathbf {g}^{\\mu \\beta} \\mathbf {g}_{\\beta \\gamma , a}.$$Thus$$\\frac {\\mathrm {d p}^{\\gamma}}{\\mathrm {d} \\lambda} + \\mathbf {g}^{\\alpha \\gamma} \\Bigl(\\mathbf {g}_{\\alpha \\mu , \\beta} - \\frac {1}{2} \\mathbf {\\Gamma} \\mathbf {g}_{\\beta \\mu , a} \\Bigr) \\mathbf {p}^{\\beta} \\mathbf {p}^{\\mu} = \\mathbf {g}^{\\alpha \\gamma} \\mathbf {eF}_{\\alpha \\mu} \\mathbf {p}^{\\mu} .$$Since$$\\mathbf {g}_{\\alpha \\mu , \\beta} \\mathrm {p}^{\\beta} \\mathrm {p}^{\\mu} = \\frac {1}{2} \\left(\\mathbf {g}_{\\alpha \\mu , \\beta} + \\mathbf {g}_{\\alpha \\beta , \\mu}\\right) \\mathrm {p}^{\\beta} \\mathrm {p}^{\\mu},$$we get, finally$$\\frac {\\mathrm {d p}^{\\gamma}}{\\mathrm {d} \\lambda} + \\Gamma_{\\beta \\mu}^{\\gamma} \\mathsf {p}^{\\beta} \\mathsf {p}^{\\mu} = \\mathsf {eF}_{\\mu}^{\\gamma} \\mathsf {p}^{\\mu}$$which is the equation of motion."
+  },
+  "verification": null
+}

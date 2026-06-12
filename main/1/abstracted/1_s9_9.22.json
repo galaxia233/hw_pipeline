@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "id": "1_s9_9.22",
+    "type": "concept",
+    "tags": {
+      "metric": "local_lorentz_frame",
+      "target_object": "tensor_component_extraction",
+      "coordinate": "coordinate_measurement",
+      "scenario": "test_particle_experiment",
+      "method": "degree_of_freedom_counting"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.22",
+    "source_id": "1_s9_9.22",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.22"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.6,
+      "realism": 0.7,
+      "rationale": "多步自由度计数推理结合局部惯性系物理图像，但黎曼张量部分仅提示公式未给解导致完整性受限",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$n$",
+      "$\\alpha$",
+      "$r$",
+      "$\\mathrm{e}$",
+      "$\\mathrm{m}$",
+      "$\\mathbf{F}^{\\mu \\nu}$",
+      "$u^{\\beta}$",
+      "$\\tau$",
+      "$\\xi^{\\alpha}$",
+      "$\\mathbf{R}^{\\mu}_{\\nu \\rho \\sigma}$"
+    ],
+    "target": [
+      "$F^{\\mu \\nu}$",
+      "$R^{\\mu}_{\\nu \\rho \\sigma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.22. At a given instant, the coordinate accelerations of $n$ nearby test particles are measured. What is the smallest $n$ required to measure all components of $\\mathbf{F}^{\\mu \\nu}$ ? of $\\mathbf{R}_{\\nu \\rho \\sigma}^{\\mu}$ ?",
+    "answer": "3 (针对 $\\mathbf{F}^{\\mu \\nu}$)",
+    "solution": "Solution 9.22. In a local Lorentz frame, the acceleration of any particle is related to $\\mathbf{F}^{\\mu \\nu}$ by the Lorentz force law:$$\\frac {\\mathrm {d}^{2} \\mathbf {x}^{\\alpha}}{\\mathrm {d} r^{2}} = \\frac {\\mathrm {e}}{\\mathrm {m}} \\mathbf {F}^{\\alpha}_{\\beta} \\mathrm {u}^{\\beta}.$$It is convenient to think of the 6 components of $\\mathbf{F}_{\\beta}^{\\alpha}$ as the vectors $\\underline{\\mathbf{E}}$ and $\\underline{\\mathbf{B}}$ . In the comoving frame of one particle, it has zero velocity and so feels no magnetic forces. Measuring its three components of acceleration gives $\\underline{\\mathbf{E}}$ . Measuring the acceleration of a second particle as seen in that frame gives only two components of $\\underline{\\mathbf{B}}$ , since the components of $\\underline{\\mathbf{B}}$ along the direction of motion of the second particle produces no acceleration. Thus at least three particles are required to measure all components of $\\mathbf{F}_{\\beta}^{\\alpha}$ .The reader is invited to figure out the answer for the Riemann tensor from the geodesic deviation equation$$\\frac {\\mathrm {D}^{2} \\xi^{\\alpha}}{\\mathrm {d}\\tau^{2}} = - \\mathrm {R}_{\\beta \\gamma \\delta}^{\\alpha} \\mathrm {u}^{\\beta} \\xi^{\\gamma} \\mathrm {u}^{\\delta}.$$"
+  },
+  "verification": null
+}

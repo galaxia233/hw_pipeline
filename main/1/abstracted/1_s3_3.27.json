@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s3_3.27",
+    "type": "prove",
+    "tags": {
+      "metric": "tensor_algebra",
+      "target_object": "antisymmetry_property",
+      "coordinate": "dimension_constraint",
+      "scenario": "proof_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.27",
+    "source_id": "1_s3_3.27",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.27"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.3,
+      "generalizability": 0.5,
+      "completeness": 0.9,
+      "realism": 0.2,
+      "rationale": "张量恒等式基础证明，逻辑链条较短且偏重纯数学推导，缺乏明确物理场景应用",
+      "overall": 0.47
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mu$",
+      "$\\lambda$",
+      "$\\rho$",
+      "$\\sigma$"
+    ],
+    "target": [
+      "$\\delta_{\\rho \\dot s \\sigma}^{\\mu \\dot s \\lambda}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.27. The tensor $\\delta_{\\rho \\dot s \\sigma}^{\\mu \\dot s \\lambda}$ is defined by$$\\delta_{\\rho \\dot s \\sigma}^{\\mu \\dot s \\lambda} \\equiv \\det \\left[ \\begin{array}{c} \\delta_{\\rho}^{\\mu} \\dot s \\delta_{\\rho}^{\\lambda} \\\\\\vdots & \\vdots \\\\\\delta_{\\sigma}^{\\mu} \\dot s \\delta_{\\sigma}^{\\lambda} \\end{array}\\right].$$Show that if there are more than 4 upper (or lower) indices, the tensor identically vanishes.",
+    "answer": "The tensor identically vanishes.",
+    "solution": "Solution 3.27. Notice that $\\delta_{\\rho \\cdots \\sigma}^{\\mu \\cdots \\lambda}$ is antisymmetric in both its upper and lower indices. This follows from the fact that the sign of a determinant changes for an odd permutation of its rows or columns. Since, for example, the upper indices are antisymmetric there can be no repeated index. If there are more than four upper indices there must be a repeated index so $\\delta_{\\rho \\cdots \\sigma}^{\\mu \\cdots \\lambda}$ must be identically zero."
+  },
+  "verification": null
+}

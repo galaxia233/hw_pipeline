@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s11_11.2_b",
+    "type": "prove",
+    "tags": {
+      "metric": "coordinate_transformation",
+      "target_object": "angular_momentum",
+      "coordinate": "stress_energy_tensor",
+      "scenario": "translation_invariance",
+      "method": "symmetry_and_conservation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s11_11.2_b",
+    "source_id": "1_s11_11.2_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s11_11.2_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.7,
+      "completeness": 0.5,
+      "realism": 0.6,
+      "rationale": "通过能量动量张量体积分推导角动量张量的平移变换，展示时空平移对称性破缺与守恒量的几何依赖，逻辑链条清晰但题干略有截断",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\alpha$",
+      "$a^\\\\alpha$",
+      "$J^{\\\\alpha\\\\beta}$",
+      "$T^{\\\\beta\\\\gamma}$",
+      "$\\\\Sigma_\\\\gamma$"
+    ],
+    "target": [
+      "$J^{\\\\alpha\\\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s11_11.2_b.md]\\n\\nProblem 11.2. Show\\n(b) that it is not invariant under the coordinate translation $\\mathbf{x}^{\\alpha}\\rightarrow \\mathbf{x}^{\\alpha} + \\mathbf{a}^{\\alpha}$ . Show also that\\n\\n## Solution\\n\\n(b) $\\qquad \\mathbf {J}^{\\alpha \\beta} (\\mathbf {x}^{\\sigma} + \\mathbf {a}^{\\sigma}) = \\int \\left(\\mathbf {a}^{\\alpha} \\mathbf {T}^{\\beta \\gamma} - \\mathbf {a}^{\\beta} \\mathbf {T}^{\\alpha \\gamma}\\right) \\mathbf {d}^{3} \\boldsymbol {\\Sigma}_{\\gamma} + \\mathbf {J}^{\\alpha \\beta} (\\mathbf {x}^{\\sigma}).$\\nThus $\\mathbf{J}^{\\alpha \\beta}$ is not invariant under coordinate translations (different angular momentum about different points).",
+    "answer": "$\\\\mathbf{J}^{\\\\alpha \\\\beta}$ is not invariant under coordinate translations.",
+    "solution": "(b) $\\qquad \\mathbf {J}^{\\alpha \\beta} (\\mathbf {x}^{\\sigma} + \\mathbf {a}^{\\sigma}) = \\int \\left(\\mathbf {a}^{\\alpha} \\mathbf {T}^{\\beta \\gamma} - \\mathbf {a}^{\\beta} \\mathbf {T}^{\\alpha \\gamma}\\right) \\mathbf {d}^{3} \\boldsymbol {\\Sigma}_{\\gamma} + \\mathbf {J}^{\\alpha \\beta} (\\mathbf {x}^{\\sigma}).$\\nThus $\\mathbf{J}^{\\alpha \\beta}$ is not invariant under coordinate translations (different angular momentum about different points)."
+  },
+  "verification": null
+}

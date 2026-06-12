@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-2-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "geodesic_deviation",
+      "coordinate": "modified_schwarzschild",
+      "scenario": "black_hole_tidal_force",
+      "method": "riemann_calculation",
+      "generalization_axis": "substitute",
+      "metric": "JanisNewmanWinicour"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-2",
+      "1_s15_15.11-2-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "JanisNewmanWinicour",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$a^r$",
+      "$a^\\theta$"
+    ],
+    "metric": [
+      [
+        "-(-2*M/(gam*r) + 1)**gam",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "(-2*M/(gam*r) + 1)**(-gam)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2*(-2*M/(gam*r) + 1)**(1 - gam)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*(-2*M/(gam*r) + 1)**(1 - gam)*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一个带参数 $\\gamma$ 的变形 Schwarzschild 黑洞度规：$$ds^2 = -\\left(1-\\frac{2M}{\\gamma r}\\right)^{\\gamma} dt^2 + \\left(1-\\frac{2M}{\\gamma r}\\right)^{-\\gamma} dr^2 + r^2 \\left(1-\\frac{2M}{\\gamma r}\\right)^{1-\\gamma} d\\theta^2 + r^2 \\left(1-\\frac{2M}{\\gamma r}\\right)^{1-\\gamma} \\sin^2\\theta d\\phi^2$$其中 $M$ 为黑洞质量，$\\gamma$ 为无量纲常数参数。请推导一个在半径 $r$ 处径向静止的观察者（其4速度仅沿时间方向）所感受到的径向和横向（沿 $\\theta$ 方向）测地线偏离加速度 $a^r$ 和 $a^\\theta$ 的精确表达式（设空间分离矢量分量分别为 $\\xi^r$ 和 $\\xi^\\theta$）。进一步，取远场极限 $r \\gg 2M/\\gamma$，证明你的结果将退化为牛顿力学中的经典潮汐力公式 $a^r_{N} = -\\frac{2M}{r^3} \\xi^r$ 与 $a^\\theta_{N} = \\frac{M}{r^3} \\xi^\\theta$。",
+    "answer": "$a^r = -\\frac{2M\\gamma(\\gamma r - M\\gamma - M)}{r^2(\\gamma r - 2M)^2} \\xi^r$ , $a^\\theta = \\frac{M\\gamma(\\gamma r - M\\gamma - M)}{r^2(\\gamma r - 2M)^2} \\xi^\\theta$",
+    "solution": "1. 静止观察者的4速度为 $u^\\mu = (u^0, 0, 0, 0)$，由类时归一化条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$ 得：   $- \\left(\\frac{\\gamma r - 2M}{\\gamma r}\\right)^{\\gamma} (u^0)^2 = -1 \\implies (u^0)^2 = \\left(\\frac{\\gamma r - 2M}{\\gamma r}\\right)^{-\\gamma}$。2. 测地线偏离方程为 $a^\\alpha = -R^\\alpha_{\\beta\\gamma\\delta} u^\\beta \\xi^\\gamma u^\\delta$。因观察者静止 $u^j = 0$，且分离矢量与4速度正交 $\\xi^0 = 0$，方程简化为：   $a^i = -R^i_{0 j 0} (u^0)^2 \\xi^j$。3. 计算所需的混合 Riemann 曲率张量分量：   径向分量 $R^1_{010} = g^{11} R_{0101} = \\left(\\frac{\\gamma r - 2M}{\\gamma r}\\right)^{\\gamma} \\left[ -\\frac{2M\\gamma(M(\\gamma+1) - \\gamma r)}{r^2(\\gamma r - 2M)^2}\\right] = -\\frac{2M\\gamma \\left(\\frac{\\gamma r - 2M}{\\gamma r}\\right)^{\\gamma} (M(\\gamma+1) - \\gamma r)}{r^2(\\gamma r - 2M)^2}$。   横向分量 $R^2_{020} = g^{22} R_{0202} = \\frac{1}{r^2} \\left(\\frac{\\gamma r - 2M}{\\gamma r}\\right)^{\\gamma-1} \\left[ \\frac{M(M(\\gamma+1) - \\gamma r)}{r(\\gamma r - 2M)}\\right] = \\frac{M \\left(\\frac{\\gamma r - 2M}{\\gamma r}\\right)^{\\gamma-1} (M(\\gamma+1) - \\gamma r)}{r^3(\\gamma r - 2M)}$。4. 将 $(u^0)^2$ 及各分量代入偏离方程：   $a^r = -R^1_{010} (u^0)^2 \\xi^r = -\\left( -\\frac{2M\\gamma \\left(\\frac{\\gamma r - 2M}{\\gamma r}\\right)^{\\gamma} (M(\\gamma+1) - \\gamma r)}{r^2(\\gamma r - 2M)^2}\\right) \\left(\\frac{\\gamma r - 2M}{\\gamma r}\\right)^{-\\gamma} \\xi^r = \\frac{2M\\gamma(M(\\gamma+1) - \\gamma r)}{r^2(\\gamma r - 2M)^2} \\xi^r = -\\frac{2M\\gamma(\\gamma r - M\\gamma - M)}{r^2(\\gamma r - 2M)^2} \\xi^r$。   $a^\\theta = -R^2_{020} (u^0)^2 \\xi^\\theta = -\\frac{M \\left(\\frac{\\gamma r - 2M}{\\gamma r}\\right)^{\\gamma-1} (M(\\gamma+1) - \\gamma r)}{r^3(\\gamma r - 2M)} \\left(\\frac{\\gamma r - 2M}{\\gamma r}\\right)^{-\\gamma} \\xi^\\theta = -\\frac{M\\gamma(M(\\gamma+1) - \\gamma r)}{r^2(\\gamma r - 2M)^2} \\xi^\\theta = \\frac{M\\gamma(\\gamma r - M\\gamma - M)}{r^2(\\gamma r - 2M)^2} \\xi^\\theta$。5. 取远场极限 $r \\gg 2M/\\gamma$：   此时 $\\gamma r - M(\\gamma+1) \\approx \\gamma r$，且 $\\gamma r - 2M \\approx \\gamma r$。   $a^r \\approx -\\frac{2M\\gamma \\cdot \\gamma r}{r^2 \\cdot \\gamma^2 r^2} \\xi^r = -\\frac{2M}{r^3} \\xi^r = a^r_N$。   $a^\\theta \\approx \\frac{M\\gamma \\cdot \\gamma r}{r^2 \\cdot \\gamma^2 r^2} \\xi^\\theta = \\frac{M}{r^3} \\xi^\\theta = a^\\theta_N$。   这与牛顿引力势 $\\Phi = -M/r$ 产生的潮汐力完全一致，证毕。"
+  },
+  "verification": null
+}

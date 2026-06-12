@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s15_15.18-7-8",
+    "type": "concept",
+    "tags": {
+      "target_object": "anisotropic_fluid_state_equation",
+      "coordinate": "static_planar",
+      "scenario": "cosmology_reduce_to_flat_vacuum",
+      "method": "limit_alpha_to_infinity",
+      "generalization_axis": "limit",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.18",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.18",
+      "1_s15_15.18-7",
+      "1_s15_15.18-7-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "DeSitter",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "Minkowski metric",
+      "vacuum",
+      "0"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，静态平面对称度规 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$ 描述了由各向异性流体支撑的弯曲时空，其中 $\\alpha$ 为时空的特征曲率参数。该几何对应的各向异性流体静止于该坐标系中，其能量密度为 $\\rho = \\frac{e^{-2x/\\alpha}}{8\\pi \\alpha^2}$，主压强为 $p_x = \\frac{e^{-2x/\\alpha}}{8\\pi \\alpha^2}$，$p_y = 0$，$p_z = 0$。请通过取参数 $\\alpha$ 的物理极限，说明当时空曲率逐渐平缓直至消失时，该度规和物质源如何还原为其经典平直时空的真空对应，并给出极限下的度规形式与 $\\rho, p_x$ 的值。",
+    "answer": "当 $\\alpha \\to \\inf ty$ 时，度规中的指数因子 $e^{2x/\\alpha} \\to 1$，度规还原为 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$，即经典平直时空的 Minkowski 度规。同时，能量密度 $\\rho = \\frac{e^{-2x/\\alpha}}{8\\pi \\alpha^2} \\to 0$，主压强 $p_x = \\frac{e^{-2x/\\alpha}}{8\\pi \\alpha^2} \\to 0$，这表明弯曲时空中的各向异性物质源在曲率完全消失的极限下还原为没有任何物质分布的经典真空状态。",
+    "solution": "考察度规表达式 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$，当特征曲率参数 $\\alpha \\to \\inf ty$ 时，$2x/\\alpha \\to 0$，因此 $e^{2x/\\alpha} \\to 1$。度规退化为 Minkowski 度规 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$，时空恢复平直。对于物质源，能量密度 $\\rho$ 和主压强 $p_x$ 均含有因子 $\\frac{e^{-2x/\\alpha}}{\\alpha^2}$，在 $\\alpha \\to \\inf ty$ 时，该因子趋于0。因此 $\\rho \\to 0$ 且 $p_x \\to 0$，物质分布消失，对应于平直时空的经典真空。"
+  },
+  "verification": null
+}

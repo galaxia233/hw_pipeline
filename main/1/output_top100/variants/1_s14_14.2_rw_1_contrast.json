@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "id": "1_s14_14.2-3-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "$r_c$ 和温度分布对比",
+      "coordinate": "mixed",
+      "scenario": "thermal_equilibrium_contrast",
+      "method": "tolman_relation",
+      "generalization_axis": "compare",
+      "metric": "Minkowski"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s14_14.2",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.2",
+      "1_s14_14.2-3",
+      "1_s14_14.2-3-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Minkowski",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "局部温度分布规律",
+      "$r_c$",
+      "物理差异解释"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，处于热平衡的静态系统，其局部静态观察者测得的温度 $T$ 与类时 Killing 矢量的模长满足 Tolman 关系 $T |\\xi| = T_{\\text{ref}}$，其中 $T_{\\text{ref}}$ 为参考观察者（如无穷远处）测得的温度。考虑两种时空背景：背景一：质量为 $M$ 的静态 Schwarzschild 黑洞，其类时 Killing 矢量为 $\\xi = (1,0,0,0)$，度规为 $ds^2 = -(1 - r_s/r) dt^2 + (1 - r_s/r)^{-1} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s = 2M$。背景二：无引力场的 Minkowski 平直时空，其类时 Killing 矢量为 $\\xi = (1,0,0,0)$，度规为 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$。请推导在这两种背景下局部温度 $T$ 随空间位置的分布规律，计算在背景一中使得局部温度 $T(r_c)$ 恰好等于 $T_{\\text{ref}}$ 两倍的临界半径 $r_c$（用 $r_s$ 表示），并对比解释两种背景下温度分布差异的物理原因。",
+    "answer": "背景一（Schwarzschild）：局部温度分布为 $T(r) = T_{\\text{ref}} / \\sqrt{1 - r_s/r}$，临界半径 $r_c = \\frac{4}{3} r_s$。背景二（Minkowski）：局部温度分布为 $T = T_{\\text{ref}}$，处处相等，不存在使局部温度加倍的位置。差异原因：Schwarzschild 时空中存在引力红移效应，靠近黑洞的观察者时间流逝更慢（$|\\xi| = \\sqrt{-g_{00}}$ 更小），为保持热力学平衡，局部温度必须更高以补偿红移；而 Minkowski 时空无引力场，时间流逝处处相同，因此热平衡时系统内温度处处相等，无梯度分布。",
+    "solution": "背景一：类时 Killing 矢量模长 $|\\xi| = \\sqrt{-g_{00}} = \\sqrt{1 - r_s/r}$，代入 Tolman 关系 $T \\sqrt{1 - r_s/r} = T_{\\text{ref}}$，得到分布 $T(r) = T_{\\text{ref}} / \\sqrt{1 - r_s/r}$。令 $T(r_c) = 2 T_{\\text{ref}}$，则 $2 \\sqrt{1 - r_s/r_c} = 1$，解得 $r_c = 4/3 r_s$。背景二：类时 Killing 矢量模长 $|\\xi| = \\sqrt{-g_{00}} = \\sqrt{-(-1)} = 1$，代入 Tolman 关系得 $T = T_{\\text{ref}}$，温度无空间变化。对比：前者因引力时间膨胀（红移）导致局部温度随径向减小而升高，后者无引力场，无时间膨胀，局部温度等于参考温度，不存在使温度加倍的位置。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.minkowski_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 0.9,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

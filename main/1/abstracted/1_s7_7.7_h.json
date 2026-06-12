@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s7_7.7_h",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_tensor",
+      "target_object": "covariant_divergence",
+      "coordinate": "coordinate_basis",
+      "scenario": "abstract_tensor_manifold",
+      "method": "index_notation_expansion"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.7_h",
+    "source_id": "1_s7_7.7_h",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.7_h"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.9,
+      "completeness": 0.4,
+      "realism": 0.3,
+      "rationale": "标准张量协变散度恒等式证明，需串联克里斯托费尔符号对数导数与度规行列式性质进行多步推导，属纯数学练习无具体物理场景，且缺失解答步骤导致完整性偏低",
+      "overall": 0.57
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\alpha$",
+      "$\\beta$",
+      "$\\mu$",
+      "$\\lambda$",
+      "$\\mathbf{A}_{\\alpha}^{\\beta}$",
+      "$|\\mathbf{g}|$",
+      "$\\Gamma_{\\alpha \\mu}^{\\lambda}$"
+    ],
+    "target": [
+      "$\\mathbf{A}_{\\alpha}^{\\beta};\\beta$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.7. Prove the following identities:(h) $\\mathbf{A}_{\\alpha}^{\\beta}; \\beta = \\frac{1}{|\\mathbf{g}|^{\\frac{1}{2}}} (|\\mathbf{g}|^{\\frac{1}{2}} \\mathbf{A}_{\\alpha}^{\\beta}), \\beta - \\Gamma_{\\alpha \\mu}^{\\lambda} \\mathbf{A}_{\\lambda}^{\\mu}$ in a coordinate frame.",
+    "answer": "$\\mathbf{A}_{\\alpha}^{\\beta}; \\beta = \\frac{1}{|\\mathbf{g}|^{\\frac{1}{2}}} (|\\mathbf{g}|^{\\frac{1}{2}} \\mathbf{A}_{\\alpha}^{\\beta}), \\beta - \\Gamma_{\\alpha \\mu}^{\\lambda} \\mathbf{A}_{\\lambda}^{\\mu}$",
+    "solution": null
+  },
+  "verification": null
+}

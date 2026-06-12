@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-2",
+    "type": "calculate",
+    "tags": {
+      "target_object": "Mars precession period",
+      "coordinate": "astronomical",
+      "scenario": "tidal coupling",
+      "method": "ratio analysis",
+      "generalization_axis": "apply",
+      "metric": "weak_field_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "weak_field_metric",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$X$",
+      "$Y$",
+      "$Z$",
+      "$r_s$",
+      "$r_M$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\psi$",
+      "$J$",
+      "$C$",
+      "$A$",
+      "$\\omega$",
+      "$T$"
+    ],
+    "target": [
+      "$T_M$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "已知地球自转轴的进动（岁差）是由外部天体（太阳与月球）的潮汐力矩与地球赤道隆起（四极矩 $J_2$）的耦合产生的。对于绕太阳公转且具有自转的行星，仅受太阳潮汐力作用时的进动角速度公式为：$$\\Omega_{Sun} = \\frac{3}{2} \\frac{n^2}{\\omega} \\frac{J_2}{k} \\cos \\epsilon$$其中 $n$ 为行星绕太阳的公转平均角速度，$\\omega$ 为行星自转角速度，$J_2$ 为无量纲四极矩参数，$k$ 为惯性矩因子（绕自转轴的主转动惯量 $C = k M R^2$），$\\epsilon$ 为黄赤交角。当前地球的总岁差周期为 $T_E = 25772$ 年，其中月球贡献占 68%，太阳贡献占 32%。火星缺乏大质量卫星，其自转轴进动几乎完全由太阳的潮汐力矩驱动。请根据上述公式和以下参数，计算火星自转轴的进动周期 $T_M$（以地球年为单位）。**地球参数**：- 轨道半长轴：$a_E = 1.0 \\text{ AU}$- 四极矩：$J_{2,E} = 1.0826 \\times 10^{-3}$- 惯性矩因子：$k_E = 0.3308$- 黄赤交角：$\\epsilon_E = 23.44^\\circ$- 自转周期：$P_E = 23.93 \\text{ h}$**火星参数**：- 轨道半长轴：$a_M = 1.524 \\text{ AU}$- 四极矩：$J_{2,M} = 1.96 \\times 10^{-3}$- 惯性矩因子：$k_M = 0.36$- 黄赤交角：$\\epsilon_M = 25.19^\\circ$- 自转周期：$P_M = 24.62 \\text{ h}$",
+    "answer": "$T_M \\approx 1.66 \\times 10^5 \\text{years}$",
+    "solution": "1. 首先计算地球仅受太阳潮汐力作用时的岁差周期 $T_{E, Sun}$。由于太阳贡献占总岁差角速度的 32%，故：$$T_{E, Sun} = \\frac{T_E}{0.32} = \\frac{25772}{0.32} = 80412.5 \\text{years}$$2. 根据进动角速度公式 $\\Omega_{Sun} = \\frac{3}{2} \\frac{n^2}{\\omega} \\frac{J_2}{k} \\cos \\epsilon$，火星与地球（仅太阳作用）的进动角速度比值可以消去常数项，表示为各物理量比值之积：$$\\frac{\\Omega_M}{\\Omega_{E, Sun}} = \\frac{n_M^2}{n_E^2} \\frac{\\omega_E}{\\omega_M} \\frac{(J_2/k)_M}{(J_2/k)_E} \\frac{\\cos \\epsilon_M}{\\cos \\epsilon_E}$$3. 逐项计算比值：- 公转角速度平方比（由开普勒第三定律 $n^2 \\propto a^{-3}$）：$\\frac{n_M^2}{n_E^2} = \\frac{a_E^3}{a_M^3} = \\frac{1}{1.524^3} \\approx 0.2827$- 自转角速度比：$\\frac{\\omega_E}{\\omega_M} = \\frac{P_M}{P_E} = \\frac{24.62}{23.93} \\approx 1.0287$- 四极矩与惯性矩因子比值： $\\frac{(J_2/k)_M}{(J_2/k)_E} = \\frac{1.96 \\times 10^{-3} / 0.36}{1.0826 \\times 10^{-3} / 0.3308} = \\frac{5.4444 \\times 10^{-3}}{3.2635 \\times 10^{-3}} \\approx 1.6718$- 黄赤交角余弦比：$\\frac{\\cos 25.19^\\circ}{\\cos 23.44^\\circ} \\approx \\frac{0.9046}{0.9175} \\approx 0.9858$4. 计算总角速度比值：$$\\frac{\\Omega_M}{\\Omega_{E, Sun}} = 0.2827 \\times 1.0287 \\times 1.6718 \\times 0.9858 \\approx 0.4848$$5. 由于 $T_M = T_{E, Sun} / (\\Omega_M / \\Omega_{E, Sun})$，代入数据得：$$T_M = \\frac{80412.5}{0.4848} \\approx 165834 \\text{years}$$保留两位有效数字，火星的岁差周期约为 $1.66 \\times 10^5$ 年。"
+  },
+  "verification": null
+}

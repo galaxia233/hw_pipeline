@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "inner_product_of_Killing_vectors",
+      "coordinate": "general",
+      "scenario": "axially_symmetric_rotating_star",
+      "method": "Lie_derivative",
+      "generalization_axis": "extend",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "killing_vector",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$\\mathcal{L}_{\\xi_{(t)}} (\\xi_{(t)} \\cdot \\xi_{(\\phi)})$",
+      "$\\mathcal{L}_{\\xi_{(\\phi)}} (\\xi_{(t)} \\cdot \\xi_{(\\phi)})$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在稳态轴对称旋转星体的时空中，度规为 $g_{\\mu\\nu}$，存在对应于时间平移和轴向旋转的两个独立 Killing 矢量场 $\\xi_{(t)}$ 和 $\\xi_{(\\phi)}$。已知这两个 Killing 矢量是对合的，即它们的 Lie 括号为零：$[\\xi_{(t)}, \\xi_{(\\phi)}] = 0$。请利用这一对合性质以及 Killing 矢量的基本定义，证明这两个 Killing 矢量的内积 $I = g_{\\mu\\nu} \\xi_{(t)}^\\mu \\xi_{(\\phi)}^\\nu$ 在沿这两个 Killing 矢量流的 Lie 导数下均保持不变，即证明 $\\mathcal{L}_{\\xi_{(t)}} I = 0$ 且 $\\mathcal{L}_{\\xi_{(\\phi)}} I = 0$。",
+    "answer": "$\\mathcal{L}_{\\xi_{(t)}} I = 0$ 且 $\\mathcal{L}_{\\xi_{(\\phi)}} I = 0$",
+    "solution": "对于任意矢量场 $V, X, Y$ 和度规张量 $g$，内积 $g(X, Y)$ 的 Lie 导数满足 Leibniz 法则：$\\mathcal{L}_V (g(X, Y)) = (\\mathcal{L}_V g)(X, Y) + g(\\mathcal{L}_V X, Y) + g(X, \\mathcal{L}_V Y)$其中 $\\mathcal{L}_V X = [V, X]$ 为 Lie 括号。1. 证明 $\\mathcal{L}_{\\xi_{(t)}} I = 0$：将 $V = \\xi_{(t)}, X = \\xi_{(t)}, Y = \\xi_{(\\phi)}$ 代入上述法则：$\\mathcal{L}_{\\xi_{(t)}} I = (\\mathcal{L}_{\\xi_{(t)}} g)(\\xi_{(t)}, \\xi_{(\\phi)}) + g([\\xi_{(t)}, \\xi_{(t)}], \\xi_{(\\phi)}) + g(\\xi_{(t)}, [\\xi_{(t)}, \\xi_{(\\phi)})$由于 $\\xi_{(t)}$ 是 Killing 矢量，满足 Killing 方程 $\\mathcal{L}_{\\xi_{(t)}} g = 0$，故第一项为零。任意矢量场与自身的 Lie 括号恒为零，即 $[\\xi_{(t)}, \\xi_{(t)}] = 0$，故第二项为零。根据已知条件，$\\xi_{(t)}$ 和 $\\xi_{(\\phi)}$ 对合，故 $[\\xi_{(t)}, \\xi_{(\\phi)}] = 0$，第三项亦为零。因此，$\\mathcal{L}_{\\xi_{(t)}} I = 0$。2. 证明 $\\mathcal{L}_{\\xi_{(\\phi)}} I = 0$：将 $V = \\xi_{(\\phi)}, X = \\xi_{(t)}, Y = \\xi_{(\\phi)}$ 代入法则：$\\mathcal{L}_{\\xi_{(\\phi)}} I = (\\mathcal{L}_{\\xi_{(\\phi)}} g)(\\xi_{(t)}, \\xi_{(\\phi)}) + g([\\xi_{(\\phi)}, \\xi_{(t)}], \\xi_{(\\phi)}) + g(\\xi_{(t)}, [\\xi_{(\\phi)}, \\xi_{(\\phi)})$由于 $\\xi_{(\\phi)}$ 是 Killing 矢量，满足 $\\mathcal{L}_{\\xi_{(\\phi)}} g = 0$，第一项为零。根据对合条件，$[\\xi_{(\\phi)}, \\xi_{(t)}] = -[\\xi_{(t)}, \\xi_{(\\phi)}] = 0$，第二项为零。同理，$[\\xi_{(\\phi)}, \\xi_{(\\phi)}] = 0$，第三项为零。因此，$\\mathcal{L}_{\\xi_{(\\phi)}} I = 0$。综上，Killing 矢量的内积 $I$ 在两个对称方向的流下均保持不变。这一结论意味着，在选取 $\\xi_{(t)} = \\partial_t$ 和 $\\xi_{(\\phi)} = \\partial_\\phi$ 的适配坐标系下，度规交叉项 $g_{t\\phi}$ 既不依赖于时间 $t$，也不依赖于角坐标 $\\phi$。"
+  },
+  "verification": null
+}

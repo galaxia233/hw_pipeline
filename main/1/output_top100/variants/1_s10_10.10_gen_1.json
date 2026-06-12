@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "rate_of_change_of_Killing_projection",
+      "coordinate": "general",
+      "scenario": "non-geodesic_motion",
+      "method": "covariant_derivative_product_rule",
+      "generalization_axis": "extend",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "killing_vector",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\mathbf{x}^{\\\\mu}$",
+      "$\\\\mathbf{u}^{\\\\alpha}$",
+      "$\\\\boldsymbol{\\\\xi}_{\\\\alpha}$"
+    ],
+    "target": [
+      "$\\xi_\\mu a^\\mu$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In General Relativity, a particle moving along a geodesic conserves the projection of its 4-velocity onto any Killing vector field. However, a particle may be subject to external non-gravitational forces, causing it to deviate from geodesic motion. Let a particle move along a timelike worldline parameterized by proper time $\\tau$, with 4-velocity $u^\\mu = dx^\\mu / d\\tau$ and 4-acceleration $a^\\mu = u^\\nu \\nabla_\\nu u^\\mu$. If $\\xi^\\mu$ is a Killing vector field, derive the expression for the rate of change of the quantity $Q = \\xi_\\mu u^\\mu$ along the worldline. Express your result in terms of $\\xi^\\mu$ and $a^\\mu$, and briefly explain its physical interpretation when $\\xi^\\mu$ is a stationary Killing vector field (timelike at infinity) and the particle's energy is defined as $E = -\\xi_\\mu u^\\mu$.",
+    "answer": "$\\frac{dQ}{d\\tau} = \\xi_\\mu a^\\mu$. For a stationary Killing vector, the rate of change of the particle's energy is $\\frac{dE}{d\\tau} = -\\xi_\\mu a^\\mu = -\\frac{1}{m} \\xi_\\mu F^\\mu$, which represents the power (work per unit proper time) delivered by the external 4-force $F^\\mu = m a^\\mu$.",
+    "solution": "1. Define the quantity $Q = \\xi_\\mu u^\\mu$.2. Take the covariant derivative along the worldline:   $\\frac{dQ}{d\\tau} = u^\\nu \\nabla_\\nu (\\xi_\\mu u^\\mu)$3. Apply the product rule for covariant derivatives:   $u^\\nu \\nabla_\\nu (\\xi_\\mu u^\\mu) = u^\\nu (\\nabla_\\nu \\xi_\\mu) u^\\mu + \\xi_\\mu u^\\nu \\nabla_\\nu u^\\mu$4. The first term is $u^\\mu u^\\nu \\nabla_\\nu \\xi_\\mu$. Since $\\xi^\\mu$ is a Killing vector, it satisfies the Killing equation $\\nabla_\\nu \\xi_\\mu + \\nabla_\\mu \\xi_\\nu = 0$, meaning the covariant derivative $\\nabla_\\nu \\xi_\\mu$ is antisymmetric in its indices. The contraction of a symmetric tensor $u^\\mu u^\\nu$ with an antisymmetric tensor vanishes identically, so $u^\\mu u^\\nu \\nabla_\\nu \\xi_\\mu = 0$.5. The second term simplifies directly using the definition of 4-acceleration: $u^\\nu \\nabla_\\nu u^\\mu = a^\\mu$. Thus, the second term becomes $\\xi_\\mu a^\\mu$.6. Combining these results, we obtain the rate of change of the projection: $\\frac{dQ}{d\\tau} = \\xi_\\mu a^\\mu$.7. For a stationary Killing vector $\\xi^\\mu = (\\partial_t)^\\mu$, the conserved energy for geodesic motion is defined as $E = -\\xi_\\mu u^\\mu = -Q$ (consistent with the $(-,+,+,+)$ sign convention where the negative sign absorbs the negative $g_{tt}$ component). The 4-force acting on the particle is defined as $F^\\mu = m a^\\mu$. Therefore, the rate of change of the particle's energy is:   $\\frac{dE}{d\\tau} = -\\frac{dQ}{d\\tau} = -\\xi_\\mu a^\\mu = -\\frac{\\xi_\\mu F^\\mu}{m}$8. Physically, $-\\xi_\\mu F^\\mu / m$ represents the power delivered to the particle by the external non-gravitational force per unit proper time. When the external force is zero ($a^\\mu = 0$), the motion reduces to a geodesic and we recover the conservation law $\\frac{dE}{d\\tau} = 0$."
+  },
+  "verification": null
+}

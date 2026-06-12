@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "id": "1_s18_18.14",
+    "type": "prove",
+    "tags": {
+      "metric": "gravity",
+      "target_object": "geodesic_deviation",
+      "coordinate": "wave_matter_coupling",
+      "scenario": "damped_oscillator",
+      "method": "momentum_absorption"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s18_18.14",
+    "source_id": "1_s18_18.14",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s18_18.14"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于测地偏离方程的阻尼振荡器模型，需复数响应求解、三角函数乘积时均运算及物理量对比，逻辑链条严密且具明确物理背景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$z$",
+      "$x$",
+      "$\\xi$",
+      "$\\Gamma$",
+      "$\\omega$",
+      "$\\omega_0$",
+      "$X_0$",
+      "$h_{xx}$",
+      "$A_+$",
+      "$m$"
+    ],
+    "target": [
+      "$R^{x}_{0x0}$",
+      "$R^{z}_{xx0}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 18.14. In the previous problem it was shown that materials must be able to absorb momentum in the direction of wave propagation. This seems incompatible with the description of gravitational waves as transverse! To investigate this point idealize the cement molecules of the previous problem as being harmonically bound to their equilibrium positions, and having a damping force due to internal friction of the cement. Assume the gravitational wave is monochromatic and linearly polarized. Using the equation of geodesic deviation find the time average force, and hence the rate of momentum absorption, in the direction of wave propagation. Show that this rate of momentum absorption is equal to the rate at which the molecule absorbs energy.",
+    "answer": "$\\langle F^z \\rangle = \\frac{1}{8} m \\omega^6 \\Gamma |A_+|^2 X_0^2$，且该时间平均纵向力等于分子吸收能量的时间平均速率。",
+    "solution": "Solution 18.14. Take the wave to be propagating in the $z$ -direction and the molecular displacement to be in the $x$ -direction. If $\\xi$ is the displacement of the molecule, the equation of geodesic deviation gives us a dynamical equation for the molecule's motion. In a complex representation, the equation is the real part of$$\\ddot {\\xi} + \\Gamma \\dot {\\xi} + \\omega_{0}^{2} \\xi = - R_{0 x 0}^{x} X_{0} = \\frac {1}{2} \\ddot {h}_{x x} X_{0}$$or$$\\xi (- \\omega^{2} - \\mathrm {i} \\omega \\Gamma + \\omega_{0}^{2}) = - \\frac {\\omega^{2}}{2} \\mathrm {h}_{\\bf x x} X_{0} = - \\frac {\\omega^{2}}{2} A_{+} X_{0} \\mathrm {e}^{- \\mathrm {i} \\omega t}.$$Here $\\omega$ is the frequency of the wave, $\\Gamma \\equiv (\\text{damping time})^{-1}$ , and $\\mathbf{X}_0$ is the distance in the $x$ -direction of the equilibrium position of the molecule from the center of mass. We can easily solve for $\\xi$ ,$$\\xi = \\frac {1}{2} \\omega^{2} \\mathrm {A}_{+} \\mathrm {X}_{0} \\mathrm {e}^{- \\mathrm {i} \\omega \\mathrm {t}} [ (\\omega^{2} - \\omega_{0}^{2}) - \\mathrm {i} \\omega \\Gamma ] / \\Delta$$$$\\Delta \\equiv (\\omega^{2} - \\omega_{0}^{2})^{2} + \\omega^{2} \\Gamma^{2}$$and for $\\dot{\\xi}$$$\\dot {\\xi} = - \\frac {1}{2} \\omega^{3} \\mathrm {A}_{+} \\mathrm {X}_{0} \\mathrm {e}^{- \\mathrm {i} \\omega \\mathrm {t}} [ \\omega \\Gamma + \\mathrm {i} (\\omega^{2} - \\omega_{0}^{2}) ] / \\Delta .$$From this we can easily evaluate the rate at which the molecule of mass m absorbs energy:$$\\begin{array}{l}< \\dot {\\mathbf {x}} \\mathbf {F}^{\\mathbf {x}} > = \\frac {1}{2} \\operatorname {R e} \\left\\{\\left(\\dot {\\xi}\\right) \\left(\\mathbf {F}^{\\mathbf {x}}\\right)^{*}\\right\\} \\\\= \\frac {1}{2} \\operatorname {R e} \\left\\{(\\dot {\\zeta}) \\left(- \\frac {1}{2} m \\omega^{2} A_{+}^{*} X_{0} e^{i \\omega t}\\right)\\right\\} \\\\= \\frac {\\mathrm {m} \\omega^{6}}{8} \\Gamma | A_{+} |^{2} X_{0}^{2}. \\\\end{array}$$To find the momentum absorption we must recall that there is a longitudinal geodesic deviation, though it is smaller by a factor of order $\\nu / c$$$\\begin{array}{l}F^{z} = - m R^{z}_{x x 0} X_{0} \\dot {\\xi} = \\frac {m}{2} \\ddot {h}_{x x} X_{0} \\dot {\\xi} \\\\= - \\frac {1}{2} m \\omega^{2} X_{0} R e \\left\\{A_{+} e^{- i \\omega t}\\right\\} R e \\left\\{\\dot {\\xi}\\right\\}. \\\\end{array}$$The time averaged force is then$$\\begin{array}{l}< F^{z} > = \\frac {1}{4} m \\omega^{6} X_{0}^{2} \\Gamma < R e (A_{+} e^{- i \\omega t}) \\cdot R e (A_{+} e^{- i \\omega t}) > \\\\= \\frac {1}{8} m \\omega^{6} \\Gamma | A_{+} |^{2} X_{0}^{2} \\\\end{array}$$which demonstrates on a microscopic basis the reason for the result in Problem 18.13."
+  },
+  "verification": null
+}

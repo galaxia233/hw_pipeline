@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "id": "1_s13_13.2",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.2",
+    "source_id": "1_s13_13.2",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "从共形平坦假设出发串联牛顿极限、光线偏折与引力红移的多步推导，具有明确的历史模型背景与经典实验检验",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\nu$",
+      "$\\\\rho$",
+      "$\\\\sigma$",
+      "$\\\\kappa$",
+      "$\\\\phi$",
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$\\\\Gamma_{0z}^{0}$",
+      "$R$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s13_13.2.md]\\n\\nProblem 13.2. A metric theory (devised by Nordström in 1913) relates $\\mathbf{g}_{\\mu \\nu}$ to $\\mathbf{T}_{\\mu \\nu}$ by the equations\\n$$\\n\\\\mathrm {C}_{\\\\mu \\\\nu \\\\rho \\\\sigma} = 0\\n$$\\n$$\\n\\\\mathrm {R} = \\\\kappa \\\\mathrm {g}_{\\\\mu \\\\nu} \\\\mathrm {T}^{\\\\mu \\\\nu},\\n$$\\nwhere $\\mathbf{C}$ is the Weyl tensor. Show that this theory, in the Newtonian limit and with the proper choice of $\\kappa$ , agrees with Newtonian gravitation theory, but that this theory predicts no deflection of starlight passing near the Sun. Does this theory agree with the Pound-Rebka experiments, i.e. are photons redshifted as they rise against the gravitational pull near the surface of the Earth?",
+    "answer": "在牛顿极限下取$\\kappa=24\\\\pi$与牛顿引力一致；预测星光经过太阳时无偏折；预言的光子引力红移与Pound-Rebka实验一致。",
+    "solution": "Solution 13.2. The vanishing of the Weyl tensor allows us to write the metric in the conformally flat form\\n$$\\n\\\\mathbf {g}_{\\\\mu \\\\nu} = \\\\mathbf {e}^{2 \\\\phi} \\\\eta_{\\\\mu \\\\nu}\\n$$\\nwhere $\\phi \\\\ll 1$ in the Newtonian limit (nearly flat spacetime). We have then (see Problem 9.19)\\n$$\\n\\\\text bf {R} \\\\approx - 6 \\\\nabla^{2} \\\\phi .\\n$$\\nFor nonrelativistic stress energies $\\mathbf{T}_{\\\\mu}^{\\\\mu} \\\\approx \\\\mathbf{T}_{0}^{0} \\\\approx -\\\\rho$ and the field equations become\\n$$\\n- 6 \\\\phi_{, \\\\alpha \\\\beta} \\\\eta^{\\\\alpha \\\\beta} = \\\\kappa \\\\mathbf {T} = - \\\\kappa \\\\rho .\\n$$\\nIn the Newtonian limit time variations will be slow compared to spatial variations (in $c = 1$ units) so we have\\n$$\\n6 \\\\phi_{, i j} \\\\delta^{i j} = \\\\kappa \\\\rho .\\n$$\\nFor $\\kappa = 24\\\\pi$ this is the usual Newtonian equation for the Newtonian potential $\\phi$ . The solution to Problem 12.11 implies that Newtonian trajectories are geodesics in a geometry with $g_{00} \\\\approx -(1 + 2\\\\phi)$ . Thus in the Newtonian limit the proposed theory agrees with Newtonian theory and $\\phi$ plays the role of the Newtonian potential.\\nFor the metric of a massive object like the sun the function $\\phi$ must fall off far from the object where spacetime approaches flatness. To see that light is not deflected we need only notice [see Problem 9.18] that the null geodesics of $\\mathbf{g}_{\\\\mu \\\\nu} = \\\\mathrm{e}^{2\\\\phi}\\\\eta_{\\\\mu \\\\nu}$ are identical to the null geodesics of $\\eta_{\\\\mu \\\\nu}$ , which are certainly not deflected by the massive object. Thus when we compare, in the asymptotically flat distant regions, the directions of a photon's motion before and after it interacts with the massive object, we will observe no deflection.\\nNear the earth's surface the metric is of the form\\n$$\\n\\\\mathrm {d s}^{2} = \\\\mathrm {e}^{2 \\\\phi (z)} (- \\\\mathrm {d t}^{2} + \\\\mathrm {d x}^{2} + \\\\mathrm {d y}^{2} + \\\\mathrm {d z}^{2})\\n$$\\nwhere $z$ corresponds to height above the surface. If particles are to fall with the proper acceleration we must have $\\phi \\\\approx -gz$ . From the geodesic equation we find that for the energy of a photon moving vertically\\n$$\\n\\\\frac {\\\\mathrm {d} p^{0}}{\\\\mathrm {d} z} = - \\\\Gamma_{0 z}^{0} p^{0} = - \\\\phi_{, z} p^{0}.\\n$$\\nThus a photon loses energy at the same rate as a particle and the proposed theory agrees with Pound-Rebka experiment, as any theory based on geodesic motion must."
+  },
+  "verification": null
+}

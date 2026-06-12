@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12",
+    "type": "prove",
+    "tags": {
+      "metric": "local_noninertial_frame",
+      "target_object": "accelerated_observer",
+      "coordinate": "rotating_coordinates",
+      "scenario": "geodesic_equation",
+      "method": "christoffel_symbols"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.12",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.12"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "多步推导结合局部坐标系构造、测地线方程与黎曼张量展开，逻辑严密且具实际物理背景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^j$",
+      "$v^j$",
+      "$\\\\omega^m$",
+      "$a_j$",
+      "$\\\\Gamma^\\\\alpha_{\\\\beta\\\\gamma}$",
+      "$R^j_{0k0}$"
+    ],
+    "target": [
+      "$\\\\Gamma^j_{00}$",
+      "$\\\\Gamma^j_{0k}$",
+      "$R^j_{0k0}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s14_14.12.md]\\n\\nProblem 14.12. An observer in a closed box (not necessarily in free fall) measures positions and times inside his box with rulers and a clock. Show that the equation of motion for a particle, correct to first order in its measured velocity $v << 1$ and position $x^j$ is\\n$$\\n\\\\begin{array}{l} \\\\mathrm {d} \\\\mathbf {v}^{\\\\mathrm {j}} / \\\\mathrm {d} t = 2 (\\\\underline {\\\\mathbf {v}} \\\\times \\\\underline {\\\\omega})^{\\\\mathrm {j}} - [ (\\\\underline {\\\\mathbf {x}} \\\\times \\\\underline {\\\\omega}) \\\\times \\\\underline {\\\\omega} ]^{\\\\mathrm {j}} + (\\\\underline {\\\\mathbf {x}} \\\\times \\\\underline {\\\\mathrm {d}} \\\\underline {\\\\omega} / \\\\mathrm {d} t)^{\\\\mathrm {j}} \\\\\\\\\\\\\\\\ - \\\\mathrm {a}^{\\\\mathrm {j}} (1 + \\\\underline {\\\\underline {\\\\mathrm {a}}} \\\\cdot \\\\underline {\\\\underline {\\\\mathrm {x}}}) - \\\\mathrm {R}_{0 \\\\mathrm {k 0}}^{\\\\mathrm {j}} \\\\mathrm {x}^{\\\\mathrm {k}}. \\\\\\\\\\\\\\\\ \\\\end{array}\\n$$\\nHere $\\\\underline{\\\\omega}$ is the angular velocity of the box, $\\\\underline{\\\\mathbf{a}}$ its acceleration, and $\\\\mathbb{R}^j_{0k0}$ the Riemann tensor evaluated at the origin.\\n\\n## Solution",
+    "answer": "$$ \\\\begin{array}{l} \\\\mathrm {d} \\\\mathbf {v}^{\\\\mathrm {j}} / \\\\mathrm {d} t = 2 (\\\\underline {\\\\mathbf {v}} \\\\times \\\\underline {\\\\omega})^{\\\\mathrm {j}} - [ (\\\\underline {\\\\mathbf {x}} \\\\times \\\\underline {\\\\omega}) \\\\times \\\\underline {\\\\omega} ]^{\\\\mathrm {j}} + (\\\\underline {\\\\mathbf {x}} \\\\times \\\\underline {\\\\mathrm {d}} \\\\underline {\\\\omega} / \\\\mathrm {d} t)^{\\\\mathrm {j}} \\\\\\\\\\\\\\\\ - \\\\mathrm {a}^{\\\\mathrm {j}} (1 + \\\\underline {\\\\underline {\\\\mathrm {a}}} \\\\cdot \\\\underline {\\\\underline {\\\\mathrm {x}}}) - \\\\mathrm {R}_{0 \\\\mathrm {k 0}}^{\\\\mathrm {j}} \\\\mathrm {x}^{\\\\mathrm {k}}. \\\\\\\\\\\\\\\\ \\\\end{array} $$",
+    "solution": "Solution 14.12. In geometrical language the observer sets up his local coordinates $\\mathbf{x}^{\\alpha}$ as follows: If $\\mathbf{u}$ is the 4-velocity of the center of his box along its worldline, he chooses $\\mathbf{e}_0 = \\mathbf{u}$ and $\\mathbf{e}_{\\alpha} \\cdot \\mathbf{e}_{\\beta} = \\eta_{\\alpha \\beta}$ along his world line. From each point $\\mathbf{P}(\\tau)$ on his world-line ( $\\tau =$ proper time), he sends out spatial geodesics orthogonal to $\\mathbf{u}$ , with affine parameter equal to proper length $\\mathbf{s}$ . If $\\mathbf{n}$ is the tangent vector to the spatial geodesic through the point $\\mathbf{P}$ near his world-line, then he assigns to $\\mathbf{P}$ the coordinates $\\mathbf{x}^0 = \\tau$ , $\\mathbf{x}^{\\mathbf{k}} = \\mathbf{sn}^{\\mathbf{k}}$ .\\nThe equation of motion is now\\n$$\\n\\\\frac {\\mathrm {d}^{2} \\\\mathbf {x}^{\\\\alpha}}{\\mathrm {d}\\\\lambda^{2}} + \\\\Gamma^{\\\\alpha}_{\\\\beta\\\\gamma} \\\\frac {\\mathrm {d} \\\\mathbf {x}^{\\\\beta}}{\\mathrm {d}\\\\lambda} \\\\frac {\\mathrm {d} \\\\mathbf {x}^{\\\\gamma}}{\\mathrm {d}\\\\lambda} = 0 \\\\tag {1}\\n$$\\nwhere we can take $\\lambda$ to be the proper time of the particle. The 4-velocity of the particle is $\\mathrm{dx}^{\\alpha} / \\mathrm{d}\\lambda = (\\gamma, \\gamma \\underline{\\mathbf{v}})$ , where $\\gamma = (1 - \\mathbf{v}^{2})^{-\\\\frac{1}{2}}$ . First change $\\mathrm{d} / \\mathrm{d}\\lambda$ to $\\mathrm{d} / \\mathrm{d}t$ in Equation (1) using $\\mathrm{d} / \\mathrm{d}\\lambda = \\gamma \\mathrm{d} / \\mathrm{d}t$ :\\n$$\\n\\\\frac {\\mathrm {d}^{2} \\\\mathbf {x}^{\\\\alpha}}{\\mathrm {d}t^{2}} + \\\\frac {1}{\\gamma} \\\\frac {\\mathrm {d}\\\\gamma}{\\mathrm {d}t} \\\\frac {\\mathrm {d}x^{\\\\alpha}}{\\mathrm {d}t} + \\\\Gamma^{\\\\alpha}_{\\beta\\gamma} \\\\frac {\\mathrm {d} \\\\mathbf {x}^{\\\\beta}}{\\mathrm {d}t} \\\\frac {\\mathrm {d} \\\\mathbf {x}^{\\\\gamma}}{\\mathrm {d}t} = 0. \\\\tag {2}\\n$$\\nPutting $a = 0$ , we get\\n$$\\n\\\\frac {1}{\\gamma} \\\\frac {\\mathrm {d}\\\\gamma}{\\mathrm {d}t} + \\\\Gamma^{0}_{\\beta\\gamma} \\\\frac {\\mathrm {d}\\\\mathbf {x}^{\\beta}}{\\mathrm {d}t} \\\\frac {\\mathrm {d}\\\\mathbf {x}^{\\gamma}}{\\mathrm {d}t} = 0.\\n$$\\nSubstitute this in Equation (2) and get, for $\\alpha = j$\\n$$\\n\\\\frac {\\mathrm {d} \\\\mathbf {v}^{\\mathrm {j}}}{\\mathrm {d}t} + (- \\\\mathbf {v}^{\\mathrm {j}} \\\\Gamma^{0}_{\\beta\\gamma} + \\\\Gamma^{\\mathrm {j}}_{\\beta\\gamma}) \\\\frac {\\mathrm {d}\\\\mathbf {x}^{\\beta}}{\\mathrm {d}t} \\\\frac {\\mathrm {d}\\\\mathbf {x}^{\\gamma}}{\\mathrm {d}t} = 0. \\\\tag {3}\\n$$\\nTo first order in $\\mathbf{v}$ , Equation (3) is\\n$$\\n\\\\frac {\\mathrm {d} \\\\mathbf {v}^{\\mathrm {j}}}{\\mathrm {d}t} - \\\\mathbf {v}^{\\mathrm {j}} \\\\Gamma_{00}^{0} + \\\\Gamma_{00}^{\\mathrm {j}} + 2 \\\\Gamma_{\\mathrm {k}0}^{\\mathrm {j}} \\\\mathbf {v}^{\\mathrm {k}} = 0. \\\\tag {4}\\n$$\\nThus, to first order in $\\underline{\\mathbf{x}}$ and $\\underline{\\mathbf{y}}$ , we have\\n$$\\n\\\\frac {\\mathrm {d} \\mathrm {v}^{\\mathrm {j}}}{\\mathrm {d}t} = \\left. \\mathrm {v}^{\\mathrm {j}} \\Gamma_{00}^{\\mid}\\right|_{\\underset {\\mathrm {x}=0}{\\mid}} - \\left. \\Gamma_{00}^{\\mathrm {j}}\\right|_{\\underset {\\mathrm {x}=0}{\\mid}} - \\left. \\mathrm {x}^{\\mathrm {k}} \\Gamma_{00,\\mathrm {k}}^{\\mathrm {j}}\\right|_{\\underset {\\mathrm {x}=0}{\\mid}} - 2 \\mathrm {v}^{\\mathrm {k}} \\Gamma_{\\mathrm {k}0}^{\\mathrm {j}} |_{\\underset {\\mathrm {x}=0}{\\mid}}. \\\\tag {5}\\n$$\\nThe Christoffel symbols at $\\underline{\\mathbf{x}} = 0$ are found using a result of Problem 7.17:\\n$$\\n\\Gamma_{\\alpha0}^{\\beta} \\mathbf {e}_{\\beta} = \\nabla_{\\mathbf {u}} \\mathbf {e}_{\\alpha} = - \\Omega_{\\alpha}^{\\beta} \\mathbf {e}_{\\beta}\\n$$\\n$$\\n\\Gamma_{\\beta\\alpha0} = - \\Omega_{\\beta\\alpha} \\equiv a_{\\alpha} u_{\\beta} - a_{\\beta} u_{\\alpha} + \\varepsilon_{\\alpha\\beta\\lambda\\sigma} u^{\\lambda} \\omega^{\\sigma}.\\n$$\\nSince $\\mathbf{u}^{\\alpha} = (1,\\underline{0}),\\mathbf{u}_{\\alpha} = (-1,\\underline{0}),\\mathbf{a}_{\\alpha} = (0,\\underline{\\mathbf{a}}),\\boldsymbol{\\omega}^{\\sigma} = (0,\\underline{\\boldsymbol{\\omega}})$ we get\\n$$\\n\\Gamma_{\\beta a 0} = 0 \\quad \\text {i f} \\quad \\beta = a\\n$$\\n$$\\n\\Gamma_{0 j 0} = - \\Gamma_{j 0 0} = - a_{j}\\n$$\\n$$\\n\\Gamma_{\\mathrm {k j}0} = - \\Gamma_{\\mathrm {j k}0} = \\varepsilon_{\\mathrm {j k}0\\mathrm {m}} \\omega^{\\mathrm {m}} = \\varepsilon_{\\mathrm {j k m}} \\omega^{\\mathrm {m}} \\\\tag {6}\\n$$\\nThe $\\Gamma$ 's with no 0-index are found from the condition that the coordinate lines $x^{\\alpha} = (r, \\mathfrak{sn}^{\\mathbf{k}})$ , where $r$ and $\\mathfrak{n}^{\\mathbf{k}}$ are independent of $\\mathbf{s}$ , are geodesics. Thus,\\n$$\\n\\\\begin{array}{l} 0 = \\\\frac {\\mathrm {d}^{2} \\mathbf {x}^{\\alpha}}{\\mathrm {d}s^{2}} + \\Gamma^{\\alpha} \\beta\\gamma \\\\frac {\\mathrm {d}\\mathbf {x}^{\\beta}}{\\mathrm {d}s} \\\\frac {\\mathrm {d}\\mathbf {x}^{\\gamma}}{\\mathrm {d}s} \\\\\\\\ = 0 + \\Gamma_{j k}^{\\alpha} n^{j} n^{k}. \\\\\\\\\\\\\\\\ \\\\end{array}\\n$$\\nThis is satisfied at $\\underline{\\mathbf{x}} = 0$ for arbitrary $\\underline{\\mathbf{n}}$ , so\\n$$\\n\\Gamma_{\\alpha\\mathrm {i k}} = 0. \\\\tag {7}\\n$$\\nWe find $\\Gamma_{00,\\mathbf {k}}^{\\mathbf {j}}$ from the expression for the Riemann tensor:\\n$$\\n\\mathsf {R}_{\\beta\\gamma\\delta}^{\\alpha} = \\Gamma_{\\beta\\delta ,\\gamma}^{\\alpha} - \\Gamma_{\\beta\\gamma ,\\delta}^{\\alpha} + \\Gamma_{\\gamma\\mu}^{\\alpha} \\Gamma_{\\beta\\delta}^{\\mu} - \\Gamma_{\\delta\\mu}^{\\alpha} \\Gamma_{\\beta\\gamma}^{\\mu}.\\n$$\\nThis gives\\n$$\\n\\Gamma_{00,\\mathbf {k}}^{\\mathrm {j}} = \\mathsf {R}_{0\\mathbf {k}0}^{\\mathrm {j}} + \\Gamma_{0\\mathbf {k},0}^{\\mathrm {j}} - \\Gamma_{\\mathbf {k}\\mu}^{\\mathrm {j}} \\Gamma_{00}^{\\mu} + \\Gamma_{0\\mu}^{\\mathrm {j}} \\Gamma_{0\\mathbf {k}}^{\\mu}.\\n$$\\nAt $\\underline{\\mathbf{x}} = 0$\\n$$\\n\\Gamma_{0k,0}^{j} = - \\varepsilon_{jk m} \\omega^{m},\\n$$\\n$$\\n\\Gamma_{\\mathbf {k}\\mu}^{\\mathrm {j}} \\Gamma_{00}^{\\mu} = 0\\n$$\\n$$\\n\\\\begin{array}{l} \\Gamma_{0\\mu}^{\\mathrm {j}} \\Gamma_{0\\mathrm {k}}^{\\mu} = \\Gamma_{00}^{\\mathrm {j}} \\Gamma_{0\\mathrm {k}}^{0} + \\Gamma_{0\\mathrm {m}}^{\\mathrm {j}} \\Gamma_{0\\mathrm {k}}^{\\mathrm {m}} \\\\\\\\ = a_{j} a_{k} + \\varepsilon_{\\min} \\omega^{n} \\varepsilon_{k m 1} \\omega^{1}, \\\\\\\\\\\\\\\\ \\\\end{array}\\n$$\\nand thus\\n$$\\n\\\\begin{array}{l} \\frac {\\mathrm {d}\\mathbf {v}^{\\mathrm {j}}}{\\mathrm {d}t} = - a_{\\mathrm {j}} - \\mathbf {x}^{\\mathrm {k}} \\left(\\mathrm {R}_{0\\mathrm {k}0}^{\\mathrm {j}} - \\varepsilon_{\\mathrm {j k m}} \\omega^{\\mathrm {m}}_{,\\mathrm {0}} + a_{\\mathrm {j}} a_{\\mathrm {k}} + \\varepsilon_{\\mathrm {m j n}} \\omega^{\\mathrm {n}} \\varepsilon_{\\mathrm {k m}1} \\omega^{\\mathrm {1}}\\right) + 2 \\varepsilon_{\\mathrm {j k m}} \\omega^{\\mathrm {m}} \\mathbf {v}^{\\mathrm {k}} \\\\\\\\ = - a_{j} \\left(1 + \\underline {a} \\cdot \\underline {x}\\right) - R^{j}_{0 k 0} x^{k} + \\left(\\underline {x} \\times \\underline {\\omega},_{0}\\right)^{j} - \\left[ \\left(\\underline {x} \\times \\underline {\\omega}\\right) \\times \\underline {\\omega}\\right]^{j} + 2 \\left(\\underline {v} \\times \\underline {\\omega}\\right)^{j}. \\\\\\\\\\\\\\\\ \\\\end{array}\\n$$\\nThe first term is the “‘inertial force’” due to the acceleration of the reference frame. The $1 + \\underline{a} \\cdot \\underline{x}$ is a relativistic correction factor (see MTW Exercise 37-4). The second term is the “‘true’” gravitational force. In the weak-field limit, a Newtonian physicist would separate $\\underline{a}$ into a contribution from the local acceleration of gravity, $\\partial \\Phi / \\partial x_{j}$ , plus an “absolute” acceleration $\\underline{a}_{\\mathrm{abs}}$ . Thus,\\n$$\\n\\\\begin{array}{l} a_{j} + R_{0 k 0}^{j} x^{k} = \\left(a_{j}\\right)_{\\mathrm {a b s}} + \\partial \\Phi / \\partial x^{j} |_{\\underline {x}=0} + \\partial^{2} \\Phi / \\partial x^{j} \\partial x^{k} |_{\\underline {x}=0} x^{k} \\\\\\\\ = \\left. \\left(a_{j}\\right)_{\\text {a b s}} + \\partial \\Phi / \\partial x^{j}\\right|_{\\underset {\\sim} {x}=x \\underset {\\sim} {p a r t i c l e}}. \\\\\\\\\\\\\\\\ \\\\end{array}\\n$$\\nThe terms involving $\\omega$ are the same as in nonrelativistic mechanics; the second and third are the centrifugal and Coriolis forces respectively."
+  },
+  "verification": null
+}

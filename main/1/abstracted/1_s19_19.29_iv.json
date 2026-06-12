@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s19_19.29_iv",
+    "type": "concept",
+    "tags": {
+      "metric": "cosmology",
+      "target_object": "big_bang_nucleosynthesis",
+      "coordinate": "effective_degrees_of_freedom",
+      "scenario": "hubble_expansion_rate",
+      "method": "freeze_out_process"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.29_iv",
+    "source_id": "1_s19_19.29_iv",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.29_iv"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.5,
+      "realism": 0.9,
+      "rationale": "完整物理链条(背景辐射组分改变有效自由度进而调控膨胀速率与弱作用冻结时刻最终决定核合成产额)+真实宇宙学观测背景",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T$",
+      "$g_*$",
+      "$H$",
+      "$Y_\\\\mathrm{He}$",
+      "$(D/H)$",
+      "$N_\\\\mathrm{eff}$"
+    ],
+    "target": [
+      "$Y_\\\\mathrm{He}$",
+      "$(D/H)$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "19.29 Under which of the following suppositions would the hot big bang have produced less $\\mathbf{He}^4$ than predicted by the \"standard\" model? Less $\\mathbf{H}^2$ (deuterium)?\\n(iv) Suppose there are many more antineutrinos than neutrinos or photons in the cosmic background today.",
+    "answer": "否；额外的反中微子会增加早期宇宙的有效相对论性自由度$g_*$，从而提高哈勃膨胀率$H$。膨胀加快会使中子-质子弱相互作用转换提前冻结，残留中子比例$n/p$升高，最终合成出更多的$\\\\mathbf{He}^4$而非更少。（对氘而言，膨胀加快通常减少核反应时间，导致残留氘丰度增加。）",
+    "solution": null
+  },
+  "verification": null
+}

@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s9_9.13",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_tensor",
+      "target_object": "geodesic_deviation",
+      "coordinate": "spacetime_coordinates",
+      "scenario": "tidal_force_scenario",
+      "method": "covariant_derivative_commutation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.13",
+    "source_id": "1_s9_9.13",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.13"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.7,
+      "rationale": "Multi-step derivation utilizing commutator of covariant derivatives and intrinsic Riemann tensor definition; universally applicable to arbitrary curved spacetimes without relying on specific coordinates.",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\lambda$",
+      "$\\eta$",
+      "$x^\\mu$",
+      "$u^\\alpha$",
+      "$n^\\alpha$"
+    ],
+    "target": [
+      "$R^\\alpha_{\\beta \\gamma \\delta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.13. Two nearby geodesics have affine parameters such that nearby points on the two geodesics have very close values of affine parameter $\\lambda$ . Let $u^{\\alpha} \\equiv dx^{\\alpha} / d\\lambda$ be the tangent to one of the geodesics, and let $\\mathbf{n}$ be the differential vector connecting points of equal affine parameter on the two geodesics. Prove the equation of geodesic deviation$$\\frac {\\mathrm {D}^{2} \\mathrm {n}^{\\alpha}}{\\mathrm {d} \\lambda^{2}} + \\mathrm {R}^{\\alpha}_{\\beta \\gamma \\delta} \\mathrm {u}^{\\beta} \\mathrm {n}^{\\gamma} \\mathrm {u}^{\\delta} = 0.$$",
+    "answer": "$\\frac {\\mathrm {D}^{2} \\mathrm {n}^{\\alpha}}{\\mathrm {d} \\lambda^{2}} + \\mathrm {R}^{\\alpha}_{\\beta \\gamma \\delta} \\mathrm {u}^{\\beta} \\mathrm {n}^{\\gamma} \\mathrm {u}^{\\delta} = 0.$",
+    "solution": "Solution 9.13. Let $\\mathbf{x}^{\\mu} = \\mathbf{x}^{\\mu}(\\lambda, \\mathfrak{n})$ be a family of geodesics with affine parameter $\\lambda$ . The parameter $\\mathfrak{n}$ labels the individual geodesics. The tangent to the geodesics is $\\mathfrak{u}^a \\equiv \\partial \\mathbf{x}^a / \\partial \\lambda$ and the differential vector which connects points of equal affine parameter on adjacent curves is$$\\mathbf {n}^{\\alpha} = \\partial \\mathbf {x}^{\\alpha} / \\partial \\mathbf {n}.$$The solution to this problem is most transparent in abstract notation:Write$$\\mathbf {u} = \\partial / \\partial \\lambda , \\quad \\mathbf {n} = \\partial / \\partial \\mathbf {n}.$$Note that $[\\mathbf{u},\\mathbf{n}] = 0$ since the partial derivatives commute. (The vanishing of this commutator in fact is the definition of $\\mathbf{n}$ as the connecting vector, according to Problem 8.14.) Now use the Riemann operator (see Problem 9.12):$$\\mathbf {R} (\\mathbf {u}, \\mathbf {n}) \\mathbf {u} \\equiv \\nabla_{\\mathbf {u}} \\nabla_{\\mathbf {n}} \\mathbf {u} - \\nabla_{\\mathbf {n}} \\nabla_{\\mathbf {u}} \\mathbf {u} - \\nabla_{[ \\mathbf {u}, \\mathbf {n} ]} \\mathbf {u} = \\nabla_{\\mathbf {u}} \\nabla_{\\mathbf {n}} \\mathbf {u} = \\nabla_{\\mathbf {u}} \\nabla_{\\mathbf {u}} \\mathbf {n} ,$$where the last equality follows from the vanishing of $[\\mathbf{u},\\mathbf{n}]$ . In components our result, according to Problem 9.12(b), reads$$\\frac {\\mathrm {D}^{2} \\mathbf {\\hat {n}}^{\\alpha}}{\\mathrm {d} \\lambda^{2}} = (\\nabla_{\\mathbf {u}} \\nabla_{\\mathbf {u}} \\mathbf {\\hat {n}})^{\\alpha} = - \\mathrm {R}_{\\beta \\gamma \\delta}^{\\alpha} \\mathbf {u}^{\\beta} \\mathbf {\\hat {n}}^{\\gamma} \\mathbf {u}^{\\delta} .$$"
+  },
+  "verification": null
+}

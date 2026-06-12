@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "precession spatial period",
+      "coordinate": "half-rectangular",
+      "scenario": "cosmology",
+      "method": "geodesic transport",
+      "generalization_axis": "apply",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$D$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在宇宙学模型中，我们考虑由度规 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$ 描述的时空（其中 $\\alpha$ 为常数）。设一个陀螺仪（自旋矢量）在该时空中沿 $y$ 轴方向做类时测地线自由下落运动，即其 4-速度 $u^\\mu = (\\dot{t}, 0, \\dot{y}, 0)$，且其初始空间位置 $x$ 保持恒定。已知自旋矢量在弯曲时空中的演化遵循测地线输运方程 $\\frac{DS^\\mu}{d\\tau} = 0$。类比于经典力学中计算自旋轴岁差的时间周期，请计算该陀螺仪的自旋矢量在随动局部惯性系中进动一整圈（即旋转 $2\\pi$）时，其在 $y$ 方向走过的物理距离 $D$，并证明该物理距离与粒子的运动速度无关。",
+    "answer": "$D = 2\\pi\\alpha e^{x/\\alpha}$，该物理距离与粒子的运动速度完全无关。",
+    "solution": "1. 根据类时测地线条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$，可得 $-\\dot{t}^2 + e^{2x/\\alpha} \\dot{y}^2 = -1$。由于度规不依赖于 $t$ 和 $y$，$\\dot{t}$ 和 $p_y = e^{2x/\\alpha} \\dot{y}$ 为守恒量，因此坐标速度 $\\dot{y}$ 为常数。2. 自旋矢量 $S^\\mu$ 遵循测地线输运方程 $\\frac{dS^\\mu}{d\\tau} = -\\Gamma^\\mu_{\\alpha\\beta} S^\\alpha u^\\beta$。对于只有 $y$ 方向速度的粒子 $u^\\mu = (\\dot{t}, 0, \\dot{y}, 0)$，我们关注自旋在 $x$ 和 $y$ 方向的坐标分量演化：   $$\\frac{dS^1}{d\\tau} = -\\Gamma^1_{\\alpha\\beta} S^\\alpha u^\\beta = -\\Gamma^1_{22} S^2 \\dot{y} = \\frac{1}{\\alpha} S^2 \\dot{y}$$ $$\\frac{dS^2}{d\\tau} = -\\Gamma^2_{\\alpha\\beta} S^\\alpha u^\\beta = -\\Gamma^2_{21} S^1 \\dot{y} = -\\frac{1}{\\alpha} S^1 \\dot{y}$$ （此处使用了 Christoffel 符号 $\\Gamma^1_{22} = -\\frac{1}{\\alpha}$，$\\Gamma^2_{21} = \\frac{1}{\\alpha}$）3. 为求物理进动，需将坐标分量转换为随动局部惯性系中的物理分量。定义物理自旋分量 $s_1 = \\sqrt{g_{11}} S^1 = e^{x/\\alpha} S^1$，$s_2 = \\sqrt{g_{22}} S^2 = e^{x/\\alpha} S^2$。由于粒子沿 $y$ 轴运动且 $x$ 为常数，$e^{x/\\alpha}$ 也是常数，因此物理分量的导数为： $$\\frac{ds_1}{d\\tau} = e^{x/\\alpha} \\frac{dS^1}{d\\tau} = e^{x/\\alpha} \\frac{\\dot{y}}{\\alpha} S^2 = \\frac{\\dot{y}}{\\alpha} s_2$$ $$\\frac{ds_2}{d\\tau} = e^{x/\\alpha} \\frac{dS^2}{d\\tau} = - e^{x/\\alpha} \\frac{\\dot{y}}{\\alpha} S^1 = - \\frac{\\dot{y}}{\\alpha} s_1$$4. 上述方程组描述了 $(s_1, s_2)$ 平面上的匀速旋转，其进动角速度为 $\\Omega = \\frac{\\dot{y}}{\\alpha}$。进动的时间周期（固有时）为 $T = \\frac{2\\pi}{\\Omega} = \\frac{2\\pi\\alpha}{\\dot{y}}$。5. 在一个周期 $T$ 内，粒子在 $y$ 方向走过的坐标距离为 $\\Delta y = \\dot{y} T = 2\\pi\\alpha$。对应的物理距离为： $$D = \\sqrt{g_{22}} \\Delta y = e^{x/\\alpha} (2\\pi\\alpha) = 2\\pi\\alpha e^{x/\\alpha}$$6. 结论表明，物理距离 $D$ 仅依赖于时空几何的内禀曲率参数 $\\alpha$ 及空间位置 $x$，而与守恒量 $\\dot{y}$ 或 $\\dot{t}$（即粒子的运动速度）无关，这揭示了负常曲率空间中测地线平移的深刻几何不变量性质。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目的物理前提存在致命错误：假设陀螺仪沿y轴做类时测地线自由下落时，其空间坐标x保持恒定。根据该度规计算，Christoffel符号Γ^1_{22} = -1/α，对于4速度u^μ = (ṫ, 0, ȳ, 0)，测地线方程为 ẍ + Γ^1_{22} ȳ^2 = 0，即 ẍ = ȳ^2/α。若 ȳ≠0，则 ẍ≠0，坐标x必然随固有时变化，不可能保持恒定。solution的推导基于x为常数这一错误假设，从而错误地认为e^{x/α}是常数并得出物理分量作匀速旋转的结论，完全忽略了x的变化率ẋ对物理自旋分量导数 ds_i/dτ 的贡献（ds_1/dτ = e^{x/α} dS^1/dτ + S^1 (ẋ/α) e^{x/α} 等），导致进动周期和最终物理距离 D = 2πα e^{x/α} 的推导完全无效。此外，度规摘要与实际计算严重不符：该度规并非DeSitter度规（其Ricci标量为负常数-1/α²，截面曲率不全相等，如K_xy=0, K_yz=-1/α²），Kretschmann标量应为2/α⁴而非摘要中的12/α²。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

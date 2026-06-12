@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-3",
+    "type": "prove",
+    "tags": {
+      "target_object": "spin_vector_orthogonality",
+      "coordinate": "schwarzschild",
+      "scenario": "black_hole",
+      "method": "covariant_derivative",
+      "generalization_axis": "verify",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\nabla_{\\mathbf{u}} (S^\\mu u_\\mu)$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，一个不受外力矩的陀螺仪沿测地线自由下落。根据前述结论，其自旋矢量 $\\mathbf{S}$ 满足平行输运方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$，而四速度 $\\mathbf{u}$ 满足测地线方程 $\\nabla_{\\mathbf{u}} \\mathbf{u} = 0$。度规线元为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。请验证此平行输运性质的一个核心推论：若初始时刻陀螺仪的自旋矢量与四速度正交（即 $S^\\mu u_\\mu = 0$），则该正交性沿整个测地线轨迹保持守恒。具体要求通过计算内积 $S^\\mu u_\\mu$ 沿测地线的协变导数 $\\nabla_{\\mathbf{u}} (S^\\mu u_\\mu)$ 来证明其值为零，并简要解释该验证结果为何保证了陀螺仪自旋在局部参考系中始终表现为纯空间矢量。",
+    "answer": "$0$",
+    "solution": "要验证自旋矢量与四速度的正交性沿测地线守恒，即证明 $\\nabla_{\\mathbf{u}} (S^\\mu u_\\mu) = 0$。根据协变导数的莱布尼茨法则以及度规兼容性条件（$\\nabla_\\nu g_{\\mu\\alpha} = 0$），内积的协变导数可以展开为：$$ \\nabla_{\\mathbf{u}} (S^\\mu u_\\mu) = u^\\nu \\nabla_\\nu (S^\\mu u_\\mu) = S^\\mu u^\\nu \\nabla_\\nu u_\\mu + u_\\mu u^\\nu \\nabla_\\nu S^\\mu $$对于第一项，由于 $\\mathbf{u}$ 是测地线的切矢量，满足测地线方程 $\\nabla_{\\mathbf{u}} \\mathbf{u} = 0$，即 $u^\\nu \\nabla_\\nu u_\\mu = 0$，因此 $S^\\mu u^\\nu \\nabla_\\nu u_\\mu = 0$。对于第二项，由于无外力矩陀螺仪的自旋矢量沿测地线平行输运，满足 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$，即 $u^\\nu \\nabla_\\nu S^\\mu = 0$，因此 $u_\\mu u^\\nu \\nabla_\\nu S^\\mu = 0$。将两项结果相加，得到：$$ \\nabla_{\\mathbf{u}} (S^\\mu u_\\mu) = 0 + 0 = 0 $$这证明了 $S^\\mu u_\\mu$ 沿测地线为常数。若初始时自旋与速度正交（$S^\\mu u_\\mu = 0$），则沿轨迹始终满足 $S^\\mu u_\\mu = 0$。物理意义解释：在局部静止参考系中，四速度 $\\mathbf{u}$ 对应于时间方向（类时矢量），自旋矢量 $\\mathbf{S}$ 与 $\\mathbf{u}$ 保持正交意味着自旋没有时间分量，即它始终是一个纯空间矢量。这验证了陀螺仪自旋在自由下落过程中不会产生沿运动方向的分量，符合陀螺仪在局部参考系中表现为三维空间旋转的物理直觉。"
+  },
+  "verification": null
+}

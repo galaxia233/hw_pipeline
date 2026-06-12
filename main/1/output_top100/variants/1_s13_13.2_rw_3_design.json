@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s13_13.2-0-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "gravitational redshift factor",
+      "coordinate": "spherical",
+      "scenario": "Nordström gravity theory",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.2",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.2",
+      "1_s13_13.2-0",
+      "1_s13_13.2-0-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\nu$",
+      "$\\\\rho$",
+      "$\\\\sigma$",
+      "$\\\\kappa$",
+      "$\\\\phi$",
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "设计数值模拟实验方案验证Nordström理论与广义相对论在弱场引力红移上的一致性"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Nordström 1913 年的引力理论是一个共形平坦的度规理论，其场方程为 Weyl 张量为零 ($C_{\\mu\\nu\\rho\\sigma}=0$) 且曲率标量与能动张量耦合 ($R = \\kappa g_{\\mu\\nu}T^{\\mu\\nu}$)。对于静态弱场中心质量 $M$，该理论预言的度规必须是 Minkowski 度规的共形变换，在球坐标下形式为：\\n$$ds^2 = -(1 + 2\\phi)dt^2 + (1 + 2\\phi)\\left(dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2\\right)$$\\n其中 $\\phi = -M/r$ 是 Newtonian 引力势（取 $G=1$）。\\n\\n核心结论指出：尽管该理论的时空度规与广义相对论 Schwarzschild 度规的空间分量不同，但它与广义相对论在预言引力红移方面具有相同的弱场行为（即红移仅由度规的时间分量 $g_{tt}$ 决定）。\\n\\n请你从零设计一个数值模拟实验方案，通过追踪光子从半径 $r_1$ 处径向发射到半径 $r_2$ 处被静态观测者接收的测地线演化，提取观测频率数据，定量验证“Nordström 理论与广义相对论在预言引力红移方面具有相同的弱场行为”这一核心结论。你的方案需包含：模拟环境的参数设定（质量 $M$、发射与接收半径 $r_1, r_2$ 的弱场要求）、需要计算和提取的观测物理量（如何数值获取静态观测者的局部频率 $\\nu$）、以及预期的数值结果对比。",
+    "answer": "方案步骤：\\n1. **参数设定**：选取中心质量 $M=1$（自然单位制），设定光子径向发射位置 $r_1 = 10^4$ 和接收位置 $r_2 = 10^6$，确保 $M/r \\ll 1$ 的弱场条件成立。\\n2. **测地线演化计算**：在数值模拟程序中，分别输入 Nordström 度规和广义相对论的 Schwarzschild 度规。利用哈密顿方程或测地线方程数值积分光子四维动量 $p^\\mu$ 的径向演化轨迹，设定光子初始沿径向传播。\\n3. **提取观测频率**：提取光子沿轨迹的守恒能量 $E = -g_{tt} p^t$。在发射点 $r_1$ 和接收点 $r_2$ 处，分别计算静态观测者的四维速度分量 $u^t = 1/\\sqrt{-g_{tt}}$。通过计算局部观测频率 $\\nu = -p_\\mu u^\\mu = E / \\sqrt{-g_{tt}}$，分别获取两度规下的发射频率 $\\nu_1$ 和接收频率 $\\nu_2$。\\n4. **计算红移因子**：计算 Nordström 理论下的红移 $z_N = (\\nu_1 - \\nu_2)/\\nu_2$ 与 GR 下的红移 $z_{GR}$。\\n5. **预期结果**：由于 Nordström 度规的 $g_{tt} = -(1+2\\phi)$ 与 Schwarzschild 度规的 $g_{tt} = -(1-2M/r)$ 在弱场下形式完全相同，预期数值计算得到的 $z_N$ 与 $z_{GR}$ 将在弱场量级内数值重合，均近似等于 $M/r_2 - M/r_1$，从而定量验证两者弱场引力红移行为的一致性。",
+    "solution": null
+  },
+  "verification": null
+}

@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-3-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "tangential momentum evolution law",
+      "coordinate": "spherical",
+      "scenario": "constrained_particle_contrast",
+      "method": "conserved_current_integration",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-3",
+      "1_s10_10.11-3-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "FLRW和Schwarzschild时空下物理切向动量演化规律对比"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，对于任意能动张量 $T^{\\mu\\nu}$ 和 Killing 矢量 $\\xi^\\mu$，矢量场 $J^\\mu = T^{\\mu\\nu} \\xi_\\nu$ 是一个守恒流，即满足 $J^\\mu_{;\\mu} = 0$。考虑一个质量为 $m$ 的测试粒子，被约束在固定的空间坐标 $(r, \\theta)$ 上仅沿 $\\phi$ 方向运动（例如由一根无摩擦的环形轨道限制，轨道仅提供径向约束力而不提供切向力）。物理切向线动量定义为局部静止/共动观察者测得的值 $p_{tang} = \\frac{m v_{tang}}{\\sqrt{1-v_{tang}^2}}$。请在以下两种时空中，分别应用上述守恒流定理推导粒子沿世界线的守恒量 $L$（由旋转 Killing 矢量 $\\xi^\\mu = (0,0,0,1)$ 定义），并据此推导物理切向线动量 $p_{tang}$ 随时间的演化规律，最后对比两者结果的差异并解释其物理含义：(A) FLRW 宇宙学时空：度规为 $ds^2 = -dt^2 + \\frac{a^2(t)}{1 - k r^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$；(B) Schwarzschild 静态时空：度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。",
+    "answer": "在 FLRW 时空中，守恒量为 $L = r^2 a^2(t) \\sin^2\\theta \\dot{\\phi}$，物理切向线动量演化规律为 $p_{tang} \\propto a(t)^{-1}$，随宇宙膨胀而衰减；在 Schwarzschild 时空中，守恒量为 $L = r^2 \\sin^2\\theta \\dot{\\phi}$，物理切向线动量为常数 $p_{tang} = \\text{const}$，不随时间变化。差异的物理含义：FLRW 时空代表膨胀宇宙，环形轨道的物理半径 $R_{phys} = a(t) r \\sin\\theta$ 随时间增大，粒子的运动波长被拉伸，产生宇宙学动量红移效应；Schwarzschild 时空代表静态引力场，环形轨道的物理半径 $R_{phys} = r \\sin\\theta$ 保持不变，无空间膨胀，因此切向动量守恒不发生红移。",
+    "solution": "1. 两种时空均具有绕 $\\phi$ 轴的旋转对称性，对应的 Killing 矢量为 $\\xi^\\mu = (0,0,0,1)$，其协变分量 $\\xi_\\mu = g_{\\phi\\phi} \\delta_{\\mu\\phi}$。2. 对单个测试粒子，能动张量 $T^{\\mu\\nu} = \\rho u^\\mu u^\\nu$，由守恒流定理得守恒量 $L = \\xi_\\mu u^\\mu$。由于环形轨道仅提供径向约束力 $F^\\mu$（仅有 $r, \\theta$ 分量），而 $\\xi_\\mu$ 仅具有 $\\phi$ 分量，故 $\\xi_\\mu F^\\mu = 0$，保证了 $L$ 沿世界线守恒。3. 物理切向动量 $p_{tang} = E_{local} v_{tang}$，其中 $E_{local}$ 为局部静止/共动观察者测得的粒子能量。4. 在 FLRW 时空中：局部共动观察者 $u_{obs}^\\mu = (1,0,0,0)$，测得能量 $E_{local} = m u^t$，物理切向速度 $v_{tang} = a(t) r \\sin\\theta \\frac{u^\\phi}{u^t}$，故 $p_{tang} = m a(t) r \\sin\\theta u^\\phi$。代入守恒量 $L = g_{\\phi\\phi} u^\\phi = r^2 a^2(t) \\sin^2\\theta u^\\phi = \\frac{a(t) r \\sin\\theta}{m} p_{tang}$，解得 $p_{tang} = \\frac{m L}{a(t) r \\sin\\theta} \\propto a(t)^{-1}$。5. 在 Schwarzschild 时空中：局部静止观察者 $u_{obs}^\\mu = (\\sqrt{r/(r-r_s)}, 0, 0, 0)$，测得能量 $E_{local} = m \\sqrt{\\frac{r-r_s}{r}} u^t$，物理切向速度 $v_{tang} = r \\sin\\theta \\sqrt{\\frac{r-r_s}{r}} \\frac{u^\\phi}{u^t}$，故 $p_{tang} = m r \\sin\\theta u^\\phi$。代入守恒量 $L = g_{\\phi\\phi} u^\\phi = r^2 \\sin^2\\theta u^\\phi = \\frac{r \\sin\\theta}{m} p_{tang}$，解得 $p_{tang} = \\frac{m L}{r \\sin\\theta} = \\text{const}$。6. 物理对比：FLRW 宇宙膨胀使轨道物理半径变大，拉伸粒子波长导致动量红移；Schwarzschild 静态场无空间膨胀，半径不变，动量守恒。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "在 Schwarzschild 时空的推导中，solution 给出的局部切向速度 $v_{tang}$ 公式存在平方根因子颠倒的错误，并导致推导代数不自洽。\nSolution 写道：物理切向速度 $v_{tang} = r \\sin\\theta \\sqrt{\\frac{r-r_s}{r}} \\frac{u^\\phi}{u^t}$。\n根据局部静止观察者的固有时 $d\\tau_{obs} = \\sqrt{\\frac{r-r_s}{r}} dt$ 和局部切向距离 $dl = r \\sin\\theta d\\phi$，正确的物理切向速度应为 $v_{tang} = \\frac{dl}{d\\tau_{obs}} = r \\sin\\theta \\sqrt{\\frac{r}{r-r_s}} \\frac{u^\\phi}{u^t}$。\n由于该因子错误，若将 solution 中给出的 $E_{local} = m \\sqrt{\\frac{r-r_s}{r}} u^t$ 与其 $v_{tang}$ 相乘，得到的结果应为 $p_{tang} = E_{local} v_{tang} = m r \\sin\\theta \\frac{r-r_s}{r} u^\\phi = m (r-r_s) \\sin\\theta u^\\phi$，这与 solution 紧接着声称的“故 $p_{tang} = m r \\sin\\theta u^\\phi$”直接矛盾。推导过程存在严重的 factor error 及代数矛盾。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

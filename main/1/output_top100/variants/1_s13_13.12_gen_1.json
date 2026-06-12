@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "linearized_Riemann_tensor",
+      "coordinate": "Cartesian",
+      "scenario": "linearized_gravity_gauge_transformation",
+      "method": "substitution_and_comparison",
+      "generalization_axis": "compare",
+      "metric": "metric_tensor"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric_tensor",
+    "soft_variant": "compare",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\mu$",
+      "$\\\\xi^\\\\mu$",
+      "$h_{\\\\mu\\\\nu}$",
+      "$g_{\\\\mu\\\\nu}$",
+      "$\\\\eta_{\\\\mu\\\\nu}$"
+    ],
+    "target": [
+      "$\\delta R'_{\\mu\\nu\\sigma\\rho}$",
+      "comparison_with_$h'_{\\mu\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In the framework of linearized gravity, a gauge transformation is defined by an infinitesimal coordinate shift $x^\\mu \\to x'^\\mu = x^\\mu + \\xi^\\mu(x)$. Under this transformation, the metric perturbation $h_{\\mu\\nu}$ (where the full metric is $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$) transforms as $h'_{\\mu\\nu} = h_{\\mu\\nu} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu$. The linearized Riemann curvature tensor is defined to first order in $h_{\\mu\\nu}$ as:$$ \\delta R_{\\mu\\nu\\sigma\\rho} = \\frac{1}{2} \\left( \\partial_\\nu \\partial_\\sigma h_{\\mu\\rho} + \\partial_\\mu \\partial_\\rho h_{\\nu\\sigma} - \\partial_\\nu \\partial_\\rho h_{\\mu\\sigma} - \\partial_\\mu \\partial_\\sigma h_{\\nu\\rho}\\right) $$Derive the gauge transformation law for the linearized Riemann tensor $\\delta R_{\\mu\\nu\\sigma\\rho}$ under the same infinitesimal coordinate transformation $\\xi^\\mu$. Compare your derived result with the transformation law for $h_{\\mu\\nu}$, and explain the fundamental physical difference between the two in terms of gauge invariance and observable gravitational effects.",
+    "answer": "$\\delta R'_{\\mu\\nu\\sigma\\rho} = \\delta R_{\\mu\\nu\\sigma\\rho}$. The linearized Riemann tensor is strictly gauge invariant, whereas the metric perturbation $h_{\\mu\\nu}$ is gauge dependent.",
+    "solution": "To find the gauge transformation of the linearized Riemann tensor, we substitute the gauge-transformed metric perturbation $h'_{\\mu\\nu} = h_{\\mu\\nu} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu$ into the definition of $\\delta R_{\\mu\\nu\\sigma\\rho}$:$$ \\delta R'_{\\mu\\nu\\sigma\\rho} = \\frac{1}{2} \\left( \\partial_\\nu \\partial_\\sigma h'_{\\mu\\rho} + \\partial_\\mu \\partial_\\rho h'_{\\nu\\sigma} - \\partial_\\nu \\partial_\\rho h'_{\\mu\\sigma} - \\partial_\\mu \\partial_\\sigma h'_{\\nu\\rho}\\right) $$Let us analyze the extra terms introduced by $\\xi_\\mu$. For the first term:$$ \\partial_\\nu \\partial_\\sigma h'_{\\mu\\rho} = \\partial_\\nu \\partial_\\sigma h_{\\mu\\rho} - \\partial_\\nu \\partial_\\sigma \\partial_\\mu \\xi_\\rho - \\partial_\\nu \\partial_\\sigma \\partial_\\rho \\xi_\\mu $$Since we are working on a flat Minkowski background to first order, partial derivatives commute. Thus, third-order derivatives like $\\partial_\\nu \\partial_\\sigma \\partial_\\mu \\xi_\\rho$ are fully symmetric in their index positions. Writing out all four extra terms from the substitution:1) $- \\partial_\\nu \\partial_\\sigma \\partial_\\mu \\xi_\\rho - \\partial_\\nu \\partial_\\sigma \\partial_\\rho \\xi_\\mu$2) $- \\partial_\\mu \\partial_\\rho \\partial_\\nu \\xi_\\sigma - \\partial_\\mu \\partial_\\rho \\partial_\\sigma \\xi_\\nu$3) $+ \\partial_\\nu \\partial_\\rho \\partial_\\mu \\xi_\\sigma + \\partial_\\nu \\partial_\\rho \\partial_\\sigma \\xi_\\mu$4) $+ \\partial_\\mu \\partial_\\sigma \\partial_\\nu \\xi_\\rho + \\partial_\\mu \\partial_\\sigma \\partial_\\rho \\xi_\\nu$We can pair terms that share the same derivative order of $\\xi$. For example, terms containing $\\partial \\partial \\partial \\xi_\\rho$ are:$- \\partial_\\nu \\partial_\\sigma \\partial_\\mu \\xi_\\rho + \\partial_\\mu \\partial_\\sigma \\partial_\\nu \\xi_\\rho = 0$Because $\\partial_\\nu \\partial_\\sigma \\partial_\\mu = \\partial_\\mu \\partial_\\sigma \\partial_\\nu$ by commutativity, these cancel exactly. By symmetry, every such pair of third-order derivatives cancels out identically. Therefore, all terms involving $\\xi$ vanish, leaving:$$ \\delta R'_{\\mu\\nu\\sigma\\rho} = \\delta R_{\\mu\\nu\\sigma\\rho} $$Comparison and Physical Difference:The metric perturbation $h_{\\mu\\nu}$ transforms non-trivially under gauge transformations ($h'_{\\mu\\nu} \\neq h_{\\mu\\nu}$), making it gauge dependent. This means different choices of infinitesimal coordinates (gauge choices) yield different functional forms for $h_{\\mu\\nu}$, mixing physical gravitational waves with unphysical coordinate artifacts.In contrast, the linearized Riemann tensor $\\delta R_{\\mu\\nu\\sigma\\rho}$ is strictly gauge invariant. Physically, the Riemann tensor encodes intrinsic, coordinate-independent tidal forces and curvature. While the representation of the metric depends on the observer's coordinate system, the observable gravitational effects (like the relative acceleration of geodesics) must be invariant under gauge transformations, which is mathematically guaranteed by the gauge invariance of $\\delta R_{\\mu\\nu\\sigma\\rho}$."
+  },
+  "verification": null
+}

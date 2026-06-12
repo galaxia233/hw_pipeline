@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s1_1.1_e",
+    "type": "calculate",
+    "tags": {
+      "metric": "kinematics",
+      "target_object": "four_velocity",
+      "coordinate": "three_velocity",
+      "scenario": "special_relativity",
+      "method": "spacetime_structure"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.1_e",
+    "source_id": "1_s1_1.1_e",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.1_e"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.2,
+      "generalizability": 0.5,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基于四速度定义的直接代数推导，逻辑链短且为标准教科书结论，物理图像清晰但计算深度较浅。",
+      "overall": 0.55
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$v^j$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.1. The 4-velocity $\\mathbf{u}$ corresponds to 3-velocity $\\mathbf{v}$ . Express:\\n(e) $\\mathbf{v}^{\\mathrm{j}}$ in terms of $\\mathbf{u}^{\\mathrm{j}}$",
+    "answer": "$v^j = \\\\frac{c u^j}{u^0}$ （自然单位制 $c=1$ 下为 $v^j = \\\\frac{u^j}{u^0}$）",
+    "solution": "四维速度的定义式为 $u^\\\\mu = \\\\frac{dx^\\\\mu}{d\\\\tau}$。利用固有时 $d\\\\tau$ 与实验室系坐标时 $dt$ 的关系 $d\\\\tau = dt/\\\\gamma$（其中 $\\\\gamma = (1-v^2/c^2)^{-1/2}$ 为洛伦兹因子），可将四速度按坐标时分量展开：\\n时间分量：$u^0 = \\\\frac{dt}{d\\\\tau} c = \\\\gamma c$\\n空间分量（$j=1,2,3$）：$u^j = \\\\frac{dx^j}{d\\\\tau} = \\\\frac{dx^j}{dt}\\\\frac{dt}{d\\\\tau} = v^j \\\\gamma$\\n将空间分量表达式除以时间分量表达式，可直接消去 $\\\\gamma$：\\n$\\\\frac{u^j}{u^0} = \\\\frac{\\\\gamma v^j}{\\\\gamma c} = \\\\frac{v^j}{c}$\\n移项整理即得所求关系：\\n$v^j = \\\\frac{c u^j}{u^0}$\\n（注：在广义相对论及多数理论物理教材中常取自然单位制 $c=1$，此时结果简化为 $v^j = u^j/u^0$。）"
+  },
+  "verification": null
+}

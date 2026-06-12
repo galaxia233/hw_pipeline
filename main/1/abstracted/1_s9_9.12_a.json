@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s9_9.12_a",
+    "type": "prove",
+    "tags": {
+      "metric": "tensor_algebra",
+      "target_object": "riemann_curvature",
+      "coordinate": "covariant_derivative",
+      "scenario": "manifold_geometry",
+      "method": "proof_technique"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.12_a",
+    "source_id": "1_s9_9.12_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.12_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.5,
+      "realism": 0.3,
+      "rationale": "需利用协变导数与李括号性质证明算子张量性与点依赖性，逻辑链条完整但属纯微分几何抽象命题",
+      "overall": 0.57
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mathbf{A}$",
+      "$\\mathbf{B}$",
+      "$\\mathbf{C}$",
+      "$\\mathbf{P}$",
+      "$\\mathbf{R}$",
+      "$\\nabla$"
+    ],
+    "target": [
+      "$\\mathbf{R}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.12. Riemann curvature can also be computed with the Riemann operator $\\mathbf {R}$$$\\mathbf {R} (\\mathbf {A}, \\mathbf {B}) \\mathbf {C} = (\\nabla_{\\mathbf {A}} \\nabla_{\\mathbf {B}} - \\nabla_{\\mathbf {B}} \\nabla_{\\mathbf {A}} - \\nabla_{[ \\mathbf {A}, \\mathbf {B} ]}) \\mathbf {C}$$(a) Show that the value of $\\mathbf{R}$ at a point $\\mathbf{P}$ is linear in the arguments $\\mathbf{A}, \\mathbf{B}, \\mathbf{C}$ and depends only on their values at $\\mathbf{P}$ and not on the way in which they vary around $\\mathbf{P}$ .",
+    "answer": null,
+    "solution": null
+  },
+  "verification": null
+}

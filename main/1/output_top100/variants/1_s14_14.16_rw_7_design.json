@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s14_14.16-6-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "R^\\mu_\\sigma A^\\sigma",
+      "coordinate": "spherical",
+      "scenario": "cosmology_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.16",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.16",
+      "1_s14_14.16-6",
+      "1_s14_14.16-6-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "FLRW",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "设计数值模拟方案验证差异项 $R^\\mu_\\sigma A^\\sigma$ 的精确形式与物理含义"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在弯曲时空中，平直时空的Lorenz规范矢量波动方程 $\\partial_\\nu \\partial^\\nu A^\\mu = 0$ 通过“逗号变分号”规则推广为 $A^{\\mu;\\nu}_{;\\nu} = 0$，而真实的无源Maxwell方程为 $F^{\\mu\\nu}_{;\\nu} = 0$，其中 $F^{\\mu\\nu} = A^{\\mu;\\nu} - A^{\\nu;\\mu}$。二者的差异由曲率耦合项给出：$A^{\\mu;\\nu}_{;\\nu} - F^{\\mu\\nu}_{;\\nu} = R^\\mu_\\sigma A^\\sigma$。考虑FLRW度规：$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^{2}{\\left(\\theta\\right)} d\\phi^2$$核心结论：对于纯时间维的均匀矢量势 $A^\\mu = (A^0(t), 0, 0, 0)$（对应平直时空中的纯规范配置，无物理电磁场），差异项 $R^\\mu_\\sigma A^\\sigma$ 的空间分量为零，时间分量精确等于 $3\\frac{\\ddot{a}}{a}A^0$。这表明曲率仅在Lorenz规范推广中引入了与宇宙减缩参数 $\\ddot{a}/a$ 成比例的虚假源项，而真实Maxwell方程保持无源。请从零设计一个数值模拟方案来验证此结论。方案需包含：1）选择具体的宇宙膨胀模型 $a(t)$ 与矢量势 $A^0(t)$ 的设定；2）需要计算的核心量及其数值计算步骤；3）预期结果及其与理论结论的对比验证逻辑。",
+    "answer": "1. **设定模型与参数**：选取平坦 ($k=0$) 物质主导宇宙模型，标度因子 $a(t) = t^{2/3}$，此时 $\\dot{a} = \\frac{2}{3}t^{-1/3}$，$\\ddot{a} = -\\frac{2}{9}t^{-4/3}$。设定纯时间维矢量势 $A^\\mu = (t, 0, 0, 0)$。2. **数值计算核心量**：   - **左侧差异项**：在离散时间点 $t_i$ 及空间坐标 $(r_j, \\theta_k, \\phi_l)$ 上，使用度规与Christoffel符号计算 $A^{\\mu;\\nu}$，进而计算 $A^{\\mu;\\nu}_{;\\nu}$ 与 $F^{\\mu\\nu}_{;\\nu}$，求差值 $D^\\mu = A^{\\mu;\\nu}_{;\\nu} - F^{\\mu\\nu}_{;\\nu}$。   - **右侧曲率项**：在相同坐标点计算Ricci张量 $R_{\\mu\\sigma}$，得到 $R^\\mu_\\sigma = g^{\\mu\\nu}R_{\\nu\\sigma}$，计算 $C^\\mu = R^\\mu_\\sigma A^\\sigma$。3. **对比验证逻辑**：   - 验证各空间坐标点处 $D^\\mu$ 与 $C^\\mu$ 是否严格相等。   - 验证空间分量 $D^1, D^2, D^3$ 是否均为0。   - 验证时间分量 $D^0$ 是否精确匹配 $3\\frac{\\ddot{a}}{a}A^0 = 3\\left(-\\frac{2}{9}t^{-4/3}\\right) / t^{2/3} \\cdot t = -\\frac{2}{3}t^{-1}$，确认虚假源项的大小与宇宙减缩参数成正比。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目和答案中将 $\\ddot{a}/a$ 称为'宇宙减缩参数'（deceleration parameter），这是严重的物理术语事实错误。宇宙学中的减缩参数标准定义为 $q = -\\\\frac{a\\\\ddot{a}}{\\\\dot{a}^2}$，它包含了哈勃参数 $H=\\\\dot{a}/a$ 的平方项，而 $\\ddot{a}/a$ 仅仅是宇宙学加速度参数（或称为标度因子的相对加速度），二者在量纲和物理含义上完全不同。对于答案中选取的 $a(t)=t^{2/3}$ 模型，减缩参数 $q$ 为常数 $1/2$，而 $\\ddot{a}/a = -2/9 t^{-2}$ 是时间依赖的，二者显然不成正比。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

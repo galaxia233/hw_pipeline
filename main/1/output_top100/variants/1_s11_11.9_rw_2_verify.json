@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-2-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "$\\frac{\\dot{T}_M}{T_M}$",
+      "coordinate": "spherical",
+      "scenario": "tidal_evolution_verify",
+      "method": "differentiation",
+      "generalization_axis": "verify",
+      "metric": "weak_field_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-2",
+      "1_s11_11.9-2-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "weak_field_metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$X$",
+      "$Y$",
+      "$Z$",
+      "$r_s$",
+      "$r_M$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\psi$",
+      "$J$",
+      "$C$",
+      "$A$",
+      "$\\omega$",
+      "$T$"
+    ],
+    "target": [
+      "校验$\\frac{\\dot{T}_M}{T_M}$的推导过程"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论与经典引力理论的框架下，地球自转轴的进动（岁差）是由外部天体（如月球）的潮汐力与地球的扁率耦合产生的。已知由月球潮汐力矩单独引起的自转轴进动角速率 $\\dot{\\psi}_M$ 与月球质量 $M_M$、轨道半长轴 $a_M$ 的关系为 $\\dot{\\psi}_M \\propto M_M / a_M^3$，其对应的进动周期为 $T_M = 2\\pi / \\dot{\\psi}_M$。现天文观测表明，由于地月系统的潮汐耗散效应，月球正以相对速率 $\\dot{a}_M / a_M$ 逐渐远离地球。某学生推导由月球潮汐力矩引起的岁差周期 $T_M$ 随时间的相对变化率 $\\frac{\\dot{T}_M}{T_M}$ 的过程如下：【推导开始】1. 根据已知条件，忽略质量变化，进动角速率与半长轴的关系为：$\\dot{\\psi}_M \\propto a_M^{-3}$。2. 进动周期与进动角速率直接相关，因此比例关系为：$T_M \\propto \\dot{\\psi}_M \\propto a_M^{-3}$。3. 对时间 $t$ 求导，利用对数求导法：   $\\ln T_M = \\text{const} - 3 \\ln a_M$   求导得到：   $\\frac{\\dot{T}_M}{T_M} = -3 \\frac{\\dot{a}_M}{a_M}$4. 由于潮汐耗散导致月球远离地球，$\\dot{a}_M > 0$，故 $\\dot{T}_M < 0$。这表明随着月球远离，岁差周期将逐渐缩短。【推导结束】请找出上述推导过程中的所有错误，指出其位置、错误类型并给出正确值或正确关系。",
+    "answer": "错误1：步骤2中，比例关系 $T_M \\propto \\dot{\\psi}_M$ 错误。错误类型：比例关系反转（逻辑/sign error）。根据定义 $T_M = 2\\pi / \\dot{\\psi}_M$，正确值应为：$T_M \\propto \\dot{\\psi}_M^{-1}$，进而 $T_M \\propto a_M^{3}$。错误2：步骤3中，等式 $\\frac{\\dot{T}_M}{T_M} = -3 \\frac{\\dot{a}_M}{a_M}$ 的符号错误。错误类型：sign error（由步骤2的错误连带引起）。正确值应为：$\\frac{\\dot{T}_M}{T_M} = +3 \\frac{\\dot{a}_M}{a_M}$。错误3：步骤4中，结论“岁差周期将逐渐缩短”错误。错误类型：结论错误。由于 $\\dot{a}_M > 0$ 且系数为正，正确结论应为：岁差周期将逐渐变长。",
+    "solution": "根据岁差产生的物理机制及题目给定的关系，由月球潮汐力矩引起的自转轴进动角速率可表示为比例关系：$\\dot{\\psi}_M \\propto \\frac{1}{a_M^3}$ 对应的进动周期为角速率的倒数：$T_M = \\frac{2\\pi}{\\dot{\\psi}_M} \\propto \\dot{\\psi}_M^{-1} \\propto a_M^3$ 由该比例关系可知，进动周期 $T_M$ 与月球轨道半长轴的三次方成正比。对时间 $t$ 求导，利用对数求导法可得进动周期的相对变化率：$\\frac{\\dot{T}_M}{T_M} = 3 \\frac{\\dot{a}_M}{a_M}$ 由于潮汐耗散导致月球远离地球，即 $\\dot{a}_M > 0$，因此 $\\dot{T}_M > 0$。这预测了随着月球逐渐远离地球，其引起的岁差周期 $T_M$ 将以三倍于月球轨道半长轴相对变化率的速率逐渐变长，进动角速率变慢。"
+  },
+  "verification": null
+}

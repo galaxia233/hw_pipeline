@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-8-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "angular momentum L",
+      "coordinate": "cylindrical",
+      "scenario": "cosmology design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "Davidson"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-8",
+      "1_s10_10.5-8-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Davidson",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "z",
+      "phi"
+    ],
+    "target": [
+      "设计数值测地线积分实验验证角动量守恒"
+    ],
+    "metric": [
+      [
+        "-(r**2 + 1)**(6/5)",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "t**(4/3)*(r**2 + 1)**(2/5)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/(t**(2/3)*(r**2 + 1)**(2/5))",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*t**(4/3)/(r**2 + 1)**(2/5)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在轴对称旋转星体时空中，Killing矢量 $\\xi_{(t)}$ 和 $\\xi_{(\\phi)}$ 对易，保证了能量与角动量的独立守恒。Davidson度规描述了一个因含时而缺乏类时Killing矢量 $\\xi_{(t)}$ 的宇宙时空，但保留了轴对称Killing矢量 $\\xi_{(\\phi)} = \\partial_\\phi$。这理论上保证了沿测地线的角动量 $L = g_{\\phi\\phi} \\dot{\\phi}$ 是一个守恒量，即 $\\frac{dL}{d\\tau} = 0$。Davidson度规为：$ds^2 = -(r^2+1)^{6/5} dt^2 + t^{4/3}(r^2+1)^{2/5} dr^2 + \\frac{1}{t^{2/3}(r^2+1)^{2/5}} dz^2 + \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}} d\\phi^2$请你设计一个数值模拟实验方案，通过模拟测试粒子在该度规下的测地线运动，来验证角动量 $L$ 沿测地线守恒这一核心结论。要求说明：1) 粒子初始坐标与速度的设定策略；2) 测地线方程的数值求解方法；3) 需要计算与监测的特征物理量；4) 预期的实验结果及如何从数值结果中得出验证结论。",
+    "answer": "1. **初始条件设定**：选取多组测试粒子，初始坐标设定为 $(t_0, r_0, z_0, \\phi_0)$，例如 $t_0=1, r_0=1, z_0=0, \\phi_0=0$。赋予不同的初始四维速度 $(\\dot{t}_0, \\dot{r}_0, \\dot{z}_0, \\dot{\\phi}_0)$，确保其满足类时条件 $g_{\\mu\\nu}\\dot{x}^\\mu\\dot{x}^\\nu = -1$，并特别变化 $\\dot{\\phi}_0$ 的值以验证不同角动量下的守恒性。2. **数值求解方法**：将二阶测地线方程 $\\frac{d^2 x^\\mu}{d\\tau^2} + \\Gamma^\\mu_{\\alpha\\beta} \\frac{dx^\\alpha}{d\\tau} \\frac{dx^\\beta}{d\\tau} = 0$ 转化为关于 $(x^\\mu, \\dot{x}^\\mu)$ 的一阶常微分方程组。使用四阶Runge-Kutta (RK4) 方法沿参数 $\\tau$ 进行数值积分。3. **监测物理量**：在每个积分步长提取坐标与速度，计算瞬时角动量 $L(\\tau) = g_{\\phi\\phi}(t, r) \\dot{\\phi}(\\tau)$，以及相对偏差 $\\Delta L / L_0 = (L(\\tau) - L_0)/L_0$。4. **预期结果**：对于任意设定的初始条件，$L(\\tau)$ 随 $\\tau$ 的演化曲线应是一条水平直线，$\\Delta L / L_0$ 仅在数值积分的机器精度或截断误差范围内波动（如 $10^{-6}$ 量级），由此验证 $\\frac{dL}{d\\tau} = 0$ 的核心结论。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.davidson_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "answer 中计算瞬时角动量的公式 $L(\\tau) = g_{\\phi\\phi}(t, r) \\dot{\\phi}(\\tau)$ 存在严重歧义/表述错误。题目核心前提是该度规“因含时而缺乏类时Killing矢量”，度规系数 $g_{\\phi\\phi} = \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}}$ 强烈依赖于动态坐标时 $t$ 和径向坐标 $r$。在数值计算监测物理量时，必须明确代入粒子当前的瞬时坐标 $t(\\tau)$ 和 $r(\\tau)$ 来计算度规系数。answer 的写法未标出 $t$ 和 $r$ 对 $\\tau$ 的依赖，极易被误解为使用固定的初始坐标 $t_0, r_0$ 计算度规系数。如果用固定的 $g_{\\phi\\phi}(t_0, r_0)$ 乘以随固有时演化的 $\\dot{\\phi}(\\tau)$，将得出角动量不守恒的错误数值结论，直接导致验证实验逻辑失败。正确写法必须明确为 $L(\\tau) = g_{\\phi\\phi}(t(\\tau), r(\\tau)) \\dot{\\phi}(\\tau)$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s13_13.1-3",
+    "type": "calculate",
+    "tags": {
+      "target_object": "photon_sphere_radius",
+      "coordinate": "spherical",
+      "scenario": "schwarzschild_black_hole",
+      "method": "effective_potential_extremum",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s13_13.1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.1",
+      "1_s13_13.1-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$r_{ph} = \\frac{3}{2} r_s$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "正如理论与实验所证实的，爱因斯坦场方程中的参数必须为 $\\alpha = \\frac{1}{2}$，即标准形式 $R_{\\mu\\nu} - \\frac{1}{2} g_{\\mu\\nu} R = 8\\pi T_{\\mu\\nu}$ 是与 Newtonian 极限相符的唯一选择。基于这一被确立的场方程，Schwarzschild 度规成为了描述球对称真空引力场（如非旋转黑洞外部时空）的正确几何解。在此度规下，光子可以在特定半径处形成不稳定的圆轨道，即所谓的“光子球”，这是黑洞的一个重要临界特征参数。\\n\\n给定 Schwarzschild 度规（其中 $r_s$ 为 Schwarzschild 半径）：\\n$$ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$\\n\\n利用该度规的类光测地线条件及由其 Killing 矢量提供的守恒量，求该黑洞光子球的临界轨道半径 $r_{ph}$（以 $r_s$ 表示）。",
+    "answer": "$r_{ph} = \\frac{3}{2} r_s$",
+    "solution": "1. **守恒量与类光条件**：度规具有时间平移和绕 $\\phi$ 轴旋转的 Killing 矢量，对应能量与角动量守恒。采用 $(-,+,+,+)$ 符号约定，定义守恒量：\\n   能量：$E = -g_{tt} \\dot{t} = \\frac{r - r_s}{r} \\dot{t}$ \\n   角动量：$L = g_{\\phi\\phi} \\dot{\\phi} = r^2 \\sin^2\\theta \\dot{\\phi}$ \\n\\n2. **赤道面简化**：对于球对称时空，光子轨道可限制在赤道面 $\\theta = \\pi/2$，此时 $\\sin\\theta = 1$，$\\dot{\\theta} = 0$。\\n\\n3. **构造有效势**：将类光测地线条件 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = 0$ 展开：\\n   $$-\\frac{r - r_s}{r} \\dot{t}^2 + \\frac{r}{r - r_s} \\dot{r}^2 + r^2 \\dot{\\phi}^2 = 0$$ \\n 代入 $\\dot{t} = \\frac{E r}{r - r_s}$ 和 $\\dot{\\phi} = \\frac{L}{r^2}$：\\n $$-\\frac{r}{r - r_s} E^2 + \\frac{r}{r - r_s} \\dot{r}^2 + \\frac{L^2}{r^2} = 0$$ \\n 整理得到径向运动方程：\\n $$\\dot{r}^2 = E^2 - \\frac{L^2}{r^2} \\left(1 - \\frac{r_s}{r}\\right)$$ \\n 定义光子的有效势 $V_{eff} = \\frac{L^2}{r^2} \\left(1 - \\frac{r_s}{r}\\right)$，则 $\\dot{r}^2 = E^2 - V_{eff}$。\\n\\n4. **求解极值条件**：光子形成圆轨道的临界条件为径向速度为零且径向加速度为零，即有效势满足：\\n $$V_{eff} = E^2$$ \\n $$\\frac{dV_{eff}}{dr} = 0$$ \\n 计算导数：\\n $$\\frac{dV_{eff}}{dr} = \\frac{d}{dr} \\left( \\frac{L^2}{r^2} - \\frac{L^2 r_s}{r^3}\\right) = -\\frac{2L^2}{r^3} + \\frac{3L^2 r_s}{r^4} = 0$$ \\n 解得：\\n $$\\frac{2}{r^3} = \\frac{3 r_s}{r^4} \\implies r = \\frac{3}{2} r_s$$ \\n 此半径即为光子球半径 $r_{ph} = \\frac{3}{2} r_s$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

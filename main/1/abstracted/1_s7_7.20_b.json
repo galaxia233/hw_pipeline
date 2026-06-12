@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s7_7.20_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "tensor_calculus",
+      "target_object": "covariant_derivative",
+      "coordinate": "index_manipulation",
+      "scenario": "lie_bracket",
+      "method": "coordinate_free_formalism"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.20_b",
+    "source_id": "1_s7_7.20_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.20_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.4,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.3,
+      "rationale": "纯微分几何符号转换题，直接套用定义，无复杂物理推导链条与具体应用场景，但题干解答完整。",
+      "overall": 0.55
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mathbf{U}$",
+      "$\\mathbf{V}$",
+      "$\\alpha$",
+      "$\\beta$"
+    ],
+    "target": [
+      "$\\nabla_{\\mathbf{U}} \\mathbf{V} - \\nabla_{\\mathbf{V}} \\mathbf{U}$",
+      "$[\\mathbf{U}, \\mathbf{V}]$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.20. Write the following expressions in index-free notation:(b) $\\mathbf{V}_{; \\beta}^{\\alpha} \\mathbf{U}^{\\beta} - \\mathbf{U}_{; \\beta}^{\\alpha} \\mathbf{V}^{\\beta}$",
+    "answer": "$\\nabla_{\\mathbf{U}} \\mathbf{V} - \\nabla_{\\mathbf{V}} \\mathbf{U} \\equiv [\\mathbf{U}, \\mathbf{V}]$",
+    "solution": "$$\\mathbf {V}_{; \\beta}^{\\alpha} \\mathbf {U}^{\\beta} - \\mathbf {U}_{; \\beta}^{\\alpha} \\mathbf {V}^{\\beta} = \\nabla_{\\mathbf {U}} \\mathbf {V} - \\nabla_{\\mathbf {V}} \\mathbf {U} \\equiv [ \\mathbf {U}, \\mathbf {V} ] \\tag {b}$$"
+  },
+  "verification": null
+}

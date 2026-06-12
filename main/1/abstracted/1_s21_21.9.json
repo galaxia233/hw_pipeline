@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s21_21.9",
+    "type": "calculate",
+    "tags": {
+      "metric": "junction_conditions",
+      "target_object": "surface_layer",
+      "coordinate": "covariant_derivative",
+      "scenario": "gaussian_coordinates",
+      "method": "discontinuity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s21_21.9",
+    "source_id": "1_s21_21.9",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s21_21.9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "结合高斯法坐标与初值约束，通过外曲率跳跃条件推导表面层运动方程，逻辑链条清晰且具有明确的引力理论物理背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^i$",
+      "$n$",
+      "$S_j^i$",
+      "$T_j^n$",
+      "$K_i^m$"
+    ],
+    "target": [
+      "$S_j^i$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 21.9. For a surface layer described with Gaussian normal coordinates $\\mathbf{n}$ and $\\mathbf{x}^i$ ( $i = 1, 2, 3$ ) (see solution to Problem 21.8) derive the equation of motion of the surface layer\\n$$\\n\\\\mathbf {S}_{j \\\\mid i}^{i} + \\\\left[ \\\\mathbf {T}_{j}^{n} \\\\right] = 0\\n$$\\nwhere the square brackets denote a discontinuity across the surface and the slash denotes covariant differentiation with respect to the intrinsic geometry of the 3-surface.",
+    "answer": "$\\\\mathbf {S}_{j \\\\mid i}^{i} + \\\\left[ \\\\mathbf {T}_{j}^{n} \\\\right] = 0$",
+    "solution": "Solution 21.9. From the initial value equations, we have\\n$$\\nG_{i}^{n} = - \\\\left\\\\{K_{i}^{m} |_{m} - (T r K)_{, i} \\\\right\\\\} = - \\\\left\\\\{K_{i}^{m} - \\\\delta_{i}^{m} T r (K) \\\\right\\\\} |_{m} = 8 \\\\pi T_{i}^{n}.\\n$$\\nThe discontinuity of this equation across the 3-surface is\\n$$\\n\\\\left. \\\\left\\\\{\\\\left[ K_{i}^{m} \\\\right] - \\\\delta_{i}^{m} T r [ K ] \\\\right\\\\} \\\\right|_{m} = - 8 \\\\pi \\\\left[ T_{i}^{n} \\\\right].\\n$$\\nBy combining this with our result from Problem 21.8, we have then\\n$$\\nS_{i}^{m} \\\\left|_{m} = - \\\\left[ T_{i}^{n} \\\\right] \\\\right..\\n$$"
+  },
+  "verification": null
+}

@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-1-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "光子球半径",
+      "coordinate": "球坐标",
+      "scenario": "参数化黑洞时空",
+      "method": "测地线方程",
+      "generalization_axis": "substitute",
+      "metric": "JanisNewmanWinicour"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-1",
+      "1_s15_15.11-1-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "JanisNewmanWinicour",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$r$"
+    ],
+    "metric": [
+      [
+        "-(-2*M/(gam*r) + 1)**gam",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "(-2*M/(gam*r) + 1)**(-gam)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2*(-2*M/(gam*r) + 1)**(1 - gam)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*(-2*M/(gam*r) + 1)**(1 - gam)*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在某参数化黑洞时空中，光子可以在特定半径处形成不稳定圆形轨道，构成所谓的“光子球”。已知在赤道面 ($\\theta = \\pi/2$) 上，光子球的轨道满足径向速度与径向加速度均为零的几何特征（即 $\\dot{r} = 0$ 且 $\\ddot{r} = 0$），且光子沿方位角 $\\phi$ 方向运动。请根据这些轨道性质与零测地线约束，利用测地线方程及度规的 Christoffel 符号，反推光子球轨道所处的径向坐标 $r$ 与黑洞参数 $M$ 及度规参数 $gam$ 的定量关系式。度规定义为：$ds^2 = - \\left(- \\frac{2 M}{gam r} + 1\\right)^{gam} dt^2 + \\left(- \\frac{2 M}{gam r} + 1\\right)^{- gam} dr^2 + r^{2} \\left(- \\frac{2 M}{gam r} + 1\\right)^{1 - gam} d\\theta^{2} + r^{2} \\left(- \\frac{2 M}{gam r} + 1\\right)^{1 - gam} \\sin^{2}{\\left(\\theta\\right)} d\\phi^{2}$",
+    "answer": "$r = \\frac{M(2 gam + 1)}{gam}$",
+    "solution": "1. 确定约束条件：对于赤道面 ($\\theta = \\pi/2$) 上的零测地线，有 $\\dot{\\theta} = 0$。光子处于圆形轨道，径向速度 $\\dot{r} = 0$，径向加速度 $\\ddot{r} = 0$。2. 零测地线条件给出：$g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = 0$。代入 $\\dot{r} = 0$ 和 $\\dot{\\theta} = 0$，得：   $g_{tt} \\dot{t}^2 + g_{\\phi\\phi} \\dot{\\phi}^2 = 0$   解得 $\\dot{t}^2$ 与 $\\dot{\\phi}^2$ 的关系：$\\dot{t}^2 = -\\frac{g_{\\phi\\phi}}{g_{tt}} \\dot{\\phi}^2$。   在赤道面 $\\theta = \\pi/2$，$g_{tt} = -\\left(\\frac{-2 M + gam r}{gam r}\\right)^{gam}$，$g_{\\phi\\phi} = r^2 \\left(\\frac{-2 M + gam r}{gam r}\\right)^{1 - gam}$。   因此，$\\dot{t}^2 = r^2 \\left(\\frac{-2 M + gam r}{gam r}\\right)^{1 - 2 gam} \\dot{\\phi}^2$。3. 写出径向测地线方程：$\\ddot{r} + \\Gamma^1_{\\alpha\\beta} \\dot{x}^\\alpha \\dot{x}^\\beta = 0$。   由于 $\\dot{r} = 0$ 且 $\\dot{\\theta} = 0$，展开后仅保留包含 $\\dot{t}$ 和 $\\dot{\\phi}$ 的项：   $\\ddot{r} + \\Gamma^1_{00} \\dot{t}^2 + \\Gamma^1_{33} \\dot{\\phi}^2 = 0$。4. 利用几何属性数据代入 Christoffel 符号：   $\\Gamma^1_{00} = \\frac{M gam \\left(\\frac{- 2 M + gam r}{gam r}\\right)^{2 gam}}{r \\left(- 2 M + gam r\\right)}$   $\\Gamma^1_{33} = \\frac{M gam + M - gam r}{gam}$ （在赤道面 $\\sin^2(\\theta) = 1$）5. 将 Christoffel 符号与 $\\dot{t}^2$ 表达式代入径向测地线方程（注意 $\\ddot{r} = 0$）：   $\\frac{M gam \\left(\\frac{- 2 M + gam r}{gam r}\\right)^{2 gam}}{r \\left(- 2 M + gam r\\right)} \\left( r^2 \\left(\\frac{- 2 M + gam r}{gam r}\\right)^{1 - 2 gam} \\dot{\\phi}^2\\right) + \\frac{M gam + M - gam r}{gam} \\dot{\\phi}^2 = 0$6. 化简方程：第一项约化为 $\\frac{M gam r}{- 2 M + gam r} \\left(\\frac{- 2 M + gam r}{gam r}\\right) \\dot{\\phi}^2 = M \\dot{\\phi}^2$，提取公因子 $\\dot{\\phi}^2$（由于光子在运动 $\\dot{\\phi} \\neq 0$）：   $M + \\frac{M gam + M - gam r}{gam} = 0$   $\\frac{2 M gam + M - gam r}{gam} = 0$7. 由此反推得出光子球半径与黑洞参数 $M$ 及度规参数 $gam$ 的定量关系：$gam r = 2 M gam + M$，即 $r = \\frac{M(2 gam + 1)}{gam}$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.janisnewmanwinicour_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "题目将 Janis-Newman-Winicour (JNW) 度规称为'参数化黑洞时空'，但这是一个严重的物理概念错误。JNW 度规在参数 gam ($\\gamma$) $\\neq 1$ 时不存在事件视界，而是带标量场的裸奇点解，并非黑洞。只有当 $gam=1$ 时它才退化为 Schwarzschild 黑洞。将裸奇点度规称为黑洞违背了广义相对论中黑洞必须具有事件视界的基本定义。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

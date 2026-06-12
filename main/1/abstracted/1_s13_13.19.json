@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s13_13.19",
+    "type": "prove",
+    "tags": {
+      "metric": "linearized_gravity",
+      "target_object": "metric_perturbation",
+      "coordinate": "Lorentz_gauge",
+      "scenario": "conservation_laws",
+      "method": "perturbation_order"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.19",
+    "source_id": "1_s13_13.19",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.19"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "线性微扰理论中协变散度与偏导数差异的阶数分析，逻辑链条清晰完整",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\mu$",
+      "$\\mathbf{T}^{\\mu \\nu}$",
+      "$\\mathbf{h}_{\\alpha \\beta}$",
+      "$\\overline{\\mathbf{h}}^{\\mu \\nu}$",
+      "$\\Gamma^{\\lambda}_{\\mu \\nu}$"
+    ],
+    "target": [
+      "$\\mathbf{T}^{\\mu \\nu}_{;\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 13.19. In the linearized gravitational theory, show that the equations of motion for matter $\\mathbf{T}^{\\mu \\nu}_{;\\nu} = 0$ are inconsistent with the field equations for the metric perturbation. Show that this inconsistency is of second order in the metric perturbation, hence negligible to first order.",
+    "answer": "The inconsistent terms are of second order in the deviation of the metric from flatness.",
+    "solution": "Solution 13.19. The equations of motion $\\mathbf{T}^{\\mu \\nu}_{;\\nu} = 0$ are clearly gauge invariant, but in the Lorentz gauge (see Problem 13.15) $\\mathbf{T}^{\\mu \\nu}_{,\\nu} = -(16\\pi)^{-1}\\square \\overline{\\mathbf{h}}^{\\mu \\nu}_{,\\nu} = 0$ rather than $\\mathbf{T}_{\\mu \\nu}^{j\\nu} = 0$ . The difference between $\\mathbf{T}^{\\mu \\nu}_{;\\nu}$ and $\\mathbf{T}^{\\mu \\nu}_{,\\nu}$ is of order $\\mathbf{T}\\Gamma$ . But both $\\mathbf{T}$ and $\\Gamma$ are of the order of $\\mathfrak{h}_{\\alpha \\beta}$ so the inconsistent terms are of second order in the deviation of the metric from flatness."
+  },
+  "verification": null
+}

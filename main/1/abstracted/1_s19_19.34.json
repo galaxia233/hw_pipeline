@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s19_19.34",
+    "type": "calculate",
+    "tags": {
+      "metric": "spacetime_geometry",
+      "target_object": "cosmological_constant",
+      "coordinate": "solar_system_dynamics",
+      "scenario": "density_ratio_comparison",
+      "method": "order_of_magnitude_estimation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.34",
+    "source_id": "1_s19_19.34",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.34"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.3,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "真实天体物理场景估算+密度对比直接推导+解答完整",
+      "overall": 0.65
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\Lambda$",
+      "$\\rho_c$",
+      "$\\rho_{\\text{body}}$",
+      "$\\rho_{\\text{solar system}}$",
+      "$c$"
+    ],
+    "target": [
+      "$\\frac{\\rho_c}{\\rho_{\\text{solar system}}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.34. What is the order of magnitude of the influence of the cosmological constant on the celestial mechanics of the solar system if $\\Lambda \\sim 10^{-57} \\mathrm{~cm}^{-2}$ ?",
+    "answer": "$10^{-19}$",
+    "solution": "## SolutionSolution 19.34. The effective $\\rho_{\\mathbf{c}}$ density corresponding to $\\Lambda$ is$$\\rho_{c} = \\frac {\\Lambda}{8 \\pi} = \\frac {1 0^{- 5 7} c m^{- 2}}{8 \\pi} \\approx 4 \\times 1 0^{- 3 1} g m / c m^{3}.$$Typical densities in the solar system are$$\\rho_{\\text {b o d y}} \\sim 1 \\mathrm {g m} / \\mathrm {c m}^{3}$$$$\\rho_{\\text {s o l a r s y s t e m}} \\sim 1 0^{3 3} \\mathrm {g m} / (1 0^{1 5} \\mathrm {c m})^{3} \\sim 1 0^{- 1 2} \\mathrm {g m} / \\mathrm {c m}^{3}.$$Thus, the effect of $\\Lambda$ in the solar system, in order of magnitude is$$\\frac {\\rho_{c}}{\\rho_{\\text {s o l a r s y s t e m}}} \\sim 1 0^{- 1 9}.$$"
+  },
+  "verification": null
+}

@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s7_7.10",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "variational_calculus",
+      "coordinate": "geodesic_equation",
+      "scenario": "affine_connection",
+      "method": "curved_spacetime"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.10",
+    "source_id": "1_s7_7.10",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.10"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.8,
+      "rationale": "基于作用量变分原理推导测地线方程，需串联欧拉-拉格朗日方程、度规协变导数与克里斯托费尔符号定义，逻辑严密且适用于任意伪黎曼流形",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$s$",
+      "$x^{\\alpha}$",
+      "$u^{\\alpha}$",
+      "$g_{\\alpha\\beta}$",
+      "$\\Gamma^{\\tau}_{\\alpha\\gamma}$"
+    ],
+    "target": [
+      "$\\Gamma^{\\tau}_{\\alpha\\gamma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Derive the geodesic equation from the definition of a geodesic as a curve of extremal length.",
+    "answer": "\\frac {\\mathrm {d} ^ {2} \\mathbf {x} ^ {\\tau}}{\\mathrm {d s} ^ {2}} + \\Gamma_ {\\alpha \\gamma} ^ {\\tau} \\frac {\\mathrm {d} \\mathbf {x} ^ {\\alpha}}{\\mathrm {d s}} \\frac {\\mathrm {d} \\mathbf {x} ^ {\\gamma}}{\\mathrm {d s}} = 0",
+    "solution": "Solution 7.10. The integral for length is$$\\int \\mathrm {d} \\mathbf {s} = \\int \\left(- \\mathbf {g}_{\\alpha \\beta} \\frac {\\mathrm {d} \\mathbf {x}^{\\alpha}}{\\mathrm {d} s} \\frac {\\mathrm {d} \\mathbf {x}^{\\beta}}{\\mathrm {d} s}\\right)^{\\frac {1}{2}} \\mathrm {d} \\mathbf {s}.$$To extremize length take $\\delta \\int \\mathrm{d}s = 0$ . According to the Euler-Lagrange equations$$\\frac {\\mathrm {d}}{\\mathrm {d} \\mathrm {s}} \\left(\\mathrm {g}_{\\alpha \\beta} \\mathrm {u}^{\\alpha}\\right) = \\frac {1}{2} \\mathrm {g}_{\\alpha \\gamma , \\beta} \\mathrm {u}^{\\alpha} \\mathrm {u}^{\\gamma} \\tag {1}$$where $\\left(-\\mathbf{g}_{\\alpha \\beta}\\frac{\\mathrm{d}\\mathbf{x}^{\\alpha}}{\\mathrm{d}s}\\frac{\\mathrm{d}\\mathbf{x}^{\\beta}}{\\mathrm{d}s}\\right) = 1$ and $\\mathbf{u}^{\\alpha}\\equiv \\frac{\\mathrm{d}\\mathbf{x}^{\\alpha}}{\\mathrm{d}s}$ have been used. Now since$$\\frac {\\mathrm {d}}{\\mathrm {d} s} \\left(\\mathbf {g}_{\\alpha \\beta} \\mathbf {u}^{\\alpha}\\right) = \\mathbf {g}_{\\alpha \\beta} \\frac {\\mathrm {d} \\mathbf {u}^{\\alpha}}{\\mathrm {d} s} + \\frac {\\mathrm {d} \\mathbf {x}^{\\gamma}}{\\mathrm {d} s} \\mathbf {g}_{\\alpha \\beta , \\gamma} \\mathbf {u}^{\\alpha} = \\mathbf {g}_{\\alpha \\beta} \\frac {\\mathrm {d} \\mathbf {u}^{\\alpha}}{\\mathrm {d} s} + \\mathbf {u}^{\\gamma} \\mathbf {u}^{\\alpha} \\mathbf {g}_{\\alpha \\beta , \\gamma}$$Equation (1) becomes$$\\mathrm {g}_{\\alpha \\beta} \\frac {\\mathrm {d}^{2} \\mathrm {x}^{\\alpha}}{\\mathrm {d s}^{2}} + \\mathrm {u}^{\\alpha} \\mathrm {u}^{\\gamma} \\left(\\mathrm {g}_{\\alpha \\beta , \\gamma} - \\frac {1}{2} \\mathrm {g}_{\\alpha \\gamma , \\beta}\\right) = 0. \\tag {2}$$Now, use$$\\mathsf {u}^{\\alpha} \\mathsf {u}^{\\gamma} \\mathsf {g}_{\\alpha \\beta , \\gamma} = \\mathsf {u}^{\\alpha} \\mathsf {u}^{\\gamma} \\cdot \\frac {1}{2} \\left(\\mathsf {g}_{\\alpha \\beta , \\gamma} + \\mathsf {g}_{\\gamma \\beta , a}\\right)$$and multiply Equation (2) by $g^{\\beta \\tau}$ to obtain$$\\begin{array}{l} \\frac {\\mathrm {d}^{2} \\mathbf {x}^{\\tau}}{\\mathrm {d s}^{2}} + \\frac {1}{2} \\mathrm {g}^{\\beta \\tau} \\left(\\mathrm {g}_{\\alpha \\beta , \\gamma} + \\mathrm {g}_{\\gamma \\beta , \\alpha} - \\mathrm {g}_{\\alpha \\gamma , \\beta}\\right) \\mathrm {u}^{\\alpha} \\mathrm {u}^{\\gamma} \\tag {3} \\\\= \\frac {\\mathrm {d}^{2} \\mathbf {x}^{\\tau}}{\\mathrm {d s}^{2}} + \\Gamma_{\\alpha \\gamma}^{\\tau} \\frac {\\mathrm {d} \\mathbf {x}^{\\alpha}}{\\mathrm {d s}} \\frac {\\mathrm {d} \\mathbf {x}^{\\gamma}}{\\mathrm {d s}} = 0. \\\\\\end {array}$$"
+  },
+  "verification": null
+}

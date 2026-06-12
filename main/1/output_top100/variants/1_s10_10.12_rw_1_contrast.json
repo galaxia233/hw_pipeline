@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-2-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "covariant conservation equation and local continuity equation",
+      "coordinate": "(t,x,y,z) vs (t,r,theta,phi)",
+      "scenario": "flat vs curved spacetime contrast",
+      "method": "covariant derivative expansion",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-2",
+      "1_s10_10.12-2-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T^{\\\\alpha}_{\\\\beta}$",
+      "$\\\\xi^{\\\\beta}$",
+      "$\\\\Sigma_{\\\\alpha}$",
+      "$|g|$",
+      "$x^{a}$"
+    ],
+    "target": [
+      "covariant conservation equation expansion",
+      "local continuity equation contrast"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，对于具有时间类 Killing 矢量 $\\xi^\\mu$ 的时空，可以构造守恒流 $J^\\alpha = T^\\alpha_\\beta \\xi^\\beta$，其满足协变守恒方程 $\\nabla_\\alpha J^\\alpha = 0$。请分别在以下两种时空背景下，将守恒方程 $\\nabla_\\alpha J^\\alpha = 0$ 展开为包含偏导数和度规因子/Christoffel 符号的具体形式，对比两者的差异，并解释 Schwarzschild 时空中多出项的物理含义：背景 A (Minkowski 平直时空)：度规 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$，时间类 Killing 矢量 $\\xi^\\mu = \\delta^\\mu_t$；背景 B (Schwarzschild 弯曲时空)：度规 $ds^2 = -\\frac{r-r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，时间类 Killing 矢量 $\\xi^\\mu = \\delta^\\mu_t$。",
+    "answer": "在背景 A (Minkowski 时空) 下，Christoffel 符号全为零，协变导数退化为偏导数，守恒方程展开为 $\\partial_\\alpha T^\\alpha_t = 0$，即狭义相对论中的纯物质能量连续性方程。在背景 B (Schwarzschild 时空) 下，度规因子 $\\sqrt{-g} = r^2 \\sin\\theta$ 且存在非零 Christoffel 符号（如 $\\Gamma^r_{tt} = \\frac{r_s(r-r_s)}{2r^3}$ 等），守恒方程展开为 $\\frac{1}{r^2 \\sin\\theta} \\partial_\\alpha (r^2 \\sin\\theta T^\\alpha_t) - \\Gamma^\\lambda_{\\alpha t} T^\\alpha_\\lambda = 0$。对比差异：Schwarzschild 时空中多出了度规体积因子和 Christoffel 符号项，使得物质能量不再满足简单的连续性方程 $\\partial_\\alpha T^\\alpha_t = 0$。物理含义：这些额外项体现了引力场对物质局域能量守恒表观形式的影响。在局部坐标系下，引力场（表现为时空弯曲与 Christoffel 符号）与物质之间存在能量动量的交换（如引力做功改变物质能量密度与能流分布），导致纯物质的局域能量不再“单独守恒”；物质的能量动量与引力场的耦合共同维持了全局 Killing 矢量守恒流的协变守恒。",
+    "solution": "1. **Minkowski 展开**：对于背景 A，$\\xi^\\beta = \\delta^\\beta_t$，守恒流 $J^\\alpha = T^\\alpha_t$。由于平直度规 $\\eta_{\\mu\\nu}$ 的 Christoffel 符号 $\\Gamma^\\alpha_{\\beta\\gamma} = 0$，协变导数直接退化为偏导数：$\\nabla_\\alpha T^\\alpha_t = \\partial_\\alpha T^\\alpha_t = 0$。2. **Schwarzschild 展开**：对于背景 B，同样有 $J^\\alpha = T^\\alpha_t$。利用混合张量协变导数的标准展开式，或利用一般公式 $\\nabla_\\alpha J^\\alpha = \\frac{1}{\\sqrt{-g}} \\partial_\\alpha (\\sqrt{-g} J^\\alpha) - \\Gamma^\\lambda_{\\alpha t} T^\\alpha_\\lambda = 0$，代入 Schwarzschild 度规的 $\\sqrt{-g} = r^2 \\sin\\theta$ 及非零的 $\\Gamma^r_{tt}$ 等分量，即可得到包含度规因子与 Christoffel 符号的具体展开式。3. **物理对比**：平直时空中物质能量流是简单的局域守恒；弯曲时空中，额外的度规因子项反映了空间体积的几何膨胀效应，而 Christoffel 项（特别是 $\\Gamma^\\lambda_{\\alpha t}$ 相关项）反映了引力场对物质做功及物质与引力场之间的能量动量转移，使得狭义相对论的纯物质局域连续性方程不再成立，而必须以协变形式包含引力场的几何耦合作用。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目在核心数学公式和物理概念上存在严重错误：\n1. **矢量协变散度公式错误**：对于守恒流 $J^\\alpha$（它是一个矢量），其协变散度的标准展开式应为 $\\nabla_\\alpha J^\\alpha = \\frac{1}{\\sqrt{-g}} \\partial_\\alpha (\\sqrt{-g} J^\\alpha)$，根本不存在额外的 Christoffel 符号项。但 solution 中给出了完全错误的公式 $\\nabla_\\alpha J^\\alpha = \\frac{1}{\\sqrt{-g}} \\partial_\\alpha (\\sqrt{-g} J^\\alpha) - \\Gamma^\\lambda_{\\alpha t} T^\\alpha_\\lambda = 0$。\n2. **概念混淆**：题目要求展开的是 Killing 矢量守恒流方程 $\\nabla_\\alpha J^\\alpha = 0$，而 answer 和 solution 给出的展开式 $\\frac{1}{\\sqrt{-g}} \\partial_\\alpha (\\sqrt{-g} T^\\alpha_t) - \\Gamma^\\lambda_{\\alpha t} T^\\alpha_\\lambda = 0$ 实际上是**能量动量张量协变守恒方程** $\\nabla_\\alpha T^\\alpha_t = 0$ 的展开式，而非矢量 $J^\\alpha$ 的协变散度。$\\nabla_\\alpha J^\\alpha = 0$ 的正确展开仅为 $\\frac{1}{\\sqrt{-g}} \\partial_\\alpha (\\sqrt{-g} T^\\alpha_t) = 0$，这在 Schwarzschild 时空和 Minkowski 时空（笛卡尔坐标下）具有完全相同的代数形式，仅相差度规体积因子，并没有多出 Christoffel 符号项。\n3. **物理含义解释错误**：由于上述数学错误，answer 声称 Schwarzschild 时空的 Killing 流方程多出了体现“引力场与物质之间能量动量交换”的 Christoffel 符号项。实际上，这一项属于 $\\nabla_\\alpha T^\\alpha_\\beta = 0$，不属于 $\\nabla_\\alpha J^\\alpha = 0$。Killing 流 $J^\\alpha$ 的协变守恒本身是一个严格的守恒律，其展开形式中并不包含代表引力做功的 Christoffel 符号项。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

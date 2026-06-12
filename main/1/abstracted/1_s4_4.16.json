@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s4_4.16",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "trace",
+      "scenario": "electromagnetic_field",
+      "method": "tensor_algebra"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.16",
+    "source_id": "1_s4_4.16",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.16"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.4,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "直接缩并求迹步骤简短，但有明确电磁场物理背景且解答完整",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\eta_{\\\\mu\\\\nu}$",
+      "$F_{\\\\mu\\\\nu}$",
+      "$T_{\\\\mu}^{\\\\mu}$"
+    ],
+    "target": [
+      "$T_{\\\\mu}^{\\\\mu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 4.16. Show that the stress-energy tensor for the electromagnetic field has zero trace.",
+    "answer": "$0$",
+    "solution": "Solution 4.16. From the stress-energy $\\mathbf{T}^{\\\\mu \\\\nu} = (1 / 4\\\\pi)(\\mathbf{F}^{\\\\mu a}\\mathbf{F}^{\\\\nu}_{a} - \\\\frac{1}{4}\\\\eta^{\\\\mu \\\\nu}\\mathbf{F}_{a}\\beta \\mathbf{F}^{\\\\alpha \\\\beta})$ the trace is easily computed to be\\n$$\\n\\\\mathbf {T}_{\\\\mu}^{\\\\mu} = (1 / 4 \\\\pi ) ( \\\\mathbf {F}^{\\\\mu \\\\alpha} \\\\mathbf {F}_{\\\\mu \\\\alpha} - \\\\frac {1}{4} \\\\cdot 4 \\\\cdot \\\\mathbf {F}_{\\\\alpha \\\\beta} \\\\mathbf {F}^{\\\\alpha \\\\beta} ) = 0 .\\n$$"
+  },
+  "verification": null
+}

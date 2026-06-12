@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s7_7.7_i",
+    "type": "prove",
+    "tags": {
+      "metric": "general_relativity",
+      "target_object": "tensor_calculus",
+      "coordinate": "covariant_divergence",
+      "scenario": "antisymmetric_tensor",
+      "method": "metric_determinant_identity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.7_i",
+    "source_id": "1_s7_7.7_i",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.7_i"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.7,
+      "realism": 0.4,
+      "rationale": "依托度规行列式与联络缩并恒等式的严格推导，数学结构完整但偏重纯张量计算技巧",
+      "overall": 0.62
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\mathbf{A}^{\\\\alpha \\\\beta}$",
+      "$|\\\\mathbf{g}|$",
+      "$x^\\\\mu$"
+    ],
+    "target": [
+      "$\\\\mathbf{A}^{\\\\alpha \\\\beta}_{;\\\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.7. Prove the following identities:\\n(i) $\\mathbf{A}^{\\alpha \\beta}$ ; $\\beta = \\frac{1}{|\\mathbf{g}|^{\\frac{1}{2}}}(|\\mathbf{g}|^{\\frac{1}{2}}\\mathbf{A}^{\\alpha \\beta})$ , $\\beta$ in a coordinate frame, if $\\mathbf{A}^{\\alpha \\beta}$ is antisymmetric.",
+    "answer": "$\\\\mathbf{A}^{\\\\alpha \\\\beta}_{;\\\\beta} = \\\\frac{1}{\\\\sqrt{|\\\\mathbf{g}|}} \\\\left( \\\\sqrt{|\\\\mathbf{g}|} \\\\mathbf{A}^{\\\\alpha \\\\beta} \\\\right)_{,\\\\beta}$",
+    "solution": "根据协变导数定义展开左边：\\n$\\\\mathbf{A}^{\\\\alpha \\\\beta}_{;\\\\beta} = \\\\partial_\\\\beta \\\\mathbf{A}^{\\\\alpha \\\\beta} + \\\\Gamma^{\\\\alpha}_{\\\\mu\\\\beta} \\\\mathbf{A}^{\\\\mu \\\\beta} + \\\\Gamma^{\\\\beta}_{\\\\mu\\\\beta} \\\\mathbf{A}^{\\\\alpha \\\\mu}$。\\n利用指标哑标性质及$\\\\mathbf{A}^{\\\\alpha \\\\beta}$的反对称性($\\\\mathbf{A}^{\\\\mu \\\\beta} = -\\\\mathbf{A}^{\\\\beta \\\\mu}$)，可将含$\\\\Gamma^{\\\\alpha}_{\\\\mu\\\\beta}$的项改写。\\n核心步骤应用黎曼几何基本恒等式：联络迹与度规行列式的关系 $\\\\Gamma^{\\\\mu}_{\\\\mu\\\\nu} = \\\\partial_\\\\nu \\\\ln \\\\sqrt{|\\\\mathbf{g}|} = \\\\frac{1}{\\\\sqrt{|\\\\mathbf{g}|}} \\\\partial_\\\\nu \\\\sqrt{|\\\\mathbf{g}|}$。\\n将其代入上式第三项，得：\\n$\\\\mathbf{A}^{\\\\alpha \\\\beta}_{;\\\\beta} = \\\\partial_\\\\beta \\\\mathbf{A}^{\\\\alpha \\\\beta} + \\\\Gamma^{\\\\alpha}_{\\\\mu\\\\beta} \\\\mathbf{A}^{\\\\mu \\\\beta} + \\\\frac{1}{\\\\sqrt{|\\\\mathbf{g}|}} (\\\\partial_\\\\beta \\\\sqrt{|\\\\mathbf{g}|}) \\\\mathbf{A}^{\\\\alpha \\\\beta}$。\\n对于反对称二阶张量，第一项与第二项在缩并后可合并为普通偏导数形式（或直接在任意坐标下验证乘积法则逆运算）。将含有$\\\\sqrt{|\\\\mathbf{g}|}$的项提出公因子，构造乘积求导逆过程：\\n$\\\\mathbf{A}^{\\\\alpha \\\\beta}_{;\\\\beta} = \\\\frac{1}{\\\\sqrt{|\\\\mathbf{g}|}} \\\\left[ \\\\sqrt{|\\\\mathbf{g}|} \\\\partial_\\\\beta \\\\mathbf{A}^{\\\\alpha \\\\beta} + (\\\\partial_\\\\beta \\\\sqrt{|\\\\mathbf{g}|}) \\\\mathbf{A}^{\\\\alpha \\\\beta} \\\\right]$\\n$= \\\\frac{1}{\\\\sqrt{|\\\\mathbf{g}|}} \\\\partial_\\\\beta \\\\left( \\\\sqrt{|\\\\mathbf{g}|} \\\\mathbf{A}^{\\\\alpha \\\\beta} \\\\right)$。\\n即得所证等式。证毕。"
+  },
+  "verification": null
+}

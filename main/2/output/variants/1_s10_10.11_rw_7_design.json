@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-7-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "Conserved current divergence",
+      "coordinate": "comoving",
+      "scenario": "spatial_inhomogeneity_design",
+      "method": "design",
+      "generalization_axis": "cross_metric",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-7",
+      "1_s10_10.11-7-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "FLRW",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\nabla_\\mu J^\\mu$ 极限行为"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，如果存在 Killing 矢量场 $\\xi^\\mu$，则可以构造守恒流 $J^\\mu = T^{\\mu\\nu}\\xi_\\nu$，其协变散度为零，代表相应的物理量守恒。考虑具有空间不均匀性的时空，其度规为：$$ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}}(dx^2 + dy^2 + dz^2)$$该时空在时间方向具有平移对称性（Killing 矢量 $\\xi^\\mu=(1,0,0,0)$），但在 x 方向由于度规依赖坐标 x，破坏了空间平移对称性。当参数 $\\alpha \\to \\inf ty$ 时，度规趋于平直闵氏时空，x 方向的平移对称性应当恢复。对于沿 x 方向的平移矢量 $\\xi^\\mu = (0,1,0,0)$ 和共动完美流体的能动张量 $T^{\\mu\\nu} = (\\rho+p)u^\\mu u^\\nu + p g^{\\mu\\nu}$（共动四维速度 $u^\\mu = (1,0,0,0)$），理论上可以证明其构造的流 $J^\\mu = T^{\\mu\\nu}\\xi_\\nu$ 的协变散度 $\\nabla_\\mu J^\\mu = \\frac{3p}{\\alpha}$，在 $\\alpha \\to \\inf ty$ 极限下消失，恢复了 x 方向的动量守恒。请设计一个数值实验方案，通过逐步调整参数 $\\alpha$ 来验证上述结论：即在一般 $\\alpha$ 下散度不为零，而在 $\\alpha \\to \\inf ty$ 极限下散度趋于零。方案需说明参数设定、需要计算的关键张量及几何量，以及验证极限行为的步骤与预期结果。",
+    "answer": "1. **参数设定**：选取一系列逐渐增大的参数 $\\alpha \\in \\{1, 5, 10, 50, 100, 1000\\}$，以逼近 $\\alpha \\to \\inf ty$ 的平直时空极限。设定共动完美流体的常数压强 $p=1$ 和密度 $\\rho=1$。2. **计算度规与逆变分量**：在给定 $\\alpha$ 下，数值计算度规张量 $g_{\\mu\\nu}$ 及其逆变形式 $g^{\\mu\\nu}$。3. **计算矢量与协变导数**：定义空间平移矢量 $\\xi^\\mu=(0,1,0,0)$，计算其协变分量 $\\xi_\\nu = g_{\\nu\\mu}\\xi^\\mu$。利用 Christoffel 符号 $\\Gamma^\\alpha_{\\mu\\nu}$ 计算其协变导数 $\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu - \\Gamma^\\alpha_{\\mu\\nu} \\xi_\\alpha$。4. **计算能动张量与流**：计算共动完美流体能动张量 $T^{\\mu\\nu} = (\\rho+p)u^\\mu u^\\nu + p g^{\\mu\\nu}$，并构造流 $J^\\mu = T^{\\mu\\nu}\\xi_\\nu$。5. **计算散度**：通过公式 $\\nabla_\\mu J^\\mu = T^{\\mu\\nu} \\nabla_\\mu \\xi_\\nu$ 数值计算流的协变散度。6. **极限验证**：绘制 $\\nabla_\\mu J^\\mu$ 随 $\\alpha$ 变化的曲线。预期结果：散度数值与理论值 $3p/\\alpha$ 完全吻合，随着 $\\alpha$ 增大，散度单调递减并趋于 0，验证了平直时空极限下 x 方向动量守恒的恢复。",
+    "solution": "本方案通过控制时空不均匀参数 $\\alpha$ 的离散序列逼近连续极限，能够有效捕获几何形变下的物理量演化行为。选取直接计算协变导数和张量乘积的方式，避免了数值微分可能带来的截断误差。预期结果 $\\nabla_\\mu J^\\mu = 3p/\\alpha$ 明确展示了流的非守恒项与时空不均匀参数的反比关系，这不仅在有限 $\\alpha$ 下定量刻画了空间平移对称性破坏导致的动量耗散，更在 $\\alpha \\to \\inf ty$ 极限下严格回归闵氏时空的守恒定律，物理逻辑自洽且数值可验证。"
+  },
+  "verification": null
+}

@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "Killing_equation",
+      "coordinate": "spherical",
+      "scenario": "black_hole",
+      "method": "covariant_derivative",
+      "generalization_axis": "invert",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\nabla_r \\xi_{\\phi} + \\nabla_{\\phi} \\xi_r = 0$",
+      "$\\frac{d \\xi_{\\phi}}{d r} = \\frac{2}{r} \\xi_{\\phi}$",
+      "$g_{\\phi\\phi} = C r^{2}$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规为：$$ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$考虑在赤道面 $\\theta = \\pi/2$ 上运动的自由粒子（测地线），其四维速度为 $u^\\mu = (\\dot{t}, \\dot{r}, 0, \\dot{\\phi})$。已知该粒子的角动量 $L = r^2 \\dot{\\phi}$ 沿测地线守恒，且该守恒量可由 Killing 矢量 $\\boldsymbol{\\xi} = (0, 0, 0, 1)$ 与切矢量的内积给出：$L = \\xi_\\mu u^\\mu$。请从该守恒量 $L$ 沿任意赤道面测地线为常数这一已知性质出发，结合测地线方程，反推协变 Killing 矢量分量 $\\xi_\\phi$ 必须满足的微分方程（即 Killing 方程的特定分量），并求解该微分方程以推断度规分量 $g_{\\phi\\phi}$ 必须具有的函数形式。",
+    "answer": "反推得到的微分方程为 $\\frac{d \\xi_\\phi}{d r} = \\frac{2}{r} \\xi_\\phi$，解得的度规分量形式为 $g_{\\phi\\phi} = C r^{2}$。",
+    "solution": "1. 写出守恒量的全导数并展开：\\n   由于 $L = \\xi_\\mu u^\\mu$ 沿测地线守恒，有 $\\frac{dL}{d\\lambda} = u^\\alpha \\nabla_\\alpha (\\xi_\\mu u^\\mu) = 0$。\\n   展开协变导数得：\\n   $u^\\alpha (\\nabla_\\alpha \\xi_\\mu) u^\\mu + \\xi_\\mu u^\\alpha \\nabla_\\alpha u^\\mu = 0$。\\n\\n2. 利用测地线方程简化：\\n   由于 $u^\\mu$ 是测地线切矢量，满足 $u^\\alpha \\nabla_\\alpha u^\\mu = 0$，第二项为零，故：\\n   $u^\\mu u^\\alpha \\nabla_\\alpha \\xi_\\mu = 0$。\\n   由于这对任意初始条件的测地线均成立，可提取对称部分，反推 Killing 方程：$\\nabla_\\alpha \\xi_\\mu + \\nabla_\\mu \\xi_\\alpha = 0$。\\n\\n3. 计算 $(r, \\phi)$ 分量的 Killing 方程：\\n   在赤道面上，$\\xi^\\mu = (0,0,0,1)$，且 $\\xi_\\mu$ 只有 $\\xi_\\phi = g_{\\phi\\phi} \\xi^\\phi = g_{\\phi\\phi}$ 非 0。\\n   我们需要计算 $\\nabla_r \\xi_\\phi + \\nabla_\\phi \\xi_r = 0$。\\n   $\\nabla_r \\xi_\\phi = \\partial_r \\xi_\\phi - \\Gamma^\\sigma_{r\\phi} \\xi_\\sigma$。由于 $\\xi_t=0, \\xi_r=0, \\xi_\\theta=0$，只有 $\\sigma=\\phi$ 项不为零。由 Christoffel 符号数据知 $\\Gamma^\\phi_{r\\phi} = \\frac{1}{r}$，故：\\n   $\\nabla_r \\xi_\\phi = \\frac{d \\xi_\\phi}{d r} - \\frac{1}{r} \\xi_\\phi$。\\n   同理，$\\nabla_\\phi \\xi_r = \\partial_\\phi \\xi_r - \\Gamma^\\sigma_{\\phi r} \\xi_\\sigma = -\\Gamma^\\phi_{\\phi r} \\xi_\\phi = -\\frac{1}{r} \\xi_\\phi$。\\n\\n4. 反推微分方程：\\n   将上述结果代入 Killing 方程：\\n   $\\left( \\frac{d \\xi_\\phi}{d r} - \\frac{1}{r} \\xi_\\phi\\right) - \\frac{1}{r} \\xi_\\phi = 0$，\\n   即反推得到 $\\xi_\\phi$ 必须满足的微分方程为：\\n   $$\\frac{d \\xi_\\phi}{d r} = \\frac{2}{r} \\xi_\\phi$$\\n\\n5. 求解微分方程推断度规特征：\\n 解此一阶常微分方程得 $\\xi_\\phi = C r^{2}$，其中 $C$ 为常数。\\n 由于 $\\xi_\\phi = g_{\\phi\\phi} \\xi^\\phi$ 且 $\\xi^\\phi = 1$，反推得出度规分量必须具有形式：\\n $$g_{\\phi\\phi} = C r^{2}$$\\n 在 Schwarzschild 度规中取 $C=1$，恰好验证了 $g_{\\phi\\phi} = r^2$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "1. Answer 和 Solution 将偏微分方程 $\\partial_r \\xi_\\phi = \\frac{2}{r} \\xi_\\phi$ 错误地视为仅关于 $r$ 的常微分方程求解，得出 $\\xi_\\phi = C r^2$（其中C为纯常数）并推断度规分量形式为 $g_{\\phi\\phi} = C r^2$。由于 $\\xi_\\phi = g_{\\phi\\phi}$ 且度规分量不仅依赖于 $r$ 还依赖于 $\\theta$，正确的偏微分方程通解应为 $\\xi_\\phi = f(\\theta, \\phi) r^2$，即 $g_{\\phi\\phi} = f(\\theta, \\phi) r^2$。\\n2. Solution 在最后声称“在 Schwarzschild 度规中取 $C=1$，恰好验证了 $g_{\\phi\\phi} = r^2$”，完全丢失了球对称度规必不可少的 $\\sin^2\\theta$ 因子（题目开篇度规明确给出 $g_{\\phi\\phi} = r^2 \\sin^2\\theta$），将球面几何错误地推断为圆柱面几何 $g_{\\phi\\phi} = C r^2$，属于严重的物理与数学错误。\\n3. Solution 步骤2中声称从赤道面测地线守恒量可反推完整的 Killing 方程 $\\nabla_\\alpha \\xi_\\mu + \\nabla_\\mu \\xi_\\alpha = 0$，存在逻辑跳跃。赤道面上的测地线只能反推投影在该切空间上的特定分量（如 $\\nabla_r \\xi_\\phi + \\nabla_\\phi \\xi_r = 0$），无法直接得出全时空的完整 Killing 方程。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

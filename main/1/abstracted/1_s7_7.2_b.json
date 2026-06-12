@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s7_7.2_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "2D_Euclidean_Metric",
+      "target_object": "Christoffel_Connection_Coefficients",
+      "coordinate": "Polar_and_Cartesian_Coordinates",
+      "scenario": "Flat_Spacetime_Classical_Analog",
+      "method": "Tensor_Transformation_Law"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.2_b",
+    "source_id": "1_s7_7.2_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.2_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.9,
+      "completeness": 0.5,
+      "realism": 0.3,
+      "rationale": "利用联络非齐次变换律进行多步坐标导数计算，结构高度通用但为纯数学推导缺乏实际物理应用场景",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$r$",
+      "$\\\\theta$",
+      "$x$",
+      "$y$"
+    ],
+    "target": [
+      "$\\\\Gamma_{\\\\theta\\\\theta}^{r}$",
+      "$\\\\Gamma_{r\\\\theta}^{\\\\theta}$",
+      "$\\\\Gamma_{\\\\theta r}^{\\\\theta}$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$r^2$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "r**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "[文件 1: 1_s7_7.2_b.md]\\n\\nProblem 7.2. For a 2-dimensional flat, Euclidean space described by polar coordinates $\\mathbf{r}$ , $\\theta$ , assume that the geodesics are the usual straight lines.\\n(b) Next, in the coordinates $\\mathbf{x}, \\mathbf{y}$ which are related to $\\mathbf{r}, \\theta$ in the usual way, take the covariant structure to be given by $\\Gamma_{\\mathbf{x}\\mathbf{x}}^{\\mathbf{x}} = \\Gamma_{\\mathbf{x}\\mathbf{y}}^{\\mathbf{x}} = \\dot s = 0$ . Using the transformation law for connection coefficients find the connection coefficients in the $\\mathbf{r}, \\theta$ coordinates.\\n\\n## Solution",
+    "answer": "$\\\\Gamma_{\\\\theta\\\\theta}^{r} = -r, \\\\; \\\\Gamma_{r\\\\theta}^{\\\\theta} = \\\\Gamma_{\\\\theta r}^{\\\\theta} = \\\\frac{1}{r}$",
+    "solution": "(b) From $r^2 = x^2 + y^2$ , and $\\cot \\\\theta = x / y$ we get a transformation matrix\\n$$\\n\\\\mu = \\\\mathbf {x} \\\\quad \\\\mu = \\\\mathbf {y}\\n$$\\n$$\\nL_{\\\\mu}^{\\\\alpha^{\\\\prime}} = \\\\left[ \\\\begin{array}{c c} \\\\cos \\\\theta & \\\\sin \\\\theta \\\\\\\\ - \\\\frac {\\\\sin \\\\theta}{r} & \\\\frac {\\\\cos \\\\theta}{r} \\\\end{array} \\\\right]\\n$$\\nand its inverse\\n$$\\n\\\\beta^{\\\\prime} = \\\\mathbf {r} \\\\quad \\\\beta^{\\\\prime} = \\\\theta\\n$$\\n$$\\nL^{\\\\mu}_{\\\\beta^{\\\\prime}} = \\\\left[ \\\\begin{array}{c c} \\\\cos \\\\theta & - r \\\\sin \\\\theta \\\\\\\\ \\\\sin \\\\theta & r \\\\cos \\\\theta \\\\end{array} \\\\right]\\n$$\\n(Example: $\\mathbf{x} = \\\\mathbf{r}\\\\cos \\\\theta \\\\Rightarrow \\\\mathrm{d}\\\\mathbf{x} = \\\\mathrm{d}\\\\mathbf{r}\\\\cos \\\\theta -\\\\mathbf{r}\\\\sin \\\\theta \\\\mathrm{d}\\\\theta \\\\Rightarrow$ first row above.)\\nThe transformation law for the $\\Gamma$ 's (Problem 7.1) is\\n$$\\n\\\\Gamma_{\\\\beta^{\\\\prime} \\\\gamma^{\\\\prime}}^{a^{\\\\prime}} = \\\\mathrm {L}_{\\\\rho}^{a^{\\\\prime}} \\\\mathrm {L}_{\\\\beta}^{\\\\mu} \\\\mathrm {L}_{\\\\gamma^{\\\\prime}}^{\\\\nu} \\\\Gamma_{\\\\mu \\\\nu}^{\\\\rho} + \\\\mathrm {L}_{\\\\mu}^{a^{\\\\prime}} \\\\mathrm {L}_{\\\\beta^{\\\\prime}, \\\\gamma^{\\\\prime}}^{\\\\mu}.\\n$$\\nSince $\\Gamma_{\\\\mu \\\\nu}^{\\\\rho} = 0$ in cartesian coordinates, only the second term contributes, and straightforward differentiation and matrix multiplication gives the desired results."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 2,
+    "variables": [
+      "r",
+      "\\\\theta"
+    ],
+    "metric_latex": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "r^{2}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_011": "- r",
+      "Gamma_101": "\\frac{1}{r}",
+      "Gamma_110": "\\frac{1}{r}"
+    },
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

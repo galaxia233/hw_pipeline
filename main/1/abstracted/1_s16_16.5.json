@@ -1,0 +1,186 @@
+{
+  "metadata": {
+    "id": "1_s16_16.5",
+    "type": "prove",
+    "tags": {
+      "metric": "brans-dicke-theory",
+      "target_object": "spherical-coordinates",
+      "coordinate": "static-vacuum-scenario",
+      "scenario": "tensor-field-equations",
+      "method": "regularity-analysis"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.5",
+    "source_id": "1_s16_16.5",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.5,
+      "rationale": "基于Brans-Dicke场方程的多步推导，结合球对称真空条件与原点正则性分析，逻辑严密且具有修改引力理论背景下的典型物理意义。",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\Phi$"
+    ],
+    "target": [
+      "$g_{\\\\mu\\\\nu}$",
+      "$\\Phi$"
+    ],
+    "metric": [
+      [
+        "$-e^{2U}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$e^{2\\lambda}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\\\sin^2 \\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.5. In the Brans-Dicke theory of gravity (see MTW p. 1070 or Weinberg p. 160 for field equations), show that the only static spherically vacuum solution which is regular at the origin is the flat-space metric $\\pmb{\\eta}$ and constant scalar field $\\Phi$ .",
+    "answer": "The flat-space metric $\\pmb{\\eta}$ and constant scalar field $\\Phi$ .",
+    "solution": "## Solution\\n\\nSolution 16.5. The vacuum field equations for the scalar field $\\Phi$ and metric $\\mathbf{g}_{\\mu \\nu}$ in the Brans-Dicke theory are\\n$$\\n\\\\begin{array}{l}\\nR_{\\\\alpha \\\\beta} - \\\\frac {1}{2} g_{\\\\alpha \\\\beta} R = \\\\frac {\\\\omega}{\\\\Phi^{2}} \\\\left(\\\\Phi_{, \\\\alpha} \\\\Phi_{, \\\\beta} - \\\\frac {1}{2} g_{\\\\alpha \\\\beta} \\\\Phi_{, \\\\gamma} \\\\Phi^{, \\\\gamma}\\\\right) (1) \\\\\\\\\\n+ \\\\Phi^{- 1} \\\\left(\\\\Phi_{, a; \\\\beta} - \\\\mathrm {g}_{a \\\\beta} \\\\square \\\\Phi\\\\right) \\\\\\\\\\n\\\\square \\\\Phi = 0. (2) \\\\\\\\\\n\\\\end{array}\\n$$\\nIf the standard form of the spherically symmetric static metric $(-e^{2U}dt^2 + e^{2\\lambda}dr^2 + r^2 d\\Omega^2)$ is used, $\\square \\Phi = 0$ becomes\\n$$\\n\\\\left(\\\\mathrm {e}^{\\\\mathrm {U} - \\\\lambda}_{\\\\mathrm {r}}^{2} \\\\Phi_{, \\\\mathrm {r}}\\\\right)_{, \\\\mathrm {r}} = 0. \\\\tag {3}\\n$$\\nThe general solution is\\n$$\\n\\\\Phi = a \\\\int_{r}^{\\\\inf ty} \\\\frac {e^{\\\\lambda - U}}{r^{2}} d r + b. \\\\tag {4}\\n$$\\nNear $\\mathbf{r} = 0$ the metric functions $e^{2\\mathbf{U}}$ and $e^{2\\lambda}$ approach unity. (The metric is Lorentzian near $\\mathbf{r} = 0$ .) The integral in Equation (4) therefore blows up near $\\mathbf{r} = 0$ and $\\Phi$ takes the form\\n$$\\n\\\\Phi \\\\approx a / r + b \\\\tag {5}\\n$$\\nnear the origin. But if $a$ is nonzero, the right hand side of Equation (1) is of order $a^2 / r^2$ . (This is not a coordinate effect; the trace of the right hand side is of order $a^2 / r^2$ so by Equation (1) the scalar curvature blows up as $a^2 / r^2$ .) For a solution regular at the origin, then, a must be zero, i.e. $\\Phi$ must be constant. For $\\Phi$ constant, Equation (1) reduces to the vacuum static spherically symmetric field equations of general relativity. From Birkhoff's theorem we know that the only solution to these equations which is well behaved at $r = 0$ is $g_{\\mu \\nu} = \\eta_{\\mu \\nu}$ ."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "metric_latex": [
+      [
+        "\\frac{- r + r_{s}}{r}",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "\\frac{r}{r - r_{s}}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r^{2} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_001": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_010": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_100": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{3}}",
+      "Gamma_111": "- \\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_122": "- r + r_{s}",
+      "Gamma_133": "\\left(- r + r_{s}\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_233": "- \\frac{\\sin{\\left(2 \\theta \\right)}}{2}",
+      "Gamma_313": "\\frac{1}{r}",
+      "Gamma_323": "\\frac{1}{\\tan{\\left(\\theta \\right)}}",
+      "Gamma_331": "\\frac{1}{r}",
+      "Gamma_332": "\\frac{1}{\\tan{\\left(\\theta \\right)}}"
+    },
+    "riemann": {
+      "R_0101": "\\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0110": "- \\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0202": "- \\frac{r_{s}}{2 r}",
+      "R_0220": "\\frac{r_{s}}{2 r}",
+      "R_0303": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_0330": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1001": "\\frac{r_{s} \\left(r - r_{s}\\right)}{r^{4}}",
+      "R_1010": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{r^{4}}",
+      "R_1212": "- \\frac{r_{s}}{2 r}",
+      "R_1221": "\\frac{r_{s}}{2 r}",
+      "R_1313": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1331": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_2002": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_2020": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_2112": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2121": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2323": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_2332": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_3003": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_3030": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_3113": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3131": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3223": "- \\frac{r_{s}}{r}",
+      "R_3232": "\\frac{r_{s}}{r}"
+    },
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "\\frac{48 M^{2}}{r^{6}}",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量 (∂_t)，对应能量守恒",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "rot_phi",
+        "description": "绕 φ 轴旋转 Killing 矢量 (∂_φ)，对应角动量守恒",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

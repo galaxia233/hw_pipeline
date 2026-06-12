@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s4_4.4",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "electromagnetic_field",
+      "coordinate": "lorentz_invariant",
+      "scenario": "stress_energy_tensor",
+      "method": "special_relativity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.4",
+    "source_id": "1_s4_4.4",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于电磁场应力能量张量推导标量不变式，需串联能流定义与场不变量，逻辑严密且具经典相对论物理背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathbf{E}$",
+      "$\\\\mathbf{B}$",
+      "$\\\\mathfrak{S}$",
+      "$\\\\underline{\\\\mathbf{S}}$"
+    ],
+    "target": [
+      "$\\\\mathfrak{S}^2 - |\\\\underline{\\\\mathbf{S}}|^2$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 4.4. Show that $\\mathfrak{S}^2 - |\\underline{\\mathbf{S}}|^2$ is a Lorentz invariant of the electromagnetic field, where $\\mathfrak{S}$ is the energy density and $\\underline{\\mathbf{S}}$ the Poynting flux.",
+    "answer": "$\\mathfrak{S}^2 - |\\\\underline{\\\\mathbf{S}}|^2$ 为洛伦兹不变量，其值正比于 $(\\mathbf{E}^2 - \\mathbf{B}^2)^2 + 4(\\mathbf{E} \\cdot \\mathbf{B})^2$。",
+    "solution": "Solution 4.4. The expression is shown to be invariant by relating it to the invariants $\\mathbf{E}^2 -\\mathbf{B}^2$ and $\\underline{\\mathbf{E}}\\cdot \\underline{\\mathbf{B}}$\\n$$\\n\\\\begin{array}{l} 6 4 \\\\pi (\\\\mathfrak {S}^{2} - | \\\\underline {{{\\\\mathbf {S}}}} |^{2} ) = ( \\\\mathbf {E}^{2} + \\\\mathbf {B}^{2} )^{2} - 4 ( \\\\underline {{{\\\\mathbf {E}}}} \\\\times \\\\underline {{{\\\\mathbf {B}}}} )^{2} \\\\\\\\\\\\\\\\ = \\\\left[ \\\\mathbf {E}^{4} + 2 \\\\mathbf {E}^{2} \\\\mathbf {B}^{2} + \\\\mathbf {B}^{4} \\\\right] - 4 \\\\left[ \\\\mathbf {E}^{2} \\\\mathbf {B}^{2} - ( \\\\underline {{{\\\\mathbf {E}}}} \\\\cdot \\\\underline {{{\\\\mathbf {B}}}} )^{2} \\\\right] \\\\\\\\\\\\\\\\ = \\\\mathrm {E}^{4} - 2 \\\\mathrm {E}^{2} \\\\mathrm {B}^{2} + \\\\mathrm {B}^{4} + 4 ( \\\\underline {{\\\\mathrm {E}}} \\\\cdot \\\\underline {{\\\\mathrm {B}}} )^{2} \\\\\\\\\\\\\\\\ = \\\\left(\\\\mathrm {E}^{2} - \\\\mathrm {B}^{2} \\\\right)^{2} + 4 ( \\\\underset {\\\\sim} {\\\\mathrm {E}} \\\\cdot \\\\underset {\\\\sim} {\\\\mathrm {B}} )^{2} . \\\\\\\\\\\\\\\\\\n\\\\end{array}\\n$$"
+  },
+  "verification": null
+}

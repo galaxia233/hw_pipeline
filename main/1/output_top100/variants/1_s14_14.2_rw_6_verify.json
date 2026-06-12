@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "id": "1_s14_14.2-1-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "$\\mu/T$",
+      "coordinate": "static_spacetime",
+      "scenario": "thermal_equilibrium_verify",
+      "method": "phase_space_distribution",
+      "generalization_axis": "verify",
+      "metric": "static_spacetime"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.2",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.2",
+      "1_s14_14.2-1",
+      "1_s14_14.2-1-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "static_spacetime",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T$",
+      "$g_{00}$"
+    ],
+    "target": [
+      "校验推导中能量关系、分布函数参数、Tolman关系及度规分量的错误"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在静态时空中，度规为 $ds^2 = g_{tt}(\\vec{x}) dt^2 + g_{ij}(\\vec{x}) dx^i dx^j$（采用 $(-,+,+,+)$ 约定，其中 $g_{tt} < 0$）。已知热平衡时局部温度 $T$ 与局部化学势 $\\mu$ 满足 Tolman 关系 $T \\sqrt{-g_{tt}} = \\text{const}$ 及 $\\mu/T = \\text{const}$。以下是一段试图证明 $\\mu/T = \\text{const}$ 并将其应用于 Schwarzschild 度规的推导，其中包含若干错误。请找出所有错误，指出其位置、类型并给出正确值。推导过程：1. 静态时空的类时 Killing 矢量为 $K^\\mu = (1, 0, 0, 0)$，静态观者的 4 速度为 $u^\\mu = (1/\\sqrt{-g_{tt}}, 0, 0, 0)$。局部测量的粒子能量定义为 $E_{local} = -p_\\mu u^\\mu$，全局守恒能量定义为 $E = -p_\\mu K^\\mu$。2. 由于 $K^\\mu = \\sqrt{-g_{tt}} u^\\mu$，代入定义可得守恒能量与局部能量的关系为 $E = -\\sqrt{-g_{tt}} E_{local}$。3. 热平衡时，相空间分布函数仅依赖于守恒量。用无穷远处的全局参数表示为 $f = \\frac{1}{\\exp((E + \\mu_\\inf ty)/T_\\inf ty) \\pm 1}$；用局部参数表示为 $f = \\frac{1}{\\exp((E_{local} + \\mu_{local})/T_{local}) \\pm 1}$。4. 为使这两种表达式对所有粒子一致，它们的指数必须相等： $(E + \\mu_\\inf ty)/T_\\inf ty = (E_{local} + \\mu_{local})/T_{local}$。5. 将步骤2中的关系 $E = -\\sqrt{-g_{tt}} E_{local}$ 代入步骤4，得到 $(-\\sqrt{-g_{tt}} E_{local} + \\mu_\\inf ty)/T_\\inf ty = (E_{local} + \\mu_{local})/T_{local}$。6. 匹配 $E_{local}$ 的系数，得到 $-\\sqrt{-g_{tt}} / T_\\inf ty = 1 / T_{local}$，从而 Tolman 关系为 $T_{local} \\sqrt{-g_{tt}} = -T_\\inf ty$。7. 匹配常数项，得到 $\\mu_\\inf ty / T_\\inf ty = \\mu_{local} / T_{local}$，因此 $\\mu/T$ 在全空间为常数。8. 对于 Schwarzschild 度规 $ds^2 = -(1 - r_s/r) dt^2 + (1 - r_s/r)^{-1} dr^2 + r^2 d\\Omega^2$，其时间分量 $g_{tt} = 1 - r_s/r$，因此 $-g_{tt} = r_s/r - 1$。代入步骤6的 Tolman 关系，得到具体形式为 $T_{local} \\sqrt{r_s/r - 1} = -T_\\inf ty$。",
+    "answer": "- 步骤2：关系式 $E = -\\sqrt{-g_{tt}} E_{local}$ 存在 sign error。由 $E = -p_\\mu K^\\mu$ 和 $E_{local} = -p_\\mu u^\\mu$ 及 $K^\\mu = \\sqrt{-g_{tt}} u^\\mu$，代入应得到 $E = \\sqrt{-g_{tt}} E_{local}$。- 步骤3：分布函数指数 $(E + \\mu)/T$ 存在 sign error。对于具有守恒粒子数的系统，平衡分布（如 Fermi-Dirac 或 Bose-Einstein）指数应为 $(E - \\mu)/T$。- 步骤6：Tolman 关系 $T_{local} \\sqrt{-g_{tt}} = -T_\\inf ty$ 存在 sign error。由正确的系数匹配 $\\sqrt{-g_{tt}} / T_\\inf ty = 1 / T_{local}$，应得到 $T_{local} \\sqrt{-g_{tt}} = T_\\inf ty$。- 步骤8：度规分量 $g_{tt} = 1 - r_s/r$ 存在 metric component error。在 $(-,+,+,+)$ 约定下，Schwarzschild 度规的时间分量应为 $g_{tt} = -(1 - r_s/r)$。相应的 Tolman 关系具体形式应为 $T_{local} \\sqrt{1 - r_s/r} = T_\\inf ty$。",
+    "solution": null
+  },
+  "verification": null
+}

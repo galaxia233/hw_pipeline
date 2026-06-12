@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "commutator_of_Killing_vectors",
+      "coordinate": "spherical",
+      "scenario": "static_spherically_symmetric_star",
+      "method": "static_metric_properties",
+      "generalization_axis": "verify",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "killing_vector",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$[\\xi_{(t)}, \\xi_{(i)}]$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "For an axially symmetric rotating star, the time-translation Killing vector $\\xi_{(t)}$ and the axial-rotation Killing vector $\\xi_{(\\phi)}$ satisfy the commutation relation $[\\xi_{(t)}, \\xi_{(\\phi)}] = 0$. Consider the degenerate condition where the star's rotation vanishes and the spacetime becomes static and spherically symmetric (e.g., the exterior region of a non-rotating star). In this limit, the spacetime admits three spatial rotational Killing vectors $\\xi_{(1)}, \\xi_{(2)}, \\xi_{(3)}$ (generating the SO(3) symmetry) in addition to $\\xi_{(t)}$. Verify the limit behavior of the commutation relation: prove that in this static spherically symmetric degenerate condition, $\\xi_{(t)}$ commutes with all three spatial rotational Killing vectors, i.e., $[\\xi_{(t)}, \\xi_{(i)}] = 0$ for $i = 1, 2, 3$. Your proof must explicitly utilize the geometric properties that define a static spacetime: the hypersurface orthogonality of $\\xi_{(t)}$ (absence of cross terms $g_{ti}$ in the metric) and the time-independence of the spatial metric.",
+    "answer": "$[\\xi_{(t)}, \\xi_{(i)}] = 0$ for $i=1,2,3$",
+    "solution": "In a static and spherically symmetric spacetime, the metric can be locally expressed in coordinates $(t, x^j)$ (where $x^j$ are spatial coordinates such as $r, \\theta, \\phi$) such that it takes the block-diagonal form $ds^2 = -g_{tt}(r) dt^2 + g_{jk}(r) dx^j dx^k$. The absence of cross terms $g_{tj} = 0$ reflects the hypersurface orthogonality of the time-translation Killing vector, allowing us to globally choose $\\xi_{(t)} = \\partial_t$ such that it is orthogonal to the spatial hypersurfaces. The time-independence of the metric components ($\\partial_t g_{ab} = 0$) guarantees that $\\partial_t$ is a Killing vector. Furthermore, the spatial metric $g_{jk}(r)$ is also independent of $t$. The three spatial rotational Killing vectors $\\xi_{(1)}, \\xi_{(2)}, \\xi_{(3)}$ that generate the SO(3) isometry group are tangent to the spatial hypersurfaces. Because the spatial geometry is spherically symmetric and time-independent, these Killing vectors can be chosen to have components that depend only on the spatial coordinates, i.e., $\\xi_{(i)} = \\xi_{(i)}^j(x^k) \\partial_j$, with no $t$-component and $\\partial_t \\xi_{(i)}^j = 0$. The commutator of $\\xi_{(t)}$ and any $\\xi_{(i)}$ is then calculated as:$$[\\xi_{(t)}, \\xi_{(i)}] = [\\partial_t, \\xi_{(i)}^j \\partial_j] = (\\partial_t \\xi_{(i)}^j) \\partial_j + \\xi_{(i)}^j [\\partial_t, \\partial_j] = 0 + 0 = 0.$$This verifies that in the non-rotating limit, the time-translation symmetry is preserved under all spatial rotations, meaning the full isometry group decomposes into a direct product $\\mathbb{R} \\times SO(3)$."
+  },
+  "verification": null
+}

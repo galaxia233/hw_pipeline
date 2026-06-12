@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s16_16.19",
+    "type": "prove",
+    "tags": {
+      "metric": "general_metric",
+      "target_object": "rotating_star_surface",
+      "coordinate": "spherical_like_coordinates",
+      "scenario": "relativistic_hydrodynamics_scenario",
+      "method": "killing_vector_norm_analysis"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.19",
+    "source_id": "1_s16_16.19",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.19"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "结合相对论流体静力学平衡条件与基林矢量模长性质进行多步物理推导",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$g_{tt}$",
+      "$g_{t\\phi}$",
+      "$g_{\\phi\\phi}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.19. Show that the surface of a rigidly rotating star, with angular velocity of rotation $\\Omega$ as seen at $\\inf ty$ , is given by$$\\mathbf {g}_{\\mathrm {t t}} + 2 \\mathbf {g}_{\\mathrm {t} \\phi} \\Omega + \\mathbf {g}_{\\phi \\phi} \\Omega^{2} = \\text {c o n s t a n t}.$$",
+    "answer": "$g_{tt} + 2g_{t\\phi}\\Omega + g_{\\phi\\phi}\\Omega^2 = \\text{constant}$",
+    "solution": "Solution 16.19. The surface is a surface of constant $\\mathfrak{p}$ (that is $\\mathfrak{p} = 0$ ). By Problem 16.18, it is a surface of constant $\\rho$ , and also of constant $\\mathfrak{u}^{\\mathfrak{t}}$ , since$$\\mathrm {d p} \\propto \\mathrm {d u}^{\\mathrm {t}}.$$But, in the notation of Solution 16.17,$$\\left(u^{t}\\right)^{- 1} = \\left| \\boldsymbol {\\xi} \\cdot \\boldsymbol {\\xi}\\right|^{\\frac {1}{2}} = \\left| g_{t t} + 2 g_{t} \\phi \\Omega + g_{\\phi} \\phi \\Omega^{2}\\right|^{\\frac {1}{2}}$$so on the surface$$\\mathbf {g}_{\\mathrm {t t}} + 2 \\mathbf {g}_{\\mathrm {t} \\phi} \\boldsymbol {\\Omega} + \\mathbf {g}_{\\phi \\phi} \\boldsymbol {\\Omega}^{2} = \\mathrm {c o n s t a n t}.$$"
+  },
+  "verification": null
+}

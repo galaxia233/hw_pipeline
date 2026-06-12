@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s8_8.15",
+    "type": "prove",
+    "tags": {
+      "metric": "lie_derivative",
+      "target_object": "tensor_contraction",
+      "coordinate": "general_coordinate_system",
+      "scenario": "kronecker_delta_identity",
+      "method": "coordinate_based_proof"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.15",
+    "source_id": "1_s8_8.15",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.15"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.4,
+      "rationale": "张量恒等式证明+逻辑链条清晰+缺乏具体物理应用场景",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\mu$",
+      "$\\delta^\\mu_\\nu$",
+      "$\\mathbf{x}^\\lambda$",
+      "$\\mathcal{L}_{\\mathbf{x}}$"
+    ],
+    "target": [
+      "$\\mathcal{L}_{\\mathbf{x}}(\\delta^\\mu_\\nu)$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 8.15. Show that Lie differentiation commutes with the operation of contraction.",
+    "answer": "Lie differentiation commutes with the operation of contraction.",
+    "solution": "Solution 8.15. Contraction may be thought of as multiplication by the constant Kronecker-delta tensor $\\delta_{\\nu}^{\\mu}$ . But the Lie derivative of the tensor $\\delta_{\\nu}^{\\mu}$ is zero, as we can easily prove in a coordinate frame,$$\\mathcal {L}_{\\mathbf {x}} (\\delta_{\\nu}^{\\mu}) = \\delta_{\\nu , \\lambda}^{\\mu} \\mathbf {x}^{\\lambda} + \\delta_{\\lambda}^{\\mu} \\mathbf {x}_{, \\nu}^{\\lambda} - \\delta_{\\nu}^{\\lambda} \\mathbf {x}_{, \\lambda}^{\\mu} = 0 + \\mathbf {x}_{, \\nu}^{\\mu} - \\mathbf {x}_{, \\nu}^{\\mu} = 0 ,$$and therefore the contraction operator $\\delta_{\\nu}^{\\mu}$ can go on either side of $\\mathfrak{L}_{\\mathbf{x}}$ ."
+  },
+  "verification": null
+}

@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s7_7.23_a",
+    "type": "prove",
+    "tags": {
+      "metric": "proof",
+      "target_object": "hypersurface_orthogonal",
+      "coordinate": "vector_field",
+      "scenario": "differential_geometry",
+      "method": "coordinate_independent"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.23_a",
+    "source_id": "1_s7_7.23_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.23_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.4,
+      "realism": 0.5,
+      "rationale": "基础微分几何恒等式证明，依赖Frobenius定理与协变导数交换关系，流形普适性强但缺乏具体物理模型背景且无题干解答。",
+      "overall": 0.65
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$k_\\mu$",
+      "$\\mu$",
+      "$\\nu$",
+      "$\\lambda$"
+    ],
+    "target": [
+      "$k_{[\\mu;} k_{\\nu]} k_{\\lambda]}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "# Problem 7.23. (a) Suppose a vector field $\\mathbf{k}$ is orthogonal to a family of hypersurfaces (\"hypersurface-orthogonal\"). Show that this implies $\\mathbf{k}_{[\\mu ;\\nu}\\mathbf{k}_{\\lambda ]} = 0",
+    "answer": "$\\mathbf{k}_{[\\mu ;\\nu}\\mathbf{k}_{\\lambda ]} = 0$",
+    "solution": null
+  },
+  "verification": null
+}

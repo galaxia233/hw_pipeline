@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "id": "1_s5_5.30",
+    "type": "prove",
+    "tags": {
+      "metric": "general_spacetime_geometry",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "entropy_current",
+      "scenario": "global_coordinates",
+      "method": "viscous_fluid_model"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.30",
+    "source_id": "1_s5_5.30",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.30"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "结合能动量守恒、热力学第一定律与流体运动学分解的多步推导，物理背景明确且逻辑链条完整",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$u^\\alpha$",
+      "$\\rho$",
+      "$p$",
+      "$\\eta$",
+      "$\\zeta$",
+      "$\\sigma^{\\alpha\\beta}$",
+      "$\\theta$",
+      "$P^{\\alpha\\beta}$",
+      "$T$",
+      "$S^\\alpha$"
+    ],
+    "target": [
+      "$S^\\alpha_{; \\alpha}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s5_5.30.md]Problem 5.30. The stress energy tensor of a viscous fluid is$$\\mathbf {T}^{\\alpha \\beta} = \\rho \\mathbf {u}^{\\alpha} \\mathbf {u}^{\\beta} + \\mathrm {p P}^{\\alpha \\beta} - 2 \\eta \\sigma^{\\alpha \\beta} - \\zeta \\theta \\mathbf {P}^{\\alpha \\beta}.$$Here $\\eta$ and $\\zeta$ are respectively the coefficients of shear and bulk viscosity. The definitions of $\\sigma^{\\alpha\\beta}$ , $\\theta$ , $\\mathbb{P}^{\\alpha\\beta}$ are those of Problem 5.18. The pressure and density are $p$ and $\\rho$ . Show that the viscous terms lead to the production of entropy at a rate$$\\mathrm {S}_{; \\alpha}^{\\alpha} = (\\zeta \\theta^{2} + 2 \\eta \\sigma_{\\alpha \\beta} \\sigma^{\\alpha \\beta}) / \\mathrm {T}$$where $\\mathbf{T}$ is the temperature of the fluid. (Hint: First show that $\\mathbf{S}_{;a}^{a} = [\\mathrm{d}\\rho /\\mathrm{d}\\tau +\\theta (\\rho +\\mathfrak{p})] / \\mathbf{T}$ for a fluid without heat flow, then differentiate $\\rho \\mathbf{u}^{\\beta} = -\\mathbf{T}^{a\\beta}\\mathbf{u}_a$ to get $\\mathrm{d}\\rho /\\mathrm{d}\\tau .$)## SolutionSolution 5.30. Since $\\mathbf{T}^{\\alpha \\beta}\\mathbf{u}_a = -\\rho \\mathbf{u}^\\beta$ there are no energy flow terms, hence $\\mathbf{q} = 0$ and $\\mathbf{s} = \\mathbf {nsu}$. The rate of entropy production is thus$$S_{; \\alpha}^{\\alpha} = ( \\mathrm {n u}^{\\alpha} )_{;\\alpha} \\mathrm {s} + \\mathrm {n} \\frac {\\mathrm {d s}} {\\mathrm {d} \\tau} = \\mathrm {n} \\frac {\\mathrm {d s}} {\\mathrm {d} \\tau}$$where the second equality follows from baryon number conservation $\\nabla \\cdot (\\mathbf {nu }) = 0$ .With the first law of thermodynamics$$\\frac {\\mathrm {d}\\rho} {\\mathrm {d} \\tau} = \\frac {\\rho + \\mathrm {p}} {\\mathrm {n}} \\frac {\\mathrm {d} n} {\\mathrm {d} \\tau} + \\mathrm {n T} \\frac {\\mathrm {d s}} {\\mathrm {d} \\tau}$$and the law of baryon conservation$$\\left( \\mathrm {n u}^{\\alpha}\\right)_{;\\alpha} = \\frac {\\mathrm {d} n} {\\mathrm {d} r} + \\mathrm {n} \\theta$$the rate of entropy production can be written as$$\\mathsf {S}_{; a}^{\\alpha} = \\frac {1} {\\mathsf {T}} \\left[ \\frac {\\mathrm {d}\\rho} {\\mathrm {d} \\tau} + \\theta ( \\rho + \\mathsf {p} )\\right] .$$To express the right hand side in terms of the viscosity coefficients take the divergence of the vector $\\mathbf{T}^{a\\beta}\\mathbf{u}_a$ :$$- ( \\rho \\mathbf {u}^{\\beta} )_{;\\beta} = - \\frac {\\mathrm {d}\\rho} {\\mathrm {d} \\tau} - \\rho \\theta = ( \\mathbf {T}^{\\alpha \\beta} \\mathbf {u}_{\\alpha} )_{;\\beta} = \\mathbf {T}^{\\alpha \\beta} \\mathbf {u}_{\\alpha ;\\beta} .$$The last term on the right can be calculated using the stress-energy for the viscous fluid and the expansion for $\\mathfrak{u}_{\\alpha;\\beta}$ given in Problem 5.18. The $\\mathbf{T}^{\\alpha \\beta} \\omega_{\\alpha \\beta}$ term vanishes by symmetry; the $\\mathbf{T}^{\\alpha \\beta} \\mathfrak{a}_{\\alpha} \\mathfrak{u}_{\\beta}$ term vanishes since $\\mathbf{T}^{\\alpha \\beta} \\mathfrak {u}_{\\beta} \\propto \\mathfrak {u}^{\\alpha}$ and we are left with$$\\begin{array}{l} \\mathrm {T}^{\\alpha \\beta} \\mathrm {u}_{\\alpha ;\\beta} = [ \\rho \\mathrm {u}^{\\alpha} \\mathrm {u}^{\\beta} + ( \\mathrm {p} - \\zeta \\theta ) \\mathrm {P}^{\\alpha \\beta} - 2 \\eta \\sigma^{\\alpha \\beta} ] [ \\sigma_{\\alpha \\beta} + \\frac {1} {3} \\theta \\mathrm {P}_{\\alpha \\beta} ] \\\\ = - 2 \\eta \\sigma_{\\alpha \\beta} \\sigma^{\\alpha \\beta} + \\theta ( \\mathfrak {p} - \\zeta \\theta ) . \\\\ \\end{array}$$[Here we used the easily verified relations$$\\mathbf {P}_{\\alpha \\beta} \\sigma^{\\alpha \\beta} = 0, \\quad \\mathbf {P}_{\\alpha \\beta} \\mathbf {P}^{\\alpha \\beta} = 3 . \\]$$The result then is$$\\frac {\\mathrm {d}\\rho} {\\mathrm {d} \\tau} + \\theta ( \\rho + \\mathrm {p} ) = 2 \\eta \\sigma_{a \\beta} \\sigma^{a \\beta} + \\zeta \\theta^{2} .$$When this is substituted in our previous formula for $S_{;a}^{\\alpha}$ the desired equation results.",
+    "answer": "$\\mathrm{S}_{; \\alpha}^{\\alpha} = (\\zeta \\theta^{2} + 2 \\eta \\sigma_{\\alpha \\beta} \\sigma^{\\alpha \\beta}) / \\mathrm{T}$",
+    "solution": "Solution 5.30. Since $\\mathbf{T}^{\\alpha \\beta}\\mathbf{u}_a = -\\rho \\mathbf{u}^\\beta$ there are no energy flow terms, hence $\\mathbf{q} = 0$ and $\\mathbf{s} = \\mathbf {nsu}$. The rate of entropy production is thus$$S_{; \\alpha}^{\\alpha} = ( \\mathrm {n u}^{\\alpha} )_{;\\alpha} \\mathrm {s} + \\mathrm {n} \\frac {\\mathrm {d s}} {\\mathrm {d} \\tau} = \\mathrm {n} \\frac {\\mathrm {d s}} {\\mathrm {d} \\tau}$$where the second equality follows from baryon number conservation $\\nabla \\cdot (\\mathbf {nu }) = 0$ .With the first law of thermodynamics$$\\frac {\\mathrm {d}\\rho} {\\mathrm {d} \\tau} = \\frac {\\rho + \\mathrm {p}} {\\mathrm {n}} \\frac {\\mathrm {d} n} {\\mathrm {d} \\tau} + \\mathrm {n T} \\frac {\\mathrm {d s}} {\\mathrm {d} \\tau}$$and the law of baryon conservation$$\\left( \\mathrm {n u}^{\\alpha}\\right)_{;\\alpha} = \\frac {\\mathrm {d} n} {\\mathrm {d} r} + \\mathrm {n} \\theta$$the rate of entropy production can be written as$$\\mathsf {S}_{; a}^{\\alpha} = \\frac {1} {\\mathsf {T}} \\left[ \\frac {\\mathrm {d}\\rho} {\\mathrm {d} \\tau} + \\theta ( \\rho + \\mathsf {p} )\\right] .$$To express the right hand side in terms of the viscosity coefficients take the divergence of the vector $\\mathbf{T}^{a\\beta}\\mathbf{u}_a$ :$$- ( \\rho \\mathbf {u}^{\\beta} )_{;\\beta} = - \\frac {\\mathrm {d}\\rho} {\\mathrm {d} \\tau} - \\rho \\theta = ( \\mathbf {T}^{\\alpha \\beta} \\mathbf {u}_{\\alpha} )_{;\\beta} = \\mathbf {T}^{\\alpha \\beta} \\mathbf {u}_{\\alpha ;\\beta} .$$The last term on the right can be calculated using the stress-energy for the viscous fluid and the expansion for $\\mathfrak{u}_{\\alpha;\\beta}$ given in Problem 5.18. The $\\mathbf{T}^{\\alpha \\beta} \\omega_{\\alpha \\beta}$ term vanishes by symmetry; the $\\mathbf{T}^{\\alpha \\beta} \\mathfrak{a}_{\\alpha} \\mathfrak{u}_{\\beta}$ term vanishes since $\\mathbf{T}^{\\alpha \\beta} \\mathfrak {u}_{\\beta} \\propto \\mathfrak {u}^{\\alpha}$ and we are left with$$\\begin{array}{l} \\mathrm {T}^{\\alpha \\beta} \\mathrm {u}_{\\alpha ;\\beta} = [ \\rho \\mathrm {u}^{\\alpha} \\mathrm {u}^{\\beta} + ( \\mathrm {p} - \\zeta \\theta ) \\mathrm {P}^{\\alpha \\beta} - 2 \\eta \\sigma^{\\alpha \\beta} ] [ \\sigma_{\\alpha \\beta} + \\frac {1} {3} \\theta \\mathrm {P}_{\\alpha \\beta} ] \\\\ = - 2 \\eta \\sigma_{\\alpha \\beta} \\sigma^{\\alpha \\beta} + \\theta ( \\mathfrak {p} - \\zeta \\theta ) . \\\\ \\end{array}$$[Here we used the easily verified relations$$\\mathbf {P}_{\\alpha \\beta} \\sigma^{\\alpha \\beta} = 0, \\quad \\mathbf {P}_{\\alpha \\beta} \\mathbf {P}^{\\alpha \\beta} = 3 . \\]$$The result then is$$\\frac {\\mathrm {d}\\rho} {\\mathrm {d} \\tau} + \\theta ( \\rho + \\mathrm {p} ) = 2 \\eta \\sigma_{a \\beta} \\sigma^{a \\beta} + \\zeta \\theta^{2} .$$When this is substituted in our previous formula for $S_{;a}^{\\alpha}$ the desired equation results."
+  },
+  "verification": null
+}

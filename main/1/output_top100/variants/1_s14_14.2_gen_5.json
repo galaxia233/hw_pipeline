@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s14_14.2-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "E_and_T",
+      "coordinate": "Schwarzschild",
+      "scenario": "thermal_equilibrium",
+      "method": "Killing_vector_inner_product",
+      "generalization_axis": "extend",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.2",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.2",
+      "1_s14_14.2-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$T \\cdot E$",
+      "$E(r)$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞外部的静态时空中，考虑一个处于热平衡的系统。根据广义相对论的热平衡条件（Tolman-Ehrenfest 效应），局部静止观察者测得的温度 $T$ 满足 $T \\sqrt{-g_{00}} = T_{\\inf ty}$，其中 $T_{\\inf ty}$ 为无穷远处的温度。已知该时空具有时间平移 Killing 矢量 $\\xi^{\\mu} = (1, 0, 0, 0)$。对于局部静止观察者，其四维速度为 $u^{\\mu}$，其相对于该 Killing 流测得的单位质量守恒能量定义为 $E = -u_{\\mu} \\xi^{\\mu}$。请证明上述热平衡条件可以等价表述为局部温度与该局部能量成反比，即 $T \\cdot E = T_{\\inf ty}$，并利用 $\\xi^{\\mu}$ 的分量与度规计算 $E(r)$ 的具体函数形式。\\n\\nSchwarzschild 度规为（采用 $(-,+,+,+)$ 约定）：\\n$$ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$$\\n其中 $r_s$ 为 Schwarzschild 半径。",
+    "answer": "证明了 $T \\cdot E = T_{\\inf ty}$，且 $E(r) = \\sqrt{1 - \\frac{r_s}{r}}$",
+    "solution": "1. 局部静止观察者的四维速度 $u^{\\mu}$ 只有时间分量非零。由类时条件 $g_{\\mu\\nu} u^{\\mu} u^{\\nu} = -1$，可得 $g_{00} (u^0)^2 = -1$，解得 $u^0 = \\frac{1}{\\sqrt{-g_{00}}}$，空间分量 $u^i = 0$。\\n2. 计算局部静止观察者的单位质量能量 $E = -u_{\\mu} \\xi^{\\mu} = -g_{\\mu\\nu} u^{\\mu} \\xi^{\\nu}$。由于 Killing 矢量 $\\xi^{\\mu} = (1, 0, 0, 0)$ 且观察者四速度只有 $u^0$ 非零，内积简化为 $E = -g_{00} u^0 \\xi^0 = -g_{00} \\frac{1}{\\sqrt{-g_{00}}} \\cdot 1 = \\sqrt{-g_{00}}$。\\n3. 将 $E = \\sqrt{-g_{00}}$ 代入已知的热平衡条件 $T \\sqrt{-g_{00}} = T_{\\inf ty}$，立即得到 $T \\cdot E = T_{\\inf ty}$。这表明在静态热平衡时，局部温度与局部观察者的能量成反比：越靠近黑洞，观察者的 Killing 能量 $E$ 减小（引力红移效应），而其感受到的局部热辐射温度 $T$ 则相应升高（引力蓝移效应）。\\n4. 代入 Schwarzschild 度规分量 $g_{00} = -\\frac{r - r_s}{r} = -(1 - \\frac{r_s}{r})$，得到 $E(r) = \\sqrt{1 - \\frac{r_s}{r}}$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "题目、答案和解答中存在明显的 LaTeX 拼写错误：无穷远处的温度符号应为 $T_{\\infty}$，但全文中均错误地拼写为 $T_{\\inf ty}$。这会导致 LaTeX 渲染失败或显示为乱码（如 'Tinf ty'），严重影响题目的规范性、可读性和自洽性。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "Killing_vector_phi",
+      "coordinate": "Schwarzschild",
+      "scenario": "black hole",
+      "method": "covariant_derivative",
+      "generalization_axis": "verify",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\nabla_\\mu \\xi_{(\\phi)\\nu} + \\nabla_\\nu \\xi_{(\\phi)\\mu} = 0$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "种子题指出轴对称星体度规具有 Killing 矢量 $\\xi_{(\\phi)}$ 并证明了它与时间平移 Killing 矢量对易。在 Schwarzschild 黑洞度规中，同样存在这两个对称性对应的 Killing 矢量。已知 Schwarzschild 度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$，绕 $\\phi$ 轴旋转的 Killing 矢量逆变分量为 $\\xi_{(\\phi)}^\\mu = (0, 0, 0, 1)$。请利用度规分量和第二类 Christoffel 符号，通过计算协变导数组合 $\\nabla_\\mu \\xi_{(\\phi)\\nu} + \\nabla_\\nu \\xi_{(\\phi)\\mu}$，验证 $\\xi_{(\\phi)}$ 确实满足 Killing 方程，从而确认该度规具有种子题所依赖的轴对称性。（要求具体展示包含 $r$ 和 $\\theta$ 坐标的非平庸分量的计算过程）",
+    "answer": "通过计算协变导数，得到 $\\nabla_r \\xi_{(\\phi)\\phi} + \\nabla_\\phi \\xi_{(\\phi)r} = 0$ 及 $\\nabla_\\theta \\xi_{(\\phi)\\phi} + \\nabla_\\phi \\xi_{(\\phi)\\theta} = 0$，其余分量亦为0，验证了 $\\xi_{(\\phi)}$ 满足 Killing 方程。",
+    "solution": "Killing 矢量 $\\xi_{(\\phi)}$ 的逆变分量为 $(0, 0, 0, 1)$，其协变分量 $\\xi_{(\\phi)\\nu} = g_{\\nu\\phi}$。由于度规只有 $g_{\\phi\\phi} = r^2 \\sin^2 \\theta$ 非零，故 $\\xi_{(\\phi)\\phi} = r^2 \\sin^2 \\theta$，其余协变分量为0。Killing 方程为 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$，展开为 $\\partial_\\mu \\xi_\\nu + \\partial_\\nu \\xi_\\mu - 2 \\Gamma^\\lambda_{\\mu\\nu} \\xi_\\lambda$。由于 $\\xi_\\lambda$ 只有 $\\lambda = \\phi$ 非零，只需考虑含有 $\\Gamma^\\phi_{\\mu\\nu}$ 的项。1. 验证 $(\\mu=r, \\nu=\\phi)$ 分量：$\\nabla_r \\xi_\\phi + \\nabla_\\phi \\xi_r = \\partial_r \\xi_\\phi + \\partial_\\phi \\xi_r - 2 \\Gamma^\\phi_{r\\phi} \\xi_\\phi$$= \\partial_r (r^2 \\sin^2 \\theta) + 0 - 2 \\Gamma^3_{13} (r^2 \\sin^2 \\theta)$代入 $\\Gamma^3_{13} = \\frac{1}{r}$，得：$2r \\sin^2 \\theta - 2 \\left( \\frac{1}{r}\\right) r^2 \\sin^2 \\theta = 2r \\sin^2 \\theta - 2r \\sin^2 \\theta = 0$。2. 验证 $(\\mu=\\theta, \\nu=\\phi)$ 分量：$\\nabla_\\theta \\xi_\\phi + \\nabla_\\phi \\xi_\\theta = \\partial_\\theta \\xi_\\phi + \\partial_\\phi \\xi_\\theta - 2 \\Gamma^\\phi_{\\theta\\phi} \\xi_\\phi$$= \\partial_\\theta (r^2 \\sin^2 \\theta) + 0 - 2 \\Gamma^3_{23} (r^2 \\sin^2 \\theta)$代入 $\\Gamma^3_{23} = \\frac{1}{\\tan \\theta}$，得：$2r^2 \\sin \\theta \\cos \\theta - 2 \\left( \\frac{\\cos \\theta}{\\sin \\theta}\\right) r^2 \\sin^2 \\theta = 2r^2 \\sin \\theta \\cos \\theta - 2r^2 \\sin \\theta \\cos \\theta = 0$。3. 其他分量（如 $\\mu=t$ 等）由于 $\\partial_\\mu \\xi_\\nu$ 和 $\\Gamma^\\phi_{\\mu\\nu}$ 均为0，自然满足方程。由此验证了 $\\xi_{(\\phi)}$ 满足 Killing 方程，度规具有轴对称性。"
+  },
+  "verification": null
+}

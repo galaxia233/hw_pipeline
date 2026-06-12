@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-5-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "spin_vector_y_component",
+      "coordinate": "cartesian",
+      "scenario": "free_fall_with_initial_x_velocity_contrast",
+      "method": "parallel_transport_geodesic_equation",
+      "generalization_axis": "compare",
+      "metric": "Minkowski"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-5",
+      "1_s11_11.4-5-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Minkowski",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$u^y$演化方程",
+      "$S^y$演化方程",
+      "物理差异解释"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，自由下落陀螺仪的自旋矢量沿测地线平移输运（$\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$）。考虑两种时空背景下的自由下落观测者，其初始4速度仅有 $t$ 和 $x$ 方向分量（即初始 $u^y=0, u^z=0$）：背景1（Minkowski时空）：度规为 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$。背景2（稳态旋转时空）：度规为 $ds^2 = -dt^2 + dx^2 - 2 e^{\\sqrt{2} \\omega x} dt dy - \\frac{1}{2} e^{2 \\sqrt{2} \\omega x} dy^2 + dz^2$，其非零第二类 Christoffel 符号包括 $\\Gamma^0_{01} = \\sqrt{2} \\omega$, $\\Gamma^0_{10} = \\sqrt{2} \\omega$, $\\Gamma^0_{12} = \\frac{\\sqrt{2} \\omega e^{\\sqrt{2} \\omega x}}{2}$, $\\Gamma^0_{21} = \\frac{\\sqrt{2} \\omega e^{\\sqrt{2} \\omega x}}{2}$, $\\Gamma^1_{02} = \\frac{\\sqrt{2} \\omega e^{\\sqrt{2} \\omega x}}{2}$, $\\Gamma^1_{20} = \\frac{\\sqrt{2} \\omega e^{\\sqrt{2} \\omega x}}{2}$, $\\Gamma^1_{22} = \\frac{\\sqrt{2} \\omega e^{2 \\sqrt{2} \\omega x}}{2}$, $\\Gamma^2_{01} = -\\sqrt{2} \\omega e^{-\\sqrt{2} \\omega x}$, $\\Gamma^2_{10} = -\\sqrt{2} \\omega e^{-\\sqrt{2} \\omega x}$ 等。请在两种背景下分别推导该观测者的4速度横向分量 $u^y$ 及自旋横向分量 $S^y$ 的演化方程，对比两者结果的差异，并从度规对称性（特别是 $g_{ty}$ 交叉项导致的坐标系拖曳效应）的角度解释为何背景2中自旋和速度会发生横向耦合演化，而背景1中保持恒定。",
+    "answer": "背景1（Minkowski时空）：所有 Christoffel 符号均为零。测地线方程给出 $\\frac{du^y}{d\\tau} = 0$，平移输运方程给出 $\\frac{dS^y}{d\\tau} = 0$。横向分量恒定不变，纯 $x$ 方向自由下落得以维持且自旋无横向进动。背景2（稳态旋转时空）：代入 Christoffel 符号，测地线方程给出 $\\frac{du^y}{d\\tau} = - (\\Gamma^2_{01} + \\Gamma^2_{10}) u^t u^x = 2\\sqrt{2} \\omega e^{-\\sqrt{2} \\omega x} u^t u^x \\neq 0$；平移输运方程给出 $\\frac{dS^y}{d\\tau} = - (\\Gamma^2_{01} u^t S^x + \\Gamma^2_{10} u^x S^t) = \\sqrt{2} \\omega e^{-\\sqrt{2} \\omega x} (u^t S^x + u^x S^t) \\neq 0$。差异解释：背景1具有 $x$ 和 $y$ 方向的平移 Killing 矢量，空间平移对称性保证了纯 $x$ 方向运动和自旋方向的独立守恒。背景2仅具有时间平移 Killing 矢量，度规交叉项 $g_{ty} \\neq 0$ 表明时空存在稳态旋转（类坐标系拖曳效应）。这种旋转破坏了空间平移对称性，使得纯 $x$ 方向的自由下落不可能维持（必然产生 $y$ 向偏转），同时自旋矢量在平移输运中与速度的时间分量发生耦合，导致横向进动。",
+    "solution": null
+  },
+  "verification": null
+}

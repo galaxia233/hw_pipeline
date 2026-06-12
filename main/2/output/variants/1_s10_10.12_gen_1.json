@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "Komar_mass_integral",
+      "coordinate": "general_stationary",
+      "scenario": "stationary_spacetime_conservation",
+      "method": "Stokes_theorem_Einstein_equations",
+      "generalization_axis": "extend",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T^{\\\\alpha}_{\\\\beta}$",
+      "$\\\\xi^{\\\\beta}$",
+      "$\\\\Sigma_{\\\\alpha}$",
+      "$|g|$",
+      "$x^{a}$"
+    ],
+    "target": [
+      "$M_K$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Consider a stationary spacetime possessing a timelike Killing vector field $\\xi^{\\alpha}$. The Komar mass associated with this spacetime is defined on a closed 2-dimensional spacelike surface $S$ as the surface integral:$$M_K = -\\frac{1}{8\\pi} \\oint_S \\nabla^{\\alpha} \\xi^{\\beta} dS_{\\alpha\\beta}$$where $dS_{\\alpha\\beta}$ is the surface element of $S$. Using the generalized Stokes theorem and the Einstein field equations $R_{\\alpha\\beta} - \\frac{1}{2} g_{\\alpha\\beta} R = 8\\pi T_{\\alpha\\beta}$ (where $T_{\\alpha\\beta}$ is the energy-momentum tensor and $R$ is its trace $T$), derive the expression for the Komar mass as a 3-dimensional volume integral over a spacelike hypersurface $V$ bounded by $S$, expressed in terms of $T_{\\alpha\\beta}$, $R$, and $\\xi^{\\alpha}$. (Hint: You will need the Killing vector identity $\\nabla_{\\alpha} \\nabla_{\\beta} \\xi_{\\gamma} = R_{\\gamma\\beta\\alpha\\delta} \\xi^{\\delta}$)",
+    "answer": "$M_K = -\\int_V \\left( T^{\\alpha}{}_{\\beta} \\xi^{\\beta} - \\frac{1}{2} \\xi^{\\alpha} R\\right) d\\Sigma_{\\alpha}$",
+    "solution": "1. Apply the generalized Stokes theorem to convert the 2-surface integral into a 3-volume integral over the spacelike hypersurface $V$ whose boundary is $S$:$$\\oint_S \\nabla^{\\alpha} \\xi^{\\beta} dS_{\\alpha\\beta} = \\int_V \\nabla_{\\beta} (\\nabla^{\\alpha} \\xi^{\\beta}) d\\Sigma_{\\alpha}$$2. Evaluate the covariant derivative divergence term $\\nabla_{\\beta} (\\nabla^{\\alpha} \\xi^{\\beta})$. Using the metric to lower the index, this is $g^{\\alpha\\gamma} \\nabla_{\\beta} \\nabla_{\\gamma} \\xi^{\\beta}$. By the Killing vector identity provided, we have $\\nabla_{\\beta} \\nabla_{\\gamma} \\xi^{\\beta} = R^{\\beta}{}_{\\gamma\\beta\\delta} \\xi^{\\delta} = R_{\\gamma\\delta} \\xi^{\\delta}$. Therefore:$$\\nabla_{\\beta} (\\nabla^{\\alpha} \\xi^{\\beta}) = g^{\\alpha\\gamma} R_{\\gamma\\delta} \\xi^{\\delta} = R^{\\alpha}{}_{\\delta} \\xi^{\\delta}$$3. Substitute the Einstein field equations $R_{\\alpha\\beta} - \\frac{1}{2} g_{\\alpha\\beta} R = 8\\pi T_{\\alpha\\beta}$ to express the Ricci tensor in terms of the energy-momentum tensor:$$R^{\\alpha}{}_{\\delta} = 8\\pi \\left( T^{\\alpha}{}_{\\delta} - \\frac{1}{2} g^{\\alpha}{}_{\\delta} R\\right)$$Contracting with the Killing vector $\\xi^{\\delta}$ gives:$$R^{\\alpha}{}_{\\delta} \\xi^{\\delta} = 8\\pi \\left( T^{\\alpha}{}_{\\delta} \\xi^{\\delta} - \\frac{1}{2} \\xi^{\\alpha} R\\right)$$4. Substitute this result back into the volume integral:$$\\oint_S \\nabla^{\\alpha} \\xi^{\\beta} dS_{\\alpha\\beta} = 8\\pi \\int_V \\left( T^{\\alpha}{}_{\\delta} \\xi^{\\delta} - \\frac{1}{2} \\xi^{\\alpha} R\\right) d\\Sigma_{\\alpha}$$5. Finally, plug this into the definition of Komar mass:$$M_K = -\\frac{1}{8\\pi} \\left[ 8\\pi \\int_V \\left( T^{\\alpha}{}_{\\beta} \\xi^{\\beta} - \\frac{1}{2} \\xi^{\\alpha} R\\right) d\\Sigma_{\\alpha}\\right] = -\\int_V \\left( T^{\\alpha}{}_{\\beta} \\xi^{\\beta} - \\frac{1}{2} \\xi^{\\alpha} R\\right) d\\Sigma_{\\alpha}$$This demonstrates the Komar mass volume integral expression, revealing the trace correction term that distinguishes it from the simple energy current integral."
+  },
+  "verification": null
+}

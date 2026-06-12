@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "id": "1_s1_1.13",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "curvilinear_coordinates",
+      "coordinate": "scenario_special_relativity",
+      "scenario": "geodesic_condition",
+      "method": "null_curve"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.13",
+    "source_id": "1_s1_1.13",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.13"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "平直时空参数曲线验证+三角恒等式化简+测地线条件推导",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x$",
+      "$y$",
+      "$z$",
+      "$t$"
+    ],
+    "target": [
+      "$\\\\Gamma^{\\mu}_{\\nu\\rho}$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$-1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.13. Show that the curve\\n$$\\n\\\\begin{array}{l} \\\\mathbf {x} = \\\\int \\\\mathbf {r} \\\\cos \\\\theta \\\\cos \\\\phi d \\\\lambda \\\\\\\\\\n \\\\mathbf {y} = \\\\int \\\\mathbf {r} \\\\cos \\\\theta \\\\sin \\\\phi d \\\\lambda \\\\\\\\\\n z = \\\\int r \\\\sin \\\\theta d \\\\lambda \\\\\\\\\\n \\\\mathrm {t} = \\\\int r d \\\\lambda , \\\\\\\\\\n \\\\end{array}\\n$$\\nwhere $\\\\mathbf{r}$ , $\\\\theta$ and $\\\\phi$ are arbitrary functions of $\\\\lambda$ , is a null curve in special relativity. Under what conditions is it a null geodesic?",
+    "answer": "$\\\\theta$ and $\\\\phi$ must be constants; for an affine parameter, $r$ must also be constant.",
+    "solution": "Solution 1.13. Along the curve we have\\n$$\\n\\\\begin{array}{l}\\n \\\\mathrm {d} x^{2} + \\\\mathrm {d} y^{2} + \\\\mathrm {d} z^{2} - \\\\mathrm {d} t^{2} = (\\\\mathrm {r}^{2} \\\\cos^{2} \\\\theta \\\\cos^{2} \\\\phi + \\\\mathrm {r}^{2} \\\\cos^{2} \\\\theta \\\\sin^{2} \\\\phi + \\\\mathrm {r}^{2} \\\\sin^{2} \\\\theta - \\\\mathrm {r}^{2}) \\\\mathrm {d} \\\\lambda^{2} \\\\\\\\\\n = r^{2} d \\\\lambda^{2} \\\\left(\\\\cos^{2} \\\\theta + \\\\sin^{2} \\\\theta - 1\\\\right) = 0,\\n\\\\end{array}\\n$$\\nso the curve is null.\\nTo be a geodesic (i.e. a straight line) we must have $\\\\mathrm{dz} / \\\\mathrm{dt} = \\\\text{constant}$ , but $\\\\mathrm{dz} / \\\\mathrm{dt} = \\\\sin \\\\theta$ , so $\\\\theta$ must be a constant. From the expression for $\\\\mathrm{dy} / \\\\mathrm{dt}$ or $\\\\mathrm{dx} / \\\\mathrm{dt}$ we see that $\\\\phi$ must be constant. These are the requirements for a geodesic; there is no restriction on the function $r(\\\\lambda)$ . If, however, $\\\\lambda$ is to be an affine parameter (e.g. proper time) we must have $\\\\mathrm{dt} / \\\\mathrm{d}\\\\lambda$ a constant, and hence $r$ a constant."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

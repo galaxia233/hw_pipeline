@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s5_5.20",
+    "type": "prove",
+    "tags": {
+      "metric": "curved_spacetime_metric",
+      "target_object": "energy_momentum_tensor_target",
+      "coordinate": "fluid_rest_frame_coordinate",
+      "scenario": "relativistic_hydrodynamics_scenario",
+      "method": "covariant_projection_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.20",
+    "source_id": "1_s5_5.20",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.20"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "结合协变守恒律与重子数流守恒，通过四速投影推导热力学第一定律形式，逻辑严密且具有典型的广义相对论流体动力学特征",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$P$",
+      "$\\rho$",
+      "$n$",
+      "$s$",
+      "$u^{\\mu}$",
+      "$g^{\\mu\\nu}$"
+    ],
+    "target": [
+      "$T^{\\mu\\nu}_{;\\nu}=0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s5_5.20.md]Problem 5.20. Use the equations of motion $(\\mathbf{T}^{\\mu \\nu}; \\nu = 0)$ to show that the flow of a perfect fluid is isentropic.## Solution",
+    "answer": "$\\frac{\\mathrm{d}s}{\\mathrm{d}t} = 0$",
+    "solution": "Solution 5.20. For a perfect fluid $\\mathbf{T}^{\\mu \\nu} = (\\mathbf{P} + \\rho) \\mathbf{u}^{\\mu} \\mathbf{u}^{\\nu} + \\mathbf{P} \\mathbf{g}^{\\mu \\nu}$ so that in the fluid rest frame the 0 component of the equation of motion is$$\\begin{array}{l} \\mathrm {u}_{\\mu} \\mathrm {T}^{\\mu \\nu}_{; \\nu} = \\mathrm {T}^{0 \\nu}_{; \\nu} = \\mathrm {P}_{, \\nu} \\mathrm {g}^{0 \\nu} + \\mathrm {P g}^{0 \\nu}_{; \\nu} + (\\mathrm {P} + \\rho)_{, \\nu} \\mathrm {u}^{\\nu} \\mathrm {u}^{0} \\\\+ (P + \\rho) \\left[ u_{; \\nu}^{\\nu} u^{0} + u_{; \\nu}^{0} u^{\\nu}\\right] = 0 . \\\\\\end{array}$$Now $\\mathbf{g}^{\\mu\\nu}_{;\\nu} = 0$ , $\\mathbf{u}^{0} = 1$ , and $\\mathbf{u}_{; \\nu}^{0} = \\mathbf{u}_{a} \\mathbf{u}_{; \\nu}^{a} = \\frac{1}{2} (\\mathbf{u}_{a} \\mathbf{u}_{; \\nu}^{a})_{; \\nu} = 0$ , so that the equation becomes$$0 = - \\frac {\\mathrm {d}} {\\mathrm {d} t} \\mathbf {P} + \\frac {\\mathrm {d}} {\\mathrm {d} t} ( \\mathbf {P} + \\boldsymbol {\\rho} ) + ( \\mathbf {P} + \\boldsymbol {\\rho} ) \\mathbf {u}_{; \\nu}^{\\nu} .$$If $n$ is the density of baryons in the fluid rest frame then the number-flux vector of baryons $nu$ is conserved. In the rest frame then$$\\left( \\mathrm {n u}^{\\nu}\\right)_{; \\nu} = 0 = \\mathrm {n}_{, \\nu} \\mathrm {u}^{\\nu} + \\mathrm {n u}_{; \\nu}^{\\nu} = \\frac {\\mathrm {d n}} {\\mathrm {d t}} + \\mathrm {n u}_{; \\nu}^{\\nu} .$$When this equation is used to eliminate $\\mathfrak{u}_{; \\nu}^{\\nu}$ the equation of motion becomes$$\\frac {\\mathrm {d} \\rho} {\\mathrm {d} t} = \\frac {(P + \\rho)} {n} \\frac {\\mathrm {d} n} {\\mathrm {d} t} .$$If we compare this with the first law of thermodynamics (see Problem 5.19) we see that $\\mathrm{ds} / \\mathrm{dt} = 0$ ; the fluid flow is isentropic."
+  },
+  "verification": null
+}

@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s3_3.31",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinates",
+      "scenario": "general_spacetime_integration",
+      "method": "Jacobian_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.31",
+    "source_id": "1_s3_3.31",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.31"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.7,
+      "rationale": "基于雅可比行列式的度规行列式变换推导，逻辑连贯且可泛化至任意四维流形测度积分",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x$",
+      "$y$",
+      "$z$",
+      "$t$"
+    ],
+    "target": [
+      "$(-g)^{1/2}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.31. Show that the invariant proper volume element in 4-dimensional space is given by\\n$$\\n\\\\mathrm {d V} = (- \\\\mathbf {g})^{\\\\frac {1}{2}} \\\\mathrm {d}^{4} \\\\mathbf {x}\\n$$\\nwhere $\\mathrm{d}^4\\\\mathbf{x} = \\\\mathrm{dxdydzdt}$ in the coordinate system of the metric $\\mathbf{g}_{\\\\mu \\\\nu}$ .",
+    "answer": "$$ \\\\mathrm {d V} = (- \\\\mathbf {g})^{\\\\frac {1}{2}} \\\\mathrm {d}^{4} \\\\mathbf {x} $$",
+    "solution": "Solution 3.31. Let barred coordinates represent an orthornomal frame where the metric is $\\eta_{\\\\mu \\\\nu}$ . Then $\\mathrm{dV} \\\\equiv \\\\mathrm{d}^4 \\\\overline{\\\\mathbf{x}} = \\\\operatorname*{det}(\\\\partial \\\\overline{\\\\mathbf{x}} / \\\\partial \\\\mathbf{x}) \\\\mathrm{d}^4 \\\\mathbf{x}$ because the Jacobian determinant relates volumes. Now\\n$$\\n- \\\\mathbf {g} = - \\\\operatorname * {d e t} \\\\left(\\\\mathbf {g}_{\\\\alpha \\\\beta}\\\\right) = - \\\\operatorname * {d e t} \\\\left(\\\\frac {\\\\partial_{\\\\mathbf {X}} \\\\overline {{{\\\\mu}}}}{\\\\partial_{\\\\mathbf {X}}^{\\\\alpha}} \\\\frac {\\\\partial_{\\\\mathbf {X}} \\\\overline {{{\\\\nu}}}}{\\\\partial_{\\\\mathbf {X}}^{\\\\beta}} \\\\eta_{\\\\overline {{{\\\\mu}}} \\\\overline {{{\\\\nu}}}}\\\\right) = \\\\left[ \\\\det \\\\left(\\\\partial_{\\\\overline {{{\\\\mathbf {X}}}}} / \\\\partial_{\\\\mathbf {X}}\\\\right) \\\\right]^{2} \\\\left(- \\\\det \\\\eta\\\\right),\\n$$\\nso that\\n$$\\n(- \\\\mathrm {g})^{\\\\frac {1}{2}} = \\\\det (\\\\partial \\\\overline {{\\\\mathbf {x}}} / \\\\partial \\\\mathbf {x})\\n$$\\nand hence\\n$$\\n\\\\mathrm {d V} = (- \\\\mathrm {g})^{\\\\frac {1}{2}} \\\\mathrm {d}^{4} \\\\mathrm {x}.\\n$$"
+  },
+  "verification": null
+}

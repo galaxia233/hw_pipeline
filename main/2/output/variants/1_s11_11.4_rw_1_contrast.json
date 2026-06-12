@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-0-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "Fermi-Walker transport equation",
+      "coordinate": "Cartesian vs Spherical",
+      "scenario": "gyroscope spin contrast",
+      "method": "derive and compare driving terms",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-0",
+      "1_s11_11.4-0-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\mathbf{S}$",
+      "$\\mathbf{u}$",
+      "$\\mathbf{a}$"
+    ],
+    "target": [
+      "dS/dtau evolution equation",
+      "Thomas vs Geodetic precession origin"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，陀螺仪自旋矢量 $S^\\mu$ 满足 Fermi-Walker 输运 $\\frac{DF S^\\mu}{d\\tau} = 0$，即绝对导数 $\\frac{DS^\\mu}{d\\tau} = \\Omega^\\mu_{\\ \\nu} S^\\nu$，其中旋转矩阵 $\\Omega^\\mu_{\\ \\nu} = a^\\mu u_\\nu - a_\\nu u^\\mu$，$u^\\mu$ 为四速度，$a^\\mu = \\frac{Du^\\mu}{d\\tau}$ 为四加速度。自旋矢量的坐标演化方程可写为 $\\frac{dS^\\mu}{d\\tau} = -\\Gamma^\\mu_{\\alpha\\beta} u^\\alpha S^\\beta + \\Omega^\\mu_{\\ \\nu} S^\\nu$。请分别在以下两种时空背景下，推导该演化方程的具体形式，并对比方程中各项的物理来源与对自旋演化的贡献：**背景 A：Minkowski 平直时空**度规：$ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$（Christoffel 符号恒为零 $\\Gamma^\\mu_{\\alpha\\beta} = 0$）时空 Killing 矢量：$\\partial_t$（对应自由粒子能量守恒），$\\partial_x, \\partial_y$（对应自由粒子平面内动量守恒）设定：陀螺仪受非引力外力维持在 $x^2+y^2=R^2$ 的圆轨道上，此时具有四速度 $u^\\mu$ 和非零四加速度 $a^\\mu \\neq 0$。**背景 B：Schwarzschild 弯曲时空**度规：$ds^2 = \\frac{- r + r_{s}}{r} dt^2 + \\frac{r}{r - r_{s}} dr^2 + r^{2} d\\theta^2 + r^{2} \\sin^{2}{\\left(\\theta\\right)} d\\phi^2$Christoffel 符号（非零项）：$\\Gamma^0_{01} = \\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}$, $\\Gamma^1_{00} = \\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{3}}$, $\\Gamma^1_{11} = -\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}$, $\\Gamma^1_{22} = - r + r_{s}$, $\\Gamma^1_{33} = \\left(- r + r_{s}\\right) \\sin^{2}{\\left(\\theta\\right)}$, $\\Gamma^2_{12} = \\frac{1}{r}$, $\\Gamma^2_{33} = -\\frac{\\sin{\\left(2 \\theta\\right)}}{2}$, $\\Gamma^3_{13} = \\frac{1}{r}$, $\\Gamma^3_{23} = \\frac{1}{\\tan{\\left(\\theta\\right)}}$时空 Killing 矢量：$\\partial_t$（对应能量守恒 $E$），$\\partial_\\phi$（对应角动量守恒 $L$）设定：陀螺仪沿赤道面测地线圆轨道（$r=R, \\theta=\\pi/2$）自由落体运动，其四加速度 $a^\\mu = 0$。守恒量 $E, L$ 决定了该测地线轨道。对比要求：利用各自的 Killing 矢量与守恒量辅助说明轨道动力学特征，解释为何背景 A 中的 $\\frac{dS^\\mu}{d\\tau}$ 仅由 Thomas 进动项驱动，而背景 B 中仅由测地进动项驱动，并阐明这种差异的物理含义。",
+    "answer": "在背景 A 中，$\\Gamma^\\mu_{\\alpha\\beta} = 0$，演化方程为 $\\frac{dS^\\mu}{d\\tau} = \\Omega^\\mu_{\\ \\nu} S^\\nu = (a^\\mu u_\\nu - a_\\nu u^\\mu) S^\\nu$，自旋演化纯粹由 Thomas 进动项（加速度与速度的耦合）驱动。在背景 B 中，因为是测地线圆轨道，$a^\\mu = 0$，故 $\\Omega^\\mu_{\\ \\nu} = 0$，演化方程为 $\\frac{dS^\\mu}{d\\tau} = -\\Gamma^\\mu_{\\alpha\\beta} u^\\alpha S^\\beta$，自旋演化纯粹由 Christoffel 符号项（时空曲率的平行输运效应）驱动，即测地进动。物理含义对比：在平直时空（背景 A）中，陀螺仪做非测地线运动受外力约束，打破了时空平移 Killing 矢量对应的动量守恒，其局部无旋转参考系必须通过 Fermi-Walker 输运构建，相对于坐标轴的进动完全来源于外力导致的加速度（Thomas 进动）；在弯曲时空（背景 B）中，陀螺仪沿测地线自由落体，四加速度为零，其自旋矢量沿测地线平行输运，但 Schwarzschild 时空的曲率使得全局坐标轴（由 Killing 矢量 $\\partial_t, \\partial_\\phi$ 定义）相对于局部自由落体参考系发生旋转，从而产生测地进动。两者分别揭示了加速度与时空曲率对旋转自由度演化的独立贡献。",
+    "solution": "推导思路：1. 对于背景 A，由于 Minkowski 笛卡尔坐标下 $\\Gamma^\\mu_{\\alpha\\beta}=0$，Fermi-Walker 输运方程 $\\frac{DS^\\mu}{d\\tau} = \\Omega^\\mu_{\\ \\nu} S^\\nu$ 直接给出 $\\frac{dS^\\mu}{d\\tau} = \\Omega^\\mu_{\\ \\nu} S^\\nu$。圆轨道上的外力导致 $a^\\mu \\neq 0$，$\\Omega^\\mu_{\\ \\nu}$ 非零，产生 Thomas 进动。2. 对于背景 B，Schwarzschild 测地线圆轨道满足 $a^\\mu = \\frac{Du^\\mu}{d\\tau} = 0$，故 $\\Omega^\\mu_{\\ \\nu} = 0$。Fermi-Walker 输运退化为平行输运 $\\frac{DS^\\mu}{d\\tau} = 0$，展开即 $\\frac{dS^\\mu}{d\\tau} = -\\Gamma^\\mu_{\\alpha\\beta} u^\\alpha S^\\beta$，非零 Christoffel 符号驱动自旋分量演化，产生测地进动。3. 物理对比：Thomas 进动源于观者加速度（非惯性效应），测地进动源于时空曲率（引力几何效应），两者在上述特定设定下在演化方程中实现了完全的解耦与对照。"
+  },
+  "verification": null
+}

@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s9_9.12_b",
+    "type": "prove",
+    "tags": {
+      "metric": "riemann_metric",
+      "target_object": "curvature_tensor_component",
+      "coordinate": "coordinate_free_geometry",
+      "scenario": "manifold_scenario",
+      "method": "covariant_derivative_commutation_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.12_b",
+    "source_id": "1_s9_9.12_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.12_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.5,
+      "rationale": "协变导数交换子多步推导+黎曼算子代数结构证明+通用伪黎曼流形适用",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\alpha$",
+      "$\\mu$",
+      "$\\lambda$",
+      "$\\sigma$",
+      "$\\mathbf{A}$",
+      "$\\mathbf{B}$",
+      "$\\mathbf{C}$"
+    ],
+    "target": [
+      "$\\mathbf{R}^{\\alpha}_{\\mu\\lambda\\sigma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.12. Riemann curvature can also be computed with the Riemann operator $\\mathbf {R}$$$\\mathbf {R} (\\mathbf {A}, \\mathbf {B}) \\mathbf {C} = (\\nabla_{\\mathbf {A}} \\nabla_{\\mathbf {B}} - \\nabla_{\\mathbf {B}} \\nabla_{\\mathbf {A}} - \\nabla_{[ \\mathbf {A}, \\mathbf {B} ]}) \\mathbf {C}$$(b) Show that$$(\\mathbf {R} (\\mathbf {A}, \\mathbf {B}) \\mathbf {C})^{\\alpha} = \\mathbf {R}_{\\mu \\lambda \\sigma}^{\\alpha} \\mathbf {C}^{\\mu} \\mathbf {A}^{\\lambda} \\mathbf {B}^{\\sigma}.$$",
+    "answer": "$(\\mathbf {R} (\\mathbf {A}, \\mathbf {B}) \\mathbf {C})^{\\alpha} = \\mathbf {R}_{\\mu \\lambda \\sigma}^{\\alpha} \\mathbf {C}^{\\mu} \\mathbf {A}^{\\lambda} \\mathbf {B}^{\\sigma}$",
+    "solution": "(b) Since only the values of $\\mathbf{A},\\mathbf{B},\\mathbf{C}$ at point $\\mathbf{P}$ are important, we can arbitrarily choose all three to be covariantly constant in a neighborhood of $\\mathbf{P}$ ; then we have$$\\begin{array}{l} (\\mathbf {R} (\\mathbf {A}, \\mathbf {B}) \\mathbf {C})^{\\alpha} = (\\nabla_{\\mathbf {A}} \\nabla_{\\mathbf {B}} \\mathbf {C} - \\nabla_{\\mathbf {B}} \\nabla_{\\mathbf {A}} \\mathbf {C})^{\\alpha} \\\\= 2 \\mathrm {A}^{\\left[ \\sigma \\left(\\mathrm {B}^{\\lambda}\\right] \\mathrm {C}_{; \\lambda}^{\\alpha}\\right]}; \\sigma = 2 \\mathrm {A}^{\\sigma} \\mathrm {B}^{\\lambda} \\mathrm {C}_{; [ \\lambda ; \\sigma ]}^{\\alpha}. \\\\\\end{array}$$According to Problem 9.8, this is equal to$$\\mathbb {R}_{\\mu \\lambda \\sigma}^{\\alpha} \\mathrm {C}^{\\mu} \\mathrm {A}^{\\lambda} \\mathrm {B}^{\\sigma}$$and the proof is complete."
+  },
+  "verification": null
+}

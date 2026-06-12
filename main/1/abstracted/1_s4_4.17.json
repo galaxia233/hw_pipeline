@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s4_4.17",
+    "type": "prove",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "electromagnetism",
+      "coordinate": "stress_energy_tensor",
+      "scenario": "Lorentz_invariance",
+      "method": "tensor_algebra"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.17",
+    "source_id": "1_s4_4.17",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.17"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.6,
+      "completeness": 1.0,
+      "realism": 0.5,
+      "rationale": "结合电磁场不变量选取特殊参考系简化张量缩并计算，逻辑链条完整且解答明确",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\nu$",
+      "$\\\\alpha$",
+      "$\\\\mathbf{E}$",
+      "$\\\\mathbf{B}$"
+    ],
+    "target": [
+      "$\\\\mathbf{T}^\\\\mu_\\\\alpha \\\\mathbf{T}^\\\\alpha_\\\\nu$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 4.17. If $\\mathbf{T}^{\\mu \\nu}$ is the stress-energy tensor of the electromagnetic field, show that\\n$$\\n\\\\mathbf {T}_{\\\\alpha}^{\\\\mu} \\\\mathbf {T}_{\\\\nu}^{a} = \\\\delta_{\\\\nu}^{\\\\mu} \\\\left[ \\\\left(\\\\mathbf {E}^{2} - \\\\mathbf {B}^{2}\\\\right)^{2} + \\\\left(2 \\\\underline {{\\\\mathbf {E}}} \\\\cdot \\\\underline {{\\\\mathbf {B}}}\\\\right)^{2} \\\\right] / (8 \\\\pi)^{2}.$$",
+    "answer": "\\\\delta_ {\\\\nu} ^ {\\\\mu} \\\\left[ \\\\left(\\\\mathbf {E} ^ {2} - \\\\mathbf {B} ^ {2}\\\\right) ^ {2} + \\\\left(2 \\\\underline {{\\\\mathbf {E}}} \\\\cdot \\\\underline {{\\\\mathbf {B}}}\\\\right) ^ {2} \\\\right] / (8 \\\\pi) ^ {2}",
+    "solution": "Solution 4.17. It is sufficient to show that this relation is true in one frame.\\n$$\\n\\\\text {C a s e 1 :} \\\\quad \\\\mathrm {E}^{2} = \\\\mathrm {B}^{2} , \\\\quad \\\\underline {{{\\\\mathrm {E}}}} \\\\cdot \\\\underline {{{\\\\mathrm {B}}}} = 0.\\n$$\\nChoose $\\mathbf{E} = \\\\varepsilon \\\\mathbf{e}_{\\\\mathbf{x}}$ , $\\mathbf{B} = \\\\varepsilon \\\\mathbf{e}_{\\\\mathbf{y}}$ ; then the only nonvanishing components of $\\mathbf{T}^{\\\\mu \\\\nu}$ are $\\mathbf{T}^{00} = \\\\mathbf{T}^{0z} = \\\\mathbf{T}^{zz} = \\\\varepsilon^2 / 4\\\\pi$ from which it follows that $\\mathbf{T}_{\\\\alpha}^{\\\\mu} \\\\mathbf{T}_{\\\\nu}^{\\\\alpha} = 0$ .\\n$$\\n\\\\text {C a s e} 2: \\\\left(E^{2} - B^{2} \\\\right)^{2} + (\\\\underline {{E}} \\\\cdot \\\\underline {{B}} )^{2} \\\\neq 0.\\n$$\\nFrom Problem 4.5 we can make $\\underline{\\\\mathbf{E}}$ and $\\underline{\\\\mathbf{B}}$ parallel. Choose $\\underline{\\\\mathbf{E}} = \\\\mathbf{E}\\\\underline{\\\\mathbf{e}}_{\\\\mathbf{x}}$ , $\\underline{\\\\mathbf{B}} = \\\\mathbf{B}\\\\underline{\\\\mathbf{e}}_{\\\\mathbf{x}}$ . The nonvanishing components of the stress-energy are then $\\mathbf{T}^{00} = -\\\\mathbf{T}^{\\\\mathbf{x}\\\\mathbf{x}} = \\\\mathbf{T}^{\\\\mathbf{y}\\\\mathbf{y}} = \\\\mathbf{T}^{\\\\mathbf{z}\\\\mathbf{z}} = (1 / 8\\\\pi)(\\\\mathbf{E}^{2} + \\\\mathbf{B}^{2})$ and\\n$$\\n\\\\begin{array}{l} \\\\mathrm {T}_{\\\\alpha}^{\\\\mu} \\\\mathrm {T}_{\\\\nu}^{\\\\alpha} = \\\\delta_{\\\\nu}^{\\\\mu} \\\\left[ \\\\mathrm {E}^{2} + \\\\mathrm {B}^{2} \\\\right]^{2} / (8 \\\\pi )^{2} = \\\\delta_{\\\\nu}^{\\\\mu} \\\\left[ (\\\\mathrm {E}^{2} - \\\\mathrm {B}^{2} )^{2} + 4 \\\\mathrm {E}^{2} \\\\mathrm {B}^{2} \\\\right] / (8 \\\\pi )^{2} \\\\\\\\ = \\\\delta_{\\\\mathcal {V}}^{\\\\mu} \\\\left[ \\\\left(\\\\mathrm {E}^{2} - \\\\mathrm {B}^{2} \\\\right)^{2} + \\\\left(2 \\\\underline {{{\\\\mathrm {E}}}} \\\\cdot \\\\underline {{{\\\\mathrm {B}}}} \\\\right)^{2} \\\\right] / (8 \\\\pi )^{2} . \\\\\\\\ \\\\end{array}\\n$$"
+  },
+  "verification": null
+}

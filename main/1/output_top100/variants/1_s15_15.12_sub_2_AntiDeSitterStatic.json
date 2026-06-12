@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s15_15.12-1-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "radial_geodesic_maximum_radius",
+      "coordinate": "spherical",
+      "scenario": "AdS_radial_launch",
+      "method": "energy_conservation_and_local_velocity",
+      "generalization_axis": "substitute",
+      "metric": "AntiDeSitterStatic"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.12",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s15_15.12",
+      "1_s15_15.12-1",
+      "1_s15_15.12-1-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "AntiDeSitterStatic",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$r_{max}$"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Anti-de Sitter (AdS) 时空（度规为 $ds^2 = -\\cos h^2(r) dt^2 + dr^2 + \\sin h^2(r) d\\theta^2 + \\sin h^2(r) \\sin^2\\theta d\\phi^2$）中，Peter 从径向坐标 $r_0$ 处沿径向向外被发射。位于 $r_0$ 处的局部静态观察者测量到 Peter 的初始局部速度为 $v_0$（$0 < v_0 < 1$）。Peter 沿径向类时测地线飞行，到达最大径向坐标 $r_{max}$（此时其径向速度为零）后开始折返。请根据初始局部速度 $v_0$ 和初始径向坐标 $r_0$，反推 Peter 能到达的最大径向坐标 $r_{max}$ 的表达式。",
+    "answer": "$\\operatorname{arcosh}\\left(\\frac{\\cos h(r_0)}{\\sqrt{1-v_0^2}}\\right)$",
+    "solution": "1. **局部速度与四维速度的关系**：\\n在 $r_0$ 处，静态观察者的四维速度为 $u_{stat}^\\mu = (\\dot{t}_{stat}, 0, 0, 0)$，由类时条件 $g_{\\mu\\nu} u_{stat}^\\mu u_{stat}^\\nu = -1$ 及 $g_{tt} = -\\cos h^2(r)$，可得 $\\dot{t}_{stat} = \\frac{1}{\\cos h(r_0)}$。\\n静态观察者的径向空间单位矢量为 $e_r^\\mu = (0, 1, 0, 0)$（因为 $g_{rr} = 1$）。\\nPeter 的四维速度可表示为 $u^\\mu = \\gamma_0 (u_{stat}^\\mu + v_0 e_r^\\mu)$，其中 $\\gamma_0 = \\frac{1}{\\sqrt{1-v_0^2}}$。\\n因此，Peter 在 $r_0$ 处的坐标时间分量为 $\\dot{t}_0 = \\gamma_0 \\dot{t}_{stat} = \\frac{1}{\\sqrt{1-v_0^2} \\cos h(r_0)}$。\\n\\n2. **能量守恒量**：\\n该时空具有时间平移 Killing 矢量，对应守恒量 $E = -g_{tt} \\dot{t} = \\cos h^2(r) \\dot{t}$。\\n在 $r_0$ 处，$E = \\cos h^2(r_0) \\dot{t}_0 = \\cos h^2(r_0) \\frac{1}{\\sqrt{1-v_0^2} \\cos h(r_0)} = \\frac{\\cos h(r_0)}{\\sqrt{1-v_0^2}}$。\\n\\n3. **最大半径处的条件**：\\n在最大半径 $r_{max}$ 处，Peter 的径向速度为零（$\\dot{r}=0$）。\\n由类时测地线条件 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$，可得 $-\\cos h^2(r_{max}) \\dot{t}_{max}^2 = -1$，即 $\\dot{t}_{max} = \\frac{1}{\\cos h(r_{max})}$。\\n此时能量守恒量为 $E = \\cos h^2(r_{max}) \\dot{t}_{max} = \\cos h(r_{max})$。\\n\\n4. **反推最大半径**：\\n由于能量守恒，$r_0$ 处与 $r_{max}$ 处的 $E$ 相等：\\n$\\cos h(r_{max}) = \\frac{\\cos h(r_0)}{\\sqrt{1-v_0^2}}$\\n因此，$r_{max} = \\operatorname{arcosh}\\left(\\frac{\\cos h(r_0)}{\\sqrt{1-v_0^2}}\\right)$。\\n\\n*(注：在 Anti-de Sitter 时空中，由于引力势阱的 confinement 效果，无论初始速度多大，粒子都无法逃逸到无穷远，必然会在某个有限的最大半径处折返。)*"
+  },
+  "verification": null
+}

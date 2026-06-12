@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s15_15.14_b-2-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "Kretschmann_scalar",
+      "coordinate": "spherical",
+      "scenario": "Schwarzschild_curvature_invariance_verify",
+      "method": "geometric_analysis",
+      "generalization_axis": "verify",
+      "metric": "schwarzschild_geometry"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.14_b",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.14_b",
+      "1_s15_15.14_b-2",
+      "1_s15_15.14_b-2-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "schwarzschild_geometry",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "Kretschmann_scalar_calculation_errors"
+    ],
+    "metric": [
+      [
+        "$-(1-2M/r)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2M/r)^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\\\sin^2 \\\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 时空中，度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$（其中 $r_s = 2M$）。已知该时空的 Kretschmann 标量 $K = R_{abcd} R^{abcd}$ 的正确值为 $\\frac{48 M^2}{r^6}$，作为内禀曲率不变量，其结果不应依赖于坐标 $\\theta$。某同学利用 Riemann 张量的对称性与度规分量进行了如下推导：(1) 对于对角度规，逆变 Riemann 张量分量只需提升前两个指标，即 $R^{abcd} = g^{aa} g^{bb} R_{abcd}$。(2) 由对称性 $R_{abcd} = R_{cdab}$，每一对对称分量贡献相等，故求和时系数为2，即 $K = 2 \\sum_{\\text{ind}} R_{abcd} R^{abcd}$，其中求和仅对独立非零分量进行。(3) 度规逆变分量写为：$g^{00} = -\\frac{r}{r-r_s}, g^{11} = \\frac{r-r_s}{r}, g^{22} = \\frac{1}{r^2}, g^{33} = \\frac{1}{r^2 \\sin\\theta}$。(4) 独立非零 Riemann 分量包括：$R_{0101} = \\frac{r_s}{r^2(r-r_s)}, R_{0202} = \\frac{r_s}{2r}, R_{2323} = \\frac{r_s \\sin^2\\theta}{r}$ 等。(5) 以 $R_{2323}$ 项为例计算：$R^{2323} = g^{22} g^{33} R_{2323} = \\frac{1}{r^2} \\cdot \\frac{1}{r^2 \\sin\\theta} \\cdot \\frac{r_s \\sin^2\\theta}{r} = \\frac{r_s \\sin\\theta}{r^5}$$R_{2323} R^{2323} = \\frac{r_s \\sin^2\\theta}{r} \\cdot \\frac{r_s \\sin\\theta}{r^5} = \\frac{r_s^2 \\sin^3\\theta}{r^6}$该同学发现最终求和结果中含有 $\\sin^3\\theta$，这与 $K$ 不应含有 $\\theta$ 相矛盾。请找出上述推导步骤(1)至(4)中的所有错误，指出其错误类型（如因子遗漏、符号错误、度规引用错误等），并给出正确的公式或数值。",
+    "answer": "1. 步骤(1)：$R^{abcd} = g^{aa} g^{bb} R_{abcd}$ 错误。类型：factor error（遗漏因子）。对角度规下提升四个指标应乘以四个度规分量，正确公式为 $R^{abcd} = g^{aa} g^{bb} g^{cc} g^{dd} R_{abcd}$。2. 步骤(2)：缩并系数为2错误。类型：factor error（系数遗漏）。由于反对称性 $R_{abcd} = -R_{bacd} = -R_{abdc}$ 及对称性，独立分量在全求和展开中贡献4项（abcd, cdab, badc, dcba），正确系数应为4。3. 步骤(3)：$g^{33} = \\frac{1}{r^2 \\sin\\theta}$ 错误。类型：factor error（度规分量错误引用）。正确的逆变度规分量为 $g^{33} = \\frac{1}{r^2 \\sin^2\\theta}$。4. 步骤(4)：$R_{0202} = \\frac{r_s}{2r}$ 错误。类型：sign error（符号错误）。正确的 Riemann 分量为 $R_{0202} = -\\frac{r_s}{2r}$。",
+    "solution": "正确的 Kretschmann 标量推导：对于对角度规，逆变 Riemann 分量为 $R^{abcd} = g^{aa} g^{bb} g^{cc} g^{dd} R_{abcd}$。由于 $R_{abcd} = R_{cdab}$ 和反对称性，独立分量缩并系数为4，即 $K = 4 \\sum_{\\text{ind}} R_{abcd} R^{abcd}$。度规分量 $g^{00} = -\\frac{r}{r-r_s}$, $g^{11} = \\frac{r-r_s}{r}$, $g^{22} = \\frac{1}{r^2}$, $g^{33} = \\frac{1}{r^2 \\sin^2\\theta}$。独立非零分量：$R_{0101} = \\frac{r_s}{r^2(r-r_s)}$, $R_{0202} = -\\frac{r_s}{2r}$, $R_{0303} = -\\frac{r_s \\sin^2\\theta}{2r}$, $R_{1212} = -\\frac{r_s}{2r}$, $R_{1313} = -\\frac{r_s \\sin^2\\theta}{2r}$, $R_{2323} = \\frac{r_s \\sin^2\\theta}{r}$。以 $R_{2323}$ 项为例：$R^{2323} = (g^{22} g^{33})^2 R_{2323} = \\left(\\frac{1}{r^4 \\sin^4\\theta}\\right) \\frac{r_s \\sin^2\\theta}{r} = \\frac{r_s}{r^5 \\sin^2\\theta}$$R_{2323} R^{2323} = \\frac{r_s \\sin^2\\theta}{r} \\frac{r_s}{r^5 \\sin^2\\theta} = \\frac{r_s^2}{r^6}$所有角度依赖项在缩并时完美消去，最终求和结果为 $K = 4 \\times 3 \\frac{r_s^2}{r^6} = \\frac{12 r_s^2}{r^6} = \\frac{48 M^2}{r^6}$。"
+  },
+  "verification": null
+}

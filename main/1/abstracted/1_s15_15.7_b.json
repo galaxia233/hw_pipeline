@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s15_15.7_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "newtonian_gravity",
+      "target_object": "central_force_motion",
+      "coordinate": "orbital_precession",
+      "scenario": "perturbation_theory"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s15_15.7_b",
+    "source_id": "1_s15_15.7_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s15_15.7_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "牛顿中心力势微扰结合近圆轨道近似，逻辑链条完整且具有明确天体物理背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$r$",
+      "$\\\\phi$",
+      "$A$",
+      "$M$",
+      "$L$"
+    ],
+    "target": [
+      "$\\\\frac{\\\\delta \\\\phi}{2 \\\\pi}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "(b) Suppose that the central star is somewhat oblate or prolate, so that the form of the classical Newtonian potential is $\\Phi (\\mathbf{r}) = -\\mathbf{M} / \\mathbf{r} - \\mathbf{A}\\mathbf{M} / \\mathbf{r}^3$ where A is related to the magnitude of the oblateness or prolateness. Calculate the advance (if oblate) of the periastron, to lowest order in $\\mathbf{A} / \\mathbf{r}^2$ , per orbit. (This is a purely Newtonian calculation.)",
+    "answer": "$\\\\frac{3A}{r_0^2}$",
+    "solution": "(b) From the Newtonian orbital equations, derive\\n$$\\n\\\\left(\\\\frac {\\\\mathrm {d} u}{\\\\mathrm {d} \\\\phi}\\\\right)^{2} + u^{2} + \\\\frac {2 \\\\Phi (u)}{L^{2}} = \\\\frac {2 E_{\\\\inf ty}}{L^{2}}.\\n$$\\nWith $\\Phi = -\\\\mathbf{M} / \\\\mathbf{r} - \\\\mathbf{A}\\\\mathbf{M} / \\\\mathbf{r}^3$ , this becomes\\n$$\\n\\\\left(\\\\frac {\\\\mathrm {d} \\\\mathbf {u}}{\\\\mathrm {d} \\\\phi}\\\\right)^{2} + \\\\mathbf {u}^{2} - \\\\frac {2 \\\\mathbf{m u}}{\\\\mathbf {L}^{2}} - \\\\frac {2 \\\\mathbf{a m u}^{3}}{\\\\mathbf {L}^{2}} = \\\\frac {2 \\\\mathbf{E}_{\\\\inf ty}}{\\\\mathbf {L}^{2}}.\\n$$\\nPut this in the form\\n$$\\n\\\\left(\\\\frac {\\\\mathrm {d} \\\\mathbf {u}}{\\\\mathrm {d} \\\\phi}\\\\right)^{2} + (1 - \\\\mathbf {c}) (\\\\mathbf {u} - \\\\mathbf {u}_{0})^{2} - \\\\frac {2 \\\\mathbf{a m}}{\\\\mathbf {L}^{2}} (\\\\mathbf {u} - \\\\mathbf {u}_{0})^{3} = \\\\text {c o n s t a n t}.\\n$$\\nBy comparing terms of order $\\mathbf{u}^2$ , conclude that $c = 6a\\\\mathbf{u}_0\\\\mathbf{m} / \\\\mathbf{L}^2$ . For nearly circular orbits $\\mathbf{L}^2 \\\\approx \\\\mathbf{mr}$ so that $c = 6a / r_0^2$ . From our experience with part (a) we know that the solution is periodic in the variable $(1 + c)^{\\\\frac{1}{2}}\\\\phi$ so that the angular spread from periastron to periastron is\\n$$\\n\\\\Delta \\\\phi = \\\\frac {2 \\\\pi}{(1 - c)^{\\\\frac {1}{2}}} = \\\\frac {2 \\\\pi}{\\\\left(\\\\frac {1 - 6 a}{r_{0}^{2}}\\\\right)^{\\\\frac {1}{2}}}\\n$$\\nand therefore\\n$$\\n\\\\left. \\\\frac {\\\\delta \\\\phi}{2 \\\\pi} \\\\right|_{\\\\text {p e r o r b i t}} = \\\\frac {3 a}{r_{0}^{2}}.\\n$$\\n(The periastron advances if $a > 0$ (oblate) and regresses if $a < 0$ (prolate).)"
+  },
+  "verification": null
+}

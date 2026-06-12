@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s4_4.19",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.19",
+    "source_id": "1_s4_4.19",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.19"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于最小作用量原理结合欧拉-拉格朗日方程推导相对论性洛伦兹力定律，需串联四维电流密度、世界线参数化与电磁场张量定义，逻辑链条完整且为标准物理模型背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\mu$",
+      "$\\tau$",
+      "$q$",
+      "$m$",
+      "$A_\\mu$",
+      "$J^\\mu$",
+      "$u^\\mu$",
+      "$z^\\lambda$",
+      "$\\eta_{\\alpha\\beta}$"
+    ],
+    "target": [
+      "$\\frac{\\mathrm{d} p_{\\lambda}}{\\mathrm{d} \\tau} = q F_{\\lambda \\mu} u^{\\mu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 4.19. Derive the Lorentz force law for a charged particle from the action $\\int \\mathrm{J}^{\\mu}\\mathrm{A}_{\\mu}\\mathrm{d}^{4}\\mathbf{x} - \\mathfrak{m}\\int \\mathrm{d}\\tau$ , where $\\mathrm{J}^{\\mu}$ is the 4-current, $\\mathrm{A}_{\\mu}$ the vector potential, and $\\mathrm{d}\\tau^{2} \\equiv -\\eta_{\\alpha \\beta}\\mathrm{d}\\mathbf{x}^{\\alpha}\\mathrm{d}\\mathbf{x}^{\\beta}$ .",
+    "answer": "$\\frac{\\mathrm{d} p_{\\lambda}}{\\mathrm{d} \\tau} = q F_{\\lambda \\mu} u^{\\mu}$",
+    "solution": "Solution 4.19. From Problem 4.7 we know that, for a particle of charge q$$\\mathbf {J}^{\\mu} ( \\mathbf {x} ) = \\mathrm {q} \\int \\delta^{4} \\left(\\mathbf {x} - \\mathbf {z} [ \\tau ]\\right) \\mathbf {u}^{\\mu} \\mathrm {d} \\tau ,$$so that the action can be written as$$\\int \\mathrm {L} \\mathrm {d} r = \\mathrm {q} \\int \\mathrm {u}^{\\mu} \\mathrm {A}_{\\mu} \\mathrm {d} r - \\mathrm {m} \\int \\mathrm {d} r$$and the Lagrangian is:$$\\mathbf {L} = \\mathbf {q u}^{\\mu} \\mathbf {A}_{\\mu} - \\mathbf {m} ( - \\eta_{\\alpha \\beta} \\mathbf {u}^{\\alpha} \\mathbf {u}^{\\beta} )^{\\frac {1} {2}}.$$The coordinates $z^{\\lambda}$ specify the position of the particle parametrized by $r$ and$$\\frac {\\partial \\mathbf {L}} {\\partial ( \\mathrm {d} z^{\\lambda} / \\mathrm {d} \\tau )} = \\frac {\\partial \\mathbf {L}} {\\partial \\mathbf {u}^{\\lambda}} = \\mathbf {qA}_{\\lambda} + \\mathbf {mu}_{\\lambda}.$$The Euler-Lagrange equations then give us$$\\frac {\\mathrm {d}} {\\mathrm {d} \\tau} \\left(\\frac {\\partial \\mathrm {L}} {\\partial \\mathrm {u}^{\\lambda}}\\right) = \\mathrm {qA}_{\\lambda , \\mu} \\frac {\\mathrm {d} z^{\\mu}} {\\mathrm {d} \\tau} + \\mathrm {m} \\frac {\\mathrm {d} \\mathrm {u}_{\\lambda}} {\\mathrm {d} \\tau} = \\frac {\\partial} {\\partial z^{\\lambda}} \\mathrm {L} = \\mathrm {qu}^{\\mu} \\mathrm {A}_{\\mu , \\lambda},$$so that the equations of motion are$$\\mathrm {md u}_{\\lambda} / \\mathrm {d} \\tau = \\mathrm {q} \\left(\\mathrm {A}_{\\mu , \\lambda} - \\mathrm {A}_{\\lambda , \\mu}\\right) \\mathrm {u}^{\\mu}$$or$$\\mathrm {dp}_{\\lambda} / \\mathrm {d} \\tau = \\mathrm {qF}_{\\lambda \\mu} \\mathrm {u}^{\\mu}.$$"
+  },
+  "verification": null
+}

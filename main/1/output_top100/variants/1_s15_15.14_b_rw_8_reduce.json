@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s15_15.14_b-1-5-8",
+    "type": "calculate",
+    "tags": {
+      "target_object": "Kretschmann_scalar",
+      "coordinate": "cartesian",
+      "scenario": "reduce_to_flat_spacetime",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.14_b",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.14_b",
+      "1_s15_15.14_b-1",
+      "1_s15_15.14_b-1-5",
+      "1_s15_15.14_b-1-5-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "DeSitter",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "K_limit"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在一个具有时间平移对称性的真空中，已知该时空的度规为：$$ ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}} dx^2 + e^{\\frac{2x}{\\alpha}} dy^2 + e^{\\frac{2x}{\\alpha}} dz^2 $$其中 $\\alpha$ 为内禀几何参数（与宇宙学常数 $\\Lambda = 3/\\alpha^2$ 相关）。在广义相对论语境下，该时空的 Kretschmann 标量为 $K = \\frac{12}{\\alpha^2}$。请通过取 $\\alpha \\to \\inf ty$ 的物理极限（对应于宇宙学常数 $\\Lambda \\to 0$ 的真空平直时空极限），求此时 Kretschmann 标量的极限值，并说明其与经典平直时空的对应关系。",
+    "answer": "在 $\\alpha \\to \\inf ty$ 的极限下，度规中的指数项 $e^{\\frac{2x}{\\alpha}} \\to 1$，度规退化为经典的 Minkowski 度规 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$。此时，Kretschmann 标量 $K = \\frac{12}{\\alpha^2}$ 的极限值为 $\\lim_{\\alpha \\to \\inf ty} \\frac{12}{\\alpha^2} = 0$。该结果与经典平直时空（Minkowski 时空）中无引力场、曲率处处为零的物理性质完全对应。",
+    "solution": null
+  },
+  "verification": null
+}

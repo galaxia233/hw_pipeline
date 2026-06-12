@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s6_6.1_b",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_coefficient_dependence",
+      "target_object": "covariant_momentum_target_object",
+      "coordinate": "coordinate_independence",
+      "scenario": "unaccelerated_particle_scenario",
+      "method": "geodesic_conservation_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s6_6.1_b",
+    "source_id": "1_s6_6.1_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s6_6.1_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "通过度规系数对坐标的无关性导出协带动量守恒，需结合测地线运动学与张量缩并进行多步代数推导，物理机制清晰且可无缝迁移至任意具有Killing对称性的时空背景",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$u$",
+      "$v$",
+      "$\\tau$"
+    ],
+    "target": [
+      "$P_u$",
+      "$P_v$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "(b) For an unaccelerated particle, show that the component of the 4-momentum $\\mathbf{P_u}$ is constant, but that $\\mathbf{P_v}$ is not.",
+    "answer": "$P_u$ is constant, while $P_v$ is not constant along the particle's trajectory.",
+    "solution": "(b) Solving Equations (1) for du and dv gives$$\\mathrm {d v} = \\mathrm {d x} \\cos h u - \\mathrm {d t} \\sin h u$$$$\\mathrm {d} u = v^{- 1} (\\mathrm {d} t \\cos h u - d x \\sin h u)$$and thus for a particle of unit mass,$$\\mathbf {P}_{\\mathrm {u}} = \\mathbf {g}_{\\mathrm {u u}} \\mathbf {P}^{\\mathrm {u}} = - \\mathbf {v}^{2} \\frac {\\mathrm {d} \\mathbf {u}}{\\mathrm {d} \\tau} = - \\mathbf {v} \\cos h \\mathbf {u} \\frac {\\mathrm {d} t}{\\mathrm {d} \\tau} + \\mathbf {v} \\sin h \\mathbf {u} \\frac {\\mathrm {d} \\mathbf {x}}{\\mathrm {d} \\tau} = - \\mathbf {x} \\frac {\\mathrm {d} t}{\\mathrm {d} \\tau} + \\mathbf {t} \\frac {\\mathrm {d} \\mathbf {x}}{\\mathrm {d} \\tau}.$$For an unaccelerated particle $\\mathbf{x} = \\text{const.} + \\frac{\\mathrm{d}\\mathbf{x}}{\\mathrm{d}t} t$ , and $\\mathrm{dt} / \\mathrm{d}\\tau$ , $\\mathrm{dx} / \\mathrm{d}\\tau$ are also both constant, so$$\\mathrm {P_{u}} = \\text {c o n s t .} - \\mathrm {t} \\frac {\\mathrm {d x}}{\\mathrm {d} t} \\frac {\\mathrm {d} t}{\\mathrm {d} r} + \\mathrm {t} \\frac {\\mathrm {d x}}{\\mathrm {d} r} = \\text {c o n s t a n t .}$$Now for $\\mathbf{P}_{\\mathbf{v}}$ , use$$- \\mathrm {\\bf m}^{2} = \\bf P \\cdot \\bf P = g^{v v} (P_{v})^{2} + g^{u u} (P_{u})^{2} = (P_{v})^{2} - (P_{u})^{2} / v^{2}.$$So, $\\mathbf{P}_{\\mathbf{v}}^{2} = \\mathbf{P}_{\\mathbf{u}}^{2} / \\mathbf{v}^{2} - \\mathbf{m}^{2}$ , which is not constant since in general $\\mathbf{v}$ varies along the particle's trajectory. It turns out that whenever the metric coefficient does not depend on some coordinate (in this case $\\mathbf{u}$ ), thenthe covariant momentum of that coordinate (here $\\mathbf{P_u}$ ) is conserved. (See Problem 7.13 or MTW, p. 651.)"
+  },
+  "verification": null
+}

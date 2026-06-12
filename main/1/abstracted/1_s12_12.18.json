@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s12_12.18",
+    "type": "calculate",
+    "tags": {
+      "metric": "dimensional_analysis",
+      "target_object": "planck_units",
+      "coordinate": "natural_units",
+      "scenario": "fundamental_constants"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s12_12.18",
+    "source_id": "1_s12_12.18",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s12_12.18"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.3,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.5,
+      "rationale": "基于量纲分析构造自然单位制，推导直接但具基础理论物理背景与高场景迁移性",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 1,
+    "variables": [
+      "$\\\\pi$",
+      "$G$",
+      "$c$",
+      "$L^*$",
+      "$T^*$",
+      "$M^*$"
+    ],
+    "target": [
+      "$L^*$",
+      "$T^*$",
+      "$M^*$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 12.18. Form \"natural\" units of mass, length, and time out of the physical constants $\\pi$ , $G$ , and $c$ .",
+    "answer": "$L^* = (\\\\hbar G / c^3)^{1/2} = 1.616 \\\\times 10^{-33} \\\\text{cm}$, $T^* = (\\\\hbar G / c^5)^{1/2} = 5.391 \\\\times 10^{-44} \\\\text{s}$, $M^* = (\\\\hbar c / G)^{1/2} = 2.177 \\\\times 10^{-5} \\\\text{g}$",
+    "solution": "Solution 12.18.\\n$$\\n\\\\begin{array}{l} L^{*} = \\\\left(\\\\mathrm {H G} / \\\\mathrm {c}^{3}\\\\right)^{\\\\frac {1}{2}} = 1. 6 1 6 \\\\times 1 0^{- 3 3} \\\\mathrm {c m} \\\\\\\\\\\\mathrm {T}^{*} = \\\\left(\\\\mathrm {f r G} / \\\\mathrm {c}^{5}\\\\right)^{\\\\frac {1}{2}} = 5. 3 9 1 \\\\times 1 0^{- 4 4} \\\\sec \\\\\\\\\\\\mathbf {M}^{*} = (\\\\hbar \\\\mathrm {c} / \\\\mathrm {G})^{\\\\frac {1}{2}} = 2. 1 7 7 \\\\times 1 0^{- 5} \\\\mathrm {g m}. \\\\\\\\\\\\end{array}\\n$$\\nThese combinations were noticed by Planck, immediately after he discovered his constant. They are now called the Planck length, mass, and time. They are uniquely defined up to factors of order unity (e.g. using $h$ instead of $\\\\pi$ ), since by dimensional analysis there is only one way of\\nmapping three dimensional quantities into three specified dimensional results (i.e. there are no free dimensionless combinations)."
+  },
+  "verification": null
+}

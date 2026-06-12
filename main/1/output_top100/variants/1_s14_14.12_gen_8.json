@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "R^j_{0k0}",
+      "coordinate": "t,r,theta,phi",
+      "scenario": "cosmology",
+      "method": "limit_analysis",
+      "generalization_axis": "limit",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$R^j_{0k0}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 14.12 showed that for an accelerated observer, the true gravitational effects manifest as tidal forces determined by the Riemann tensor components $R^j_{0k0}$. Consider the FLRW metric which describes a homogeneous and expanding universe:$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + a^2(t) r^2 (d\\theta^2 + \\sin^2\\theta d\\phi^2)$$Take the spatially flat limit $k \\to 0$ to obtain a simplified flat-space cosmological metric. In this limit, explicitly derive the tidal force tensor components $R^j_{0k0}$ for a comoving observer. By comparing your derived result with the structure of $R^j_{0k0}$ in the general $k \\neq 0$ case, explain why the local cosmological tidal forces caused by the expansion of the universe are completely independent of the spatial curvature parameter $k$.",
+    "answer": "In the spatially flat limit $k \\to 0$, the tidal force tensor is $R^j_{0k0} = -\\frac{\\ddot{a}}{a} \\delta^j_k$, which is identical to the general $k \\neq 0$ case, proving that local cosmological tidal forces are independent of spatial curvature.",
+    "solution": "Step 1: Take the spatially flat limit $k \\to 0$ of the FLRW metric. The line element simplifies to:$$ds^2 = -dt^2 + a^2(t) dr^2 + a^2(t) r^2 d\\theta^2 + a^2(t) r^2 \\sin^2\\theta d\\phi^2$$The non-zero metric components are $g_{00} = -1$, $g_{11} = a^2(t)$, $g_{22} = a^2(t) r^2$, and $g_{33} = a^2(t) r^2 \\sin^2\\theta$.Step 2: Calculate the relevant Christoffel symbols in the $k=0$ limit. The spatial derivatives of $g_{00}$ are zero, so $\\Gamma^j_{00} = 0$ for all spatial indices $j$. The mixed time-space components are:$$\\Gamma^1_{10} = \\frac{1}{2} g^{11} \\frac{\\partial g_{11}}{\\partial t} = \\frac{1}{2a^2} (2a \\dot{a}) = \\frac{\\dot{a}}{a}$$$$\\Gamma^2_{20} = \\frac{1}{2} g^{22} \\frac{\\partial g_{22}}{\\partial t} = \\frac{1}{2a^2 r^2} (2a \\dot{a} r^2) = \\frac{\\dot{a}}{a}$$$$\\Gamma^3_{30} = \\frac{1}{2} g^{33} \\frac{\\partial g_{33}}{\\partial t} = \\frac{\\dot{a}}{a}$$Thus, $\\Gamma^j_{j0} = \\frac{\\dot{a}}{a}$ for $j=1,2,3$.Step 3: Derive the Riemann tensor components $R^j_{0k0}$ using the definition $R^\\rho_{\\sigma\\mu\\nu} = \\partial_\\mu \\Gamma^\\rho_{\\nu\\sigma} - \\partial_\\nu \\Gamma^\\rho_{\\mu\\sigma} + \\Gamma^\\rho_{\\mu\\lambda} \\Gamma^\\lambda_{\\nu\\sigma} - \\Gamma^\\rho_{\\nu\\lambda} \\Gamma^\\lambda_{\\mu\\sigma}$.For $R^1_{010}$ ($\\rho=1, \\sigma=0, \\mu=1, \\nu=0$):$$R^1_{010} = \\partial_1 \\Gamma^1_{00} - \\partial_0 \\Gamma^1_{10} + \\Gamma^1_{1\\lambda} \\Gamma^\\lambda_{00} - \\Gamma^1_{0\\lambda} \\Gamma^\\lambda_{10}$$Since $\\Gamma^1_{00} = 0$ and $\\Gamma^1_{11} = 0$, the first and third terms vanish. The fourth term is $-\\Gamma^1_{01} \\Gamma^1_{10} = - (\\frac{\\dot{a}}{a})^2$. The second term is $-\\partial_0 (\\frac{\\dot{a}}{a}) = - (\\frac{\\ddot{a}}{a} - \\frac{\\dot{a}^2}{a^2})$.Adding them up: $R^1_{010} = -\\frac{\\ddot{a}}{a} + \\frac{\\dot{a}^2}{a^2} - \\frac{\\dot{a}^2}{a^2} = -\\frac{\\ddot{a}}{a}$.Similarly, $R^2_{020} = -\\frac{\\ddot{a}}{a}$ and $R^3_{030} = -\\frac{\\ddot{a}}{a}$. All non-diagonal components vanish. Therefore, in the $k=0$ limit:$$R^j_{0k0} = -\\frac{\\ddot{a}}{a} \\delta^j_k$$Step 4: Compare with the general $k \\neq 0$ case and explain the independence of $k$. In the general FLRW metric, the fully covariant tidal tensor components are $R_{0i0j} = - g_{ij} \\frac{\\ddot{a}}{a}$. For instance, $R_{0101} = \\frac{a^2}{1-kr^2} \\frac{\\ddot{a}}{a}$. To find the mixed components $R^j_{0k0}$, we raise the first spatial index using the inverse metric $g^{jk}$. For $R^1_{010} = g^{11} R_{1010}$, the spatial metric $g_{11}$ (which contains $k$) and its inverse $g^{11}$ perfectly cancel out:$$R^1_{010} = \\frac{1-kr^2}{a^2} \\left( \\frac{a^2}{1-kr^2} \\frac{\\ddot{a}}{a}\\right) = -\\frac{\\ddot{a}}{a}$$This cancellation happens for all spatial components. The result $R^j_{0k0} = -\\frac{\\ddot{a}}{a} \\delta^j_k$ is strictly identical to the $k=0$ case. Physical Explanation: The local tidal forces $R^j_{0k0}$ experienced by a comoving observer are determined purely by the dynamic rate of expansion $\\frac{\\ddot{a}}{a}$. The spatial curvature parameter $k$ dictates the global geometry of constant-time hypersurfaces (closed, flat, or open), but it does not affect the local stretching or squeezing of spacetime caused by the scale factor's acceleration. Because tidal forces are local differential quantities, they only depend on the local expansion kinematics and are completely independent of the global spatial curvature $k$."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "Solution 的 Step 4 中存在严重的符号错误与自洽性错误：\n1. 前文声明 $R_{0i0j} = - g_{ij} \\frac{\\ddot{a}}{a}$，但在随后举例时却写成 $R_{0101} = \\frac{a^2}{1-kr^2} \\frac{\\ddot{a}}{a}$，漏掉了负号（期望值应为 $- \\frac{a^2}{1-kr^2} \\frac{\\ddot{a}}{a}$）。\n2. 在推导 $R^1_{010} = g^{11} R_{1010}$ 时，由于 $R_{1010} = R_{0101}$（Riemann张量对称性），代入括号内的正号表达式 $\\left( \\frac{a^2}{1-kr^2} \\frac{\\ddot{a}}{a}\\right)$，乘以正的逆度量 $g^{11} = \\frac{1-kr^2}{a^2}$，结果理应为正的 $\\frac{\\ddot{a}}{a}$，但 Solution 却强行得出了负号结果 $-\\frac{\\ddot{a}}{a}$。这属于强行凑出正确答案的逻辑断裂与数学不自洽错误。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

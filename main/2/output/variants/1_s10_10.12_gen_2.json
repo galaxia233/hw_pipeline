@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "conserved_current",
+      "coordinate": "cartesian",
+      "scenario": "flat_limit",
+      "method": "limit_reduction",
+      "generalization_axis": "limit",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "limit",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T^{\\\\alpha}_{\\\\beta}$",
+      "$\\\\xi^{\\\\beta}$",
+      "$\\\\Sigma_{\\\\alpha}$",
+      "$|g|$",
+      "$x^{a}$"
+    ],
+    "target": [
+      "$\\partial_\\alpha T^\\alpha_0 = 0$",
+      "Total Energy"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑广义相对论中由时间 Killing 矢量 $\\xi^\\beta$ 构造的守恒流 $J^\\alpha = T^\\alpha_\\beta \\xi^\\beta$，其协变散度为零保证了系统能量的超曲面积分守恒。在平直时空极限下（度规退化为 Minkowski 度规 $\\eta_{\\mu\\nu}$，Christoffel 符号消失），时空仍具有时间平移对称性，其对应的 Killing 矢量退化为沿时间方向的常数矢量 $\\xi^\\beta = \\delta^\\beta_0$。请证明在此极限下，协变守恒方程 $\\nabla_\\alpha J^\\alpha = 0$ 退化为狭义相对论中的能量连续性方程，并说明积分 $\\int J^\\alpha d^3 \\Sigma_\\alpha$ 在此极限下所代表的经典守恒物理量。",
+    "answer": "$\\partial_\\alpha T^\\alpha_0 = 0$；系统的总能量",
+    "solution": "1. 在平直时空极限下，度规为 Minkowski 度规 $\\eta_{\\mu\\nu}$，此时 Christoffel 符号 $\\Gamma^\\alpha_{\\beta\\gamma} = 0$，协变导数退化为普通偏导数，即 $\\nabla_\\alpha \\to \\partial_\\alpha$。2. 守恒流 $J^\\alpha = T^\\alpha_\\beta \\xi^\\beta$ 在此极限下，由于 Killing 矢量退化为常数矢量 $\\xi^\\beta = \\delta^\\beta_0$，变为 $J^\\alpha = T^\\alpha_\\beta \\delta^\\beta_0 = T^\\alpha_0$。3. 协变守恒方程 $\\nabla_\\alpha J^\\alpha = 0$ 退化为 $\\partial_\\alpha J^\\alpha = \\partial_\\alpha T^\\alpha_0 = 0$，这正是狭义相对论中能动张量的能量守恒连续性方程（能量密度的时间变化率等于能量流的空间散度）。4. 积分 $\\int J^\\alpha d^3 \\Sigma_\\alpha$ 在类空超曲面（如 $t = \\text{const}$）上，由于面元矢量 $d^3 \\Sigma_\\alpha$ 的空间分量为零，仅时间分量 $d^3 \\Sigma_0 = d^3x$ 有贡献。因此积分退化为 $\\int T^0_0 d^3x$。在符号约定 $(-,+,+,+)$ 下，$T^0_0$ 代表能量密度，该积分即代表系统的总能量 $E$。"
+  },
+  "verification": null
+}

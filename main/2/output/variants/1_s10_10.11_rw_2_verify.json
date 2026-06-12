@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-3-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "energy_current_divergence",
+      "coordinate": "spherical_cosmological",
+      "scenario": "cosmology_verify",
+      "method": "covariant_divergence_verify",
+      "generalization_axis": "verify",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-3",
+      "1_s10_10.11-3-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "FLRW",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "校验 $E^\\mu_{;\\mu}$ 的推导过程"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑 Friedmann-Lemaître-Robertson-Walker (FLRW) 度规：$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2}dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$$以及完美流体的应力-能量张量 $T^{\\mu\\nu} = (\\rho+p)u^{\\mu}u^{\\nu} + p g^{\\mu\\nu}$，其中共动系4-速度为 $u^{\\mu} = (1, 0, 0, 0)$。定义相对于共动观测者的能量流为 $E^{\\mu} = T^{\\mu\\nu}u_{\\nu}$。已知正确的协变散度结论为 $E^{\\mu}_{;\\mu} = 3p \\frac{\\dot{a}}{a}$。以下是某学生求证 $E^{\\mu}_{;\\mu}$ 的推导过程，其中包含若干物理或数学错误：1. 计算 $E^{\\mu}$：由 $u_{\\nu} = g_{\\nu 0} = (-1, 0, 0, 0)$ 且 $u^{\\nu}u_{\\nu} = -1$，代入得 $E^{\\mu} = (\\rho+p)u^{\\mu}(u^{\\nu}u_{\\nu}) + p g^{\\mu\\nu}u_{\\nu} = -(\\rho+p)u^{\\mu} + p u^{\\mu} = -\\rho u^{\\mu}$。故 $E^{\\mu} = (-\\rho, 0, 0, 0)$。2. 计算协变散度：$E^{\\mu}_{;\\mu} = \\nabla_{\\mu}(-\\rho u^{\\mu}) = -\\rho \\nabla_{\\mu} u^{\\mu} - u^{\\mu} \\nabla_{\\mu} \\rho$。展开 $\\nabla_{\\mu} u^{\\mu} = \\partial_{\\mu} u^{\\mu} + \\Gamma^{\\mu}_{\\mu\\lambda} u^{\\lambda} = \\Gamma^{\\mu}_{\\mu 0}$。利用度规行列式 $g = -\\frac{a^6 r^4 \\sin^2\\theta}{1-kr^2}$，应用公式 $\\Gamma^{\\mu}_{\\mu\\lambda} = \\frac{1}{\\sqrt{g}} \\partial_{\\lambda} \\sqrt{g}$，计算得到 $\\Gamma^{\\mu}_{\\mu 0} = \\frac{1}{\\sqrt{g}} \\partial_0 \\sqrt{g} = -\\frac{1}{\\sqrt{-g}} \\partial_0 \\sqrt{-g} = -3\\frac{\\dot{a}}{a}$。因此 $-\\rho \\nabla_{\\mu} u^{\\mu} = 3\\rho \\frac{\\dot{a}}{a}$。又 $u^{\\mu} \\nabla_{\\mu} \\rho = \\dot{\\rho}$，故 $E^{\\mu}_{;\\mu} = 3\\rho \\frac{\\dot{a}}{a} - \\dot{\\rho}$。3. 应用连续性方程：由应力-能量守恒 $T^{\\mu\\nu}_{;\\nu}=0$ 的时间分量，有 $\\dot{\\rho} + 3\\frac{\\dot{a}}{a}\\rho + 3p\\frac{\\dot{a}}{a} = 0$。移项解出 $\\dot{\\rho} = 3\\frac{\\dot{a}}{a}(\\rho+p)$。4. 代入散度表达式：$E^{\\mu}_{;\\mu} = 3\\rho \\frac{\\dot{a}}{a} - 3\\frac{\\dot{a}}{a}(\\rho+p) = -3p \\frac{\\dot{a}}{a}$。由于最终结果与正确结论 $3p \\frac{\\dot{a}}{a}$ 符号相反，请找出上述推导过程中的所有错误，指出其位置、错误类型，并给出正确的表达式或数值。",
+    "answer": "错误1：位置在第2步计算 $\\Gamma^{\\mu}_{\\mu 0}$ 时。错误类型为度规行列式符号/公式引用错误。对于伪黎曼度规，正确的缩并Christoffel符号公式应为 $\\Gamma^{\\mu}_{\\mu\\lambda} = \\frac{1}{\\sqrt{-g}} \\partial_{\\lambda} \\sqrt{-g}$，而不应使用 $\\sqrt{g}$（因 $g<0$，$\\sqrt{g}$ 无实数意义且导致符号错误）。正确值为 $\\Gamma^{\\mu}_{\\mu 0} = \\frac{1}{\\sqrt{-g}} \\partial_0 \\sqrt{-g} = 3\\frac{\\dot{a}}{a}$。错误2：位置在第3步连续性方程求解 $\\dot{\\rho}$ 时。错误类型为 sign error（移项符号错误）。由 $\\dot{\\rho} + 3\\frac{\\dot{a}}{a}\\rho + 3p\\frac{\\dot{a}}{a} = 0$ 移项时符号应改变，正确值为 $\\dot{\\rho} = -3\\frac{\\dot{a}}{a}(\\rho+p)$。",
+    "solution": "完整正确推导：1. $E^{\\mu} = T^{\\mu\\nu}u_{\\nu} = -\\rho u^{\\mu} = (-\\rho, 0, 0, 0)$。2. $E^{\\mu}_{;\\mu} = \\nabla_{\\mu}(-\\rho u^{\\mu}) = -\\rho \\nabla_{\\mu} u^{\\mu} - u^{\\mu} \\nabla_{\\mu} \\rho$。   其中 $\\nabla_{\\mu} u^{\\mu} = \\Gamma^{\\mu}_{\\mu 0} = \\frac{1}{\\sqrt{-g}} \\partial_0 \\sqrt{-g} = 3\\frac{\\dot{a}}{a}$。   故 $-\\rho \\nabla_{\\mu} u^{\\mu} = -3\\rho \\frac{\\dot{a}}{a}$，且 $u^{\\mu} \\nabla_{\\mu} \\rho = \\dot{\\rho}$。   得 $E^{\\mu}_{;\\mu} = -3\\rho \\frac{\\dot{a}}{a} - \\dot{\\rho}$。3. 连续性方程给出 $\\dot{\\rho} = -3\\frac{\\dot{a}}{a}(\\rho+p)$。4. 代入得 $E^{\\mu}_{;\\mu} = -3\\rho \\frac{\\dot{a}}{a} + 3\\frac{\\dot{a}}{a}(\\rho+p) = 3p \\frac{\\dot{a}}{a}$。"
+  },
+  "verification": null
+}

@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s13_13.11-2-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "Newtonian radial equation of motion",
+      "coordinate": "Spherical",
+      "scenario": "Newtonian limit",
+      "method": "geodesic equation expansion",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.11",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s13_13.11",
+      "1_s13_13.11-2",
+      "1_s13_13.11-2-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\frac{d^2 r}{dt^2} = -\\frac{M}{r^2}$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In general relativity, the motion of a free test particle is governed by the geodesic equation $\\frac{d^2 x^\\mu}{d\\tau^2} + \\Gamma^\\mu_{\\alpha\\beta} \\frac{dx^\\alpha}{d\\tau} \\frac{dx^\\beta}{d\\tau} = 0$. Consider the Schwarzschild metric $\\mathrm{d}s^2 = -(1-\\frac{r_s}{r})\\mathrm{d}t^2 + (1-\\frac{r_s}{r})^{-1}\\mathrm{d}r^2 + r^2\\mathrm{d}\\theta^2 + r^2\\sin^2 \\theta \\mathrm{d}\\phi^2$, describing the spacetime outside a non-rotating spherical mass $M$ (where $r_s = 2M$ is the Schwarzschild radius). Prove that taking the Newtonian limit (far from the source $r \\gg r_s$ and low velocity $v \\ll c$) of the radial component of the geodesic equation reduces exactly to the classical Newtonian equation of motion for a particle under gravitational attraction: $\\frac{d^2 r}{dt^2} = -\\frac{M}{r^2}$.",
+    "answer": "$\\frac{d^2 r}{dt^2} = -\\frac{M}{r^2}$",
+    "solution": "1. Write down the radial component ($\\mu = 1$, corresponding to $r$) of the geodesic equation: $\\frac{d^2 r}{d\\tau^2} + \\Gamma^1_{00} \\left(\\frac{dt}{d\\tau}\\right)^2 + \\Gamma^1_{11} \\left(\\frac{dr}{d\\tau}\\right)^2 + \\Gamma^1_{22} \\left(\\frac{d\\theta}{d\\tau}\\right)^2 + \\Gamma^1_{33} \\left(\\frac{d\\phi}{d\\tau}\\right)^2 = 0$. 2. Substitute the Christoffel symbols: $\\Gamma^1_{00} = \\frac{r_s(r-r_s)}{2r^3}$, $\\Gamma^1_{11} = -\\frac{r_s}{2r(r-r_s)}$, $\\Gamma^1_{22} = -(r-r_s)$, $\\Gamma^1_{33} = -(r-r_s)\\sin^2 \\theta$. 3. Apply the Newtonian limit conditions: far from the source ($r \\gg r_s$) and low velocity ($v \\ll c$). Under these conditions, $r - r_s \\approx r$, so $\\Gamma^1_{00} \\approx \\frac{r_s r}{2r^3} = \\frac{r_s}{2r^2} = \\frac{M}{r^2}$ (using $r_s = 2M$). The other Christoffel symbols become $\\Gamma^1_{11} \\approx -\\frac{r_s}{2r^2}$, $\\Gamma^1_{22} \\approx -r$, $\\Gamma^1_{33} \\approx -r\\sin^2 \\theta$. 4. For the four-velocity components, $\\frac{dt}{d\\tau} \\approx 1$, and $\\frac{dx^i}{d\\tau} \\approx v^i \\ll 1$. 5. Evaluate the magnitudes of the terms: $\\Gamma^1_{00} \\left(\\frac{dt}{d\\tau}\\right)^2 \\approx \\frac{M}{r^2}$. The terms involving spatial velocities are $\\Gamma^1_{ij} \\frac{dx^i}{d\\tau} \\frac{dx^j}{d\\tau} \\sim \\frac{v^2}{r}$, which are much smaller than $\\frac{M}{r^2}$ in the Newtonian limit (since kinetic energy $\\frac{1}{2}v^2 \\ll \\frac{M}{r}$). Thus, all $\\Gamma^1_{ij} \\frac{dx^i}{d\\tau} \\frac{dx^j}{d\\tau}$ terms can be neglected. 6. The derivative term simplifies as $\\frac{d^2 r}{d\\tau^2} = \\frac{d}{d\\tau}\\left(\\frac{dr}{dt}\\frac{dt}{d\\tau}\\right) = \\frac{d^2 r}{dt^2}\\left(\\frac{dt}{d\\tau}\\right)^2 + \\frac{dr}{dt}\\frac{d}{d\\tau}\\left(\\frac{dt}{d\\tau}\\right)$. Since $\\frac{dt}{d\\tau} \\approx 1$ and $\\frac{dr}{dt} \\approx v \\ll 1$, the second term is a higher-order small quantity, and the first term is approximately $\\frac{d^2 r}{dt^2}$. 7. Substituting these approximations into the geodesic equation yields $\\frac{d^2 r}{dt^2} + \\frac{M}{r^2} = 0$, which is exactly the classical Newtonian equation of motion $\\frac{d^2 r}{dt^2} = -\\frac{M}{r^2}$."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "Solution 中的 Christoffel 符号 Γ^1_{11} 符号错误。根据 Schwarzschild 度规计算，Γ^1_{11} = 1/2 g^{11} ∂_r g_{11} = r_s / (2r(r-r_s))，应为正号。Solution 步骤 2 中误写为负号 Γ^1_{11} = -r_s / (2r(r-r_s))，并在步骤 3 的近似中继承此错误写为 Γ^1_{11} ≈ -r_s / (2r^2)。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

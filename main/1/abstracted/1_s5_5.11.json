@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s5_5.11",
+    "type": "calculate",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "radiation_flux",
+      "scenario": "relativistic_beaming",
+      "method": "moving_source"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.11",
+    "source_id": "1_s5_5.11",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.11"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "完整应力能张量推导结合洛伦兹不变量，涉及多步相对论运动学变换与物理量收缩",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$L$",
+      "$R$",
+      "$v$",
+      "$\\\\theta$"
+    ],
+    "target": [
+      "$T^{\\\\mu\\\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.11. A star emits radiation isotropically in its own rest frame, with luminosity $\\mathbf{L}$ (energy per unit time). At a particular instant, as measured from the earth, the star is at a distance $\\mathbf{R}$ , and is moving with a velocity $\\mathbf{v}$ which makes an angle $\\theta$ with respect to the direction from the earth to the star. What is the flux of radiation (energy per unit time per unit area) seen by an observer on the earth in terms of $\\mathbf{R}$ , $\\mathbf{v}$ and $\\theta$ evaluated at the instant the radiation was emitted?\\n\\n## Solution\\n\\nSolution 5.11. If spherical polar coordinates are used to describe the 3-dimensional space in the frame of the star, then in that frame the radiation has stress energy\\n$$\\n\\\\mathbf {T}^{\\\\mu \\\\nu} (\\\\mathfrak {r}, \\\\theta , \\\\phi) = (\\\\mathrm {L} / 4 \\\\pi \\\\mathbf {r}^{2}) \\\\left[ \\\\begin{array}{c c c c} \\\\mathbf {t} & \\\\mathbf {r} & \\\\theta & \\\\phi \\\\\\\\ 1 & 1 & 0 & 0 \\\\\\\\ 1 & 1 & 0 & 0 \\\\\\\\ 0 & 0 & 0 & 0 \\\\\\\\ 0 & 0 & 0 & 0 \\\\end{array} \\\\right].\\n$$\\nLet $\\ell$ be the vector (null, of course) from the emission of a photon to the reception of that photon. In the star's frame, if a photon is received at a distance $\\mathbf{r}$ from the star, $\\ell^0 = \\mathbf{r}$ , $\\ell^{\\mathbf{r}} = \\mathbf{r}$ , $\\ell^\\theta = \\ell \\phi = 0$ , and the stress-energy tensor at the event of reception can be written in the frame independent form\\n$$\\n\\\\mathbf {T} = [ \\\\mathrm {L} / 4 \\\\pi (\\\\mathbf {u_{s}} \\\\cdot \\\\boldsymbol {\\\\ell})^{4} ] \\\\boldsymbol {\\\\ell} \\\\otimes \\\\boldsymbol {\\\\ell}\\n$$\\nwhere $\\mathbf{u}_{\\\\mathbf{s}}$ is the 4-velocity of the star so that, evaluated in the star's frame, $\\mathbf{u}_{\\\\mathbf{s}} \\\\cdot \\\\boldsymbol{\\\\ell} = -\\\\mathbf{r}$ . It is now simple to use the frame independent expression for $\\mathbf{T}$ to evaluate the flux the observer sees. Let $\\mathbf{n} = (0, \\\\underline{\\\\mathfrak{n}})$ be the spatial vector which, in the observer's frame, points to the observed position of the star, so that $\\boldsymbol{\\\\ell} = (\\\\mathbb{R}, -\\\\mathbb{R} \\\\underline{\\\\mathfrak{n}})$ . The flux measured by the observer will be, in the observer's coordinates,\\n$$\\n\\\\mathbf {F}_{\\\\text {o b s}} = - \\\\mathbf {T}^{0 \\\\mathrm {i}} \\\\mathbf {n}_{\\\\mathrm {i}} = \\\\mathbf {u}_{\\\\text {o b s}} \\\\cdot \\\\mathbf {T} \\\\cdot \\\\mathbf {n}.\\n$$\\nIn the observer's coordinates\\n$$\\n\\\\mathbf {u}_{\\\\mathbf {s}} \\\\cdot \\\\boldsymbol {\\\\ell} = (\\\\gamma , \\\\gamma \\\\underline {{\\\\mathbf {y}}}) \\\\cdot (\\\\mathrm {R}, - \\\\mathrm {R} \\\\underline {{\\\\mathbf {n}}}) = - \\\\gamma \\\\mathrm {R} (1 + v \\\\cos \\\\theta).\\n$$\\nFurthermore $\\ell \\\\cdot \\\\mathbf{u}_{\\\\mathrm{obs}} = -\\\\mathbb{R}$ and $\\ell \\\\cdot \\\\mathbf{n} = -\\\\mathbb{R}$ so that\\n$$\\n\\\\mathrm {F}_{\\\\mathrm {o b s}} = \\\\mathrm {L} / \\\\left[ 4 \\\\pi \\\\gamma^{4} (1 + \\\\mathrm {v} \\\\cos \\\\theta )^{4} \\\\mathrm {R}^{2} \\\\right].\\n$$\\nAnother way of arriving at this result is to use the fact that $\\mathbf{I}_{\\\\nu} / \\\\nu^{3}$ is a Lorentz invariant. (See Problem 5.10.)",
+    "answer": "\\\\mathrm {F} _ { \\\\mathrm {o b s } } = \\\\mathrm {L} / \\\\left[ 4 \\\\pi \\\\gamma ^ {4} (1 + \\\\mathrm {v} \\\\cos \\\\theta ) ^ {4} \\\\mathrm {R} ^ {2} \\\\right].",
+    "solution": "Solution 5.11. If spherical polar coordinates are used to describe the 3-dimensional space in the frame of the star, then in that frame the radiation has stress energy\\n$$\\n\\\\mathbf {T}^{\\\\mu \\\\nu} (\\\\mathfrak {r}, \\\\theta , \\\\phi) = (\\\\mathrm {L} / 4 \\\\pi \\\\mathbf {r}^{2}) \\\\left[ \\\\begin{array}{c c c c} \\\\mathbf {t} & \\\\mathbf {r} & \\\\theta & \\\\phi \\\\\\\\ 1 & 1 & 0 & 0 \\\\\\\\ 1 & 1 & 0 & 0 \\\\\\\\ 0 & 0 & 0 & 0 \\\\\\\\ 0 & 0 & 0 & 0 \\\\end{array} \\\\right].\\n$$\\nLet $\\ell$ be the vector (null, of course) from the emission of a photon to the reception of that photon. In the star's frame, if a photon is received at a distance $\\mathbf{r}$ from the star, $\\ell^0 = \\mathbf{r}$ , $\\ell^{\\mathbf{r}} = \\mathbf{r}$ , $\\ell^\\theta = \\ell \\phi = 0$ , and the stress-energy tensor at the event of reception can be written in the frame independent form\\n$$\\n\\\\mathbf {T} = [ \\\\mathrm {L} / 4 \\\\pi (\\\\mathbf {u_{s}} \\\\cdot \\\\boldsymbol {\\\\ell})^{4} ] \\\\boldsymbol {\\\\ell} \\\\otimes \\\\boldsymbol {\\\\ell}\\n$$\\nwhere $\\mathbf{u}_{\\\\mathbf{s}}$ is the 4-velocity of the star so that, evaluated in the star's frame, $\\mathbf{u}_{\\\\mathbf{s}} \\\\cdot \\\\boldsymbol{\\\\ell} = -\\\\mathbf{r}$ . It is now simple to use the frame independent expression for $\\mathbf{T}$ to evaluate the flux the observer sees. Let $\\mathbf{n} = (0, \\\\underline{\\\\mathfrak{n}})$ be the spatial vector which, in the observer's frame, points to the observed position of the star, so that $\\boldsymbol{\\\\ell} = (\\\\mathbb{R}, -\\\\mathbb{R} \\\\underline{\\\\mathfrak{n}})$ . The flux measured by the observer will be, in the observer's coordinates,\\n$$\\n\\\\mathbf {F}_{\\\\text {o b s}} = - \\\\mathbf {T}^{0 \\\\mathrm {i}} \\\\mathbf {n}_{\\\\mathrm {i}} = \\\\mathbf {u}_{\\\\text {o b s}} \\\\cdot \\\\mathbf {T} \\\\cdot \\\\mathbf {n}.\\n$$\\nIn the observer's coordinates\\n$$\\n\\\\mathbf {u}_{\\\\mathbf {s}} \\\\cdot \\\\boldsymbol {\\\\ell} = (\\\\gamma , \\\\gamma \\\\underline {{\\\\mathbf {y}}}) \\\\cdot (\\\\mathrm {R}, - \\\\mathrm {R} \\\\underline {{\\\\mathbf {n}}}) = - \\\\gamma \\\\mathrm {R} (1 + v \\\\cos \\\\theta).\\n$$\\nFurthermore $\\ell \\\\cdot \\\\mathbf{u}_{\\\\mathrm{obs}} = -\\\\mathbb{R}$ and $\\ell \\\\cdot \\\\mathbf{n} = -\\\\mathbb{R}$ so that\\n$$\\n\\\\mathrm {F}_{\\\\mathrm {o b s}} = \\\\mathrm {L} / \\\\left[ 4 \\\\pi \\\\gamma^{4} (1 + \\\\mathrm {v} \\\\cos \\\\theta )^{4} \\\\mathrm {R}^{2} \\\\right].\\n$$\\nAnother way of arriving at this result is to use the fact that $\\mathbf{I}_{\\\\nu} / \\\\nu^{3}$ is a Lorentz invariant. (See Problem 5.10.)"
+  },
+  "verification": null
+}

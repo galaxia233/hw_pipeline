@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "Schwarzschild radius",
+      "coordinate": "spherical",
+      "scenario": "photon sphere orbit",
+      "method": "geodesic_condition_inversion",
+      "generalization_axis": "invert",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$r_s$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞的赤道面 ($\\theta = \\pi/2$) 上，存在一个特殊的半径使得光子可以形成闭合的圆轨道（即光子球）。假设远处的静止观测者测量到，光子在该圆轨道上绕行一周所需的坐标时间周期为 $T$。请利用测地线方程与类光条件，推导该黑洞的 Schwarzschild 半径 $r_s$ 与观测周期 $T$ 之间的解析关系式。度规形式为：$$ds^2 = \\frac{-r + r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$$",
+    "answer": "$r_s = \\frac{T}{3\\sqrt{3}\\pi}$",
+    "solution": "1. 对于赤道面 ($\\theta = \\pi/2$) 上的圆轨道，径向坐标 $r$ 恒定，因此 $\\dot{r} = 0$ 且 $\\ddot{r} = 0$。由测地线方程的径向分量可得：$$\\Gamma^1_{00} \\dot{t}^2 + \\Gamma^1_{33} \\dot{\\phi}^2 = 0$$代入 Fact Sheet 中的 Christoffel 符号 $\\Gamma^1_{00} = \\frac{r_s (r - r_s)}{2 r^3}$ 和 $\\Gamma^1_{33} = (-r + r_s) \\sin^2\\theta$，在 $\\theta = \\pi/2$ 时 $\\sin^2\\theta = 1$，得：$$\\frac{r_s (r - r_s)}{2 r^3} \\dot{t}^2 + (-r + r_s) \\dot{\\phi}^2 = 0$$化简得到光子在圆轨道上的坐标角速度平方 $\\omega^2 = \\left(\\frac{\\dot{\\phi}}{\\dot{t}}\\right)^2$：$$\\omega^2 = \\frac{r_s}{2 r^3}$$2. 光子必须满足类光测地线条件 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = 0$。在赤道面圆轨道上 ($\\dot{r}=0, \\dot{\\theta}=0$)：$$g_{tt} \\dot{t}^2 + g_{\\phi\\phi} \\dot{\\phi}^2 = 0$$代入度规分量 $g_{tt} = \\frac{-r + r_s}{r}$ 和 $g_{\\phi\\phi} = r^2$，并将 $\\dot{\\phi}^2 = \\omega^2 \\dot{t}^2 = \\frac{r_s}{2 r^3} \\dot{t}^2$ 代入：$$\\frac{-r + r_s}{r} \\dot{t}^2 + r^2 \\left( \\frac{r_s}{2 r^3} \\dot{t}^2\\right) = 0$$消去 $\\dot{t}^2$ 并整理：$$-1 + \\frac{r_s}{r} + \\frac{r_s}{2r} = 0 \\implies -1 + \\frac{3 r_s}{2r} = 0$$由此解得光子球的半径为：$$r = \\frac{3 r_s}{2}$$3. 将光子球半径代入坐标角速度公式：$$\\omega = \\sqrt{\\frac{r_s}{2 \\left(\\frac{3 r_s}{2}\\right)^3}} = \\sqrt{\\frac{r_s}{2 \\cdot \\frac{27 r_s^3}{8}}} = \\sqrt{\\frac{4}{27 r_s^2}} = \\frac{2}{3\\sqrt{3} r_s}$$4. 坐标时间下的轨道周期为 $T = \\frac{2\\pi}{\\omega}$，代入角速度得：$$T = 2\\pi \\cdot \\frac{3\\sqrt{3} r_s}{2} = 3\\sqrt{3} \\pi r_s$$5. 从观测结论（周期 $T$）反推度规特征参数（Schwarzschild 半径 $r_s$）：$$r_s = \\frac{T}{3\\sqrt{3}\\pi}$$"
+  },
+  "verification": null
+}

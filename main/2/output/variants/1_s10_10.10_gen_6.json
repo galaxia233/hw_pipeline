@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-6",
+    "type": "prove",
+    "tags": {
+      "target_object": "L",
+      "coordinate": "spherical",
+      "scenario": "cosmology",
+      "method": "geodesic_killing",
+      "generalization_axis": "extend",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$L$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 FLRW 宇宙学度规中，度规张量定义为 $ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2}dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$，其中 $a(t)$ 为标度因子，$k$ 为曲率参数。该度规存在绕 $\\phi$ 轴的旋转 Killing 矢量场 $\\boldsymbol{\\xi}$，其坐标分量为 $\\xi^\\mu = (0, 0, 0, 1)$。对于沿测地线运动的自由粒子（其四维速度为 $u^\\mu = \\dot{x}^\\mu$），该 Killing 矢量会产生一个守恒量 $L = g_{\\mu\\nu} \\xi^\\mu u^\\nu$。请通过写出 $\\phi$ 分量的测地线方程并求解该微分方程，推导出这个守恒量 $L$ 的具体函数表达式。",
+    "answer": "$L = r^2 a^2(t) \\sin^2\\theta \\dot{\\phi}$",
+    "solution": "根据 Killing 矢量与测地线切矢量的内积定义，守恒量 $L$ 为：\\n$L = g_{\\mu\\nu} \\xi^\\mu u^\\nu = g_{\\phi\\phi} \\xi^\\phi u^\\phi = r^2 a^2(t) \\sin^2\\theta \\cdot 1 \\cdot \\dot{\\phi} = r^2 a^2(t) \\sin^2\\theta \\dot{\\phi}$\\n\\n接下来通过测地线方程验证并推导该量的守恒性。$\\phi$ 分量（对应坐标指标 3）的测地线方程为：\\n$\\ddot{\\phi} + \\Gamma^3_{\\alpha\\beta} \\dot{x}^\\alpha \\dot{x}^\\beta = 0$\\n\\n展开非零的 Christoffel 符号项（由于对称性 $\\Gamma^3_{03}=\\Gamma^3_{30}$，$\\Gamma^3_{13}=\\Gamma^3_{31}$，$\\Gamma^3_{23}=\\Gamma^3_{32}$）：\\n$\\ddot{\\phi} + 2\\Gamma^3_{03} \\dot{t} \\dot{\\phi} + 2\\Gamma^3_{13} \\dot{r} \\dot{\\phi} + 2\\Gamma^3_{23} \\dot{\\theta} \\dot{\\phi} = 0$\\n\\n代入度规对应的 Christoffel 符号值：$\\Gamma^3_{03} = \\frac{\\dot{a}}{a}$，$\\Gamma^3_{13} = \\frac{1}{r}$，$\\Gamma^3_{23} = \\frac{1}{\\tan\\theta} = \\frac{\\cos\\theta}{\\sin\\theta}$，得到：\\n$\\ddot{\\phi} + 2\\frac{\\dot{a}}{a} \\dot{t} \\dot{\\phi} + 2\\frac{1}{r} \\dot{r} \\dot{\\phi} + 2\\frac{\\cos\\theta}{\\sin\\theta} \\dot{\\theta} \\dot{\\phi} = 0$\\n\\n假设粒子运动满足 $\\dot{\\phi} \\neq 0$，方程两边同除以 $\\dot{\\phi}$：\\n$\\frac{\\ddot{\\phi}}{\\dot{\\phi}} + 2\\frac{\\dot{a}\\dot{t}}{a} + 2\\frac{\\dot{r}}{r} + 2\\frac{\\cos\\theta \\dot{\\theta}}{\\sin\\theta} = 0$\\n\\n注意到该方程左边可以改写为对数导数的形式：\\n$\\frac{d}{d\\tau} \\left( \\ln\\dot{\\phi} + 2\\ln a + 2\\ln r + 2\\ln\\sin\\theta\\right) = 0$\\n\\n即：\\n$\\frac{d}{d\\tau} \\ln(r^2 a^2 \\sin^2\\theta \\dot{\\phi}) = 0$\\n\\n这说明 $r^2 a^2 \\sin^2\\theta \\dot{\\phi}$ 沿测地线为常数，因此守恒量 $L$ 的具体表达式为：\\n$L = r^2 a^2(t) \\sin^2\\theta \\dot{\\phi}$"
+  },
+  "verification": null
+}

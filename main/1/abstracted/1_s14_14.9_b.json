@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s14_14.9_b",
+    "type": "concept",
+    "tags": {
+      "metric": "general_relativity_metric",
+      "target_object": "deformation_tensor",
+      "coordinate": "orthonormal_tetrad_frame",
+      "scenario": "continuum_mechanics_scenario",
+      "method": "symmetry_and_identity_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.9_b",
+    "source_id": "1_s14_14.9_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.9_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.75,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基于相对论连续介质运动学分解的约束计数与自由度分析，逻辑链条完整且可直接迁移至一般流体力学与刚体模型",
+      "overall": 0.76
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$u^\\alpha$",
+      "$\\xi^\\mu$",
+      "$\\sigma^{\\alpha\\beta}$",
+      "$\\theta$",
+      "$\\omega^{\\alpha\\beta}$",
+      "$\\mathfrak{a}^\\alpha$"
+    ],
+    "target": [
+      "$N_{\\text{constraints}}$",
+      "$N_{\\text{dof}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "**Problem 14.9.** Consider a moving medium with four-velocity $\\mathbf{u}(\\mathbf{x})$ . Choose two arbitrary neighboring particles A and B. At each event along the world line of A define the four-vector separation of B from A, $\\xi$ , as follows: (i) $\\xi$ is an infinitesimal vector from a given event on A's world line to B's world line; (ii) $\\xi$ has vanishing time component, $\\xi^{\\hat{0}} = 0$ , relative to the orthonormal tetrad carried by A.(b) How many independent equations do these conditions constitute? How many degrees of freedom are there in relativistic rigid-body motion?",
+    "answer": "6 independent equations; 6 degrees of freedom.",
+    "solution": "(b) The symmetry $\\sigma^{\\alpha\\beta} = \\sigma^{\\beta\\alpha}$ reduces the condition $\\sigma^{\\alpha\\beta} = 0$ to 10 equations. The 5 identities $\\mathbf{u}^{\\alpha}\\sigma_{\\alpha\\beta}$ and $\\mathbf{P}^{\\alpha\\beta}\\sigma_{\\alpha\\beta} = \\sigma_{\\alpha}^{\\alpha} = 0$ leave 5 independent equations. With the condition $\\theta = 0$ , we have 6 independent constraints altogether.The rigid-body conditions do not constrain $\\mathfrak{a}^{\\alpha}$ or $\\omega^{\\alpha \\beta}$ . Each of these has 3 independent components ( $\\mathfrak{a}^{\\alpha}\\mathfrak{u}_{\\alpha} = 0$ , $\\omega^{\\alpha \\beta} = -\\omega^{\\beta \\alpha}$ ) so there are 6 degrees of freedom as in nonrelativistic rigid-body motion."
+  },
+  "verification": null
+}

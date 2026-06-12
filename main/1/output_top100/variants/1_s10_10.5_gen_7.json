@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "Killing vectors limit behavior",
+      "coordinate": "spherical",
+      "scenario": "cosmic string",
+      "method": "limit and Lie bracket",
+      "generalization_axis": "verify",
+      "metric": "BarriolaVilekin"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "BarriolaVilekin",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$[\\xi_{(t)}, \\xi_{(\\phi)}]$",
+      "$\\lim_{k \\to 1} g(\\xi_{(t)}, \\xi_{(t)})$",
+      "$\\lim_{k \\to 1} g(\\xi_{(\\phi)}, \\xi_{(\\phi)})$",
+      "$\\lim_{k \\to 1} g(\\xi_{(t)}, \\xi_{(\\phi)})$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "k**2*r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "k**2*r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "设 Barriola-Vilekin 宇宙弦度规为 $ds^2 = -dt^2 + dr^2 + k^2 r^2 d\\theta^2 + k^2 r^2 \\sin^2{\\left(\\theta\\right)} d\\phi^2$，其中 $k$ 为与 deficit angle 相关的参数。种子题证明了对于仅具有稳态和轴对称 Killing 矢量 $\\xi_{(t)}$ 和 $\\xi_{(\\phi)}$ 的时空，这两个矢量必然对易。请验证此结论在宇宙弦度规平直时空极限下的退化一致性：证明对易子 $[\\xi_{(t)}, \\xi_{(\\phi)}]$ 确实独立于 $k$ 且始终为零，并求出当 $k \\to 1$ 时这两个 Killing 矢量的范数与内积的极限值，验证它们退化为标准 Minkowski 时空对应 Killing 矢量的几何性质。",
+    "answer": "对易子 $[\\xi_{(t)}, \\xi_{(\\phi)}] = 0$ 独立于 $k$；极限下范数与内积分别为 $-1$, $r^2 \\sin^2{\\left(\\theta\\right)}$, $0$，与 Minkowski 时空对应 Killing 矢量一致。",
+    "solution": "1. 识别 Killing 矢量：由于度规分量均不依赖于 $t$ 和 $\\phi$，稳态和轴对称 Killing 矢量分别为坐标基矢量 $\\xi_{(t)} = \\partial_t$ 与 $\\xi_{(\\phi)} = \\partial_\\phi$。2. 计算李括号验证对易性：$[\\xi_{(t)}, \\xi_{(\\phi)}] = [\\partial_t, \\partial_\\phi]$。由于坐标基矢量的对易子恒为零，且 $\\partial_t$ 与 $\\partial_\\phi$ 的分量为常数，不涉及度规参数 $k$，因此 $[\\xi_{(t)}, \\xi_{(\\phi)}] = 0$ 且完全独立于 $k$，验证了种子题结论在此拓扑缺陷度规中同样成立。3. 计算范数与内积：   $g(\\xi_{(t)}, \\xi_{(t)}) = g_{tt} \\xi^t \\xi^t = -1$   $g(\\xi_{(\\phi)}, \\xi_{(\\phi)}) = g_{\\phi\\phi} \\xi^\\phi \\xi^\\phi = k^2 r^2 \\sin^2{\\left(\\theta\\right)}$   $g(\\xi_{(t)}, \\xi_{(\\phi)}) = g_{t\\phi} \\xi^t \\xi^\\phi = 0$4. 取平直时空极限 $k \\to 1$（即 deficit angle 消失）：   $\\lim_{k \\to 1} g(\\xi_{(t)}, \\xi_{(t)}) = -1$   $\\lim_{k \\to 1} g(\\xi_{(\\phi)}, \\xi_{(\\phi)}) = r^2 \\sin^2{\\left(\\theta\\right)}$   $\\lim_{k \\to 1} g(\\xi_{(t)}, \\xi_{(\\phi)}) = 0$   这与标准 Minkowski 度规 $ds^2 = -dt^2 + dr^2 + r^2 d\\Omega^2$ 中 $\\partial_t$ 和 $\\partial_\\phi$ 的范数与内积完全一致，验证了种子题结论及相关几何量在没有拓扑缺陷时的极限行为是自洽且平滑退化的。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.barriolavilekin_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "度规定义存在严重错误：正确的 Barriola-Vilekin 宇宙弦度规（球坐标形式）应为 $ds^2 = -dt^2 + dr^2 + r^2 d\theta^2 + k^2 r^2 \\sin^2\\theta d\\phi^2$，但题目错误地将 $d\\theta^2$ 的系数写成了 $k^2 r^2$。宇宙弦的 deficit angle 仅影响围绕弦的方位角 $\\phi$ 的周期/系数，而不影响沿弦方向（即极角 $\\theta$ 方向）的尺度。题目的度规相当于对整个二维球面进行了等比缩放，使得极点到极点的大圆距离变为 $k\\pi r$，这完全破坏了宇宙弦度规局部平直（锥面）的几何性质，使其变为处处弯曲的非真空时空（这也与摘要中 Ricci标量非常数、非真空的异常性质吻合，但与真实的宇宙弦在弦外应为真空 Ricci平直的物理事实矛盾）。期望值：$g_{\\theta\\theta} = r^2$；实际值：$g_{\\theta\\theta} = k^2 r^2$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

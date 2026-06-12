@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-7-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "perihelion_precession_period",
+      "coordinate": "spherical",
+      "scenario": "black_hole_orbit_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-7",
+      "1_s11_11.9-7-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "数值模拟验证近星点进动周期"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，考虑一个有质量的测试粒子在赤道平面 ($\\theta = \\pi/2$) 上的近圆轨道运动。由于时空曲率的影响，该粒子的近星点会产生相对论性进动。度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^{2}\\theta d\\phi^2$，其中 $r_s = 2M$ 为施瓦西半径。采用 $(-,+,+,+)$ 符号约定（类时条件 $g_{\\mu\\nu}\\dot{x}^\\mu\\dot{x}^\\nu=-1$）。理论推导得出，圆轨道半径为 $r_0$ 时，近星点进动周期为 $T_{prec} = \\frac{2\\pi \\sqrt{\\frac{r_0^3(r_0-3M)}{M}}}{1 - \\sqrt{1 - \\frac{6M}{r_0}}}$。请从零设计一个数值模拟方案来验证该近星点进动周期结论的正确性。方案需详细说明：1) 如何选取初始条件以构造一条稳定的近圆轨道；2) 需求解的测地线方程及数值积分方法；3) 如何从数值积分输出的轨迹数据中提取近星点进动周期 $T_{prec}$；4) 如何与理论公式进行系统性对比以验证结论。",
+    "answer": "1. **初始条件选取**：选定黑洞质量 $M$ 和初始轨道半径 $r_0 > 6M$。计算圆轨道对应的角动量 $L = \\sqrt{Mr_0^2/(r_0-3M)}$ 和能量 $E = \\sqrt{(r_0-2M)^2/(r_0(r_0-3M))}$。设置初始位置 $r(0)=r_0$, $\\theta(0)=\\pi/2$, $\\phi(0)=0$。为产生近圆轨道，给径向速度一个微小扰动 $\\dot{r}(0) = \\delta v_r$，并设定 $\\dot{\\phi}(0) = L/r_0^2$, $\\dot{\\theta}(0)=0$, $\\dot{t}(0) = E/(1-2M/r_0)$。2. **测地线方程与积分**：利用 Schwarzschild 度规计算 Christoffel 符号，写出二阶测地线 ODE 系统：$\\ddot{x}^\\mu + \\Gamma^\\mu_{\\alpha\\beta} \\dot{x}^\\alpha \\dot{x}^\\beta = 0$。使用 Runge-Kutta 四阶积分器（RK4）求解该系统，积分足够长的坐标时间 $t$ 以观测多次进动。3. **进动周期提取**：记录随坐标时 $t$ 演化的 $r(t)$ 和 $\\phi(t)$ 数据。找出 $r(t)$ 的所有局部极小值点（近星点）对应的时刻 $t_n$ 和方位角 $\\phi_n$。计算径向振荡周期 $T_r = t_{n+1} - t_n$，进而由相邻近星点方位角差 $\\Delta \\phi = \\phi_{n+1} - \\phi_n$，提取进动角 $\\delta \\phi = \\Delta \\phi - 2\\pi$，得到进动周期 $T_{prec} = \\frac{2\\pi}{\\delta \\phi / T_r}$。4. **对比验证**：将数值提取的 $T_{prec}$ 与理论公式 $T_{prec} = \\frac{2\\pi \\sqrt{\\frac{r_0^3(r_0-3M)}{M}}}{1 - \\sqrt{1 - \\frac{6M}{r_0}}}$ 的结果进行对比，选取多组不同 $r_0$ 和不同微小扰动 $\\delta v_r$，绘制数值与理论值的相对误差图，误差应随扰动减小而收敛至0，从而验证理论结论。",
+    "solution": null
+  },
+  "verification": null
+}

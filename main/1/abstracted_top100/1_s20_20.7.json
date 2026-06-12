@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s20_20.7",
+    "type": "calculate",
+    "tags": {
+      "metric": "schwarzschild",
+      "target_object": "perihelion_shift",
+      "coordinate": "curvature_coordinates",
+      "scenario": "planetary_orbit",
+      "method": "perturbation_theory"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s20_20.7",
+    "source_id": "1_s20_20.7",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s20_20.7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 1.0,
+      "rationale": "基于史瓦西度规的微扰轨道推导，逻辑链条清晰，具有经典广义相对论验证背景，题干与解答完整。",
+      "overall": 0.9
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$M$",
+      "$a$",
+      "$e$",
+      "$\\\\delta \\\\phi$",
+      "$r$",
+      "$\\\\phi$",
+      "$\\\\tilde{L}$",
+      "$u$"
+    ],
+    "target": [
+      "$\\\\delta \\\\phi$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 20.7. Calculate the expected perihelion shift of the planet Mercury in terms of the semimajor axis of its orbit $\\mathbf{a}$ , the eccentricity $\\mathbf{e}$ , and the mass $\\mathbf{M}$ of the sun.",
+    "answer": "\\\\delta \\\\phi = \\\\frac {6 \\\\pi \\\\mathrm {M}}{\\\\mathrm {a} \\\\left(1 - \\\\mathrm {e} ^ {2}\\\\right)}",
+    "solution": "Solution 20.7. In the Schwarzschild metric, in curvature coordinates, the equation for noncircular orbits may be put into the form (see e.g. solution to Problem 15.9)\\n$$\\nu^{\\\\prime \\\\prime} + u = \\\\frac {M}{\\\\tilde {L}^{2}} + 3 M u^{2} \\\\equiv a + b u^{2} \\\\tag {1}\\n$$\\nwhere $\\mathbf{u} \\equiv 1 / \\mathbf{r}$ , $\\mathbf{u}'' \\equiv \\\\mathrm{d}^2\\\\mathbf{u} / \\\\mathrm{d}\\\\phi^2$ , and $\\tilde{\\mathbf{L}} \\equiv$ angular momentum per unit mass of the orbiting particle (= constant). The solution to the lowest order, the linear portion of Equation (1), is\\n$$\\nu_{0} = a + A \\\\cos \\\\phi \\\\tag {2}\\n$$\\nwhere $A$ is a constant. The second order solution to Equation (1), $u_1$ , then satisfies the equation\\n$$\\n\\\\begin{array}{l} u_{1}^{\\\\prime \\\\prime} + u_{1} \\\\approx b u_{0}^{2} = b (a^{2} + 2 a A \\\\cos \\\\phi + A^{2} \\\\cos^{2} \\\\phi) \\\\\\\\\\\\= \\\\mathrm {b a}^{2} + \\\\frac {1}{2} \\\\mathrm {b A}^{2} + 2 \\\\mathrm {a b A} \\\\cos \\\\phi + \\\\frac {1}{2} \\\\mathrm {b A}^{2} \\\\cos 2 \\\\phi . \\\\tag {3} \\\\\\\\\\\\n\\\\end{array}\\n$$\\nThe inhomogeneous solution to Equation (3) is\\n$$\\nu_{1} = b \\\\left(a^{2} + \\\\frac {1}{2} A^{2}\\\\right) + a b A \\\\phi \\\\sin \\\\phi - (b A^{2} / 6) \\\\cos 2 \\\\phi \\\\tag {4}\\n$$\\nand\\n$$\\nu = \\\\frac {1}{r} \\\\approx u_{0} + u_{1}. \\\\tag {5}\\n$$\\nThe second term in $\\mathbf{u}_1$ causes the nonperiodicity; we may put it into more useful form by use of the identity\\n$$\\n\\\\epsilon \\\\phi \\\\sin \\\\phi = \\\\cos (\\\\phi - \\\\epsilon \\\\phi) - \\\\cos \\\\phi + \\\\mathcal {O} \\\\left(\\\\epsilon^{2}\\\\right). \\\\tag {6}\\n$$\\nSince ab is a small quantity according to Equation (1), Equation (6) may be used to put Equation (4) into the form\\n$$\\nu_{1} \\\\approx b \\\\left(a^{2} + \\\\frac {1}{2} A^{2}\\\\right) + A \\\\cos (\\\\phi - a b \\\\phi) - A \\\\cos \\\\phi - (b A^{2} / 6) \\\\cos 2 \\\\phi \\\\tag {7}\\n$$\\nand the perihelion shift, per revolution, is\\n$$\\n\\\\delta \\\\phi = 2 \\\\pi \\\\mathbf {a b} = 6 \\\\pi \\\\mathrm {M}^{2} / \\\\tilde {\\\\mathrm {L}}^{2}. \\\\tag {8}\\n$$\\nWe may express $\\tilde{\\mathbf{L}}$ in terms of the semimajor axis $a$ and eccentricity $e$ of the orbit using standard classical mechanics\\n$$\\n\\\\tilde {\\\\mathbf {L}}^{2} = \\\\operatorname {M a} \\\\left(1 - e^{2}\\\\right). \\\\tag {9}\\n$$\\nEquation (8) then becomes\\n$$\\n\\\\delta \\\\phi = \\\\frac {6 \\\\pi \\\\mathrm {M}}{\\\\mathrm {a} \\\\left(1 - \\\\mathrm {e}^{2}\\\\right)}, \\\\tag {10}\\n$$\\nwhich in the limit of small e agrees with the solution of Problem 15.7."
+  },
+  "verification": null
+}

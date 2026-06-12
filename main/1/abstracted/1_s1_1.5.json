@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s1_1.5",
+    "type": "calculate",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "lorentz_transformation",
+      "coordinate": "optical_apparance",
+      "scenario": "kinematics",
+      "method": "length_contraction"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.5",
+    "source_id": "1_s1_1.5",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "区分同时性测量与光行差视觉效应，需多步结合洛伦兹变换与光速传播时间推导",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$t'$",
+      "$x'$",
+      "$\\alpha$",
+      "$\\beta$",
+      "$\\gamma$",
+      "$b$",
+      "$b'$"
+    ],
+    "target": [
+      "$b'$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.5. A distant camera snaps a photograph of a speeding bullet (velocity v) with length b in its rest frame. Behind the bullet and parallel to its path is a meter stick, at rest with respect to the camera. The direction to the camera is an angle $\\alpha$ from the direction of the bullet's velocity. What will be the apparent length of the bullet as seen in the photo? (i.e. How much of the meter stick is hidden?).",
+    "answer": "$b'^{} = b / \\gamma (1 - \\beta \\cos \\alpha)$",
+    "solution": "Solution 1.5. The usual $\\mathsf{b} / \\gamma$ answer refers to a measurement made simultaneously in the lab frame, but the photons are not emitted simultaneously in the lab frame. They are received simultaneously so that photon 2 (see diagram) has to travel for an extra time $\\mathsf{b}' \\cos \\alpha$ , where $\\mathsf{b}'$ is the apparent length. From the Lorentz transformation$$\\mathbf {b} = \\Delta \\mathbf {x} = \\gamma (\\Delta \\mathbf {x}^{\\prime} - \\beta \\Delta \\mathbf {t}^{\\prime}) = \\gamma (\\mathbf {b}^{\\prime} - \\beta \\mathbf {b}^{\\prime} \\cos \\alpha),$$so that$$b^{\\prime} = b / \\gamma (1 - \\beta \\cos \\alpha).$$![](images/0b5058323b363dc15183a42e2d8ee51c64512eaba814d09599d9511847030c37.jpg)"
+  },
+  "verification": null
+}

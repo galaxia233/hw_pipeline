@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s2_2.11_e",
+    "type": "prove",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "scattering_kinematics",
+      "coordinate": "center_of_mass_frame",
+      "scenario": "four_momentum_conservation",
+      "method": "reference_frame_transformation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.11_e",
+    "source_id": "1_s2_2.11_e",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.11_e"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于四动量守恒与参考系定义的典型散射运动学推导，逻辑链条清晰且可迁移至任意两体碰撞场景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$m_1$",
+      "$m_2$",
+      "$\\\\mathbf{P}_1$",
+      "$\\\\mathbf{E}_1$",
+      "$\\\\mathbf{v}_{CM}$"
+    ],
+    "target": [
+      "$v_{CM}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 2.11. Consider the reaction $1 + 2 \\\\rightarrow 3 + 4$ . The lab frame is defined to be the one in which $\\underline{\\mathbf{P}}_2 = 0$ . The C.M. frame is defined to be the one in which $\\underline{\\mathbf{P}}_1^{\\mathbf{C.M.}} + \\underline{\\mathbf{P}}_2^{\\mathbf{C.M.}} = 0$ . Show that:\\n(e) $\\mathbf{v}_{\\mathbf{C},\\mathbf{M}.} = \\mathbf{P}_1 / (\\mathbf{E}_1 + \\mathbf{m}_2)$ .",
+    "answer": "\\\\mathbf{v}_{\\\\mathbf{C}. \\\\mathbf{M}.} = \\\\frac {\\\\mathbf{P} _ {1}}{\\\\mathbf{E} _ {1} + \\\\mathbf{m} _ {2}}.",
+    "solution": "(e) From (d), we have\\n$$\\n1 - \\\\mathrm {v}_{\\\\mathbf {C . M .}}^{2} = [ \\\\mathrm {E}_{\\\\mathrm {t o t a l}}^{\\\\mathbf {C . M .}} / (\\\\mathrm {E}_{1} + \\\\mathrm {m}_{2}) ]^{2},\\n$$\\nthus\\n$$\\n\\\\mathbf {v}_{\\\\mathbf {C}. \\\\mathbf {M}.} = \\\\left[ \\\\frac {\\\\mathbf {E}_{1}^{2} - \\\\mathbf {m}_{1}^{2}}{(\\\\mathbf {E}_{1} + \\\\mathbf {m}_{2})^{2}} \\\\right]^{\\\\frac {1}{2}} = \\\\frac {\\\\mathbf {P}_{1}}{\\\\mathbf {E}_{1} + \\\\mathbf {m}_{2}}.\\n$$"
+  },
+  "verification": null
+}

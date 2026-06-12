@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s19_19.38_b",
+    "type": "prove",
+    "tags": {
+      "metric": "cosmology",
+      "target_object": "comoving_coordinates",
+      "coordinate": "induced_metric",
+      "scenario": "spatial_hypersurface",
+      "method": "proper_distance"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.38_b",
+    "source_id": "1_s19_19.38_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.38_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于共动坐标系切分考查诱导度规与物理距离关系，逻辑清晰且具典型宇宙学背景",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\tau$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$g_{ij}$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$g_{01}$",
+        "$g_{02}$",
+        "$g_{03}$"
+      ],
+      [
+        "$g_{10}$",
+        "$g_{11}$",
+        "$g_{12}$",
+        "$g_{13}$"
+      ],
+      [
+        "$g_{20}$",
+        "$g_{21}$",
+        "$g_{22}$",
+        "$g_{23}$"
+      ],
+      [
+        "$g_{30}$",
+        "$g_{31}$",
+        "$g_{32}$",
+        "$g_{33}$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "19.38 In cosmology one usually uses coordinates comoving with the galaxies. Let $(r, x^i)$ be such a system, and let the metric take the general form$$\\mathrm {d s}^{2} = - \\mathrm {d} \\tau^{2} + 2 \\mathrm {g}_{0 \\mathrm {i}} \\mathrm {d} \\tau \\mathrm {d x}^{\\mathrm {i}} + \\mathrm {g}_{\\mathrm {i j}} \\mathrm {d x}^{\\mathrm {i}} \\mathrm {d x}^{\\mathrm {j}}$$where $\\mathbf{g}_{0\\mathrm{i}}$ and $\\mathbf{g}_{\\mathrm {ij}}$ can be functions of $\\pmb{\\tau}$ and $\\mathbf{x}^{\\mathrm {i}}$ . Show (b) that $\\mathbf{g}_{\\cdot \\cdot}$ governs proper distances in the hypersurface of constant $\\tau$ ;",
+    "answer": "当 $\\tau$ 固定时 $\\mathrm{d}\\tau=0$，度规线元退化为 $\\mathrm{d}s^2 = g_{ij}\\mathrm{d}x^i\\mathrm{d}x^j$，此即该三维超曲面上的内蕴线元，故 $g_{ij}$ 直接决定固有距离。",
+    "solution": null
+  },
+  "verification": null
+}

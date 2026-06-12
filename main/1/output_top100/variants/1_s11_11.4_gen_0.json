@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "spin_vector",
+      "coordinate": "abstract_4D",
+      "scenario": "geodesic_free_fall",
+      "method": "limit_degeneration",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\mathbf{S}$",
+      "$\\mathbf{u}$",
+      "$\\mathbf{a}$"
+    ],
+    "target": [
+      "$\\nabla_{\\mathbf{u}} \\mathbf{S}$ 在 $\\mathbf{a}=0$ 时的退化形式"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，无外加力矩的陀螺仪会对其自旋矢量 $\\mathbf{S}$ 进行 Fermi-Walker 输运，其输运方程为 $\\nabla_{\\mathbf{u}} \\mathbf{S} = (u_\\mu S^\\mu) \\mathbf{a} - (a_\\mu S^\\mu) \\mathbf{u}$，其中 $\\mathbf{u}$ 为陀螺仪的四维速度（满足类时条件 $g_{\\mu\\nu}u^\\mu u^\\nu = -1$），$\\mathbf{a} = \\nabla_{\\mathbf{u}} \\mathbf{u}$ 为其四维加速度。通常陀螺仪的自旋矢量在局部静止系中是纯空间的，即满足初始正交条件 $u_\\mu S^\\mu = 0$。请验证此结论的一个退化性质：当陀螺仪处于自由下落状态（沿类时测地线运动）时，证明上述 Fermi-Walker 输运方程将退化为何种具体的几何输运方程，并从物理直觉角度解释这一退化形式对自由下落陀螺仪自旋指向的局域观测影响。",
+    "answer": "Fermi-Walker 输运方程退化为平行输运方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$。物理上意味着自由下落的陀螺仪在随动的局域惯性系中不发生非惯性旋转，其自旋矢量在局域上保持指向不变。",
+    "solution": "1. **极限条件分析**：陀螺仪处于自由下落状态意味着其沿类时测地线运动，根据测地线定义，四维加速度为零，即 $\\mathbf{a} = \\nabla_{\\mathbf{u}} \\mathbf{u} = 0$。2. **方程退化推导**：将 $\\mathbf{a} = 0$ 代入 Fermi-Walker 输运方程：   $$ \\nabla_{\\mathbf{u}} \\mathbf{S} = (u_\\mu S^\\mu) \\mathbf{a} - (a_\\mu S^\\mu) \\mathbf{u} $$ 由于 $a^\\mu = 0$，等式右侧两项皆为零： $$ \\nabla_{\\mathbf{u}} \\mathbf{S} = (u_\\mu S^\\mu) \\cdot 0 - (0 \\cdot S^\\mu) \\mathbf{u} = 0 $$ 这正是矢量沿世界线的平行输运方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$。3. **物理意义验证**：Fermi-Walker 输运的核心物理意义是扣除由于非惯性运动（加速度 $\\mathbf{a}$）带来的局域旋转效应，使得矢量在随动参考系中保持“不旋转”。当加速度 $\\mathbf{a}=0$ 时，陀螺仪随动的参考系本身就是局域惯性系（Local inertial frame），不存在任何非惯性旋转需要扣除，因此自旋矢量只需按照时空的基本联络进行平行输运。在局域惯性系中的观测者看来，平行输运的自旋矢量不会发生任何额外的旋转，其指向保持局域不变（尽管全局上由于时空曲率会导致测地线效应，使自旋相对遥远恒星发生进动）。这验证了无外力矩陀螺仪自旋输运方程在自由下落退化条件下的自洽性。"
+  },
+  "verification": null
+}

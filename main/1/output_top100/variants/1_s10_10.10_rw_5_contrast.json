@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-3-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "ISCO_radius",
+      "coordinate": "spherical_vs_cartesian",
+      "scenario": "black_hole_vs_flat",
+      "method": "effective_potential_extrema",
+      "generalization_axis": "compare",
+      "metric": "Minkowski"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-3",
+      "1_s10_10.10-3-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Minkowski",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "ISCO存在性及有效势结构对比"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑两种时空背景下类时粒子的测地线运动：背景 A (Schwarzschild 黑洞)：度规 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$ ($r_s=2M$)，Killing 矢量为 $\\partial_t$ 和 $\\partial_\\phi$。背景 B (Minkowski 平直时空)：度规 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$，Killing 矢量为 $\\partial_t, \\partial_x, \\partial_y, \\partial_z$。请分别在两种背景下，由各自的 Killing 矢量推导类时测地线的运动约束方程（背景 A 在赤道面化为径向有效势形式 $\\dot{r}^2 = E^2 - V_{\\text{eff}}(r)$，背景 B 化为守恒量关系形式），并基于方程的结构差异，解释为何背景 A 存在内稳定圆轨道 (ISCO) 半径而背景 B 的自由粒子不存在此概念？",
+    "answer": "背景 A：由 Killing 矢量导出能量 $E = \\frac{r-r_s}{r}\\dot{t}$ 和角动量 $L = r^2\\dot{\\phi}$，代入类时条件 $g_{\\mu\\nu}\\dot{x}^\\mu\\dot{x}^\\nu=-1$ 得 $\\dot{r}^2 = E^2 - V_{\\text{eff}}(r)$，其中有效势 $V_{\\text{eff}}(r) = 1 - \\frac{r_s}{r} + \\frac{L^2}{r^2} - \\frac{r_s L^2}{r^3}$。该势包含引力吸引项 $-\\frac{r_s}{r}$ 和非牛顿修正项 $-\\frac{r_s L^2}{r^3}$，使得 $V_{\\text{eff}}$ 存在极小值点（稳定圆轨道）及二阶导数为零的临界点，故存在 ISCO ($r=3r_s$)。背景 B：由 Killing 矢量导出能量 $E = \\dot{t}$ 和动量 $p_i = \\dot{x}_i$，代入类时条件得 $E^2 = 1 + p_x^2 + p_y^2 + p_z^2$。该方程不含空间坐标变量，无势能项，自由粒子作匀速直线运动，无法偏转形成圆轨道，故无 ISCO 概念。物理差异：Schwarzschild 时空的曲率导致度规系数随 $r$ 变化，在有效势中表现为吸引势阱（远处趋于平直时空常量 1，近处下陷），允许自由粒子形成束缚圆轨道及稳定性的临界半径；Minkowski 时空无曲率，度规系数为常数，无引力势，自由粒子无束缚态。",
+    "solution": "1. 背景 A：利用 $\\partial_t$ 和 $\\partial_\\phi$ 得到守恒量 $E$ 和 $L$，代入 $g_{\\mu\\nu}\\dot{x}^\\mu\\dot{x}^\\nu=-1$ 并在赤道面 $\\theta=\\pi/2$ 展开，解出 $\\dot{r}^2$，整理出标准有效势形式 $V_{\\text{eff}}(r) = 1 - \\frac{r_s}{r} + \\frac{L^2}{r^2} - \\frac{r_s L^2}{r^3}$。对 $V_{\\text{eff}}$ 求极值和二阶导数零点，可得 $r_{\\text{ISCO}}=3r_s$。2. 背景 B：利用 $\\partial_t$ 和 $\\partial_i$ 得到守恒量 $E$ 和 $p_i$，代入 $-\\dot{t}^2+\\dot{x}^2+\\dot{y}^2+\\dot{z}^2=-1$ 得到 $E^2=1+p^2$。此方程无径向坐标，无法写出 $V_{\\text{eff}}(r)$ 形式，动量守恒意味着轨迹为直线。3. 对比：曲率是产生引力势的根源，平直时空无曲率则无引力，这是圆轨道和 ISCO 存在性差异的本质。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.minkowski_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "题目在背景A的描述中明确陈述'Killing 矢量为 ∂_t 和 ∂_ϕ'，这错误地暗示Schwarzschild度规仅存在这两个Killing矢量。实际上，Schwarzschild黑洞度规具有静态和球对称性，拥有4个Killing矢量（1个时间平移 ∂_t 和3个空间旋转矢量，∂_ϕ 仅是其中一个轴对称旋转矢量）。断言其Killing矢量'为'这两个是对度规几何性质的错误陈述，且与背景B正确指出Minkowski度规有4个Killing矢量形成事实上的不对称与误导。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

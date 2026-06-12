@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s7_7.7_e",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_tensor",
+      "target_object": "christoffel_symbols",
+      "coordinate": "coordinate_frame",
+      "scenario": "determinant_identity",
+      "method": "tensor_contraction"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.7_e",
+    "source_id": "1_s7_7.7_e",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.7_e"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.5,
+      "generalizability": 0.9,
+      "completeness": 0.4,
+      "realism": 0.3,
+      "rationale": "联络缩并恒等式证明，具有一般性但缺乏具体物理场景与解答过程",
+      "overall": 0.53
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$g$"
+    ],
+    "target": [
+      "$\\\\Gamma^{\\\\alpha}_{\\\\alpha \\\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.7. Prove the following identities:\\n(e) $\\Gamma_{\\alpha \\beta}^{\\alpha} = (\\log |\\mathbf{g}|^{\\frac{1}{2}}),\\beta$ in a coordinate frame.",
+    "answer": "$\\\\Gamma^{\\\\alpha}_{\\\\alpha \\\\beta} = (\\\\log |g|^{\\\\frac{1}{2}}),_{\\\\beta}$",
+    "solution": null
+  },
+  "verification": null
+}

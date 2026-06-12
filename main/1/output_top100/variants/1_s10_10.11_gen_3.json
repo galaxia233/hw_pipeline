@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-3",
+    "type": "prove",
+    "tags": {
+      "target_object": "tangential momentum scaling law",
+      "coordinate": "spherical",
+      "scenario": "cosmology",
+      "method": "conserved_current_integration",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$p_{tang} \\propto a(t)^{-1}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 FLRW 宇宙学时空中，度规为 $ds^2 = -dt^2 + \\frac{a^2(t)}{1 - k r^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$，该度规具有对应于 $\\phi$ 方向旋转对称性的 Killing 矢量 $\\xi^\\mu = (0, 0, 0, 1)$。已知广义相对论中的一个基本定理：对于任意能动张量 $T^{\\mu\\nu}$ 和 Killing 矢量 $\\xi^\\mu$，矢量场 $J^\\mu = T^{\\mu\\nu} \\xi_\\nu$ 是一个守恒流，即满足 $J^\\mu_{;\\mu} = 0$。考虑一个质量为 $m$ 的测试粒子，被约束在固定的空间坐标 $(r, \\theta)$ 上仅沿 $\\phi$ 方向运动（例如由一根无摩擦的环形轨道限制，轨道仅提供径向约束力）。请应用上述守恒流定理，推导该粒子沿世界线的守恒量 $L$，并据此预测该粒子的物理切向线动量 $p_{tang}$ 随宇宙标度因子 $a(t)$ 的演化规律（给出比例关系），从而说明宇宙膨胀对横向动量的红移效应。",
+    "answer": "守恒量为 $L = r^2 a^2(t) \\sin^2\\theta \\dot{\\phi}$，物理切向线动量随标度因子的演化规律为 $p_{tang} \\propto a(t)^{-1}$。",
+    "solution": "1. 对于单个测试粒子，其能动张量为 $T^{\\mu\\nu} = \\rho u^\\mu u^\\nu$，其中 $\\rho$ 为能量密度，$u^\\mu$ 为四维速度。2. 根据守恒流定理，$J^\\mu = T^{\\mu\\nu} \\xi_\\nu = \\rho u^\\mu (u^\\nu \\xi_\\nu) = \\rho u^\\mu L$，其中定义 $L = \\xi_\\mu u^\\mu$。3. 考虑到粒子受到环形轨道的径向约束力 $F^\\mu$（仅有 $r$ 分量），而 $\\xi_\\mu$ 仅具有 $\\phi$ 分量（$\\xi_\\mu = g_{\\phi\\phi} \\delta_{\\mu\\phi}$），因此 $F^\\mu \\xi_\\mu = F^\\mu g_{\\mu\\phi} = 0$。这意味着该径向约束力不会破坏与 $\\xi^\\mu$ 相关的守恒流，粒子对应的 $J^\\mu$ 满足守恒，进而保证 $L$ 沿粒子世界线为常数。4. 将 $\\xi^\\mu$ 和度规分量代入，守恒量为 $L = \\xi_\\mu u^\\mu = g_{\\phi\\phi} u^\\phi = r^2 a^2(t) \\sin^2\\theta \\dot{\\phi}$。5. 粒子的物理切向速度为 $v_{tang} = a(t) r \\sin\\theta \\frac{d\\phi}{dt}$。6. 由四维速度归一化条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$，有 $\\dot{t} = \\frac{dt}{d\\tau} = \\sqrt{1 + r^2 a^2(t) \\sin^2\\theta \\dot{\\phi}^2} = \\frac{1}{\\sqrt{1 - v_{tang}^2}}$。7. 于是 $\\dot{\\phi} = \\frac{d\\phi}{d\\tau} = \\frac{d\\phi}{dt} \\frac{dt}{d\\tau} = \\frac{v_{tang}}{a(t) r \\sin\\theta \\sqrt{1 - v_{tang}^2}}$。8. 将 $\\dot{\\phi}$ 代入守恒量 $L$ 中，得 $L = r^2 a^2(t) \\sin^2\\theta \\frac{v_{tang}}{a(t) r \\sin\\theta \\sqrt{1 - v_{tang}^2}} = \\frac{a(t) r \\sin\\theta v_{tang}}{\\sqrt{1 - v_{tang}^2}}$。9. 定义物理切向线动量 $p_{tang} = m \\frac{v_{tang}}{\\sqrt{1 - v_{tang}^2}}$，则有 $L = \\frac{a(t) r \\sin\\theta}{m} p_{tang}$。10. 由于 $L$、$r$ 和 $\\theta$ 均为常数，可得 $p_{tang} = \\frac{m L}{a(t) r \\sin\\theta} \\propto a(t)^{-1}$。这表明随着宇宙膨胀，物理切向动量随标度因子 $a(t)$ 成反比衰减，即表现为宇宙学动量红移效应。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "1. 题目陈述的广义相对论基本定理存在严重的前提缺失错误：题目称“对于任意能动张量 $T^{\\mu\\nu}$ 和 Killing 矢量 $\\xi^\\mu$，矢量场 $J^\\mu = T^{\\mu\\nu} \\xi_\\nu$ 是一个守恒流”。这在广义相对论中是错误的，该定理成立的必要前提是能动张量必须守恒（即满足 $\\nabla_\\mu T^{\\mu\\nu} = 0$）。对于受外力（如本题中的轨道约束力）的系统，$\\nabla_\\mu T^{\\mu\\nu} \\neq 0$，$J^\\mu$ 一般不是守恒流。题目将需要前提条件的定理篡改为对“任意能动张量”成立的普遍结论，属于严重的物理原理错误。虽然 solution 中试图通过证明 $F^\\mu \\xi_\\mu = 0$ 来挽救结论，但这不能掩盖题目定理陈述本身的错误。\n2. 物理场景与机制混淆：题目用受约束粒子（固定在共动坐标的环形轨道上）的动量衰减来说明“宇宙膨胀对横向动量的红移效应”。该粒子动量衰减的根本原因是轨道的物理半径随宇宙膨胀而增大（$R \\propto a$），在角动量守恒的几何约束下必然导致切向动量减小。这属于几何约束变化带来的效应，而非自由粒子/光子因时空膨胀造成的宇宙学红移。题目将轨道约束效应与宇宙学红移效应混为一谈，存在物理概念误导。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

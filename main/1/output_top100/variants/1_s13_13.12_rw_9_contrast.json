@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-4-9",
+    "type": "concept",
+    "tags": {
+      "target_object": "Killing equation form",
+      "coordinate": "mixed",
+      "scenario": "contrast covariant vs partial derivative",
+      "method": "calculation and comparison",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-4",
+      "1_s13_13.12-4-9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "Killing equation form",
+      "covariant vs partial derivative",
+      "time translation symmetry"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "时空的等距变换由 Killing 矢量 \\xi^\\mu 生成。在平直时空中，Killing 方程为偏导数形式 \\partial_\\mu \\xi_\\nu + \\partial_\\nu \\xi_\\mu = 0；而在弯曲时空中，必须使用协变导数形式 \\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0。请分别在以下两种度规背景下，计算时间平移 Killing 矢量 \\xi^\\mu = (1,0,0,0) 的偏导数对称项与协变导数对称项在空间与时间交叉方向的值（Minkowski 度规下计算 \\partial_x \\xi_t + \\partial_t \\xi_x 与 \\nabla_x \\xi_t + \\nabla_t \\xi_x，Schwarzschild 度规下计算 \\partial_r \\xi_t + \\partial_t \\xi_r 与 \\nabla_r \\xi_t + \\nabla_t \\xi_r），对比两种度规下这两个计算值的差异，并解释为何在弯曲时空中偏导数不再为零而协变导数为零，这一差异反映了时空对称性在平直与弯曲几何中的何种物理本质。背景一：Minkowski 度规坐标系 (t, x, y, z)，度规 ds^2 = -dt^2 + dx^2 + dy^2 + dz^2，时间平移 Killing 矢量 \\xi^\\mu = (1, 0, 0, 0)。背景二：Schwarzschild 度规坐标系 (t, r, \\theta, \\phi)，度规 ds^2 = -(1-\\frac{r_s}{r})dt^2 + (1-\\frac{r_s}{r})^{-1}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2。已知 Christoffel 符号 \\Gamma^t_{tr} = \\frac{r_s}{2r(r-r_s)}，时间平移 Killing 矢量 \\xi^\\mu = (1, 0, 0, 0)。",
+    "answer": "1. Minkowski 度规下：降指标得 \\xi_\\mu = (-1,0,0,0)。偏导数对称项 \\partial_x \\xi_t + \\partial_t \\xi_x = 0 + 0 = 0；由于 Christoffel 符号全为零，协变导数对称项 \\nabla_x \\xi_t + \\nabla_t \\xi_x = 0。2. Schwarzschild 度规下：降指标得 \\xi_t = -(1-\\frac{r_s}{r}) = -\\frac{r-r_s}{r}，\\xi_r = 0。偏导数对称项 \\partial_r \\xi_t + \\partial_t \\xi_r = -\\frac{r_s}{r^2} + 0 = -\\frac{r_s}{r^2} \\neq 0；协变导数对称项 \\nabla_r \\xi_t + \\nabla_t \\xi_r = -\\frac{r_s}{2r^2} + \\frac{r_s}{2r^2} = 0。3. 差异与物理含义：在平直 Minkowski 时空，度规分量处处为常数，Killing 矢量的协变分量也为常数，偏导数与协变导数一致，偏导数形式足以描述等距性。在弯曲 Schwarzschild 时空，度规分量随坐标变化，导致 Killing 矢量的协变分量不是常数，其偏导数不为零；但 Christoffel 符号恰好抵消了度规变化带来的偏导数项，使得协变导数为零。这反映了弯曲时空中的等距性不再由坐标分量的平移不变性（偏导数为零）来表征，而是由几何上的平行移动不变性（协变导数为零）来表征。物理上，平直时空的局部和全局平移对称性等价，而弯曲时空仅具有特定方向的协变对称性，必须考虑时空弯曲的几何修正才能保持物理规律的等距不变。",
+    "solution": "1. Minkowski 度规推导：\\xi^\\mu = (1,0,0,0)，利用 \\eta_{\\mu\\nu} 降指标得 \\xi_\\mu = (-1,0,0,0)。由于协变分量是常数，\\partial_x \\xi_t = 0, \\partial_t \\xi_x = 0，故偏导对称项为0；平直时空 Christoffel 符号为0，协变导数等于偏导数，也为0。2. Schwarzschild 度规推导：\\xi^\\mu = (1,0,0,0)，降指标得 \\xi_t = g_{tt} = -(1-\\frac{r_s}{r}) = -\\frac{r-r_s}{r}，\\xi_r = g_{rt} = 0。计算偏导数：\\partial_r \\xi_t = -\\frac{r_s}{r^2}，\\partial_t \\xi_r = 0，所以 \\partial_r \\xi_t + \\partial_t \\xi_r = -\\frac{r_s}{r^2} \\neq 0。计算协变导数：\\nabla_r \\xi_t = \\partial_r \\xi_t - \\Gamma^t_{rt} \\xi_t = -\\frac{r_s}{r^2} - \\frac{r_s}{2r(r-r_s)} \\cdot (-\\frac{r-r_s}{r}) = -\\frac{r_s}{r^2} + \\frac{r_s}{2r^2} = -\\frac{r_s}{2r^2}；\\nabla_t \\xi_r = \\partial_t \\xi_r - \\Gamma^t_{tr} \\xi_t = 0 - \\frac{r_s}{2r(r-r_s)} \\cdot (-\\frac{r-r_s}{r}) = \\frac{r_s}{2r^2}。两者相加 \\nabla_r \\xi_t + \\nabla_t \\xi_r = -\\frac{r_s}{2r^2} + \\frac{r_s}{2r^2} = 0。3. 对比分析：偏导数在平直时空为0而在弯曲时空不为0，协变导数在两者中皆为0。这证明了 Killing 方程的本质是协变导数对称性，而非坐标分量的偏导数对称性。物理含义见答案。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "题目及答案存在严重的物理概念错误。题目开篇断言“在平直时空中，Killing方程为偏导数形式 ∂_μ ξ_ν + ∂_ν ξ_μ = 0；而在弯曲时空中，必须使用协变导数形式 ∇_μ ξ_ν + ∇_ν ξ_μ = 0”，答案中也声称“偏导数形式足以描述等距性”。这在广义相对论中是错误的。Killing方程作为几何协变方程，在任何时空（无论平直还是弯曲）均定义为协变导数形式 ∇_μ ξ_ν + ∇_ν ξ_μ = 0。在平直时空使用笛卡尔坐标系时，由于Christoffel符号为零，协变导数自然退化为偏导数，但这仅仅是特定坐标系下的特例，而非平直时空本身的本质特征。若在平直时空中采用曲线坐标系（如极坐标），Christoffel符号不为零，偏导数形式同样不再成立，必须使用协变导数。题目和答案将偏导数形式归为平直时空的特征、将协变导数形式归为弯曲时空的特有要求，混淆了坐标系选择与时空曲率对Killing方程表达形式的影响，导致其关于物理本质的对比解释也是完全错误的。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

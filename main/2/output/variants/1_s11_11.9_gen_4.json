@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-4",
+    "type": "calculate",
+    "tags": {
+      "target_object": "deflection_offset",
+      "coordinate": "cartesian",
+      "scenario": "cosmology",
+      "method": "geodesic_integration",
+      "generalization_axis": "apply",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$\\Delta y$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在宇宙学演化模型中，某种特定形式的 de Sitter 时空切片可用如下度规描述：\\n$$ds^2 = -dt^2 + e^{\\frac{2 x}{\\alpha}} (dx^2 + dy^2 + dz^2)$$\\n其中 $\\alpha$ 为常数。考虑一个有质量粒子在该时空的 $x-y$ 平面内（即 $z=0$）的自由测地线运动。根据 $(-,+,+,+)$ 符号约定，类时测地线满足条件 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$。由于度规不依赖于 $t$ 和 $y$，粒子具有守恒能量 $E = -g_{tt} \\dot{t}$ 和守恒横向动量 $L = g_{yy} \\dot{y}$。假设粒子从 $x \\to +\\inf ty$ 方向入射，经过转折点（最近点 $x_{min}$）后再次向 $x \\to +\\inf ty$ 逃逸，形成一次完整的散射过程。请计算该粒子在整个散射过程中，其 $y$ 坐标的总偏移量 $\\Delta y$。",
+    "answer": "$\\pi \\alpha$",
+    "solution": "1. 根据度规写出类时测地线约束条件：\\n$$-\\dot{t}^2 + e^{\\frac{2x}{\\alpha}} (\\dot{x}^2 + \\dot{y}^2) = -1$$\\n2. 代入守恒量 $E = \\dot{t}$ 及 $L = e^{\\frac{2x}{\\alpha}} \\dot{y}$：\\n$$-E^2 + e^{\\frac{2x}{\\alpha}} \\dot{x}^2 + L^2 e^{-\\frac{2x}{\\alpha}} = -1$$\\n整理得到径向速度方程：\\n$$e^{\\frac{2x}{\\alpha}} \\dot{x}^2 = E^2 - 1 - L^2 e^{-\\frac{2x}{\\alpha}}$$\\n3. 利用 $\\frac{dy}{dx} = \\frac{\\dot{y}}{\\dot{x}}$，结合守恒量可得：\\n$$\\frac{dy}{dx} = \\frac{L e^{-\\frac{2x}{\\alpha}}}{e^{-\\frac{x}{\\alpha}} \\sqrt{E^2 - 1 - L^2 e^{-\\frac{2x}{\\alpha}}}} = \\frac{L e^{-\\frac{x}{\\alpha}}}{\\sqrt{E^2 - 1 - L^2 e^{-\\frac{2x}{\\alpha}}}}$$\\n4. 散射过程包含入射和出射两段对称轨道，总偏移量为从转折点 $x_{min}$ 到无穷远积分的两倍。转折点由 $\\dot{x}=0$ 决定，即 $L^2 e^{-\\frac{2x_{min}}{\\alpha}} = E^2 - 1$。\\n$$\\Delta y = 2 \\int_{x_{min}}^{\\inf ty} \\frac{L e^{-\\frac{x}{\\alpha}}}{\\sqrt{E^2 - 1 - L^2 e^{-\\frac{2x}{\\alpha}}}} dx$$\\n5. 进行换元积分：令 $u = e^{-\\frac{x}{\\alpha}}$，则 $du = -\\frac{1}{\\alpha} e^{-\\frac{x}{\\alpha}} dx = -\\frac{1}{\\alpha} u dx$，即 $dx = -\\frac{\\alpha}{u} du$。\\n当 $x = x_{min}$ 时，$u_{max} = e^{-\\frac{x_{min}}{\\alpha}} = \\sqrt{\\frac{E^2-1}{L^2}}$；当 $x \\to \\inf ty$ 时，$u \\to 0$。\\n$$\\Delta y = 2 \\int_{u_{max}}^{0} \\frac{L u}{\\sqrt{E^2 - 1 - L^2 u^2}} \\left( -\\frac{\\alpha}{u}\\right) du = 2 \\alpha L \\int_{0}^{u_{max}} \\frac{1}{\\sqrt{E^2 - 1 - L^2 u^2}} du$$\\n6. 计算标准积分：\\n$$\\int \\frac{1}{\\sqrt{A - B u^2}} du = \\frac{1}{\\sqrt{B}} \\arcsin \\left( \\frac{\\sqrt{B} u}{\\sqrt{A}}\\right)$$\\n此处 $A = E^2 - 1$, $B = L^2$。代入上下限：\\n$$\\Delta y = 2 \\alpha L \\left[ \\frac{1}{L} \\arcsin \\left( \\frac{L u}{\\sqrt{E^2-1}}\\right)\\right]_{0}^{u_{max}} = 2 \\alpha \\left[ \\arcsin(1) - \\arcsin(0)\\right] = 2 \\alpha \\left( \\frac{\\pi}{2} - 0\\right) = \\pi \\alpha$$\\n该结果表明，有质量粒子在该度规下的散射偏移量 $\\Delta y$ 仅由时空几何参数 $\\alpha$ 决定，与粒子的能量 $E$ 和动量 $L$ 无关。"
+  },
+  "verification": null
+}

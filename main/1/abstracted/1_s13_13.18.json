@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s13_13.18",
+    "type": "calculate",
+    "tags": {
+      "metric": "linearized_gravity",
+      "target_object": "frame_dragging",
+      "coordinate": "spherical_coordinates",
+      "scenario": "rotating_mass_shell",
+      "method": "poisson_equation_solver"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.18",
+    "source_id": "1_s13_13.18",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.18"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于弱场近似与线性化爱因斯坦方程构建泊松型引力磁势模型，经球谐展开与径向ODE求解实现多步逻辑链推导，深度结合惯性系拖曳与马赫原理物理图像。",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$",
+      "$M$",
+      "$R$",
+      "$\\\\Omega$",
+      "$\\\\omega$"
+    ],
+    "target": [
+      "$g_{0\\\\phi}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 13.18. A rigid spherical shell of radius $\\mathbb{R}$ and total mass $M$ (distributed uniformly on the shell), with negligible thickness, rotates slowly with constant angular velocity $\\Omega$ with respect to inertial frames far away. Use the linearized equations of gravity to determine $\\omega$ , the angular velocity of dragging of inertial frames inside the shell, to first order in $\\Omega R << 1$ . Show that\\n$$\\n\\\\omega \\\\equiv - \\\\frac {\\\\mathbf {g}_{0} \\\\phi}{\\\\mathbf {g}_{\\\\phi} \\\\phi} = \\\\frac {4}{3} \\\\frac {\\\\mathbf {M} \\\\Omega}{\\\\mathbf {R}} + \\\\mathcal {O} (\\\\Omega^{2} \\\\mathbf {R}^{2}),\\n$$\\nwhich is constant everywhere inside the shell. [The constancy of $\\omega$ in the cavity has been interpreted by some to mean that Einstein's equations satisfy Mach's principle to some degree.]\\n\\n## Solution",
+    "answer": "$\\\\frac{4}{3} \\\\frac{M \\\\Omega}{R}$",
+    "solution": "Solution 13.18. From linearized theory we know that in the Lorentz gauge\\n$$\\n\\\\square \\\\overline {{\\\\mathbf {h}}}_{\\\\alpha} \\\\beta = - 1 6 \\\\pi \\\\mathbf {T}_{\\\\alpha} \\\\beta .\\n$$\\nSince the source, and hence the field, is stationary this becomes a Poisson equation $\\nabla^2\\\\overline{\\\\mathbf{h}}_{\\\\alpha}\\\\beta = -16\\\\pi \\\\mathbf{T}_{\\\\alpha}\\\\beta$ . To calculate $\\overline{\\\\mathbf{h}}_{0\\\\mathbf{y}}$ we need $\\mathbf{T}_{0\\\\mathbf{y}}$ . For a spherical mass configuration of mass density $\\rho$ rotating (in the\\npositive sense about the $z$ -axis) with angular velocity $\\Omega$ , we have $\\mathbf{T}_{0y} = r\\\\Omega\\\\rho \\\\sin \\\\theta \\\\cos \\\\phi$ . Notice that $\\mathbf{T}_{0y}$ is proportional to the real part of the spherical harmonic $\\mathbf{Y}_{11}(\\\\theta, \\\\phi)$ and hence $\\overline{\\\\mathbf{h}}_{0y}$ will also be. We therefore write $\\overline{\\\\mathbf{h}}_{0y} = \\\\mathbf{f}(\\\\mathbf{r}) \\\\sin \\\\theta \\\\cos \\\\phi$ and the Poisson equation becomes\\n$$\\n\\\\frac {1}{\\\\mathrm {r}^{2}} \\\\frac {\\\\mathrm {d}}{\\\\mathrm {d r}} \\\\left[ \\\\mathrm {r}^{2} \\\\right. \\\\frac {\\\\mathrm {d}}{\\\\mathrm {d r}} \\\\left. \\\\mathrm {f (r)} \\\\right] - \\\\frac {2 \\\\mathrm {f (r)}}{\\\\mathrm {r}^{2}} = 1 6 \\\\pi \\\\mathrm {r} \\\\Omega \\\\rho .\\n$$\\nIf the source is a spherical shell of mass M, radius R, then $\\rho = \\\\mathbf{M}\\\\delta (\\\\mathbf {r} - \\\\mathbf {R}) / 4\\\\pi \\\\mathbf {R}^2$ and the equation can easily be integrated to show\\n$$\\nf (r) = - \\\\frac {4 M \\\\Omega}{3} \\\\times \\\\left[ \\\\begin {array}{l l l} r / R & f o r & r < R \\\\\\\\\\\\ \\\\left(\\\\frac {R}{r}\\\\right)^{2} & f o r & r > R \\\\end {array} \\\\right.\\n$$\\nand hence inside the shell\\n$$\\n\\\\mathbf {g}_{0 \\\\mathbf {y}} \\\\approx \\\\mathbf {h}_{0 \\\\mathbf {y}} = \\\\overline {{{\\\\mathbf {h}}}}_{0 \\\\mathbf {y}} = - \\\\frac {4 \\\\Omega}{3} \\\\text sf {M} \\\\frac {\\\\mathbf {r}}{R} \\\\sin \\\\theta \\\\cos \\\\phi .\\n$$\\nBy symmetry\\n$$\\n\\\\mathbf {g}_{\\\\hat {0} \\\\hat {\\\\phi}} = \\\\left. \\\\mathbf {g}_{0 \\\\mathbf {y}} \\\\right|_{\\\\phi = 0} = - \\\\frac {4}{3} \\\\Omega \\\\mathrm {M} \\\\left(\\\\frac {\\\\mathbf {r}}{\\\\mathbf {R}}\\\\right) \\\\sin \\\\theta\\n$$\\nand\\n$$\\n\\\\omega = - \\\\frac {\\\\mathrm {g}_{0} \\\\phi}{\\\\mathrm {g}_{\\\\phi} \\\\phi} = - \\\\frac {\\\\mathrm {g}_{0} \\\\hat {\\\\phi}}{\\\\left(\\\\mathrm {g}_{\\\\phi} \\\\phi\\\\right)^{\\\\frac {1}{2}}} = - \\\\frac {\\\\mathrm {g}_{0} \\\\hat {\\\\phi}}{\\\\mathrm {r} \\\\sin \\\\theta} = \\\\frac {4 \\\\Omega \\\\mathrm {M}}{3 \\\\mathrm {R}}.\\n$$\\nInside the shell then locally inertial frames will rotate relative to inertial frames far away. Mach's principle states that the inertial properties of spacetime depend on the motion of distant matter. The dragging of inertial frames certainly is an example of the influence of matter on the inertial properties of spacetime. The constancy of $\\omega$ suggests that the influence of distant matter on inertial properties might be viewed as a $\\frac{1}{r}$ law, so that the inertial properties are not primarily determined by nearby matter, but rather the influence of all the matter in the universe must be considered. (But aside from a few idealized examples such as this one, no one has ever been very successful in “deriving” Mach's principal from the field equations of general relativity.)"
+  },
+  "verification": null
+}

@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-8-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "energy-momentum_constraint",
+      "coordinate": "t_x_y_z",
+      "scenario": "cosmology_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-8",
+      "1_s10_10.15-8-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "DeSitter",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "验证在曲率参数 \\alpha \\to \\inf ty 时，弯曲时空能量-动量约束方程还原为狭义相对论质壳条件"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑具有度规 $ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}}(dx^2 + dy^2 + dz^2)$ 的时空，其中 $\\alpha$ 为表征曲率的常数参数。该度规具有时间平移 Killing 矢量 $\\boldsymbol{\\xi}_{(t)} = (1,0,0,0)$ 及 $y,z$ 方向的空间平移 Killing 矢量。对于静质量 $\\mu=1$ 的类时测试粒子，定义守恒能量 $E = -g_{\\mu\\nu} \\xi_{(t)}^\\mu u^\\nu$，守恒动量 $p_y = g_{\\mu\\nu} \\xi_{(y)}^\\mu u^\\nu$，$p_z = g_{\\mu\\nu} \\xi_{(z)}^\\mu u^\\nu$，以及 $x$ 方向动量 $p_x = g_{xx} u^x$。理论推导表明，该弯曲时空中能量与动量满足约束方程 $E^2 = 1 + e^{-\\frac{2x}{\\alpha}}(p_x^2 + p_y^2 + p_z^2)$。请设计一个数值模拟方案，通过选取不同曲率参数 $\\alpha$ 和合适的初始条件，计算并提取粒子的守恒量，验证在参数 $\\alpha \\to \\inf ty$（曲率消失）的极限下，此约束方程收敛于狭义相对论的质壳条件 $E^2 = 1 + p_x^2 + p_y^2 + p_z^2$。",
+    "answer": "1. 设定初始状态：选取一个固定的初始坐标位置（如 $x_0=5$）和一组4-速度分量（如 $u^y=u^z=0.2$，$u^x$ 根据 $\\alpha$ 和归一化条件计算，确保 $g_{\\mu\\nu}u^\\mu u^\\nu=-1$）。\\n2. 参数扫描：取一系列逐渐增大的曲率参数 $\\alpha$（例如 $\\alpha \\in \\{1, 10, 100, 1000, 10000\\}$），对每个 $\\alpha$ 计算初始时刻的守恒能量 $E=u^t$ 和动量 $p_x=e^{2x_0/\\alpha}u^x, p_y=e^{2x_0/\\alpha}u^y, p_z=e^{2x_0/\\alpha}u^z$。\\n3. 计算偏差：计算狭义相对论质壳条件预期值 $E_{SR}^2 = 1 + p_x^2 + p_y^2 + p_z^2$，并求出与实际守恒能量平方的相对偏差 $\\delta(\\alpha) = |E^2 - E_{SR}^2| / E^2$。\\n4. 结果分析：绘制 $\\delta(\\alpha)$ 随 $\\alpha$ 变化的曲线。预期结果是随着 $\\alpha \\to \\inf ty$，空间指数因子 $e^{-2x_0/\\alpha} \\to 1$，相对偏差 $\\delta(\\alpha) \\to 0$，从而验证弯曲时空的约束方程在平直极限下还原为狭义相对论的质壳条件。",
+    "solution": null
+  },
+  "verification": null
+}

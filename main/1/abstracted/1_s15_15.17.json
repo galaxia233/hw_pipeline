@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s15_15.17",
+    "type": "prove",
+    "tags": {
+      "metric": "schwarzschild_metric",
+      "target_object": "four_acceleration",
+      "coordinate": "curvilinear_coordinates",
+      "scenario": "black_hole_infall",
+      "method": "geodesic_identification"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s15_15.17",
+    "source_id": "1_s15_15.17",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s15_15.17"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "通过坐标变换导出径向运动学关系并与标准测地线方程对比，需串联能量守恒与自由落体判据",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$z$",
+      "$M$"
+    ],
+    "target": [
+      "$a^{\\mu}$",
+      "$E/m$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "15.17. In the preceding problem (15.16) show that the set of coordinate-stationary observers are all in free fall and have zero energy (i.e. they fell in from infinity with zero initial velocity).",
+    "answer": "Coordinate-stationary observers satisfy $a^{\\mu}=0$ and possess unit energy-to-rest-mass ratio at infinity ($E/m=1$), confirming they are in free fall with zero initial velocity.",
+    "solution": "Solution 15.17. A coordinate-stationary observer in Problem 15.16 satisfies $z =$ constant (see solution to 15.16). By Equation (5) of Solution 15.16, this implies$$\\mathrm {d t} = - \\mathrm {F}^{\\prime} \\mathrm {d r} = - \\left(\\frac {\\mathrm {r}}{2 \\mathrm {M}}\\right)^{\\frac {1}{2}} \\left(1 - \\frac {2 \\mathrm {M}}{\\mathrm {r}}\\right)^{- 1} \\mathrm {d r} \\tag {1}$$according to Equation (7) of 15.16. From this equation we get$$\\left(\\mathrm {d r} / \\mathrm {d t}\\right)^{2} = (2 \\mathrm {M} / \\mathrm {r}) \\left(1 - \\frac {2 \\mathrm {M}}{\\mathrm {r}}\\right)^{2}. \\tag {2}$$Comparison of Equation (2) with Equation (3) of Solution 15.3 (with $\\mathfrak{u}_0 = 1$ for a particle falling from rest at infinity) shows that Equation (2) represents a radially falling particle, with unit energy-to-rest-mass ratio at infinity."
+  },
+  "verification": null
+}

@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s7_7.21",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "Cartesian",
+      "scenario": "static_isotropic_spacetime",
+      "method": "geometrical_optics"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.21",
+    "source_id": "1_s7_7.21",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.21"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.8,
+      "rationale": "从弯曲时空麦克斯韦方程到等效介质理论的多步推导，物理图像清晰且高度可泛化至各类静态各向同性度规",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$\\\\mathfrak{n}$"
+    ],
+    "metric": [
+      [
+        "$g_{00}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$-f$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$-f$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$-f$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.21. Show that the paths of light rays in a static, isotropic spacetime can be described by taking the space to have a certain spatially\\nvarying “index of refraction” $\\mathfrak{n}(\\\\mathbf{x}^{\\\\mathrm{j}})$ . What is $\\mathfrak{n}$ in terms of $\\mathfrak{g}_{\\\\alpha \\\\beta}$ ? Assume $\\mathfrak{g}_{\\\\alpha \\\\beta}$ has the form $\\mathrm{ds}^2 = g_{\\\\alpha \\\\beta} \\\\mathrm{dt}^2 - f(\\\\mathrm{dx}^2 + \\\\mathrm{dx}^2 + \\\\mathrm{dx}^2)$ .",
+    "answer": "$(g_{00} / f)^{1/2}$",
+    "solution": "The paths of light rays can be obtained from the geometrical optics limit of Maxwell's equations $\\mathbf{F}^{\\\\alpha \\\\beta}$ ; $\\beta = 0$ . With the identity in Problem 7.7(i), these equations can be written as\\n$$\\n\\\\left[ \\\\mathbf {g}^{\\\\alpha \\\\tau} \\\\mathbf {g}^{\\\\beta \\\\mu} \\\\mathbf {F}_{\\\\tau \\\\mu} (\\\\dot {-} \\\\mathbf {g})^{\\\\frac {1}{2}} \\\\right], \\\\beta = 0.\\n$$\\nUsing the spatially isotropic, diagonal form of the metric and noting that $\\mathbf{E}_{\\\\mathbf{i}} = \\\\mathbf{F}_{0\\\\mathbf{i}}, \\\\mathbf{B}_{\\\\mathbf{k}} = \\\\varepsilon^{\\\\mathbf{k}\\\\mathbf{j}\\\\ell} \\\\mathbf{F}_{\\\\mathbf{j}\\\\ell}$ , one sees that the above equations have the form\\n$$\\n\\\\nabla \\\\cdot (\\\\epsilon \\\\underline {{\\\\mathbf {E}}}) = 0\\n$$\\n$$\\n\\\\nabla \\\\times (\\\\mu^{- 1} \\\\underline {{\\\\mathbf {B}}}) = \\\\partial (\\\\epsilon \\\\underline {{\\\\mathbf {E}}}) / \\\\partial \\\\mathfrak {t}\\n$$\\nwhere $\\epsilon = \\\\mu = (\\\\mathbf{f} / \\\\mathbf{g}_{00})^{\\\\frac{1}{2}}$ . Thus light moves as if in a medium with an effective index of refraction\\n$$\\nn = (\\\\epsilon \\\\mu)^{- \\\\frac {1}{2}} = (g_{0 0} / f)^{\\\\frac {1}{2}}\\n$$"
+  },
+  "verification": null
+}

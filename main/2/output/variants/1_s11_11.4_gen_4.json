@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "spin_vector_orthogonality",
+      "coordinate": "godel_standard",
+      "scenario": "cosmology",
+      "method": "component_calculation",
+      "generalization_axis": "verify",
+      "metric": "Godel"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Godel",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "0"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "-exp(sqrt(2)*omega*x)",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "-exp(sqrt(2)*omega*x)",
+        "0",
+        "-exp(2*sqrt(2)*omega*x)/2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Godel 时空中，度规线元为 $ds^2 = -dt^2 + dx^2 - 2 e^{\\sqrt{2}\\omega x} dt dy - \\frac{1}{2} e^{2\\sqrt{2}\\omega x} dy^2 + dz^2$。考虑一个静态观察者，其四维速度由类时 Killing 矢量 $\\partial_t$ 给出，即 $u^\\mu = (1, 0, 0, 0)$（已满足类时条件 $g_{\\mu\\nu}u^\\mu u^\\nu=-1$）。该观察者沿测地线运动（$\\nabla_{\\mathbf{u}} \\mathbf{u} = 0$），因此无扭矩陀螺仪的自旋矢量 $\\mathbf{S}$ 的 Fermi-Walker 输运退化为平行输运 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$。Fermi-Walker 输运的一个基本推论是：它始终保持自旋矢量与四维速度的正交性，即若初始时 $g_{\\mu\\nu} u^\\mu S^\\nu = 0$，则该内积沿世界线始终为零。请利用 Godel 度规的度规分量与第二类 Christoffel 符号 $\\Gamma^i_{jk}$，通过显式代入计算普通导数 $\\frac{d}{d\\tau}(g_{\\mu\\nu} u^\\mu S^\\nu)$ 来验证这一正交性守恒性质（不要仅引用协变导数的普遍性质）。",
+    "answer": "0",
+    "solution": "1. 计算内积表达式：$g_{\\mu\\nu} u^\\mu S^\\nu = g_{0\\nu} S^\\nu = g_{00} S^0 + g_{02} S^2 = -S^0 - e^{\\sqrt{2}\\omega x} S^2$。2. 对其求普通时间导数：由于静态观察者的空间坐标 $x$ 为常数，$e^{\\sqrt{2}\\omega x}$ 为常数，因此 $\\frac{d}{d\\tau}(-S^0 - e^{\\sqrt{2}\\omega x} S^2) = -\\frac{dS^0}{d\\tau} - e^{\\sqrt{2}\\omega x} \\frac{dS^2}{d\\tau}$。3. 利用平行输运方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$ 展开导数项：由于 $u^\\mu = (1, 0, 0, 0)$，有 $\\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{0\\nu} S^\\nu = 0$，即 $\\frac{dS^\\mu}{d\\tau} = -\\Gamma^\\mu_{0\\nu} S^\\nu$。4. 代入 Godel 时空的 Christoffel 符号（仅非零项起作用）：   $\\frac{dS^0}{d\\tau} = -\\Gamma^0_{0\\nu} S^\\nu = -\\Gamma^0_{01} S^1 - \\Gamma^0_{02} S^2 = -\\sqrt{2}\\omega S^1 - 0 = -\\sqrt{2}\\omega S^1$。   $\\frac{dS^2}{d\\tau} = -\\Gamma^2_{0\\nu} S^\\nu = -\\Gamma^2_{01} S^1 - \\Gamma^2_{02} S^2 = -(-\\sqrt{2}\\omega e^{-\\sqrt{2}\\omega x}) S^1 - 0 = \\sqrt{2}\\omega e^{-\\sqrt{2}\\omega x} S^1$。5. 将上述结果代入步骤 2 的导数表达式中：   $\\frac{d}{d\\tau}(g_{\\mu\\nu} u^\\mu S^\\nu) = -(-\\sqrt{2}\\omega S^1) - e^{\\sqrt{2}\\omega x} (\\sqrt{2}\\omega e^{-\\sqrt{2}\\omega x} S^1)$   $= \\sqrt{2}\\omega S^1 - \\sqrt{2}\\omega S^1 = 0$。6. 结果为 0，显式验证了在 Godel 时空的静态观察者世界线上，自旋矢量与四维速度的正交性得以守恒。"
+  },
+  "verification": null
+}

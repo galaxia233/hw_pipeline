@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "id": "1_s3_3.17_a",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "tensor_component",
+      "coordinate": "coordinate_index",
+      "scenario": "abstract_context",
+      "method": "index_symmetrization_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.17_a",
+    "source_id": "1_s3_3.17_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.17_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.2,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.2,
+      "rationale": "纯张量代数定义直代计算，逻辑链条短，但指标操作规则具有高度泛化性且解答详尽完整",
+      "overall": 0.55
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mu$",
+      "$\\nu$",
+      "$a$",
+      "$\\beta$",
+      "$\\gamma$"
+    ],
+    "target": [
+      "$\\mathrm{V}_{[\\mu \\nu ]}$",
+      "$\\mathrm{F}_{[\\mu \\nu ]}$",
+      "$\\mathrm{F}_{(\\mu \\nu)}$",
+      "$\\mathrm{T}_{[\\mu \\nu ]}$",
+      "$\\mathrm{T}_{(\\mu \\nu)}$",
+      "$\\mathrm{V}_{[a\\beta \\gamma ]}$",
+      "$\\mathrm{T}_{(a\\beta ,\\gamma)}$",
+      "$\\mathrm{F}_{[a\\beta ,\\gamma ]}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.17. We define the meaning of square and round brackets enclosing a set of indices as follows:$$\\mathrm {V}_{(a_{1}, \\dot s , a_{p})} \\equiv \\frac {1}{p !} \\Sigma \\mathrm {V}_{a_{\\pi_{1}} \\dot s a_{\\pi_{p}}}; \\qquad \\mathrm {V}_{[ a_{1}, \\dot s a_{p} ]} \\equiv \\frac {1}{p !} \\Sigma (- 1)^{\\pi} \\mathrm {V}_{a_{\\pi_{1}} \\dot s a_{\\pi_{p}}} .$$Here the sum is taken over all permutations $\\pi$ of the numbers $1,2,\\dot s ,\\mathfrak{p}$ and $(-1)^{\\pi}$ is $+1$ or $-1$ depending on whether the permutation is even or odd. The quantity $\\mathbf{V}$ may have other indices, not shown here, besides the set of $\\mathfrak{p}$ indices $a_1,a_2,\\dot s ,a_{\\mathfrak{p}}$ , but only this set of indices is affected by the operations described here. The numbers $\\pi_1,\\pi_2,\\dot s ,\\pi_{\\mathfrak{p}}$ are the numbers $1,2,\\dot s ,\\mathfrak{p}$ rearranged according to the permutation $\\pi$ . Thus for example $\\mathrm{V}_{(a_1a_2)}\\equiv \\frac{1}{2} (\\mathrm{V}_{a_1a_2} + \\mathrm{V}_{a_2a_1})$ or equivalently $\\mathrm{V}_{(\\mu \\nu)} = \\frac{1}{2} (\\mathrm{V}_{\\mu \\nu} + \\mathrm{V}_{\\nu \\mu})$ .(a) If $\\mathbf{F}$ is antisymmetric and $\\mathbf{T}$ is symmetric, apply these definitions to give explicit formulas for the following: $\\mathrm{V}_{[\\mu \\nu ]}$ , $\\mathrm{F}_{[\\mu \\nu ]}$ , $\\mathrm{F}_{(\\mu \\nu)}$ , $\\mathrm{T}_{[\\mu \\nu ]}$ , $\\mathrm{T}_{(\\mu \\nu)}$ , $\\mathrm{V}_{[a\\beta \\gamma ]}$ , $\\mathrm{T}_{(a\\beta ,\\gamma)}$ , $\\mathrm{F}_{[a\\beta ,\\gamma ]}$ .",
+    "answer": "$\\mathrm{V}_{[\\mu \\nu]} = \\frac{1}{2}(\\mathrm{V}_{\\mu \\nu} - \\mathrm{V}_{\\nu \\mu})$$\\mathrm{F}_{[\\mu \\nu]} = \\mathrm{F}_{\\mu \\nu}$$\\mathrm{F}_{(\\mu \\nu)} = 0$$\\mathrm{T}_{[\\mu \\nu]} = 0$$\\mathrm{T}_{(\\mu \\nu)} = \\mathrm{T}_{\\mu \\nu}$$\\mathrm{V}_{[a\\beta \\gamma]} = \\frac{1}{6}(\\mathrm{V}_{a\\beta\\gamma} - \\mathrm{V}_{a\\gamma\\beta} - \\mathrm{V}_{\\beta a\\gamma} + \\mathrm{V}_{\\beta\\gamma a} + \\mathrm{V}_{\\gamma a\\beta} - \\mathrm{V}_{\\gamma\\beta a})$$\\mathrm{T}_{(a\\beta,\\gamma)} = \\frac{1}{2}(\\mathrm{T}_{a\\beta\\gamma} + \\mathrm{T}_{\\beta a\\gamma})$$\\mathrm{F}_{[a\\beta,\\gamma]} = \\mathrm{F}_{a\\beta\\gamma}$",
+    "solution": "根据题设定义，圆括号与方括号分别表示对指定索引集合进行对称化与反对称化运算，归一化因子均为 $1/p!$。其中逗号用于明确排除某些索引参与该次群置换操作。1. $\\mathrm{V}_{[\\mu \\nu]}$：$p=2$ 的反对称化展开，直接代入定义得 $\\frac{1}{2}(\\mathrm{V}_{\\mu \\nu} - \\mathrm{V}_{\\nu \\mu})$。2. $\\mathrm{F}_{[\\mu \\nu]}$ 与 $\\mathrm{F}_{(\\mu \\nu)}$：已知 $\\mathbf{F}$ 为反对称张量，满足 $\\mathrm{F}_{\\mu \\nu} = -\\mathrm{F}_{\\nu \\mu}$。代入反对称公式时两项合并得 $\\mathrm{F}_{\\mu \\nu}$；代入对称公式时两项相消得 $0$。3. $\\mathrm{T}_{[\\mu \\nu]}$ 与 $\\mathrm{T}_{(\\mu \\nu)}$：已知 $\\mathbf{T}$ 为对称张量，满足 $\\mathrm{T}_{\\mu \\nu} = \\mathrm{T}_{\\nu \\mu}$。同理，反对称化使两项抵消得 $0$；对称化合并项得 $\\mathrm{T}_{\\mu \\nu}$。4. $\\mathrm{V}_{[a\\beta \\gamma]}$：$p=3$ 的完全反对称化。需遍历 $a,\\beta,\\gamma$ 的全部 $3!=6$ 种排列，依据置换的奇偶性赋予正负号，最后除以 $6$，得到标准的全反对称组合形式。5. $\\mathrm{T}_{(a\\beta ,\\gamma)}$：逗号界定表明仅 $a,\\beta$ 参与对称化（$p=2$），$\\gamma$ 保持原位固定。应用 $p=2$ 对称公式得 $\\frac{1}{2}(\\mathrm{T}_{a\\beta\\gamma} + \\mathrm{T}_{\\beta a\\gamma})$。6. $\\mathrm{F}_{[a\\beta ,\\gamma]}$：仅对前两个指标做反对称化。利用 $\\mathbf{F}$ 的反对称性质 $\\mathrm{F}_{\\beta a\\gamma} = -\\mathrm{F}_{a\\beta\\gamma}$，代入 $p=2$ 反对称公式：$\\frac{1}{2}(\\mathrm{F}_{a\\beta\\gamma} - (-\\mathrm{F}_{a\\beta\\gamma})) = \\mathrm{F}_{a\\beta\\gamma}$。"
+  },
+  "verification": null
+}

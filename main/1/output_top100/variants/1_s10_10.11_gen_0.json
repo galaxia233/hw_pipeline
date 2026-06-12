@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "$E_{\\xi}$",
+      "coordinate": "generic",
+      "scenario": "dust in stationary spacetime",
+      "method": "asymptotic analysis",
+      "generalization_axis": "apply",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "killing_vector",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mu$",
+      "$\\nu$"
+    ],
+    "target": [
+      "$E_{\\xi}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Consider an asymptotically flat stationary spacetime with a timelike Killing vector field $\\xi^{\\mu}$, normalized so that $\\xi^{\\mu} \\xi_{\\mu} \\to -1$ at spatial infinity. A pressureless perfect fluid (dust) in this spacetime has a stress-energy tensor $T^{\\mu\\nu} = \\rho u^{\\mu} u^{\\nu}$ and satisfies the rest mass continuity equation $\\nabla_{\\mu} (\\rho u^{\\mu}) = 0$. It can be shown from the conservation of the current $J^{\\mu} = T^{\\mu\\nu} \\xi_{\\nu}$ that the scalar quantity $E_{\\xi} = -\\xi_{\\mu} u^{\\mu}$ is conserved along the dust flow lines. Apply this conservation law to determine the critical value of $E_{\\xi}$ required for a dust fluid element to marginally escape to spatial infinity (arriving there with zero local velocity), by analyzing the asymptotic behavior of the 4-velocity and the Killing vector.",
+    "answer": "The critical value of $E_{\\xi}$ is 1.",
+    "solution": "For a dust fluid element that marginally escapes to spatial infinity, it arrives at infinity with zero local kinetic energy relative to a stationary observer. A stationary observer at spatial infinity has a 4-velocity proportional to the timelike Killing vector $\\xi^{\\mu}$. Given the normalization condition $\\xi^{\\mu} \\xi_{\\mu} \\to -1$ at infinity, the 4-velocity of such a stationary observer asymptotically aligns exactly with the Killing vector, i.e., $u^{\\mu}_{\\text{obs}} \\to \\xi^{\\mu}$. Since the escaping particle has zero local velocity at infinity, its 4-velocity must also asymptotically align with the observer's 4-velocity, meaning $u^{\\mu} \\to \\xi^{\\mu}$ at spatial infinity. Evaluating the conserved quantity $E_{\\xi}$ at spatial infinity yields: $E_{\\xi} = -\\xi_{\\mu} u^{\\mu} \\to -\\xi_{\\mu} \\xi^{\\mu} = -(\\xi^{\\mu} \\xi_{\\mu}) = -(-1) = 1$. By the conservation of $E_{\\xi}$ along the dust flow lines, this value remains constant throughout the entire trajectory from any finite radius to infinity. Therefore, the critical value of $E_{\\xi}$ for marginal escape is exactly 1. If $E_{\\xi} > 1$, the particle possesses residual kinetic energy at infinity and escapes unbound; if $E_{\\xi} < 1$, it cannot reach infinity and remains in a bound orbit."
+  },
+  "verification": null
+}

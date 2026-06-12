@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "geodetic_precession_oscillation_frequency",
+      "coordinate": "spherical",
+      "scenario": "Schwarzschild_circular_orbit",
+      "method": "parallel_transport_limit",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "omega_S",
+      "Omega_orb_flat_limit"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，考虑赤道面（\\theta = \\pi/2）上一个半径为 r 的圆轨道。一个不受外力矩的陀螺仪在此轨道上自由下落，其自旋四维矢量 S^\\mu 满足平行移动方程 \\nabla_{u} S = 0，且与四维速度正交（g_{\\mu\\nu} u^\\mu S^\\nu = 0）。度规为 ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2，其中 r_s = 2M。\\n\\n请利用 Christoffel 符号推导自旋矢量空间分量 S^r 与 S^\\phi 的耦合微分方程，求出 S^r 在固有时 \\tau 下的振荡角频率 \\omega_S。并证明在平直时空极限（r_s \\to 0）下，此振荡频率 \\omega_S 严格趋于轨道坐标角速度 \\Omega_{orb} = u^\\phi，从而还原经典物理中陀螺仪自旋方向相对于遥远恒星不发生测地进动的预期。",
+    "answer": "\\omega_S = \\sqrt{\\frac{r_s}{2r^2}}；在 r_s \\to 0 极限下 \\omega_S \\to \\Omega_{orb}，还原经典无进动行为。",
+    "solution": "1. **圆轨道的四维速度**：\\n设四维速度 u^\\mu = (u^t, 0, 0, u^\\phi)。由测地线径向方程 \\frac{d^2r}{d\\tau^2} + \\Gamma^r_{tt}(u^t)^2 + \\Gamma^r_{\\phi\\phi}(u^\\phi)^2 = 0，代入 \\Gamma^r_{tt} = \\frac{r_s(r-r_s)}{2r^3} 和 \\Gamma^r_{\\phi\\phi} = -(r-r_s)（在 \\theta=\\pi/2），得 (u^\\phi)^2 = \\frac{r_s}{2r^2} (u^t)^2。\\n由类时条件 g_{\\mu\\nu} u^\\mu u^\\nu = -1，得 -\\frac{r-r_s}{r}(u^t)^2 + r^2(u^\\phi)^2 = -1。代入前式解得 (u^t)^2 = \\frac{2r}{2r-3r_s}，进而 (u^\\phi)^2 = \\frac{r_s}{r(2r-3r_s)}。\\n\\n2. **自旋矢量的平行移动方程**：\\n平行移动方程为 \\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{\\alpha\\beta} u^\\alpha S^\\beta = 0。\\n对于 S^t、S^r、S^\\phi：\\n\\frac{dS^t}{d\\tau} + \\Gamma^t_{tr} u^t S^r = 0 \\Rightarrow \\frac{dS^t}{d\\tau} = -\\frac{r_s}{2r(r-r_s)} u^t S^r \\n\\frac{dS^r}{d\\tau} + \\Gamma^r_{tt} u^t S^t + \\Gamma^r_{\\phi\\phi} u^\\phi S^\\phi = 0 \\Rightarrow \\frac{dS^r}{d\\tau} = -\\frac{r_s(r-r_s)}{2r^3} u^t S^t + (r-r_s) u^\\phi S^\\phi \\n\\frac{dS^\\phi}{d\\tau} + \\Gamma^\\phi_{r\\phi} u^\\phi S^r = 0 \\Rightarrow \\frac{dS^\\phi}{d\\tau} = -\\frac{1}{r} u^\\phi S^r \\n\\n3. **利用正交条件消去 S^t**：\\n正交条件 g_{\\mu\\nu} u^\\mu S^\\nu = 0 给出 -\\frac{r-r_s}{r} u^t S^t + r^2 u^\\phi S^\\phi = 0，解得 S^t = \\frac{r^3}{r-r_s} \\frac{u^\\phi}{u^t} S^\\phi。\\n将 S^t 代入 S^r 的方程：\\n\\frac{dS^r}{d\\tau} = -\\frac{r_s(r-r_s)}{2r^3} u^t \\left( \\frac{r^3}{r-r_s} \\frac{u^\\phi}{u^t} S^\\phi \\right) + (r-r_s) u^\\phi S^\\phi \\n= -\\frac{r_s}{2} u^\\phi S^\\phi + (r-r_s) u^\\phi S^\\phi = -(r - \\frac{3r_s}{2}) u^\\phi S^\\phi \\n\\n4. **求解振荡频率 \\omega_S**：\\n结合 \\frac{dS^\\phi}{d\\tau} = -\\frac{1}{r} u^\\phi S^r，对 \\frac{dS^r}{d\\tau} 求导：\\n\\frac{d^2 S^r}{d\\tau^2} = -(r - \\frac{3r_s}{2}) u^\\phi \\frac{dS^\\phi}{d\\tau} = (r - \\frac{3r_s}{2}) u^\\phi \\frac{1}{r} u^\\phi S^r \\n这是简谐振动方程 \\frac{d^2 S^r}{d\\tau^2} = -\\omega_S^2 S^r（注意符号约定下为正系数对应负 \\omega_S^2），角频率平方为：\\n\\omega_S^2 = -\\frac{r-3r_s/2}{r} (u^\\phi)^2 = \\frac{r-3r_s/2}{r} \\frac{r_s}{r(2r-3r_s)} = \\frac{1}{2} \\frac{2r-3r_s}{2r} \\frac{r_s}{r(2r-3r_s)} = \\frac{r_s}{2r^2} \\n因此 \\omega_S = \\sqrt{\\frac{r_s}{2r^2}}。\\n\\n5. **平直时空极限 (r_s \\to 0) 验证**：\\n在 r_s \\to 0 时，轨道角速度 \\Omega_{orb} = u^\\phi 的平方趋于 \\frac{r_s}{2r^2}。\\n因此 \\omega_S \\to \\sqrt{\\frac{r_s}{2r^2}} = \\Omega_{orb}。\\n物理意义：在平直时空的极坐标下，一个沿圆轨道平行移动的矢量会在坐标基矢量中以轨道角速度 \\Omega_{orb} 旋转，这保证了该矢量相对于全局笛卡尔坐标（遥远恒星）是不旋转的（无测地进动）。极限行为 \\omega_S \\to \\Omega_{orb} 严格还原了这一经典预期。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.0,
+      "issue": "Solution和Answer存在多处严重的计算、量纲和物理概念错误：\\n1. Christoffel符号计算错误：Solution使用了协变分量代替逆变分量。正确值 $\\Gamma^r_{tt} = \\\\frac{r_s}{2r(r-r_s)}$，Solution错写为 $\\\\frac{r_s(r-r_s)}{2r^3}$；正确值 $\\Gamma^r_{\\\\phi\\\\phi} = -\\\\frac{r^2}{r-r_s}$，Solution错写为 $-(r-r_s)$。\\n2. 测地线速度不自洽且量纲错误：由错误Christoffel符号得出的 $(u^\\\\phi)^2 = \\\\frac{r_s}{2r^2} (u^t)^2$ 量纲错误（正确应为 $\\\\frac{r_s}{2r^3} (u^t)^2$）。代入类时条件后得到 $(-\\\\frac{r-r_s}{r} + \\\\frac{r_s}{2}) (u^t)^2 = -1$，此式量纲混乱，根本无法推导出 Solution 声称的 $(u^t)^2 = \\\\frac{2r}{2r-3r_s}$，Solution在此强行引用了正确结果而忽略了自己的错误中间量。\\n3. 代数符号凭空出错：推导 $\\\\frac{dS^r}{d\\\\tau}$ 时，Solution得出 $-\\\\frac{r_s}{2} u^\\\\phi S^\\\\phi + (r-r_s) u^\\\\phi S^\\\\phi$，其值应为 $(r - \\\\frac{3r_s}{2}) u^\\\\phi S^\\\\phi$，但Solution凭空添加负号写成 $-(r - \\\\frac{3r_s}{2}) u^\\\\phi S^\\\\phi$。\\n4. 物理概念严重错误：Solution推导出二阶导数方程 $\\\\frac{d^2 S^r}{d\\\\tau^2} = \\\\frac{r-3r_s/2}{r} (u^\\\\phi)^2 S^r$（正系数），对应发散解而非简谐振动。Solution却荒谬地声称“正系数对应负 $\\\\omega_S^2$”，强行篡改简谐振动的数学与物理定义。\\n5. 代数计算再次出错：计算 $\\\\omega_S^2$ 时，$-\\\\frac{r-3r_s/2}{r} \\\\frac{r_s}{r(2r-3r_s)} = -\\\\frac{2r-3r_s}{2r} \\\\frac{r_s}{r(2r-3r_s)} = -\\\\frac{r_s}{2r^2}$，结果应为负数，Solution再次凭空丢弃负号得出正数 $\\\\frac{r_s}{2r^2}$。\\n6. Answer量纲与数值均错：Answer给出 $\\\\omega_S = \\\\sqrt{\\\\frac{r_s}{2r^2}}$，量纲为 $1/\\\\sqrt{L}$，根本不是频率量纲 $1/L$。正确结果应为 $\\\\omega_S = \\\\sqrt{\\\\frac{r_s}{2r(r-r_s)^2}}$，在平直时空极限下趋于 $\\\\sqrt{\\\\frac{r_s}{2r^3}} = u^\\\\phi$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

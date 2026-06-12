@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s9_9.29",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "extrinsic_curvature",
+      "coordinate": "cosmological_slicing",
+      "scenario": "ADM_formalism",
+      "method": "geometric_derivation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.29",
+    "source_id": "1_s9_9.29",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.29"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "包含明确时空分解结构、需联系法向量与度规时间导数、具宇宙学物理背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\tau$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$K_{ij}$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$a^2(\\\\tau)\\\\gamma_{11}(\\\\mathbf{x})$",
+        "$a^2(\\\\tau)\\\\gamma_{12}(\\\\mathbf{x})$",
+        "$a^2(\\\\tau)\\\\gamma_{13}(\\\\mathbf{x})$"
+      ],
+      [
+        "$0$",
+        "$a^2(\\\\tau)\\\\gamma_{21}(\\\\mathbf{x})$",
+        "$a^2(\\\\tau)\\\\gamma_{22}(\\\\mathbf{x})$",
+        "$a^2(\\\\tau)\\\\gamma_{23}(\\\\mathbf{x})$"
+      ],
+      [
+        "$0$",
+        "$a^2(\\\\tau)\\\\gamma_{31}(\\\\mathbf{x})$",
+        "$a^2(\\\\tau)\\\\gamma_{32}(\\\\mathbf{x})$",
+        "$a^2(\\\\tau)\\\\gamma_{33}(\\\\mathbf{x})$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.29. What is the extrinsic curvature of the $\\tau =$ constant slice of the metric, $\\mathrm{ds}^2 = -\\mathrm{d}\\tau^2 + \\mathrm{a}^2(\\tau) [\\gamma_{ij}(\\mathbf{x}^k) \\mathrm{dx}^i \\mathrm{dx}^j]$ ?",
+    "answer": "$K_{ij} = - \\\\frac{\\\\dot{a}}{a} g_{ij}$",
+    "solution": "Solution 9.29. The metric has the form\\n$$\\n\\\\mathrm {d s}^{2} = - \\\\mathrm {d} \\\\tau^{2} + \\\\mathrm {g}_{\\\\mathrm {i j}} \\\\mathrm {d x}^{\\\\mathrm {i}} \\\\mathrm {d x}^{\\\\mathrm {j}}\\n$$\\nwhere\\n$$\\n\\\\mathbf {g}_{\\\\mathbf {i j}} = \\\\mathsf {a}^{2} (\\\\boldsymbol {\\\\tau}) \\\\gamma_{\\\\mathbf {i j}} (\\\\mathbf {x}^{\\\\mathbf {k}}) .\\n$$\\nThe normal vector to the $\\tau =$ constant surfaces is $\\mathbf{n} = \\partial /\\partial \\tau$ . Thus\\n$$\\n\\\\mathrm {K}_{\\\\mathrm {i j}} = - \\\\mathbf {e}_{\\\\mathrm {j}} \\\\cdot \\\\nabla_{\\\\mathrm {i}} \\\\mathbf {n} = \\\\mathbf {n} \\\\cdot \\\\nabla_{\\\\mathrm {i}} \\\\mathbf {e}_{\\\\mathrm {j}} = \\\\Gamma_{\\\\mathrm {n j i}} = - \\\\frac {1}{2} \\\\mathbf {g}_{\\\\mathrm {i j}, \\\\mathrm {n}} = \\\\frac {- \\\\mathrm {a} , r}{\\\\mathrm {a}} \\\\mathbf {g}_{\\\\mathrm {i j}}.\\n$$"
+  },
+  "verification": null
+}

@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s1_1.27",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "null_vector_target",
+      "coordinate": "celestial_coordinates",
+      "scenario": "astrophysical_observation_scenario",
+      "method": "topological_fixed_point_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.27",
+    "source_id": "1_s1_1.27",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.27"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.6,
+      "realism": 0.7,
+      "rationale": "Links Lorentz group algebra to topology via celestial sphere mapping; requires multi-step conceptual bridging; solution sketches proof rigorously but omits topological degree details.",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\mu$",
+      "$\\Lambda^\\mu{}_\\nu$",
+      "$v^\\mu$"
+    ],
+    "target": [
+      "$v^\\mu$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$-1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$-1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$-1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.27. Show that any proper (non time-reversing, non parity-reversing) homogeneous Lorentz transformation leaves fixed at least one null direction.## SolutionSolution 1.27. An astronaut looking at the sky (by null photons!) makes an arbitrary Lorentz transformation, and looks at the sky again. There results a continuous map of the sky onto itself. Any continuous map of a 2-sphere onto itself has at least one fixed point.",
+    "answer": "Any proper homogeneous Lorentz transformation possesses at least one invariant null direction ($v^\\mu \\neq 0$ with $g_{\\mu\\nu}v^\\mu v^\\nu = 0$ and $\\Lambda^\\mu{}_\\nu v^\\nu = v^\\mu$).",
+    "solution": "An astronaut looking at the sky (by null photons!) makes an arbitrary Lorentz transformation, and looks at the sky again. There results a continuous map of the sky onto itself. Any continuous map of a 2-sphere onto itself has at least one fixed point."
+  },
+  "verification": null
+}

@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s15_15.14_b-2-4-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "Christoffel_symbols",
+      "coordinate": "spherical",
+      "scenario": "verify_Schwarzschild_errors",
+      "method": "metric_derivative",
+      "generalization_axis": "verify",
+      "metric": "AntiDeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.14_b",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.14_b",
+      "1_s15_15.14_b-2",
+      "1_s15_15.14_b-2-4",
+      "1_s15_15.14_b-2-4-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "AntiDeSitter",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "chi",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "校验 $\\Gamma^1_{00}$, $\\Gamma^0_{01}$, $\\Gamma^2_{12}$ 的推导过程"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "cos(t)**2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "cos(t)**2*sinh(chi)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*cos(t)**2*sinh(chi)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 度规 $ds^2 = -\\left(1 - \\frac{r_s}{r}\\right) dt^2 + \\left(1 - \\frac{r_s}{r}\\right)^{-1} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$ 下，某同学推导了几个 Christoffel 符号。已知正确结论为 $\\Gamma^1_{00} = \\frac{r_s (r - r_s)}{2 r^3}$，$\\Gamma^0_{01} = \\frac{r_s}{2r(r-r_s)}$，$\\Gamma^2_{12} = \\frac{1}{r}$。请仔细校验以下推导步骤，找出并修正所有错误（注意：某些符号错误可能在最终表达式中偶然抵消，请逐步核查逻辑）：推导过程：1. 对于 $\\Gamma^1_{00}$，根据定义 $\\Gamma^\\mu_{\\nu\\lambda} = \\frac{1}{2} g^{\\mu\\rho} (\\partial_\\nu g_{\\lambda\\rho} + \\partial_\\lambda g_{\\rho\\nu} - \\partial_\\rho g_{\\nu\\lambda})$，代入 $\\mu=1, \\nu=0, \\lambda=0$：$\\Gamma^1_{00} = \\frac{1}{2} g^{11} (\\partial_0 g_{01} + \\partial_0 g_{10} - \\partial_1 g_{00})$由于度规不含 $t$ 且 $g_{01}=0$，前两项为零，故：$\\Gamma^1_{00} = \\frac{1}{2} g^{11} \\partial_1 g_{00}$2. 计算偏导数：$g_{00} = -1 + \\frac{r_s}{r}$，故 $\\partial_1 g_{00} = \\frac{r_s}{r^2}$3. 逆变度规分量：$g^{11} = 1 - \\frac{r_s}{r} = \\frac{r-r_s}{r}$4. 代入得：$\\Gamma^1_{00} = \\frac{1}{2} \\frac{r-r_s}{r} \\frac{r_s}{r^2} = \\frac{r_s(r-r_s)}{2 r^3}$5. 对于 $\\Gamma^0_{01}$，代入 $\\mu=0, \\nu=0, \\lambda=1$：$\\Gamma^0_{01} = \\frac{1}{2} g^{00} (\\partial_0 g_{10} + \\partial_1 g_{00} - \\partial_0 g_{01}) = \\frac{1}{2} g^{00} \\partial_1 g_{00}$6. 计算逆变度规 $g^{00}$：$g^{00} = \\frac{1}{g_{00}} = \\frac{1}{-1 + \\frac{r_s}{r}} = \\frac{r}{r-r_s}$7. 代入步骤2和6的结果：$\\Gamma^0_{01} = \\frac{1}{2} \\frac{r}{r-r_s} \\frac{r_s}{r^2} = \\frac{r_s}{2r(r-r_s)}$8. 对于 $\\Gamma^2_{12}$，代入 $\\mu=2, \\nu=1, \\lambda=2$：$\\Gamma^2_{12} = \\frac{1}{2} g^{22} \\partial_1 g_{22}$9. 度规分量 $g_{22} = r^2$，故 $g^{22} = r^2$10. 偏导数 $\\partial_1 g_{22} = 2r$11. 代入得：$\\Gamma^2_{12} = \\frac{1}{2} (r^2) (2r) = r^3$",
+    "answer": "1. 步骤1中，公式展开 $-\\partial_1 g_{00}$ 漏了负号。正确应为 $\\Gamma^1_{00} = -\\frac{1}{2} g^{11} \\partial_1 g_{00}$。（符号错误）2. 步骤2中，$g_{00} = -1 + \\frac{r_s}{r}$ 的导数符号错误。正确应为 $\\partial_1 g_{00} = -\\frac{r_s}{r^2}$。（导数符号错误）3. 步骤6中，逆变度规 $g^{00}$ 符号错误。正确应为 $g^{00} = -\\frac{r}{r-r_s}$。（度规分量符号错误）4. 步骤9中，逆变度规 $g^{22}$ 计算错误，混淆了协变与逆变分量。正确应为 $g^{22} = \\frac{1}{r^2}$。（指标/度规分量错误）",
+    "solution": null
+  },
+  "verification": null
+}

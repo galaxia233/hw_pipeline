@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-7-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "Killing_equation",
+      "coordinate": "cartesian",
+      "scenario": "flat_spacetime_reduce",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-7",
+      "1_s10_10.10-7-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\partial_\\alpha \\xi_\\mu + \\partial_\\mu \\xi_\\alpha = 0",
+      "\\xi_x = -y, \\xi_y = x"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规为：$$ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$在广义相对论中，通过赤道面测地线上角动量守恒的性质，我们反推得到了弯曲时空下绕 $\\phi$ 轴旋转的 Killing 矢量 $\\boldsymbol{\\xi} = (0, 0, 0, 1)$ 必须满足的协变 Killing 方程 $\\nabla_\\alpha \\xi_\\mu + \\nabla_\\mu \\xi_\\alpha = 0$。请取平直时空极限 $r_s \\to 0$（即无引力场回到 Minkowski 空间），将该协变 Killing 方程在笛卡尔坐标系 $(t, x, y, z)$ 下化简为经典对应形式，并写出该极限下对应绕 z 轴旋转的经典 Killing 矢量的协变分量 $\\xi_\\mu$。",
+    "answer": "极限过程：当 $r_s \\to 0$ 时，Schwarzschild 度规退化为 Minkowski 平直时空度规。在笛卡尔坐标系 $(t, x, y, z)$ 下，所有 Christoffel 符号均变为零，即 $\\Gamma^\\sigma_{\\alpha\\mu} = 0$。因此，协变导数退化为普通偏导数，$\\nabla_\\alpha \\xi_\\mu \\to \\partial_\\alpha \\xi_\\mu$。经典对应结果：协变 Killing 方程化简为 $\\partial_\\alpha \\xi_\\mu + \\partial_\\mu \\xi_\\alpha = 0$。在笛卡尔坐标系下，绕 z 轴旋转的经典 Killing 矢量为 $\\boldsymbol{\\xi} = -y \\partial_x + x \\partial_y$，由于笛卡尔坐标系下度规分量为 $\\pm 1$ 或 $1$，协变分量与逆变分量相同，即 $\\xi_t = 0, \\xi_x = -y, \\xi_y = x, \\xi_z = 0$。",
+    "solution": "1. 分析 $r_s \\to 0$ 极限下的度规：度规变为 $ds^2 = -dt^2 + dr^2 + r^2 d\\Omega^2$，即 Minkowski 平直时空。2. 坐标系转换：从球坐标系转换为笛卡尔坐标系 $(t, x, y, z)$，在笛卡尔坐标系中 Minkowski 度规的 Christoffel 符号全为零。3. 协变导数的退化：$\\nabla_\\alpha \\xi_\\mu = \\partial_\\alpha \\xi_\\mu - \\Gamma^\\sigma_{\\alpha\\mu} \\xi_\\sigma \\to \\partial_\\alpha \\xi_\\mu$，因此协变 Killing 方程退化为 $\\partial_\\alpha \\xi_\\mu + \\partial_\\mu \\xi_\\alpha = 0$。4. 经典旋转 Killing 矢量：在笛卡尔坐标系下，绕 z 轴旋转的生成元为 $\\boldsymbol{\\xi} = -y \\partial_x + x \\partial_y$，对应的协变分量为 $\\xi_t=0, \\xi_x=-y, \\xi_y=x, \\xi_z=0$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目和答案存在严重的指标混淆与概念错误。1. 题目混淆协变与逆变分量：协变 Killing 方程 $\\nabla_\\alpha \\xi_\\mu + \\nabla_\\mu \\xi_\\alpha = 0$ 要求代入的是协变分量 $\\xi_\\mu$。绕 $\\phi$ 轴旋转的 Killing 矢量生成元为 $\\partial_\\phi$，其逆变分量为 $\\xi^\\mu=(0,0,0,1)$，但其对应的协变分量应为 $\\xi_\\mu=(0,0,0,r^2\\sin^2\\theta)$，而非 $(0,0,0,1)$。题目将 $(0,0,0,1)$ 直接与协变 Killing 方程关联，犯了上下标混淆的错误。2. Answer 中存在违背洛伦兹度规升降规则的错误论断：Answer 称“由于笛卡尔坐标系下度规分量为 $\\pm 1$ 或 $1$，协变分量与逆变分量相同”。在 Minkowski 笛卡尔坐标系中，上下标升降规则为 $\\xi_t = -\\xi^t$，时间分量的符号必定相反，协变分量与逆变分量并不相同。虽然本题中由于 $\\xi^t=0$ 导致时间分量数值巧合相同，但该论断本身在广义相对论中是概念性错误。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

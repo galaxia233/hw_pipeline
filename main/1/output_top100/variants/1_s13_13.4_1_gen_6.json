@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_1-6",
+    "type": "calculate",
+    "tags": {
+      "target_object": "vacuum_energy_density_and_pressure",
+      "coordinate": "closed_slicing",
+      "scenario": "cosmology",
+      "method": "einstein_tensor_analysis",
+      "generalization_axis": "extend",
+      "metric": "AntiDeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.4_1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.4_1",
+      "1_s13_13.4_1-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "AntiDeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "chi",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\Lambda",
+      "\\rho_{\\text{vac}}",
+      "p_{\\text{vac}}"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "cos(t)**2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "cos(t)**2*sinh(chi)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*cos(t)**2*sinh(chi)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In relativistic quantum mechanics, it is speculated that the vacuum has a nonzero stress-energy tensor $T_{\\mu\\nu}^{\\text{vac}}$. As shown in theoretical analyses, to ensure there is no preferred vacuum frame, this tensor must be proportional to the metric, which can be interpreted as an effective cosmological constant $\\Lambda$. According to the Einstein field equations, a pure vacuum spacetime with cosmological constant $\\Lambda$ satisfies $G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 0$, and the effective vacuum stress-energy tensor is defined as $T_{\\mu\\nu}^{\\text{vac}} = -\\frac{\\Lambda}{8\\pi} g_{\\mu\\nu}$. The vacuum energy density is $\\rho_{\\text{vac}} = T_{00}^{\\text{vac}}$, and the vacuum pressure $p_{\\text{vac}}$ satisfies $p_{\\text{vac}} = -\\rho_{\\text{vac}}$. \\n\\nConsider the Anti-de Sitter spacetime, a vacuum solution with a constant negative curvature. Its metric in closed slicing is:\\n$ds^2 = -dt^2 + \\cos^{2}{\\left(t\\right)} d\\chi^2 + \\cos^{2}{\\left(t\\right)} \\sin h^{2}{\\left(\\chi\\right)} d\\theta^2 + \\sin^{2}{\\left(\\theta\\right)} \\cos^{2}{\\left(t\\right)} \\sin h^{2}{\\left(\\chi\\right)} d\\phi^2$\\n\\nThe Einstein tensor for this metric has components $G_{00} = -3$, $G_{11} = 3\\cos^{2}{\\left(t\\right)}$, $G_{22} = 3\\cos^{2}{\\left(t\\right)}\\sin h^{2}{\\left(\\chi\\right)}$, and $G_{33} = 3\\sin^{2}{\\left(\\theta\\right)}\\cos^{2}{\\left(t\\right)}\\sin h^{2}{\\left(\\chi\\right)}$. \\n\\nBased on this data, explicitly calculate the numerical value of the cosmological constant $\\Lambda$, the vacuum energy density $\\rho_{\\text{vac}}$, and the vacuum pressure $p_{\\text{vac}}$.",
+    "answer": "$\\Lambda = -3$, $\\rho_{\\text{vac}} = -\\frac{3}{8\\pi}$, $p_{\\text{vac}} = \\frac{3}{8\\pi}$",
+    "solution": "1. From the geometric data, the Einstein tensor components are $G_{00} = -3$, $G_{11} = 3\\cos^{2}{\\left(t\\right)}$, $G_{22} = 3\\cos^{2}{\\left(t\\right)}\\sin h^{2}{\\left(\\chi\\right)}$, and $G_{33} = 3\\sin^{2}{\\left(\\theta\\right)}\\cos^{2}{\\left(t\\right)}\\sin h^{2}{\\left(\\chi\\right)}$. The corresponding metric components are $g_{00} = -1$, $g_{11} = \\cos^{2}{\\left(t\\right)}$, $g_{22} = \\cos^{2}{\\left(t\\right)}\\sin h^{2}{\\left(\\chi\\right)}$, and $g_{33} = \\sin^{2}{\\left(\\theta\\right)}\\cos^{2}{\\left(t\\right)}\\sin h^{2}{\\left(\\chi\\right)}$. \\n2. Comparing $G_{\\mu\\nu}$ and $g_{\\mu\\nu}$, we find the proportional relationship $G_{\\mu\\nu} = 3 g_{\\mu\\nu}$. \\n3. For a pure vacuum spacetime, the Einstein field equations are $G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 0$. Substituting $G_{\\mu\\nu} = 3 g_{\\mu\\nu}$ yields $3 g_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 0$, which implies the cosmological constant $\\Lambda = -3$. \\n4. The effective vacuum stress-energy tensor is defined as $T_{\\mu\\nu}^{\\text{vac}} = -\\frac{\\Lambda}{8\\pi} g_{\\mu\\nu}$. Substituting $\\Lambda = -3$ gives $T_{\\mu\\nu}^{\\text{vac}} = \\frac{3}{8\\pi} g_{\\mu\\nu}$. \\n5. The vacuum energy density is $\\rho_{\\text{vac}} = T_{00}^{\\text{vac}}$. Using $T_{00}^{\\text{vac}} = \\frac{3}{8\\pi} g_{00} = \\frac{3}{8\\pi} (-1) = -\\frac{3}{8\\pi}$, we get $\\rho_{\\text{vac}} = -\\frac{3}{8\\pi}$. \\n6. The vacuum pressure satisfies $p_{\\text{vac}} = -\\rho_{\\text{vac}} = \\frac{3}{8\\pi}$."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.antidesitter_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "度规和 Einstein 张量的表达式中存在严重的排版/数学错误：将双曲正弦函数 \\sinh 错误地写成了 \\sin h。例如 \\sin h^{2}(\\chi)，这在 LaTeX 中会被渲染为正弦函数与未定义变量 h 的乘积（或导致语法混乱），这完全破坏了 Anti-de Sitter 时空 3 维双曲空间截面的几何意义，且引入了题目中从未定义的变量 h，导致题目不自洽且度规表达式无效。正确的写法应为 \\sinh^{2}(\\chi)。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

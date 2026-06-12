@@ -1,0 +1,168 @@
+{
+  "metadata": {
+    "id": "1_s5_5.1_a",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "cartesian_coordinate",
+      "scenario": "inertial_frame_scenario",
+      "method": "tensor_transformation_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.1_a",
+    "source_id": "1_s5_5.1_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.1_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.3,
+      "realism": 0.7,
+      "rationale": "题干为标准相对论理想流体模型，逻辑链条清晰，但所附解答为无关热力学推导，严重破坏完整性",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$T^{00}$",
+      "$T^{01}$",
+      "$T^{10}$",
+      "$T^{11}$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.1. Calculate the nonzero components in an inertial frame S of the stress-energy tensor for the following systems:\\n(a) A group of particles all moving with the same velocity $\\underline{\\beta} = \\beta \\underline{e}_{\\mathbf{x}}$ as seen in S. Let the rest-mass density of these particles be $\\rho_0$ as measured in their comoving frame. Assume a high density of particles and treat them in the continuum approximation.",
+    "answer": "$T^{00} = \\rho_0 \\\\gamma^2$, $T^{01} = T^{10} = \\rho_0 \\\\gamma^2 \\\\beta$, $T^{11} = \\rho_0 \\\\gamma^2 \\\\beta^2$ (with $c=1$, $\\\\gamma = (1-\\\\beta^2)^{-1/2}$)",
+    "solution": "$$\\n\\\\mathrm {T d s} = \\\\left(\\\\frac {\\\\mathrm {d U}}{\\\\mathrm {d T}} + \\\\mathrm {k}\\\\right) \\\\mathrm {d T} - \\\\frac {1}{\\\\mathrm {n}} \\\\mathrm {d p} \\\\tag {6}\\n$$\\nand thus\\n$$\\nc_{p} = \\\\frac {d U}{d T} + k = c_{v} + k. \\\\tag {7}\\n$$\\nFrom Equation (1)\\n$$\\n\\\\Gamma_{1} = \\\\left. \\\\frac {\\\\partial \\\\log p}{\\\\partial \\\\log n} \\\\right|_{s} = 1 + \\\\frac {n}{T} \\\\frac {d T}{d n} \\\\Bigg|_{s} \\\\tag {8}\\n$$\\nBut Equation (3) implies that, when $\\\\mathbf{s} =$ constant,\\n$$\\nc_{v} \\\\frac {d T}{d n} = \\\\frac {p}{n^{2}} = k \\\\frac {T}{n} = \\\\left(c_{p} - c_{v}\\\\right) \\\\frac {T}{n}. \\\\tag {9}\\n$$\\nSubstituting Equation (9) in Equation (8) gives us\\n$$\\n\\\\Gamma_{1} = 1 + \\\\frac {\\\\left(\\\\mathrm {c}_{\\\\mathrm {p}} - \\\\mathrm {c}_{\\\\mathrm {v}}\\\\right)}{\\\\mathrm {c}_{\\\\mathrm {v}}} = \\\\gamma .\\n$$"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

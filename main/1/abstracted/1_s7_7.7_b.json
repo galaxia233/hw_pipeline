@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s7_7.7_b",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "tensor_algebra",
+      "method": "identity_proof"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.7_b",
+    "source_id": "1_s7_7.7_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.7_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.4,
+      "generalizability": 0.8,
+      "completeness": 0.5,
+      "realism": 0.3,
+      "rationale": "基于度规与其逆矩阵乘积为克罗内克δ求导的基础张量运算，逻辑链较短但具有一般曲率时空的普适性",
+      "overall": 0.5
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\gamma$",
+      "$\\\\mu$"
+    ],
+    "target": [
+      "$\\\\mathbf{g}_{\\\\alpha \\\\mu, \\\\gamma} \\\\mathbf{g}^{\\\\mu \\\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.7. Prove the following identities:\\n(b) $\\mathbf{g}_{\\alpha \\mu} \\mathbf{g}^{\\mu \\beta}, \\gamma = -\\mathbf{g}^{\\mu \\beta} \\mathbf{g}_{\\alpha \\mu, \\gamma}$ .",
+    "answer": "$-\\\\mathbf{g}^{\\\\mu \\\\beta} \\\\mathbf{g}_{\\\\alpha \\\\mu, \\\\gamma}$",
+    "solution": null
+  },
+  "verification": null
+}

@@ -1,0 +1,186 @@
+{
+  "metadata": {
+    "id": "1_s15_15.10",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "coordinate",
+      "coordinate": "scenario",
+      "scenario": "calculate",
+      "method": "black_hole"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s15_15.10",
+    "source_id": "1_s15_15.10",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s15_15.10"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于出射爱丁顿-芬克尔斯坦坐标的多步推导结合黑洞视界附近红移物理图像",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$u$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$"
+    ],
+    "target": [
+      "$M$"
+    ],
+    "metric": [
+      [
+        "$-(1-2M/r)$",
+        "$-1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2\\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s15_15.10.md]Problem 15.10. A radio commentator is describing his radial fall into a Schwarzschild black hole. Just before he crosses the Schwarzschild radius his broadcast frequency starts becoming redshifted enormously with a time dependence exp $(-t / \\text{constant})$ , where $t$ measures proper time at infinity. From the constant deduce the mass of the hole.## Solution",
+    "answer": "$M = \\text{constant}/4$",
+    "solution": "Solution 15.10. It is convenient to work in \"outgoing Eddington-Finkelstein coordinates\": Define $\\mathbf {r}^{*} $ by $\\mathrm {dr}^{*} / \\mathrm {dr} = (1 - 2\\mathbf {M} / \\mathbf {r})^{-1}$ , that is$$\\mathbf {r}^{*} = \\mathbf {r} + 2 \\mathbf {M} \\log (\\mathbf {r} / 2 \\mathbf {M} - 1) + \\text {c o n s t a n t}$$and define a retarded time coordinate$$\\mathbf {u} = \\mathbf {t} - \\mathbf {r}^{*}$$The Schwarzschild metric in these coordinates is$$\\mathrm {d s}^{2} = - (1 - 2 \\mathrm {M} / \\mathrm {r}) \\mathrm {d u}^{2} - 2 \\mathrm {d u d r} + \\mathrm {r}^{2} \\mathrm {d}\\Omega^{2}. \\tag {1}$$Putting $\\mathrm {ds} = 0 $ , we see that outgoing radial photons travel along lines $\\mathbf{u} =$ constant. The redshift is calculated by comparing the time between reception of photons and emission of photons:$$\\frac {\\lambda_{\\inf ty}}{\\lambda_{\\text {e m i t t e r}}} = \\frac {(\\Delta t)_{\\inf ty}}{(\\Delta \\tau)_{\\text {e m}}} = \\frac {(\\Delta u)_{\\inf ty}}{(\\Delta \\tau)_{\\text {e m}}} = \\left. \\frac {(\\Delta u)_{\\text {e m}}}{(\\Delta \\tau)_{\\text {e m}}} = \\frac {\\mathrm {d} u}{\\mathrm {d} \\tau}\\right|_{\\text {e m}}. \\tag {2}$$Note how we can relate times at infinity to times at the emitter by using $u =$ constant along the rays.We must therefore find the component $\\mathrm {d} u / \\mathrm {d}\\tau = \\mathbf{U}^{\\mathbf {u}}$ of the emitter's 4-velocity $\\mathbf{U}$ as a function of t.Now u and t are both ignorable coordinates and$$\\mathrm {U}_{\\mathrm {t}} = \\mathrm {U}_{\\mathrm {u}} = \\text {c o n s t a n t} = - \\tilde {\\mathrm {E}} \\tag {3}$$and $\\mathbf{U}\\cdot \\mathbf{U} = -\\mathbf{1}$ implies![](images/cd41dda0fa8b84e6846d5afb92b49f93edb7e171ebda80df7eebe73c610b9a3f.jpg)$$U_{r} = \\frac {- \\tilde {E} - \\left(\\tilde {E}^{2} - 1 + 2 M / r\\right)^{\\frac {1}{2}}}{1 - 2 M / r}, \\tag {4}$$therefore$$\\mathbf {U}^{\\mathrm {u}} = \\mathbf {g}^{\\mathrm {uu}} \\mathbf {U}_{\\mathrm {u}} + \\mathbf {g}^{\\mathrm {ur}} \\mathbf {U}_{r} = 0 + \\left[ \\tilde {\\mathbf {E}} + \\left(\\tilde {\\mathbf {E}}^{2} - 1 + 2 \\mathbf {M} / \\mathbf {r}\\right)^{\\frac {1}{2}}\\right] (1 - 2 \\mathbf {M} / \\mathbf {r})^{- 1} \\qquad (5)$$and$$\\begin{array}{l}\\mathbf {U}^{\\mathrm {r}} = \\mathbf {g}^{\\mathrm {ur}} \\mathbf {U}_{\\mathrm {u}} + \\mathbf {g}^{\\mathrm {rr}} \\mathbf {U}_{\\mathrm {r}} = \\tilde {\\mathbf {E}} + \\left[ - \\tilde {\\mathbf {E}} - \\left(\\tilde {\\mathbf {E}}^{2} - 1 + 2 \\mathbf {M} / \\mathbf {r}\\right)^{\\frac {1}{2}}\\right] \\\\= - \\left(\\tilde {\\mathrm {E}}^{2} - 1 + 2 \\mathrm {M} / \\mathrm {r}\\right)^{\\frac {1}{2}}. \\tag {6} \\\\\\end{array}$$Thus$$\\frac {\\mathrm {d} \\mathbf {r}}{\\mathrm {d} u} = \\frac {\\mathbf {U}^{r}}{\\mathbf {U}^{u}} = \\frac {- \\left(\\tilde {\\mathbf {E}}^{2} - 1 + 2 \\mathbf {M} / \\mathbf {r}\\right)^{\\frac {1}{2}} (1 - 2 \\mathbf {M} / \\mathbf {r})}{\\tilde {\\mathbf {E}} + \\left(\\tilde {\\mathbf {E}}^{2} - 1 + 2 \\mathbf {M} / \\mathbf {r}\\right)^{\\frac {1}{2}}} \\tag {7}$$Near $\\mathbf{r} = 2\\mathbf{M}$ , Equation (7) gives$$\\begin{array}{l}\\mathrm {d} \\mathbf {u} \\approx - 2 (1 - 2 \\mathrm {M} / \\mathrm {r})^{- 1} \\mathrm {d} \\mathbf {r} \\approx - 2 (\\mathrm {r} / 2 \\mathrm {M} - 1)^{- 1} \\mathrm {d} \\mathbf {r} \\\\u \\approx - 4 M \\log (r / 2 M - 1) + c o n s t a n t \\\\1 - 2 \\mathrm {M} / \\mathrm {r} \\sim \\exp (- \\mathrm {u} / 4 \\mathrm {M}). \\\\\\end{array}$$Thus Equation (5) implies that, as $\\mathbf{r} \\to 2\\mathbf{M}$$$U^{u} \\sim e^{+ u / 4 M}.$$But $\\mathbf{u} = \\mathbf {t} +$ constant for an observer at fixed (large) $\\mathbf {r} $ , so finally$$\\lambda_{\\text {e m i t t e r}} / \\lambda_{\\inf ty} \\sim \\exp (- t / 4 M).$$"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "metric_latex": [
+      [
+        "\\frac{- r + r_{s}}{r}",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "\\frac{r}{r - r_{s}}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r^{2} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_001": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_010": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_100": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{3}}",
+      "Gamma_111": "- \\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_122": "- r + r_{s}",
+      "Gamma_133": "\\left(- r + r_{s}\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_233": "- \\frac{\\sin{\\left(2 \\theta \\right)}}{2}",
+      "Gamma_313": "\\frac{1}{r}",
+      "Gamma_323": "\\frac{1}{\\tan{\\left(\\theta \\right)}}",
+      "Gamma_331": "\\frac{1}{r}",
+      "Gamma_332": "\\frac{1}{\\tan{\\left(\\theta \\right)}}"
+    },
+    "riemann": {
+      "R_0101": "\\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0110": "- \\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0202": "- \\frac{r_{s}}{2 r}",
+      "R_0220": "\\frac{r_{s}}{2 r}",
+      "R_0303": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_0330": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1001": "\\frac{r_{s} \\left(r - r_{s}\\right)}{r^{4}}",
+      "R_1010": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{r^{4}}",
+      "R_1212": "- \\frac{r_{s}}{2 r}",
+      "R_1221": "\\frac{r_{s}}{2 r}",
+      "R_1313": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1331": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_2002": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_2020": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_2112": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2121": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2323": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_2332": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_3003": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_3030": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_3113": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3131": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3223": "- \\frac{r_{s}}{r}",
+      "R_3232": "\\frac{r_{s}}{r}"
+    },
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "\\frac{48 M^{2}}{r^{6}}",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量 (∂_t)，对应能量守恒",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "rot_phi",
+        "description": "绕 φ 轴旋转 Killing 矢量 (∂_φ)，对应角动量守恒",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "nabla_mu_xi_nu",
+      "coordinate": "spherical",
+      "scenario": "black_hole_weak_field_limit",
+      "method": "tensor_calc_limit",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\nabla_\\mu \\xi_\\nu$",
+      "$\\nabla_1 \\xi_0$ limit"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞外部时空中，度规为：$$ ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2 $$其中 $r_s = 2M$ 为 Schwarzschild 半径。该时空具有时间平移对称性，对应的 Killing 矢量为 $\\xi^\\mu = (1,0,0,0)$。种子题目指出，由 Killing 矢量与能动张量构造的守恒流 $J^\\alpha = T^\\alpha_\\beta \\xi^\\beta$ 协变散度为零，其根本前提是 $\\xi^\\mu$ 必须满足 Killing 方程 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$。请利用给定度规及相应的第二类 Christoffel 符号，计算时间 Killing 矢量 $\\xi^\\mu$ 的协变导数分量 $\\nabla_\\mu \\xi_\\nu$，验证其确实满足 Killing 方程。进一步，取弱场极限 $r \\gg r_s$（即保留 $r_s/r$ 的首阶项），证明协变导数的时空分量 $\\nabla_1 \\xi_0$ 在此极限下退化为与牛顿引力势 $\\Phi = -M/r$ 的空间梯度相关的表达式，从而说明广义相对论中的几何对称性在极限下如何还原为牛顿力学的静力场特征。",
+    "answer": "验证了 Killing 方程 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$ 成立；在弱场极限下，$\\nabla_1 \\xi_0 \\to -\\frac{M}{r^2} = -\\nabla_1 \\Phi$，即 Killing 矢量的时空协变导数分量还原为牛顿引力势的负梯度，体现了几何对称性退化为经典静力场性质。",
+    "solution": "1. **计算 Killing 矢量的协变分量**：根据度规 $g_{00} = -\\frac{r-r_s}{r}$，时间平移 Killing 矢量 $\\xi^\\mu = (1,0,0,0)$ 的协变分量为：$$ \\xi_0 = g_{00} \\xi^0 = -\\frac{r-r_s}{r}, \\quad \\xi_1 = \\xi_2 = \\xi_3 = 0 $$2. **计算协变导数 $\\nabla_\\mu \\xi_\\nu$**：协变导数定义为 $\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu - \\Gamma^\\lambda_{\\mu\\nu} \\xi_\\lambda$。由于 $\\xi_\\lambda$ 仅 $\\lambda=0$ 分量非零，公式简化为 $\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu - \\Gamma^0_{\\mu\\nu} \\xi_0$。- 计算 $\\nabla_1 \\xi_0$： $$ \\partial_1 \\xi_0 = \\partial_r \\left( -\\frac{r-r_s}{r}\\right) = -\\frac{r_s}{r^2} $$ 代入 Christoffel 符号 $\\Gamma^0_{10} = \\frac{r_s}{2r(r-r_s)}$，得： $$ \\nabla_1 \\xi_0 = -\\frac{r_s}{r^2} - \\left( \\frac{r_s}{2r(r-r_s)}\\right) \\left( -\\frac{r-r_s}{r}\\right) = -\\frac{r_s}{r^2} + \\frac{r_s}{2r^2} = -\\frac{r_s}{2r^2} $$- 计算 $\\nabla_0 \\xi_1$： $$ \\partial_0 \\xi_1 = 0 $$ 代入 Christoffel 符号 $\\Gamma^0_{01} = \\frac{r_s}{2r(r-r_s)}$，得： $$ \\nabla_0 \\xi_1 = 0 - \\left( \\frac{r_s}{2r(r-r_s)}\\right) \\left( -\\frac{r-r_s}{r}\\right) = \\frac{r_s}{2r^2} $$- 对于其他不含 $0$ 指标的组合，$\\partial_\\mu \\xi_\\nu = 0$ 且 $\\Gamma^0_{\\mu\\nu} = 0$（除 $\\Gamma^0_{01}$ 和 $\\Gamma^0_{10}$ 外），故 $\\nabla_\\mu \\xi_\\nu = 0$。3. **验证 Killing 方程**：关键的非平凡分量为：$$ \\nabla_0 \\xi_1 + \\nabla_1 \\xi_0 = \\frac{r_s}{2r^2} - \\frac{r_s}{2r^2} = 0 $$其余分量显然满足 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$，因此 Killing 方程验证成立。4. **弱场极限还原经典对应**：在弱场极限下 $r \\gg r_s$，即 $\\frac{r_s}{r} \\ll 1$，保留首阶项：$$ \\nabla_1 \\xi_0 = -\\frac{r_s}{2r^2} \\approx -\\frac{2M}{2r^2} = -\\frac{M}{r^2} $$在单位制 $G=c=1$ 下，牛顿引力势为 $\\Phi = -\\frac{M}{r}$，其径向空间梯度为：$$ \\nabla_1 \\Phi = \\partial_r \\Phi = \\frac{M}{r^2} $$因此：$$ \\nabla_1 \\xi_0 \\approx -\\nabla_1 \\Phi $$这证明了在弱场极限下，广义相对论中表征时空对称性的 Killing 矢量的协变导数时空分量，直接还原为牛顿力学中引力势的负梯度，即经典静力场特征（引力场强度）。"
+  },
+  "verification": null
+}

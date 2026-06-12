@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "id": "1_s16_16.1",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "coordinate",
+      "coordinate": "tetrad",
+      "scenario": "orthonormal_frame",
+      "method": "isotropic_geometry"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.1",
+    "source_id": "1_s16_16.1",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "需结合度规归一化条件分步构造类时/类空基矢及对偶形式，物理场景对应静止观测者局部惯性系，解答详尽规范。",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$\\\\mathbf{e}_{\\\\hat{0}}$",
+      "$\\\\mathbf{e}_{\\\\hat{r}}$",
+      "$\\\\mathbf{e}_{\\\\hat{\\\\theta}}$",
+      "$\\\\mathbf{e}_{\\\\hat{\\\\phi}}$",
+      "$\\\\tilde{\\\\omega}^{\\\\hat{0}}$",
+      "$\\\\tilde{\\\\omega}^{\\\\hat{r}}$",
+      "$\\\\tilde{\\\\omega}^{\\\\hat{\\\\theta}}$",
+      "$\\\\tilde{\\\\omega}^{\\\\hat{\\\\phi}}$"
+    ],
+    "metric": [
+      [
+        "$-e^{2\\\\Phi}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$e^{2\\\\mu}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$e^{2\\\\mu} r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$e^{2\\\\mu} r^2 \\\\sin^2\\\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.1. Find basis vectors (and a dual basis of 1-forms) for orthonormal tetrads in a spherical geometry. Take the legs of the tetrad to be in the $\\mathbf{t}$ , $\\mathbf{r}$ , $\\theta$ , and $\\phi$ directions of the isotropic coordinate system whose metric is\\n$$\\nd s^{2} = - e^{2 \\Phi} d t^{2} + e^{2 \\mu} (d r^{2} + r^{2} d \\Omega^{2}).\\n$$",
+    "answer": "$\\\\mathbf{e}_{\\\\hat{0}} = e^{-\\\\Phi} \\\\frac{\\\\partial}{\\\\partial t}$, $\\\\mathbf{e}_{\\\\hat{r}} = e^{-\\\\mu} \\\\frac{\\\\partial}{\\\\partial r}$, $\\\\mathbf{e}_{\\\\hat{\\\\theta}} = e^{-\\\\mu} r^{-1} \\\\frac{\\\\partial}{\\\\partial \\\\theta}$, $\\\\mathbf{e}_{\\\\hat{\\\\phi}} = e^{-\\\\mu} (r \\\\sin \\\\theta)^{-1} \\\\frac{\\\\partial}{\\\\partial \\\\phi}$;\\n$\\\\tilde{\\\\omega}^{\\\\hat{0}} = e^{\\\\Phi} dt$, $\\\\tilde{\\\\omega}^{\\\\hat{r}} = e^{\\\\mu} dr$, $\\\\tilde{\\\\omega}^{\\\\hat{\\\\theta}} = e^{\\\\mu} r d\\\\theta$, $\\\\tilde{\\\\omega}^{\\\\hat{\\\\phi}} = e^{\\\\mu} r \\\\sin\\\\theta d\\\\phi$",
+    "solution": "## Solution\\n\\nSolution 16.1. Since an observer's time axis points along his 4-velocity, if he is stationary in the $(t,r,\\theta,\\phi)$ coordinate system then his time axis must be along $\\partial/\\partial t$ (and normalized properly). Accordingly, take $\\mathbf{e}_{\\hat{\\mathbf{o}}} = \\mathbf{f}\\partial/\\partial t$ , where $\\mathbf{f}$ is to be determined by normalization:\\n$$\\n- \\mathbf {1} = \\mathbf {e}_{\\hat {\\boldsymbol {0}}} \\cdot \\mathbf {e}_{\\hat {\\boldsymbol {0}}} = \\mathbf {f}^{2} \\frac {\\partial}{\\partial t} \\cdot \\frac {\\partial}{\\partial t} = \\mathbf {f}^{2} \\mathbf {g}_{0 0} = - \\mathbf {f}^{2} \\mathbf {e}^{2 \\hat {\\boldsymbol {\\Phi}}}.\\n$$\\nThus $\\mathbf{f} = \\mathbf{e}^{-\\Phi}$ and\\n$$\\n\\mathbf {e}_{\\hat {0}} = \\mathbf {e}^{- \\Phi} \\frac {\\partial}{\\partial t}. \\tag {1}\\n$$\\nThe three directions, $\\partial/\\partial\\theta$ , $\\partial/\\partial\\phi$ , $\\partial/\\partial\\mathbf{r}$ are all orthogonal to $\\partial/\\partial t$ and choosing basis vectors along them, with unit normalization (same technique as above) yields\\n$$\\n\\mathbf {e}_{\\hat {\\mathbf {r}}} = \\mathrm {e}^{- \\mu} \\frac {\\partial}{\\partial \\mathrm {r}}, \\quad \\mathbf {e}_{\\hat {\\theta}} = \\mathrm {e}^{- \\mu} \\mathrm {r}^{- 1} \\frac {\\partial}{\\partial \\theta}, \\quad \\mathbf {e}_{\\hat {\\phi}} = \\mathrm {e}^{- \\mu} (\\mathrm {r} \\sin \\theta)^{- 1} \\frac {\\partial}{\\partial \\phi}. \\tag {2}\\n$$\\nThe basis vectors in Equations (1) and (2) constitute an orthonormal proper reference frame for a stationary observer. Dual 1-forms, $\\tilde{\\omega}^{\\hat{a}}$ , are found by the requirement\\n$$\\n< \\tilde {\\omega}^{\\hat {a}} , e_{\\hat {\\beta}} > = \\delta^{a} \\beta \\tag {3}\\n$$\\nand are easily seen to be\\n$$\\n\\tilde {\\omega}^{\\hat {0}} = \\mathrm {e}^{\\phi} \\widetilde {\\mathrm {d t}} , \\quad \\tilde {\\omega}^{\\hat {\\mathrm {r}}} = \\mathrm {e}^{\\mu} \\widetilde {\\mathrm {d r}} , \\quad \\tilde {\\omega}^{\\hat {\\theta}} = \\mathrm {e}^{\\mu} \\mathrm {r} \\widetilde {\\mathrm {d} \\theta} , \\quad \\tilde {\\omega}^{\\hat {\\phi}} = \\mathrm {e}^{\\mu} \\mathrm {r} \\sin \\theta \\widetilde {\\mathrm {d} \\phi} . \\tag {4}\\n$$"
+  },
+  "verification": null
+}

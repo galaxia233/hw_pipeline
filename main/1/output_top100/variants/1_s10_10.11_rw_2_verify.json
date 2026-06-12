@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-2-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "Newtonian continuity equation",
+      "coordinate": "Cartesian",
+      "scenario": "Newtonian limit verify derivation",
+      "method": "Perturbative expansion",
+      "generalization_axis": "verify",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-2",
+      "1_s10_10.11-2-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "killing_vector",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mu$",
+      "$\\nu$"
+    ],
+    "target": [
+      "找出并修正从 Killing 向量守恒律推导牛顿连续性方程过程中的所有错误"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在弱场低速（牛顿）极限下，时空度规近似为 $g_{00} = -(1+2\\Phi)$, $g_{0i} = 0$, $g_{ij} = \\delta_{ij}$，其中 $\\Phi$ 为牛顿引力势且 $|\\Phi| \\ll 1$。考虑完美流体，能动张量为 $T^{\\mu\\nu} = (\\rho + p) u^{\\mu} u^{\\nu} + p g^{\\mu\\nu}$，在此极限下 $p \\ll \\rho$，四维速度分量 $u^0 \\approx 1$, $u^i \\approx v^i$（其中 $|v^i| \\ll 1$）。\\n\\n对于具有类时 Killing 向量 $\\xi^{\\mu} = (1, 0, 0, 0)$ 的稳态时空，守恒流为 $J^{\\mu} = T^{\\mu\\nu} \\xi_{\\nu}$，满足协变守恒 $J^{\\mu}_{; \\mu} = 0$。\\n\\n以下是某同学将该守恒律推导至牛顿极限质量连续性方程的过程，请找出并修正推导中的所有错误（包括符号错误、系数遗漏、指标错误及物理阶数误判等）：\\n\\n**【推导过程】**\\n1. 计算 Killing 向量的协变分量：\\n$$ \\xi_{\\nu} = g_{\\nu0} \\xi^0 \\approx -(1+2\\Phi) \\approx +1 $$\\n因此主导阶项为 $\\xi_0 \\approx +1$, $\\xi_i = 0$。\\n\\n2. 计算能动张量的主导阶分量：\\n$$ T^{00} = (\\rho+p)(u^0)^2 + p g^{00} \\approx \\rho + p $$\\n$$ T^{i0} = (\\rho+p) u^i u^0 \\approx \\rho v^i $$\\n\\n3. 计算守恒流 $J^{\\mu} = T^{\\mu\\nu} \\xi_{\\nu} \\approx T^{\\mu0} \\xi_0$：\\n$$ J^0 \\approx (\\rho + p) \\cdot (+1) = \\rho + p $$\\n$$ J^i \\approx \\rho v^i \\cdot (+1) = \\rho v^i $$\\n\\n4. 计算协变散度 $J^{\\mu}_{ ; \\mu } = \\partial_{\\mu} J^{\\mu} + \\Gamma^{\\mu}_{ \\mu \\alpha } J^{\\alpha}$：\\n由于度规行列式为 $-g \\approx 1 - 2\\Phi$，故 $\\ln \\sqrt{-g} \\approx -\\Phi$，Christoffel 符号缩并为：\\n$$ \\Gamma^{\\mu}_{\\mu \\alpha} = \\partial_{\\alpha} \\ln \\sqrt{-g} \\approx -\\partial_{\\alpha} \\Phi $$\\n\\n5. 展开守恒方程并保留项：\\n$$ J^{\\mu}_{; \\mu} \\approx \\partial_t (\\rho+p) + \\partial_i (\\rho v^i) + (-\\partial_{\\alpha} \\Phi) (\\rho u^{\\alpha}) $$\\n$$ = \\partial_t \\rho + \\partial_i (\\rho v^i) - \\rho \\partial_t \\Phi - \\rho v^i \\partial_i \\Phi = 0 $$\\n该同学认为，由于 $\\rho \\partial \\Phi$ 项代表流体与引力场的耦合，属于主导阶项不可忽略，因此得出牛顿极限下的连续性方程为：\\n$$ \\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\mathbf{v}) - \\rho \\frac{\\partial \\Phi}{\\partial t} - \\rho \\mathbf{v} \\cdot \\nabla \\Phi = 0 $$",
+    "answer": "1. **位置**：步骤1中 $\\xi_0 \\approx +1$。**类型**：符号错误。**正确值**：$\\xi_0 = g_{00} \\approx -1$。\\n2. **位置**：步骤2中 $T^{00} \\approx \\rho + p$。**类型**：系数/阶数保留错误。**正确值**：$T^{00} = (\\rho+p) - p \\approx \\rho$（压力项 $p$ 在主导阶相消，不应保留）。\\n3. **位置**：步骤4中 $-g \\approx 1 - 2\\Phi$ 及 $\\ln \\sqrt{-g} \\approx -\\Phi$。**类型**：符号错误。**正确值**：$-g = -(g_{00}) \\approx 1 + 2\\Phi$，故 $\\ln \\sqrt{-g} \\approx +\\Phi$，从而 $\\Gamma^{\\mu}_{\\mu \\alpha} \\approx +\\partial_{\\alpha} \\Phi$。\\n4. **位置**：步骤5中认为 $\\rho \\partial \\Phi$ 项属于主导阶不可忽略。**类型**：物理阶数误判。**正确值**：由于 $|\\Phi| \\ll 1$ 且低速 $|v| \\ll 1$，$\\rho \\partial \\Phi \\sim \\mathcal{O}(\\rho \\Phi)$ 及 $\\rho v \\partial \\Phi \\sim \\mathcal{O}(\\rho v \\Phi)$ 均为次主导阶小量，在牛顿极限主导阶近似下必须忽略。最终正确方程应为 $\\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\mathbf{v}) = 0$。",
+    "solution": "1. **Killing 向量分量**：类时 Killing 向量 $\\xi^{\\mu} = (1,0,0,0)$，其协变分量 $\\xi_{\\nu} = g_{\\nu0}$。由牛顿极限度规：\\n$$ \\xi_0 = g_{00} = -(1+2\\Phi) \\approx -1 $$\\n$$ \\xi_i = g_{i0} = 0 $$\\n\\n2. **守恒流 $J^{\\mu}$ 的主导阶**：$J^{\\mu} = T^{\\mu\\nu} \\xi_{\\nu} \\approx T^{\\mu0} \\xi_0$。\\n对于完美流体，在牛顿极限下：\\n$$ T^{00} = (\\rho+p)(u^0)^2 + p g^{00} \\approx \\rho + p - p = \\rho $$\\n$$ T^{i0} = (\\rho+p) u^i u^0 \\approx \\rho v^i $$\\n因此：\\n$$ J^0 = T^{00} \\xi_0 \\approx \\rho (-1) = -\\rho $$\\n$$ J^i = T^{i0} \\xi_0 \\approx \\rho v^i (-1) = -\\rho v^i $$\\n\\n3. **协变散度计算**：$J^{\\mu}_{ ; \\mu } = \\partial_{\\mu} J^{\\mu} + \\Gamma^{\\mu}_{ \\mu \\alpha } J^{\\alpha}$。\\n度规行列式 $-g \\approx 1+2\\Phi$，故 $\\ln \\sqrt{-g} \\approx \\Phi$，Christoffel 符号缩并：\\n$$ \\Gamma^{\\mu}_{\\mu \\alpha} = \\partial_{\\alpha} \\ln \\sqrt{-g} \\approx \\partial_{\\alpha} \\Phi $$\\n\\n4. **阶数分析**：\\n偏导数项：$\\partial_{\\mu} J^{\\mu} = -\\partial_t \\rho - \\partial_i (\\rho v^i)$，产生 $\\mathcal{O}(\\rho)$ 与 $\\mathcal{O}(\\rho v)$ 阶项。\\nChristoffel 项：$\\Gamma^{\\mu}_{ \\mu \\alpha } J^{\\alpha} \\approx (\\partial_{\\alpha} \\Phi)(-\\rho u^{\\alpha})$，产生 $\\mathcal{O}(\\rho \\partial \\Phi)$ 阶项。由于 $|\\Phi| \\ll 1$ 及 $|v| \\ll 1$，Christoffel 项为高阶小量，在提取主导阶时被忽略。\\n\\n5. **得出连续性方程**：主导阶下 $J^{\\mu}_{ ; \\mu } \\approx \\partial_{\\mu} J^{\\mu} = 0$，即：\\n$$ -\\partial_t \\rho - \\partial_i (\\rho v^i) = 0 $$\\n两边乘以 $-1$，得到经典牛顿质量连续性方程：\\n$$ \\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\mathbf{v}) = 0 $$"
+  },
+  "verification": null
+}

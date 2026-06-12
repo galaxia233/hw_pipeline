@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s9_9.21",
+    "type": "calculate",
+    "tags": {
+      "metric": "plane_gravitational_wave",
+      "target_object": "retarded_time",
+      "coordinate": "riemann_tensor",
+      "scenario": "null_tetrad",
+      "method": "bianchi_identity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.21",
+    "source_id": "1_s9_9.21",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.21"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于平面引力波推迟时间假设，结合零标架与比安基恒等式进行多步张量分量分析，具有明确的物理背景与完整的推导链条",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mathfrak{u}$",
+      "$\\alpha$",
+      "$\\beta$",
+      "$\\gamma$",
+      "$\\delta$"
+    ],
+    "target": [
+      "$\\text{number of independent components of} R_{\\alpha \\beta \\gamma \\delta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.21. Consider a Riemann tensor representing a plane gravitational wave, i.e. $\\mathbf{R}_{\\alpha \\beta \\gamma \\delta} = \\mathbf{R}_{\\alpha \\beta \\gamma \\delta}(\\mathfrak{u})$ , where $\\mathfrak{u}$ is \"retarded time\" ( $\\nabla \\mathbf{u} \\cdot \\nabla \\mathbf{u} = 0$ ). Find the number of independent components of such a Riemann tensor. Do not assume that $\\mathbf{R}_{\\alpha \\beta \\gamma \\delta}$ satisfies the Einstein field equations.",
+    "answer": "six",
+    "solution": "Solution 9.21. Choose an orthonormal basis $\\mathbf{e}_{\\hat{\\alpha}}$ and construct a complex, null tetrad basis oriented so that the wave vector $\\nabla \\mathbf{u} \\equiv \\mathbf{k}$ is one of the tetrad legs:$$\\begin{array}{l} \\mathbf {k} = (2)^{- \\frac {1}{2}} \\left(\\mathbf {e}_{\\hat {\\mathbf {t}}} + \\mathbf {e}_{\\hat {\\mathbf {z}}}^{\\prime}\\right) \\\\ l = (2)^{- \\frac {1}{2}} \\left(e_{\\hat {t}} - e_{\\hat {z}}\\right) \\\\ \\mathbf {m} = (2)^{- \\frac {1}{2}} \\left(\\mathbf {e}_{\\hat {\\mathbf {x}}}^{\\prime} + \\mathbf {i} \\mathbf {e}_{\\hat {\\mathbf {y}}}^{\\prime}\\right) \\\\ \\overline {{\\mathbf {m}}} = (2)^{- \\frac {1}{2}} \\left(\\mathbf {e}_{\\hat {\\mathbf {x}}} - \\mathrm {i} \\mathbf {e}_{\\hat {\\mathbf {y}}}\\right) \\tag {1} \\end{array}$$and consider the components of the Riemann tensor in this basis: e.g. $\\mathbf{R}_{1\\mathfrak{m}\\overline{\\mathfrak{m}} 1} = \\mathbf{R}_{\\alpha \\beta \\gamma \\delta}1^{\\alpha}\\mathfrak{m}^{\\beta}\\overline{\\mathfrak{m}}^{\\gamma}\\mathfrak{l}^{\\delta}$ etc. Since the Riemann tensor is a function only of retarded time and since the only nonvanishing dot products of the basis vectors in Equation (1) are$$- \\mathbf {k} \\cdot \\mathbf {l} = \\mathbf {m} \\cdot \\overline {{\\mathbf {m}}} = 1, \\tag {2}$$one finds$$R_{a b c d, p} = 0 \\tag {3}$$where $(\\mathbf{a},\\mathbf{b},\\mathbf{c},\\mathbf{d})$ range over $(\\mathbf{k},\\mathbf{l},\\mathbf{m},\\overline{\\mathbf{m}})$ and $(\\mathbf{p},\\mathbf{q},\\mathbf{r}\\dot s)$ range over $(\\mathbf{k},\\mathbf{m},\\overline{\\mathbf{m}})$ . Now, consider the following subset of Bianchi identities for the Riemann tensor:$$R_{a b [ p q, 1 ]} = 0 \\tag {4}$$where 1 is the 1 index of Equation (1). Using Equation (3), we get$$R_{a b p q, 1} = 0 \\tag {5}$$from Equation (4), and Equations (5) and (3) imply$$R_{a b p q} = R_{p q a b} = 0, \\tag {6}$$aside from a trivial, nonwavelike constant. Consequently, all nonvanishing components of the Riemann tensor must have the form $\\mathbf{R}_{\\mathrm{plq1}}$ and, taking into account the symmetries of the Riemann tensor, we see that there are only six independent components. These six components correspond to the number of degrees of freedom in the most general gravitational wave in the generic metric theory of gravity. Einstein's theory has only two degrees of freedom in a gravitational wave."
+  },
+  "verification": null
+}

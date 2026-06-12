@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s19_19.7",
+    "type": "calculate",
+    "tags": {
+      "metric": "expanding_spacetime",
+      "target_object": "relativistic_kinematics",
+      "coordinate": "cosmological_redshift",
+      "scenario": "velocity_addition",
+      "method": "geodesic_motion"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.7",
+    "source_id": "1_s19_19.7",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "结合局域狭义相对论与哈勃流时空几何，通过速度叠加微分方程导出动量随尺度因子衰减规律，逻辑链条完整且具明确天体物理应用背景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$z$",
+      "$\\\\mathbf{V}_1$",
+      "$\\\\mathbf{V}_2$",
+      "$\\\\gamma$"
+    ],
+    "target": [
+      "$\\\\mathbf{V}_2$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.7. A bullet is shot out into an expanding Robertson-Walker universe with a velocity $\\mathbf{V}_1$ (relative to cosmological observers). Later, when the universe has expanded by a scale factor $(1 + z)^{-1}$ , it has a different velocity $\\mathbf{V}_2$ with respect to cosmological observers. Find $\\mathbf{V}_2$ in terms of $z$ and $\\mathbf{V}_1$ . Show that in the limit $\\mathbf{V}_1\\rightarrow \\mathbf{c}$ , the formula for the redshift of photons is obtained.",
+    "answer": "$\\\\gamma_2 \\\\mathbf{V}_2 = \\\\frac{\\\\gamma_1 \\\\mathbf{V}_1}{1 + z}$",
+    "solution": "Solution 19.7. In some local proper frame suppose the bullet passes by with a proper velocity $\\mathbf{V}$ . When it has moved a proper distance $\\mathbf{dr}$ farther, it passes a cosmological observer whose velocity relative to the first proper frame is\\n$$\\n\\\\delta \\\\mathbf {V} = \\\\mathbf {H} d \\\\mathbf {r} = \\\\mathbf {H} \\\\mathbf {V} d t = \\\\frac {\\\\mathbf {R}}{\\\\mathbf {R}} \\\\mathbf {V} d t = \\\\mathbf {V} \\\\frac {d \\\\mathbf {R}}{R}.\\n$$\\nThis observer sees it moving (according to the velocity addition formula) at velocity\\n$$\\n\\\\begin{array}{l} \\\\mathbf {V}^{\\\\prime} = \\\\frac {\\\\mathbf {V} - \\\\delta \\\\mathbf {V}}{1 - \\\\mathbf {V} \\\\delta \\\\mathbf {V}} = \\\\mathbf {V} - (1 - \\\\mathbf {V}^{2}) \\\\delta \\\\mathbf {V} + \\\\mathcal {O} (\\\\delta \\\\mathbf {V})^{2} \\\\\\\\ = V - \\\\left(1 - V^{2}\\\\right) V \\\\frac {d R}{R} + \\\\mathcal {O} (\\\\delta V)^{2}. \\\\\\\\\\\\ \\\\end{array}\\n$$\\nThus, $\\\\mathrm{dV} / \\\\mathrm{dR} = -(1 - V^2)V / R$ which is integrable, giving $\\\\gamma \\\\mathbf{V}\\\\equiv (1 - V^{2})^{-\\\\frac{1}{2}}\\\\mathbf{V}$ $= \\\\text{constant} /\\\\mathbb{R} = \\\\text{constant}\\\\times (1 + z)$ . So $\\\\mathbf{V}_1$ and $\\\\mathbf{V}_2$ are related by $\\\\gamma_2\\\\mathbf{V}_2 / \\\\gamma_1\\\\mathbf{V}_1 = (1 + z)^{-1}$ . For a particle with nonzero rest mass, this result says that the relativistic momentum redshifts away as one power of $(1 + z)$ as the universe expands. For a photon, in the limit $\\\\mathbf{V}\\\\rightarrow 1$ , $\\\\gamma \\\\mathbf{V}\\\\to \\\\mathbf{h}\\\\nu$ and we obtain the usual redshift factor. (Note that we have not taken into account the slowing down of the bullet due to the gravitational attraction of the cosmological matter at rest in the proper frame. The reader can verify that this is a higher order effect, with $\\\\mathrm{dV}\\\\propto (\\\\mathrm{dr})^2$ , so it does not affect the differential equation for $\\\\mathrm{dV} / \\\\mathrm{dR}$ ."
+  },
+  "verification": null
+}

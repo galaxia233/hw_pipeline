@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-1-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "local_3_momentum",
+      "coordinate": "stationary_frame",
+      "scenario": "test_particle_motion_reduce",
+      "method": "limit_reduce",
+      "generalization_axis": "limit",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-1",
+      "1_s10_10.15-1-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\xi$",
+      "$\\mathbf{E}$",
+      "$\\mathbf{p}$",
+      "$\\mu$"
+    ],
+    "target": [
+      "local_3_momentum_square"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 时空中，度规分量 $g_{00} = \\frac{-r + r_{s}}{r}$，类时 Killing 矢量为 $\\boldsymbol{\\xi} = (1,0,0,0)$，其范数 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g_{00}$。对于静止于该时空的观测者，其测量到的自由粒子3维动量大小平方满足 $|\\mathbf{p}|_{obs}^2 = \\frac{E^2}{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}} - \\mu^2$。请将此广义相对论结果取远离引力源极限（$r \\to \\inf ty$），推导其退化形式，并说明该极限下回到的物理对应。",
+    "answer": "当 $r \\to \\inf ty$ 时，度规分量 $g_{00} = \\frac{-r + r_{s}}{r} \\to -1$，即 Killing 矢量范数 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} \\to -1$。代入原式得：$|\\mathbf{p}|_{obs}^2 \\to E^2 - \\mu^2$。物理意义：在远离引力源的极限下，时空曲率趋于零，退化为平直的 Minkowski 时空，该公式回到狭义相对论中惯性系观测者的能量-动量关系 $E^2 = |\\mathbf{p}|^2 + \\mu^2$。",
+    "solution": null
+  },
+  "verification": null
+}

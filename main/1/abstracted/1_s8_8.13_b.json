@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s8_8.13_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "tensor_calculus",
+      "target_object": "metric_independence",
+      "coordinate": "coordinate_basis",
+      "scenario": "abstract_theory",
+      "method": "lie_derivative_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.13_b",
+    "source_id": "1_s8_8.13_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.13_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "标准坐标基底下的张量李导数推导，逻辑连贯且具泛化性，但属纯理论计算缺乏具体物理情境",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T^{\\\\alpha}_{\\\\beta}$",
+      "$x^{\\\\mu}$",
+      "$x^{\\\\gamma}$"
+    ],
+    "target": [
+      "$\\\\mathcal{L}_{x} T^{\\\\alpha}_{\\\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 8.13. The Lie derivative of a scalar function is defined to be the directional derivative: $\\mathcal{L}_{\\mathbf{x}}\\mathbf{f} = \\nabla_{\\mathbf{x}}\\mathbf{f}$ . For a vector field $\\mathbf{y}$ , we define\\nLie differentiation as $\\mathcal{L}_{\\mathbf{x}}\\mathbf{y} \\equiv [\\mathbf{x},\\mathbf{y}] = \\nabla_{\\mathbf{x}}\\mathbf{y} - \\nabla_{\\mathbf{y}}\\mathbf{x}$ . The Lie derivative obeys all the usual rules for a derivative operator and always gives a tensor of the same rank as the tensor differentiated.\\n(b) What is the Lie derivative of a tensor whose components are $\\mathbf{T}^{\\alpha}\\beta$ ?",
+    "answer": "$\\\\mathcal{L}_{x} T^{\\\\alpha}_{\\\\beta} = T^{\\\\alpha}_{\\\\beta, \\\\gamma} x^{\\\\gamma} - T^{\\\\mu}_{\\\\beta} x^{\\\\alpha}_{, \\\\mu} + T^{\\\\alpha}_{\\\\mu} x^{\\\\mu}_{, \\\\beta}$",
+    "solution": "(b) For simplicity, work in a coordinate basis:\\n$$\\n\\\\begin{array}{l}\\n\\\\mathcal {L}_{\\\\mathbf {X}} \\\\mathbf {T} = \\\\mathcal {L}_{\\\\mathbf {X}} (\\\\mathbf {T}^{a} \\\\mathbf {\\\\beta} \\\\mathbf {e}_{a} \\\\otimes \\\\tilde {\\\\boldsymbol {\\\\omega}}^{\\\\boldsymbol {\\\\beta}}) \\\\\\\\\\n= \\\\left(\\\\mathcal {L}_{\\\\mathbf {x}} \\\\mathrm {T}^{\\\\alpha} \\\\beta\\\\right) \\\\mathbf {e}_{\\\\alpha} \\\\otimes \\\\tilde {\\\\boldsymbol {\\\\omega}}^{\\\\beta} + \\\\mathrm {T}^{\\\\alpha} \\\\beta \\\\left(\\\\mathcal {L}_{\\\\mathbf {x}} \\\\mathbf {e}_{\\\\alpha}\\\\right) \\\\otimes \\\\tilde {\\\\boldsymbol {\\\\omega}}^{\\\\beta} + \\\\mathrm {T}^{\\\\alpha} \\\\beta \\\\mathbf {e}_{\\\\alpha} \\\\otimes \\\\left(\\\\mathcal {L}_{\\\\mathbf {x}} \\\\tilde {\\\\boldsymbol {\\\\omega}}^{\\\\beta}\\\\right) \\\\\\\\\\n= \\\\mathrm {T}_{\\\\beta , \\\\gamma}^{\\\\alpha} \\\\mathrm {x}^{\\\\gamma} \\\\mathbf {e}_{\\\\alpha} \\\\otimes \\\\tilde {\\\\omega}^{\\\\beta} - \\\\mathrm {T}_{\\\\beta}^{\\\\alpha} \\\\mathrm {x}^{\\\\gamma},_{\\\\alpha} \\\\mathbf {e}_{\\\\gamma} \\\\otimes \\\\tilde {\\\\omega}^{\\\\beta} + \\\\mathrm {T}_{\\\\beta}^{\\\\alpha} \\\\mathrm {x}^{\\\\beta},_{\\\\gamma} \\\\mathbf {e}_{\\\\alpha} \\\\otimes \\\\tilde {\\\\omega}^{\\\\gamma} \\\\\\\\\\n= \\\\left(\\\\mathrm {T}_{\\\\beta , \\\\gamma}^{\\\\alpha} \\\\mathbf {x}^{\\\\gamma} - \\\\mathrm {T}_{\\\\beta , \\\\mu}^{\\\\mu} \\\\mathbf {x}_{, \\\\mu}^{\\\\alpha} + \\\\mathrm {T}_{\\\\mu}^{\\\\alpha} \\\\mathbf {x}_{, \\\\beta}^{\\\\mu}\\\\right) \\\\mathbf {e}_{\\\\alpha} \\\\otimes \\\\tilde {\\\\boldsymbol {\\\\omega}}^{\\\\beta}. \\\\\\\\\\n\\\\end{array}\\n$$\\nThis is often written\\n$$\\n\\\\mathcal {L}_{\\\\mathbf {x}} \\\\mathbf {T}^{\\\\alpha}_{\\\\beta} = \\\\mathbf {T}_{\\\\beta , \\\\gamma}^{\\\\alpha} \\\\mathbf {x}^{\\\\gamma} - \\\\mathbf {T}_{\\\\beta , \\\\mu}^{\\\\mu} \\\\mathbf {x}_{, \\\\mu}^{\\\\alpha} + \\\\mathbf {T}_{\\\\mu}^{\\\\alpha} \\\\mathbf {x}_{, \\\\beta}^{\\\\mu}\\n$$\\nand the commas can be replaced by semicolons as in part (a)."
+  },
+  "verification": null
+}

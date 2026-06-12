@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s14_14.2-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "T_local",
+      "coordinate": "spherical",
+      "scenario": "thermal_equilibrium_RN",
+      "method": "weak_field_approximation",
+      "generalization_axis": "limit",
+      "metric": "ReissnerNordstrom"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.2",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.2",
+      "1_s14_14.2-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "ReissnerNordstrom",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\frac{T(r)}{T_0} - 1 \\approx \\frac{r_s}{2r} - \\frac{Q^2}{8\\pi\\epsilon_0 r^2}$"
+    ],
+    "metric": [
+      [
+        "-Q**2/(4*pi*r**2*eps_0) + 1 - r_s/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "4*pi*r**2*eps_0/(Q**2 + 4*pi*r**2*eps_0 - 4*pi*r*r_s*eps_0)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一个处于静态热平衡的系统，其时空背景为带电荷 $Q$ 的 Reissner-Nordström 黑洞，线元为：$$ds^2 = -\\left(1 - \\frac{r_s}{r} + \\frac{Q^2}{4\\pi\\epsilon_0 r^2}\\right) dt^2 + \\frac{dr^2}{1 - \\frac{r_s}{r} + \\frac{Q^2}{4\\pi\\epsilon_0 r^2}} + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$其中 $r_s$ 为 Schwarzschild 半径参数。已知在该时空中，局部温度 $T(r)$ 与度规分量满足广义相对论的热平衡条件（Tolman 关系） $T(r) \\sqrt{-g_{00}(r)} = T_0$，其中 $T_0$ 为 $r \\to \\inf ty$ 处的背景温度。请证明：在弱场极限下（即满足 $r_s/r \\ll 1$ 和 $Q^2/(4\\pi\\epsilon_0 r^2) \\ll 1$），局部温度相对于无穷远温度的相对偏差为$$\\frac{T(r)}{T_0} - 1 \\approx \\frac{r_s}{2r} - \\frac{Q^2}{8\\pi\\epsilon_0 r^2}$$并基于此结果验证：(1) 当电荷 $Q \\to 0$ 时，温度分布退化为 Schwarzschild 黑洞的弱场结果；(2) 当质量与电荷均趋于零（即 $r_s \\to 0$ 且 $Q \\to 0$）时，系统回到平直时空的恒温分布。",
+    "answer": "在弱场极限下，局部温度的相对偏差展开为 $\\frac{T(r)}{T_0} - 1 \\approx \\frac{r_s}{2r} - \\frac{Q^2}{8\\pi\\epsilon_0 r^2}$。当 $Q \\to 0$ 时，结果退化为 $\\frac{r_s}{2r}$（即 Schwarzschild 弱场引力红移修正）；当 $r_s \\to 0$ 且 $Q \\to 0$ 时，偏差项消失，$T(r) = T_0$，还原为平直时空的牛顿恒温条件。",
+    "solution": "1. 根据静态时空中热平衡的 Tolman 关系，局部温度 $T(r)$ 满足 $T(r) \\sqrt{-g_{00}(r)} = T_0$。由于在 $r \\to \\inf ty$ 处度规分量 $-g_{00}(\\inf ty) = 1$，故 $T_0$ 即为无穷远处的温度。2. 对于 Reissner-Nordström 黑洞度规，提取 $g_{00}$ 分量：   $$-g_{00}(r) = 1 - \\frac{r_s}{r} + \\frac{Q^2}{4\\pi\\epsilon_0 r^2}$$ 代入 Tolman 关系得到局部温度的表达式： $$T(r) = \\frac{T_0}{\\sqrt{1 - \\frac{r_s}{r} + \\frac{Q^2}{4\\pi\\epsilon_0 r^2}}}$$3. 在弱场极限下，即 $\\frac{r_s}{r} \\ll 1$ 且 $\\frac{Q^2}{4\\pi\\epsilon_0 r^2} \\ll 1$，对上式进行泰勒展开。利用近似公式 $(1+x)^{-1/2} \\approx 1 - \\frac{1}{2}x$ (当 $x \\ll 1$)，令 $x = -\\frac{r_s}{r} + \\frac{Q^2}{4\\pi\\epsilon_0 r^2}$，可得： $$T(r) \\approx T_0 \\left[ 1 + \\frac{1}{2}\\left( \\frac{r_s}{r} - \\frac{Q^2}{4\\pi\\epsilon_0 r^2}\\right)\\right] = T_0 \\left( 1 + \\frac{r_s}{2r} - \\frac{Q^2}{8\\pi\\epsilon_0 r^2}\\right)$$4. 将 $T_0$ 移项，即得局部温度的相对偏差： $$\\frac{T(r)}{T_0} - 1 \\approx \\frac{r_s}{2r} - \\frac{Q^2}{8\\pi\\epsilon_0 r^2}$$5. 验证退化极限： - 当电荷 $Q \\to 0$ 时，静电修正项消失，相对偏差退化为 $\\frac{r_s}{2r}$。若取 $r_s = 2GM/c^2$（几何单位下 $r_s=2M$），则 $\\frac{r_s}{2r} = \\frac{M}{r}$，这正是 Schwarzschild 黑洞在弱场极限下由引力红移导致的温度分布修正。 - 当质量与电荷均趋于零（$r_s \\to 0$ 且 $Q \\to 0$）时，所有的时空弯曲修正项消失，相对偏差 $\\frac{T(r)}{T_0} - 1 = 0$，即 $T(r) = T_0$ 恒定，成功还原为平直时空（无引力场）中的经典热平衡条件。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.reissnernordstrom_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目的度规表达式存在严重的量纲错误。在 Reissner-Nordström 黑洞度规中，$g_{00}$ 的各项必须是无量纲的。$r_s/r$ 是无量纲的，但题目给出的 $\\frac{Q^2}{4\\pi\\epsilon_0 r^2}$ 的量纲为力（牛顿，N），不能与无量纲的 $1$ 和 $r_s/r$ 相加减。正确的 RN 度规系数应为 $\\frac{G Q^2}{4\\pi\\epsilon_0 c^4 r^2}$（量纲为 $L^2/L^2=1$），题目遗漏了因子 $G/c^4$。这使得最终答案 $\\frac{T(r)}{T_0} - 1 \\approx \\frac{r_s}{2r} - \\frac{Q^2}{8\\pi\\epsilon_0 r^2}$ 也存在量纲错误，相对偏差应当是无量纲的，但第二项具有力的量纲。此外，题目中存在拼写错误 'inf ty'，应为 'infinity'。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

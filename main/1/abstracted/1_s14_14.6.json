@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "gravitational_weighing",
+      "scenario": "static_gravity",
+      "method": "conservation_laws"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.6",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于静态引力场度规与能量动量守恒律进行多步积分推导，清晰论证重量仅取决于质能密度，物理动机明确且解答完整。",
+      "overall": 0.83
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$T^{\\hat{t}\\hat{t}}$"
+    ],
+    "metric": [
+      [
+        "$g_{tt}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$g_{zz}$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s14_14.6.md]Problem 14.6. Two identical containers in a static uniform gravitational field contain different substances. The containers and contents have identical time-independent densities of mass-energy, but different (and possibly anisotropic) stresses. Do the containers weigh the same if weighed on the same scale?## SolutionSolution 14.6. A static uniform gravitational field has a line element$$\\mathrm {d s}^{2} = \\mathrm {g}_{\\mathrm {t t}} \\mathrm {d t}^{2} + \\mathrm {g}_{\\mathrm {z z}} \\mathrm {d z}^{2} + \\mathrm {d x}^{2} + \\mathrm {d y}^{2} \\tag {1}$$where $\\mathbf{g}_{tt}$ and $\\mathbf{g}_{zz}$ depend only on $z$ . The nonzero Christoffel symbols are easily computed (Problem 7.6). The weight as measured by a scale at $z = 0$ is $\\mathbf{W}(0)$ , where$$W (z) = \\int T^{\\widehat {z} \\widehat {z}} d x d y = \\int g_{z z} T^{z z} d x d y. \\tag {2}$$We wish to show that $W(0)$ depends only on $T^{\\widehat{tt}} = g_{tt}T^{tt}$ and on no other $T^{\\widehat{a}\\widehat{\\beta}}$ . We have$$0 = T^{\\alpha \\beta}; \\beta = | g |^{- \\frac {1}{2}} \\left(| g |^{\\frac {1}{2}} T^{\\alpha \\beta}\\right), \\beta + \\Gamma^{\\alpha}_{\\beta \\gamma} T^{\\beta \\gamma}. \\tag {3}$$Take $\\alpha = t$ and integrate over $x, y$ , using the fact that $g_{\\alpha \\beta}$ is independent of $x, y$ and $t$ :$$\\begin{array}{l} 0 = \\int T^{t t}_{, t} d x d y + \\int T^{t x}_{, x} d x d y + \\int T^{t y}_{, y} d x d y + | g |^{- \\frac {1}{2}} (| g |^{\\frac {1}{2}} \\int T^{t z} d x d y)_{, z} \\\\ + 2 \\Gamma^{t}_{t z} \\int T^{t z} d x d y. \\tag {4} \\\\ \\end{array}$$The $1^{\\text{st}}$ term vanishes because $\\mathbf{T}^{\\text{tt}}$ is time-independent. The $2^{\\text{nd}}$ and $3^{\\text{rd}}$ terms give terms proportional to $\\mathbf{T}^{\\text{tx}}$ and $\\mathbf{T}^{\\text{ty}}$ on the boundary of the integration region. These vanish for a boundary outside the container.Equation (4) can be put in the form$$0 = | g |^{- \\frac {1}{2}} g_{t t}^{- 1} \\left(| g |^{\\frac {1}{2}} g_{t t} \\int T^{t z} d x d y\\right)_{, z}. \\tag {5}$$Thus $|g|^{\\frac{1}{2}} g_{tt} \\int T^{tz} \\, dx \\, dy$ is independent of $z$ . Since this term vanishes above the top of the container, it vanishes everywhere.Now put $a = z$ in Equation (3) and integrate over $x$ and $y$ :$$\\begin{array}{l} 0 = \\int T^{z t},_{t} d x d y + \\int T^{z x},_{x} d x d y + \\int T^{z y},_{y} d x d y + | g |^{- \\frac {1}{2}} (| g |^{\\frac {1}{2}} \\int T^{z z} d x d y),_{z} \\\\ + \\Gamma^{z}_{t t} \\int \\mathrm {T}^{t t} d x d y + \\Gamma^{z}_{z z} \\int \\mathrm {T}^{z z} d x d y. \\tag {6} \\\\ \\end{array}$$The $1^{\\text{st}}$ term vanishes as above, while the $2^{\\text{nd}}$ and $3^{\\text{rd}}$ give boundary contributions which vanish. Using Equation (2), we find$$\\left(\\left| g_{t t}\\right|^{\\frac {1}{2}} W\\right)_{, z} = \\left| g_{t t}\\right|^{\\frac {1}{2}}_{, z} \\int \\mathrm {T}^{\\widehat {t t}} d x d y. \\tag {7}$$Integrate Equation (7) from $z = 0$ to the top of the container, and use the fact that $W(top) = 0$ to get$$W (0) = \\left| g_{t t}\\right|_{z = 0}^{- \\frac {1}{2}} \\int_{0}^{\\text {top}} d z \\int d x d y \\left| g_{t t}\\right|^{\\frac {1}{2}},_{z} T^{\\hat {t} \\hat {t}}, \\tag {8}$$which depends only on the component $\\mathbf{T}^{\\widehat{\\mathbf{t}}\\mathbf{t}}$ . (Solution due to W. Unruh.)",
+    "answer": "Yes, the containers weigh the same.",
+    "solution": "Solution 14.6. A static uniform gravitational field has a line element$$ds^{2} = g_{tt} dt^{2} + g_{zz} dz^{2} + dx^{2} + dy^{2} \\tag {1}$$where $\\mathbf{g}_{tt}$ and $\\mathbf{g}_{zz}$ depend only on $z$ . The nonzero Christoffel symbols are easily computed (Problem 7.6). The weight as measured by a scale at $z = 0$ is $\\mathbf{W}(0)$ , where$$W (z) = \\int T^{\\widehat {z} \\widehat {z}} d x d y = \\int g_{z z} T^{z z} d x d y. \\tag {2}$$We wish to show that $W(0)$ depends only on $T^{\\widehat{tt}} = g_{tt}T^{tt}$ and on no other $T^{\\widehat{a}\\widehat{\\beta}}$ . We have$$0 = T^{\\alpha \\beta}; \\beta = | g |^{- \\frac {1}{2}} \\left(| g |^{\\frac {1}{2}} T^{\\alpha \\beta}\\right), \\beta + \\Gamma^{\\alpha}_{\\beta \\gamma} T^{\\beta \\gamma}. \\tag {3}$$Take $\\alpha = t$ and integrate over $x, y$ , using the fact that $g_{\\alpha \\beta}$ is independent of $x, y$ and $t$ :$$\\begin{array}{l} 0 = \\int T^{t t}_{, t} d x d y + \\int T^{t x}_{, x} d x d y + \\int T^{t y}_{, y} d x d y + | g |^{- \\frac {1}{2}} (| g |^{\\frac {1}{2}} \\int T^{t z} d x d y)_{, z} \\\\ + 2 \\Gamma^{t}_{t z} \\int T^{t z} d x d y. \\tag {4} \\\\ \\end{array}$$The $1^{\\text{st}}$ term vanishes because $\\mathbf{T}^{\\text{tt}}$ is time-independent. The $2^{\\text{nd}}$ and $3^{\\text{rd}}$ terms give terms proportional to $\\mathbf{T}^{\\text{tx}}$ and $\\mathbf{T}^{\\text{ty}}$ on the boundary of the integration region. These vanish for a boundary outside the container.Equation (4) can be put in the form$$0 = | g |^{- \\frac {1}{2}} g_{tt}^{- 1} \\left(| g |^{\\frac {1}{2}} g_{tt} \\int T^{tz} dx dy\\right)_{, z}. \\tag {5}$$Thus $|g|^{\\frac{1}{2}} g_{tt} \\int T^{tz} \\, dx \\, dy$ is independent of $z$ . Since this term vanishes above the top of the container, it vanishes everywhere.Now put $a = z$ in Equation (3) and integrate over $x$ and $y$ :$$\\begin{array}{l} 0 = \\int T^{zt},_{t} d x d y + \\int T^{zx},_{x} d x d y + \\int T^{zy},_{y} d x d y + | g |^{- \\frac {1}{2}} (| g |^{\\frac {1}{2}} \\int T^{zz} d x d y),_{z} \\\\ + \\Gamma^{z}_{tt} \\int T^{tt} dx dy + \\Gamma^{z}_{zz} \\int T^{zz} dx dy. \\tag {6} \\\\ \\end{array}$$The $1^{\\text{st}}$ term vanishes as above, while the $2^{\\text{nd}}$ and $3^{\\text{rd}}$ give boundary contributions which vanish. Using Equation (2), we find$$\\left(\\left| g_{tt}\\right|^{\\frac {1}{2}} W\\right)_{, z} = \\left| g_{tt}\\right|^{\\frac {1}{2}}_{, z} \\int T^{\\widehat {tt}} dx dy. \\tag {7}$$Integrate Equation (7) from $z = 0$ to the top of the container, and use the fact that $W(top) = 0$ to get$$W (0) = \\left| g_{tt}\\right|_{z = 0}^{- \\frac {1}{2}} \\int_{0}^{\\text {top}} dz \\int dx dy \\left| g_{tt}\\right|^{\\frac {1}{2}},_{z} T^{\\hat {t} \\hat {t}}, \\tag {8}$$which depends only on the component $\\mathbf{T}^{\\widehat{\\mathbf{t}}\\mathbf{t}}$ . (Solution due to W. Unruh.)"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

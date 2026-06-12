@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-7-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "Killing vector field",
+      "coordinate": "Schwarzschild",
+      "scenario": "verify",
+      "method": "verify Killing equation",
+      "generalization_axis": "verify",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-7",
+      "1_s10_10.10-7-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\xi_{2\\phi}",
+      "\\nabla_r \\xi_\\phi + \\nabla_\\phi \\xi_r",
+      "\\nabla_\\theta \\xi_\\phi + \\nabla_\\phi \\xi_\\theta"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，角动量 $L = r^2 \\sin^2 \\theta \\dot{\\phi}$ 为守恒量，对应 Killing 矢量场 $\\boldsymbol{\\xi}_2$。该度规定义为 $ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$。某学生从 $L$ 反推 $\\boldsymbol{\\xi}_2$ 的协变分量并验证其满足 Killing 方程，推导如下：1. 由 $L = \\xi_{2\\mu} u^\\mu$，对比 $L = r^2 \\sin^2 \\theta \\dot{\\phi}$，得出协变分量 $\\xi_{2\\phi} = r^2 \\sin \\theta$，其余为 0。2. 计算 $\\nabla_r \\xi_\\phi + \\nabla_\\phi \\xi_r$。使用公式 $\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu + \\Gamma^\\alpha_{\\mu\\nu} \\xi_\\alpha$：   - $\\nabla_r \\xi_\\phi = \\partial_r(r^2 \\sin \\theta) + \\Gamma^\\phi_{r\\phi} \\xi_\\phi = 2r \\sin \\theta + \\frac{1}{r} \\cdot r^2 \\sin \\theta = 3r \\sin \\theta$   - $\\nabla_\\phi \\xi_r = \\partial_\\phi(0) + \\Gamma^\\phi_{\\phi r} \\xi_\\phi = 0 + \\frac{1}{r} \\cdot r^2 \\sin \\theta = r \\sin \\theta$   两者相加为 $4r \\sin \\theta \\neq 0$。3. 计算 $\\nabla_\\theta \\xi_\\phi + \\nabla_\\phi \\xi_\\theta$：   - $\\nabla_\\theta \\xi_\\phi = \\partial_\\theta(r^2 \\sin \\theta) + \\Gamma^\\phi_{\\theta\\phi} \\xi_\\phi = r^2 \\cos \\theta + \\frac{1}{\\tan \\theta} \\cdot r^2 \\sin \\theta = 2r^2 \\cos \\theta$   - $\\nabla_\\phi \\xi_\\theta = \\partial_\\phi(0) + \\Gamma^\\theta_{\\phi\\phi} \\xi_\\phi = 0 + (-\\sin \\theta \\cos \\theta) \\cdot r^2 \\sin \\theta = -r^2 \\sin^2 \\theta \\cos \\theta$   两者相加为 $2r^2 \\cos \\theta - r^2 \\sin^2 \\theta \\cos \\theta \\neq 0$。由于不为零，该学生认为 $\\boldsymbol{\\xi}_2$ 不是 Killing 矢量场。请找出上述推导中的所有错误并修正，给出正确的 $\\nabla_r \\xi_\\phi + \\nabla_\\phi \\xi_r$ 与 $\\nabla_\\theta \\xi_\\phi + \\nabla_\\phi \\xi_\\theta$ 的值。",
+    "answer": "错误1：步骤1中，协变分量 $\\xi_{2\\phi} = r^2 \\sin \\theta$ 错误，漏了平方，属于系数遗漏错误；正确值为 $\\xi_{2\\phi} = r^2 \\sin^2 \\theta$。错误2：步骤2中，协变导数公式 $\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu + \\Gamma^\\alpha_{\\mu\\nu} \\xi_\\alpha$ 符号错误，属于符号错误；正确公式为 $\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu - \\Gamma^\\alpha_{\\mu\\nu} \\xi_\\alpha$。错误3：步骤3中，计算 $\\nabla_\\phi \\xi_\\theta$ 时使用了 $\\Gamma^\\theta_{\\phi\\phi}$，由于 $\\xi_\\alpha$ 仅 $\\phi$ 分量非零，求和指标应与下标一致，属于指标混淆错误；应使用 $\\Gamma^\\phi_{\\phi\\theta}$。修正后，$\\nabla_r \\xi_\\phi + \\nabla_\\phi \\xi_r = 0$，且 $\\nabla_\\theta \\xi_\\phi + \\nabla_\\phi \\xi_\\theta = 0$。",
+    "solution": "完整正确推导：1. 由 $L = \\xi_{2\\mu} u^\\mu = r^2 \\sin^2 \\theta \\dot{\\phi}$，可得协变分量 $\\xi_{2\\phi} = r^2 \\sin^2 \\theta$，其余为 0。2. 协变导数公式：$\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu - \\Gamma^\\alpha_{\\mu\\nu} \\xi_\\alpha$。计算 $\\nabla_r \\xi_\\phi + \\nabla_\\phi \\xi_r$：$\\nabla_r \\xi_\\phi = \\partial_r(r^2 \\sin^2 \\theta) - \\Gamma^\\phi_{r\\phi} \\xi_\\phi = 2r \\sin^2 \\theta - \\frac{1}{r} \\cdot r^2 \\sin^2 \\theta = r \\sin^2 \\theta$。$\\nabla_\\phi \\xi_r = \\partial_\\phi(0) - \\Gamma^\\phi_{\\phi r} \\xi_\\phi = 0 - \\frac{1}{r} \\cdot r^2 \\sin^2 \\theta = -r \\sin^2 \\theta$。两者相加为 $r \\sin^2 \\theta - r \\sin^2 \\theta = 0$。3. 计算 $\\nabla_\\theta \\xi_\\phi + \\nabla_\\phi \\xi_\\theta$：$\\nabla_\\theta \\xi_\\phi = \\partial_\\theta(r^2 \\sin^2 \\theta) - \\Gamma^\\phi_{\\theta\\phi} \\xi_\\phi = 2r^2 \\sin \\theta \\cos \\theta - \\frac{1}{\\tan \\theta} \\cdot r^2 \\sin^2 \\theta = r^2 \\sin \\theta \\cos \\theta$。$\\nabla_\\phi \\xi_\\theta = \\partial_\\phi(0) - \\Gamma^\\phi_{\\phi\\theta} \\xi_\\phi = 0 - \\frac{1}{\\tan \\theta} \\cdot r^2 \\sin^2 \\theta = -r^2 \\sin \\theta \\cos \\theta$。两者相加为 $r^2 \\sin \\theta \\cos \\theta - r^2 \\sin \\theta \\cos \\theta = 0$。由此验证了 $\\boldsymbol{\\xi}_2$ 满足 Killing 方程。"
+  },
+  "verification": null
+}

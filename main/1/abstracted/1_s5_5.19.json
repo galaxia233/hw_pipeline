@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s5_5.19",
+    "type": "concept",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.19",
+    "source_id": "1_s5_5.19",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.19"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.8,
+      "rationale": "相对论流体热力学基本关系推导+完整题干解答+天体物理与宇宙学实际背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\rho$",
+      "$\\mathrm{P}$",
+      "$\\mathrm{T}$",
+      "$\\mathrm{S}$",
+      "$\\mathrm{V}$",
+      "$n$",
+      "$s$"
+    ],
+    "target": [
+      "$\\rho$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.19. Write the first law of thermodynamics for a relativistic fluid. (i.e. Write the law of conservation of mass-energy for a fluid element.)## SolutionSolution 5.19. If the fluid has mass energy density $\\rho$ , pressure $\\mathbf{P}$ , temperature $\\mathbf{T}$ and entropy $\\mathbf{S}$ , then conservation of mass-energy for a fluid element of volume $\\mathbf{V}$ is$$\\mathrm {d} ($\\rho$ \\mathrm {V}) = - \\mathrm {P d V} + \\mathrm {T d S}.$$Here S is the entropy in the volume V. This differs from the nonrelativistic law only in that we have replaced energy density by mass-energy density, since mass is not conserved in special relativity. Baryon number is conserved so the first law is often written in terms of baryon number density n, and entropy per baryon s, by eliminating $\\mathbf {V} \\equiv$ (number of baryons /n):$$\\mathrm {d} ($\\rho$ / \\mathrm {n}) = - \\mathrm {P d} (1 / \\mathrm {n}) + \\mathrm {T d s}$$or$$\\mathrm {d} $\\rho$ = ($\\rho$ + \\mathrm {P}) \\mathrm {d n} / \\mathrm {n} + \\mathrm {n T d s}.$$",
+    "answer": "$\\mathrm {d} $\\rho$ = ($\\rho$ + \\mathrm {P}) \\mathrm {d n} / \\mathrm {n} + \\mathrm {n T d s}$",
+    "solution": "If the fluid has mass energy density $\\rho$ , pressure $\\mathbf{P}$ , temperature $\\mathbf{T}$ and entropy $\\mathbf{S}$ , then conservation of mass-energy for a fluid element of volume $\\mathbf{V}$ is$$\\mathrm {d} ($\\rho$ \\mathrm {V}) = - \\mathrm {P d V} + \\mathrm {T d S}.$$Here S is the entropy in the volume V. This differs from the nonrelativistic law only in that we have replaced energy density by mass-energy density, since mass is not conserved in special relativity. Baryon number is conserved so the first law is often written in terms of baryon number density n, and entropy per baryon s, by eliminating $\\mathbf {V} \\equiv$ (number of baryons /n):$$\\mathrm {d} ($\\rho$ / \\mathrm {n}) = - \\mathrm {P d} (1 / \\mathrm {n}) + \\mathrm {T d s}$$or$$\\mathrm {d} $\\rho$ = ($\\rho$ + \\mathrm {P}) \\mathrm {d n} / \\mathrm {n} + \\mathrm {n T d s}.$$"
+  },
+  "verification": null
+}

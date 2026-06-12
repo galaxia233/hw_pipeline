@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s9_9.18",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "weyl_tensor",
+      "coordinate": "cartesian_coordinates",
+      "scenario": "light_beam_propagation",
+      "method": "conformal_geometry_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.18",
+    "source_id": "1_s9_9.18",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.18"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于共形平坦性与零测地线重参数化的多步推导，逻辑链条完整，具有明确的光学成像与引力透镜物理背景。",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^{\\mu}$",
+      "$\\phi$",
+      "$\\lambda$",
+      "$p^{\\alpha}$",
+      "$\\mathbf{n}$"
+    ],
+    "target": [
+      "$C_{\\mu\\nu\\rho\\sigma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.18. A beam of light has a circular cross section at some point along its path. Show that the beam experiences no shear (i.e. the cross-section is not deformed into an ellipse) when the Weyl tensor is zero.",
+    "answer": "当外尔张量为零时，光束横截面不会发生剪切变形（保持圆形），仅整体面积随共形因子 $e^{2\\phi}$ 缩放。",
+    "solution": "Solution 9.18. If the Weyl tensor vanishes, the metric can be written in the conformally flat form$$\\mathrm {d s}^{2} = \\mathrm {e}^{2 \\phi} \\mathrm {d s}_{0}^{2} = \\mathrm {e}^{2 \\phi} \\eta_{\\mu \\nu} \\mathrm {d x}^{\\mu} \\mathrm {d x}^{\\nu}$$where $\\phi$ is a function of $\\mathbf{x}^a$ . The null geodesics$$\\mathrm {d t} = \\underline {{\\mathbf {n}}} \\cdot \\underline {\\mathrm {d x}}, \\quad \\underline {\\mathbf {n}} \\cdot \\underline {\\mathbf {n}} = 1$$of $\\mathbf{ds}_0^2$ remain null curves for $\\mathbf{ds}^2$ . If we can show that they remain null geodesics, then clearly a cone of null geodesics, will remain a cone; there will be no preferred direction for squashing of the cross section.To show the curves $\\mathrm{dt} = \\underline{\\mathbf{n}}\\cdot \\underline{\\mathbf{dx}}$ are geodesics we need only show that$$\\frac {\\mathrm {d}^{2} \\mathbf {x}^{\\alpha}}{\\mathrm {d} \\lambda^{2}} = \\frac {\\mathrm {d p}^{\\alpha}}{\\mathrm {d} \\lambda} = 0$$for null geodesics. Note that the Christoffel symbols are$$\\Gamma_{\\gamma \\beta}^{a} = \\eta^{a \\mu} [ - \\phi_{, \\mu} \\eta_{\\gamma \\beta} + \\phi_{, \\beta} \\eta_{\\gamma \\mu} + \\phi_{, \\gamma} \\eta_{\\mu \\beta} ]$$so that$$\\mathbf {p}^{\\gamma} \\mathbf {p}^{\\beta} \\Gamma_{\\gamma \\beta}^{\\alpha} = 2 \\mathbf {p}^{\\alpha} (\\nabla \\phi \\cdot \\mathbf {p})$$and$$0 = \\frac {\\mathrm {d p}^{\\alpha}}{\\mathrm {d} \\lambda} + \\Gamma^{\\alpha}_{\\beta \\gamma} \\mathrm {p}^{\\beta} \\mathrm {p}^{\\gamma} = \\frac {\\mathrm {d p}^{\\alpha}}{\\mathrm {d} \\lambda} + 2 \\mathrm {p}^{\\alpha} (\\nabla \\phi \\cdot \\mathbf {p}) .$$By rescaling $\\lambda$ , then we have $\\mathrm{dp}^{\\alpha} / \\mathrm{d}\\lambda = 0$ and the straight null lines of $\\mathrm{ds}_0^2$ are null geodesics of $\\mathrm{ds}^2$ .Notice that, while beams of light have undistorted cross section the cross sectional area, like all areas, is affected by the scaling factor $e^{2\\phi}$ .Since $\\phi$ is in general anisotropic, beams propagating in different directions will grow in cross section at different rates."
+  },
+  "verification": null
+}

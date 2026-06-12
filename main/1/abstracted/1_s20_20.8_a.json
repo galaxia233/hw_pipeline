@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "id": "1_s20_20.8_a",
+    "type": "concept",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "force_equation",
+      "coordinate": "Cartesian",
+      "scenario": "weak_equivalence_principle",
+      "method": "theoretical_consistency"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s20_20.8_a",
+    "source_id": "1_s20_20.8_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s20_20.8_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.5,
+      "realism": 0.7,
+      "rationale": "基于协变动量方程检验弱等效原理，物理背景真实且需结构分析推导，但题干未提供解答过程",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^0$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$p^\\mu$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 20.8. Newtonian gravitation theory can be modified and made covariant if the force equation on a point particle is written as$$\\mathrm {d p}^{\\mu} = - \\eta^{\\mu \\nu} \\Phi_{, \\nu} \\mathrm {p}_{\\beta} \\mathrm {d x}^{\\beta} + \\mathrm {p}^{\\alpha} \\Phi_{, \\alpha} \\mathrm {d x}^{\\mu}$$where $\\Phi$ is a scalar potential which is related to stress energy by$$\\Phi_{; \\mu}^{; \\mu} = 4 \\pi T_{\\mu}^{\\mu} .$$Investigate whether this theory agrees with experiment and observation:(a) Is this theory in agreement with the experiments of Eotvos and Dicke showing the equivalence of inertial and passive gravitational mass?",
+    "answer": "不符合。该协变力方程破坏了自由落体运动的普适性，粒子加速度依赖于其自身的动量/速度状态，导致不同内部结构的物体在相同引力势下轨迹不同，因此违背了惯性质量与被动引力质量相等的弱等效原理。",
+    "solution": null
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

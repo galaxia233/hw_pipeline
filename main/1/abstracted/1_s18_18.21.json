@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s18_18.21",
+    "type": "concept",
+    "tags": {
+      "metric": "generic_metric_theory",
+      "target_object": "gravitational_wave_polarization",
+      "coordinate": "cartesian_coordinate",
+      "scenario": "plane_null_wave",
+      "method": "geodesic_deviation_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s18_18.21",
+    "source_id": "1_s18_18.21",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s18_18.21"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.7,
+      "realism": 0.9,
+      "rationale": "基于普适度规理论的引力波极化模式分析，通过测地偏离方程将时空曲率张量分量与粒子加速度直接关联，物理动机明确且结论结构可广泛迁移至不同引力理论",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$z$",
+      "$\\\\omega$",
+      "$x^{j}$",
+      "$x^{k}$",
+      "$R_{0j0}^{k}$"
+    ],
+    "target": [
+      "$R_{0j0}^{k}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 18.21. Draw the force field of each of the modes in the preceding problem.",
+    "answer": "六类引力波极化模式在测试粒子球面上诱导的位移矢量场分布（随时间以 $\\cos(\\\\omega t)$ 振荡），其动力学由测地偏离方程 $\\ddot{x}^{k} \\\\approx x^{j} R_{0j0}^{k}$ 决定。",
+    "solution": "Solution 18.21. In the figure are the six polarization modes of a weak, plane, null gravitational wave permitted in the generic metric theory of gravity. The figure shows the displacement that each mode induces on a sphere of test particles. The wave propagates in the $+z$ -direction (arrow at upper right) and has time dependence $\\cos(\\\\omega t)$ . Solid line, snapshot at $\\omega t = 0$ , the broken line, one at $\\omega t = \\pi$ . There is no displacement perpendicular to the plane of the figure. The above modes are obtained by using the equation of geodesic deviation\\n![](images/ec3963e04392702dc8f62ea7739aafdf85e5e54cca83dba6f92caeeafe0e91ee.jpg)\\n![](images/80bdd4f08f84473f33d62c2a65c4dd6bfb6c45947a76ed4048e193d8190c0a1a.jpg)\\n![](images/c9d33d2950b9ef58e2f30341a722ef7dd57821f61e5a9ed390a16fe00028d2.jpg)\\n![](images/d66b025949da6b6f48acca28980cd787c4d28613bac317ebbc0619c47d3c6f8.jpg)\\n![](images/7a1431e5aff95090256fdc8991f692adb22c9062c324cbc4c86e0266c2838d92.jpg)\\n$$\\n\\\\frac {\\\\mathrm {d}^{2} \\\\mathrm {x}^{\\\\mathrm {k}}}{\\\\mathrm {d t}^{2}} \\\\approx \\\\mathrm {x}^{\\\\mathrm {j}} \\\\mathrm {R}_{0 \\\\mathrm {j 0}}^{\\\\mathrm {k}}.\\n$$"
+  },
+  "verification": null
+}

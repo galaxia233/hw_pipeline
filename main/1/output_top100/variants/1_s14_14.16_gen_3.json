@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s14_14.16-3",
+    "type": "calculate",
+    "tags": {
+      "target_object": "V_{eff}, r_c",
+      "coordinate": "schwarzschild",
+      "scenario": "photon_sphere",
+      "method": "geodesic_equation_and_extremum",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.16",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.16",
+      "1_s14_14.16-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "V_{eff}(r)",
+      "r_c"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，种子题中指出的矢量势推广歧义性（源于 Ricci 曲率项 $R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma$）因真空条件而完全消失，使得弯曲时空中的电磁场波动方程唯一确定。其高频极限对应光子在引力场中的零测地线运动。\\n\\n请基于给定的 Schwarzschild 度规以及对应的 Killing 矢量，推导光子在赤道面 ($\\theta = \\pi/2$) 运动的径向方程，从中提取出有效势 $V_{eff}(r)$ 使得径向方程满足 $\\dot{r}^2 = E^2 - V_{eff}(r)$，并求出该有效势达到极大值的临界半径 $r_c$（即光子球半径）。\\n\\n度规定义：\\n$ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$\\n\\n符号约定：$(-,+,+,+)$，类时条件 $g_{\\mu\\nu}\\dot{x}^\\mu\\dot{x}^\\nu=-1$，类光条件为 0。能量守恒量定义为 $E = -g_{tt}\\dot{t}$，角动量为 $L = g_{\\phi\\phi}\\dot{\\phi}$。",
+    "answer": "$r_c = \\frac{3}{2} r_s$",
+    "solution": "1. 光子遵循零测地线，满足类光条件 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = 0$。在赤道面 $\\theta = \\pi/2$，$\\dot{\\theta} = 0$，代入度规分量得到：\\n$0 = -\\frac{r-r_s}{r} \\dot{t}^2 + \\frac{r}{r-r_s} \\dot{r}^2 + r^2 \\dot{\\phi}^2$\\n\\n2. 利用度规的 Killing 矢量 $(\\partial_t, \\partial_\\phi)$ 引入守恒量。根据约定的定义：\\n能量 $E = -g_{tt} \\dot{t} = \\frac{r-r_s}{r} \\dot{t} \\implies \\dot{t} = \\frac{E r}{r-r_s}$\\n角动量 $L = g_{\\phi\\phi} \\dot{\\phi} = r^2 \\dot{\\phi} \\implies \\dot{\\phi} = \\frac{L}{r^2}$\\n\\n3. 将 $\\dot{t}$ 和 $\\dot{\\phi}$ 代入零测地线方程：\\n$0 = -\\frac{r-r_s}{r} \\left( \\frac{E r}{r-r_s}\\right)^2 + \\frac{r}{r-r_s} \\dot{r}^2 + r^2 \\left( \\frac{L}{r^2}\\right)^2$\\n$0 = -\\frac{E^2 r}{r-r_s} + \\frac{r}{r-r_s} \\dot{r}^2 + \\frac{L^2}{r^2}$\\n\\n4. 整理方程，将含有 $\\dot{r}$ 的项移到一边：\\n$\\frac{r}{r-r_s} \\dot{r}^2 = \\frac{E^2 r}{r-r_s} - \\frac{L^2}{r^2}$\\n两边乘以 $\\frac{r-r_s}{r}$ 得到：\\n$\\dot{r}^2 = E^2 - \\frac{L^2 (r-r_s)}{r^3}$\\n\\n5. 由此提取出光子的有效势为：\\n$V_{eff}(r) = \\frac{L^2 (r-r_s)}{r^3}$\\n\\n6. 为了求光子球半径（不稳定圆轨道），需要求 $V_{eff}(r)$ 的极大值，即满足 $\\frac{d V_{eff}}{dr} = 0$ 且 $\\dot{r}=0$：\\n$\\frac{d}{dr} \\left( \\frac{L^2 (r-r_s)}{r^3}\\right) = L^2 \\frac{r^3 - 3r^2(r-r_s)}{r^6} = L^2 \\frac{2r - 3r_s}{r^4} = 0$\\n\\n7. 解得临界半径为：\\n$r_c = \\frac{3}{2} r_s$"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "solution步骤6中求导计算存在严重的符号错误（sign error）。对于有效势导数 $\\frac{d}{dr} \\left( \\frac{L^2 (r-r_s)}{r^3}\\right)$，题目展开为 $L^2 \\frac{r^3 - 3r^2(r-r_s)}{r^6}$，分子化简应为 $r^3 - 3r^3 + 3r_s r^2 = -2r^3 + 3r_s r^2 = r^2(3r_s - 2r)$，因此求导结果期望应为 $L^2 \\frac{3r_s - 2r}{r^4}$，而题目错写成了 $L^2 \\frac{2r - 3r_s}{r^4}$。虽然此符号错误碰巧不影响最终临界半径 $r_c = 1.5 r_s$ 的解（因为 $3r_s - 2r = 0$ 和 $2r - 3r_s = 0$ 的根相同），但导数符号完全相反，直接颠覆了有效势在该极值点为极大值（不稳定圆轨道）的物理判定，属于实质性的数学推导与物理结论错误。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

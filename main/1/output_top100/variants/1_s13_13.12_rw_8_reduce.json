@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-8-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "gauge_vector_differential_equation",
+      "coordinate": "general",
+      "scenario": "linearized_gravity_gauge_fixing_reduce",
+      "method": "curvature_limit",
+      "generalization_axis": "limit",
+      "metric": "Minkowski"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-8",
+      "1_s13_13.12-8-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Minkowski",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "\\Box \\xi_\\mu = \\partial^\\nu \\bar{h}_{\\mu\\nu}^{\\text{old}}"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，考虑一般弯曲时空背景 $g_{\\mu\\nu}$ 上的线性化引力理论，微扰度规为 $g_{\\mu\\nu} + h_{\\mu\\nu}$。在无穷小坐标变换 $x^\\mu \\to x^\\mu + \\xi^\\mu$ 下，迹反转微扰 $\\bar{h}_{\\mu\\nu} = h_{\\mu\\nu} - \\frac{1}{2} g_{\\mu\\nu} h$ 的变换规律为 $\\delta \\bar{h}_{\\mu\\nu} = -\\nabla_\\mu \\xi_\\nu - \\nabla_\\nu \\xi_\\mu + g_{\\mu\\nu} \\nabla^\\alpha \\xi_\\alpha$。为了将任意给定的微扰变换到满足 Lorenz 规范条件 $\\nabla^\\nu \\bar{h}_{\\mu\\nu}^{\\text{new}} = 0$ 的形式，规范矢量 $\\xi^\\mu$ 必须满足的微分方程为 $\\nabla^\\nu \\nabla_\\nu \\xi_\\mu + R_{\\mu\\nu}\\xi^\\nu = \\nabla^\\nu \\bar{h}_{\\mu\\nu}^{\\text{old}}$（其中 $R_{\\mu\\nu}$ 为背景时空的 Ricci 张量）。请将此 GR 语境下的结论，取背景时空曲率趋于零的极限（即时空回到闵可夫斯基平直时空 $\\eta_{\\mu\\nu}$），推导出该方程在平直时空下的经典对应形式。",
+    "answer": "当背景时空曲率趋于零时，度规退化为闵可夫斯基度规 $g_{\\mu\\nu} \\to \\eta_{\\mu\\nu}$，协变导数退化为偏导数 $\\nabla_\\mu \\to \\partial_\\mu$，Ricci 张量退化为零 $R_{\\mu\\nu} \\to 0$。因此，方程左侧的 $\\nabla^\\nu \\nabla_\\nu \\xi_\\mu + R_{\\mu\\nu}\\xi^\\nu$ 退化为 $\\eta^{\\alpha\\beta}\\partial_\\alpha \\partial_\\beta \\xi_\\mu = \\Box \\xi_\\mu$，右侧的 $\\nabla^\\nu \\bar{h}_{\\mu\\nu}^{\\text{old}}$ 退化为 $\\partial^\\nu \\bar{h}_{\\mu\\nu}^{\\text{old}}$。方程的经典对应形式为 $\\Box \\xi_\\mu = \\partial^\\nu \\bar{h}_{\\mu\\nu}^{\\text{old}}$。",
+    "solution": "1. 识别极限过程：背景时空曲率趋于零，意味着时空几何从弯曲趋于平直。此时度规 $g_{\\mu\\nu} \\to \\eta_{\\mu\\nu}$。\\n2. 协变导数到偏导数的退化：在平直时空中，克氏符为零，协变导数直接退化为普通偏导数，即 $\\nabla_\\mu \\to \\partial_\\mu$，因此 $\\nabla^\\nu \\nabla_\\nu \\xi_\\mu \\to \\eta^{\\alpha\\beta} \\partial_\\alpha \\partial_\\beta \\xi_\\mu = \\Box \\xi_\\mu$。\\n3. Ricci张量的消失：平直时空的曲率张量恒为零，即极限下 $R_{\\mu\\nu} \\to 0$，方程左侧的第二项 $R_{\\mu\\nu}\\xi^\\nu$ 完全消失。\\n4. 右侧的退化：同样由于 $\\nabla_\\mu \\to \\partial_\\mu$，$\\nabla^\\nu \\bar{h}_{\\mu\\nu}^{\\text{old}} \\to \\partial^\\nu \\bar{h}_{\\mu\\nu}^{\\text{old}}$。\\n5. 综合以上退化，得到经典平直时空下的结果：$\\Box \\xi_\\mu = \\partial^\\nu \\bar{h}_{\\mu\\nu}^{\\text{old}}$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.minkowski_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

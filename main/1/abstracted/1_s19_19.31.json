@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s19_19.31",
+    "type": "prove",
+    "tags": {
+      "metric": "cosmology",
+      "target_object": "einstein_static_universe",
+      "coordinate": "friedmann_equation",
+      "scenario": "stability_analysis",
+      "method": "linear_perturbation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.31",
+    "source_id": "1_s19_19.31",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.31"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.9,
+      "rationale": "完整弗里德曼方程推导结合线性扰动稳定性分析，具明确历史宇宙学物理背景与可替换物源场景",
+      "overall": 0.9
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$R$",
+      "$\\rho_0$",
+      "$\\Lambda$",
+      "$k$"
+    ],
+    "target": [
+      "$R$",
+      "$\\delta R$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.31. A universe is isotropic, homogeneous, and contains only pressureless dust and \"vacuum polarization\" stress energy, so that $\\mathbf{T}_{\\mu \\nu} = \\rho_0 \\mathfrak{u}_\\mu \\mathfrak{u}_\\nu - \\frac{\\Lambda}{8\\pi} \\mathfrak{g}_{\\mu \\nu}$ where $\\mathfrak{u}^\\mu$ is the 4-velocity field of the matter. Show that there is a static solution for the metric, but that it is unstable. (This cosmology is called the \"Einstein universe\".)",
+    "answer": "Static solution exists with spatial curvature $k=+1$, scale factor $R=\\Lambda^{-1/2}$, and dust density $\\rho_0=\\Lambda/(4\\pi)$. The universe is unstable because linear perturbations obey $\\delta \\ddot{R} - \\Lambda \\delta R = 0$, leading to exponential growth.",
+    "solution": "## SolutionSolution 19.31. The complete set of equations for isotropic, homogeneous universes is (see Problems 19.13 or 19.14)$$\\left(\\frac {\\dot {\\mathrm {R}}}{\\dot {\\mathrm {R}}}\\right)^{2} = \\frac {- \\mathrm {k}}{\\mathrm {R}^{2}} + \\frac {8 \\pi \\rho}{3} \\tag {1a}$$$$2 \\ddot {\\frac {R}{R}} = - \\left(\\dot {\\frac {R}{R}}\\right)^{2} - \\frac {k}{R^{2}} - 8 \\pi p. \\tag {1b}$$Since the universe contains only dust stress-energy, $\\rho_0$ , and \"vacuum polarization\" stress-energy $\\Lambda$ , we have$$\\rho = \\rho_{0} + \\Lambda / 8 \\pi \\tag {2a}$$$$p = - \\Lambda / 8 \\pi . \\tag {2b}$$Since all time derivatives of $\\mathbf{R}$ higher than the second may be expressed as linear combinations of $\\dot{\\mathbf{R}}$ and $\\ddot{\\mathbf{R}}$ by Equations (1), the necessary and sufficient condition for a static solution is$$\\dot {\\mathbf {R}} = \\ddot {\\mathbf {R}} = 0. \\tag {3}$$With the conditions of Equations (3) and (2), Equations (1) become$$\\mathrm {k} / \\mathrm {R}^{2} = (8 \\pi \\rho_{0} + \\Lambda) / 3 \\tag {4a}$$$$\\mathrm {k} / \\mathrm {R}^{2} = \\Lambda \\tag {4b}$$which imply$$\\rho_{0} = \\Lambda / 4 \\pi \\tag {5a}$$$$\\mathbf {R} = \\Lambda^{- \\frac {1}{2}}. \\tag {5b}$$Since $\\rho_0 > 0$ , Equation (4b) now implies $k = +1$ . To investigate the stability of the \"Einstein universe,\" first combine Equations (1) togive$$\\frac {2 \\ddot {\\mathrm {R}}}{\\mathrm {R}} = - \\frac {8 \\pi}{3} \\rho - 8 \\pi \\mathrm {p} = - \\frac {8 \\pi}{3} \\rho_{0} + \\frac {2}{3} \\Lambda \\tag {6}$$and let$$\\mathbf {R} = \\boldsymbol {\\Lambda}^{- \\frac {1}{2}} + \\delta \\mathbf {R} \\tag {7a}$$$$\\rho_{0} = \\frac {\\Lambda}{4 \\pi} + \\delta \\rho_{0} \\tag {7b}$$Equation (6), to order $\\delta \\mathbf{R}$ , now becomes$$2 \\Lambda^{\\frac {1}{2}} (\\delta \\ddot {\\mathbf {R}}) = - \\frac {8 \\pi}{3} \\delta \\rho_{0}. \\tag {8}$$Now, since the total amount of dust is conserved, the dust stress-energy obeys$$\\rho_{0} \\mathbf {R}^{3} = \\text {c o n s t a n t}$$$$\\frac {\\delta \\rho_{0}}{\\rho_{0}} = - 3 \\frac {\\delta R}{R}. \\tag {9}$$Equation (8) then gives$$\\left(\\delta \\ddot {\\mathbf {R}}\\right) - \\Lambda \\delta \\mathbf {R} = 0, \\tag {10}$$i.e. the perturbation $\\delta R$ grows exponentially in time. Hence, the universe is unstable."
+  },
+  "verification": null
+}

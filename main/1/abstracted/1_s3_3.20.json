@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s3_3.20",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "tensor_transformation",
+      "method": "volume_form"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.20",
+    "source_id": "1_s3_3.20",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.20"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "度规行列式与雅可比矩阵关联推导+全反对称张量唯一性+四维度规背景下的广义协变性计算",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^0$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$\\\\varepsilon_{\\\\mu\\\\nu\\\\lambda\\\\sigma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.20. Prove that, except for scaling by a constant, there is a unique tensor $\\varepsilon_{\\alpha \\beta \\gamma \\delta}$ which is totally antisymmetric on all its 4 indices. The usual choice is to take $\\varepsilon_{0123} = 1$ in Minkowski coordinates. What are the components of $\\varepsilon$ in a general coordinate frame, with metric $g_{\\mu \\nu}$ ?",
+    "answer": "$\\\\varepsilon_{\\\\mu'\\\\nu'\\\\lambda'\\\\sigma'} = \\\\sqrt{-\\\\det(g_{\\\\mu'\\\\nu'})} \\\\varepsilon_{\\\\mu\\\\nu\\\\lambda\\\\sigma}$",
+    "solution": "Solution 3.20. If $\\varepsilon_{\\alpha \\beta \\gamma \\delta}$ is totally antisymmetric, then given any one component e.g. $\\varepsilon_{0123}$ any other component (with nonrepeated indices) can be found by permuting the indices on that given component. Components with repeated indices, of course, vanish. The tensor is thus fixed once $\\varepsilon_{0123}$ is given, i.e. the tensor is unique up to scaling by a constant. With the usual, position independent choice of normalization, we have\\n$$\\n\\\\varepsilon_{0 1 2 3} = - \\\\varepsilon_{1 0 2 3} = \\\\varepsilon_{1 0 3 2} = \\\\dot s = 1\\n$$\\nin Minkowski coordinates. If we now transform to other coordinates $\\mathbf{x}^{\\mu^{\\prime}}(\\mathbf{x}^{\\alpha})$ we get\\n$$\\n\\\\varepsilon_{\\mu^{\\nu \\lambda^{\\prime} \\sigma^{\\prime}}} = \\frac {\\partial \\mathbf {x}^{a}}{\\partial \\mathbf {x}^{\\mu^{\\prime}}} \\frac {\\partial \\mathbf {x}^{\\beta}}{\\partial \\mathbf {x}^{\\nu^{\\prime}}} \\frac {\\partial \\mathbf {x}^{\\gamma}}{\\partial \\mathbf {x}^{\\lambda^{\\prime}}} \\frac {\\partial \\mathbf {x}^{\\delta}}{\\partial \\mathbf {x}^{\\sigma^{\\prime}}} \\varepsilon_{a} \\beta \\gamma \\delta = \\det \\left[ \\frac {\\partial \\mathbf {x}^{a}}{\\partial \\mathbf {x}^{a^{\\prime}}}\\right] \\varepsilon_{\\mu \\nu \\lambda \\sigma}.\\n$$\\nNow\\n$$\\n\\mathrm {g}_{\\mu^{\\prime} \\nu^{\\prime}} = \\frac {\\partial_{\\mathbf {x}^{\\alpha}}}{\\partial_{\\mathbf {x}^{\\mu^{\\prime}}}} \\frac {\\partial_{\\mathbf {x}^{\\beta}}}{\\partial_{\\mathbf {x}^{\\nu^{\\prime}}}} \\eta_{\\alpha} \\beta\\n$$\\n$$\\n\\det \\left(\\mathrm {g}_{\\mu^{\\prime} \\nu^{\\prime}}\\right) = \\left| \\det \\left(\\frac {\\partial \\mathrm {x}^{\\alpha}}{\\partial \\mathrm {x}^{\\alpha^{\\prime}}}\\right)\\right|^{2} \\det (\\eta_{\\alpha \\beta})\\n$$\\nso that\\n$$\\n\\det \\left(\\partial \\mathbf {x}^{a} / \\partial \\mathbf {x}^{a^{\\prime}}\\right) = \\left[ - \\det \\left(\\mathbf {g}_{\\mu^{\\prime} \\nu^{\\prime}}\\right)\\right]^{\\frac {1}{2}}\\n$$\\nand finally\\n$$\\n\\varepsilon_ { \\mu \\acute {\\nu} ^ { \\prime } \\lambda^ { \\prime } \\sigma^ { \\prime } } = \\left[ - \\det \\left(\\mathbf {g} _ {u ^ { \\prime } \\nu}\\right) \\right] ^ { \\frac {1}{2} } \\varepsilon_ { \\mu \\nu \\lambda \\sigma }."
+  },
+  "verification": null
+}

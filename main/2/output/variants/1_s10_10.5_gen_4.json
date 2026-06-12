@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "Killing equation of azimuthal vector",
+      "coordinate": "spherical",
+      "scenario": "cosmic string",
+      "method": "covariant derivative calculation",
+      "generalization_axis": "extend",
+      "metric": "BarriolaVilekin"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "BarriolaVilekin",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "0"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "k**2*r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "k**2*r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Barriola-Vilekin 度规描述了含有拓扑缺陷（如全局单极子或宇宙弦）的时空，其线元为 \\( ds^2 = -dt^2 + dr^2 + k^2 r^2 d\\theta^2 + k^2 r^2 \\sin^2\\theta d\\phi^2 \\)，其中 \\( k \\) 是与拓扑缺陷张力相关的常数。该时空显然具有时间平移和方位角旋转的对称性，对应的 Killing 矢量为 \\( \\xi_{(t)} = \\partial_t \\) 和 \\( \\xi_{(\\phi)} = \\partial_\\phi \\)。在种子题中我们研究了这些 Killing 矢量的李代数性质（对易性），本题则转向研究其微分几何性质。已知该度规下涉及坐标 \\( r, \\theta, \\phi \\) 的非零第二类 Christoffel 符号为：\\( \\Gamma^r_{\\theta\\theta} = -k^2 r \\)，\\( \\Gamma^r_{\\phi\\phi} = -k^2 r \\sin^2\\theta \\)，\\( \\Gamma^\\theta_{r\\theta} = \\Gamma^\\theta_{\\theta r} = 1/r \\)，\\( \\Gamma^\\theta_{\\phi\\phi} = -\\sin(2\\theta)/2 \\)，\\( \\Gamma^\\phi_{r\\phi} = \\Gamma^\\phi_{\\phi r} = 1/r \\)，\\( \\Gamma^\\phi_{\\theta\\phi} = \\Gamma^\\phi_{\\phi\\theta} = 1/\\tan\\theta \\)。请证明方位角 Killing 矢量 \\( \\xi_{(\\phi)} \\) 满足 Killing 方程 \\( \\nabla_\\mu \\xi_{(\\phi)\\nu} + \\nabla_\\nu \\xi_{(\\phi)\\mu} = 0 \\) 中包含径向和极角坐标的非平庸交叉分量，即验证 \\( \\nabla_r \\xi_{(\\phi)\\phi} + \\nabla_\\phi \\xi_{(\\phi)r} = 0 \\) 且 \\( \\nabla_\\theta \\xi_{(\\phi)\\phi} + \\nabla_\\phi \\xi_{(\\phi)\\theta} = 0 \\)。",
+    "answer": "0",
+    "solution": "Killing 矢量 \\( \\xi_{(\\phi)} \\) 在坐标基下的逆变分量为 \\( \\xi_{(\\phi)}^\\mu = (0, 0, 0, 1) \\)。将其降指标得到协变分量：\\( \\xi_{(\\phi)r} = 0 \\)，\\( \\xi_{(\\phi)\\theta} = 0 \\)，\\( \\xi_{(\\phi)\\phi} = g_{\\phi\\phi} \\xi_{(\\phi)}^\\phi = k^2 r^2 \\sin^2\\theta \\)。1. 验证 \\( \\nabla_r \\xi_{(\\phi)\\phi} + \\nabla_\\phi \\xi_{(\\phi)r} = 0 \\)：计算第一项：\\( \\nabla_r \\xi_{(\\phi)\\phi} = \\partial_r \\xi_{(\\phi)\\phi} - \\Gamma^\\sigma_{r\\phi} \\xi_{(\\phi)\\sigma} \\)\\( \\partial_r \\xi_{(\\phi)\\phi} = \\partial_r (k^2 r^2 \\sin^2\\theta) = 2 k^2 r \\sin^2\\theta \\)由于 \\( \\xi_{(\\phi)\\sigma} \\) 只有 \\( \\sigma=\\phi \\) 分量非零，且 \\( \\Gamma^\\phi_{r\\phi} = 1/r \\)，所以：\\( \\Gamma^\\phi_{r\\phi} \\xi_{(\\phi)\\phi} = \\frac{1}{r} \\cdot k^2 r^2 \\sin^2\\theta = k^2 r \\sin^2\\theta \\)因此 \\( \\nabla_r \\xi_{(\\phi)\\phi} = 2 k^2 r \\sin^2\\theta - k^2 r \\sin^2\\theta = k^2 r \\sin^2\\theta \\)。计算第二项：\\( \\nabla_\\phi \\xi_{(\\phi)r} = \\partial_\\phi \\xi_{(\\phi)r} - \\Gamma^\\sigma_{\\phi r} \\xi_{(\\phi)\\sigma} \\)由于 \\( \\xi_{(\\phi)r} = 0 \\)，所以 \\( \\partial_\\phi \\xi_{(\\phi)r} = 0 \\)。同样只有 \\( \\sigma=\\phi \\) 分量贡献：\\( \\Gamma^\\phi_{\\phi r} \\xi_{(\\phi)\\phi} = \\frac{1}{r} \\cdot k^2 r^2 \\sin^2\\theta = k^2 r \\sin^2\\theta \\)因此 \\( \\nabla_\\phi \\xi_{(\\phi)r} = 0 - k^2 r \\sin^2\\theta = -k^2 r \\sin^2\\theta \\)。两者相加：\\( \\nabla_r \\xi_{(\\phi)\\phi} + \\nabla_\\phi \\xi_{(\\phi)r} = k^2 r \\sin^2\\theta - k^2 r \\sin^2\\theta = 0 \\)。2. 验证 \\( \\nabla_\\theta \\xi_{(\\phi)\\phi} + \\nabla_\\phi \\xi_{(\\phi)\\theta} = 0 \\)：计算第一项：\\( \\nabla_\\theta \\xi_{(\\phi)\\phi} = \\partial_\\theta \\xi_{(\\phi)\\phi} - \\Gamma^\\sigma_{\\theta\\phi} \\xi_{(\\phi)\\sigma} \\)\\( \\partial_\\theta \\xi_{(\\phi)\\phi} = \\partial_\\theta (k^2 r^2 \\sin^2\\theta) = 2 k^2 r^2 \\sin\\theta \\cos\\theta \\)只有 \\( \\sigma=\\phi \\) 分量贡献：\\( \\Gamma^\\phi_{\\theta\\phi} \\xi_{(\\phi)\\phi} = \\frac{1}{\\tan\\theta} \\cdot k^2 r^2 \\sin^2\\theta = k^2 r^2 \\sin\\theta \\cos\\theta \\)因此 \\( \\nabla_\\theta \\xi_{(\\phi)\\phi} = 2 k^2 r^2 \\sin\\theta \\cos\\theta - k^2 r^2 \\sin\\theta \\cos\\theta = k^2 r^2 \\sin\\theta \\cos\\theta \\)。计算第二项：\\( \\nabla_\\phi \\xi_{(\\phi)\\theta} = \\partial_\\phi \\xi_{(\\phi)\\theta} - \\Gamma^\\sigma_{\\phi\\theta} \\xi_{(\\phi)\\sigma} \\)由于 \\( \\xi_{(\\phi)\\theta} = 0 \\)，所以 \\( \\partial_\\phi \\xi_{(\\phi)\\theta} = 0 \\)。只有 \\( \\sigma=\\phi \\) 分量贡献：\\( \\Gamma^\\phi_{\\phi\\theta} \\xi_{(\\phi)\\phi} = \\frac{1}{\\tan\\theta} \\cdot k^2 r^2 \\sin^2\\theta = k^2 r^2 \\sin\\theta \\cos\\theta \\)因此 \\( \\nabla_\\phi \\xi_{(\\phi)\\theta} = 0 - k^2 r^2 \\sin\\theta \\cos\\theta = -k^2 r^2 \\sin\\theta \\cos\\theta \\)。两者相加：\\( \\nabla_\\theta \\xi_{(\\phi)\\phi} + \\nabla_\\phi \\xi_{(\\phi)\\theta} = k^2 r^2 \\sin\\theta \\cos\\theta - k^2 r^2 \\sin\\theta \\cos\\theta = 0 \\)。综上，方位角 Killing 矢量 \\( \\xi_{(\\phi)} \\) 满足涉及 \\( r, \\theta \\) 坐标的 Killing 方程非平庸交叉分量。"
+  },
+  "verification": null
+}

@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "id": "1_s13_13.11-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "Euler equation",
+      "coordinate": "Cartesian",
+      "scenario": "Newtonian limit",
+      "method": "conservation law expansion",
+      "generalization_axis": "limit",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s13_13.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.11",
+      "1_s13_13.11-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "limit",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$\\rho \\frac{d v^i}{dt} = -\\partial_i p - \\rho \\partial_i \\Phi$"
+    ],
+    "metric": [
+      [
+        "$-(1+2\\Phi)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2\\Phi)$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$(1-2\\Phi)$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$(1-2\\Phi)$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "-2*Phi - 1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1 - 2*Phi",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1 - 2*Phi",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1 - 2*Phi"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "In general relativity, the Landau-Lifshitz stress-energy pseudotensor $t^{\\mu\\nu}_{\\rm LL}$ allows the definition of a conserved total stress-energy complex $H^{\\mu\\nu} = (-g)(T^{\\mu\\nu} + t^{\\mu\\nu}_{\\rm LL})$, satisfying the conservation law $\\partial_\\mu H^{\\mu\\nu} = 0$. Consider the 'nearly Newtonian' metric $\\mathrm{d}s^2 = -(1+2\\Phi)\\mathrm{d}t^2 + (1-2\\Phi)\\delta_{ij}\\mathrm{d}x^i\\mathrm{d}x^j$, where $\\Phi \\ll 1$ is the Newtonian gravitational potential and time derivatives of $\\Phi$ are neglected compared to spatial derivatives. In this limit, the lowest nonvanishing order of the pseudotensor components are $t^{00}_{\\rm LL} = \\frac{1}{8\\pi} |\\nabla \\Phi|^2$ and $t^{ij}_{\\rm LL} = \\frac{1}{4\\pi} \\left( \\Phi_{,i}\\Phi_{,j} - \\frac{1}{2}\\delta_{ij} \\Phi_{,k}\\Phi_{,k}\\right)$, with $t^{0i}_{\\rm LL} = 0$. For a perfect fluid described by $T^{\\mu\\nu} = (\\rho+p)u^\\mu u^\\nu + p g^{\\mu\\nu}$, prove that taking the Newtonian limit ($v \\ll c$, $p \\ll \\rho$) of the spatial conservation law $\\partial_\\mu H^{\\mu i} = 0$ reduces exactly to the classical Euler equation of hydrodynamics: $\\rho \\frac{d v^i}{dt} = -\\partial_i p - \\rho \\partial_i \\Phi$.",
+    "answer": "$\\rho \\frac{d v^i}{dt} = -\\partial_i p - \\rho \\partial_i \\Phi$",
+    "solution": "1. Expand the total stress-energy complex $H^{\\mu\\nu} = (-g)(T^{\\mu\\nu} + t^{\\mu\\nu}_{\\rm LL})$. For the given metric, $-g \\approx 1 - 4\\Phi \\approx 1$ to lowest order, so $H^{\\mu\\nu} \\approx T^{\\mu\\nu} + t^{\\mu\\nu}_{\\rm LL}$.2. Expand the perfect fluid stress-energy tensor $T^{\\mu\\nu} = (\\rho+p)u^\\mu u^\\nu + p g^{\\mu\\nu}$ in the Newtonian limit ($v \\ll c$, $p \\ll \\rho$). With $u^0 \\approx 1$ and $u^i \\approx v^i$, we get $T^{00} \\approx \\rho$, $T^{0i} \\approx \\rho v^i$, and $T^{ij} \\approx \\rho v^i v^j + p \\delta^{ij}$.3. The spatial conservation law is $\\partial_0 H^{0i} + \\partial_j H^{ji} = 0$. Substituting the expanded components gives $\\partial_0 (\\rho v^i) + \\partial_j (\\rho v^j v^i + p \\delta^{ji} + t^{ji}_{\\rm LL}) = 0$.4. The derivative of the matter terms expands as $\\partial_0 (\\rho v^i) + \\partial_j (\\rho v^j v^i) = \\rho (\\partial_0 v^i + v^j \\partial_j v^i) + v^i (\\partial_0 \\rho + \\partial_j (\\rho v^j))$.5. Use the time-component conservation law $\\partial_\\mu H^{\\mu 0} = 0$ to find the continuity equation. $H^{00} \\approx \\rho + t^{00}_{\\rm LL}$ and $H^{j0} \\approx \\rho v^j$. Since time derivatives of $\\Phi$ are neglected, $\\partial_0 t^{00}_{\\rm LL} \\approx 0$, yielding $\\partial_0 \\rho + \\partial_j (\\rho v^j) = 0$. This makes the $v^i$ term vanish, simplifying the matter derivative to $\\rho \\frac{d v^i}{dt}$.6. The spatial conservation law becomes $\\rho \\frac{d v^i}{dt} + \\partial_i p + \\partial_j t^{ji}_{\\rm LL} = 0$.7. Calculate the divergence of the pseudotensor: $\\partial_j t^{ji}_{\\rm LL} = \\partial_j \\left[ \\frac{1}{4\\pi} (\\Phi_{,j}\\Phi_{,i} - \\frac{1}{2}\\delta_{ij} \\Phi_{,k}\\Phi_{,k})\\right] = \\frac{1}{4\\pi} (\\Phi_{,jj}\\Phi_{,i} + \\Phi_{,j}\\Phi_{,ij}) - \\frac{1}{4\\pi} \\Phi_{,k}\\Phi_{,ki}$.8. The second and third terms cancel (by relabeling dummy indices $j \\to k$), leaving $\\partial_j t^{ji}_{\\rm LL} = \\frac{1}{4\\pi} \\Phi_{,i} \\nabla^2 \\Phi$.9. In the Newtonian limit, the Einstein field equations reduce to the Poisson equation $\\nabla^2 \\Phi = 4\\pi \\rho$.10. Substituting the Poisson equation gives $\\partial_j t^{ji}_{\\rm LL} = \\rho \\Phi_{,i}$.11. Substituting back into the spatial conservation law yields $\\rho \\frac{d v^i}{dt} = -\\partial_i p - \\rho \\partial_i \\Phi$, which is exactly the classical Euler equation where the gravitational force is $-\\rho \\nabla \\Phi$."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.metric_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 0.9,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

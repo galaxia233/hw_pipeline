@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s19_19.29_iii",
+    "type": "concept",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "FLRW_comoving",
+      "scenario": "early_universe",
+      "method": "theoretical_analysis"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.29_iii",
+    "source_id": "1_s19_19.29_iii",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.29_iii"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.3,
+      "realism": 0.8,
+      "rationale": "早期宇宙核合成与膨胀速率关联的多步逻辑推演，具备真实物理背景，但原题未附标准解答",
+      "overall": 0.65
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$T$",
+      "$n_\\\\nu$",
+      "$a(t)$",
+      "$Y_p$"
+    ],
+    "target": [
+      "$Y_{He4}$",
+      "$Y_{D}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "19.29 Under which of the following suppositions would the hot big bang have produced less $\\mathbf{He}^4$ than predicted by the \"standard\" model? Less $\\mathbf{H}^2$ (deuterium)?\\n(iii) Suppose there are many more neutrinos than antineutrinos or photons in the cosmic background today.",
+    "answer": null,
+    "solution": null
+  },
+  "verification": null
+}

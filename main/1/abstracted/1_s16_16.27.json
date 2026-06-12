@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s16_16.27",
+    "type": "prove",
+    "tags": {
+      "metric": "interior_schwarzschild_metric",
+      "target_object": "spherical_collapse",
+      "coordinate": "areal_radius_r",
+      "scenario": "finite_proper_time_reach",
+      "method": "comoving_radius_R"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.27",
+    "source_id": "1_s16_16.27",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.27"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "Multi-step derivation using first integrals and inequality bounding for horizon-crossing collapse in a realistic stellar context.",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathfrak{R}$",
+      "$\\\\mathfrak{m}$",
+      "$\\\\mathfrak{r}$",
+      "$\\\\tau$",
+      "$U$",
+      "$\\\\Gamma$"
+    ],
+    "target": [
+      "$\\\\mathfrak{r}(\\\\tau)=0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.27. In a collapsing star made of perfect fluid show that once a mass shell at comoving radius $\\mathbf{R}$ has collapsed far enough so that $2\\mathfrak{m}(\\mathbf{R},\\mathfrak{t}) / \\mathfrak{r}(\\mathbf{R},\\mathfrak{t}) > 1$ , the mass shell will collapse to $\\mathbf{r} = 0$ in a finite proper time.",
+    "answer": "The mass shell will reach $\\mathbf{r} = 0$ in a finite proper time, with the duration bounded by $\\\\leq 2m / \\\\varepsilon^{\\\\frac{1}{2}}$.",
+    "solution": "Solution 16.27. From Problem 16.26 we have\\n$$\\n\\\\mathrm {d r} / \\\\mathrm{d} \\\\tau=U \\\\tag {1}\\n$$\\n$$\\n\\\\mathrm {dm} / \\\\mathrm{d} \\\\tau=-4 \\\\pi \\\\mathrm{r}^{2} \\\\mathrm{pU} \\\\tag {2}\\n$$\\n$$\\nU=\\\\frac{d r}{d r}=\\\\pm\\\\left[\\\\Gamma^{2}+\\\\left(\\\\frac{2 m}{r}-1\\\\right)\\\\right]^{\\\\frac{1}{2}}. \\\\tag {3}\\n$$\\nThe first two equations show that \\\\mathrm{dr} / \\\\mathrm{d}\\\\tau and \\\\mathrm{dm} / \\\\mathrm{d}\\\\tau have opposite signs, so for the shell to pass from 2\\\\mathrm{m} / \\\\mathrm{r}<1 to 2\\\\mathrm{m} / \\\\mathrm{r}>1 it must be that\\n$$\\n\\\\dot{\\\\mathbf{r}} \\\\leq 0, \\\\quad \\\\dot{\\\\mathbf{m}} \\\\geq 0\\n$$\\nu pon passage through \\\\mathbf{r}=2\\\\mathbf{m} . From Equation (3) then\\n$$\\n\\\\frac{\\\\mathrm{dr}}{\\\\mathrm{d} \\\\tau}=-\\\\left[\\\\Gamma^{2}+\\\\left(\\\\frac{2 \\\\mathrm{m}}{\\\\mathrm{r}}-1\\\\right)\\\\right]^{\\\\frac{1}{2}}.\\n$$\\nThe radius therefore will continue to fall as long as \\\\Gamma^2+\\\\left(\\\\frac{2 \\\\mathfrak{m}}{\\\\mathfrak{r}}-1\\\\right)>0 , but as long as the radius is decreasing, the mass must be increasing and the factor \\\\frac{2 \\\\mathfrak{m}}{\\\\mathfrak{r}}-1 continues to increase, so the collapse cannot stop.\\nSuppose the shell has reached the point 2 \\\\mathfrak{m} / \\\\mathfrak{r}-1=\\\\varepsilon>0 . Since this factor continues to increase, then\\n$$\\n\\\\mathrm{dr} / \\\\mathrm{d} \\\\tau \\\\leq \\\\varepsilon^{\\\\frac{1}{2}}\\n$$\\nand the shell will reach $r=0$ in a proper time $\\\\leq 2m / \\\\varepsilon^{\\\\frac{1}{2}}$ . [This solution is due to J. M. Bardeen.]"
+  },
+  "verification": null
+}

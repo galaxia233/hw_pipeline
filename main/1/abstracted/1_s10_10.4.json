@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "id": "1_s10_10.4",
+    "type": "prove",
+    "tags": {
+      "metric": "euclidean_metric",
+      "target_object": "killing_vector_fields",
+      "coordinate": "cartesian_coordinates",
+      "scenario": "O(3)_rotational_symmetry",
+      "method": "lie_algebra_verification"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s10_10.4",
+    "source_id": "1_s10_10.4",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s10_10.4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "通过Lie括号对易关系与点态矢量分解证明Killing向量场的局部相关与全局独立，并结合三维旋转群的参数自由度给出清晰的几何物理解释",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 3,
+    "variables": [
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$J_x$",
+      "$J_y$",
+      "$J_z$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "10.4. In Euclidean 3-space show that the 3 Killing vectors describing rotations around the $x, y$ , and $z$ axes are linearly dependent at any given point but that no constant coefficient combination of them is zero. Show that the generators of the rotation group $O(3)$ are thus 2-surface forming, even though the group is 3-dimensional. Explain.",
+    "answer": "At any given point, the three Killing vectors are linearly dependent and span a 2-dimensional tangent plane. Globally they are linearly independent and span a 3-dimensional space. The generators form 2-surfaces because 2-spheres are intrinsically 2-dimensional, while specifying their orientation requires 3 independent parameters (e.g., Euler angles).",
+    "solution": "Solution 10.4. The three Killing vectors describing rotations are just the angular momentum operators, $\\mathbf{J}_{\\mathbf{z}} = \\mathbf{x}\\partial_{\\mathbf{y}} - \\mathbf{y}\\partial_{\\mathbf{x}}$ , etc. (See Problem 10.1.) At a point $(\\mathbf{x}_0,\\mathbf{y}_0,\\mathbf{z}_0)$$$\\begin{array}{l}J_{z} = (- y_{0}, x_{0}, 0) \\\\\\mathbf {J_{y}} = (z_{0}, 0, - \\mathbf {x}_{0}) \\\\\\mathrm {J}_{\\mathbf {x}} = \\left(0, - z_{0}, y_{0}\\right), \\\\\\end{array}$$so $\\mathbf{J_y} = -(z_0 / y_0)\\mathbf{J_z} - (x_0 / y_0)\\mathbf{J_x}$ and the three vectors only span a 2-dimensional surface at the point.Suppose, however, that for some constants $a$ and $b$$$a J_{x} + b J_{y} + J_{z} = 0$$were true at every point, then we would have$$a \\left[ J_{x}, J_{y}\\right] + b \\left[ J_{y}, J_{y}\\right] + \\left[ J_{z}, J_{y}\\right] = 0.$$This requires $\\mathbf{J}_{\\mathbf{z}} \\propto \\mathbf{J}_{\\mathbf{x}}$ , a result which is obviously false. Thus, over the whole sphere, $\\mathbf{J}_{\\mathbf{x}}, \\mathbf{J}_{\\mathbf{y}}, \\mathbf{J}_{\\mathbf{z}}$ span a 3-dimensional space. The explanation is that 2-spheres are 2-dimensional, but orientations of 2-spheres are 3-dimensional (e.g. the 3 Euler angles)."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 3,
+    "variables": [
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

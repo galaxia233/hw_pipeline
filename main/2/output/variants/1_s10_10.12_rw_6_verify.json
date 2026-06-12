@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-0-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "Komar_mass_vs_conserved_charge",
+      "coordinate": "general_static",
+      "scenario": "global_conservation",
+      "method": "tensor_integration",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-0",
+      "1_s10_10.12-0-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T^{\\\\alpha}_{\\\\beta}$",
+      "$\\\\xi^{\\\\beta}$",
+      "$\\\\Sigma_{\\\\alpha}$",
+      "$|g|$",
+      "$x^{a}$"
+    ],
+    "target": [
+      "推导校验"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑 Schwarzschild 时空，度规为 $ds^2 = \\frac{r_s - r}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，具有类时 Killing 矢量场 $\\xi^\\alpha$。已知对于稳态时空，理论推导的正确结论应为 Komar 质量 $M_K$ 与守恒荷 $Q = \\int_\\Sigma T^\\alpha_\\beta \\xi^\\beta d^3\\Sigma_\\alpha$ 及能动张量迹 $T$ 的关系：$M_K = -Q + \\frac{1}{2} \\int_\\Sigma T \\xi^\\alpha d^3\\Sigma_\\alpha$。以下是某学生试图推导此关系的过程，其中包含若干物理或数学错误。请仔细阅读，找出所有错误，指出其位置、错误类型并给出正确形式。【推导过程】1. 对 Komar 质量的定义 $M_K = -\\frac{1}{8\\pi} \\oint_S \\nabla^\\alpha \\xi^\\beta dS_{\\alpha\\beta}$ 应用广义 Stokes 定理 $\\oint_S F^{\\alpha\\beta} dS_{\\alpha\\beta} = \\int_\\Sigma \\nabla_\\alpha F^{\\alpha\\beta} d\\Sigma_\\beta$，令 $F^{\\alpha\\beta} = \\nabla^\\alpha \\xi^\\beta$，得到：$$ M_K = -\\frac{1}{8\\pi} \\int_\\Sigma \\nabla_\\alpha (\\nabla^\\beta \\xi^\\alpha) d^3\\Sigma_\\beta $$2. 根据 Killing 矢量恒等式 $\\nabla_\\beta \\nabla^\\alpha \\xi^\\beta = R^\\alpha_\\beta \\xi^\\beta$，将二阶导数项替换：$$ M_K = \\frac{1}{8\\pi} \\int_\\Sigma R^\\alpha_\\beta \\xi^\\beta d^3\\Sigma_\\alpha $$3. 从爱因斯坦场方程 $R_{\\alpha\\beta} - \\frac{1}{2}R g_{\\alpha\\beta} = 8\\pi T_{\\alpha\\beta}$ 解出 Ricci 张量：$$ R^\\alpha_\\beta = 8\\pi T^\\alpha_\\beta - \\frac{1}{2}R g^\\alpha_\\beta $$将其代入积分式：$$ M_K = \\frac{1}{8\\pi} \\int_\\Sigma \\left( 8\\pi T^\\alpha_\\beta \\xi^\\beta - \\frac{1}{2}R \\xi^\\alpha\\right) d^3\\Sigma_\\alpha = \\int_\\Sigma T^\\alpha_\\beta \\xi^\\beta d^3\\Sigma_\\alpha - \\frac{1}{16\\pi} \\int_\\Sigma R \\xi^\\alpha d^3\\Sigma_\\alpha $$4. 计算曲率标量 $R$ 与能动张量迹 $T$ 的关系。对场方程两边缩并度规 $g^{\\alpha\\beta}$：$$ R - \\frac{1}{2}R g_{\\alpha\\beta} g^{\\alpha\\beta} = 8\\pi T^\\alpha_\\alpha $$在4维时空中，度规缩并 $g_{\\alpha\\beta} g^{\\alpha\\beta} = 2$，代入得：$$ R - R = 8\\pi T \\implies 0 = 8\\pi T $$因此迹 $T$ 必然为零。5. 将 $T=0$ 代入步骤3的积分结果，第一项即为守恒荷 $Q$，第二项中 $R$ 的影响使得积分消失，最终得出：$$ M_K = Q $$",
+    "answer": "1. 步骤1：Stokes 定理指标错误（指标颠倒）。广义 Stokes 定理的正确形式为 $\\oint_S F^{\\alpha\\beta} dS_{\\alpha\\beta} = \\int_\\Sigma \\nabla_\\beta F^{\\alpha\\beta} d\\Sigma_\\alpha$，而非 $\\nabla_\\alpha F^{\\alpha\\beta} d\\Sigma_\\beta$。因此正确的展开应为 $\\nabla_\\beta (\\nabla^\\alpha \\xi^\\beta) d^3\\Sigma_\\alpha$。2. 步骤2：符号错误（漏掉负号）。代入 Killing 恒等式时，前面的负号 $-\\frac{1}{8\\pi}$ 被错误地丢失，变成了正号 $\\frac{1}{8\\pi}$。正确值应为 $M_K = -\\frac{1}{8\\pi} \\int_\\Sigma R^\\alpha_\\beta \\xi^\\beta d^3\\Sigma_\\alpha$。3. 步骤3：移项符号错误。由爱因斯坦场方程解出 Ricci 张量时，等号左边移动到右边的 $-\\frac{1}{2}R g^\\alpha_\\beta$ 未变号，写成了 $-\\frac{1}{2}R g^\\alpha_\\beta$。正确应为 $R^\\alpha_\\beta = 8\\pi T^\\alpha_\\beta + \\frac{1}{2}R g^\\alpha_\\beta$。4. 步骤4：维度缩并错误（系数错误/维度错误）。4维时空中度规的缩并 $g_{\\alpha\\beta} g^{\\alpha\\beta}$ 应为4，误写成了2。正确的缩并结果为 $R - 2R = 8\\pi T \\implies -R = 8\\pi T \\implies R = -8\\pi T$，而非 $0 = 8\\pi T$。5. 步骤5：最终结论错误。由于前述步骤的累积错误，得出 $M_K = Q$。根据正确的推导流程，最终正确结论应为 $M_K = -Q + \\frac{1}{2} \\int_\\Sigma T \\xi^\\alpha d^3\\Sigma_\\alpha$。",
+    "solution": null
+  },
+  "verification": null
+}

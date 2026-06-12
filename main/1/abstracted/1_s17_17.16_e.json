@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s17_17.16_e",
+    "type": "concept",
+    "tags": {
+      "metric": "black_hole_horizon",
+      "target_object": "scalar_field_wave",
+      "coordinate": "rotating_observer_frame",
+      "scenario": "wave_boundary_condition",
+      "method": "phase_analysis"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.16_e",
+    "source_id": "1_s17_17.16_e",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.16_e"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "需结合洛伦兹不变性与旋转载体参考系变换解析波动相位以导出吸收边界条件，逻辑链条完整且紧扣黑洞能层物理现实",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\phi$",
+      "$\\\\theta$",
+      "$\\\\omega$",
+      "$m$",
+      "$\\\\Phi$"
+    ],
+    "target": [
+      "$\\\\Phi$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 17.16 (e) What boundary condition on $\\Phi$ corresponds to ingoing waves as seen by a physical observer on the horizon?",
+    "answer": "$e^{-i(\\\\omega - m \\\\omega_+) r^*}$ corresponds to incoming waves.",
+    "solution": "(e) Since all physical observers at the horizon are related by Lorentz transformations, they will all agree whether a particular solution represents ingoing or outgoing waves. Thus we can calculate with any convenient observer. We choose an observer at constant $\\\\mathbf{r}$ just outside the horizon. Since he is inside the ergosphere, he is dragged around in the positive $\\\\phi$ direction with some $\\\\Omega = \\\\frac{\\\\mathrm{d}\\\\phi}{\\\\mathrm{d}t} > 0$ where, from Problem 17.10, $\\\\Omega = \\\\omega_{+}$ . This observer sees the local (t,r) dependence of the solution\\n$$\\n\\\\Phi = e^{- i \\\\omega t} e^{i m \\\\phi} e^{\\\\pm i (\\\\omega - m \\\\omega_{+}) r^*} S (\\\\theta) \\\\tag {6}\\n$$\\nas\\n$$\\n\\\\Phi = e^{- i (\\\\omega - m \\\\omega_{+}) t} e^{\\\\pm i (\\\\omega - m \\\\omega_{+}) r^*} e^{i m \\\\tilde {\\\\phi}} S (\\\\theta).\\n$$\\nwhere we have put $\\\\tilde{\\\\phi} = \\\\phi -\\\\omega_{+}\\\\mathbf{t}$ . Thus $\\\\mathbf{e}^{-\\\\mathbf{i}(\\\\omega -\\\\mathbf{m}\\\\omega_{+})\\\\mathbf{r}^{*}}$ corresponds to in-going waves."
+  },
+  "verification": null
+}

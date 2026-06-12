@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-5-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "tidal_force_component_R_hat_trtr",
+      "coordinate": "spherical",
+      "scenario": "static_observer_tidal_force_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-5",
+      "1_s11_11.11-5-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "设计数值实验方案验证静态观测者径向潮汐力分量 $R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}}$ 的解析表达式及视界附近的发散行为"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规为 $ds^2 = -\\frac{r - r_{s}}{r} dt^2 + \\frac{r}{r - r_{s}} dr^2 + r^{2} d\\theta^{2} + r^{2} \\sin^{2}{\\theta} d\\phi^{2}$。理论推导表明，对于处于事件视界外固定径向坐标 $r$ ($r > r_{s}$) 处的静态观测者，其局部正交四分体下的径向潮汐力分量 $R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}}$ 的解析表达式为 $\\frac{r_{s}}{r^{2} (r - r_{s})}$。在弱场极限下，该结果退化为牛顿潮汐力 $2M/r^{3}$；而在视界附近，径向潮汐拉伸效应将显著发散。请设计一个数值实验方案，从零开始验证该径向潮汐力分量表达式的正确性及其在视界附近的发散特性，并与牛顿弱场极限进行对比。",
+    "answer": "1. **建立时空几何模型**：在数值程序中输入 Schwarzschild 度规张量 $g_{\\mu\\nu}$，设定坐标 $(t, r, \\theta, \\phi)$ 及参数 $r_s$。2. **构造正交四分体**：计算静态观测者归一化时间基矢 $e_{\\hat{t}}^\\mu = (\\sqrt{\\frac{r}{r-r_s}}, 0, 0, 0)$ 和径向基矢 $e_{\\hat{r}}^\\mu = (0, \\sqrt{\\frac{r-r_s}{r}}, 0, 0)$。3. **计算 Riemann 张量坐标分量**：利用符号计算库或数值差分方法，基于度规及其导数计算 Riemann 张量的坐标分量 $R_{\\mu\\nu\\rho\\sigma}$，特别提取分量 $R_{0101}$。4. **投影计算潮汐力分量**：通过张量投影公式 $R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}} = R_{0101} (e_{\\hat{t}}^0)^2 (e_{\\hat{r}}^1)^2$ 计算物理分量。5. **扫描径向坐标验证发散与退化**：选取一系列 $r$ 值（如从 $1.01 r_s$ 到 $10 r_s$），分别计算数值投影得到的 $R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}}$，绘制其随 $r/r_s$ 变化的曲线。6. **预期结果**：数值计算得到的潮汐力分量曲线将与解析公式 $\\frac{r_s}{r^2(r-r_s)}$ 完全吻合；在 $r \\to r_s$ 时，数值结果急剧上升发散；在 $r \\gg r_s$ 区域，曲线将趋近于牛顿弱场近似 $\\frac{2M}{r^3}$（其中 $r_s = 2M$），验证了强场相对论效应与弱场牛顿力学的衔接与偏离。",
+    "solution": "方案论证：该数值实验方案通过从度规出发重构正交四分体并提取几何张量，完整复现了从坐标量到物理观测量的投影过程。通过扫描径向坐标 $r$ 并绘制潮汐力随距离的变化曲线，不仅能通过数值与解析式的逐点比对验证公式的正确性，更能直观展现公式在视界附近 $(r \\to r_s)$ 的发散行为以及在远距离弱场区域对牛顿引力理论的平滑退化。这从数值验证的角度巩固了理论推导中关于潮汐力在强场下显著偏离牛顿预期的核心物理结论。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目存在两个严重的物理错误：1. **解析表达式错误**：静态观测者测得的径向潮汐力物理分量 $R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}}$ 的正确解析表达式应为 $\\frac{r_s}{r^3}$（即 $\\frac{2M}{r^3}$），而题目给出的 $\\frac{r_s}{r^2(r-r_s)}$ 实际上是混合指标的 Riemann 张量分量 $R^r_{trt}$ 的表达式。题目混淆了坐标分量与局部惯性系下的物理可观测量。根据题目 answer 步骤4中的投影公式，$R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}} = R_{0101} (e_{\\hat{t}}^0)^2 (e_{\\hat{r}}^1)^2$，由于 $(e_{\\hat{t}}^0)^2 = \\frac{r}{r-r_s}$ 且 $(e_{\\hat{r}}^1)^2 = \\frac{r-r_s}{r}$，两者乘积为1，因此物理分量直接等于坐标分量 $R_{0101} = \\frac{r_s}{r^3}$，绝不包含 $\\frac{1}{r-r_s}$ 的因子。2. **视界发散的物理判断错误**：题目声称'在视界附近，径向潮汐拉伸效应将显著发散'。Schwarzschild 黑洞的视界 $r=r_s$ 是坐标奇点而非物理曲率奇点，Kretschmann 标量在视界处为有限值 $\\frac{3}{4M^4}$，物理潮汐力 $R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}}$ 在视界处的值为 $\\frac{1}{4M^2}$，同样有限且不发散。题目将坐标分量的发散（源于度规逆矩阵 $g^{rr}$ 的发散）误当成了物理观测效应的发散。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

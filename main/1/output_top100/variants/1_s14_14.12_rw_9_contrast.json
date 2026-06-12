@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-7-9",
+    "type": "concept",
+    "tags": {
+      "target_object": "tidal force tensor",
+      "coordinate": "local orthonormal frame",
+      "scenario": "contrast Schwarzschild far-field and Minkowski",
+      "method": "Riemann tensor calculation",
+      "generalization_axis": "compare",
+      "metric": "Minkowski"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-7",
+      "1_s14_14.12-7-9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Minkowski",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$R^{\\hat{j}}_{\\hat{0}\\hat{k}\\hat{0}}$",
+      "$\\frac{\\partial^2 \\Phi}{\\partial x^j \\partial x^k}$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在相对论中，静态观察者感受到的潮汐力由 Riemann 张量的物理分量 $R^{\\hat{j}}_{\\hat{0}\\hat{k}\\hat{0}}$ 决定，对应经典力学中的 Newtonian 潮汐加速度张量 $\\frac{\\partial^2 \\Phi}{\\partial x^j \\partial x^k}$。请分别在以下两种时空背景下，计算静态观察者局部正交坐标系中的分量 $R^{\\hat{j}}_{\\hat{0}\\hat{k}\\hat{0}}$，对比两者的结果，并解释它们与对应 Newtonian 势潮汐张量之间关系的物理意义。背景 A：Schwarzschild 黑洞外部时空（处于远场区域 $r \\gg r_s$）$$ ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2 $$其中 $r_s = 2M$。背景 B：Minkowski 平直时空$$ ds^2 = -dt^2 + dx^2 + dy^2 + dz^2 $$",
+    "answer": "背景 A (Schwarzschild 远场)：局部正交坐标系下的物理分量 $R^{\\hat{r}}_{\\hat{0}\\hat{r}\\hat{0}} = \\frac{2M}{r^3}$，$R^{\\hat{\\theta}}_{\\hat{0}\\hat{\\theta}\\hat{0}} = -\\frac{M}{r^3}$，$R^{\\hat{\\phi}}_{\\hat{0}\\hat{\\phi}\\hat{0}} = -\\frac{M}{r^3}$，对应势 $\\Phi=-M/r$ 的二阶导数，表现为径向拉伸和横向挤压。背景 B (Minkowski)：局部正交坐标系下的物理分量 $R^{\\hat{j}}_{\\hat{0}\\hat{k}\\hat{0}} = 0$，对应势 $\\Phi=0$ 的二阶导数，不存在潮汐效应。对比解释：Schwarzschild 远场时空曲率非零，反映中心质量 $M$ 产生的微弱但真实的引力潮汐效应，在弱场极限下精确还原为 Newtonian 引力；Minkowski 时空曲率完全为零，无引力源，故潮汐力为零。此对比直接展示了 Riemann 张量作为引力（潮汐力）内在度量的物理本质：时空弯曲表现为物质间的相对加速（潮汐力），平直时空则无此效应。",
+    "solution": "背景 A：1. 根据 Schwarzschild 度规几何属性，提取坐标系下的分量 $R^1_{010} = \\frac{2M}{r^3}$，$R^2_{020} = -\\frac{M}{r^3}$，$R^3_{030} = -\\frac{M}{r^3}$。2. 静态观察者局部正交基的缩放因子在逆变和协变指标中相互抵消，物理分量与坐标分量数值相等。3. Newtonian 势 $\\Phi=-M/r$ 的径向二阶导数为 $2M/r^3$，横向为 $-M/r^3$，两者一致。背景 B：1. Minkowski 度规 Christoffel 符号全为 0，因此 Riemann 张量分量均为 0。2. 局部正交基即自然基，物理分量也为 0。3. Newtonian 势 $\\Phi=0$，二阶导数为 0。对比：Riemann 张量非零对应真实引力场（潮汐力），全零对应无引力场。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.minkowski_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "Answer 和 Solution 中关于背景 A (Schwarzschild 远场) 的物理分量和牛顿势导数的符号存在严重错误。1. Answer 给出的物理分量 $R^{\\hat{r}}_{\\hat{0}\\hat{r}\\hat{0}} = \\frac{2M}{r^3}$, $R^{\\hat{\\theta}}_{\\hat{0}\\hat{\\theta}\\hat{0}} = -\\frac{M}{r^3}$, $R^{\\hat{\\phi}}_{\\hat{0}\\hat{\\phi}\\hat{0}} = -\\frac{M}{r^3}$，正确值应为 $R^{\\hat{r}}_{\\hat{0}\\hat{r}\\hat{0}} = -\\frac{2M}{r^3}$, $R^{\\hat{\\theta}}_{\\hat{0}\\hat{\\theta}\\hat{0}} = \\frac{M}{r^3}$, $R^{\\hat{\\phi}}_{\\hat{0}\\hat{\\phi}\\hat{0}} = \\frac{M}{r^3}$。根据测地偏离方程 $\\frac{D^2 \\xi^{\\hat{j}}}{d\\tau^2} = - R^{\\hat{j}}_{\\hat{0}\\hat{k}\\hat{0}} \\xi^{\\hat{k}}$，正确的符号导致径向拉伸和横向挤压，Answer的符号会导致相反的物理效果，破坏了弱场极限下的对应关系。2. Solution 中声称 Newtonian 势 $\\Phi=-M/r$ 的径向二阶导数为 $2M/r^3$，横向为 $-M/r^3$，这也是错的（径向应为 $-2M/r^3$，横向应为 $M/r^3$）。3. Solution 声称'物理分量与坐标分量数值相等'是概念性错误， Schwarzschild 度规中 $R^{\\hat{r}}_{\\hat{0}\\hat{r}\\hat{0}} = -\\frac{2M}{r^3}$ 而坐标分量 $R^r_{t r t} = \\frac{2M}{r^2(r-2M)}$，两者不仅符号相反且表达式不同。4. Solution 把远场近似值直接当作精确的坐标分量提取，且横向坐标分量近似值的符号也写错了（应为正）。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

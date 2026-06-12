@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-5-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "metric parameters",
+      "coordinate": "spherical",
+      "scenario": "parameter extraction contrast",
+      "method": "Einstein Tensor vs Newtonian Limit",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-5",
+      "1_s10_10.5-5-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "BV parameter k",
+      "Schwarzschild parameter r_s",
+      "Extraction method contrast"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "k**2*r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "k**2*r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "已知两种度规定义如下：1. Barriola-Vilenkin 度规：$ds^2 = -dt^2 + dr^2 + k^2 r^2 d\\theta^2 + k^2 r^2 \\sin^2\\theta d\\phi^2$，描述拓扑缺陷外部时空，其远场能动张量满足 $p_r = -\\rho$, $p_\\theta = p_\\phi = 0$, $\\rho = \\mu/r^2$。2. Schwarzschild 度规：$ds^2 = -(1-r_s/r)dt^2 + (1-r_s/r)^{-1}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，描述球对称质量外部真空时空。请分别计算这两种度规的 $G_{00}$ 分量，并据此分析：为何 BV 度规能从 $G_{00}=8\\pi T_{00}$ 反推参数 $k$，而 Schwarzschild 度规必须从 $g_{00}$ 的弱场极限反推参数 $r_s$？请给出 $k$ 和 $r_s$ 的反推结果，并从 $g_{00}$ 和 $G_{00}$ 的几何差异解释这种参数提取逻辑的物理根源。",
+    "answer": "1. $G_{00}$ 计算：- BV 度规：$G_{00} = \\frac{1-k^2}{k^2 r^2}$- Schwarzschild 度规：$G_{00} = 0$2. 参数反推结果：- BV 度规：代入 $G_{00}=8\\pi T_{00}$ 得 $\\frac{1-k^2}{k^2 r^2} = 8\\pi \\frac{\\mu}{r^2}$，解得 $k = \\frac{1}{\\sqrt{1+8\\pi\\mu}}$。- Schwarzschild 度规：外部为真空，$G_{00}=0$ 无法提取 $r_s$。利用弱场极限 $g_{00} \\approx -1 + r_s/r$ 与牛顿势 $\\Phi=-M/r$ 的对应关系 $g_{00} \\approx -1 - 2\\Phi$，得 $r_s = 2M$。3. 物理根源对比：BV 度规的 $g_{00} = -1$，不含参数且时间维度平直，无法通过弱场极限提取参数；但其空间截面存在 deficit angle，导致 $G_{00} \\neq 0$，曲率直接由拓扑缺陷源产生，必须从 $G_{00}$ 提取。相反，Schwarzschild 度规外部为真空，$G_{00}=0$，曲率体现为纯潮汐效应，无局部源；但 $g_{00}$ 包含 $r_s$，反映了引力势对时间流逝的影响，故必须通过 $g_{00}$ 提取。这体现了拓扑缺陷（空间弯曲、时间平直）与质量源（时间弯曲、外空间 Ricci 平直）的本质几何差异。",
+    "solution": "1. BV 度规的 Ricci 标量为 $R = 2(1-k^2)/(k^2 r^2)$，$R_{00}=0$，故 $G_{00} = -1/2 g_{00} R = (1-k^2)/(k^2 r^2)$。2. 代入场方程反推 $k$。3. Schwarzschild 为真空解，$G_{00}=0$，转用 $g_{00}$ 弱场对应原理提取 $r_s$。4. 对比几何差异：BV拓扑缺陷导致空间曲率非零但时间平直；Schwarzschild 质量导致时间弯曲但外空间曲率（Ricci）为零。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "题目给出的 Barriola-Vilenkin 度规形式错误，与其声称的物理场景（全局单极子拓扑缺陷）不匹配。题目中度规为 $ds^2 = -dt^2 + dr^2 + k^2 r^2 d\\theta^2 + k^2 r^2 \\sin^2\\theta d\\phi^2$，其中极角 $\\theta$ 方向也乘了 deficit factor $k^2$。然而，全局单极子拓扑缺陷的特征是仅在方位角 $\\phi$ 上产生 deficit angle，极角 $\\theta$ 的范围 $[0, \\pi]$ 不变，其系数不应被缩放。正确的 Barriola-Vilenkin 度规应为 $ds^2 = -dt^2 + dr^2 + r^2 d\\theta^2 + k^2 r^2 \\sin^2\\theta d\\phi^2$（期望值）。题目错误地将 $g_{\\theta\\theta}$ 写成了 $k^2 r^2$（实际值），这使得 2-球面被整体缩放，改变了拓扑缺陷的几何意义，虽然它恰好与题目给出的 $p_\\theta=0$ 的能动张量在数学上自洽，但已不再是描述全局单极子的 BV 度规。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s15_15.14_b-2-3-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "Kretschmann_scalar",
+      "coordinate": "cartesian",
+      "scenario": "design_numerical_invariance",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.14_b",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.14_b",
+      "1_s15_15.14_b-2",
+      "1_s15_15.14_b-2-3",
+      "1_s15_15.14_b-2-3-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "DeSitter",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "验证Kretschmann标量的双重不变性及常数性",
+      "推断时空无物理曲率奇点"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在德西特时空度规 $ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}} (dx^2 + dy^2 + dz^2)$ 中，Riemann 张量的单个物理分量在局部 Lorentz boost 下一般会发生改变，但由其构造的 Kretschmann 标量 $K = R_{abcd} R^{abcd}$ 却是双重不变量（既是坐标变换不变量，又是局部 Lorentz 变换不变量），且在整个时空中为常数 $K = \\frac{12}{\\alpha^2}$。这一性质表明该时空不存在真实的物理曲率奇点。请设计一个数值模拟方案，验证 Kretschmann 标量在局部 Lorentz boost 下的不变性以及在时空不同坐标点处的常数性，并说明如何依据数值结果推断时空无曲率奇点。",
+    "answer": "1. **坐标不变性验证**：在时空网格中选取一系列具有不同 $x$ 坐标的点（如 $x=0, \\alpha, 2\\alpha$ 等），利用度规分量计算各点的 Riemann 张量坐标分量，并缩并计算 Kretschmann 标量 $K$。预期结果为各点 $K$ 均精确等于 $\\frac{12}{\\alpha^2}$。2. **局部 Lorentz 不变性验证**：在任意一点（如 $x=0$）构造局部正交标架，计算 Riemann 张量的物理分量；设定一系列具有不同相对速度 $v$ 的局部 Lorentz boost 矩阵，对物理分量进行变换，并重新计算变换后的 $K$。预期结果为 $K$ 不随 $v$ 变化，恒为 $\\frac{12}{\\alpha^2}$。3. **奇点推断**：若数值结果显示 $K$ 在不同坐标点和不同局部观测者参考系下均处处有限且为常数，则证明时空的内禀曲率均匀且不存在发散的物理曲率奇点。",
+    "solution": "方案合理性论证：Kretschmann 标量由 Riemann 张量的全指标缩并构成，消去了所有切空间指标，因此在局部正交群 $O(3,1)$ 变换（即局部 Lorentz boost）下为不变量；同时作为标量，它在坐标变换下也是不变量。数值实验通过离散采样时空点验证其坐标不变导致的常数性，通过引入连续参数 $v$ 的 boost 矩阵验证其局部 Lorentz 不变性。由于 $K$ 是真正的标量，如果在任何坐标系或任何局部参考系中它都不发散，就意味着时空中不存在不可消除的内禀曲率奇点。预期数值结果 $K=\\frac{12}{\\alpha^2}$ 处处有限，直接印证了该时空曲率性质均匀且无奇点的结论。"
+  },
+  "verification": null
+}

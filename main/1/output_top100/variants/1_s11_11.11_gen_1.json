@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-1",
+    "type": "calculate",
+    "tags": {
+      "target_object": "orbital angular velocity shift",
+      "coordinate": "equatorial",
+      "scenario": "Lense-Thirring effect",
+      "method": "gravitomagnetic analogy",
+      "generalization_axis": "extend",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "metric",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\phi$",
+      "$M$",
+      "$\\mathbf{v}$",
+      "$\\mathbf{S}$",
+      "$h_j$",
+      "$\\Gamma_{\\hat{j}\\hat{k}\\hat{0}}$"
+    ],
+    "target": [
+      "$\\delta\\omega$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在地球周围的弱场广义相对论效应中，旋转质量产生的引力场可以通过“引力磁类比”来描述。已知地球自旋角动量为 $\\vec{J}$（沿极轴 $\\hat{z}$ 正向），其产生的引力磁矢势为 $\\vec{h} = \\frac{2G}{c^2 r^3} (\\vec{J} \\times \\vec{r})$，对应的引力磁场为 $\\vec{B}_g = \\nabla \\times \\vec{h} = \\frac{2G}{c^2 r^5} [3(\\vec{J} \\cdot \\vec{r}) \\vec{r} - r^2 \\vec{J}]$。运动质量 $m$ 在此场中受到的科里奥利型引力磁力为 $\\vec{F}_g = -2m \\vec{v} \\times \\vec{B}_g$。种子题探讨了此场中陀螺仪自旋矢量的 Lense-Thirring 进动，现在考虑同一度规下轨道运动受此场的影响：设一颗卫星在地球赤道面上做半径为 $r$ 的圆形轨道运动（$r$ 远大于 Schwarzschild 半径）。请推导由于引力磁场导致的卫星轨道角速度的一阶修正量 $\\delta\\omega$（设无自旋时的 Newtonian 轨道角速度为 $\\omega_0 = \\sqrt{GM/r^3}$），并分别给出顺行轨道（与 $\\vec{J}$ 同向）和逆行轨道（与 $\\vec{J}$ 反向）的 $\\delta\\omega$ 表达式。",
+    "answer": "$\\delta\\omega_{\\pm} = \\pm \\frac{2GJ}{c^2 r^3}$",
+    "solution": "1. 对于赤道面上的圆形轨道，位置矢量 $\\vec{r}$ 垂直于自旋矢量 $\\vec{J}$，即 $\\vec{J} \\cdot \\vec{r} = 0$。代入引力磁场公式得 $\\vec{B}_g = -\\frac{2GJ}{c^2 r^3} \\hat{z}$。2. 顺行轨道上，卫星速度 $\\vec{v} = v \\hat{\\phi}$，其中 $v = \\omega r$。计算引力磁力：   $\\vec{F}_g = -2m (v \\hat{\\phi}) \\times \\left(-\\frac{2GJ}{c^2 r^3} \\hat{z}\\right) = \\frac{4GJmv}{c^2 r^3} (\\hat{\\phi} \\times \\hat{z}) = -\\frac{4GJmv}{c^2 r^3} \\hat{r}$。   该力方向沿 $-\\hat{r}$（指向地心），等效于增强了 Newtonian 引力。3. 径向向心力平衡方程为： $m \\omega^2 r = \\frac{GMm}{r^2} + \\frac{4GJmv}{c^2 r^3}$。4. 将 $v = \\omega r$ 代入右侧第二项： $m \\omega^2 r = \\frac{GMm}{r^2} + \\frac{4GJm \\omega}{c^2 r^2}$。   两边除以 $mr$ 得： $\\omega^2 = \\frac{GM}{r^3} + \\frac{4GJ \\omega}{c^2 r^3} = \\omega_0^2 + \\frac{4GJ \\omega}{c^2 r^3}$。5. 令 $\\omega = \\omega_0 + \\delta\\omega$，考虑一阶微扰，忽略 $(\\delta\\omega)^2$ 及高阶小量，得：   $\\omega_0^2 + 2\\omega_0 \\delta\\omega \\approx \\omega_0^2 + \\frac{4GJ \\omega_0}{c^2 r^3}$。6. 解得顺行轨道角速度修正量： $\\delta\\omega = \\frac{2GJ}{c^2 r^3}$。7. 对于逆行轨道，速度 $\\vec{v} = -v \\hat{\\phi}$，重复上述推导，引力磁力变为沿 $+\\hat{r}$（背离地心），等效于减弱 Newtonian 引力，向心力方程右侧第二项变号，解得修正量： $\\delta\\omega = -\\frac{2GJ}{c^2 r^3}$。8. 综上，轨道角速度的 Lense-Thirring 修正为 $\\delta\\omega_{\\pm} = \\pm \\frac{2GJ}{c^2 r^3}$。值得注意的是，此轨道角速度修正量是陀螺仪自旋矢量 Lense-Thirring 进动角速度的两倍。"
+  },
+  "verification": null
+}

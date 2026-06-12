@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s20_20.8_c",
+    "type": "concept",
+    "tags": {
+      "metric": "scalar_potential_field_metric",
+      "target_object": "photon_four_momentum",
+      "coordinate": "spacetime_coordinates",
+      "scenario": "solar_system_observation_tests",
+      "method": "tensor_equation_linearization"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s20_20.8_c",
+    "source_id": "1_s20_20.8_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s20_20.8_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "多步方程化简推导+覆盖经典广义相对论检验场景+解答完整",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\mu$",
+      "$p^\\\\mu$",
+      "$\\\\Phi$"
+    ],
+    "target": [
+      "$\\\\text{photon trajectory curvature}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s20_20.8_c.md]\\n\\nProblem 20.8. Newtonian gravitation theory can be modified and made covariant if the force equation on a point particle is written as\\n$$\\n\\\\mathrm {d p}^{\\\\mu} = - \\\\eta^{\\\\mu \\\\nu} \\\\Phi_{, \\\\nu} \\\\mathrm {p}_{\\\\beta} \\\\mathrm {d x}^{\\\\beta} + \\\\mathrm {p}^{\\\\alpha} \\\\Phi_{, \\\\alpha} \\\\mathrm {d x}^{\\\\mu}\\n$$\\nwhere $\\Phi$ is a scalar potential which is related to stress energy by\\n$$\\n\\\\Phi_{; \\\\mu}^{; \\\\mu} = 4 \\\\pi T_{\\\\mu}^{\\\\mu} .\\n$$\\nInvestigate whether this theory agrees with experiment and observation:\\n(a) Is this theory in agreement with the experiments of Eotvos and Dicke showing the equivalence of inertial and passive gravitational mass?\\n(b) Is this theory in agreement with the Pound-Rebka experiment on the gravitational redshift of a photon on the earth's surface?\\n(c) Does this theory predict the bending of starlight near the sun?\\n\\n## Solution\\n\\n(c) No. For a photon $p\\\\beta \\\\mathrm{d}x^{\\\\beta} = 0$ so the path of a photon is governed by\\n$$\\n\\\\mathrm {d p}^{\\\\mu} = - \\\\mathrm {p}^{\\\\alpha} \\\\Phi_{, \\\\alpha} \\\\mathrm {d x}^{\\\\mu} = - \\\\mathrm {d x}^{\\\\alpha} \\\\Phi_{, \\\\alpha} \\\\mathrm {p}^{\\\\mu}.\\n$$\\nSince dp is proportional to p, the photon must move in a straight line; there is no bending.\\n[Note: Also in disagreement with observations, this theory predicts a regression of the perihelion of a planet's motion, of magnitude\\n$$\\n\\\\delta = 2 \\\\pi \\\\mathrm {M}_{\\\\odot}^{2} / \\\\mathrm {J}^{2}\\n$$\\nwhere $\\delta =$ shift per orbit, $\\mathbf{J} =$ angular momentum of planet per unit mass. For nearly circular orbits, this becomes\\n$$\\n\\\\delta = 2 \\\\pi \\\\mathrm {M}_{\\\\odot} / \\\\mathrm {r}\\n$$\\nwhich is $\\approx 13^{\\\\prime \\\\prime}$ /century for Mercury's orbit.]",
+    "answer": "No. The photon moves in a straight line; there is no bending.",
+    "solution": "(c) No. For a photon $p\\\\beta \\\\mathrm{d}x^{\\\\beta} = 0$ so the path of a photon is governed by\\n$$\\n\\\\mathrm {d p}^{\\\\mu} = - \\\\mathrm {p}^{\\\\alpha} \\\\Phi_{, \\\\alpha} \\\\mathrm {d x}^{\\\\mu} = - \\\\mathrm {d x}^{\\\\alpha} \\\\Phi_{, \\\\alpha} \\\\mathrm {p}^{\\\\mu}.\\n$$\\nSince dp is proportional to p, the photon must move in a straight line; there is no bending.\\n[Note: Also in disagreement with observations, this theory predicts a regression of the perihelion of a planet's motion, of magnitude\\n$$\\n\\\\delta = 2 \\\\pi \\\\mathrm {M}_{\\\\odot}^{2} / \\\\mathrm {J}^{2}\\n$$\\nwhere $\\delta =$ shift per orbit, $\\mathbf{J} =$ angular momentum of planet per unit mass. For nearly circular orbits, this becomes\\n$$\\n\\\\delta = 2 \\\\pi \\\\mathrm {M}_{\\\\odot} / \\\\mathrm {r}\\n$$\\nwhich is $\\approx 13^{\\\\prime \\\\prime}$ /century for Mercury's orbit.]"
+  },
+  "verification": null
+}

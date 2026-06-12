@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "id": "1_s3_3.4",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "causal_type_classification",
+      "coordinate": "inertial_Cartesian_coords",
+      "scenario": "flat_spacetime_scenario",
+      "method": "constructive_example_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.4",
+    "source_id": "1_s3_3.4",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "构造性证明深入剖析洛伦兹度规符号差与因果锥结构，逻辑链条清晰覆盖全部分支情形且解答完整",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$\\eta_{\\mu\\nu}V^\\mu V^\\nu$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.4. Show that the sum of two vectors can be spacelike, null, or timelike, independently of whether the two vectors are spacelike, null, or timelike.## SolutionSolution 3.4. Take flat Minkowski space, so that $\\hat{\\mathbf{x}}, \\hat{\\mathbf{y}}, \\hat{\\mathbf{z}}$ are spacelike unit vectors; $\\hat{\\mathbf{t}}$ is a timelike unit vector; $\\hat{\\mathbf{t}} \\pm \\hat{\\mathbf{z}}, \\hat{\\mathbf{t}} \\pm \\hat{\\mathbf{y}}$ are null, etc. The following table gives examples in the order: spacelike sum, null sum, timelike sum.<table><tr><td>spacelike</td><td>null</td><td>timelike</td></tr><tr><td>x̂ + ŷ(x̂ + ε t) + (-x̂ + ε z)(x̂ + ε t) + (-x̂)</td><td>x̂ + (x̂ - t)(x̂ + t) + (-2x̂)(-x̂) + (x̂ - t)</td><td>x̂ + (ε t)x̂ + t(ε x̂) + t</td></tr><tr><td>null</td><td>(x̂ - t) + (x̂ + t)(x̂ + t) + (x̂ + t)(t - x̂) + (t + x̂)</td><td>(x̂ - t) + t(x̂ - t) + 2t(x̂ + t) + t</td></tr><tr><td>timelike</td><td>spacelike sum → null sum → timelike sum →</td><td>(t + ε x̂) + (-t)(t + ε x̂) + (-t + ε t)t + t</td></tr></table>Here $\\varepsilon$ represents any small constant, e.g. 0.1. Not all possibilities would be allowed if one required the timelike vectors to be “future directed.” i.e. $\\mathbf{u} \\cdot \\hat{\\mathbf{t}} < 0$ for timelike vectors $\\mathbf{u}$ . (The reader can work this out.)",
+    "answer": "已证：在平直闵氏时空中，通过选取标准正交基矢并引入适当的小扰动参数，可构造出满足题设所有因果类型（类空、类光、类时）相互独立组合的矢量加法实例。",
+    "solution": "Problem 3.4. Show that the sum of two vectors can be spacelike, null, or timelike, independently of whether the two vectors are spacelike, null, or timelike.## SolutionSolution 3.4. Take flat Minkowski space, so that $\\hat{\\mathbf{x}}, \\hat{\\mathbf{y}}, \\hat{\\mathbf{z}}$ are spacelike unit vectors; $\\hat{\\mathbf{t}}$ is a timelike unit vector; $\\hat{\\mathbf{t}} \\pm \\hat{\\mathbf{z}}, \\hat{\\mathbf{t}} \\pm \\hat{\\mathbf{y}}$ are null, etc. The following table gives examples in the order: spacelike sum, null sum, timelike sum.<table><tr><td>spacelike</td><td>null</td><td>timelike</td></tr><tr><td>x̂ + ŷ(x̂ + ε t) + (-x̂ + ε z)(x̂ + ε t) + (-x̂)</td><td>x̂ + (x̂ - t)(x̂ + t) + (-2x̂)(-x̂) + (x̂ - t)</td><td>x̂ + (ε t)x̂ + t(ε x̂) + t</td></tr><tr><td>null</td><td>(x̂ - t) + (x̂ + t)(x̂ + t) + (x̂ + t)(t - x̂) + (t + x̂)</td><td>(x̂ - t) + t(x̂ - t) + 2t(x̂ + t) + t</td></tr><tr><td>timelike</td><td>spacelike sum → null sum → timelike sum →</td><td>(t + ε x̂) + (-t)(t + ε x̂) + (-t + ε t)t + t</td></tr></table>Here $\\varepsilon$ represents any small constant, e.g. 0.1. Not all possibilities would be allowed if one required the timelike vectors to be “future directed.” i.e. $\\mathbf{u} \\cdot \\hat{\\mathbf{t}} < 0$ for timelike vectors $\\mathbf{u}$ . (The reader can work this out.)"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

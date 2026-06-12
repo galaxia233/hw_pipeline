@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s8_8.2",
+    "type": "concept",
+    "tags": {
+      "metric": "coordinate",
+      "target_object": "non_coordinate_basis",
+      "coordinate": "exact_form",
+      "scenario": "differential_forms",
+      "method": "polar_coordinates"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.2",
+    "source_id": "1_s8_8.2",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "通过外微分零条件判定非坐标基下的恰当形式，逻辑严密且可平移至任意标架场/联络框架分析",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$r$",
+      "$\\theta$"
+    ],
+    "target": [
+      "$f$",
+      "$g$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s8_8.2.md]Problem 8.2. The usual basis for polar coordinates, $\\mathbf{e}_{\\hat{\\mathbf{r}}} = \\mathbf{e}_{\\mathbf{r}}$ , $\\mathbf{e}_{\\hat{\\boldsymbol{\\theta}}} = r^{-1}\\mathbf{e}_{\\boldsymbol{\\theta}}$ is not a coordinate basis. Consider the one-form basis $\\tilde{\\pmb{\\omega}}^{\\hat{\\mathbf{i}}}$ dual to this basis$$< \\tilde {\\boldsymbol {\\omega}}^{\\hat {\\mathbf {i}}}, \\mathbf {e}_{\\hat {\\mathbf {j}}} > = \\delta_{\\mathbf {j}}^{\\mathbf {i}}.$$Find the function $f$ such that $\\tilde{\\omega}^{\\hat{\\mathbf{r}}} = \\widetilde{\\mathbf{df}}$ and prove that there does not exist a function $g$ such that $\\tilde{\\omega}^{\\hat{\\boldsymbol{\\theta}}} = \\widetilde{\\mathbf{dg}}$ . Do this without imposing any metric on the polar coordinates.",
+    "answer": "$f = r$；不存在满足 $\\tilde{\\omega}^{\\hat{\\boldsymbol{\\theta}}} = \\widetilde{\\mathbf{dg}}$ 的函数 $g$",
+    "solution": "Solution 8.2. It is easy to see that $\\mathbf{f}$ is just the coordinate $\\mathbf{r}$ , that is $\\widetilde{\\mathrm{df}} = \\widetilde{\\mathrm{dr}}$ , since$$\\begin{array}{l}< \\widetilde {\\mathrm {d r}}, \\mathbf {e}_{\\hat {\\mathbf {r}}} > = < \\widetilde {\\mathrm {d r}}, \\mathbf {e}_{\\mathbf {r}}> = 1 \\\\< \\widetilde {\\mathrm {d r}}, \\mathbf {e}_{\\widehat {\\theta}} > = \\mathrm {r}^{- 1} < \\widetilde {\\mathrm {d r}}, \\mathbf {e}_{\\theta}> = 0. \\\\\\end{array}$$Now suppose there exists a g such that $\\widetilde{\\mathrm{dg}} = \\tilde{\\omega}^{\\hat{\\theta}}$ then$$\\begin{array}{l}0 = \\langle \\widetilde {\\mathrm {d g}}, \\mathbf {e}_{\\hat {\\mathbf {r}}} \\rangle = \\langle \\widetilde {\\mathrm {d g}}, \\mathbf {e}_{\\mathbf {r}} \\rangle = \\partial \\mathbf {g} / \\partial \\mathbf {r} \\\\1 = < \\widetilde {\\mathrm {d g}}, \\mathrm {e}_{\\hat{\\theta}} > = \\mathrm {r}^{- 1} < \\widetilde {\\mathrm {d g}}, \\mathrm {e}_{\\theta}> = \\mathrm {r}^{- 1} \\partial \\mathrm {g} / \\partial \\theta . \\\\\\end{array}$$Clearly the conditions $\\partial \\mathbf{g} / \\partial \\mathbf{r} = 0$ and $\\partial \\mathbf{g} / \\partial \\theta = \\mathbf{r}$ are incompatible."
+  },
+  "verification": null
+}

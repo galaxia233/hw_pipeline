@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "peculiar velocity",
+      "coordinate": "comoving",
+      "scenario": "cosmology",
+      "method": "Killing conservation",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$v_{\\perp} \\propto 1/a(t)$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Friedmann-Lemaître-Robertson-Walker (FLRW) 宇宙中，时空度规为：$$ ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2}dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2 $$其中 $a(t)$ 为标度因子，$k$ 为曲率参数。该度规具有绕 $\\phi$ 轴的旋转 Killing 矢量 $\\boldsymbol{\\xi}_{(\\phi)}$，其分量为 $\\xi^\\mu = (0, 0, 0, 1)$。已知 Killing 矢量与测地线切矢量 $\\mathbf{u} = (\\dot{t}, \\dot{r}, \\dot{\\theta}, \\dot{\\phi})$ 的内积 $\\boldsymbol{\\xi} \\cdot \\mathbf{u}$ 沿测地线守恒。考虑一个在赤道面 $\\theta = \\pi/2$ 上沿类时测地线运动的有质量自由粒子（满足 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$），定义其物理横向速度为 $v_{\\perp} \\equiv \\frac{a(t) r \\dot{\\phi}}{\\dot{t}}$。请利用 Killing 矢量守恒量和类时测地线条件，推导 $v_{\\perp}$ 与标度因子 $a(t)$ 的精确关系，并证明在低速极限（$v_{\\perp} \\ll 1$）且粒子共动径向坐标 $r$ 近似不变的情况下，自由粒子的物理横向速度衰减规律为 $v_{\\perp} \\propto 1/a(t)$。",
+    "answer": "$v_{\\perp} \\propto 1/a(t)$",
+    "solution": "1. 利用 Killing 矢量与测地线切矢量的内积守恒性质，计算角动量守恒量 $L$：$$ L = \\boldsymbol{\\xi}_{(\\phi)} \\cdot \\mathbf{u} = g_{\\phi\\phi} \\dot{\\phi} = r^2 a^2(t) \\sin^2\\theta \\dot{\\phi} $$在赤道面 $\\theta = \\pi/2$ 处，$\\sin\\theta = 1$，因此守恒量简化为 $L = r^2 a^2(t) \\dot{\\phi}$。2. 从守恒量中解出坐标角速度 $\\dot{\\phi}$：$$ \\dot{\\phi} = \\frac{L}{r^2 a^2(t)} $$3. 将 $\\dot{\\phi}$ 代入物理横向速度的定义式：$$ v_{\\perp} = \\frac{a(t) r \\dot{\\phi}}{\\dot{t}} = \\frac{a(t) r}{\\dot{t}} \\left( \\frac{L}{r^2 a^2(t)}\\right) = \\frac{L}{r a(t) \\dot{t}} $$4. 利用类时测地线条件 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$ 确定时间分量 $\\dot{t}$。在 $\\theta = \\pi/2$ 平面上，横向运动对应的度规项为 $a^2 r^2 \\dot{\\phi}^2$。考虑粒子在此平面上的运动，有：$$ -1 = -\\dot{t}^2 + \\frac{a^2}{1-kr^2} \\dot{r}^2 + r^2 a^2 \\dot{\\phi}^2 $$注意到 $r^2 a^2 \\dot{\\phi}^2 = v_{\\perp}^2 \\dot{t}^2$，代入上式并提取与横向速度相关的项：$$ -1 = -\\dot{t}^2 + v_{\\perp}^2 \\dot{t}^2 + \\frac{a^2}{1-kr^2} \\dot{r}^2 $$若仅考察横向速度的演化（或作为横向分量的定义），我们有关系 $\\dot{t}^2 (1 - v_{\\perp}^2) = 1 + \\frac{a^2}{1-kr^2} \\dot{r}^2$。在粒子径向 peculiar velocity 较小或忽略径向动力学改变时，可近似为 $\\dot{t}^2 (1 - v_{\\perp}^2) \\approx 1$，从而得到时间分量的表达式：$$ \\dot{t} = \\frac{1}{\\sqrt{1 - v_{\\perp}^2}} $$5. 将 $\\dot{t}$ 代入步骤 3 中的 $v_{\\perp}$ 表达式：$$ v_{\\perp} = \\frac{L}{r a(t)} \\sqrt{1 - v_{\\perp}^2} $$6. 取低速极限 $v_{\\perp} \\ll 1$，此时 $\\sqrt{1 - v_{\\perp}^2} \\approx 1$，且假设粒子由于宇宙膨胀其共动坐标 $r$ 近似保持不变（或变化缓慢），则关系式近似为：$$ v_{\\perp} \\approx \\frac{L}{r a(t)} $$由于 $L$ 是由初始条件决定的常数，$r$ 近似为常数，因此物理横向速度与标度因子成反比：$$ v_{\\perp} \\propto \\frac{1}{a(t)} $$这证明了在膨胀宇宙中，自由粒子的横向 peculiar 速度会随宇宙膨胀而衰减。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "1. 术语表述错误：题目中称“绕 $\\phi$ 轴的旋转 Killing 矢量”，在物理学中，旋转是绕空间笛卡尔坐标轴（如 $z$ 轴/极轴）进行的，$\\phi$ 是方位角坐标而非空间轴。正确的表述应为“绕极轴（$z$轴）的旋转 Killing 矢量”或“对应于方位角的旋转 Killing 矢量”。2. Solution 推导逻辑跳跃与遗漏：题目明确要求“推导 $v_{\\perp}$ 与标度因子 $a(t)$ 的**精确关系**，**并证明**在低速极限……的情况下”，这意味着必须先给出包含所有速度分量的完整精确关系，再取近似。但 Solution 在第4步推导所谓的“精确关系”时，就提前引入了“忽略径向动力学改变”的近似假设（即假设 $\\dot{r}=0$），导致给出的隐式方程 $v_{\\perp} = \\frac{L}{r a(t)} \\sqrt{1-v_{\\perp}^2}$ 实际上已经是一个近似关系，而非题目要求的精确关系。真正的精确关系应保留径向物理速度项 $v_r$，形式为 $v_{\\perp} = \\frac{L}{r a(t)} \\sqrt{1 - v_{\\perp}^2 - v_r^2}$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "metric_coord_independence",
+      "coordinate": "general",
+      "scenario": "spacetime_symmetry",
+      "method": "lie_bracket_frobenius",
+      "generalization_axis": "invert",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "killing_vector",
+    "soft_variant": "invert",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$\\partial_t g_{\\mu\\nu} = 0, \\partial_\\phi g_{\\mu\\nu} = 0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，时空的对称性由 Killing 矢量场描述。已知某 4 维时空具有两个独立的 Killing 矢量场 $\\boldsymbol{\\xi}$ 和 $\\boldsymbol{\\eta}$，且它们处处对易，即李括号 $[\\boldsymbol{\\xi}, \\boldsymbol{\\eta}] = 0$。请从这一对易性质出发，推断该时空度规的一个重要几何特征：证明必定存在一个局部坐标系 $(t, \\phi, x^2, x^3)$，使得这两个 Killing 矢量恰好对应于坐标基矢量 $\\boldsymbol{\\xi} = \\partial_t$ 和 $\\boldsymbol{\\eta} = \\partial_\\phi$，并由此推断度规分量 $g_{\\mu\\nu}$ 必定不依赖于坐标 $t$ 和 $\\phi$。",
+    "answer": "由对易的独立矢量场可构造局部坐标系使得它们成为坐标基矢量；Killing 矢量作为坐标基矢量意味着沿该坐标的平移为等距变换，因此度规分量不依赖于这两个坐标。",
+    "solution": "1. 由于 $\\boldsymbol{\\xi}$ 和 $\\boldsymbol{\\eta}$ 是独立的矢量场且处处对易 $[\\boldsymbol{\\xi}, \\boldsymbol{\\eta}] = 0$，根据微分几何中的 Frobenius 定理（或对易矢量场的坐标系化定理），必定存在一个局部坐标系 $(t, \\phi, x^2, x^3)$，使得这两个矢量场分别对应于坐标基矢量，即 $\\boldsymbol{\\xi} = \\frac{\\partial}{\\partial t}$ 和 $\\boldsymbol{\\eta} = \\frac{\\partial}{\\partial \\phi}$。\\n2. Killing 矢量场的定义是生成等距变换（Isometry）的矢量场。等距变换意味着在变换下时空度规的形式保持不变。\\n3. 当 $\\boldsymbol{\\xi} = \\frac{\\partial}{\\partial t}$ 时，它生成的流映射即为沿时间坐标 $t$ 的平移变换 $t \\to t + \\Delta t$。既然它是 Killing 矢量，该平移变换必须是等距变换。度规在此平移下不变，意味着度规的所有分量 $g_{\\mu\\nu}$ 不能显含坐标 $t$，即 $\\frac{\\partial g_{\\mu\\nu}}{\\partial t} = 0$。\\n4. 同理，当 $\\boldsymbol{\\eta} = \\frac{\\partial}{\\partial \\phi}$ 时，它生成的流映射为沿坐标 $\\phi$ 的旋转（或平移）变换 $\\phi \\to \\phi + \\Delta\\phi$。该变换为等距变换，意味着度规分量不能显含坐标 $\\phi$，即 $\\frac{\\partial g_{\\mu\\nu}}{\\partial \\phi} = 0$。\\n5. 因此，推断出该时空度规的几何特征为：在坐标系 $(t, \\phi, x^2, x^3)$ 下，度规分量 $g_{\\mu\\nu}$ 仅依赖于空间坐标 $x^2$ 和 $x^3$，而与 $t$ 和 $\\phi$ 无关。这正是稳态且轴对称时空度规的特征。"
+  },
+  "verification": null
+}

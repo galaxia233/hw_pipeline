@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "energy-momentum_constraint",
+      "coordinate": "t_x_y_z",
+      "scenario": "cosmology",
+      "method": "limit_analysis",
+      "generalization_axis": "limit",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$E^2 = 1 + p_x^2 + p_y^2 + p_z^2$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑具有度规 $ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}}(dx^2 + dy^2 + dz^2)$ 的时空，其中 $\\alpha$ 为表征曲率的常数参数。该度规具有时间平移 Killing 矢量 $\\boldsymbol{\\xi}_{(t)} = (1,0,0,0)$ 以及 $y$ 和 $z$ 方向的空间平移 Killing 矢量 $\\boldsymbol{\\xi}_{(y)} = (0,0,1,0)$ 和 $\\boldsymbol{\\xi}_{(z)} = (0,0,0,1)$。对于静质量 $\\mu=1$ 的类时测试粒子，其4-速度为 $u^\\mu$，定义守恒能量 $E = -g_{\\mu\\nu} \\xi_{(t)}^\\mu u^\\nu$，守恒动量 $p_y = g_{\\mu\\nu} \\xi_{(y)}^\\mu u^\\nu$，$p_z = g_{\\mu\\nu} \\xi_{(z)}^\\mu u^\\nu$，以及 $x$ 方向的动量分量 $p_x = g_{xx} u^x$。请利用类时粒子的4-速度归一化条件，推导出该弯曲时空中能量 $E$ 与动量 $p_x, p_y, p_z$ 的约束方程，并证明在参数 $\\alpha \\to \\inf ty$（对应于曲率消失的平直时空极限）下，此约束方程还原为狭义相对论中自由粒子的质壳条件 $E^2 = 1 + p_x^2 + p_y^2 + p_z^2$。",
+    "answer": "在 $\\alpha \\to \\inf ty$ 极限下，弯曲时空的质壳条件还原为狭义相对论形式 $E^2 = 1 + p_x^2 + p_y^2 + p_z^2$",
+    "solution": "1. 写出类时粒子的4-速度归一化条件并代入度规分量：\\n$g_{\\mu\\nu} u^\\mu u^\\nu = -1$ \\n$- (u^t)^2 + e^{\\frac{2x}{\\alpha}} (u^x)^2 + e^{\\frac{2x}{\\alpha}} (u^y)^2 + e^{\\frac{2x}{\\alpha}} (u^z)^2 = -1$ \\n\\n2. 利用 Killing 矢量计算各守恒量与4-速度分量的关系：\\n$E = -g_{tt} u^t = u^t$ （因为 $g_{tt} = -1$）\\n$p_x = g_{xx} u^x = e^{\\frac{2x}{\\alpha}} u^x$ \\n$p_y = g_{yy} u^y = e^{\\frac{2x}{\\alpha}} u^y$ \\n$p_z = g_{zz} u^z = e^{\\frac{2x}{\\alpha}} u^z$ \\n\\n3. 将4-速度分量用守恒量表示并代入归一化条件：\\n$u^t = E$ \\n$u^x = p_x e^{-\\frac{2x}{\\alpha}}$ \\n$u^y = p_y e^{-\\frac{2x}{\\alpha}}$ \\n$u^z = p_z e^{-\\frac{2x}{\\alpha}}$ \\n\\n代入得：\\n$-E^2 + e^{\\frac{2x}{\\alpha}} \\left( p_x^2 e^{-\\frac{4x}{\\alpha}} + p_y^2 e^{-\\frac{4x}{\\alpha}} + p_z^2 e^{-\\frac{4x}{\\alpha}}\\right) = -1$ \\n\\n4. 整理得到弯曲时空中的能量-动量约束方程：\\n$-E^2 + e^{-\\frac{2x}{\\alpha}} (p_x^2 + p_y^2 + p_z^2) = -1$ \\n即 $E^2 = 1 + e^{-\\frac{2x}{\\alpha}} (p_x^2 + p_y^2 + p_z^2)$ \\n\\n5. 取 $\\alpha \\to \\inf ty$ 的物理极限：\\n当 $\\alpha \\to \\inf ty$ 时，度规的空间指数因子趋于1，$e^{-\\frac{2x}{\\alpha}} \\to 1$。\\n代入约束方程得：\\n$E^2 = 1 + p_x^2 + p_y^2 + p_z^2$ \\n这正是静质量 $\\mu=1$ 的粒子在狭义相对论平直时空中的质壳条件，验证了守恒量定义与时空几何在平直极限下的一致性。"
+  },
+  "verification": null
+}

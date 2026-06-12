@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "id": "1_s15_15.14_b-0-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "Kretschmann_scalar",
+      "coordinate": "spherical",
+      "scenario": "Schwarzschild_vs_RN_singularity",
+      "method": "limit_analysis",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.14_b",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.14_b",
+      "1_s15_15.14_b-0",
+      "1_s15_15.14_b-0-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "Kretschmann_scalar",
+      "coordinate_singularity",
+      "curvature_singularity",
+      "divergence_order"
+    ],
+    "metric": [
+      [
+        "$-(1-2M/r)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2M/r)^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\\\sin^2 \\\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，Schwarzschild 时空与 Reissner-Nordström 时空分别描述了无电荷与带电荷的静态球对称黑洞。根据 Fact Sheet，这两种时空均具有时间平移 Killing 矢量 $\\partial_t$ 和绕 $\\phi$ 轴旋转 Killing 矢量 $\\partial_\\phi$，分别对应能量守恒和角动量守恒。背景一：Schwarzschild 时空，度规为$$ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$$（其中 $r_s = 2M$），已知其刻画时空内在曲率强度的 Kretschmann 标量为 $K_{Sch} = \\frac{48 M^2}{r^6}$。背景二：Reissner-Nordström 时空，度规为$$ds^2 = -\\left(1 - \\frac{2M}{r} + \\frac{Q^2}{r^2}\\right) dt^2 + \\left(1 - \\frac{2M}{r} + \\frac{Q^2}{r^2}\\right)^{-1} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$$已知其 Kretschmann 标量为 $K_{RN} = \\frac{8(6M^2 r^2 - 12 M Q^2 r + 7Q^4)}{r^8}$。请分别利用这两个 Kretschmann 标量，判定两者在视界和中心 $r=0$ 处的奇点性质，对比两者在 $r=0$ 处曲率发散行为的幂次差异，并解释引入电荷 $Q$ 使得中心奇点曲率发散更剧烈的物理原因。",
+    "answer": "在视界处（Schwarzschild 的 $r=r_s$ 和 RN 的 $r=r_{\\pm}$），两者的 Kretschmann 标量均为有限值，故视界均为坐标奇点；在中心 $r=0$ 处，两者的 Kretschmann 标量均发散，故均为物理曲率奇点。对比差异：Schwarzschild 在 $r \\to 0$ 处 $K_{Sch} \\propto r^{-6}$ 发散；而 RN 在 $Q \\neq 0$ 时，$K_{RN} \\propto r^{-8}$ 发散（主导项为 $56 Q^4 / r^8$），发散幂次更高，曲率发散更剧烈。物理含义：电荷 $Q$ 引入了电磁场，其能量密度在 $r \\to 0$ 时以 $\\sim Q^2/r^4$ 发散，通过爱因斯坦方程对时空曲率产生贡献。电磁场能量密度的发散比质量项更剧烈，导致带电黑洞中心奇点的曲率发散阶数从 $r^{-6}$ 升至 $r^{-8}$。",
+    "solution": "1. 视界奇点判定：将视界半径代入 Kretschmann 标量，Schwarzschild 视界 $r=2M$ 处 $K_{Sch} = 3/(2M^4)$ 为有限值；RN 视界 $r_{\\pm} = M \\pm \\sqrt{M^2-Q^2}$ 处 $K_{RN}$ 同样为有限值。有限的不变量表明视界是坐标选择引起的坐标奇点。2. 中心奇点判定：当 $r \\to 0$ 时，Schwarzschild 的 $K_{Sch} \\propto r^{-6} \\to \\inf ty$；RN 的 $K_{RN}$ 主导项为 $56Q^4/r^8 \\to \\inf ty$。不变量发散表明中心是不可消除的物理曲率奇点。3. 发散幂次对比：Schwarzschild 为 $r^{-6}$ 发散，RN 为 $r^{-8}$ 发散。4. 物理原因：RN 时空包含了电磁场源，其电磁场能量密度 $\\rho_E \\sim Q^2/r^4$ 在 $r \\to 0$ 时的发散比纯质量引力场的效应更强，使得曲率不变量的发散阶数升高。"
+  },
+  "verification": null
+}

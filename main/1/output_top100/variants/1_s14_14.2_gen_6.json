@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s14_14.2-6",
+    "type": "calculate",
+    "tags": {
+      "target_object": "local_energy_density",
+      "coordinate": "spherical",
+      "scenario": "RN_black_hole_static_observer",
+      "method": "Einstein_equation_projection",
+      "generalization_axis": "extend",
+      "metric": "ReissnerNordstrom"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.2",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.2",
+      "1_s14_14.2-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "ReissnerNordstrom",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\rho_{loc}$"
+    ],
+    "metric": [
+      [
+        "-Q**2/(4*pi*r**2*eps_0) + 1 - r_s/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "4*pi*r**2*eps_0/(Q**2 + 4*pi*r**2*eps_0 - 4*pi*r*r_s*eps_0)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，静态系统的热平衡条件为 $T_{loc} \\sqrt{-g_{00}} = \\text{常数}$，即局部温度 $T_{loc} = T_\\inf ty / \\sqrt{-g_{00}}$，此条件仅由度规的时间分量决定。对于带有电荷的 Reissner-Nordstrom 黑洞，其时空不仅具有非平凡的度规，还因电磁场源而具有非零的 Ricci 曲率。该度规为 $ds^2 = -f(r) dt^2 + f(r)^{-1} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $f(r) = 1 - \\frac{r_s}{r} + \\frac{Q^2}{r^2}$（采用几何单位制）。已知该时空的 Ricci 标量 $R = 0$，且 Ricci 张量的时间分量为 $R_{00} = \\frac{Q^2}{r^4}$。请利用 Einstein 场方程以及四维速度投影，计算在此 RN 黑洞外部处于静止状态的观测者所测量到的时空源电磁场的局部能量密度 $\\rho_{loc}$。",
+    "answer": "$\\frac{Q^2}{8\\pi r^4 f(r)}$",
+    "solution": "1. 根据 Einstein 场方程 $R_{\\mu\\nu} - \\frac{1}{2} R g_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$，由于 RN 时空的 Ricci 标量 $R = 0$，场方程简化为 $R_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$。2. 已知 $R_{00} = \\frac{Q^2}{r^4}$，代入得能动张量的时间分量 $T_{00} = \\frac{R_{00}}{8\\pi} = \\frac{Q^2}{8\\pi r^4}$。3. 静止观测者的四维速度满足类时条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$。由于仅有时间分量非零，可得 $u^0 = \\frac{1}{\\sqrt{-g_{00}}} = \\frac{1}{\\sqrt{f(r)}}$，即 $u^\\mu = \\left( \\frac{1}{\\sqrt{f(r)}}, 0, 0, 0\\right)$。4. 局部观测者测量到的能量密度定义为能动张量在观测者四维速度上的投影：$\\rho_{loc} = T_{\\mu\\nu} u^\\mu u^\\nu$。5. 代入计算：$\\rho_{loc} = T_{00} (u^0)^2 = \\frac{Q^2}{8\\pi r^4} \\left( \\frac{1}{\\sqrt{f(r)}}\\right)^2 = \\frac{Q^2}{8\\pi r^4 f(r)}$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.reissnernordstrom_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目存在多处严重错误：1. 题干中给出的 Ricci 张量时间分量 $R_{00} = \\frac{Q^2}{r^4}$ 是错误的。在 RN 度规下，真实的协变分量 $R_{00} = \\frac{Q^2 f(r)}{r^4}$，而混合分量 $R^0_0 = -\\frac{Q^2}{r^4}$。题干不仅混淆了上下指标，且正负号也反了。2. 由于使用了错误的 $R_{00}$，solution 推导出的 $T_{00} = \\frac{Q^2}{8\\pi r^4}$ 也是错误的，正确的应为 $T_{00} = \\frac{Q^2 f(r)}{8\\pi r^4}$。3. 最终答案 $\rho_{loc} = \\frac{Q^2}{8\\pi r^4 f(r)}$ 是错误的。局部能量密度应为 $\\rho_{loc} = T_{00} (u^0)^2 = \\frac{Q^2 f(r)}{8\\pi r^4} \\cdot \\frac{1}{f(r)} = \\frac{Q^2}{8\\pi r^4}$，即局部电场能量密度，不应包含度规函数因子 $1/f(r)$。4. 题干中存在明显的拼写错误：$T_\\inf ty$ 应为 $T_\\infty$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

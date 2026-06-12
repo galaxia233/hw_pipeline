@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "id": "1_s16_16.23",
+    "type": "prove",
+    "tags": {
+      "metric": "komar_mass",
+      "target_object": "komar_angular_momentum",
+      "coordinate": "killing_vector",
+      "scenario": "stress_energy_tensor",
+      "method": "stationary_axisymmetric"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.23",
+    "source_id": "1_s16_16.23",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.23"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于Killing矢量守恒流导出Komar积分，结合爱因斯坦场方程与广义Stokes定理进行渐进展开证明，逻辑链条完整且具明确天体物理背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\mathsf{M}$",
+      "$\\mathrm{J}$",
+      "$T^\\mu_\\nu$",
+      "$\\xi^\\mu_{(t)}$",
+      "$\\xi^\\mu_{(\\phi)}$"
+    ],
+    "target": [
+      "$\\mathsf{M}$",
+      "$\\mathrm{J}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.23. Consider a stationary, axisymmetric star. There are two Killing vectors, $\\pmb{\\xi}_{(t)}$ and $\\pmb{\\xi}_{(\\phi)}$ . Show that$$\\mathsf {M} = - \\int (2 \\mathrm {T}_{\\nu}^{\\mu} - \\delta_{\\nu}^{\\mu} \\mathrm {T}) \\boldsymbol {\\xi}_{\\mathrm {(t)}}^{\\nu} \\mathrm {d}^{3} \\Sigma_{\\mu}$$is the mass of the star as measured from infinity. Here $\\mathrm {d}^3\\Sigma_\\mu$ is the volume element of the star at some instant of time $t$ (the time coordinate $t$ is chosen such that $\\xi_{(t)} = \\partial/\\partial t$ ). Similarly, show that$$\\mathrm {J} = \\int \\mathrm {T}_{\\nu}^{\\mu} \\xi_{(\\phi)}^{\\nu} \\mathrm {d}^{3} \\Sigma_{\\mu}$$is the angular momentum as measured from infinity.",
+    "answer": "\\mathsf{M} = M, \\quad \\mathrm{J} = J",
+    "solution": "$$\\mathrm {d s}^{2} = - \\left(1 - \\frac {2 \\mathrm {M}}{\\mathrm {r}}\\right) \\mathrm {d t}^{2} - \\frac {4 \\mathrm {J} \\sin^{2} \\theta}{\\mathrm {r}} \\mathrm {d t} \\mathrm {d} \\phi + \\left(1 + \\frac {2 \\mathrm {M}}{\\mathrm {r}}\\right) \\left(\\mathrm {d r}^{2} + \\mathrm {r}^{2} \\mathrm {d} \\theta^{2} + \\mathrm {r}^{2} \\sin^{2} \\theta \\mathrm {d} \\phi^{2}\\right).$$Since the only nonzero component of $\\pmb{\\xi}_{(t)}$ is $\\pmb{\\xi}^{\\mathrm{t}} = 1$$$\\begin{array}{l} \\xi^{t; r} \\approx \\xi_{r}^{t} \\\\ = \\xi_{, r}^{t} + \\Gamma_{a r}^{t} \\xi^{\\alpha} = 0 + \\Gamma_{t r}^{t} \\\\ \\approx - \\frac {1}{2} g_{t t, r} = M / r^{2}. \\\\ \\end{array}$$For the mass integral then$$I = (8 \\pi)^{- 1} \\int \\frac {2 M}{r^{2}} r^{2} \\sin \\theta d \\theta d \\phi = M$$as required. Similarly, we have$$\\begin{array}{l} S = \\int T_{\\nu}^{\\mu} \\xi_{(\\phi)}^{\\nu} d^{3} \\Sigma_{\\mu} \\\\ = (8 \\pi)^{- 1} \\int \\mathrm {R}_{\\nu}^{\\mu} \\xi_{(\\phi)}^{\\nu} \\mathrm {d}^{3} \\Sigma_{\\mu} - (1 6 \\pi)^{- 1} \\int \\mathrm {R} \\xi_{(\\phi)}^{\\mu} \\mathrm {d}^{3} \\Sigma_{\\mu}. \\\\ \\end{array}$$Since $\\mathrm {d}^3 \\Sigma_{\\phi} = 0$ the second term vanishes and$$\\begin{array}{l} S = - (8 \\pi)^{- 1} \\int \\xi^{\\mu ; \\nu}_{; \\nu} d^{3} \\Sigma_{\\mu} - 0 = - (1 6 \\pi)^{- 1} \\int \\xi^{\\mu ; \\nu} d^{2} \\Sigma_{\\mu \\nu} \\\\ = - (1 6 \\pi)^{- 1} \\oint 2 \\xi^{t; r} r^{2} \\sin \\theta d \\theta d \\phi . \\\\ \\end{array}$$But$$\\begin{array}{l} \\xi^{t; r} \\approx \\xi_{, r}^{t} + \\Gamma_{a r}^{t} \\xi^{a} = 0 + \\Gamma_{\\phi_r}^{t} \\\\ = \\mathbf {g}^{\\mathrm {tt}} \\Gamma_{\\mathbf {t} \\phi \\mathbf {r}} + \\mathbf {g}^{\\mathrm {t} \\phi} \\Gamma_{\\phi \\phi \\mathbf {r}} \\\\ \\approx - \\frac {1}{2} \\mathrm {g}_{\\mathrm {t}\\phi , r} + \\left(\\frac {- 2 \\mathrm {J}}{\\mathrm {r}^{3}}\\right) \\frac {1}{2} \\mathrm {g}_{\\phi \\phi , r} \\\\ = - 3 J \\sin^{2} \\theta / r^{2}, \\\\ \\end{array}$$and thus$$S = (1 6 \\pi)^{- 1} \\int 6 J \\sin^{3} \\theta d \\theta d \\phi = J.$$"
+  },
+  "verification": null
+}

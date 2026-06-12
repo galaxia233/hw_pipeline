@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "id": "1_s7_7.3_a",
+    "type": "prove",
+    "tags": {
+      "metric": "planar_metric",
+      "target_object": "geodesic_equation",
+      "coordinate": "polar_coordinate_system",
+      "scenario": "planar_kinematics",
+      "method": "conservation_laws"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.3_a",
+    "source_id": "1_s7_7.3_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.3_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.5,
+      "rationale": "基于极坐标平面度规推导测地线方程并验证角动量与归一化弧长守恒积分，逻辑链条完整且可无缝迁移至任意旋转对称曲面或径向子流形",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$r$",
+      "$\\theta$"
+    ],
+    "target": [
+      "$\\Gamma^{r}_{\\theta\\theta}$",
+      "$\\Gamma^{\\theta}_{r\\theta}$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$r^2$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "r**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 7.3. Consider the familiar metric space$$\\mathrm {d s}^{2} = \\mathrm {d r}^{2} + \\mathrm {r}^{2} \\mathrm {d} \\theta^{2}.$$(a) Write the 2 equations that result from the geodesic equation, and show that the following are first integrals of these equations:$$r^{2} \\frac {d \\theta}{d s} = R_{0} = c o n s t a n t$$$$\\left(\\frac {\\mathrm {d} \\mathbf {r}}{\\mathrm {d} s}\\right)^{2} + \\mathrm {r}^{2} \\left(\\frac {\\mathrm {d} \\theta}{\\mathrm {d} s}\\right)^{2} = 1.$$",
+    "answer": "$$r^2 \\frac{d\\theta}{ds} = R_0 = \\text{constant}$$$$(\\frac{dr}{ds})^2 + r^2 (\\frac{d\\theta}{ds})^2 = 1$$",
+    "solution": null
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 2,
+    "variables": [
+      "r",
+      "\\theta"
+    ],
+    "metric_latex": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "r^{2}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_011": "- r",
+      "Gamma_101": "\\frac{1}{r}",
+      "Gamma_110": "\\frac{1}{r}"
+    },
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

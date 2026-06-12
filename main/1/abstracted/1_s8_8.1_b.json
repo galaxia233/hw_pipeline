@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s8_8.1_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "index_manipulation",
+      "coordinate": "differential_form",
+      "scenario": "coordinate_basis"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.1_b",
+    "source_id": "1_s8_8.1_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.1_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "基于度规张量进行指标提升运算，逻辑链条完整清晰且极易推广至任意分量或基底；但属纯微分几何抽象形式，缺乏具体天体物理或实验观测场景。",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^1$",
+      "$g^{1a}$",
+      "$v^\\\\mu$",
+      "$e_\\\\alpha$",
+      "$\\\\delta_\\\\mu^1$"
+    ],
+    "target": [
+      "$\\\\mathbf{g}^{1a}\\\\mathbf{e}_a$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "(b) To what vector does the one-form $\\widetilde{\\mathbf{dx}}^1$ correspond?",
+    "answer": "$\\\\mathbf{g}^{1a}\\\\mathbf{e}_a$",
+    "solution": "(b) The vector $\\mathbf{g}^{1a}\\\\partial/\\\\partial\\\\mathbf{x}^a \\\\equiv \\mathbf{g}^{1a}\\\\mathbf{e}_a$ corresponds to $\\widetilde{\\mathrm{d}}\\mathbf{x}^1$ since, for any vector $\\mathbf{v}$\\n$$\\n\\\\mathbf {v} \\\\cdot \\\\mathbf {g}^{1 \\\\alpha} \\\\mathbf {e}_{\\\\alpha} = \\\\mathbf {v}^{\\\\mu} \\\\mathbf {e}_{\\\\mu} \\\\cdot \\\\mathbf {g}^{1 \\\\alpha} \\\\mathbf {e}_{\\\\alpha} = \\\\mathbf {v}^{\\\\mu} \\\\mathbf {g}_{\\\\mu \\\\alpha} \\\\mathbf {g}^{1 \\\\alpha} = \\\\mathbf {v}^{\\\\mu} \\\\delta_{\\\\mu}^{1} = \\\\mathbf {v}^{1} = < \\\\widetilde {\\\\mathbf {d x}}^{1}, \\\\mathbf {v} >.$$"
+  },
+  "verification": null
+}

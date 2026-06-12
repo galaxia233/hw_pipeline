@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s7_7.2_a",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "coordinate",
+      "coordinate": "scenario",
+      "scenario": "method",
+      "method": "target_object"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.2_a",
+    "source_id": "1_s7_7.2_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.2_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "通过测地线方程反推联络需多步系数对比，结构可平移至任意曲面坐标，属经典基础练习",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$r$",
+      "$\\theta$"
+    ],
+    "target": [
+      "$\\Gamma^{r}_{\\theta \\theta}$",
+      "$\\Gamma^{\\theta}_{r \\theta}$",
+      "$\\Gamma^{\\theta}_{\\theta r}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.2. For a 2-dimensional flat, Euclidean space described by polar coordinates $\\mathbf{r}$ , $\\theta$ , assume that the geodesics are the usual straight lines.(a) Find the connection coefficients $\\Gamma_{\\beta \\gamma}^{\\alpha}$ , using your knowledge of these geodesics, and the geodesic equation$$\\frac {\\mathrm {d}^{2} \\mathbf {x}^{\\mu}}{\\mathrm {d s}^{2}} + \\frac {\\mathrm {d} \\mathbf {x}^{\\alpha}}{\\mathrm {d s}} \\frac {\\mathrm {d} \\mathbf {x}^{\\beta}}{\\mathrm {d s}} \\Gamma_{\\alpha \\beta}^{\\mu} = 0 .$$",
+    "answer": "$\\Gamma^{r}_{\\theta \\theta} = -r$, $\\Gamma^{\\theta}_{r \\theta} = \\Gamma^{\\theta}_{\\theta r} = 1/r$",
+    "solution": "在二维极坐标系中，已知测地线为直线。其运动方程可由直角坐标变换或直接利用几何性质写出：径向方程：$\\ddot{r} - r \\dot{\\theta}^2 = 0$角向方程：$\\ddot{\\theta} + \\frac{2}{r} \\dot{r} \\dot{\\theta} = 0$其中点号表示对仿射参数 $s$ 求导。将上述方程与广义相对论中的测地线方程 $\\ddot{x}^{\\mu} + \\Gamma^{\\mu}_{\\alpha \\beta} \\dot{x}^{\\alpha} \\dot{x}^{\\beta} = 0$ 进行逐项对比。对于 $\\mu=r$ 的分量：$\\ddot{r} + \\Gamma^{r}_{\\alpha \\beta} \\dot{x}^{\\alpha} \\dot{x}^{\\beta} = 0$。对比已知方程 $\\ddot{r} - r \\dot{\\theta}^2 = 0$，可得唯一非零项对应关系：$\\Gamma^{r}_{\\theta \\theta} \\dot{\\theta} \\dot{\\theta} = -r \\dot{\\theta}^2$，故 $\\Gamma^{r}_{\\theta \\theta} = -r$。对于 $\\mu=\\theta$ 的分量：$\\ddot{\\theta} + \\Gamma^{\\theta}_{\\alpha \\beta} \\dot{x}^{\\alpha} \\dot{x}^{\\beta} = 0$。对比已知方程 $\\ddot{\\theta} + \\frac{2}{r} \\dot{r} \\dot{\\theta} = 0$。由于联络对称性 $\\Gamma^{\\theta}_{r \\theta} = \\Gamma^{\\theta}_{\\theta r}$，展开交叉项得 $2\\Gamma^{\\theta}_{r \\theta} \\dot{r} \\dot{\\theta} = \\frac{2}{r} \\dot{r} \\dot{\\theta}$，故 $\\Gamma^{\\theta}_{r \\theta} = \\Gamma^{\\theta}_{\\theta r} = \\frac{1}{r}$。其余所有联络分量均为零。"
+  },
+  "verification": null
+}

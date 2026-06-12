@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s19_19.33",
+    "type": "calculate",
+    "tags": {
+      "metric": "cosmology",
+      "target_object": "FLRW_model",
+      "coordinate": "dust_universe",
+      "scenario": "Einstein_static_universe",
+      "method": "redshift_calculation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.33",
+    "source_id": "1_s19_19.33",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.33"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "完整弗里德曼动力学推导+相空间不稳定平衡点近似+红移与哈勃常数联系+历史宇宙学观测动机",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$R$",
+      "$\\\\Lambda$",
+      "$\\\\rho$",
+      "$z$",
+      "$H_0$"
+    ],
+    "target": [
+      "$\\\\rho_0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s19_19.33.md]\\n\\nProblem 19.33. At one time observations seemed to suggest that there was an unusual clustering of quasar redshifts around $z = 2$ . One proposal to explain this is that our universe is a $k = +1$ dust cosmology, with nonzero cosmological constant $\\Lambda$ only slightly greater than the value for a static \"Einstein Universe\" (Problem 19.31). Show that for this model the universe will expand at a decreasing rate to a certain radius $R_{\\mathrm{m}}$ , at which radius it will remain for a long time while expanding very slowly, before expanding again at a rate which asymptotically approaches $H = (\\Lambda / 3)^{\\frac{1}{2}}$ .\\nSuppose quasar formation occurred at the time of nearly constant radius. What does this model predict for $\\rho_{\\text{matter}}$ today? [Use $\\mathbf{H}_0 = 10^{-28} \\, \\mathrm{cm}^{-1}$ ].",
+    "answer": "$1.2\\\\times 10^{-58}\\\\mathrm{cm}^{-2} = 1.6\\\\times 10^{-30}\\\\mathrm{gm / cm}^{3}$",
+    "solution": "Solution 19.33. Let $\\\\Lambda_{\\\\mathbf{E}}$ be the Einstein value of the cosmological constant so that the Einstein universe has $\\\\rho_0 = \\\\Lambda_{\\\\mathbf{E}} / 4\\\\pi$ , and $\\\\mathbf{R} = \\\\Lambda_{\\\\mathbf{E}}^{-\\\\frac{1}{2}}$ (see Problem 9.31). All dust cosmologies, even with nonzero $\\\\Lambda$ , have $\\\\rho \\\\mathbf{R}^3 =$ constant. Write this as\\n$$\\n\\\\rho \\\\mathbf {R}^{3} = \\\\frac {1 + \\\\epsilon}{4 \\\\pi \\\\Lambda^{\\\\frac {1}{2}}} \\\\tag {1}\\n$$\\nThis is equivalent to writing $\\\\Lambda = \\\\Lambda_{\\\\mathbf{E}}(1 + \\\\epsilon)^2$ . The remaining dynamical equation of Problem 19.14 becomes\\n$$\\n\\\\dot {\\\\mathbf {R}}^{2} = \\\\mathrm {V}(\\\\mathrm {R}) \\\\equiv \\\\frac {\\\\Lambda \\\\mathrm {R}^{2}}{3} - 1 + \\\\frac {2 (1 + \\\\epsilon)}{3 \\\\Lambda^{\\\\frac {1}{2}} \\\\mathrm {R}}. \\\\tag {2}\\n$$\\nFor small $R$ , $\\\\dot{R}^2 \\\\sim 1 / R$ , i.e. $R \\\\sim t^{\\\\frac{2}{3}}$ . The expansion reaches a minimum when $\\\\dot{R}$ is a minimum. Setting $dV / dR$ equal to zero, we find that this occurs when\\n$$\\nR = R_{m} = (1 + \\\\epsilon )^{\\\\frac {1}{3}} \\\\Lambda^{- \\\\frac {1}{2}}. \\\\tag {3}\\n$$\\nWhen $\\\\mathbf{R}$ is close to $\\\\mathbf{R}_{\\\\mathfrak{m}}$\\n$$\\n\\\\begin{array}{l} \\\\dot {\\\\mathrm {R}}^{2} \\\\approx \\\\mathrm {V} (\\\\mathrm {R}_{\\\\mathrm {m}}) + \\\\frac {1}{2} (\\\\mathrm {R} - \\\\mathrm {R}_{\\\\mathrm {m}} )^{2} \\\\mathrm {V}^{\\\\prime \\\\prime} (\\\\mathrm {R}_{\\\\mathrm {m}}) + \\\\dot s \\\\\\\\\\n= (1 + \\\\epsilon )^{\\\\frac {2}{3}} - 1 + \\\\left[ \\\\Lambda^{\\\\frac {1}{2}} R - (1 + \\\\epsilon )^{\\\\frac {1}{3}} \\\\right]^{2}. \\\\\\\\\\n\\\\end{array}\\n$$\\nFrom a table of integrals, we find\\n$$\\nR = \\\\frac {(1 + \\\\epsilon )^{\\\\frac {1}{3}}}{\\\\Lambda^{\\\\frac {1}{2}}} \\\\left[ 1 + \\\\left\\\\{1 - (1 + \\\\epsilon )^{- \\\\frac {2}{3}} \\\\right\\\\}^{\\\\frac {1}{2}} \\\\sin h \\\\Lambda^{\\\\frac {1}{2}} \\\\left(t - t_{m}\\\\right) \\\\right] \\\\tag {4}\\n$$\\nwhere $\\\\mathbf{R} = \\\\mathbf{R}_{\\\\mathbf{m}}$ at $t = t_{\\\\mathbf{m}}$ . For small $\\\\epsilon$ , this becomes\\n$$\\n\\\\text sf {R} \\\\approx \\\\mathsf {R}_{\\\\mathrm {m}} \\\\left[ 1 + \\\\frac {\\\\epsilon}{3} \\\\sin h \\\\Lambda^{\\\\frac {1}{2}} \\\\left(t - t_{\\\\mathrm {m}}\\\\right) \\\\right].\\n$$\\nThus $\\\\mathbf{R}$ remains approximately equal to $\\\\mathbf{R}_{\\\\mathfrak{m}}$ until\\n$$\\n\\\\epsilon \\\\sin h \\\\Lambda^{\\\\frac {1}{2}} \\\\left(t - t_{\\\\mathrm {m}}\\\\right) \\\\approx 1\\n$$\\ni.e. for a time\\n$$\\n\\\\left(t - t_{\\\\mathrm {m}}\\\\right) \\\\approx \\\\Lambda^{- \\\\frac {1}{2}} \\\\log \\\\left(\\\\frac {1}{\\\\epsilon}\\\\right).\\n$$\\nHence if $\\\\epsilon$ is made sufficiently small, the time can be made arbitrarily long. Eventually $\\\\mathbf{R}$ continues to expand, and asymptotically\\n$$\\n\\\\mathbf {H}^{2} = \\\\frac {\\\\dot {\\\\mathbf {R}}^{2}}{\\\\mathbf {R}^{2}} \\\\rightarrow \\\\frac {1}{3} \\\\boldsymbol {\\\\Lambda}\\n$$\\nand we get the de Sitter universe of Problem 19.30.\\nIf quasar formation occurred at $z = 2$ , then $R = R_{m}$ at $z = 2$ i.e.\\n$$\\nR_{0} = R_{m} (1 + z) = 3 R_{m} = 3 \\\\Lambda^{- \\\\frac {1}{2}}.\\n$$\\nIf this is so (with $\\\\epsilon \\\\ll 1$ ), then the density of matter now must be:\\n$$\\n\\\\rho_{0} = (4 \\\\pi \\\\mathrm {R}_{0}^{3} \\\\Lambda^{\\\\frac {1}{2}} )^{- 1} = (1 0 8 \\\\pi )^{- 1} \\\\Lambda\\n$$\\n$$\\n\\\\mathbf {H}_{0} = \\\\left(\\\\dot {\\\\frac {\\\\mathbf {R}}{\\\\mathbf {R}}}\\\\right)_{0} = \\\\left(\\\\frac {1}{3} \\\\boldsymbol {\\\\Lambda} - \\\\frac {1}{\\\\mathsf {R}_{0}^{2}} + \\\\frac {2}{3 \\\\boldsymbol {\\\\Lambda}^{\\\\frac {1}{2}} \\\\mathsf {R}_{0}^{3}}\\\\right)^{\\\\frac {1}{2}} = \\\\frac {(2 0 \\\\boldsymbol {\\\\Lambda} )^{\\\\frac {1}{2}}}{9}.\\n$$\\nTaking $\\\\mathrm{H}_0 = 10^{-28}\\\\mathrm{cm}^{-1}$ gives $\\\\Lambda = 4\\\\times 10^{-56}\\\\mathrm{cm}^{-2}$ , i.e. $\\\\rho_0 = 1.2\\\\times $ $10^{-58}\\\\mathrm{cm}^{-2} = 1.6\\\\times 10^{-30}\\\\mathrm{gm / cm}^{3}$ ."
+  },
+  "verification": null
+}

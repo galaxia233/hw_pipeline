@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s8_8.5",
+    "type": "prove",
+    "tags": {
+      "metric": "differential_form",
+      "target_object": "exterior_derivative",
+      "coordinate": "covariant_derivative",
+      "scenario": "antisymmetrization",
+      "method": "coordinate_basis"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.5",
+    "source_id": "1_s8_8.5",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "Differential geometry proof linking axiomatic exterior derivative to coordinate-based antisymmetrized covariant derivative via tensor component analysis.",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$p$",
+      "$\\Omega$",
+      "$f$",
+      "$v$",
+      "$\\alpha$",
+      "$\\beta$",
+      "$\\gamma$",
+      "$\\delta$",
+      "$\\epsilon$"
+    ],
+    "target": [
+      "$\\Omega_{[\\alpha \\beta \\dot s \\gamma ; \\delta]}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 8.5. The exterior derivative of a differential form $\\Omega$ can be defined axiomatically by the following properties:\\n(i) If $\\Omega$ is a p-form, $d\\Omega$ is a $(p + 1)$ -form;   \\n(ii) $\\mathrm{d}(\\Omega_1 + \\Omega_2) = \\mathrm{d}\\Omega_1 + \\mathrm{d}\\Omega_2;$   \\n(iii) For a zero form $f$ (scalar), $\\widetilde{df}$ is defined by $<\\widetilde{df}, v> = \\nabla_v f$ for any $v$ ;   \\n(iv) $\\mathbf{d}(\\Omega_1\\wedge \\Omega_2) = \\mathbf{d}\\Omega_1\\wedge \\Omega_2 + (-1)^{\\mathrm{p}}\\Omega_1\\wedge \\mathbf{d}\\Omega_2$ where $\\Omega_{1}$ is a p-form;\\n[Note: If $\\mathbf{p} = 0$ (i.e. f a scalar) this reads: $\\widetilde{\\mathbf{d}}(\\mathbf{f}\\Omega) = \\widetilde{\\mathbf{d}}\\mathbf{f} \\wedge \\Omega + \\mathbf{f}\\widetilde{\\mathbf{d}}\\Omega$ .]\\n(v) $\\mathrm{dd}\\Omega = 0$ for any $\\Omega$ .\\nAn alternative definition notes that a p-form is a completely antisymmetric covariant tensor of rank $p$ , and defines the exterior derivative as the completely antisymmetrized covariant derivative. Show that these definitions are equivalent.",
+    "answer": "\\mathbf{d}\\boldsymbol{\\Omega}$ has the same components in an arbitrary coordinate basis under both definitions, specifically $\\Omega_{[\\alpha \\beta \\dot s \\gamma,\\delta]}$, thus proving their equivalence.",
+    "solution": "Solution 8.5. We show that the two definitions are equivalent by showing that $\\mathbf{d}\\Omega$ has the same components in an arbitrary coordinate basis when calculated from either definition. Start with the definition in terms of the covariant derivative. Let the components of $\\Omega$ be $\\Omega_{\\alpha \\beta \\dot s \\gamma} = \\Omega_{[\\alpha \\beta \\dot s \\gamma]}$ ( $\\mathfrak{p}$ indices). Then the components of $\\mathbf{d}\\Omega$ are\\n$$\\begin{array}{l} \\Omega_{[\\alpha \\beta \\dot s \\gamma ; \\delta]} = \\Omega_{[\\alpha \\beta \\dot s \\gamma , \\delta]} - \\Gamma_{\\epsilon [\\alpha \\delta} \\Omega_{\\beta}^{\\epsilon} \\dot s \\gamma ] \\tag {1} \\n- \\Gamma_{\\epsilon [\\beta \\delta} \\Omega_{a}^{\\epsilon} \\dot s \\gamma - \\dot s - \\Gamma_{\\epsilon [\\gamma \\delta} \\Omega_{a \\beta \\dot s \\epsilon ]} = \\Omega_{[a} \\beta \\dot s \\gamma , \\delta ] \\n\\end{array}$$\\n(The $\\Gamma$ terms vanish since $\\Gamma_{\\mu[\\nu \\sigma]} = 0$ in a coordinate basis.) Now start with\\n$$\\Omega = \\Omega_{\\alpha \\beta \\dot s \\gamma} \\widetilde{\\mathrm{dx}}^{\\alpha} \\wedge \\widetilde{\\mathrm{dx}}^{\\beta} \\wedge \\dot s \\widetilde{\\mathrm{dx}}^{\\gamma}.$$\\nBy property (ii), $\\mathbf{d}$ does not disturb the summation convention, so\\n$$\\begin{array}{l} \\mathrm{d} \\boldsymbol{\\Omega} = (\\mathrm{d} \\Omega_{\\alpha \\beta \\dot s \\gamma}) \\wedge (\\widetilde{\\mathrm{dx}}^{\\alpha} \\wedge \\widetilde{\\mathrm{dx}}^{\\beta} \\wedge \\dot s \\wedge \\widetilde{\\mathrm{dx}}^{\\gamma}) \\tag {2} \\n+ \\Omega_{\\alpha \\beta \\dot s \\gamma} \\mathrm{d} \\left(\\widetilde{\\mathrm{dx}}^{\\alpha} \\wedge \\widetilde{\\mathrm{dx}}^{\\beta} \\wedge \\dot s \\wedge \\widetilde{\\mathrm{dx}}^{\\gamma}\\right), \\n\\end{array}$$\\nwhere we have used property (iv) with $\\mathfrak{p} = 0$ since $\\Omega_{\\alpha \\beta \\dot s \\gamma}$ is simply a function (zero form). Now from property (i) we know that\\n$$\\widetilde{\\mathrm{df}} = f_{, a} \\widetilde{\\mathrm{dx}}^{a}$$\\nfor any zero form $f$ . From property (iii), $<\\widetilde{\\mathrm{df}}, \\partial/\\partial x^{\\beta}> = <f_{,a} \\widetilde{\\mathrm{dx}}^{a}, \\partial/\\partial x^{\\beta}> = f_{,b}$ ; thus $\\widetilde{\\mathrm{d}\\Omega}_{\\alpha\\beta\\dot s\\gamma} = \\Omega_{\\alpha\\beta\\dot s\\gamma,\\delta} \\widetilde{\\mathrm{dx}}^{\\delta}$ . The second term in Equation (2) is zero: According to property (iv) it can be reduced to a sum of terms each of which contains a ddx, which vanishes by property (v). Thus Equation (2) becomes\\n$$\\mathbf{d} \\boldsymbol{\\Omega} = \\Omega_{\\alpha \\beta \\dot s \\gamma , \\delta} \\widetilde{\\mathbf{dx}}^{\\delta} \\wedge \\widetilde{\\mathbf{dx}}^{\\alpha} \\wedge \\widetilde{\\mathbf{dx}}^{\\beta} \\dot s \\wedge \\widetilde{\\mathbf{dx}}^{\\gamma}.$$\\nSince $\\mathbf{d}\\Omega$ is a $(p + 1)$ form (property (i)), and the wedge product is antisymmetric, the components of $\\mathbf{d}\\Omega$ are $\\Omega_{[a\\beta \\dot s \\gamma ,\\delta ]}$ as in Equation (1)."
+  },
+  "verification": null
+}

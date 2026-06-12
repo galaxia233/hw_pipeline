@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s14_14.21",
+    "type": "prove",
+    "tags": {
+      "metric": "conformal_transformation",
+      "target_object": "maxwell_equations",
+      "coordinate": "tensor_algebra",
+      "scenario": "covariant_derivative",
+      "method": "metric_determinant"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.21",
+    "source_id": "1_s14_14.21",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.21"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.7,
+      "rationale": "基于任意背景度规的电磁场方程共形不变性证明，综合了逆变张量提升、行列式标度律与协变散度定义的多步代数推导",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\alpha$",
+      "$\\beta$",
+      "$\\mu$",
+      "$\\nu$",
+      "$f$",
+      "$\\tilde{g}_{\\alpha\\beta}$",
+      "$\\mathbf{F}_{\\alpha\\beta}$",
+      "$\\mathbf{J}_\\mu$"
+    ],
+    "target": [
+      "$\\tilde{F}^{\\mu\\nu}_{;\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 14.21. Show that Maxwell's equations are invariant under the \"conformal transformation\"$$\\begin{array}{l}\\mathrm {g}_{\\alpha \\beta}\\rightarrow \\tilde {\\mathrm {g}}_{\\alpha \\beta} = \\mathrm {f g}_{\\alpha \\beta} \\\\\\mathbf {F}_{\\alpha \\beta}\\rightarrow \\tilde {\\mathbf {F}}_{\\alpha \\beta} = \\mathbf {F}_{\\alpha \\beta} \\\\\\mathrm {J}_{\\mu}\\rightarrow \\tilde {\\mathrm {J}}_{\\mu} = \\mathrm {f}^{- 2} \\mathrm {J}_{\\mu}, \\\\\\end{array}$$where $f$ is an arbitrary function of position.",
+    "answer": "$\\tilde {\\mathrm {F}}_{; \\nu}^{\\mu \\nu} = 4 \\pi \\tilde {\\mathrm {J}}^{\\mu}$",
+    "solution": "Solution 14.21. Under the conformal transformation the four Maxwell equations$$\\mathbf {F}_{[ \\alpha \\beta , \\nu ]} = 0 = \\tilde {\\mathbf {F}}_{[ \\alpha \\beta , \\nu ]}$$are clearly invariant. The other four Maxwell equations are$$\\mathbf {F}_{; \\nu}^{\\mu \\nu} = \\left| \\mathbf {g}\\right|^{- \\frac {1} {2}} \\left[ \\mathbf {F}^{\\mu \\nu} | \\mathbf {g} |^{\\frac {1} {2}}\\right]_{, \\nu} = 4 \\pi \\mathbf {J}^{\\mu} .$$Since$$\\begin{array}{l}\\mathbf {F}^{\\mu \\nu} = \\mathbf {g}^{\\mu \\alpha} \\mathbf {g}^{\\nu \\beta} \\tilde {\\mathbf {F}}_{\\alpha \\beta} = \\mathbf {f}^{2} \\tilde {\\mathbf {g}}^{\\mu \\alpha} \\tilde {\\mathbf {g}}^{\\nu \\beta} \\tilde {\\mathbf {F}}_{\\alpha \\beta} = \\mathbf {f}^{2} \\tilde {\\mathbf {F}}^{\\mu \\nu} \\\\\\tilde {\\mathbf {g}} \\equiv \\operatorname {D e t} \\left(\\tilde {\\mathbf {g}}_{\\alpha \\beta}\\right) = \\mathbf {f}^{4} \\mathbf {g} \\\\\\end{array}$$it follows that $\\left|\\mathbf{g}\\right|^{\\frac{1}{2}}\\mathbf{F}^{\\mu \\nu} = \\left|\\tilde{\\mathbf{g}}\\right|^{\\frac{1}{2}}\\tilde{\\mathbf{F}}^{\\mu \\nu}$ so that$$\\begin{array}{l}\\mathrm {F}_{; \\nu}^{\\mu \\nu} = \\frac {\\mathrm {f}^{2}}{\\left| \\tilde {\\mathrm {g}}\\right|^{\\frac {1} {2}}} \\left[ \\left| \\tilde {\\mathrm {g}}\\right|^{\\frac {1} {2}} \\tilde {\\mathrm {F}}^{\\mu \\nu}\\right]_{, \\nu} = 4 \\pi \\mathrm {J}^{\\mu} = 4 \\pi \\mathrm {g}^{\\mu a} \\mathrm {J}_{a} \\\\= 4 \\pi (\\mathrm {f g}^{\\mu a}) \\mathrm {f} \\tilde {\\mathrm {J}}_{a} = 4 \\pi \\mathrm {f}^{2} \\tilde {\\mathrm {J}}^{\\mu}, \\\\\\end{array}$$and therefore$$\\tilde {\\mathrm {F}}_{; \\nu}^{\\mu \\nu} = 4 \\pi \\tilde {\\mathrm {J}}^{\\mu}.$$"
+  },
+  "verification": null
+}

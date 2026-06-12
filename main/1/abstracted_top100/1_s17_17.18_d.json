@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "id": "1_s17_17.18_d",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "acceleration_vector",
+      "coordinate": "boyer_lindquist_coordinates",
+      "scenario": "rotating_black_hole_spacetime",
+      "method": "killing_vector_identity_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.18_d",
+    "source_id": "1_s17_17.18_d",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.18_d"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "Connects observer kinematics to spacetime symmetries via Killing vector norms, requiring multi-step evaluation in a physically relevant rotating geometry.",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\omega$",
+      "$g_{tt}$",
+      "$g_{t\\phi}$",
+      "$g_{\\phi\\phi}$",
+      "$\\Sigma$",
+      "$\\Delta$"
+    ],
+    "target": [
+      "$a^{\\mu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 17.18 (d) The “Zero Angular Momentum Observers” (ZAMO's) in the Kerr geometry have basis 1-forms$$\\begin{array}{l} \\tilde {\\omega}^{\\hat {t}} = \\left| g_{t t} - \\omega^{2} g_{\\phi \\phi}\\right|^{\\frac {1}{2}} \\widetilde {d t} \\\\ \\tilde {\\omega}^{\\hat {\\phi}} = \\left(\\mathrm {g}_{\\phi \\phi}\\right)^{\\frac {1}{2}} \\left(\\widetilde {\\mathrm {d} \\phi} - \\omega \\widetilde {\\mathrm {d t}}\\right) \\\\ \\tilde {\\boldsymbol {\\omega}}^{\\hat {\\mathbf {r}}} = \\left(\\boldsymbol {\\Sigma} / \\Delta\\right)^{\\frac {1}{2}} \\overline {{\\mathrm {d} \\mathbf {r}}} \\\\ \\tilde {\\boldsymbol {\\omega}}^{\\hat {\\theta}} = \\Sigma^{\\frac {1}{2}} \\widetilde {\\mathbf {d} \\theta} \\\\ \\end{array}$$where $\\omega \\equiv -\\mathbf{g}_{t\\phi} / \\mathbf{g}_{\\phi \\phi}$(d) The ZAMO is not an inertial observer; show that the acceleration is $\\mathbf{a} = \\frac{1}{2}\\nabla \\log |\\mathbf{g}_{\\mathrm{tt}} - \\omega^2\\mathbf{g}_{\\phi \\phi}|$ .",
+    "answer": "$\\mathbf {a} = \\frac {1}{2} \\nabla \\log \\left| \\mathbf {g}_{\\mathrm {tt}} - \\omega^{2} \\mathbf {g}_{\\phi \\phi}\\right|$.",
+    "solution": "(d) The 4-velocity of the ZAMO is$$\\mathbf {u} = \\mathbf {e}_{\\hat {\\mathbf {t}}} = \\left| \\mathbf {g}_{\\mathbf {tt}} - \\omega^{2} \\mathbf {g}_{\\phi \\phi}\\right|^{- \\frac {1}{2}} \\left(\\mathbf {e}_{\\mathbf {t}} + \\omega \\mathbf {e}_{\\phi}\\right).$$The vectors $\\mathbf{e}_t$ and $\\mathbf{e}_{\\phi}$ are Killing vectors. The vector field $\\mathbf{e}_t + \\omega \\mathbf{e}_{\\phi}$ is not a Killing vector because $\\omega$ is not constant. However any particular ZAMO is moving along the Killing vector $\\pmb{\\xi} = \\mathbf{e}_t + \\omega_0\\mathbf{e}_{\\phi}$ ( $\\omega_0$ a fixed constant, which is chosen to equal $\\omega$ at the radius of the particular ZAMO under consideration). Thus the results of Problem 10.14 apply and we get$$\\mathbf {a} = \\frac {1}{2} \\nabla \\log | \\pmb {\\xi} \\cdot \\pmb {\\xi} | = \\frac {1}{2} \\nabla \\log | \\mathbf {g}_{tt} + 2 \\omega_{0} \\mathbf {g}_{t \\phi} + \\omega_{0}^{2} \\mathbf {g}_{\\phi \\phi} |.$$When we set $\\mathbf{g}_{t\\phi} = -\\omega \\mathbf{g}_{\\phi \\phi}$ and evaluate at $\\omega = \\omega_0$ this becomes$$\\mathbf {a} = \\frac {1}{2} \\nabla \\log \\left| \\mathbf {g}_{\\mathrm {tt}} - \\omega^{2} \\mathbf {g}_{\\phi \\phi}\\right|.$$"
+  },
+  "verification": null
+}

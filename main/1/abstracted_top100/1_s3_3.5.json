@@ -1,0 +1,169 @@
+{
+  "metadata": {
+    "id": "1_s3_3.5",
+    "type": "prove",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "lorentz_transformation",
+      "coordinate": "light_beam",
+      "scenario": "cross_sectional_area",
+      "method": "invariance"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.5",
+    "source_id": "1_s3_3.5",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于洛伦兹变换下零矢量与类空截面的正交投影关系进行多步向量代数推导，逻辑严密且具有明确的狭义相对论物理背景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$\\\\mathbf{k}$",
+      "$\\\\mathbf{A}$",
+      "$\\\\mathbf{B}$",
+      "$\\\\mathbf{u}$"
+    ],
+    "target": [
+      "$|\\\\mathbf{A}'| |\\\\mathbf{B}'|$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.5. Show that the cross-sectional area of a parallel beam of light is invariant under Lorentz transformations.",
+    "answer": "$|\\\\mathbf{A}'| |\\\\mathbf{B}'| = |\\\\mathbf{A}| |\\\\mathbf{B}|$",
+    "solution": "Solution 3.5. Let $\\mathbf{k}$ be the null vector along which the light is traveling. A given observer takes a little square element of the beam whose sides are the vectors $\\mathbf{A}$ and $\\mathbf{B}$ , which are purely spacelike vectors in his frame, and orthogonal to the light beam, so $\\mathbf{A} \\\\cdot \\\\mathbf{k} = \\\\mathbf{B} \\\\cdot \\\\mathbf{k} = 0$ . Also $\\mathbf{A} \\\\cdot \\\\mathbf{B} = 0$ since the element is square. The area of the element is $|\\\\mathbf{A}| |\\\\mathbf{B}|$ .\\nA different observer can unambiguously identify the same element of the beam, say by the rays making up its corners, but he slices it differently in time: the old vectors $\\mathbf{A}$ and $\\mathbf{B}$ are not orthogonal to his 4-velocity $\\mathbf{u}$ , so are not a purely spacelike cross section in his frame.\\nNow for any constants $\\alpha$ and $\\beta$ , the vectors\\n$$\\n\\\\mathbf {A}^{\\\\prime} = \\\\mathbf {A} + \\\\alpha \\\\mathbf {k}\\n$$\\n$$\\n\\\\mathbf {B}^{\\\\prime} = \\\\mathbf {B} + \\\\beta \\\\mathbf {k}\\n$$\\nspan the same beam element as A and B (the “tip” of each vector is just moved to a different point along the ray by adding a multiple of the wave vector k). The new observer requires $\\mathbf{A}'\\\\cdot \\mathbf{u} = \\mathbf{B}'\\\\cdot \\mathbf{u} = 0$ , which is always possible, choosing $\\alpha = -\\\\mathbf{A}\\\\cdot \\mathbf{u} / \\\\mathbf{k}\\\\cdot \\mathbf{u}$ and $\\beta = -\\\\mathbf{B}\\\\cdot \\mathbf{u} / \\\\mathbf{k}\\\\cdot \\mathbf{u}$ . ( $\\mathbf{k}\\\\cdot \\mathbf{u} \\\\neq 0$ , since k is null and u is timelike.) Notice that $\\mathbf{A}'\\\\cdot \\mathbf{k} = \\mathbf{B}'\\\\cdot \\mathbf{k} = \\mathbf{A}'\\\\cdot \\mathbf{B}' = 0$ since k·k = 0, so A' and B' are orthogonal vectors which are the sides of the new observer's cross section. The new area is $|\\\\mathbf{A}'| |\\\\mathbf{B}'| = (\\\\mathbf{A}'\\\\cdot \\mathbf{A}')^{\\\\frac{1}{2}} (\\\\mathbf{B}'\\\\cdot \\mathbf{B}')^{\\\\frac{1}{2}} = |\\\\mathbf{A}| |\\\\mathbf{B}|$ , the same area as seen by the original observer."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s4_4.20_b",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "Electromagnetic_field_tensor",
+      "coordinate": "Spacetime_coordinates",
+      "scenario": "Vacuum_source_free_scenario",
+      "method": "Hodge_dual_operator_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.20_b",
+    "source_id": "1_s4_4.20_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.20_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.6,
+      "completeness": 0.8,
+      "realism": 0.5,
+      "rationale": "结合Hodge对偶算子代数性质与线性偏微分方程叠加原理证明对称性；纯理论电磁学推导场景",
+      "overall": 0.65
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mathbf{F}$",
+      "$\\alpha$",
+      "$\\mu$",
+      "$\\nu$"
+    ],
+    "target": [
+      "$\\mathbf{F}^{\\mu\\nu}$",
+      "$*\\mathbf{F}^{\\mu\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "4.20 (b) Problem 4.20.(b) Show that if $\\mathbf{F}$ is a solution of the free-space Maxwell equations, so is $*\\mathbf{F}$ and also $\\mathbf{e}^{*a}\\mathbf{F} \\equiv \\mathbf{F} \\cos \\alpha + * \\mathbf{F} \\sin \\alpha$ for arbitrary $a$ . ( $\\mathbf{F}\\rightarrow \\mathbf{e}^{*a}\\mathbf{F}$ is called a “duality rotation”).",
+    "answer": "$\\mathbf{F}\\rightarrow *\\mathbf{F}$ 及 $e^{*\\alpha}\\mathbf{F}$ 均满足自由空间麦克斯韦方程组。",
+    "solution": "(b) [Note: Since $*(*\\mathbf{F}) = -\\mathbf{F}$ , if we treat $*$ as an operator it has the same algebraic properties as i, hence we write $e^{*a}\\mathbf{F} = \\mathbf{F}\\cos a + *\\mathbf{F}\\sin a$ .] According to Problem 4.9 Maxwell's equations, in the absence of sources, are$$* \\mathbf {F}_{, \\nu}^{\\mu \\nu} = 0 \\quad \\mathbf {F}_{, \\nu}^{\\mu \\nu} = 0.$$Clearly the transformation $\\mathbf{F} \\rightarrow * \\mathbf {F}$ leaves these equations invariant i.e. $*\\mathbf{F}$ is a solution if $\\mathbf{F}$ is. Since the equations are linear, a linear combination such as $\\mathbf{e}^{*\\alpha} \\mathbf {F}$ must also satisfy the equations."
+  },
+  "verification": null
+}

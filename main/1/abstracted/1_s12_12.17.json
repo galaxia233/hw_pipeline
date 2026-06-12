@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "id": "1_s12_12.17",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s12_12.17",
+    "source_id": "1_s12_12.17",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s12_12.17"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.2,
+      "generalizability": 0.5,
+      "completeness": 0.7,
+      "realism": 0.8,
+      "rationale": "基于常数维度分析的几何单位制换算，物理背景明确且具实际应用价值，但推理步骤较为直接",
+      "overall": 0.55
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$h$",
+      "$e$",
+      "$m_e$",
+      "$M_\\odot$",
+      "$L_\\odot$",
+      "$T$",
+      "$t_{\\rm yr}$",
+      "$V$",
+      "$G$",
+      "$c$",
+      "$k$"
+    ],
+    "target": [
+      "$h$",
+      "$e$",
+      "$e/m_e$",
+      "$M_\\odot$",
+      "$L_\\odot$",
+      "$T$",
+      "$t_{\\rm yr}$",
+      "$V$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 12.17. In “geometrized units of length” (units in which the gravitational constant $G$ , the speed of light $c$ and the Boltzmann constant $k$ are all taken to be unity) give the values of the following, expressed in terms of centimeters: $h$ ; the charge of an electron; $e/m$ for an electron; the mass of the sun; the luminosity of the sun; $300^0\\mathrm{K}$ ; one year; one volt.",
+    "answer": "$h \\approx 1.64 \\times 10^{-65} \\, \\mathrm{cm}^2$; $e \\approx 1.38 \\times 10^{-34} \\, \\mathrm{cm}$; $e/m_e \\approx 2.04 \\times 10^{20}$; $M_\\odot \\approx 1.48 \\times 10^6 \\, \\mathrm{cm}$; $L_\\odot \\approx 3.18 \\times 10^{-16}$; $300\\,\\mathrm{K} \\approx 1.14 \\times 10^{-68} \\, \\mathrm{cm}$; $1\\,\\mathrm{yr} \\approx 9.46 \\times 10^{17} \\, \\mathrm{cm}$; $1\\,\\mathrm{V} \\approx 1.32 \\times 10^{-67} \\, \\mathrm{cm}$",
+    "solution": null
+  },
+  "verification": null
+}

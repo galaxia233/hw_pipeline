@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s21_21.2",
+    "type": "prove",
+    "tags": {
+      "metric": "curved_spacetime",
+      "target_object": "variational_principle",
+      "coordinate": "euler_lagrange_equations",
+      "scenario": "action_principle",
+      "method": "field_theory"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s21_21.2",
+    "source_id": "1_s21_21.2",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s21_21.2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "多步变分与分部积分推导+通用弯曲时空作用量原理+标准理论物理基础",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\mu$",
+      "$\\\\Phi^\\\\mathbf{A}$",
+      "$g_{\\\\mu\\\\nu}$"
+    ],
+    "target": [
+      "$\\\\frac{\\\\delta \\\\mathbf{L}}{\\\\delta \\\\Phi^{\\\\mathbf{A}}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s21_21.2.md]\\n\\nProblem 21.2. Let $\\\\mathbf{L} = \\\\mathbf{L}(\\\\Phi^{\\\\mathbf{A}},\\\\mathbf{g}_{\\\\mu \\\\nu})$ be the Lagrangian density for some field or matter distribution. The field is described by the variables $\\\\Phi^{\\\\mathbf{A}}$ , where $\\\\mathbf{A}$ represents any tensor indices. The action is\\n$$\\nS = \\int L (- g)^{\\\\frac {1}{2}} d^{4} x.\\n$$\\nThe functional derivative $\\\\delta L / \\\\delta \\\\Phi^{\\\\mathbf{A}}$ is defined by making a variation $\\\\Phi^{\\\\mathbf{A}}\\\\rightarrow$ $\\\\Phi^{\\\\mathbf{A}} + \\\\delta \\\\Phi^{\\\\mathbf{A}}$ and taking the change in S to be\\n$$\\n\\\\delta \\\\mathbf {S} = \\int \\\\frac {\\\\delta \\\\mathbf {L}}{\\\\delta \\\\Phi^{\\\\mathbf {A}}} \\\\delta \\\\Phi^{\\\\mathbf {A}} (- \\\\mathbf {g})^{\\\\frac {1}{2}} \\\\mathbf {d}^{4} \\\\mathbf {x} .\\n$$\\nShow that $\\\\delta \\\\mathbf{L} / \\\\delta \\\\Phi^{\\\\mathbf{A}} = 0$ is the usual Euler-Lagrange equation when $\\\\mathbf{L}$ depends on $\\\\Phi^{\\\\mathbf{A}}$ and its partial derivatives $\\\\Phi_{,a}^{\\\\mathbf{A}}$ .\\n\\n## Solution",
+    "answer": "$0 = \\\\frac {\\\\delta L}{\\\\delta \\Phi^{A}} = \\\\frac {\\\\partial L}{\\\\partial \\Phi^{A}} - \\\\frac {\\\\partial}{\\\\partial x^{\\\\mu}} \\\\left(\\\\frac {\\\\partial L (- g)^{\\\\frac {1}{2}}}{\\\\partial \\Phi_{, \\\\mu}^{A}}\\\\right) \\\\frac {1}{(- g)^{\\\\frac {1}{2}}}$",
+    "solution": "Solution 21.2. The variation in $\\\\mathbf{L}$ due to changes in $\\\\Phi^{\\\\mathbf{A}}$ is given by\\n$$\\n(- \\\\mathbf {g})^{\\\\frac {1}{2}} \\\\delta \\\\mathrm {L} \\\\left(\\\\Phi^{\\\\mathbf {A}}, \\\\Phi_{, \\\\mu^{\\\\prime}}^{\\\\mathbf {A}}, \\\\mathbf {g}_{\\\\mu \\\\nu}\\\\right) = \\\\left(\\\\frac {\\\\partial \\\\mathrm {L}}{\\\\partial \\\\Phi^{\\\\mathbf {A}}} \\\\delta \\\\Phi^{\\\\mathbf {A}} + \\\\frac {\\\\partial \\\\mathrm {L}}{\\\\partial \\\\Phi_{, \\\\mu}^{\\\\mathbf {A}}} \\\\delta \\\\Phi_{, \\\\mu}^{\\\\mathbf {A}}\\\\right) (- \\\\mathbf {g})^{\\\\frac {1}{2}}. \\\\tag {1}\\n$$\\nThe operation of varying $\\\\Phi^{\\\\mathbf{A}}$ commutes with partial differentiation\\n$$\\n\\\\delta (\\\\Phi_{, \\\\mu}^{\\\\mathbf {A}}) = (\\\\delta \\\\Phi^{\\\\mathbf {A}})_{, \\\\mu}\\n$$\\nso Equation (1) becomes\\n$$\\n(- \\\\mathbf {g})^{\\\\frac {1}{2}} \\\\delta \\\\mathbf {L} = (- \\\\mathbf {g})^{\\\\frac {1}{2}} \\\\left. \\\\frac {\\\\partial \\\\mathbf {L}}{\\\\partial \\\\Phi^{\\\\mathbf {A}}} \\\\delta \\\\Phi^{\\\\mathbf {A}} + \\\\left(\\\\frac {\\\\partial \\\\mathbf {L} (- \\\\mathbf {g})^{\\\\frac {1}{2}}}{\\\\partial \\\\Phi_{, \\\\mu}^{\\\\mathbf {A}}} \\\\delta \\\\Phi^{\\\\mathbf {A}}\\\\right)_{, \\\\mu} - \\\\frac {\\\\partial}{\\\\partial \\\\mathbf {x}^{\\\\mu}} \\\\left(\\\\frac {\\\\partial \\\\mathbf {L} (- \\\\mathbf {g})^{\\\\frac {1}{2}}}{\\\\partial \\\\Phi_{, \\\\mu}^{\\\\mathbf {A}}}\\\\right) \\\\delta \\\\Phi^{\\\\mathbf {A}} \\\\right..\\n$$\\nThe second term is a perfect divergence, which gives a surface term in the integral $\\\\delta S$ , and hence is zero since $\\\\delta \\\\Phi^{\\\\mathbf{A}}$ is taken to vanish on the surface. Thus\\n$$\\n0 = \\\\frac {\\\\delta L}{\\\\delta \\Phi^{A}} = \\\\frac {\\\\partial L}{\\\\partial \\Phi^{A}} - \\\\frac {\\\\partial}{\\\\partial x^{\\\\mu}} \\\\left(\\\\frac {\\\\partial L (- g)^{\\\\frac {1}{2}}}{\\\\partial \\Phi_{, \\\\mu}^{A}}\\\\right) \\\\frac {1}{(- g)^{\\\\frac {1}{2}}}\\n$$"
+  },
+  "verification": null
+}

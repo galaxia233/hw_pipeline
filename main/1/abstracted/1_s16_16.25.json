@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "id": "1_s16_16.25",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "comoving_coordinates",
+      "coordinate": "proper_time",
+      "scenario": "spherical_symmetry",
+      "method": "fluid_4_acceleration"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.25",
+    "source_id": "1_s16_16.25",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.25"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "球对称流体力学模型+度规坐标选取与四维加速度的多步几何推导+真实天体坍缩物理场景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T$",
+      "$R$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$u^\\mu$",
+      "$a^\\mu$"
+    ],
+    "metric": [
+      [
+        "$g_{TT}(R,T)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$g_{RR}(R,T)$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2(R,T)$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2(R,T)\\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.25. For collapsing spherical stars we can't simultaneously have the three nice properties: (i) radial coordinate is comoving with a fluid shell; (ii) time coordinate is proper time for the fluid; (iii) the metric is diagonal. Prove that we can have all three properties if and only if the pressure vanishes.",
+    "answer": "The three properties are satisfied if and only if the pressure vanishes.",
+    "solution": "Solution 16.25. Let $\\theta, \\phi$ and the radial coordinate $\\mathbf{R}$ be comoving with the fluid of the star. We can then write the metric as$$\\begin{array}{l} d s^{2} = g_{t t} d t^{2} + g_{t R} d R d t + g_{R R} d R^{2} + g_{t i} d t d x^{i} \\\\ +\\mathbf{g}_{\\mathbb{R} \\mathrm{i}} \\mathrm{d} R \\mathrm{dx}^{\\mathrm{i}}+\\mathbf{g}_{\\mathrm{ij}} \\mathrm{dx}^{\\mathrm{i}} \\mathrm{dx}^{\\mathrm{j}} \\quad(i, j=\\theta, \\phi)\\end{array}$$where $\\mathbf{i}, \\mathbf{j}=\\theta, \\phi$ . If the metric is spherically symmetric, then for $\\mathrm{dt} = \\mathrm{dR} = 0$ we must have$$d s^{2}=g_{i j} d x^{i} d x^{j}=r^{2}(R, t)\\left(d \\theta^{2}+\\sin^{2} \\theta d \\phi^{2}\\right).$$Furthermore, $\\mathbf{g}_{\\mathrm{ti}}$ and $\\mathbf{g}_{\\mathrm{Ri}}$ define vectors in the 2-dimensional $\\theta, \\phi$ space, so by the isotropy of spherical shells $\\mathbf{g}_{\\mathrm{ti}}$ and $\\mathbf{g}_{\\mathrm{Ri}}$ must vanish. Finally, we can choose a new time coordinate $\\mathbf{T} = \\mathbf{T}(\\mathbf{t}, \\mathbf{r})$ to remove the $\\mathbf{g}_{\\mathrm{tr}}$ term, without affecting the comoving status of the radial coordinate, and we have$$d s^{2}=g_{T T} d T^{2}+g_{R R} d R^{2}+r^{2}(R, T) d \\Omega^{2}.$$Thus in general we can have both comoving coordinates and a diagonal metric.Now consider the motion of a fluid element. From the fluid 4-velocity$$\\mathbf {u} = \\left(- \\mathbf {g}_{\\mathbf{T} T}\\right)^{-\\frac{1}{2}} \\mathbf{e}_{\\mathbf{T}}$$we have the fluid acceleration:$$\\nabla_{\\mathbf{u}} \\mathbf{u}=\\mathbf{e}_{\\mathrm{R}}\\left[\\frac{\\mathrm{du}^{\\mathrm{R}}}{\\mathrm{d} \\tau}+(\\mathbf{u}^{\\mathrm{T}})^{2} \\boldsymbol{\\Gamma}_{\\mathrm{TT}}^{\\mathrm{R}}\\right]=-\\frac{1}{2} \\mathbf{e}_{\\mathrm{R}}(\\mathbf{u}^{\\mathrm{T}})^{2} \\mathbf{g}^{\\mathrm{RR}} \\mathbf{g}_{\\mathrm{TT}, \\mathrm{R}}.$$It follows then that the fluid acceleration is zero (and hence the pressure gradient vanishes) if and only if $\\mathbf{g}_{\\mathbf{T}\\mathbf{T}}$ is a function of $\\mathbf{T}$ only. But if that is so, we can define a new time coordinate $\\tau (\\mathbf{T})$ from the equation$$\\mathrm{d} \\tau / \\mathrm{d} \\mathbf{T} = \\left(-\\mathbf{g}_{\\mathbf{T} T}\\right)^{\\frac{1}{2}}$$representing proper time for the fluid. Thus the three nice properties are all satisfied if and only if the pressure gradient is zero; since the pressure must be zero on the surface of the star, a vanishing pressure gradient is equivalent to zero pressure."
+  },
+  "verification": null
+}

@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "id": "1_s16_16.24",
+    "type": "prove",
+    "tags": {
+      "metric": "spherical_symmetry",
+      "target_object": "perfect_fluid",
+      "coordinate": "curvature_coordinates",
+      "scenario": "mass_integral",
+      "method": "stellar_structure_equations"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.24",
+    "source_id": "1_s16_16.24",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.24"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.85,
+      "generalizability": 0.75,
+      "completeness": 0.9,
+      "realism": 0.85,
+      "rationale": "完整球对称完美流体模型+多步分部积分与恒星结构方程联立推导+致密天体物理背景",
+      "overall": 0.84
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\Phi$",
+      "$\\lambda$",
+      "$\\rho$",
+      "$p$",
+      "$M$"
+    ],
+    "target": [
+      "$M$"
+    ],
+    "metric": [
+      [
+        "$e^{2\\Phi}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$e^{2\\lambda}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$-r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$-r^2 \\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.24. Show that the integral for M given in Problem 16.23, in the case of a static spherical star made of perfect fluid, is$$\\mathrm {M} = \\int_{0}^{\\mathrm {R}} (\\rho + 3 \\mathrm {p}) \\mathrm {e}^{\\Phi + \\lambda} 4 \\pi \\mathrm {r}^{2} \\mathrm {d r}$$in curvature coordinates $(\\mathbf{g}_{00} = \\mathrm{e}^{2\\Phi}, \\mathbf{g}_{\\mathrm{rr}} = \\mathrm{e}^{2\\lambda})$ . Show that this is the same as the expression derived from the equation of stellar structure,$$\\mathbf {M} = \\int_{0}^{\\mathbf {R}} \\rho 4 \\pi \\mathrm {r}^{2} \\mathrm {d r}.$$",
+    "answer": "$\\mathrm {M} = \\int_{0}^{\\mathrm {R}} (\\rho + 3 \\mathrm {p}) \\mathrm {e}^{\\Phi + \\lambda} 4 \\pi \\mathrm {r}^{2} \\mathrm {d r} = \\int_{0}^{\\mathbf {R}} \\rho 4 \\pi \\mathrm {r}^{2} \\mathrm {d r}$",
+    "solution": "Solution 16.24. In curvature coordinates, $\\xi_{(t)}^{\\nu} = \\delta_{t}^{\\nu}$ and $\\mathrm{d}^3\\Sigma_\\mu = \\delta_\\mu^t |\\mathbf{g}|^\\frac{1}{2}\\mathrm{d}\\mathbf{r}\\mathrm{d}\\theta \\mathrm{d}\\phi$ , thus the integral is$$\\begin{array}{l} I = - \\int (2 T_{\\nu}^{\\mu} - \\delta_{\\nu}^{\\mu} T) \\xi_{(t)}^{\\nu} d^{3} \\Sigma_{\\mu} \\\\= - \\int \\left(2 T_{t}^{t} - T\\right) e^{\\Phi + \\lambda} r^{2} \\sin \\theta d \\theta d \\phi d r. \\\\\\end{array}$$But$$\\begin{array}{l} \\mathbf {T}_{t}^{t} = (\\rho + p) u^{t} u_{t} + p \\delta_{t}^{t} = - \\rho \\\\T = - (\\rho + p) + 4 p = 3 p - \\rho . \\\\\\end{array}$$Since everything is independent of $\\theta$ and $\\phi$ , the integration over angles gives $4\\pi$ and therefore$$I = \\int_{0}^{R} (\\rho + 3 p) e^{\\Phi + \\lambda} 4 \\pi r^{2} d r. \\tag {1}$$We can transform this by integration by parts. Since$$\\mathrm {m} (\\mathrm {r}) = \\int_{0}^{\\mathrm {r}} 4 \\pi \\mathrm {r}^{2} \\rho \\mathrm {d r} \\tag {2}$$we have$$\\int_{0}^{\\mathbf {R}} \\rho e^{\\Phi + \\lambda} 4 \\pi r^{2} d r = [ m e^{\\Phi + \\lambda} ]_{0}^{\\mathbf {R}} - \\int_{0}^{\\mathbf {R}} m (e^{\\Phi + \\lambda})^{\\prime} d r \\tag {3}$$where a prime denotes $\\mathrm{d} / \\mathrm{dr}$ . The stellar structure equations tell us $\\mathfrak{p}'$ so we write$$\\int_{0}^{\\mathrm {R}} 3 \\mathrm {p e}^{\\Phi + \\lambda} 4 \\pi \\mathrm {r}^{2} \\mathrm {d r} = [ \\mathrm {p e}^{\\Phi + \\lambda} 4 \\pi \\mathrm {r}^{3} ]_{0}^{\\mathrm {R}} - \\int_{0}^{\\mathrm {R}} 4 \\pi \\mathrm {r}^{3} \\left(\\mathrm {pe}^{\\Phi + \\lambda}\\right)^{\\prime} \\mathrm{d} \\mathrm{r}. \\tag {4}$$The first term on the right in Equation (3) is $\\mathfrak{m}(\\mathbb{R}) = \\mathbb{M}$ , since $\\mathfrak{m} = 0$ at $\\mathbf{r} = 0$ and $\\Phi = -\\lambda$ at $\\mathbf{r} = \\mathbb{R}$ . The first term on the right in Equation (4) is zero since $\\mathfrak{p} = 0$ at $\\mathbf{r} = \\mathbb{R}$ . Thus, $\\mathbf{I} = \\mathbf{M}$ provided the sum of the remaining terms in Equations (3) and (4) vanish. This sum is$$\\begin{array}{l} \\int_{0}^{\\mathrm {R}} \\mathrm {m} \\left(\\mathrm {e}^{\\Phi + \\lambda}\\right)^{\\prime} \\mathrm{d} \\mathrm{r} + \\int_{0}^{\\mathrm {R}} 4 \\pi \\mathrm {r}^{3} \\left(\\mathrm {pe}^{\\Phi + \\lambda}\\right)^{\\prime} \\mathrm{d} \\mathrm{r} \\\\[6pt]= \\int_{0}^{\\mathrm {R}} \\mathrm {dr} \\mathrm {e}^{\\Phi + \\lambda} \\left[ \\mathrm {m} \\left(\\Phi^{\\prime} + \\lambda^{\\prime}\\right)+4 \\pi \\mathrm {r}^{3} \\left\\{\\mathrm {p}^{\\prime}+\\mathrm {p} \\left(\\Phi^{\\prime} + \\lambda^{\\prime}\\right)\\right\\}\\right]. \\tag {5}\\\\\\end{array}$$Now$$e^{2 \\lambda} = \\left(1-2 m / r\\right)^{-1}$$so we get$$\\lambda^{\\prime}=\\frac{(4 \\pi r^{3} \\rho-m)}{r(r-2 m)}.$$If this result and the relations$$\\Phi^{\\prime}=\\frac{\\mathrm{m}+4 \\pi \\mathrm{r}^{3} \\rho}{\\mathrm{r}(\\mathrm{r}-2 \\mathrm{m})}$$$$p^{\\prime}=\\frac{-(\\rho+p)(m+4 \\pi r^{3} p)}{r(r-2 m)}$$are substituted in the expression in Equation (5), all terms cancel and it reduces to zero as required."
+  },
+  "verification": null
+}

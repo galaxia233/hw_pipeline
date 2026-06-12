@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s19_19.17",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario_friedmann_universe",
+      "method": "method_coordinate_transformation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.17",
+    "source_id": "1_s19_19.17",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.17"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.3,
+      "realism": 0.6,
+      "rationale": "结合FRW动力学方程与几何结构证明涉及多步物理推理，且可推广至其他无物质开宇宙模型，但题干所附解答文本截断导致完整性较低",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\chi$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$\\eta_{\\mu\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.17. For a $\\mathbf{k} = -1$ Friedmann cosmology with $\\mathfrak{p} = \\rho = 0$ show that the line element becomes$$\\mathrm {d s}^{2} = - \\mathrm {d t}^{2} + \\mathrm {t}^{2} \\left[ \\mathrm {d} \\chi^{2} + \\sin h^{2} \\chi \\left(\\mathrm {d} \\theta^{2} + \\sin^{2} \\theta \\mathrm {d} \\phi^{2}\\right)\\right].$$Exhibit an explicit coordinate transformation to show that this metric describes Minkowski space.",
+    "answer": "Explicit coordinate transformation to Cartesian Minkowski coordinates:$T = t \\cos h \\chi$$X = t \\sin h \\chi \\sin \\theta \\cos \\phi$$Y = t \\sin h \\chi \\sin \\theta \\sin \\phi$$Z = t \\sin h \\chi \\cos \\theta$yielding $ds^2 = -dT^2 + dX^2 + dY^2 + dZ^2$.",
+    "solution": "Solution 19.17. With $\\mathfrak{p} = \\rho = 0$ , and $\\mathbf{k} = -1$ , the first-order Friedmann equation$$\\dot {\\mathbf {R}}^{2} + \\mathbf {k} = \\frac {8 \\pi \\mathbf {G}}{3} \\rho \\mathbf {R}^{2}$$becomes $\\mathbf{R} = 1$ which implies $\\mathbf{R} = \\mathbf{t}$ and thus the metric given is correct. Since the metric is spherically symmetric, the curvature radial coordinate是"
+  },
+  "verification": null
+}

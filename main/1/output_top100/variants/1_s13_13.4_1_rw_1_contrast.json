@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_1-2-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "Effective_potential",
+      "coordinate": "spherical",
+      "scenario": "contrast_large_r_escape",
+      "method": "Killing_vectors_and_field_equation",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.4_1",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.4_1",
+      "1_s13_13.4_1-2",
+      "1_s13_13.4_1-2-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$g_{\\mu\\nu}$",
+      "$T_{\\mu\\nu}$",
+      "$\\Lambda$",
+      "$R_{\\mu\\nu}$",
+      "$\\kappa$"
+    ],
+    "target": [
+      "\\Phi(r)",
+      "V_{eff}",
+      "Large_r_behavior"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在存在中心质量 $M$ 的引力场中，测试粒子的径向运动由势函数决定。请分别在以下两种背景下推导决定粒子径向运动的势函数，并对比两者在径向距离 $r \\to \\inf ty$ 时的主导行为差异，解释该差异对粒子能否逃逸至无穷远的物理影响。背景 A：含宇宙学常数 $\\Lambda$ 的弱场低速牛顿极限。时空度规偏离平直度规极小，即 $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$ 且 $|h_{\\mu\\nu}| \\ll 1$，时间分量满足 $g_{00} \\approx -(1+2\\Phi)$。物质源近似为静止流体 $T_{00} \\approx \\rho$，空间分量可忽略。包含宇宙学常数的爱因斯坦场方程为 $R_{\\mu\\nu} - \\frac{1}{2}R g_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$。请利用迹反转场方程推导空间中除中心质量外无其他物质分布（$\\rho=0$）时牛顿势 $\\Phi(r)$ 的表达式。背景 B：Schwarzschild 真空时空。度规为：$$ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2{\\left(\\theta\\right)} d\\phi^2$$其中 $r_s = 2M$。该时空具有时间平移 Killing 矢量 $\\xi^\\mu_{(t)} = (1,0,0,0)$ 和绕 $\\phi$ 轴旋转 Killing 矢量 $\\xi^\\mu_{(\\phi)} = (0,0,0,1)$，分别对应守恒量能量 $E$ 和角动量 $L$。请利用这些守恒量与度规，推导赤道面（$\\theta=\\pi/2$）上测试粒子径向运动方程中的等效势 $V_{eff}$，使得方程具有 $\\dot{r}^2 = E^2 - V_{eff}^2$ 的形式。",
+    "answer": "背景 A：迹反转场方程为 $R_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 8\\pi(T_{\\mu\\nu} - \\frac{1}{2}Tg_{\\mu\\nu})$。弱场极限下，$R_{00} \\approx \\nabla^2 \\Phi$，$T_{00} \\approx \\rho$，迹 $T \\approx -\\rho$，$g_{00} \\approx -1$。代入 00 分量得 $\\nabla^2 \\Phi - \\Lambda = 4\\pi\\rho$，即修正泊松方程 $\\nabla^2 \\Phi = 4\\pi\\rho + \\Lambda$。当 $\\rho=0$ 时，$\\nabla^2 \\Phi = \\Lambda$，解得势函数 $\\Phi(r) = -\\frac{M}{r} + \\frac{\\Lambda r^2}{6}$。当 $r \\to \\inf ty$ 时，$\\Phi(r) \\approx \\frac{\\Lambda r^2}{6} \\to +\\inf ty$（对 $\\Lambda>0$）。背景 B：由守恒量定义 $E = \\frac{r-r_s}{r}\\dot{t}$，$L = r^2\\dot{\\phi}$。代入度规条件 $g_{\\mu\\nu}\\dot{x}^\\mu\\dot{x}^\\nu = -1$，展开并整理得 $\\dot{r}^2 = E^2 - \\left(1 - \\frac{2M}{r} + \\frac{L^2}{r^2} - \\frac{2ML^2}{r^3}\\right)$。因此等效势为 $V_{eff}^2 = 1 - \\frac{2M}{r} + \\frac{L^2}{r^2} - \\frac{2ML^2}{r^3}$。当 $r \\to \\inf ty$ 时，$V_{eff}^2 \\to 1$。对比与物理含义：背景 A 的势在 $r \\to \\inf ty$ 时发散至正无穷，相当于在无穷远处存在一个无限高的排斥势垒。这意味着任何具有有限能量的测试粒子都无法逃逸至无穷远，必然在远端被反射回中心区域，体现了正宇宙学常数 $\\Lambda$ 在大尺度上产生的排斥效应及对粒子运动的束缚作用。背景 B 的等效势在 $r \\to \\inf ty$ 时趋于常数 1，代表时空在无穷远处是渐近平直的。只要粒子的能量 $E \\ge 1$，它就能克服引力势阱逃逸至无穷远。两者的差异源于宇宙学常数在大尺度上引入了有效的宇宙排斥力（类似 de Sitter 空间的宇宙视界效应），而 Schwarzschild 时空无此排斥成分。",
+    "solution": "背景A通过迹反转场方程推导泊松方程求解势函数；背景B通过Killing矢量定义守恒量代入度规约束求等效势；对比两者在r趋近无穷时的渐近形式与物理限制。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "1. 答案在背景B中存在严重的符号与物理定义错误：答案声称'因此等效势为 $V_{eff}^2 = 1 - \\frac{2M}{r} + \\frac{L^2}{r^2} - \\frac{2ML^2}{r^3}$'，但题目要求推导的是等效势 $V_{eff}$，并限定方程形式为 $\\dot{r}^2 = E^2 - V_{eff}^2$。按照此定义，真正的等效势 $V_{eff}$ 应当是 $\\sqrt{1 - \\frac{2M}{r} + \\frac{L^2}{r^2} - \\frac{2ML^2}{r^3}}$，答案未给出 $V_{eff}$ 的表达式却给出了 $V_{eff}^2$，造成混淆。实际上，在标准广义相对论文献中，Schwarzschild时空测试粒子的径向方程为 $\\dot{r}^2 = E^2 - V_{eff}$，其中 $V_{eff} = 1 - \\frac{2M}{r} + \\frac{L^2}{r^2} - \\frac{2ML^2}{r^3}$。题目强行要求 $\\dot{r}^2 = E^2 - V_{eff}^2$ 的非标准形式，导致答案将真正的等效势错误标记为等效势的平方。2. 背景A存在逻辑跳跃：题目设定'空间中除中心质量外无其他物质分布（$\\rho=0$）'，推导出的修正泊松方程为 $\\nabla^2 \\Phi = \\Lambda$。在严格的 $\\rho=0$ 条件下，该方程的解不应包含中心质量项 $-\\frac{M}{r}$（该项对应 $\\nabla^2 \\Phi = 4\\pi\\rho_{中心}$），答案直接给出 $\\Phi(r) = -\\frac{M}{r} + \\frac{\\Lambda r^2}{6}$ 缺乏由 $\\rho=0$ 推导出点源势的逻辑步骤，属于未证明的假设。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

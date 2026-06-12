@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "local_velocity_expression",
+      "coordinate": "stationary_frame",
+      "scenario": "stationary_spacetime",
+      "method": "local_observation_projection",
+      "generalization_axis": "extend",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\xi$",
+      "$\\mathbf{E}$",
+      "$\\mathbf{p}$",
+      "$\\mu$"
+    ],
+    "target": [
+      "$v^2 = 1 - \\frac{-\\xi^2}{(\\mathbf{E}/\\mu)^2}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在具有时间 Killing 矢量 $\\boldsymbol{\\xi}$ 的稳态时空度规中，测试粒子具有守恒的“无限远能量” $\\mathbf{E} = -\\mathbf{p} \\cdot \\boldsymbol{\\xi}$，其中 $\\mathbf{p}$ 为粒子的4-动量，$\\mu$ 为其静止质量。在时空某一点处，定义局部静止观测者为4-速度与 Killing 矢量平行的观测者，即 $\\mathbf{u}_{\\text{stat}} = \\boldsymbol{\\xi} / \\sqrt{-\\xi^2}$，其中 $\\xi^2 = \\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}$ 为 Killing 矢量的范数。假设该局部静止观测者测得该测试粒子的局部3-速度大小为 $v$。请证明：粒子的守恒能量 $\\mathbf{E} / \\mu$、局部速度 $v$ 以及 Killing 矢量范数 $\\xi^2$ 之间满足关系式 $v^2 = 1 - \\frac{-\\xi^2}{(\\mathbf{E}/\\mu)^2}$。",
+    "answer": "$v^2 = 1 - \\frac{-\\xi^2}{(\\mathbf{E}/\\mu)^2}$",
+    "solution": "1. 粒子的4-动量为 $\\mathbf{p} = \\mu \\mathbf{u}$，其中 $\\mathbf{u}$ 是粒子的4-速度，满足类时条件 $\\mathbf{u} \\cdot \\mathbf{u} = -1$。2. 局部静止观测者的4-速度为 $\\mathbf{u}_{\\text{stat}} = \\boldsymbol{\\xi} / \\sqrt{-\\xi^2}$。由于 $\\boldsymbol{\\xi}$ 是类时 Killing 矢量，$\\xi^2 = \\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} < 0$，因此 $\\sqrt{-\\xi^2}$ 为实数，且 $\\mathbf{u}_{\\text{stat}} \\cdot \\mathbf{u}_{\\text{stat}} = -1$。3. 局部静止观测者测得的粒子能量为 $E_{\\text{local}} = -\\mathbf{p} \\cdot \\mathbf{u}_{\\text{stat}} = -\\mu \\mathbf{u} \\cdot (\\boldsymbol{\\xi} / \\sqrt{-\\xi^2})$。4. 将 $\\mathbf{E} = -\\mu \\mathbf{u} \\cdot \\boldsymbol{\\xi}$ 代入上式，得到 $E_{\\text{local}} = \\mathbf{E} / \\sqrt{-\\xi^2}$。5. 在局部静止观测者的参考系中，狭义相对论成立，粒子能量与静止质量的关系为 $E_{\\text{local}} = \\gamma \\mu$，其中 $\\gamma = 1 / \\sqrt{1-v^2}$ 是局部洛伦兹因子。6. 因此，$\\mathbf{E} / \\sqrt{-\\xi^2} = \\gamma \\mu$，即 $\\gamma = \\frac{\\mathbf{E}}{\\mu \\sqrt{-\\xi^2}}$。7. 代入 $\\gamma$ 的定义：$\\frac{1}{\\sqrt{1-v^2}} = \\frac{\\mathbf{E}}{\\mu \\sqrt{-\\xi^2}}$，两边平方得到 $\\frac{1}{1-v^2} = \\frac{(\\mathbf{E}/\\mu)^2}{-\\xi^2}$。8. 重新整理即可得到目标关系式 $v^2 = 1 - \\frac{-\\xi^2}{(\\mathbf{E}/\\mu)^2}$。"
+  },
+  "verification": null
+}

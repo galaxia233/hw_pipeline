@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "id": "1_s2_2.1",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "Compton_shift_target",
+      "coordinate": "Cartesian_coordinates",
+      "scenario": "photon_electron_scattering_scenario",
+      "method": "four_momentum_invariant_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.1",
+    "source_id": "1_s2_2.1",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "四动量标积不变量技巧多步推导+经典粒子散射实验背景+题干解答完整",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$\\\\lambda^{\\prime} - \\\\lambda$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s2_2.1.md]\\n\\nProblem 2.1. (Compton scattering.) A photon of wavelength $\\lambda$ hits a stationary electron (mass $m_{e}$ ) and comes off with wavelength $\\lambda'$ at an angle $\\theta$ . Derive the expression\\n$$\\n\\\\lambda^{\\prime} - \\\\lambda = \\\\left(\\\\mathrm {h} / \\\\mathrm {m}_{\\\\mathrm {e}}\\\\right) (1 - \\\\cos \\\\theta).\\n$$",
+    "answer": "$\\\\lambda^{\\prime} - \\\\lambda = \\\\left(\\\\mathrm {h} / \\\\mathrm {m}_{\\\\mathrm{e}}\\\\right) (1 - \\\\cos \\\\theta)$",
+    "solution": "Solution 2.1. From 4-momentum conservation we have\\n$$\\n\\\\mathbf {P}_{\\\\mathbf {e}} + \\\\mathbf {P}_{\\\\mathbf {\\\\gamma}} = \\\\mathbf {P}_{\\\\mathbf {e}}^{\\\\prime} + \\\\mathbf {P}_{\\\\mathbf {\\\\gamma}}^{\\\\prime}.\\n$$\\n(Here $\\\\gamma$ indicates the photon; prime denotes values after scattering.) Since we are not interested in the electron's final momentum we use a generally useful trick to eliminate it:\\n$$\\n\\\\left(\\\\mathbf {P}_{\\\\mathrm {e}} + \\\\mathbf {P}_{\\\\gamma} - \\\\mathbf {P}_{\\\\gamma}^{\\\\prime}\\\\right)^{2} = \\\\mathbf {P}_{\\\\mathrm {e}}^{2}, = - \\\\mathbf {m}_{\\\\mathrm {e}}^{2},\\n$$\\nor, since $\\mathbf{P}_{\\\\gamma}^{2} = 0$\\n$$\\n- \\\\mathbf {m}_{\\\\mathbf {e}}^{2} + 2 \\\\mathbf {P}_{\\\\mathbf {e}} \\\\cdot \\\\mathbf {P}_{\\\\gamma} - 2 \\\\mathbf {P}_{\\\\mathbf {e}} \\\\cdot \\\\mathbf {P}_{\\\\gamma}^{\\\\prime} - 2 \\\\mathbf {P}_{\\\\gamma} \\\\cdot \\\\mathbf {P}_{\\\\gamma}^{\\\\prime} = - \\\\mathbf {m}_{\\\\mathbf {e}}^{2}.\\n$$\\nIn the lab frame, we have\\n$$\\n\\\\mathbf {P}_{\\\\mathrm {e}} = \\\\left(\\\\mathrm {m}_{\\\\mathrm {e}}, 0\\\\right)\\n$$\\n$\\mathbf{P}_{\\\\gamma} = (\\\\mathrm{h} / \\\\lambda ,\\\\mathrm{h} / \\\\lambda \\\\underline{\\\\mathsf{e}}_{\\\\mathbf{i}}),\\\\quad \\\\underline{\\\\mathsf{e}}_{\\\\mathbf{i}} = \\\\text{unit 3 - vector in incident direction},$\\n$\\mathbf{P}_{\\\\gamma}^{\\\\prime} = (\\\\mathrm{h} / \\\\lambda^{\\\\prime},\\\\mathrm{h} / \\\\lambda^{\\\\prime}\\\\underline{\\\\mathsf{e}}_{0}),\\\\underline{\\\\mathsf{e}}_{0} = \\\\text{unit 3 - vector in outgoing direction},$\\nso that\\n$$\\n- \\\\mathrm {\\\\frac {m_{e} h}{\\\\lambda}} + \\\\mathrm {\\\\frac {m_{e} h}{\\\\lambda^{\\prime}}} + \\\\mathrm {\\\\frac {h^{2}}{\\\\lambda \\\\lambda^{\\prime}}} - \\\\mathrm {\\\\frac {h^{2}}{\\\\lambda \\\\lambda^{\\prime}}} \\\\cos \\\\theta = 0 .\\n$$\\nMultiplying through by $\\lambda \\\\lambda'$ , we find\\n$$\\n\\\\lambda^{\\prime} - \\\\lambda = \\\\left(\\\\mathrm {h} / \\\\mathrm {m}_{\\\\mathrm {e}}\\\\right) (1 - \\\\cos \\\\theta).\\n$$"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

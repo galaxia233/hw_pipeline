@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s3_3.18",
+    "type": "prove",
+    "tags": {
+      "metric": "tensor_index_algebra",
+      "target_object": "symmetrization_method",
+      "coordinate": "rank_tensor_decomposition",
+      "scenario": "coordinate_free_scenario",
+      "method": "algebraic_verification"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.18",
+    "source_id": "1_s3_3.18",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.18"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.4,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.2,
+      "rationale": "纯张量指标对称化与反对称化的代数证明，逻辑完整但缺乏具体物理场景应用",
+      "overall": 0.55
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\gamma$",
+      "$\\\\mathbf{X}$",
+      "$\\\\mathbf{Y}$"
+    ],
+    "target": [
+      "$\\\\mathbf{X}_{\\\\alpha \\\\beta}$",
+      "$\\\\mathbf{Y}_{\\\\alpha \\\\beta \\\\gamma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.18. Show for any two-index tensor $\\mathbf{X}$ , that $\\mathbf{X}_{\\alpha \\beta} = \\mathbf{X}_{(\\alpha \\beta)} + \\mathbf{X}_{[\\alpha \\beta]}$ where ( ) and [ ] denote symmetrization and antisymmetrization, respectively. Show that in general\\n$$\\n\\mathbf {Y}_{\\alpha \\beta \\gamma} \\neq \\mathbf {Y}_{(a \\beta \\gamma)} + \\mathbf {Y}_{[ a \\beta \\gamma ]}.\\n$$",
+    "answer": "对于二阶张量，分解恒成立：$\\mathbf{X}_{\\alpha \\beta} = \\mathbf{X}_{(\\alpha \\beta)} + \\mathbf{X}_{[\\alpha \\beta]}$；对于三阶张量，该简单对称/反对称叠加一般不成立，即 $\\mathbf{Y}_{\\alpha \\beta \\gamma} \\neq \\mathbf{Y}_{(\\alpha \\beta \\gamma)} + \\mathbf{Y}_{[\\alpha \\beta \\gamma]}$。",
+    "solution": "Solution 3.18. The first part is straightforward:\\n$$\\n\\mathbf {X}_{\\alpha \\beta} = \\frac {1}{2} \\left(\\mathbf {X}_{\\alpha \\beta} + \\mathbf {X}_{\\beta \\alpha}\\right) + \\frac {1}{2} \\left(\\mathbf {X}_{\\alpha \\beta} - \\mathbf {X}_{\\beta \\alpha}\\right) = \\mathbf {X}_{(\\alpha \\beta)} + \\mathbf {X}_{[ \\alpha \\beta ]}.\\n$$\\nIf a similar relation,\\n$$\\n\\mathbf {Y}_{a \\beta \\gamma} = \\mathbf {Y}_{(a \\beta \\gamma)} + \\mathbf {Y}_{[ a \\beta \\gamma ]}, \\tag {1}\\n$$\\nwere true for a $3^{\\mathrm{rd}}$ rank tensor, we would have:\\n$$\\n\\mathrm {Y}_{\\beta a \\gamma} = \\mathrm {Y}_{(\\beta a \\gamma)} + \\mathrm {Y}_{[ \\beta a \\gamma ]} = \\mathrm {Y}_{(a \\beta \\gamma)} - \\mathrm {Y}_{[ a \\beta \\gamma ]}\\n$$\\n$$\\n\\mathbf {Y}_{\\beta \\gamma a} = \\mathbf {Y}_{(\\gamma \\beta a)} - \\mathbf {Y}_{[ \\gamma \\beta a ]} = \\mathbf {Y}_{(a \\beta \\gamma)} + \\mathbf {Y}_{[ a \\beta \\gamma ]} = \\mathbf {Y}_{a \\beta \\gamma}. \\tag {2}\\n$$\\nSince $\\mathbf{Y}_{\\alpha \\beta \\gamma}$ does not in general have the symmetry properties implied by Equation (2), the simple decomposition in Equation (1) cannot be correct."
+  },
+  "verification": null
+}

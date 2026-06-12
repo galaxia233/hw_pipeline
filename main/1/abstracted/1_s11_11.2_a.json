@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "id": "1_s11_11.2_a",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_flat_Minkowski",
+      "target_object": "target_object_total_angular_momentum",
+      "coordinate": "coordinate_Cartesian",
+      "scenario": "scenario_isolated_system",
+      "method": "method_divergence_theorem"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s11_11.2_a",
+    "source_id": "1_s11_11.2_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s11_11.2_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.3,
+      "realism": 0.6,
+      "rationale": "需从局部能动张量守恒出发，结合散度定理与体积积分推导整体角动量守恒，物理逻辑链条完整；但题干截断且无解答，完整性较低",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\mu$",
+      "$T^{\\\\alpha\\\\beta}$",
+      "$\\\\alpha$",
+      "$\\\\beta$"
+    ],
+    "target": [
+      "$J^{\\\\alpha\\\\beta}$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 11.2. Show\\n(a) that the total angular momentum of an isolated system in flat\\nspace\\nis a conserved tensor (when $\\mathbf{T}^{\\alpha \\beta},\\beta = 0)$ , but",
+    "answer": null,
+    "solution": null
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s16_16.30_i",
+    "type": "prove",
+    "tags": {
+      "metric": "spatial_curvature",
+      "target_object": "FLRW_metric",
+      "coordinate": "comoving_coordinates",
+      "scenario": "dust_collapse_scenario",
+      "method": "symmetry_derivation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.30_i",
+    "source_id": "1_s16_16.30_i",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.30_i"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "多步推导连接均匀各向同性假设与FLRW度规形式，通过初始运动状态严格对应空间曲率参数k的取值，物理图像清晰且解答完整。",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\tau$",
+      "$\\\\chi$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$g_{\\\\mu\\\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.30. Consider the gravitational collapse of a spherically symmetric, perfect fluid star of zero pressure and uniform density (i.e. uniform throughout the star as seen by observers comoving with the fluid).\\n(i) Show that the metric inside the star is locally the Friedmann solution with $\\mathbf{k} = +1$ if the star collapses from rest at some finite radius, $\\mathbf{k} = 0$ if the star is at rest at infinity, or $\\mathbf{k} = -1$ if the star is projected with finite velocity from infinity.",
+    "answer": "当星体从有限半径静止坍缩时$k=+1$；在无穷远处静止时$k=0$；从无穷处以有限速度投影时$k=-1$。内部度规局部等价于对应k值的Friedmann解。",
+    "solution": "(i) The stress tensor is $\\mathbf{T}_{\\\\alpha \\\\beta} = \\\\rho \\\\mathbf{u}_{\\\\alpha}\\\\mathbf{u}_{\\\\beta}$ . The assumptions of spherical symmetry and uniform density are equivalent to assuming isotropy and homogeneity, so the metric must be a Friedmann solution:\\n$$\\n\\\\mathrm {d s}^{2} = - \\\\mathrm {d}\\\\tau^{2} + \\\\mathrm {a}^{2} (\\\\tau) [ \\\\mathrm {d} \\\\chi^{2} + \\\\Sigma^{2} (\\\\chi) (\\\\mathrm {d} \\\\theta^{2} + \\\\sin^{2} \\\\theta \\\\mathrm {d} \\\\phi^{2}) ] \\\\tag {1}\\n$$\\nwhere\\n$$\\n\\\\Sigma = \\\\left\\\\{\\\\begin{array}{l l} \\\\sin \\\\chi , & k = 1 \\\\\\\\ \\\\chi , & k = 0 \\\\\\\\ \\\\sin h \\\\chi , & k = - 1. \\\\end{array} \\\\right.\\n$$\\nThe surface of the star is at some constant value of the \"radial\" coordinate, $\\\\chi = \\\\chi_0$ say. From Equation (1), the proper circumferential radius of the star is $R = a(\\\\tau)\\\\Sigma (\\\\chi_0)$ . The Einstein field equations (see Problems 19.16, 19.18) for zero pressure are\\n$$\\n\\\\begin{array}{l} \\\\left(\\\\frac {a ,_{\\\\tau}}{a}\\\\right)^{2} = - \\\\frac {k}{a^{2}} + \\\\frac {8 \\\\pi \\\\rho}{3} (2) \\\\\\\\ \\\\rho a^{3} = \\\\text {constant}. (3) \\\\\\\\ \\\\end{array}\\n$$\\nEquation (2) can be rewritten as\\n$$\\n\\\\rho = \\\\frac {3}{8 \\\\pi} \\\\left[ \\\\left(\\\\frac {\\\\mathrm {R}_{,\\\\tau}}{\\\\mathrm {R}}\\\\right)^{2} + \\\\frac {\\\\mathrm {k} \\\\Sigma^{2} \\\\left(\\\\chi_{0}\\\\right)}{\\\\mathrm {R}^{2}} \\\\right]. \\\\tag {4}\\n$$\\nThus, if $\\\\mathbf{R}_{,\\\\tau} = 0$ at any finite value of $\\\\mathbf{R}$ , $\\\\mathbf{k}$ must be $+1$ so that $\\\\rho$ is positive. Conversely, if $\\\\mathbf{k} = -1$ , $\\\\mathbf{R}_{,\\\\tau}$ is never zero. The case $\\\\mathbf{k} = 0$ corresponds to $\\\\mathbf{R}_{,\\\\tau} \\\\to 0$ as $\\\\mathbf{R} \\\\to \\\\inf ty$ ."
+  },
+  "verification": null
+}

@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s13_13.1-0-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "critical orbit radius",
+      "coordinate": "FLRW comoving and local Newtonian",
+      "scenario": "numerical simulation design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.1",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.1",
+      "1_s13_13.1-0",
+      "1_s13_13.1-0-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$a$",
+      "$R_{\\mu \\nu}$",
+      "$g_{\\mu \\nu}$",
+      "$R$",
+      "$T_{\\mu \\nu}$",
+      "$\\rho$",
+      "$v$"
+    ],
+    "target": [
+      "验证修正引力势下稳定圆轨道临界半径 $r_c = (3GM/\\\\Lambda)^{1/3}$ 的数值模拟方案"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "给定描述宇宙宏观演化的FLRW度规：\\n$$ds^2 = -dt^2 + \\\\frac{a^2(t)}{1-kr^2}dr^2 + r^2 a^2(t)(d\\\\theta^2 + \\\\sin^2\\\\theta d\\\\phi^2)$$\\n在弱场低速的牛顿极限下，包含宇宙学常数 $\\\\Lambda$ 的爱因斯坦场方程退化为修正的泊松方程 $\\\\nabla^2\\\\phi = 4\\\\pi G\\\\rho - \\\\Lambda$。在FLRW宇宙的局域参考系中引入点质量 $M$，其等效引力势为 $\\\\phi(r) = -\\\\frac{GM}{r} - \\\\frac{1}{6}\\\\Lambda r^2$，其中第二项代表了由 $\\\\Lambda$ 驱动的与距离平方成正比的排斥性引力效应。理论推导预测，在该势场中，测试粒子能够维持指向中心的净引力，从而保持稳定圆轨道的最大临界半径为 $r_c = \\\\left( \\\\frac{3GM}{\\\\Lambda} \\\\right)^{1/3}$，超过此半径的圆轨道将因排斥力主导而变得不稳定。\\n\\n请设计一个数值模拟实验方案，通过模拟测试粒子在修正引力势 $\\\\phi(r)$ 下的轨道演化，验证稳定圆轨道临界半径 $r_c$ 的理论结论。方案需具体说明：1) 粒子初始条件的设定策略（如何选取不同半径及计算初始速度）；2) 模拟过程中需要测量和记录的关键物理量；3) 如何从模拟数据中判定轨道稳定性并提取出临界半径 $r_{c, sim}$；4) 如何将模拟结果与理论公式 $r_c = (3GM/\\\\Lambda)^{1/3}$ 进行定量比对验证。",
+    "answer": "1. **初始条件设定**：选取一组测试粒子，其初始轨道半径 $r_i$ 分布在理论预期临界半径 $r_{c, theory} = (3GM/\\\\Lambda)^{1/3}$ 两侧（例如取 $r_i / r_{c, theory} = 0.5, 0.8, 0.95, 1.0, 1.05, 1.2, 1.5$）。对每个粒子，计算圆轨道所需的初始切向速度 $v_{\\\\phi} = \\\\sqrt{r_i \\\\cdot |d\\\\phi/dr|} = \\\\sqrt{GM/r_i - \\\\Lambda r_i^2 / 3}$。对于 $r_i < r_{c, theory}$，该速度为实数；对于 $r_i \\\\ge r_{c, theory}$，排斥力已超过引力，可赋予粒子零切向速度或极小切向速度。同时，为所有粒子施加一个微小的径向速度扰动 $\\\\delta v_r$（例如 $0.01 v_{\\\\phi}$ 或一个固定微小值），以测试轨道对径向扰动的稳定性。\\n2. **测量物理量**：在修正牛顿引力加速度 $a_r = -d\\\\phi/dr = -GM/r^2 + \\\\Lambda r / 3$ 的作用下，积分求解各粒子的运动轨迹。测量并记录每个粒子随时间演化的径向坐标 $r_i(t)$ 和径向速度 $v_{r, i}(t)$。\\n3. **提取临界半径**：分析各粒子 $r_i(t)$ 的演化特征。对于 $r_i < r_{c, theory}$ 的粒子，受微扰后 $r_i(t)$ 应围绕初始半径做小幅束缚振荡（稳定圆轨道特征）；对于 $r_i > r_{c, theory}$ 的粒子，排斥力主导，微扰后 $r_i(t)$ 将随时间单调发散，轨道失稳。通过寻找粒子径向运动由“束缚振荡”转为“单调发散”的半径分界点，即可在模拟中测定临界半径 $r_{c, sim}$。\\n4. **比对验证**：计算理论值与模拟测定值的相对误差 $\\\\Delta = |r_{c, sim} - r_{c, theory}| / r_{c, theory}$。若误差在数值积分允许的离散化精度范围内（如 $< 1\\%$），即可成功验证理论结论 $r_c = (3GM/\\\\Lambda)^{1/3}$。",
+    "solution": null
+  },
+  "verification": null
+}

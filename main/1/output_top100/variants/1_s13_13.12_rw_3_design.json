@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-0-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "Riemann curvature tensor",
+      "coordinate": "Cartesian",
+      "scenario": "linearized gravity gauge transformation design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "metric_tensor"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-0",
+      "1_s13_13.12-0-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric_tensor",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\mu$",
+      "$\\\\xi^\\\\mu$",
+      "$h_{\\\\mu\\\\nu}$",
+      "$g_{\\\\mu\\\\nu}$",
+      "$\\\\eta_{\\\\mu\\\\nu}$"
+    ],
+    "target": [
+      "设计数值模拟方案验证线性化黎曼曲率张量在无穷小规范变换下的不变性"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在线性化引力理论中，时空度规被近似为 $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$，其中 $\\eta_{\\mu\\nu}$ 是平坦闵可夫斯基度规（符号为$(-,+,+,+)$），$h_{\\mu\\nu}$ 是微小扰动（$|h_{\\mu\\nu}| \\ll 1$）。在无穷小规范变换（坐标变换）$x^\\mu_{\\text{new}} = x^\\mu_{\\text{old}} + \\xi^\\mu$ 下，度规扰动变换为 $h_{\\mu\\nu}^{\\text{new}} = h_{\\mu\\nu}^{\\text{old}} - \\partial_\\nu \\xi_\\mu - \\partial_\\mu \\xi_\\nu$。线性化黎曼曲率张量定义为：$$ R_{\\alpha\\beta\\gamma\\delta} = \\frac{1}{2} (\\partial_\\beta \\partial_\\gamma h_{\\alpha\\delta} + \\partial_\\alpha \\partial_\\delta h_{\\beta\\gamma} - \\partial_\\beta \\partial_\\delta h_{\\alpha\\gamma} - \\partial_\\alpha \\partial_\\gamma h_{\\beta\\delta}) $$ 理论推导表明该张量在规范变换下是不变的（即 $R_{\\alpha\\beta\\gamma\\delta}^{\\text{new}} = R_{\\alpha\\beta\\gamma\\delta}^{\\text{old}}$）。请设计一个数值模拟方案，通过构造具体的度规扰动场 $h_{\\mu\\nu}$ 和规范矢量场 $\\xi^\\mu$，验证上述线性化黎曼曲率张量的规范不变性结论。方案需详细说明：初始场与规范场的解析选取原则、数值网格与偏导数计算方法的设定、核心计算步骤，以及预期的结果判据。",
+    "answer": "1. **场选取**：选取平滑且具有解析导数的场，例如平面波形式的扰动 $h_{\\mu\\nu}^{\\text{old}} = A_{\\mu\\nu} \\sin(k_\\rho x^\\rho)$ 和规范场 $\\xi_\\mu = B_{\\mu} \\cos(q_\\rho x^\\rho)$。系数 $A_{\\mu\\nu}$ 和 $B_{\\mu}$ 必须足够小，以确保 $|h_{\\mu\\nu}| \\ll 1$ 及 $|\\partial \\xi| \\ll 1$ 的线性化条件成立。2. **导数计算**：在4维笛卡尔坐标空间设定离散网格点。为了保证验证的精确性，可以直接计算选取场的解析二阶偏导数代入计算；若验证数值算法，可采用高阶中心差分法计算各阶偏导数。3. **计算步骤**：   - 在网格点上计算 $h_{\\mu\\nu}^{\\text{old}}$ 的各阶偏导数，代入公式计算 $R_{\\alpha\\beta\\gamma\\delta}^{\\text{old}}$。   - 计算 $\\xi_\\mu$ 的一阶偏导数，构造新扰动 $h_{\\mu\\nu}^{\\text{new}} = h_{\\mu\\nu}^{\\text{old}} - \\partial_\\nu \\xi_\\mu - \\partial_\\mu \\xi_\\nu$。   - 计算 $h_{\\mu\\nu}^{\\text{new}}$ 的各阶偏导数，代入公式计算 $R_{\\alpha\\beta\\gamma\\delta}^{\\text{new}}$。4. **结果判据**：计算差值张量 $\\Delta R_{\\alpha\\beta\\gamma\\delta} = R_{\\alpha\\beta\\gamma\\delta}^{\\text{new}} - R_{\\alpha\\beta\\gamma\\delta}^{\\text{old}}$。预期结果：若使用解析导数，$\\Delta R$ 应严格等于零；若使用数值差分，$\\Delta R$ 的各分量绝对值应随网格加密呈指数级收敛至0，且远小于 $R^{\\text{old}}$ 本身的典型量级，从而确认规范不变性。",
+    "solution": "方案论证：线性化黎曼曲率张量的规范不变性源于偏导数的可交换性（$\\partial_\\mu \\partial_\\nu = \\partial_\\nu \\partial_\\mu$）。数值模拟通过引入任意的平滑规范场 $\\xi^\\mu$ 对原始扰动进行变换，使得 $h_{\\mu\\nu}$ 发生实质性改变（$\\Delta h_{\\mu\\nu} = -\\partial_\\nu \\xi_\\mu - \\partial_\\mu \\xi_\\nu$），但在计算新黎曼张量时，由于额外的交叉导数项在求和过程中完全抵消（相当于在数值上执行了 $\\partial_\\beta \\partial_\\gamma \\xi_{\\alpha\\delta}$ 的交换），最终结果必然保持不变。选取三角函数作为测试场能确保高阶导数不为零且有限差分误差可控，有效避免了常数场或低阶多项式场导致退化验证（导数项本身为零）的风险。"
+  },
+  "verification": null
+}

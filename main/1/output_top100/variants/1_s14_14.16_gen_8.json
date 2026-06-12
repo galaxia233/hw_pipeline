@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s14_14.16-8",
+    "type": "concept",
+    "tags": {
+      "target_object": "$R^{\\mu}_{\\phantom{\\mu}\\sigma}A^{\\sigma}$",
+      "coordinate": "FLRW",
+      "scenario": "cosmology",
+      "method": "compare",
+      "generalization_axis": "compare",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.16",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.16",
+      "1_s14_14.16-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$R^{0}_{\\phantom{0}0}A^{0}$",
+      "$R^{1}_{\\phantom{1}1}A^{1}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在弯曲时空中，最小耦合原理（逗号变分号法则）应用于平直时空无源 Maxwell 方程的 Lorenz 规范形式（$\\partial_{\\nu} \\partial^{\\nu} A^{\\mu} = 0$）时会导致歧义：一种推广直接得到 $A^{\\mu;\\nu}_{\\phantom{\\mu;\\nu};\\nu} = 0$，另一种从 $F^{\\mu\\nu}_{\\phantom{\\mu\\nu};\\nu} = 0$ 结合 Lorenz 规范推导得到 $A^{\\mu;\\nu}_{\\phantom{\\mu;\\nu};\\nu} = R^{\\mu}_{\\phantom{\\mu}\\sigma} A^{\\sigma}$。考虑 FLRW 度规 $ds^{2} = -dt^{2} + \\frac{a^{2}(t)}{1-kr^{2}}dr^{2} + r^{2} a^{2}(t) d\\theta^{2} + r^{2} a^{2}(t) \\sin^{2}{\\theta} d\\phi^{2}$，计算这两种推广的歧义差异项 $R^{\\mu}_{\\phantom{\\mu}\\sigma} A^{\\sigma}$ 的时间分量（$\\mu=0$）和径向空间分量（$\\mu=1$）的具体表达式，对比这两个分量，并解释宇宙膨胀动力学参数（$a(t)$、$\\dot{a}$、$\\ddot{a}$）与空间曲率 $k$ 对电磁势的时间分量 $A^{0}$ 和径向分量 $A^{1}$ 的物理影响有何不同。",
+    "answer": "时间分量为 $3 \\frac{\\ddot{a}}{a} A^{0}$，空间分量为 $\\left( \\frac{2k + 2\\dot{a}^{2} + a\\ddot{a}}{a^{2}}\\right) A^{1}$。时间分量仅受宇宙加速度 $\\ddot{a}$ 影响，而空间分量不仅受 $\\ddot{a}$ 影响，还受膨胀速率 $\\dot{a}^{2}$ 和空间曲率 $k$ 影响，这反映了 FLRW 时空的空间尺度动态拉伸导致电磁场的空间模式与背景几何的耦合不同于时间模式。",
+    "solution": "根据 FLRW 度规，Ricci 张量为对角形式，其分量为：$R_{00} = -3 \\frac{\\ddot{a}}{a}$，$R_{11} = \\frac{2k + a\\ddot{a} + 2\\dot{a}^{2}}{1 - kr^{2}}$。对应的逆度规分量为 $g^{00} = -1$，$g^{11} = \\frac{1 - kr^{2}}{a^{2}}$。由于 Ricci 张量是对角的，差异项 $R^{\\mu}_{\\phantom{\\mu}\\sigma} A^{\\sigma}$ 在 $\\mu=0$ 和 $\\mu=1$ 时没有交叉项，分别为：对于时间分量 $\\mu=0$：$R^{0}_{\\phantom{0}\\sigma} A^{\\sigma} = R^{0}_{\\phantom{0}0} A^{0} = g^{00} R_{00} A^{0} = (-1) \\left( -3 \\frac{\\ddot{a}}{a}\\right) A^{0} = 3 \\frac{\\ddot{a}}{a} A^{0}$。对于径向空间分量 $\\mu=1$：$R^{1}_{\\phantom{1}\\sigma} A^{\\sigma} = R^{1}_{\\phantom{1}1} A^{1} = g^{11} R_{11} A^{1} = \\frac{1 - kr^{2}}{a^{2}} \\frac{2k + a\\ddot{a} + 2\\dot{a}^{2}}{1 - kr^{2}} A^{1} = \\frac{2k + a\\ddot{a} + 2\\dot{a}^{2}}{a^{2}} A^{1}$。对比两者的物理含义：时间分量 $A^{0}$ 的差异项仅包含宇宙标度因子的二阶导数 $\\ddot{a}$（宇宙加速度），若宇宙匀速膨胀（$\\ddot{a}=0$），则该差异项消失，时间分量在两种推广下行为一致；而空间分量 $A^{1}$ 的差异项不仅包含 $\\ddot{a}$，还包含标度因子的一阶导数平方 $\\dot{a}^{2}$（膨胀速率，即 Hubble 参数的平方）和空间曲率 $k$。这表明即使在匀速膨胀的宇宙中，空间分量仍会受到膨胀和曲率的耦合影响。物理上，这是因为 FLRW 时空的空间距离随时间动态拉伸（$a(t)$），导致电磁场的空间模式必须与背景的膨胀及曲率直接耦合，而时间维度本身并未发生尺度拉伸，仅敏感于时空曲率的动态变化（加速度）。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "Answer 和 Solution 在物理意义解释部分存在严重的概念混淆与错误：\\n1. **将 $\\dot{a}^2$ 等同于 Hubble 参数的平方**：Solution 中称 '标度因子的一阶导数平方 $\\dot{a}^{2}$（膨胀速率，即 Hubble 参数的平方）'，这是错误的。Hubble 参数定义为 $H = \\dot{a}/a$，其平方是 $H^2 = \\dot{a}^2/a^2$，与 $\\dot{a}^2$ 在量纲与数值上均不等。\\n2. **声称时间分量仅受加速度 $\\ddot{a}$ 影响（不受膨胀速率影响）**：Answer 与 Solution 声称时间分量差异项仅包含 $\\ddot{a}$，不受膨胀速率影响，但实际上该差异项 $3\\ddot{a}/a$ 用宇宙学参数展开为 $3(\\dot{H} + H^2)$，明确包含了膨胀速率平方 $H^2$。当 $\\ddot{a}=0$（匀速膨胀，即 de Sitter 宇宙，此时 $\\dot{H}=-H^2$）时，时间分量差异项变为 $3(-H^2 + H^2)=0$，其值为零是因为 $\\dot{H}$ 与 $H^2$ 的贡献刚好抵消，绝非因为它不受膨胀速率影响。因此，得出 '时间分量仅受加速度影响，空间分量受膨胀速率影响' 的对比结论是完全错误的物理理解。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

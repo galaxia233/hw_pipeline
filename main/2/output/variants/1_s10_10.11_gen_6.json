@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-6",
+    "type": "prove",
+    "tags": {
+      "target_object": "conserved current",
+      "coordinate": "t,x,y,z",
+      "scenario": "cosmology",
+      "method": "tensor calculation",
+      "generalization_axis": "extend",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$J^\\mu$",
+      "$J^\\mu_{;\\mu}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一个静态 de Sitter 宇宙时空，其度规为：\\n$$ ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}}(dx^2 + dy^2 + dz^2) $$\\n其中 $\\alpha$ 为常数。该时空具有类时 Killing 矢量 $\\xi^\\mu = (1, 0, 0, 0)$。其 Einstein 张量的协变分量非零项为 $G_{00} = -\\frac{e^{-\\frac{2x}{\\alpha}}}{\\alpha^2}$，$G_{11} = \\frac{1}{\\alpha^2}$。若以 Einstein 张量代表该时空的能动张量分布（忽略 $8\\pi$ 因子），根据 Killing 矢量与能动张量构成守恒流的原理，定义守恒流密度 $J^\\mu = G^{\\mu\\nu} \\xi_\\nu$。请推导出 $J^\\mu$ 的所有逆变分量，并利用 Christoffel 符号直接验证该流的协变导数为零，即 $J^\\mu_{;\\mu} = 0$。",
+    "answer": "$J^0 = \\frac{e^{-\\frac{2x}{\\alpha}}}{\\alpha^2}$, $J^1=0$, $J^2=0$, $J^3=0$; $J^\\mu_{;\\mu} = 0$",
+    "solution": "1. **计算 $G^{\\mu\\nu}$ 的逆变分量**:\\n利用度规的逆变分量 $g^{00}=-1$, $g^{11}=e^{-\\frac{2x}{\\alpha}}$, $g^{22}=e^{-\\frac{2x}{\\alpha}}$, $g^{33}=e^{-\\frac{2x}{\\alpha}}$，对 Einstein 张量进行指标提升：\\n$$ G^{00} = g^{00}g^{00}G_{00} = (-1)(-1)\\left(-\\frac{e^{-\\frac{2x}{\\alpha}}}{\\alpha^2}\\right) = -\\frac{e^{-\\frac{2x}{\\alpha}}}{\\alpha^2} $$\\n$$ G^{11} = g^{11}g^{11}G_{11} = e^{-\\frac{4x}{\\alpha}} \\cdot \\frac{1}{\\alpha^2} = \\frac{e^{-\\frac{4x}{\\alpha}}}{\\alpha^2} $$\\n其他逆变分量 $G^{01}, G^{22}, G^{33}$ 均为 0。\\n\\n2. **计算 Killing 矢量的协变分量 $\\xi_\\nu$**:\\n$$ \\xi_\\nu = g_{\\nu\\mu}\\xi^\\mu $$\\n由于 $\\xi^\\mu = (1, 0, 0, 0)$ 且 $g_{00}=-1$，可得 $\\xi_0 = g_{00}\\xi^0 = -1$，$\\xi_1=0$, $\\xi_2=0$, $\\xi_3=0$。\\n\\n3. **推导守恒流密度 $J^\\mu$ 的分量**:\\n$$ J^\\mu = G^{\\mu\\nu}\\xi_\\nu $$\\n对 $\\mu=0$：$J^0 = G^{00}\\xi_0 = \\left(-\\frac{e^{-\\frac{2x}{\\alpha}}}{\\alpha^2}\\right)(-1) = \\frac{e^{-\\frac{2x}{\\alpha}}}{\\alpha^2}$\\n对 $\\mu=1,2,3$：由于 $G^{\\mu 0}=0$ 且 $\\xi_{1,2,3}=0$，所以 $J^1=0$, $J^2=0$, $J^3=0$。\\n因此，$J^\\mu = \\left( \\frac{e^{-\\frac{2x}{\\alpha}}}{\\alpha^2}, 0, 0, 0 \\right)$。\\n\\n4. **验证 $J^\\mu_{;\\mu} = 0$**:\\n根据协变导数定义：$J^\\mu_{;\\mu} = \\partial_\\mu J^\\mu + \\Gamma^\\mu_{\\mu\\nu} J^\\nu$。\\n首先计算普通导数项：$\\partial_\\mu J^\\mu = \\partial_0 J^0 + \\partial_1 J^1 + \\partial_2 J^2 + \\partial_3 J^3$。由于 $J^0$ 不显含时间 $t$，且 $J^1=J^2=J^3=0$，故 $\\partial_\\mu J^\\mu = 0$。（注意此处求和是对上标 $\\mu$ 进行的，不能误将 $\\partial_1 J^0$ 等混入）\\n其次计算 Christoffel 符号收缩项：$\\Gamma^\\mu_{\\mu\\nu} J^\\nu$。由于 $J^1, J^2, J^3$ 均为 0，仅有 $\\nu=0$ 的项可能非零：\\n$$ \\Gamma^\\mu_{\\mu 0} J^0 = (\\Gamma^0_{00} + \\Gamma^1_{10} + \\Gamma^2_{20} + \\Gamma^3_{30}) J^0 $$\\n由度规不含时间 $t$ 可知，所有包含时间指标 $0$ 的下标的 Christoffel 符号均为零，即 $\\Gamma^\\mu_{\\mu 0} = 0$。\\n因此，$\\Gamma^\\mu_{\\mu\\nu} J^\\nu = 0$。\\n综合两项，得 $J^\\mu_{;\\mu} = 0 + 0 = 0$，守恒律直接验证完毕。"
+  },
+  "verification": null
+}

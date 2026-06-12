@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-1-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "Riemann_tensor_invariance",
+      "coordinate": "Cartesian_and_Schwarzschild",
+      "scenario": "linearized_vs_exact_curvature_transformation",
+      "method": "derivation_and_comparison",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-1",
+      "1_s13_13.12-1-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\mu$",
+      "$\\\\xi^\\\\mu$",
+      "$h_{\\\\mu\\\\nu}$",
+      "$g_{\\\\mu\\\\nu}$",
+      "$\\\\eta_{\\\\mu\\\\nu}$"
+    ],
+    "target": [
+      "\\delta R'_{\\mu\\nu\\sigma\\rho}",
+      "Schwarzschild_Riemann_covariance_and_Kretschmann"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Consider the behavior of curvature under coordinate transformations in two distinct physical backgrounds:**Background A: Linearized Gravity (Weak Field)**The full metric is $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$, where $\\eta_{\\mu\\nu}$ is the Minkowski metric and $|h_{\\mu\\nu}| \\ll 1$. An infinitesimal gauge transformation (coordinate shift) $x^\\mu \\to x'^\\mu = x^\\mu + \\xi^\\mu(x)$ induces a change in the metric perturbation: $h'_{\\mu\\nu} = h_{\\mu\\nu} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu$. The linearized Riemann tensor is defined as: $$ \\delta R_{\\mu\\nu\\sigma\\rho} = \\frac{1}{2} \\left( \\partial_\\nu \\partial_\\sigma h_{\\mu\\rho} + \\partial_\\mu \\partial_\\rho h_{\\nu\\sigma} - \\partial_\\nu \\partial_\\rho h_{\\mu\\sigma} - \\partial_\\mu \\partial_\\sigma h_{\\nu\\rho}\\right) $$**Background B: Schwarzschild Spacetime (Exact Strong Field)**The metric is given by: $$ ds^2 = \\frac{-r+r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2(\\theta) d\\phi^2 $$ where $r_s$ is the Schwarzschild radius. Under a general finite coordinate transformation, the Riemann tensor components transform as a rank-4 tensor. Some of its components in this coordinate system are $R_{0101} = \\frac{r_s}{r^2(r-r_s)}$ and $R_{0202} = -\\frac{r_s}{2r}$, while the Kretschmann scalar is $K = \\frac{48 M^2}{r^6}$.**Task:**Derive the gauge transformation law for the linearized Riemann tensor $\\delta R'_{\\mu\\nu\\sigma\\rho}$ in Background A. Then, contrast this result with the transformation behavior of the Riemann tensor in Background B (where components must covariantly change but scalar invariants like $K$ remain constant). Explain the fundamental physical difference between the specific \"component invariance\" found in Background A and the general \"covariant invariance\" (scalar invariance) found in Background B, and how this reflects the distinction between gauge artifacts and true geometric observables in gravity.",
+    "answer": "In Background A, substituting the transformation of $h_{\\mu\\nu}$ into the definition of the linearized Riemann tensor yields: $$ \\delta R'_{\\mu\\nu\\sigma\\rho} = \\frac{1}{2} \\left( \\partial_\\nu \\partial_\\sigma h'_{\\mu\\rho} + \\dot s\\right) = \\delta R_{\\mu\\nu\\sigma\\rho} + \\text{terms involving} \\partial\\partial\\partial\\xi $$ Since partial derivatives commute on the flat background, the third-order derivative terms of $\\xi_\\mu$ cancel out exactly due to symmetric index permutations, leaving $\\delta R'_{\\mu\\nu\\sigma\\rho} = \\delta R_{\\mu\\nu\\sigma\\rho}$. Thus, the linearized Riemann tensor components are strictly invariant under gauge transformations.In Background B, the Riemann tensor components (such as $R_{0101}$) are not invariant; they transform covariantly according to the tensor transformation law, changing their functional form and numerical values in different coordinate systems (e.g., they can exhibit coordinate singularities like the factor $1/(r-r_s)$). However, physical observables constructed from the tensor, such as the Kretschmann scalar $K$, remain strictly invariant.Physical Difference: The strict component invariance in Background A is an artifact of the linearized approximation on a flat background, where the infinitesimal transformation makes the general covariant transformation law degenerate into a component-invariant one. This implies that in weak fields, different gauge choices (different $\\xi^\\mu$) only add non-physical coordinate artifacts to $h_{\\mu\\nu}$ without altering the physical tidal forces. In contrast, Background B represents a genuinely curved spacetime where the full non-linear theory applies; here, tensor components are inherently coordinate-dependent and not direct observables. True physical invariance is manifested only through coordinate-independent scalars (like $K$), reflecting the fact that in strong fields, spacetime curvature is an intrinsic geometric property independent of the observer's coordinate description.",
+    "solution": "1. **Background A Derivation**: Substitute $h'_{\\mu\\nu} = h_{\\mu\\nu} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu$ into $\\delta R'_{\\mu\\nu\\sigma\\rho}$. The extra terms are linear combinations of third-order derivatives of $\\xi_\\mu$, e.g., $-\\partial_\\nu \\partial_\\sigma \\partial_\\mu \\xi_\\rho$. Because partial derivatives commute in flat space, these terms are symmetric in their derivative indices. By rearranging the indices according to the definition of the Riemann tensor (swapping $\\rho$ and $\\sigma$, etc.), all $\\xi$-dependent terms cancel pairwise, proving $\\delta R'_{\\mu\\nu\\sigma\\rho} = \\delta R_{\\mu\\nu\\sigma\\rho}$.2. **Background B Analysis**: In exact general relativity, a finite coordinate transformation $x \\to x'$ forces the Riemann tensor to transform as $R'^\\alpha_{\\beta\\gamma\\delta} = \\frac{\\partial x'^\\alpha}{\\partial x^\\mu} \\dot s R^\\mu_{\\nu\\sigma\\rho}$. The components change (e.g., the $1/(r-r_s)$ factor disappears in Eddington-Finkelstein coordinates), but contractions like $K = R_{\\mu\\nu\\sigma\\rho} R^{\\mu\\nu\\sigma\\rho}$ evaluate to the same scalar $48M^2/r^6$ in any coordinate system.3. **Comparison**: Component invariance in Background A is a special linearized property ensuring that gauge choices do not alter observable tidal forces. Scalar invariance in Background B is the general relativistic manifestation of intrinsic spacetime geometry, confirming that while coordinate descriptions change, the physical curvature magnitude is absolute."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目 Background B 中给出的全下标 Riemann 张量分量 $R_{0202} = -\\frac{r_s}{2r}$ 是错误的。在 Schwarzschild 度规下，全下标分量的正确值应为 $R_{0202} = -\\frac{r_s(r-r_s)}{2r^2}$。题目中的 $-\\frac{r_s}{2r}$ 实际上是混合指标分量 $R^0_{202}$ 的精确值（或者是远场近似下的值），这里犯了典型的上下标混淆错误，遗漏了度规分量 $g_{00} = -(1-r_s/r)$ 带来的因子 $(r-r_s)/r$。此错误也与同一题目中给出的精确分量 $R_{0101} = \\frac{r_s}{r^2(r-r_s)}$ 的精确性不一致，且若用此错误分量计算 Kretschmann 标量将无法得到 $48 M^2 / r^6$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

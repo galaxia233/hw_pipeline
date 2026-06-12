@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-4-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "precession angular velocity",
+      "coordinate": "half-rectangular",
+      "scenario": "cosmology_reduce_flat",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-4",
+      "1_s11_11.9-4-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "\\Omega"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在宇宙学模型中，我们考虑由度规 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$ 描述的时空（其中 $\\alpha$ 为与宇宙常数 $\\Lambda$ 相关的常数，$\\alpha = \\sqrt{3/\\Lambda}$）。设一个陀螺仪在该时空中沿 $y$ 轴方向做类时测地线自由下落运动。根据广义相对论的计算，该陀螺仪的自旋矢量在随动局部惯性系中的物理进动角速度为 $\\Omega = \\dot{y}/\\alpha$。请通过取极限 $\\alpha \\to \\inf ty$（即宇宙常数 $\\Lambda \\to 0$，使时空回到 Minkowski 平直时空），求该进动角速度的极限，并说明此极限结果在经典惯性系中的物理对应。",
+    "answer": "当 $\\alpha \\to \\inf ty$ 时，$\\Omega = \\frac{\\dot{y}}{\\alpha} \\to 0$。此极限结果表明，在无曲率的 Minkowski 平直时空（经典惯性系）中，自由下落的陀螺仪不发生任何自旋轴进动（即 De Sitter 进动消失），其自旋方向保持不变，这正是经典惯性系中角动量守恒的直接体现。",
+    "solution": "极限过程：当 $\\Lambda \\to 0$ 时，$\\alpha = \\sqrt{3/\\Lambda} \\to \\inf ty$，度规中 $e^{2x/\\alpha} \\to 1$，时空趋于 Minkowski 平直时空。同时，物理进动角速度 $\\Omega = \\dot{y}/\\alpha \\to 0$。在经典对应中，平直时空无曲率，陀螺仪沿测地线运动时无测地线平移引起的 De Sitter 进动，自旋矢量方向恒定。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目存在严重的物理概念错误和公式错误：\\n1. **进动角速度公式完全错误**：在度规 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$ 中，$g_{00} = -1$，因此引力电场 $E_g = \\\\nabla \\\\ln \\\\sqrt{-g_{00}} = 0$。对于自由下落（测地线）陀螺仪，其随动局部惯性系由 Fermi-Walker 传输建立，由于测地线四维加速度为0，Fermi-Walker 传输即为平行传输，自旋矢量在该局部惯性系中方向恒定，物理进动角速度严格为 0，而非题目给出的 $\\\\Omega = \\\\dot{y}/\\\\alpha$。出题人可能将坐标空间基矢（如 $e^{-x/\\\\alpha}\\\\partial_y$）沿测地线的非平行传输分量误当成了陀螺仪的物理进动角速度。\\n2. **物理设定矛盾**：题目称“沿 y 轴方向做类时测地线自由下落运动”。根据该度规的测地线方程 $\\\\ddot{x} + \\\\Gamma^1_{22} \\\\dot{y}^2 = 0$（其中 $\\\\Gamma^1_{22} = -1/\\\\alpha$），如果陀螺仪初始在 y 轴上（$x=0$）且速度沿 y 轴（$\\\\dot{x}=0$），则其 x 方向的加速度 $\\\\ddot{x} = \\\\dot{y}^2/\\\\alpha \\\\neq 0$，这意味着它必然偏离 y 轴，不可能保持在 y 轴上做自由下落运动。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

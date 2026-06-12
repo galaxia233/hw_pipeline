@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "id": "1_s13_13.11-0",
+    "type": "calculate",
+    "tags": {
+      "target_object": "total_gravitational_field_energy",
+      "coordinate": "spherical",
+      "scenario": "uniform_density_sphere",
+      "method": "integral",
+      "generalization_axis": "apply",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.11",
+      "1_s13_13.11-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "metric",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$\\frac{3M^2}{5R}$"
+    ],
+    "metric": [
+      [
+        "$-(1+2\\Phi)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2\\Phi)$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$(1-2\\Phi)$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$(1-2\\Phi)$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "-2*Phi - 1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1 - 2*Phi",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1 - 2*Phi",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1 - 2*Phi"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "对于近牛顿度规$$ \\mathrm{d}s^2 = -(1+2\\Phi)\\mathrm{d}t^2 + (1-2\\Phi)\\delta_{jk}\\mathrm{d}x^j\\mathrm{d}x^k $$在忽略 $\\Phi$ 的时间导数且保留至最低非零阶时，其 Landau-Lifshitz 应力-能量赝张量的能量密度分量表达式为 $t_{\\rm LL}^{00} = \\frac{1}{8\\pi} |\\nabla \\Phi|^2$。考虑一个总质量为 $M$、半径为 $R$ 的均匀密度球体，其对应的牛顿引力势分布为：- 当 $r \\le R$ 时，$\\Phi(r) = -\\frac{M}{2R^3}(3R^2 - r^2)$；- 当 $r > R$ 时，$\\Phi(r) = -\\frac{M}{r}$。请计算该球体引力场的总能量 $E_{\\rm field} = \\int t_{\\rm LL}^{00} \\mathrm{d}^3x$，并给出最终结果。",
+    "answer": "$\\frac{3M^2}{5R}$",
+    "solution": "引力场的总能量由 Landau-Lifshitz 赝张量的能量密度分量对全空间的积分给出：$$ E_{\\rm field} = \\int \\frac{1}{8\\pi} |\\nabla \\Phi|^2 \\mathrm{d}^3x $$我们将积分分为球体内部 ($r \\le R$) 和外部 ($r > R$) 两部分。1. 对于外部区域 ($r > R$)：势函数为 $\\Phi = -\\frac{M}{r}$，其梯度为 $\\nabla \\Phi = \\frac{M}{r^2} \\hat{r}$，因此 $|\\nabla \\Phi|^2 = \\frac{M^2}{r^4}$。外部能量为：$$ E_{\\rm out} = \\int_R^\\inf ty \\frac{1}{8\\pi} \\frac{M^2}{r^4} 4\\pi r^2 \\mathrm{d}r = \\frac{M^2}{2} \\int_R^\\inf ty \\frac{1}{r^2} \\mathrm{d}r = \\frac{M^2}{2R} $$2. 对于内部区域 ($r \\le R$)：势函数为 $\\Phi = -\\frac{M}{2R^3}(3R^2 - r^2)$，其梯度为 $\\nabla \\Phi = \\frac{M}{2R^3} (2r) \\hat{r} = \\frac{M r}{R^3} \\hat{r}$，因此 $|\\nabla \\Phi|^2 = \\frac{M^2 r^2}{R^6}$。内部能量为：$$ E_{\\rm in} = \\int_0^R \\frac{1}{8\\pi} \\frac{M^2 r^2}{R^6} 4\\pi r^2 \\mathrm{d}r = \\frac{M^2}{2 R^6} \\int_0^R r^4 \\mathrm{d}r = \\frac{M^2}{2 R^6} \\frac{R^5}{5} = \\frac{M^2}{10R} $$3. 总引力场能量为两者之和：$$ E_{\\rm field} = E_{\\rm out} + E_{\\rm in} = \\frac{M^2}{2R} + \\frac{M^2}{10R} = \\frac{6M^2}{10R} = \\frac{3M^2}{5R} $$该结果恰好等于该均匀密度球体牛顿引力结合能 $U = -\\frac{3M^2}{5R}$ 的绝对值，说明在牛顿极限下 Landau-Lifshitz 赝张量能正确给出与系统结合能相对应的正值引力场能量。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.metric_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "solution 中存在 LaTeX 语法/排版错误：在计算外部区域能量时，无穷大符号被错误地写成了 `\\\\inf ty`（出现了两次），而非标准的数学宏 `\\\\infty`。这会导致公式渲染为文字 'inf ty' 而非正确的数学符号 $\\infty$，属于具体的表达式书写错误。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

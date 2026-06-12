@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "Killing equation",
+      "coordinate": "general",
+      "scenario": "geodesic conservation inversion",
+      "method": "tensor contraction symmetry",
+      "generalization_axis": "invert",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "killing_vector",
+    "soft_variant": "invert",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\mathbf{x}^{\\\\mu}$",
+      "$\\\\mathbf{u}^{\\\\alpha}$",
+      "$\\\\boldsymbol{\\\\xi}_{\\\\alpha}$"
+    ],
+    "target": [
+      "$\\nabla_\\alpha \\xi_\\beta + \\nabla_\\beta \\xi_\\alpha = 0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，Killing 矢量场 $\\pmb{\\xi}$ 沿测地线的切矢量 $\\mathbf{u}$ 的内积 $\\pmb{\\xi} \\cdot \\mathbf{u}$ 为常数，这构成了时空守恒量的基础。现在考虑其逆命题：假设在某个时空中，给定一个矢量场 $\\pmb{\\xi}(x^\\mu)$，我们发现对于该时空中的**任意**一条测地线，其切矢量 $\\mathbf{u}$ 与 $\\pmb{\\xi}$ 的内积 $\\pmb{\\xi} \\cdot \\mathbf{u}$ 沿该测地线均为常数。请从这一守恒性质出发，反推并证明该矢量场 $\\pmb{\\xi}$ 必然满足 Killing 方程，即证明 $\\nabla_\\alpha \\xi_\\beta + \\nabla_\\beta \\xi_\\alpha = 0$。",
+    "answer": "矢量场 $\\pmb{\\xi}$ 必然满足 Killing 方程 $\\nabla_\\alpha \\xi_\\beta + \\nabla_\\beta \\xi_\\alpha = 0$",
+    "solution": "设测地线切矢量为 $u^\\mu$，满足测地线方程 $u^\\nu \\nabla_\\nu u^\\mu = 0$。对内积 $\\pmb{\\xi} \\cdot \\mathbf{u} = \\xi_\\mu u^\\mu$ 沿测地线求导：\\n\\n$$ \\frac{d}{d\\tau} (\\xi_\\mu u^\\mu) = u^\\nu \\nabla_\\nu (\\xi_\\mu u^\\mu) = u^\\nu u^\\mu \\nabla_\\nu \\xi_\\mu + \\xi_\\mu u^\\nu \\nabla_\\nu u^\\mu $$\\n\\n由于 $\\mathbf{u}$ 是测地线切矢量，第二项 $\\xi_\\mu u^\\nu \\nabla_\\nu u^\\mu = 0$。题设给出该内积沿任意测地线为常数，即对任意满足测地线方程的 $u^\\mu$，有：\\n\\n$$ u^\\nu u^\\mu \\nabla_\\nu \\xi_\\mu = 0 $$\\n\\n注意 $u^\\nu u^\\mu$ 是关于指标 $\\mu, \\nu$ 的对称张量。任意张量 $\\nabla_\\nu \\xi_\\mu$ 可以分解为对称部分和反对称部分：\\n\\n$$ \\nabla_\\nu \\xi_\\mu = \\frac{1}{2} (\\nabla_\\nu \\xi_\\mu + \\nabla_\\mu \\xi_\\nu) + \\frac{1}{2} (\\nabla_\\nu \\xi_\\mu - \\nabla_\\mu \\xi_\\nu) $$\\n\\n由于反对称部分与对称张量 $u^\\nu u^\\mu$ 的缩并恒为零，条件 $u^\\nu u^\\mu \\nabla_\\nu \\xi_\\mu = 0$ 等价于对称部分的缩并为零：\\n\\n$$ u^\\nu u^\\mu (\\nabla_\\nu \\xi_\\mu + \\nabla_\\mu \\xi_\\nu) = 0 $$\\n\\n记 $K_{\\mu\\nu} = \\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu$。因为该条件对时空中的**任意**测地线成立，这意味着我们可以选取局部的任意类时或类空矢量作为切矢量 $u^\\mu$。\\n\\n首先，选取切矢量分量仅为单一方向，例如 $u^\\alpha = \\delta^\\alpha_i$（对于任意指标 $i$），代入得：\\n\\n$$ K_{ii} = 0 $$\\n\\n其次，选取切矢量分量为两个方向的组合，例如 $u^\\alpha = \\delta^\\alpha_i + \\delta^\\alpha_j$（对于 $i \\neq j$），代入得：\\n\\n$$ K_{ii} + K_{jj} + 2K_{ij} = 0 $$\\n\\n因为已知 $K_{ii} = 0$ 且 $K_{jj} = 0$, 必然得出 $K_{ij} = 0$。由于指标 $i, j$ 是任意的，这就证明了 $K_{\\mu\\nu} = 0$ 对所有指标成立，即：\\n\\n$$ \\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0 $$\\n\\n这正是 Killing 方程，因此 $\\pmb{\\xi}$ 必然是 Killing 矢量场。"
+  },
+  "verification": null
+}

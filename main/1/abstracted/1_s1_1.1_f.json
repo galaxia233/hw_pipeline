@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s1_1.1_f",
+    "type": "calculate",
+    "tags": {
+      "metric": "four_velocity",
+      "target_object": "special_relativity",
+      "coordinate": "kinematics",
+      "scenario": "coordinate"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.1_f",
+    "source_id": "1_s1_1.1_f",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.1_f"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.3,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于四速度定义与归一化条件的直接代数变形，逻辑链条短但属相对论运动学核心基础",
+      "overall": 0.62
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$u^0$",
+      "$|\\\\mathbf{v}|$"
+    ],
+    "target": [
+      "$|\\\\mathbf{v}|$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.1. The 4-velocity $\\mathbf{u}$ corresponds to 3-velocity $\\mathbf{v}$ . Express:\\n(f) $|\\mathbf{v}|$ in terms of $\\mathbf{u}^0$",
+    "answer": "$|\\\\mathbf{v}| = \\\\sqrt{1 - \\\\frac{1}{(u^0)^2}}$ （取几何单位制 $c=1$）",
+    "solution": null
+  },
+  "verification": null
+}

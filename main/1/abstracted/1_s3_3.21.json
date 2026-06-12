@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s3_3.21",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_determinant",
+      "target_object": "levi_civita_tensor",
+      "coordinate": "general_coordinate_frame",
+      "scenario": "tensor_density",
+      "method": "index_manipulation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.21",
+    "source_id": "1_s3_3.21",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.21"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.5,
+      "rationale": "涉及全反对称张量密度在正交基与一般坐标系的升降指标变换及度规行列式因子的完整推导",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\gamma$",
+      "$\\\\delta$"
+    ],
+    "target": [
+      "$\\\\varepsilon_{0123}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.21. In an orthonormal frame, show that\\n$$\\n\\\\varepsilon_{\\\\alpha \\\\beta \\\\gamma \\\\delta} = - \\\\varepsilon^{\\\\alpha \\\\beta \\\\gamma \\\\delta}.\\n$$\\nWhat is the analogous relation in a general coordinate frame with metric $\\mathbf{g}_{\\\\mu \\\\nu}$ ?",
+    "answer": "$\\\\varepsilon_{\\\\alpha \\\\beta \\\\gamma \\\\delta} = \\\\det(\\\\mathbf{g}_{\\\\mu \\\\nu}) \\\\varepsilon^{\\\\alpha \\\\beta \\\\gamma \\\\delta}$",
+    "solution": "Solution 3.21. In an orthonormal frame\\n$$\\n\\\\varepsilon^{\\\\alpha \\\\beta \\\\gamma \\\\delta} = \\\\eta^{\\\\alpha \\\\mu} \\\\eta^{\\\\beta \\\\nu} \\\\eta^{\\\\gamma \\\\sigma} \\\\eta^{\\\\delta \\\\lambda} \\\\varepsilon_{\\\\mu \\\\nu \\\\sigma \\\\lambda}.\\n$$\\nFor nonzero components of $\\varepsilon^ { \\\\alpha \\\\beta \\\\gamma \\\\delta }$ , precisely one of the indices $a, \\beta, \\gamma, \\delta$ must equal zero. Since $\\eta^{00} = -1$ and $\\eta^{jj} = 1$ this introduces precisely one minus sign in what is otherwise an identity transformation. Thus\\n$$\\n\\\\varepsilon_{\\\\alpha \\\\beta \\\\gamma \\\\delta} = - \\\\varepsilon^{\\\\alpha \\\\beta \\\\gamma \\\\delta}.\\n$$\\nIn some other frame, this equation becomes\\n$$\\n\\\\left[ - \\\\det \\\\left(\\\\mathbf {g}_{\\\\mu \\\\nu}\\\\right) \\\\right]^{- \\\\frac {1}{2}} \\\\varepsilon_{\\\\alpha} \\\\beta \\\\gamma \\\\delta = - \\\\left[ - \\\\det \\\\left(\\\\mathbf {g}_{\\\\mu \\\\nu}\\\\right) \\\\right]^{\\\\frac {1}{2}} \\\\varepsilon^{\\\\alpha \\\\beta \\\\gamma \\\\delta}\\n$$\\naccording to the transformation derived in Solution 3.20, and its obvious analog for $\\varepsilon^{\\\\alpha \\\\beta \\\\gamma \\\\delta}$ . Thus in general\\n$$\\n\\\\varepsilon_{a \\\\beta \\\\gamma \\\\delta} = \\\\det (\\\\mathbf {g}_{\\\\mu \\\\nu}) \\\\varepsilon^{a \\\\beta \\\\gamma \\\\delta}.\\n$$"
+  },
+  "verification": null
+}

@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-1-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "光子球半径",
+      "coordinate": "球坐标",
+      "scenario": "contrast_Schwarzschild_RN",
+      "method": "测地线方程",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-1",
+      "1_s15_15.11-1-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$v$",
+      "$\\sigma$"
+    ],
+    "target": [
+      "光子球半径对比"
+    ],
+    "metric": [
+      [
+        "$-(1-\\frac{2M}{r})$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$\\frac{1}{1-\\frac{2M}{r}}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在黑洞时空中，光子可在赤道面 ($\\theta = \\pi/2$) 形成不稳定圆形轨道（光子球），满足径向速度与径向加速度均为零 ($\\dot{r} = 0, \\ddot{r} = 0$)。已知两种黑洞度规均具有时间平移 Killing 矢量 $\\partial_t$ 和绕 $\\phi$ 轴旋转 Killing 矢量 $\\partial_\\phi$，由此定义守恒量 $E = -g_{tt}\\dot{t}$ 与 $L = g_{\\phi\\phi}\\dot{\\phi}$。背景1：无电荷的 Schwarzschild 黑洞，度规为：$ds^2 = \\frac{-r+r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^{2} d\\theta^{2} + r^{2} \\sin^{2}\\theta d\\phi^{2}$相关 Christoffel 符号：$\\Gamma^1_{00} = \\frac{r_s(r-r_s)}{2r^{3}}$，$\\Gamma^1_{33} = (-r+r_s)\\sin^{2}\\theta$。背景2：带电荷的 Reissner-Nordström 黑洞，度规为：$ds^2 = -\\left(1 - \\frac{r_s}{r} + \\frac{r_Q^{2}}{r^{2}}\\right) dt^2 + \\left(1 - \\frac{r_s}{r} + \\frac{r_Q^{2}}{r^{2}}\\right)^{-1} dr^2 + r^{2} d\\theta^{2} + r^{2} \\sin^{2}\\theta d\\phi^{2}$其中 $r_Q^{2}$ 为与电荷平方成正比的几何常数。相关 Christoffel 符号：$\\Gamma^1_{00} = \\frac{1}{2} \\left(1 - \\frac{r_s}{r} + \\frac{r_Q^{2}}{r^{2}}\\right) \\left(\\frac{r_s}{r^{2}} - \\frac{2r_Q^{2}}{r^{3}}\\right)$，$\\Gamma^1_{33} = -r \\left(1 - \\frac{r_s}{r} + \\frac{r_Q^{2}}{r^{2}}\\right) \\sin^{2}\\theta$。请利用零测地线约束与径向测地线方程，分别推导这两种背景下光子球的半径 $r_{ph}$ 与参数 $r_s$（及 $r_Q^{2}$）的定量关系，并对比分析带电黑洞光子球半径相比无电黑洞的变化趋势及其物理含义。",
+    "answer": "Schwarzschild 黑洞光子球半径：$r_{ph}^{Sch} = \\frac{3}{2} r_s$。Reissner-Nordström 黑洞光子球半径：$r_{ph}^{RN} = \\frac{3r_s + \\sqrt{9r_s^{2} - 32r_Q^{2}}}{4}$（取靠近黑洞的外部不稳定轨道解）。对比与物理含义：对于相同的黑洞质量（即相同的 $r_s$），带电黑洞的光子球半径严格小于无电黑洞（$r_{ph}^{RN} < \\frac{3}{2} r_s$）。物理上，电荷的引入使得度规时间分量中出现了 $+\\frac{r_Q^{2}}{r^{2}}$ 的修正项，这削弱了给定径向坐标处的有效引力势（使得该处的引力红移减弱，时空弯曲程度相对变小）。为了维持光子的不稳定圆形轨道所需的向心引力平衡，光子必须向内移动到引力更强的更小半径处，从而导致光子球半径缩小。",
+    "solution": "1. 确定约束条件：赤道面 $\\theta = \\pi/2$ 上，$\\dot{\\theta} = 0$, $\\dot{r} = 0$, $\\ddot{r} = 0$。2. 零测地线条件 $g_{\\mu\\nu} \\dot{x}^{\\mu} \\dot{x}^{\\nu} = 0$ 给出 $\\dot{t}^{2}$ 与 $\\dot{\\phi}^{2}$ 的关系。   背景1：$\\frac{-r+r_s}{r} \\dot{t}^{2} + r^{2} \\dot{\\phi}^{2} = 0 \\implies \\dot{t}^{2} = \\frac{r^{3}}{r - r_s} \\dot{\\phi}^{2}$。   背景2：$\\left(1 - \\frac{r_s}{r} + \\frac{r_Q^{2}}{r^{2}}\\right) \\dot{t}^{2} = r^{2} \\dot{\\phi}^{2} \\implies \\dot{t}^{2} = \\frac{r^{2}}{1 - \\frac{r_s}{r} + \\frac{r_Q^{2}}{r^{2}}} \\dot{\\phi}^{2}$。3. 径向测地线方程 $\\ddot{r} + \\Gamma^1_{00} \\dot{t}^{2} + \\Gamma^1_{33} \\dot{\\phi}^{2} = 0$。   背景1代入：$\\frac{r_s(r-r_s)}{2r^{3}} \\left(\\frac{r^{3}}{r-r_s}\\right) \\dot{\\phi}^{2} + (-r+r_s) \\dot{\\phi}^{2} = 0 \\implies \\frac{r_s}{2} - r + r_s = 0 \\implies r = \\frac{3}{2}r_s$。   背景2代入：$\\frac{1}{2} \\left(1 - \\frac{r_s}{r} + \\frac{r_Q^{2}}{r^{2}}\\right) \\left(\\frac{r_s}{r^{2}} - \\frac{2r_Q^{2}}{r^{3}}\\right) \\frac{r^{2}}{1 - \\frac{r_s}{r} + \\frac{r_Q^{2}}{r^{2}}} \\dot{\\phi}^{2} - r \\left(1 - \\frac{r_s}{r} + \\frac{r_Q^{2}}{r^{2}}\\right) \\dot{\\phi}^{2} = 0$。   约化得：$\\frac{1}{2}r^{2} \\left(\\frac{r_s}{r^{2}} - \\frac{2r_Q^{2}}{r^{3}}\\right) - r \\left(1 - \\frac{r_s}{r} + \\frac{r_Q^{2}}{r^{2}}\\right) = 0 \\implies \\frac{r_s}{2} - \\frac{r_Q^{2}}{r} - r + r_s - \\frac{r_Q^{2}}{r} = 0$。   即：$\\frac{3}{2}r_s - r - \\frac{2r_Q^{2}}{r} = 0 \\implies 2r^{2} - 3r_s r + 4r_Q^{2} = 0$。   解得：$r = \\frac{3r_s \\pm \\sqrt{9r_s^{2} - 32r_Q^{2}}}{4}$，取靠近黑洞的正根即为光子球半径。"
+  },
+  "verification": null
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "id": "1_s19_19.6",
+    "type": "prove",
+    "tags": {
+      "metric": "robertson_walker_metric",
+      "target_object": "closed_universe_geometry",
+      "coordinate": "spatial_coordinates",
+      "scenario": "cosmological_model",
+      "method": "embedding_technique"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.6",
+    "source_id": "1_s19_19.6",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "封闭FLRW宇宙空间三维曲面嵌入四维欧氏空间，多步推导旋转对称性且无不动点结论",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$a$",
+      "$\\\\chi$",
+      "$\\\\theta$",
+      "$\\\\phi$",
+      "$W$",
+      "$X$",
+      "$Y$",
+      "$Z$"
+    ],
+    "target": [
+      "$\\\\nabla_{(i}\\\\xi_{j)} = 0$"
+    ],
+    "metric": [
+      [
+        "$a^2$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$a^2 \\\\sin^2 \\\\chi$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$a^2 \\\\sin^2 \\\\chi \\\\sin^2 \\\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.6. Show that the spacelike 3-surfaces of a closed, isotropic, homogeneous universe possess a translation symmetry which leaves no points fixed. (Notice that this is not true in 2 dimensions; a 2 sphere cannot be combed smooth!)",
+    "answer": "For nonzero $a$, a combination of rotations in the orthogonal embedding planes generates a translation symmetry that leaves no points of the 3-sphere fixed.",
+    "solution": "Solution 19.6. From the Robertson-Walker metric (in \"trigonometric\" form), the metric for the spacelike 3-surfaces is\\n$$\\n\\\\mathrm {d} \\\\sigma^{2} = \\\\mathrm {a}^{2} \\\\left[ \\\\mathrm {d} \\\\chi^{2} + \\\\sin^{2} \\\\chi \\\\left(\\\\mathrm {d} \\\\theta^{2} + \\\\sin^{2} \\\\theta \\\\mathrm {d} \\\\phi^{2}\\\\right) \\\\right].\\n$$\\nBy analogy with the metric for 2-spheres, it is easy to guess that this metric can be represented as a 3-sphere embedded in a Euclidean 4-space with cartesian coordinates $W$ , $X$ , $Y$ , $Z$ . In particular, if we define\\n$$\\n\\\\begin{array}{l}\\n W = a \\\\cos x \\\\\\\\\\n Z = a \\\\sin \\\\chi \\\\cos \\\\theta \\\\\\\\\\n \\\\mathbf {X} = \\\\mathbf {a} \\\\sin \\\\chi \\\\sin \\\\theta \\\\cos \\\\phi \\\\\\\\\\n \\\\mathbf {Y} = \\\\mathbf {a} \\\\sin \\\\chi \\\\sin \\\\theta \\\\sin \\\\phi \\\\\\\\\\n \\\\end{array}\\n$$\\n(which satisfy $\\mathbf{W}^2 +\\\\mathbf{Z}^2 +\\\\mathbf{X}^2 +\\\\mathbf{Y}^2 = \\mathbf{A}^2)$ , the metric becomes\\n$$\\n\\\\mathrm {d} \\\\sigma^{2} = \\\\mathrm {d} W^{2} + \\\\mathrm {d} Z^{2} + \\\\mathrm {d} X^{2} + \\\\mathrm {d} Y^{2}.\\n$$\\nIn Euclidean 4-space one can find two planes (e.g. X-Y and W-Z) which intersect only at the origin $(a = 0)$ . Thus, a rotation of the X-Y plane changes all X and Y coordinates except the origin and leaves all W-Z coordinates fixed; and vice versa for W-Z rotations. Therefore, a combination of both rotations leaves no points fixed except the\\norigin and (for nonzero a) takes all points of the 3-sphere into different points."
+  },
+  "verification": null
+}

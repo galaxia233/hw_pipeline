@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s13_13.11-1-2",
+    "type": "calculate",
+    "tags": {
+      "target_object": "proper_acceleration_magnitude",
+      "coordinate": "curvilinear",
+      "scenario": "static_metric",
+      "method": "covariant_derivative",
+      "generalization_axis": "substitute",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.11",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s13_13.11",
+      "1_s13_13.11-1",
+      "1_s13_13.11-1-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "DeSitter",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$a^\\mu$",
+      "$a_i a^i$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "For the metric $\\mathrm{d} s^{2} = - \\mathrm{d} t^{2} + e^{\\frac{2x}{\\alpha}} (\\mathrm{d} x^{2} + \\mathrm{d} y^{2} + \\mathrm{d} z^{2})$, calculate the proper 4-acceleration $a^\\mu$ of a stationary observer (with $\\dot{x} = \\dot{y} = \\dot{z} = 0$). Determine the components $a^\\mu$ and the magnitude squared of the spatial acceleration $a_i a^i$.",
+    "answer": "$a^\\mu = (0, 0, 0, 0), a_i a^i = 0$",
+    "solution": "1. The 4-velocity of a stationary observer is $u^\\mu = (u^0, 0, 0, 0)$. From the normalization condition $g_{\\mu\\nu} u^\\mu u^\\nu = -1$, we have $g_{00} (u^0)^2 = -1$. Since $g_{00} = -1$, $u^0 = 1$. Thus, $u^\\mu = (1, 0, 0, 0)$.2. The proper 4-acceleration is $a^\\mu = \\frac{D u^\\mu}{d \\tau} = u^\\nu \\nabla_\\nu u^\\mu$. Since $u^i = 0$ and $\\partial_0 u^\\mu = 0$, the coordinate derivative term vanishes, leaving $a^\\mu = \\Gamma^\\mu_{\\nu\\sigma} u^\\nu u^\\sigma = \\Gamma^\\mu_{00} (u^0)^2 = \\Gamma^\\mu_{00}$.3. Calculate the relevant Christoffel symbols: $\\Gamma^\\mu_{00} = \\frac{1}{2} g^{\\mu\\lambda} (2 g_{\\lambda 0, 0} - g_{00, \\lambda})$. Since $g_{00} = -1$ is constant, $g_{00, \\lambda} = 0$. Since $g_{\\lambda 0} = 0$ for all $\\lambda$, $g_{\\lambda 0, 0} = 0$. Therefore, $\\Gamma^\\mu_{00} = 0$ for all $\\mu$.4. Thus, $a^\\mu = (0, 0, 0, 0)$. This indicates that a stationary observer in this spacetime is a geodesic (in free fall), which physically corresponds to the fact that the norm of the time translation Killing vector $\\partial_t$ is constant ($g_{00} = -1$), meaning there is no gravitational redshift and no gravitational force acting on stationary observers.5. The magnitude squared of the spatial acceleration is $a_i a^i = g_{ij} a^i a^j = 0$. This reveals a profound physical contrast to the Newtonian limit: despite the presence of non-zero energy density ($G_{00} = - \\frac{e^{- \\frac{2x}{\\alpha}}}{\\alpha^{2}}$), a stationary observer requires no force to remain stationary ($a^i = 0$). In this spacetime, the energy content generates purely tidal spatial curvature (as shown by the non-zero Kretschmann scalar $\\frac{12}{\\alpha^{2}}$) without exerting a gravitational 'pull', which is a characteristic feature of solutions where gravitational redshift vanishes."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "题目存在严重的度规书写错误及由此引发的物理结论全盘错误：\n1. **度规形式错误**：出题人意图给出 De Sitter 时空的膨胀坐标（平坦切片）度规，其正确形式应为 $ds^2 = -dt^2 + e^{2t/\\alpha}(dx^2+dy^2+dz^2)$。但题目将时间变量 $t$ 错写成了空间变量 $x$，导致度规变为 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2+dy^2+dz^2)$。该度规可通过简单的坐标变换 $X = \\alpha e^{x/\\alpha}$ 化为标准的闵可夫斯基度规 $ds^2 = -dt^2 + dX^2 + dy^2 + dz^2$，其实际上是**平直时空**。\n2. **Einstein张量计算错误**：Solution 第5步声称该时空具有非零能量密度 $G_{00} = -\\frac{e^{-2x/\\alpha}}{\\alpha^2}$。但对于该平直度规，其真实的 Einstein 张量应为 $G_{\\mu\\nu} = 0$，期望值与实际值严重矛盾。\n3. **Kretschmann标量错误**：摘要与 Solution 均声称该度规的 Kretschmann 标量为 $\\frac{12}{\\alpha^2}$。但该度规为平直时空，真实的 Kretschmann 标量应为 0，期望值与实际值矛盾。\n4. **物理诠释完全荒谬**：Solution 第5步基于错误的曲率标量，推断该时空存在“纯潮汐空间曲率”且“有非零能量密度但不施加引力拉扯”。实际上该度规没有任何曲率或能量密度，物理解释与实际几何性质完全脱节。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

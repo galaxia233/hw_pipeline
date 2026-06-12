@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "id": "1_s9_9.34_i",
+    "type": "calculate",
+    "tags": {
+      "metric": "extrinsic_curvature",
+      "target_object": "sphere",
+      "coordinate": "eigenvalue_eigenvector",
+      "scenario": "Gaussian_normal_coordinates",
+      "method": "hypersurface_geometry"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.34_i",
+    "source_id": "1_s9_9.34_i",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.34_i"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "基于对称性分析与高斯法坐标显式计算外曲率本征值与方向，逻辑链条清晰完整但属纯几何模型",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$-1/a$"
+    ],
+    "metric": [
+      [
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$r^2 \\sin^2 \\theta$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 9.34. The eigenvalues and eigenvectors of the extrinsic curvature tensor are called the principal curvatures and principal directions. Find the principal curvatures and directions for the following surfaces embedded in a 3-dimensional Euclidean space.\\n(i) sphere: $\\mathbf{x}^2 + \\mathbf{y}^2 + \\mathbf{z}^2 = \\mathbf{a}^2$ .",
+    "answer": "-1/a",
+    "solution": "(i) Since there is no favored direction in the spherical surface the extrinsic curvature tensor must be $\\mathbf{K}_{ij} \\propto \\delta_{ij}$ in an orthonormal basis; this implies that any vector is an eigenvector. From the definition of $\\mathbf{K}$ as the rate of change of $\\mathbf{n}$ , the eigenvalue must be $-1/\\text{sphere's radius} = -1/a$ .\\nWe can give a mathematical development of these intuitive results by going to the usual spherical coordinates $\\mathbf{r}$ , $\\theta$ , $\\phi$ . These are clearly Gaussian normal coordinates and\\n$$\\n\\mathrm {d s}^{2} = \\mathbf {\\Phi}^{(2)} \\mathrm {g}_{\\mathrm {i k}} \\mathrm {d x}^{\\mathrm {i}} \\mathrm {d x}^{\\mathrm {k}} = \\mathrm {r}^{2} \\left(\\mathrm {d}\\theta^{2} + \\sin^{2} \\theta \\mathrm {d}\\phi^{2}\\right).\\n$$\\nNow $\\mathbf{K}_{ij} = -\\frac{1}{2}\\mathbf{g}_{ij,n} = -\\frac{1}{2}\\mathbf{g}_{ij,r}$ so\\n$$\\n\\begin{array}{l} \\mathrm {K}_{\\widehat {\\theta} \\widehat {\\theta}} = \\frac {1}{\\mathrm {g}_{\\theta \\theta}} \\mathrm {K}_{\\theta \\theta} = \\frac {1}{\\mathrm {r}^{2}} \\left(- \\frac {1}{2} \\mathrm {r}^{2}\\right), \\mathrm {r} = - 1 / \\mathrm {a} \\\\ \\mathrm {K}_{\\hat {\\phi} \\hat {\\phi}} = \\frac {1}{\\mathrm {g}_{\\phi \\phi}} \\mathrm {K}_{\\phi \\phi} = \\frac {1}{\\mathrm {r}^{2} \\sin^{2} \\theta} \\left(- \\frac {1}{2} \\mathrm {r}^{2} \\sin^{2} \\theta\\right), \\mathrm {r} = - 1 / \\mathrm {a}. \\tag {1} \\\\\\n\\end{array}\\n$$"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 2,
+    "variables": [
+      "\\theta",
+      "\\phi"
+    ],
+    "metric_latex": [
+      [
+        "r^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "r^{2} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

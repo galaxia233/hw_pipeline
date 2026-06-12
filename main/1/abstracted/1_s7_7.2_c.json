@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "id": "1_s7_7.2_c",
+    "type": "calculate",
+    "tags": {
+      "metric": "flat_space",
+      "target_object": "polar_coordinates",
+      "coordinate": "christoffel_symbol",
+      "scenario": "metric_tensor",
+      "method": "formula_application"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.2_c",
+    "source_id": "1_s7_7.2_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.2_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.3,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "直接套用联络公式计算，逻辑链条较短但计算结构高度通用，适合作为坐标变换基础训练。",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$r$",
+      "$\\\\theta$"
+    ],
+    "target": [
+      "$\\\\Gamma^{r}_{\\\\theta \\\\theta}$",
+      "$\\\\Gamma^{\\\\theta}_{r \\\\theta}$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$r^2$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "r**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "[文件 1: 1_s7_7.2_c.md]\\n\\nProblem 7.2. For a 2-dimensional flat, Euclidean space described by polar coordinates $\\mathbf{r}$ , $\\theta$ , assume that the geodesics are the usual straight lines.\\n(c) Finally, from the line element $\\mathrm{ds}^2 = \\mathrm{dr}^2 +\\mathrm{r}^2\\mathrm{d}\\theta^2$ find the Christoffel symbols, in the usual way, as derivatives of the metric coefficients $\\mathbf{g}_{\\mu \\nu}$ . (All three methods, of course, must give the same Christoffel symbols.)",
+    "answer": "$\\\\Gamma^{r}_{\\\\theta \\\\theta} = -r$, $\\\\Gamma^{\\\\theta}_{r \\\\theta} = \\\\frac{1}{r}$",
+    "solution": "(c) We now use\\n$$\\n\\\\Gamma_{\\\\beta \\\\gamma}^{a} = \\\\frac {1}{2} \\\\left. \\\\mathbf {g}^{a \\\\mu} \\\\left(\\\\mathbf {g}_{\\\\mu \\\\beta , \\\\gamma} + \\\\mathbf {g}_{\\\\mu \\\\gamma , \\\\beta} - \\\\mathbf {g}_{\\\\beta \\\\gamma , \\\\mu}\\\\right) \\\\right..\\n$$\\nFor the metric $\\mathrm{ds}^2 = \\mathrm{dr}^2 +\\\\mathrm{r}^2\\\\mathrm{d}\\\\theta^2$ the only nonvanishing derivative is $\\mathbf{g}_{\\\\theta \\\\theta ,\\\\mathbf{r}} = 2\\\\mathbf{r}$ . Thus $\\Gamma_{\\\\beta \\\\gamma}^{a} = 0$ unless 2 indices are $\\theta$ 's and one is an $\\mathbf{r}$ :\\n$$\\n\\\\begin{array}{l} \\\\Gamma_{\\\\theta \\\\theta}^{r} = g^{r r} \\\\left(- \\\\frac {1}{2} g_{\\\\theta \\\\theta , r}\\\\right) = - r \\\\\\\\\\n\\\\Gamma_{\\\\mathrm {r} \\\\theta}^{\\\\theta} = \\\\mathbf {g}^{\\\\theta \\\\theta} \\\\left(\\\\frac {1}{2} \\\\mathbf {g}_{\\\\theta \\\\theta , \\\\mathrm{r}}\\\\right) = \\\\frac {1}{\\\\mathrm {r}}. \\\\\\\\\\n\\\\end {array}\\n$$"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 2,
+    "variables": [
+      "r",
+      "\\\\theta"
+    ],
+    "metric_latex": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "r^{2}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_011": "- r",
+      "Gamma_101": "\\frac{1}{r}",
+      "Gamma_110": "\\frac{1}{r}"
+    },
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

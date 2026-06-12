@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-2-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "angular_momentum_conserved_current",
+      "coordinate": "mixed",
+      "scenario": "contrast_flat_vs_curved",
+      "method": "derivation_and_comparison",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-2",
+      "1_s10_10.11-2-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mu$",
+      "$\\nu$"
+    ],
+    "target": [
+      "对比两种时空下的角动量守恒流"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，若时空具有 Killing 矢量 $\\xi^{\\mu}$，则可构造协变守恒流 $J^{\\mu} = T^{\\mu\\nu}\\xi_{\\nu}$，满足 $J^{\\mu}_{;\\mu} = 0$。请对比以下两种时空背景下的空间转动守恒流：\\n\\n**背景 A（平直时空）**：Minkowski 度规 $\\eta_{\\mu\\nu} = \\text{diag}(-1, 1, 1, 1)$，笛卡尔坐标 $(t, x, y, z)$。绕 z 轴转动的 Killing 矢量为 $\\xi^{\\mu}_{(z)} = (0, -y, x, 0)$。\\n\\n**背景 B（弯曲时空）**：Schwarzschild 度规 $g_{\\mu\\nu} = \\text{diag}\\left(-\\frac{r-r_s}{r}, \\frac{r}{r-r_s}, r^2, r^2\\sin^2\\theta\\right)$，球坐标 $(t, r, \\theta, \\phi)$。绕 $\\phi$ 轴转动的 Killing 矢量为 $\\xi^{\\mu}_{(\\phi)} = (0, 0, 0, 1)$。\\n\\n请在两种背景下分别推导对应空间转动的守恒流分量 $J^{\\mu}$ 的表达式，并对比两者结果的差异，解释度规因子 $r^2\\sin^2\\theta$ 在背景 B 角动量守恒流中的物理含义及其与背景 A 中坐标矩 $(-y, x)$ 的对应关系。",
+    "answer": "背景 A：降指标得 $\\xi_{(z)\\mu} = \\eta_{\\mu\\nu}\\xi^{\\nu}_{(z)} = (0, -y, x, 0)$，守恒流 $J^{\\mu}_{(z)} = T^{\\mu\\nu}\\xi_{(z)\\nu} = -y T^{\\mu 1} + x T^{\\mu 2}$。\\n背景 B：降指标得 $\\xi_{(\\phi)\\mu} = g_{\\mu\\nu}\\xi^{\\nu}_{(\\phi)} = (0, 0, 0, r^2\\sin^2\\theta)$，守恒流 $J^{\\mu}_{(\\phi)} = T^{\\mu\\nu}\\xi_{(\\phi)\\nu} = r^2\\sin^2\\theta T^{\\mu 3}$。\\n\\n差异与物理含义：背景 A 的角动量守恒流表现为能动张量分量与笛卡尔坐标的线性组合（矩），反映了平直时空全局平移和转动对称性；背景 B 的角动量守恒流直接表现为能动张量 $T^{\\mu 3}$ 分量乘以度规因子 $r^2\\sin^2\\theta$。该度规因子在物理上对应于到旋转轴（z轴）垂直距离的平方（即力臂平方 $r^2\\sin^2\\theta$ 的协变形式）。由于弯曲时空缺乏径向平移对称性，角动量流不再表现为对平移守恒流的坐标矩组合，而是直接通过度规因子修正的特定张量分量体现，这展示了广义相对论中守恒量定义对时空几何的依赖。",
+    "solution": "1. **背景 A 推导**：\\n   Minkowski 度规下，绕 z 轴转动的 Killing 矢量 $\\xi^{\\mu}_{(z)} = (0, -y, x, 0)$ 的协变分量为 $\\xi_{(z)\\mu} = \\eta_{\\mu\\nu}\\xi^{\\nu}_{(z)} = (0, -y, x, 0)$。\\n   代入守恒流定义 $J^{\\mu} = T^{\\mu\\nu}\\xi_{\\nu}$，得到：\\n   $$J^{\\mu}_{(z)} = T^{\\mu 1}(-y) + T^{\\mu 2}(x) = -y T^{\\mu 1} + x T^{\\mu 2}$$\\n\\n2. **背景 B 推导**：\\n Schwarzschild 度规下，绕 $\\phi$ 轴转动的 Killing 矢量 $\\xi^{\\mu}_{(\\phi)} = (0, 0, 0, 1)$ 的协变分量为 $\\xi_{(\\phi)\\mu} = g_{\\mu\\nu}\\xi^{\\nu}_{(\\phi)}$。因为 $g_{33} = r^2\\sin^2\\theta$，所以 $\\xi_{(\\phi)\\mu} = (0, 0, 0, r^2\\sin^2\\theta)$。\\n 代入守恒流定义，得到：\\n $$J^{\\mu}_{(\\phi)} = T^{\\mu\\nu}\\xi_{(\\phi)\\nu} = r^2\\sin^2\\theta T^{\\mu 3}$$\\n\\n3. **对比解释**：\\n 在平直时空的笛卡尔坐标中，角动量是动量密度的坐标矩（$-y T^{01} + x T^{02}$），这是因为平直时空具有全局的平移对称性，角动量流可以由平移守恒流组合而成。而在弯曲时空中（如 Schwarzschild），不存在径向平移的 Killing 矢量，无法用坐标矩的方式构造角动量流。此时，角动量流直接由转动 Killing 矢量与能动张量缩并给出，其中度规因子 $g_{33} = r^2\\sin^2\\theta$ 自动编码了经典物理中“力臂”（到转轴的垂直距离）平方的几何效应，确保了协变守恒流在弯曲几何下的自洽性。"
+  },
+  "verification": null
+}

@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-1-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "g_00 and clock rate",
+      "coordinate": "Fermi Normal Coordinates",
+      "scenario": "accelerated_observer_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "local_noninertial_frame"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-1",
+      "1_s14_14.12-1-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "local_noninertial_frame",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^j$",
+      "$v^j$",
+      "$\\\\omega^m$",
+      "$a_j$",
+      "$\\\\Gamma^\\\\alpha_{\\\\beta\\\\gamma}$",
+      "$R^j_{0k0}$"
+    ],
+    "target": [
+      "设计一个数值模拟方案验证局部加速系中 $g_{00}$ 的二阶泰勒展开及时钟走时率公式"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，对于具有空间加速度 $a_j$ 的非自由下落观察者，其在局部建立的非惯性参考系（Fermi Normal Coordinates）中，度规的时间分量在偏离原点 $\\underline{x}$ 处的二阶泰勒展开式为 $g_{00}(\\underline{x}) = -(1 + a_j x^j)^2 - R_{0j0k} x^j x^k$，由此得出相对观察者静止的时钟的固有时与坐标时比值 $\\frac{\\mathrm{d}\\tau}{\\mathrm{d}t} = 1 + a_j x^j + \\frac{1}{2} R_{0j0k} x^j x^k$。此结论表明加速度效应表现为线性引力势，而时空曲率（潮汐力）仅作为二阶修正项出现。请利用 Fact Sheet 中提供的 FLRW 度规及其几何属性数据，设计一个数值模拟方案来验证上述结论。你的方案需明确说明：1) 如何选取加速观察者的初始状态和加速度大小；2) 如何利用 Fact Sheet 数据计算原点处的曲率张量分量 $R_{0j0k}$；3) 如何通过数值坐标变换或沿世界线积分提取偏离原点不同距离处的 $g_{00}$ 及时钟走时率；4) 如何将数值结果与理论公式进行对比，以分离并验证加速度项与曲率项的独立贡献。",
+    "answer": "1. **初始状态与加速度设定**：在 FLRW 宇宙（如设定 $k=1, a(t)=t$）中，选取一个初始位于 $r=0$ 的观察者，赋予其恒定的径向空间加速度 $a_r$（如 $a_r = 0.1$），其四维加速度 $a^\\mu$ 需满足 $a^\\mu U_\\mu = 0$。2. **曲率分量计算**：在 FLRW 宇宙中，由于高度对称性，原点处的 Riemann 曲率张量仅有独立分量 $R_{0101}$。根据 Fact Sheet 提供的 `riemann` 数据，代入选定的 $a(t)$ 及其导数，计算出具体的 $R_{0101}$ 数值，进而得到 $R_{0j0k}$ 的矩阵形式。3. **数值提取 $g_{00}$ 及走时率**：沿观察者的世界线（通过求解给定加速度的四维运动方程得到），构造 Fermi Normal Coordinates。利用数值方法（如计算观察者世界线与类空超曲面的正交基底，将 FLRW 度规张量沿世界线平移至原点，再投影到局部坐标系），计算偏离原点微小位移 $x^j$ 处的度规分量 $g_{00}(x^j)$，并计算 $\\sqrt{-g_{00}}$ 作为走时率 $\\frac{\\mathrm{d}\\tau}{\\mathrm{d}t}$。4. **对比验证**：将数值提取的 $g_{00}$ 与理论公式 $-(1+a_j x^j)^2 - R_{0j0k} x^j x^k$ 在不同位移 $x^j$ 处进行对比；同时，绘制走时率曲线，验证其符合 $1 + a_j x^j + \\frac{1}{2}R_{0j0k} x^j x^k$。特别地，通过设定零加速度（自由下落观察者）与非零加速度两组模拟，分离出加速度引起的线性项与曲率引起的二阶项，确认加速度二次项在走时率中被消去，验证等效原理。",
+    "solution": null
+  },
+  "verification": null
+}

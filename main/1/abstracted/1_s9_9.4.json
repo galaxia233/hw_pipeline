@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "id": "1_s9_9.4",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.4",
+    "source_id": "1_s9_9.4",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "需逐步计算Christoffel联络与黎曼张量分量，逻辑链条完整，属标准弯曲空间微分几何训练题",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$R_{\\\\theta \\\\phi \\\\theta \\\\phi}$"
+    ],
+    "metric": [
+      [
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$r^2 \\\\sin^2 \\\\theta$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 9.4. Compute all the nonvanishing components of the Riemann tensor $\\mathbf{R}_{\\mathrm{ijk1}}(\\mathrm{i},\\mathrm{j},\\mathrm{k},\\mathrm{l} = \\theta ,\\phi)$ for the 2-sphere metric\\n$$\\n\\mathrm {d s}^{2} = \\mathrm {r}^{2} (\\mathrm {d} \\theta^{2} + \\sin^{2} \\theta \\mathrm {d} \\phi^{2}).\\n$$",
+    "answer": "$R_{\\theta \\phi \\theta \\phi} = r^{2} \\sin^{2} \\theta = R_{\\phi \\theta \\phi \\theta} = - R_{\\theta \\phi \\phi \\theta} = - R_{\\phi \\theta \\theta \\phi}$.",
+    "solution": "Solution 9.4. According to the discussion in Problem 9.2, there is only one independent component. We can choose it to be\\n$$\\n\\mathsf {R}_{\\theta \\phi \\theta \\phi} = \\mathsf {g}_{\\theta \\theta} \\mathsf {R}_{\\phi \\theta \\phi}^{\\theta} = \\mathsf {g}_{\\theta \\theta} \\left\\{\\Gamma_{\\phi \\phi , \\theta}^{\\theta} - \\Gamma_{\\theta \\phi , \\phi}^{\\theta} + \\Gamma_{\\theta a}^{\\theta} \\Gamma_{\\phi \\phi}^{a} - \\Gamma_{\\phi a}^{\\theta} \\Gamma_{\\phi \\theta}^{a}\\right\\}.\\n$$\\nFrom the metric $\\mathbf{g}_{\\theta \\theta} = \\mathbf{r}^2$ , $\\mathbf{g}_{\\phi \\phi} = \\mathbf{r}^2\\sin^2\\theta$ we find that the only nonvanishing Christoffel symbols are\\n$$\\n\\Gamma_{\\phi \\phi}^{\\theta} = - \\sin \\theta \\cos \\theta , \\quad \\Gamma_{\\theta \\phi}^{\\phi} = \\cot \\theta ,\\n$$\\nand, therefore,\\n$$\\nR_{\\theta \\phi \\theta \\phi} = r^{2} \\sin^{2} \\theta = R_{\\phi \\theta \\phi \\theta} = - R_{\\theta \\phi \\phi \\theta} = - R_{\\phi \\theta \\theta \\phi}.\\n$$"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 2,
+    "variables": [
+      "\\\\theta",
+      "\\\\phi"
+    ],
+    "metric_latex": [
+      [
+        "r^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "r^{2} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

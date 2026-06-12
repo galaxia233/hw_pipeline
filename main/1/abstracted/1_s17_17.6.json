@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s17_17.6",
+    "type": "prove",
+    "tags": {
+      "metric": "kerr-newman-metric",
+      "target_object": "black-hole-horizon",
+      "coordinate": "spherical-coordinates",
+      "scenario": "classical-electron-scenario",
+      "method": "inequality-validation-method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.6",
+    "source_id": "1_s17_17.6",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "结合Kerr-Newman视界存在条件与经典电子参数量级对比完成多步推导",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$e$",
+      "$a$",
+      "$c$",
+      "$G$"
+    ],
+    "target": [
+      "$M^2 - e^2 - a^2 \\geq 0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s17_17.6.md]Problem 17.6. By considering the mass, charge, and angular momentum of a \"classical\" electron, show that it cannot be a Kerr-Newman black hole.## SolutionSolution 17.6. The specific angular momentum $a$ and charge $e$ of a Kerr-Newman black hole of mass $m$ cannot be arbitrarily large, but must satisfy the inequality$$\\frac {a^{2}}{c^{2}} + \\frac {G e^{2}}{c^{4}} \\leq \\frac {G^{2}}{c^{4}} M^{2}. \\tag {1}$$(Here the G's and c's have been put in for clarity.) Equation (1) follows from the requirement that there exist a horizon, located at$$\\mathbf {r_{H}} = \\mathbf {M} + (\\mathbf {M}^{2} - \\mathbf {e}^{2} - \\mathbf {a}^{2})^{\\frac {1}{2}}.$$If Equation (1) is violated, one has a \"naked singularity,\" which also turns out to be acausal. Measurements of the electron indicate that its spin, charge and mass give the result that the $a^2$ term is of order $10^{-22} \\mathrm{~cm}^2$ , the $e^2$ term of order $10^{-68} \\mathrm{~cm}^2$ and the $m^2$ term of order $10^{-110} \\mathrm{~cm}^2$ . Thus, the inequality is rather violently violated and the electron is not a black hole.",
+    "answer": "The inequality $\\frac {a^{2}}{c^{2}} + \\frac {G e^{2}}{c^{4}} \\leq \\frac {G^{2}}{c^{4}} M^{2}$ is violently violated by the electron's parameters ($a^2 \\sim 10^{-22} \\mathrm{~cm}^2$, $e^2 \\sim 10^{-68} \\mathrm{~cm}^2$, $m^2 \\sim 10^{-110} \\mathrm{~cm}^2$); thus, the electron cannot be a Kerr-Newman black hole.",
+    "solution": "Solution 17.6. The specific angular momentum $a$ and charge $e$ of a Kerr-Newman black hole of mass $m$ cannot be arbitrarily large, but must satisfy the inequality$$\\frac {a^{2}}{c^{2}} + \\frac {G e^{2}}{c^{4}} \\leq \\frac {G^{2}}{c^{4}} M^{2}. \\tag {1}$$(Here the G's and c's have been put in for clarity.) Equation (1) follows from the requirement that there exist a horizon, located at$$\\mathbf {r_{H}} = \\mathbf {M} + (\\mathbf {M}^{2} - \\mathbf {e}^{2} - \\mathbf {a}^{2})^{\\frac {1}{2}}.$$If Equation (1) is violated, one has a \"naked singularity,\" which also turns out to be acausal. Measurements of the electron indicate that its spin, charge and mass give the result that the $a^2$ term is of order $10^{-22} \\mathrm{~cm}^2$ , the $e^2$ term of order $10^{-68} \\mathrm{~cm}^2$ and the $m^2$ term of order $10^{-110} \\mathrm{~cm}^2$ . Thus, the inequality is rather violently violated and the electron is not a black hole."
+  },
+  "verification": null
+}

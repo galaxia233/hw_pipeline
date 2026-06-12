@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "g_00 and clock rate",
+      "coordinate": "Fermi Normal Coordinates",
+      "scenario": "accelerated_observer",
+      "method": "metric reconstruction and Taylor expansion",
+      "generalization_axis": "extend",
+      "metric": "local_noninertial_frame"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "local_noninertial_frame",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^j$",
+      "$v^j$",
+      "$\\\\omega^m$",
+      "$a_j$",
+      "$\\\\Gamma^\\\\alpha_{\\\\beta\\\\gamma}$",
+      "$R^j_{0k0}$"
+    ],
+    "target": [
+      "$g_{00}$",
+      "$d\\tau/dt$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "一个具有空间加速度 $\\underline{a}$ 的非自由下落观察者在局部建立参考系。在原点处，度规为 Minkowski 度规 $\\eta_{\\mu\\nu}$，观察者四维速度为 $U^\\mu = (1, 0, 0, 0)$。已知在此参考系中，Christoffel 符号分量满足 $\\Gamma^j_{00} = -\\frac{1}{2}\\partial_j g_{00}$，且偏离原点 $x^k$ 处其展开式为 $\\Gamma^j_{00}(x) = a^j (1 + a_k x^k) + R^j_{0k0} x^k$，其中 $R^j_{0k0}$ 为原点处的 Riemann 曲率张量分量。请推导度规时间分量 $g_{00}(\\underline{x})$ 到位移 $\\underline{x}$ 的二阶泰勒展开式，并据此求出在空间位置 $\\underline{x}$ 处相对观察者静止的时钟，其固有时间间隔 $\\mathrm{d}\\tau$ 与坐标时间间隔 $\\mathrm{d}t$ 的比值（保留至 $\\underline{x}$ 的二阶小量）。",
+    "answer": "$g_{00}(\\underline{x}) = -(1 + a_j x^j)^2 - R_{0j0k} x^j x^k$ ； $\\frac{\\mathrm{d}\\tau}{\\mathrm{d}t} = 1 + a_j x^j + \\frac{1}{2} R_{0j0k} x^j x^k$",
+    "solution": "1. **推导度规分量 $g_{00}$ 的展开式**：\\n已知在局部参考系中 $\\Gamma^j_{00} = -\\frac{1}{2} \\partial_j g_{00}$，因此度规的一阶空间导数为 $\\partial_j g_{00} = -2 \\Gamma^j_{00}$。\\n将给定的 $\\Gamma^j_{00}$ 展开式代入，得到：\\n$\\partial_j g_{00} = -2 \\left[ a^j (1 + a_k x^k) + R^j_{0m0} x^m\\right] = -2 a^j - 2 a^j a_k x^k - 2 R^j_{0m0} x^m$。\\n对上述导数沿空间坐标 $x^j$ 积分，结合原点条件 $g_{00}(0) = -1$，利用 Riemann 张量的对称性 $R_{0j0k} = R_{0k0j}$（即 $R^j_{0m0} x^m$ 积分后给出 $R_{0j0k} x^j x^k$），可得：\\n$g_{00}(\\underline{x}) = -1 - 2 a_j x^j - a_j a_k x^j x^k - R_{0j0k} x^j x^k$。\\n前三项可以合并为完全平方形式，最终结果为：\\n$g_{00}(\\underline{x}) = -(1 + a_j x^j)^2 - R_{0j0k} x^j x^k$。\\n\\n2. **计算静止时钟的走时率比值**：\\n对于在空间位置 $\\underline{x}$ 处相对观察者静止的时钟，其空间坐标不随时间变化，即 $\\mathrm{d}x^j = 0$。此时类时条件给出：\\n$\\mathrm{d}\\tau^2 = - g_{00} \\mathrm{d}t^2 = \\left[ (1 + a_j x^j)^2 + R_{0j0k} x^j x^k\\right] \\mathrm{d}t^2$。\\n因此走时率比值为：\\n$\\frac{\\mathrm{d}\\tau}{\\mathrm{d}t} = \\sqrt{(1 + a_j x^j)^2 + R_{0j0k} x^j x^k}$。\\n为了保留到 $\\underline{x}$ 的二阶小量，令 $A = a_j x^j$ 和 $B = R_{0j0k} x^j x^k$，展开根号：\\n$\\frac{\\mathrm{d}\\tau}{\\mathrm{d}t} = (1+A) \\sqrt{1 + \\frac{B}{(1+A)^2}} \\approx (1+A) \\left( 1 + \\frac{1}{2} B\\right) \\approx 1 + a_j x^j + \\frac{1}{2} R_{0j0k} x^j x^k$。\\n物理意义：加速度的二次项 $(a_j x^j)^2$ 在时间膨胀率中被精确消去，这体现了等效原理的深层对应——局部均匀加速场等效于引力势 $\\Phi = -\\underline{a} \\cdot \\underline{x}$，时钟变慢因子仅为线性项 $1 + \\Phi$；时空曲率（潮汐力）则作为纯粹的二阶几何修正出现。"
+  },
+  "verification": null
+}

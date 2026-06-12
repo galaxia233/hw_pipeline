@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "energy_change_rate",
+      "coordinate": "(t, r, theta, phi)",
+      "scenario": "cosmology",
+      "method": "tensor_divergence_and_volume_integral",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\\\frac{dE}{dt} = -p \\\\frac{dV_{phys}}{dt}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 FLRW 宇宙学模型中，时空度规为\\n$$ds^2 = -dt^2 + \\\\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\\\theta^2 + r^2 a^2(t) \\\\sin^2\\\\theta d\\\\phi^2$$\\n由于标度因子 $a(t)$ 随时间演化，时空不存在类时 Killing 矢量场，这意味着系统的总能量不再守恒。考虑一种均匀且各向同性的理想流体，其能量密度为 $\\rho(t)$，压强为 $p(t)$，能动张量为 $T^{\\\\mu\\\\nu} = (\\\\rho+p)u^\\\\mu u^\\\\nu + p g^{\\\\mu\\\\nu}$，其中 $u^\\\\mu = (1,0,0,0)$ 为共动 4-速度。设在固定的共动坐标空间（例如 $0 \\\\le r \\\\le R$ 的球体）内，流体的物理体积为 $V_{phys}(t)$，包含的总能量为 $E(t) = \\\\int_{V_{phys}} \\\\rho(t) dV_{phys}$。请推导总能量随时间的演化率 $dE/dt$，并证明其满足热力学第一定律的形式 $dE/dt = -p(t) dV_{phys}/dt$，即总能量的变化完全由流体膨胀做功引起。",
+    "answer": "$\\\\frac{dE}{dt} = -p \\\\frac{dV_{phys}}{dt}$",
+    "solution": "1. 物理体积与总能量定义：\\n由于共动坐标体积固定，物理体积元仅随标度因子变化：\\n$$dV_{phys} = \\\\sqrt{\\\\det g_{ij}} dr d\\\\theta d\\\\phi = \\\\frac{a^3(t) r^2 \\\\sin\\\\theta}{\\\\sqrt{1-kr^2}} dr d\\\\theta d\\\\phi$$\\n物理体积的时间演化率为：\\n$$\\\\frac{dV_{phys}}{dt} = \\\\int \\\\frac{\\\\partial}{\\\\partial t} \\\\left( \\\\frac{a^3 r^2 \\\\sin\\\\theta}{\\\\sqrt{1-kr^2}} \\\\right) dr d\\\\theta d\\\\phi = \\\\int 3 \\\\frac{\\\\dot{a}}{a} dV_{phys} = 3 \\\\frac{\\\\dot{a}}{a} V_{phys}$$\\n总能量 $E(t) = \\\\rho(t) V_{phys}(t)$，其演化率为：\\n$$\\\\frac{dE}{dt} = \\\\dot{\\\\rho} V_{phys} + \\\\rho \\\\dot{V}_{phys} = V_{phys} \\\\dot{\\\\rho} + 3 \\\\frac{\\\\dot{a}}{a} \\\\rho V_{phys}$$\\n\\n2. 推导连续性方程：\\n由能动张量守恒 $\\\\nabla_\\\\mu T^{\\\\mu 0} = 0$，展开得：\\n$$\\\\nabla_\\\\mu T^{\\\\mu 0} = \\\\partial_\\\\mu T^{\\\\mu 0} + \\\\Gamma^\\\\mu_{\\\\mu \\\\alpha} T^{\\\\alpha 0} + \\\\Gamma^0_{\\\\mu \\\\alpha} T^{\\\\mu \\\\alpha} = 0$$\\n代入理想流体能动张量 $T^{00} = \\\\rho$, $T^{0i} = 0$, $T^{ij} = p g^{ij}$：\\n$$\\\\partial_\\\\mu T^{\\\\mu 0} = \\\\dot{\\\\rho}$$\\n$$\\\\Gamma^\\\\mu_{\\\\mu \\\\alpha} T^{\\\\alpha 0} = \\\\Gamma^\\\\mu_{\\\\mu 0} T^{00}$$\\n由 Christoffel 符号数据：$\\\\Gamma^0_{00} = 0$, $\\\\Gamma^1_{10} = \\\\frac{\\\\dot{a}}{a}$, $\\\\Gamma^2_{20} = \\\\frac{\\\\dot{a}}{a}$, $\\\\Gamma^3_{30} = \\\\frac{\\\\dot{a}}{a}$，求和得 $\\\\Gamma^\\\\mu_{\\\\mu 0} = 3 \\\\frac{\\\\dot{a}}{a}$，故此项为 $3 \\\\frac{\\\\dot{a}}{a} \\\\rho$。\\n$$\\\\Gamma^0_{\\\\mu \\\\alpha} T^{\\\\mu \\\\alpha} = \\\\Gamma^0_{00} T^{00} + \\\\Gamma^0_{ij} T^{ij} = p (\\\\Gamma^0_{11} g^{11} + \\\\Gamma^0_{22} g^{22} + \\\\Gamma^0_{33} g^{33})$$\\n代入 Christoffel 符号与度规逆矩阵：\\n$\\\\Gamma^0_{11} = - \\\\frac{a \\\\dot{a}}{k r^2 - 1} = \\\\frac{a \\\\dot{a}}{1-kr^2}$, $g^{11} = \\\\frac{1-kr^2}{a^2}$，乘积为 $\\\\frac{\\\\dot{a}}{a}$；\\n$\\\\Gamma^0_{22} = r^2 a \\\\dot{a}$, $g^{22} = \\\\frac{1}{r^2 a^2}$，乘积为 $\\\\frac{\\\\dot{a}}{a}$；\\n$\\\\Gamma^0_{33} = r^2 a \\\\dot{a} \\\\sin^2\\\\theta$, $g^{33} = \\\\frac{1}{r^2 a^2 \\\\sin^2\\\\theta}$，乘积为 $\\\\frac{\\\\dot{a}}{a}$。\\n故此项为 $3 \\\\frac{\\\\dot{a}}{a} p$。\\n合并各项得到连续性方程：\\n$$\\\\dot{\\\\rho} + 3 \\\\frac{\\\\dot{a}}{a} \\\\rho + 3 \\\\frac{\\\\dot{a}}{a} p = 0 \\\\implies \\\\dot{\\\\rho} = -3 \\\\frac{\\\\dot{a}}{a} (\\\\rho+p)$$\\n\\n3. 结合演化率方程：\\n将 $\\\\dot{\\\\rho}$ 代入 $\\\\frac{dE}{dt}$：\\n$$\\\\frac{dE}{dt} = -3 \\\\frac{\\\\dot{a}}{a} (\\\\rho+p) V_{phys} + 3 \\\\frac{\\\\dot{a}}{a} \\\\rho V_{phys} = -3 \\\\frac{\\\\dot{a}}{a} p V_{phys}$$\\n由于 $\\\\frac{dV_{phys}}{dt} = 3 \\\\frac{\\\\dot{a}}{a} V_{phys}$，代入得：\\n$$\\\\frac{dE}{dt} = -p \\\\frac{dV_{phys}}{dt}$$\\n这证明了在缺乏类时 Killing 矢量的膨胀宇宙中，总能量的不守恒性恰好体现为流体膨胀对外做功消耗内能的热力学第一定律形式。"
+  },
+  "verification": null
+}

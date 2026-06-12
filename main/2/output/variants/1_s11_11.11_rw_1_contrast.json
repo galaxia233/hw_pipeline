@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-5-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "coordinate angular velocity of circular orbit",
+      "coordinate": "Schwarzschild and Minkowski",
+      "scenario": "black hole and flat spacetime contrast",
+      "method": "geodesic equation",
+      "generalization_axis": "compare",
+      "metric": "Minkowski"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-5",
+      "1_s11_11.11-5-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Minkowski",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\Omega$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑两种时空背景下赤道面上的测试粒子运动：背景一：Schwarzschild 黑洞时空，度规为 $ds^2 = -\\frac{r-r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s = 2M$ 为 Schwarzschild 半径。背景二：Minkowski 平直时空，其度规在笛卡尔坐标下为 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$，在极坐标下（赤道面 $z=0$，等效于 $\\theta=\\pi/2$）可写为 $ds^2 = -dt^2 + dr^2 + r^2 d\\phi^2$。对于一个做圆轨道自由运动（测地线，满足径向速度和加速度为零：$\\dot{r}=0, \\ddot{r}=0$，且无极向运动）的测试粒子，请在两种背景下分别推导其径向测地线方程，求出各自的坐标角速度 $\\Omega = \\dot{\\phi}/\\dot{t}$，并对比两者的结果，从物理角度解释为何在 Schwarzschild 时空中存在非零角速度的圆轨道测地线，而在 Minkowski 时空中不存在。",
+    "answer": "背景一（Schwarzschild）：径向测地线方程为 $\\ddot{r} + \\Gamma^1_{00} (\\dot{t})^2 + \\Gamma^1_{33} (\\dot{\\phi})^2 = 0$。代入圆轨道条件 $\\dot{r}=0, \\ddot{r}=0$ 以及赤道面条件 $\\theta=\\pi/2$，得 $\\Gamma^1_{00} (\\dot{t})^2 + \\Gamma^1_{33} (\\dot{\\phi})^2 = 0$。计算 Christoffel 符号得 $\\Gamma^1_{00} = \\frac{r_s(r-r_s)}{2r^3}$，$\\Gamma^1_{33} = r_s - r$。代入方程并消去非零因子 $(r-r_s)$（圆轨道要求 $r>r_s$），得 $\\frac{r_s}{2r^3} (\\dot{t})^2 - (\\dot{\\phi})^2 = 0$，解得坐标角速度 $\\Omega = \\frac{\\dot{\\phi}}{\\dot{t}} = \\sqrt{\\frac{r_s}{2r^3}} = \\sqrt{\\frac{M}{r^3}}$。背景二（Minkowski）：极坐标下径向测地线方程为 $\\ddot{r} + \\Gamma^1_{00} (\\dot{t})^2 + \\Gamma^1_{33} (\\dot{\\phi})^2 = 0$。计算 Minkowski 极坐标度规的 Christoffel 符号为 $\\Gamma^1_{00} = 0$，$\\Gamma^1_{33} = -r$。代入圆轨道条件 $\\dot{r}=0, \\ddot{r}=0$，得 $0 - r (\\dot{\\phi})^2 = 0$。对于半径 $r>0$ 的圆轨道，必须有 $\\dot{\\phi} = 0$，即坐标角速度 $\\Omega = 0$。对比与物理含义：径向方程中的 $\\Gamma^1_{33} (\\dot{\\phi})^2 = -r (\\dot{\\phi})^2$ 项代表了维持圆周运动所需的向心加速度。在 Schwarzschild 时空中，非零的 $\\Gamma^1_{00}$（源于时空弯曲/引力）提供了与向心加速度相平衡的“引力吸引”，使得粒子可以以 $\\Omega = \\sqrt{M/r^3}$ 做自由圆周测地线运动；而在 Minkowski 平直时空中，$\\Gamma^1_{00}=0$ 意味着没有任何力来提供向心加速度，自由粒子无法做圆周运动，只能走直线（$\\Omega=0$）。这揭示了广义相对论中时空弯曲替代了牛顿力学中向心力的物理本质。",
+    "solution": "分别在两种度规下写出径向测地线方程 $\\ddot{r} + \\Gamma^1_{00} (\\dot{t})^2 + \\Gamma^1_{33} (\\dot{\\phi})^2 = 0$，代入圆轨道条件 $\\dot{r}=0, \\ddot{r}=0$。计算各自的 Christoffel 符号，解出 $\\Omega$ 的表达式。对比两者发现 Minkowski 下无引力项 $\\Gamma^1_{00}$ 无法平衡圆周运动的向心项 $\\Gamma^1_{33}$，从而解释为何平直时空无圆轨道测地线。"
+  },
+  "verification": null
+}

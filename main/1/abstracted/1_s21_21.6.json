@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s21_21.6",
+    "type": "prove",
+    "tags": {
+      "metric": "variational_principle",
+      "target_object": "electromagnetism",
+      "coordinate": "stress_energy_tensor",
+      "scenario": "curved_spacetime",
+      "method": "lagrangian_density"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s21_21.6",
+    "source_id": "1_s21_21.6",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s21_21.6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于作用量变分原理推导广义相对论中的麦克斯韦场方程与电磁应力能张量，逻辑严密且涵盖拉格朗日等价性证明",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\mu$",
+      "$A_\\mu$",
+      "$F_{\\mu\\nu}$",
+      "$g_{\\mu\\nu}$",
+      "$\\mathbf{L}$",
+      "$T_{\\alpha\\beta}$",
+      "$\\sqrt{-g}$"
+    ],
+    "target": [
+      "$T_{\\alpha\\beta}$",
+      "$F^{\\mu\\nu}_{;\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 21.6. The electromagnetic Lagrangian density is$\\mathbf{L} = -(16\\pi)^{-1}\\mathbf{F}^{\\mu \\nu}\\mathbf{F}_{\\mu \\nu}$ where $\\mathbf{F}_{\\mu \\nu} = \\mathbf{A}_{\\nu ;\\mu} - \\mathbf{A}_{\\mu ;\\nu}$ . Show that the Maxwell equations $\\mathbf{F}^{\\alpha \\beta}$ ; $\\beta = 0$ follow from setting to zero the variation of $\\int \\mathbf{L}(-\\mathbf{g})^{\\frac{1}{2}}\\mathrm{d}^{4}\\mathbf{x}$ with respect to $\\mathbf{A}_{\\mu}$ . Find the stress-energy from the prescription$$\\mathrm {T}_{\\mu \\nu} = - 2 \\frac {\\delta \\mathrm {L}}{\\delta \\mathrm {g}^{\\mu \\nu}} + \\mathrm {g}_{\\mu \\nu} \\mathrm {L}.$$Show that an equivalent Lagrangian density is$$\\mathbf {L} = - \\frac {1}{1 6 \\pi} \\mathbf {F}_{\\mu \\nu} \\mathbf {F}^{\\mu \\nu} - \\frac {1}{4 \\pi} \\mathbf {F}^{\\mu \\nu} \\mathbf {A}_{\\mu ; \\nu}$$where $\\mathbf{F}^{\\mu \\nu}$ is antisymmetric and $\\mathbf{F}^{\\mu \\nu}$ and $\\mathbf{A}_{\\mu}$ must be varied independently.",
+    "answer": "$F^{\\mu\\nu}_{;\\nu}=0$；$T_{\\alpha\\beta}=\\frac{1}{4\\pi}F_{\\alpha}^{\\phantom{\\alpha}\\nu}F_{\\beta\\nu}-\\frac{1}{16\\pi}F_{\\mu\\nu}F^{\\mu\\nu}g_{\\alpha\\beta}$；等效拉格朗日形式经独立变分验证一致。",
+    "solution": "Solution 21.6. Varying the action integral gives us$$\\begin{array}{l} \\frac {\\delta \\left(\\mathrm {L} [ - \\mathrm {g} ]^{\\frac {1}{2}}\\right)}{\\delta \\mathrm {A}_{\\mu}} = - \\frac {1}{4 \\pi} \\frac {\\delta \\left(\\mathrm {A}_{[ \\mu ; \\nu ]} \\mathrm {A}^{[ \\mu ; \\nu ]} [ - \\mathrm {g} ]^{\\frac {1}{2}}\\right)}{\\delta \\mathrm {A}_{\\mu}} = - \\frac {1}{4 \\pi} \\frac {\\delta \\left(\\mathrm {A}_{[ \\mu , \\nu ]} \\mathrm {A}^{[ \\mu , \\nu ]} [ - \\mathrm {g} ]^{\\frac {1}{2}}\\right)}{\\delta \\mathrm {A}_{\\mu}} \\\\ = - \\frac {1}{4 \\pi} \\cdot 2 \\cdot 2 \\cdot \\frac {\\partial}{\\partial_{\\mathbf {x}}^{\\mu}} \\left(\\mathrm {A}^{[ \\mu , \\nu ]} [ - \\mathbf {g} ]^{\\frac {1}{2}}\\right) = - \\frac {1}{2 \\pi} \\frac {\\partial}{\\partial_{\\mathbf {x}}^{\\mu}} \\left(\\mathrm {F}^{\\nu \\mu} [ - \\mathbf {g} ]^{\\frac {1}{2}}\\right) \\\\ = - \\frac {\\left[ - \\mathrm {g}\\right]^{\\frac {1}{2}}}{2 \\pi} \\mathrm {F}_{; \\mu}^{\\nu \\mu}, \\tag {1} \\\\ \\end{array}$$where we have used Problem 7.7 (i).The prescription for the stress-energy gives$$\\begin{array}{l} T_{\\alpha \\beta} \\equiv - 2 \\frac {\\delta L}{\\delta g^{\\alpha \\beta}} + L g_{\\alpha \\beta} = \\frac {1}{8 \\pi} \\frac {\\delta \\left(F_{\\mu \\nu} F_{\\sigma \\tau} g^{\\mu \\sigma} g^{\\nu \\tau}\\right)}{\\delta g^{\\alpha \\beta}} - \\frac {1}{1 6 \\pi} F_{\\mu \\nu} F^{\\mu \\nu} g_{\\alpha \\beta} \\tag {2} \\\\ = \\frac {1}{4 \\pi} F_{\\alpha}^{\\nu} F_{\\beta \\nu} - \\frac {1}{1 6 \\pi} F_{\\mu \\nu} F^{\\mu \\nu} g_{\\alpha} \\beta . \\\\ \\end{array}.$$Consider now the Lagrangian density$$\\mathrm {L} = \\left(- \\frac {1}{1 6 \\pi} \\mathrm {F}_{\\mu \\nu} \\mathrm {F}^{\\mu \\nu} - \\frac {1}{4 \\pi} \\mathrm {F}^{\\mu \\nu} \\mathrm {A}_{\\mu ; \\nu}\\right) (- \\mathrm {g})^{\\frac {1}{2}}. \\tag {3}$$Variation of L with respect to $\\mathbf{A}_{\\mu}$ yields$$\\mathbf {F}_{; \\nu}^{\\mu \\nu} = 0. \\tag {4}$$Variation of L with respect to $\\mathbf{F}^{\\mu \\nu}$ yields$$\\mathbf {F}^{\\mu \\nu} = 2 \\mathbf {A}^{[ \\nu ; \\mu ]}. \\tag {5}.$$"
+  },
+  "verification": null
+}

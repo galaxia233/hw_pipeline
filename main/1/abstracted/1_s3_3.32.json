@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s3_3.32",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "volume_element",
+      "coordinate": "scalar_invariant",
+      "scenario": "local_comoving_frame",
+      "method": "invariance_derivation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.32",
+    "source_id": "1_s3_3.32",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.32"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "需结合四维体积元标量性与四速度时间分量进行多步推导以证明三维体积元的坐标不变性，理论链条清晰且具有明确的局域观测量测物理背景。",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$s$",
+      "$u^0$",
+      "$g$"
+    ],
+    "target": [
+      "$\\\\mathrm{d}^3 \\\\mathbf{V}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.32. Show that the proper 3-volume element of an observer with 4-velocity $\\mathbf{u}$ is $\\mathrm{d}^3\\mathbf{V} = (-\\mathbf{g})^{\\frac{1}{2}}\\mathbf{u}^0\\mathrm{d}^3\\mathbf{x}$ , and show that this is a scalar invariant.",
+    "answer": "$\\\\mathrm{d}^3\\\\mathbf{V} = (-\\\\mathbf{g})^{\\\\frac{1}{2}}\\\\mathbf{u}^0\\\\mathrm{d}^3\\\\mathbf{x}$ ，该量为标量不变量。",
+    "solution": "Solution 3.32. In a comoving local orthonormal frame we have $\\\\mathrm{d}^3\\\\mathbf{V} = \\\\mathrm{d}\\\\mathbf{x}\\\\mathrm{d}\\\\mathbf{y}\\\\mathrm{d}\\\\mathbf{z}$ ; we want a scalar invariant quantity which reduces to this.\\nStart with $\\\\mathrm{d}^4\\\\mathrm{V} = (-\\\\mathrm{g})^{\\\\frac{1}{2}}\\\\mathrm{dx}\\\\mathrm{dy}\\\\mathrm{dx}\\\\mathrm{dt}$ , a scalar in any frame. Multiply by $\\\\mathrm{u}^0/\\\\mathrm{u}^0 = \\\\mathrm{u}^0/(dt/ds)$ and get\\n$$\\nd^{4} V = \\\\left[ (- g)^{\\\\frac {1}{2}} u^{0} d x d y d z \\\\right] d s.\\n$$\\nSince $d^4 V$ and $ds$ are invariants, the term in parentheses must also be, and it reduces to $dx dy dz$ in a comoving orthonormal frame, so\\n$$\\nd^{3} V = (- g)^{\\\\frac {1}{2}} u^{0} d x d y d z.\\n$$"
+  },
+  "verification": null
+}

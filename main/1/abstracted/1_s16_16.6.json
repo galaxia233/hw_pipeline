@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s16_16.6",
+    "type": "calculate",
+    "tags": {
+      "metric": "spherical_symmetry",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "algebraic_independence",
+      "scenario": "tensor_decomposition",
+      "method": "rotation_invariance"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.6",
+    "source_id": "1_s16_16.6",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.8,
+      "rationale": "基于球对称性与旋转群作用分析张量分量约束，逻辑链条完整且可泛化至其他对称场景",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$T^{\\\\mu \\\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.6. How many algebraically independent components of $\\mathbf{T}^{\\mu \\nu}$ are there in a spherically symmetric configuration?",
+    "answer": "4",
+    "solution": "Solution 16.6. Examine the components at any point in an orthonormal tetrad $[\\\\mathbf{e}_{\\\\hat{\\\\mathbf{t}}}, \\\\mathbf{e}_{\\\\hat{\\\\mathbf{r}}}, \\\\mathbf{e}_{\\\\hat{\\\\boldsymbol{\\\\theta}}}, \\\\mathbf{e}_{\\\\hat{\\\\boldsymbol{\\\\phi}}}]$ . Spherical symmetry implies the components are invariant under rotations:\\n$$\\n\\\\begin{array}{l} \\\\mathbf {e}_{\\\\hat {\\\\theta}} \\\\rightarrow \\\\cos a \\\\mathbf {e}_{\\\\hat {\\\\theta}} + \\\\sin a \\\\mathbf {e}_{\\\\hat {\\\\phi}} \\\\\\\\\\\\\\\\ \\\\mathbf {e}_{\\\\hat {\\\\phi}} \\\\rightarrow - \\\\sin \\\\alpha \\\\mathbf {e}_{\\\\hat {\\\\theta}} + \\\\cos \\\\alpha \\\\mathbf {e}_{\\\\hat {\\\\phi}}. \\\\\\\\\\\\\\\\ \\\\end{array}\\n$$\\nThe components $\\mathbf{T}_{\\\\hat{\\\\mathbf{t}}\\\\hat{\\\\mathbf{t}}}$ , $\\mathbf{T}_{\\\\hat{\\\\mathbf{t}}\\\\hat{\\\\mathbf{r}}}$ and $\\mathbf{T}_{\\\\hat{\\\\mathbf{r}}\\\\hat{\\\\mathbf{r}}}$ are invariant under rotations. The pair $(\\mathbf{T}_{\\\\hat{\\\\mathbf{t}}\\\\hat{\\\\boldsymbol{\\\\theta}}}, \\mathbf{T}_{\\\\hat{\\\\mathbf{t}}\\\\hat{\\\\boldsymbol{\\\\phi}}})$ transforms like a 2-dimensional vector under rotations and so is not invariant. Thus $\\mathbf{T}_{\\\\hat{\\\\mathbf{t}}\\\\hat{\\\\boldsymbol{\\\\theta}}} = \\mathbf{T}_{\\\\hat{\\\\mathbf{t}}\\\\hat{\\\\boldsymbol{\\\\phi}}} = 0$ and similarly $\\mathbf{T}_{\\\\hat{\\\\mathbf{r}}\\\\hat{\\\\boldsymbol{\\\\theta}}} = \\mathbf{T}_{\\\\hat{\\\\mathbf{r}}\\\\hat{\\\\boldsymbol{\\\\phi}}} = 0$ . The only 2-dimensional matrix invariant under rotations is a multiple of the identity matrix, so\\n$$\\n\\\\left( \\\\begin{array}{c c} \\\\mathbf {T}_{\\\\widehat {\\\\theta}} \\\\widehat {\\\\theta} & \\\\mathbf {T}_{\\\\widehat {\\\\theta}} \\\\widehat {\\\\phi} \\\\\\\\\\\\\\\\ \\\\mathbf {T}_{\\\\widehat {\\\\phi}} \\\\widehat {\\\\theta} & \\\\mathbf {T}_{\\\\widehat {\\\\phi}} \\\\widehat {\\\\phi} \\\\end{array} \\\\right) = \\\\mathbf {T}_{\\\\widehat {\\\\theta}} \\\\widehat {\\\\theta} \\\\left( \\\\begin{array}{c c} 1 & 0 \\\\\\\\\\\\\\\\ 0 & 1 \\\\end{array} \\\\right).\\n$$\\nThus, there are four independent components: $\\mathbf{T}_{\\\\hat{\\\\mathbf{t}}\\\\hat{\\\\mathbf{t}}}$ , $\\mathbf{T}_{\\\\hat{\\\\mathbf{t}}\\\\hat{\\\\mathbf{r}}}$ , $\\mathbf{T}_{\\\\hat{\\\\mathbf{r}}\\\\hat{\\\\mathbf{r}}}$ and $\\mathbf{T}_{\\\\hat{\\\\boldsymbol{\\\\theta}}\\\\hat{\\\\boldsymbol{\\\\phi}}}$ ."
+  },
+  "verification": null
+}

@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s3_3.16_a",
+    "type": "concept",
+    "tags": {
+      "metric": "metric_space",
+      "target_object": "target_object_counting",
+      "coordinate": "coordinate_independence",
+      "scenario": "abstract_manifold_scenario",
+      "method": "combinatorial_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.16_a",
+    "source_id": "1_s3_3.16_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.16_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.3,
+      "generalizability": 0.9,
+      "completeness": 0.5,
+      "realism": 0.2,
+      "rationale": "张量自由度基础计数问题，逻辑链条短但公式结构高度可迁移至任意维数与对称性组合，题干清晰但源文未附解答步骤",
+      "overall": 0.47
+    }
+  },
+  "physical_data": {
+    "dimension": "n",
+    "variables": [
+      "$n$",
+      "$r$",
+      "$T^{\\alpha \\beta \\cdots}$",
+      "$s$"
+    ],
+    "target": [
+      "$N_{\\text{indep}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.16.\\n(a) In an $n$ -dimensional metric space, how many independent components are there for an $r$ -rank tensor $T^{\\alpha \\beta \\cdots}$ with no symmetries?   ",
+    "answer": "$n^r$",
+    "solution": null
+  },
+  "verification": null
+}

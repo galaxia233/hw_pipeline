@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s15_15.14_b-0",
+    "type": "concept",
+    "tags": {
+      "target_object": "Kretschmann_scalar",
+      "coordinate": "spherical",
+      "scenario": "Schwarzschild_singularity",
+      "method": "limit_analysis",
+      "generalization_axis": "extend",
+      "metric": "schwarzschild_geometry"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.14_b",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s15_15.14_b",
+      "1_s15_15.14_b-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "schwarzschild_geometry",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "Kretschmann_scalar",
+      "coordinate_singularity",
+      "curvature_singularity"
+    ],
+    "metric": [
+      [
+        "$-(1-2M/r)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2M/r)^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\\\sin^2 \\\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Schwarzschild 时空的度规为 $ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$。在该几何中，虽然 Riemann 张量的某些分量在特定 Lorentz boost 下保持不变，但刻画时空内在曲率强度的完全不变量是 Kretschmann 标量。已知该时空的 Kretschmann 标量为 $K = \\frac{48 M^2}{r^6}$（其中 $M = r_s / 2$）。请利用此标量的值，分析时空在视界 $r = r_s$ 和中心 $r = 0$ 处的奇点性质，指出哪一个是由于坐标选择造成的坐标奇点，哪一个是不可消除的物理曲率奇点，并简述理由。",
+    "answer": "$r = 0$ 是真正的物理曲率奇点（因为 $K \\to \\inf ty$）；$r = r_s$ 是坐标奇点（因为 $K$ 为有限值）。",
+    "solution": "计算视界处的 Kretschmann 标量：将 $r = r_s = 2M$ 代入，得到 $K(r_s) = \\frac{48 M^2}{(2M)^6} = \\frac{3}{2 M^4}$，这是一个有限值。有限的不变量表明时空曲率在视界处并未发散，该处的度规奇异性仅仅是由坐标选择引起的（即度规系数 $g_{tt}$ 和 $g_{rr}$ 在该坐标下退化），可以通过坐标变换（如 Eddington-Finkelstein 坐标）消除。计算中心处的 Kretschmann 标量：当 $r \\to 0$ 时，$K(0) \\propto \\frac{1}{r^6} \\to \\inf ty$，曲率不变量发散，表明该处的奇异性是时空内在的几何性质，无法通过任何坐标变换消除，因此 $r = 0$ 是真正的物理曲率奇点。"
+  },
+  "verification": null
+}

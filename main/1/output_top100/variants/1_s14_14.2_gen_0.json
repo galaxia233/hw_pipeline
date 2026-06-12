@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "id": "1_s14_14.2-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "\\rho(r)",
+      "coordinate": "Schwarzschild",
+      "scenario": "thermal_equilibrium",
+      "method": "Tolman_law_and_Stefan_Boltzmann",
+      "generalization_axis": "apply",
+      "metric": "static_spacetime"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.2",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.2",
+      "1_s14_14.2-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "static_spacetime",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T$",
+      "$g_{00}$"
+    ],
+    "target": [
+      "\\rho(r)"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一个质量为 $M$ 的 Schwarzschild 黑洞，其外部时空度规为：\\n$$ds^2 = -\\left(1 - \\frac{2M}{r}\\right) dt^2 + \\left(1 - \\frac{2M}{r}\\right)^{-1} dr^2 + r^2 d\\Omega^2$$\\n假设在该黑洞周围存在一个处于全局热平衡状态的静态黑体辐射场（光子气体）。已知在远离黑洞的区域 $(r \\to \\inf ty)$，局部静止观察者测得的辐射温度为 $T_\\inf ty$，相应的能量密度为 $\\rho_\\inf ty$。根据广义相对论中静态时空的热平衡条件（Tolman 定律 $T \\sqrt{-g_{00}} = \\text{constant}$）与黑体辐射的 Stefan-Boltzmann 定律（能量密度 $\\rho \\propto T^4$），请推导在任意径向坐标 $r > 2M$ 处局部静止观察者测得的辐射能量密度 $\\rho(r)$ 的表达式，并据此解释在视界附近 $(r \\to 2M^+)$ 该能量密度的极限行为与物理成因。",
+    "answer": "$\\rho(r) = \\rho_\\inf ty (1 - 2M/r)^{-2}$；在视界附近局部能量密度趋于无穷大，原因是强烈的引力红移效应要求视界处具有极高的局部温度以维持全局热平衡。",
+    "solution": "1. 由 Tolman 定律可知，静态热平衡时温度与度规时间分量满足 $T(r) \\sqrt{-g_{00}(r)} = T_\\inf ty \\sqrt{-g_{00}(\\inf ty)}$。在 Schwarzschild 度规中，$g_{00} = -(1 - 2M/r)$，无穷远处 $g_{00} = -1$。\\n   因此 $T(r) \\sqrt{1 - 2M/r} = T_\\inf ty$，得到局部温度 $T(r) = T_\\inf ty (1 - 2M/r)^{-1/2}$。\\n2. 黑体辐射服从 Stefan-Boltzmann 定律，局部能量密度 $\\rho(r) \\propto T(r)^4$。由于 $\\rho_\\inf ty \\propto T_\\inf ty^4$，两者的比值为：\\n   $$\\frac{\\rho(r)}{\\rho_\\inf ty} = \\left( \\frac{T(r)}{T_\\inf ty}\\right)^4 = \\left( (1 - 2M/r)^{-1/2}\\right)^4 = (1 - 2M/r)^{-2}$$\\n 所以 $\\rho(r) = \\rho_\\inf ty (1 - 2M/r)^{-2}$。\\n3. 当 $r \\to 2M^+$ 时，因子 $(1 - 2M/r) \\to 0$，因此 $\\rho(r) \\to \\inf ty$，局部温度 $T(r) \\to \\inf ty$。\\n   物理成因：在视界附近，引力红移效应极强。光子从视界附近传播到远处时，频率和能量会发生极大的红移衰减。为了使系统处于全局热平衡（即各处之间没有净能量流动），视界附近的辐射场必须具有极高的局部温度和能量密度，以使得红移后的辐射流量与远处的辐射流量相匹配，从而抵消红移带来的能量损耗。"
+  },
+  "verification": null
+}

@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-0-3-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "Physical singularity and naked singularity",
+      "coordinate": "JNW spherical coordinates",
+      "scenario": "Curvature and geodesic numerical experiment design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "JanisNewmanWinicour"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-0",
+      "1_s15_15.11-0-3",
+      "1_s15_15.11-0-3-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "JanisNewmanWinicour",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "设计数值模拟方案验证 $r=2M/\\gamma$ 处为物理奇点（裸奇点）而非坐标奇点"
+    ],
+    "metric": [
+      [
+        "-(-2*M/(gam*r) + 1)**gam",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "(-2*M/(gam*r) + 1)**(-gam)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2*(-2*M/(gam*r) + 1)**(1 - gam)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*(-2*M/(gam*r) + 1)**(1 - gam)*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在某一带有参数 $\\gamma$ 的广义球对称时空中（Janis-Newman-Winicour 时空），度规为 $ds^2 = -(1-\\frac{2M}{\\gamma r})^\\gamma dt^2 + (1-\\frac{2M}{\\gamma r})^{-\\gamma} dr^2 + r^2(1-\\frac{2M}{\\gamma r})^{1-\\gamma} d\\Omega^2$。该时空的度规分量 $g_{tt}$ 在 $r = 2M/\\gamma$ 处为零，看似形成了一个类似 Schwarzschild 黑洞视界的表面。核心结论指出：当 $\\gamma \\neq 1$ 时，$r = 2M/\\gamma$ 处并非坐标奇点或事件视界，而是真正的物理奇点（裸奇点）。请从零设计一个数值模拟实验方案来验证此结论。要求说明具体的模拟步骤、需要计算或测量的物理量，以及预期的结果如何区分坐标奇点与物理奇点并证明其为裸奇点。",
+    "answer": "1. **计算曲率标量发散行为**：选取与坐标无关的曲率标量（如 Kretschmann 标量 $K$ 或原时空的曲率不变量分量 $R^{0101}R_{0101}$），在数值模拟中计算其在不同 $r$ 处的值，特别是在 $r \\to 2M/\\gamma$ 时的极限。预期结果：当 $\\gamma \\neq 1$ 时，曲率标量在 $r = 2M/\\gamma$ 处发散至无穷大，这证明该处为曲率发散的物理奇点，而非可通过坐标变换消除的坐标奇点。2. **检验测地线完备性**：数值求解从外部向 $r = 2M/\\gamma$ 径向下落的自由粒子测地线方程，计算粒子到达该表面所需的仿射参数 $\\lambda$。预期结果：仿射参数在到达该表面时为有限值，且测地线无法继续延伸至 $r < 2M/\\gamma$ 区域，表明时空在 $r = 2M/\\gamma$ 处测地线不完备，进一步确证其为物理奇点。3. **对比 Schwarzschild 时空（$\\gamma = 1$ 特例）**：对 $\\gamma = 1$ 的度规进行相同的数值计算，即在 $r \\to 2M$ 处计算曲率标量和测地线仿射参数。预期结果：Kretschmann 标量在 $r = 2M$ 处有限，且测地线可越过此面（通过坐标系变换后可延伸），证明 $\\gamma = 1$ 时该面为视界而非奇点，凸显 $\\gamma \\neq 1$ 时的裸奇点性质（由于无事件视界遮蔽，该物理奇点裸露）。",
+    "solution": "方案的核心物理逻辑在于区分坐标奇点与物理奇点：物理奇点表现为曲率标量的发散与测地线的不完备（仿射参数有限即终止），而坐标奇点仅因坐标系选择不佳导致度规分量奇异，但曲率标量有限且测地线完备（如 Schwarzschild 视界）。通过数值计算曲率标量和积分测地线仿射参数，并对比 $\\gamma=1$ 与 $\\gamma \\neq 1$ 的行为，即可有效验证 $r=2M/\\gamma$ 处在 $\\gamma \\neq 1$ 时为裸奇点的结论。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.janisnewmanwinicour_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.2,
+      "issue": "Answer 第一点中声称“选取与坐标无关的曲率标量（如 Kretschmann 标量 $K$ 或原时空的曲率不变量分量 $R^{0101}R_{0101}$）”。$R^{0101}R_{0101}$ 含有具体的坐标指标（0和1），它是黎曼曲率张量分量的乘积，而非曲率标量。在广义坐标变换下，张量分量的值会发生改变，因此它绝不是“与坐标无关”的量。在验证物理奇点与坐标奇点时，必须使用真正的标量（如 Kretschmann 标量 $K=R_{abcd}R^{abcd}$），将带有指标的分量误认为坐标无关的标量是严重的指标混淆和概念错误。此外，题目未给出参数 $\\gamma$ 的物理取值范围（标准 Janis-Newman-Winicour 时空要求 $0 < \\\\gamma \\\\le 1$），导致做题者无法确认当 $\\\\gamma > 1$ 或 $\\\\gamma < 0$ 时结论是否依然成立，缺少必要条件。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

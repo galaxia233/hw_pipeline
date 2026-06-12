@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-4-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "tidal force equation and oscillation property",
+      "coordinate": "local inertial frame",
+      "scenario": "contrast cosmology vs black hole",
+      "method": "Riemann tensor projection",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-4",
+      "1_s14_14.12-4-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "潮汐力方程形式",
+      "相对运动性质",
+      "振荡周期或稳定性"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在两种不同的时空背景下，自由下落观察者在其局部惯性系中释放测试粒子，粒子的相对运动由潮汐力方程决定：\\[ \\frac{d^2 x^j}{d \\tau^2} = -R^j_{\\,0k0} x^k \\] 其中 $\\tau$ 为观察者固有时，$R^j_{\\,0k0}$ 为 Riemann 张量在观察者局部惯性系中的分量。请分别推导两种背景下的潮汐力方程，并对比两者在形式和物理含义上的差异。**背景 1：FLRW 宇宙（de Sitter 膨胀阶段）**度规：\\[ ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta \\, d\\phi^2 \\] 标度因子 $a(t) = e^{H_0 t}$，其中 $H_0$ 为哈勃常数。随动观察者四维速度 $u^\\mu = (1,0,0,0)$，该观察者自由下落且无旋转。**背景 2：Schwarzschild 黑洞**度规：\\[ ds^2 = -\\left(1-\\frac{r_s}{r}\\right) dt^2 + \\left(1-\\frac{r_s}{r}\\right)^{-1} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta \\, d\\phi^2 \\] 其中 $r_s = 2GM$。考虑从无穷远处静止释放的径向自由下落观察者，其四维速度为 $u^\\mu = \\left( \\frac{1}{1-r_s/r},\\, -\\sqrt{\\frac{r_s}{r}},\\, 0,\\, 0\\right)$。该观察者同样自由下落且无旋转。请完成以下任务：1. 推导背景 1 中随动观察者局部惯性系的潮汐力方程，并求出测试粒子偏离中心的微小位移振荡周期 $T$。2. 推导背景 2 中自由下落观察者局部惯性系的潮汐力方程（提示：可计算 $R^\\alpha_{\\,\\beta\\gamma\\delta} u^\\beta u^\\delta$ 并投影到与 $u$ 正交的空间子空间，或直接使用给定 $u^\\mu$ 和 Riemann 张量分量验证径向与横向系数），并分析其性质（是否振荡、各向同性等）。3. 对比两种情况下潮汐力方程的形式和物理含义差异，并解释差异与时空几何（宇宙膨胀 vs. 引力聚焦）的关系。",
+    "answer": "1. **背景 1 (FLRW de Sitter)**：   潮汐力方程：$\\frac{d^2 x^j}{dt^2} = -\\frac{\\ddot{a}}{a} x^j$。   对于 $a(t)=e^{H_0 t}$，有 $\\frac{\\ddot{a}}{a} = H_0^2$，故方程为 $\\frac{d^2 x^j}{dt^2} = -H_0^2 x^j$。   这是各向同性的简谐振荡方程，角频率 $\\omega = H_0$，振荡周期 $T = \\frac{2\\pi}{H_0}$。2. **背景 2 (Schwarzschild 自由下落)**：   潮汐力方程：   - 径向方向：$\\frac{d^2 \\xi^r}{d\\tau^2} = +\\frac{2GM}{r^3} \\xi^r$   - 横向方向：$\\frac{d^2 \\xi^\\theta}{d\\tau^2} = -\\frac{GM}{r^3} \\xi^\\theta$，$\\frac{d^2 \\xi^\\phi}{d\\tau^2} = -\\frac{GM}{r^3} \\xi^\\phi$   该方程非各向同性：径向方向为正系数，导致指数增长（不稳定，拉伸）；横向方向为负系数，导致指数衰减（稳定，压缩）。无振荡周期。3. **对比与物理解释**：   - **形式差异**：FLRW 潮汐力各向同性且为负系数（简谐振荡）；Schwarzschild 潮汐力各向异性，径向正系数、横向负系数（无振荡，径向拉伸横向压缩）。   - **物理含义**：FLRW de Sitter 膨胀产生各向同性的“斥力”效应，使偏离的粒子受到向心恢复力而振荡；Schwarzschild 引力聚焦产生各向异性潮汐力，径向拉伸横向压缩，反映引力向心聚集的趋势。   - **几何根源**：FLRW 的各向同性膨胀使 Riemann 分量 $R^j_{0k0}$ 正比于 $\\ddot{a}/a$ 且各向同性；Schwarzschild 的球对称引力场使 Riemann 分量在自由下落观察者局部系中呈现径向-横向差异，且径向符号相反。",
+    "solution": "1. FLRW 推导同原题：由 $R^j_{0k0} = \\frac{\\ddot{a}}{a} \\delta^j_k$ 代入潮汐力方程，de Sitter 下 $\\frac{\\ddot{a}}{a}=H_0^2$，得振荡周期 $T=2\\pi/H_0$。2. Schwarzschild 推导：利用给定 $u^\\mu$ 和 Riemann 张量分量，计算投影 $T^i_j = R(e_i, u, e_j, u)$。选择与 $u$ 正交的空间基（如径向单位矢量 $e_r$ 和横向单位矢量 $e_\\theta, e_\\phi$），可得径向系数 $+2GM/r^3$，横向系数 $-GM/r^3$。径向正系数对应不稳定拉伸，横向负系数对应稳定压缩。3. 对比分析：FLRW 各向同性振荡源于宇宙加速膨胀的各向同性“斥力”；Schwarzschild 各向异性拉伸压缩源于引力场的径向-横向聚焦差异。两者反映膨胀时空与引力聚焦时空的本质几何区别。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "题目和答案在背景1（FLRW de Sitter）的潮汐力性质上存在致命的物理概念和推导错误：\\n1. **题目预设矛盾**：题目要求“求出测试粒子偏离中心的微小位移振荡周期 $T$”，但在 de Sitter 膨胀阶段（加速膨胀，$\\ddot{a}/a = H_0^2 > 0$），潮汐力是排斥性的，粒子偏离会指数发散，根本不存在振荡周期。\\n2. **Answer 符号完全错误**：答案给出背景1的潮汐力方程为 $\\frac{d^2 x^j}{dt^2} = -\\frac{\\ddot{a}}{a} x^j = -H_0^2 x^j$。正确推导应为：在局部惯性系中 $R^j_{0k0} = -\\frac{\\ddot{a}}{a} \\delta_{jk}$，代入题目给定的潮汐力方程 $\\frac{d^2 x^j}{d\\tau^2} = -R^j_{0k0} x^k$，得到 $\\frac{d^2 x^j}{d\\tau^2} = +\\frac{\\ddot{a}}{a} x^j = +H_0^2 x^j$。答案的负号将排斥性的发散方程误当成了吸引性的简谐振荡方程。\\n3. **Answer 物理结论自相矛盾且违背常识**：答案声称“FLRW de Sitter 膨胀产生各向同性的‘斥力’效应，使偏离的粒子受到向心恢复力而振荡”。斥力效应不可能产生向心恢复力，de Sitter 时空的排斥潮汐力只会导致粒子指数远离，而非振荡回复。相比之下，背景2的推导和系数是正确的。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

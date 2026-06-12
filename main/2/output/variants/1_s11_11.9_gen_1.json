@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-1",
+    "type": "calculate",
+    "tags": {
+      "target_object": "quadrupole_moment",
+      "coordinate": "spherical_polar",
+      "scenario": "earth_axial_precession",
+      "method": "inversion_from_observation",
+      "generalization_axis": "invert",
+      "metric": "weak_field_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "weak_field_metric",
+    "soft_variant": "invert",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$X$",
+      "$Y$",
+      "$Z$",
+      "$r_s$",
+      "$r_M$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\psi$",
+      "$J$",
+      "$C$",
+      "$A$",
+      "$\\omega$",
+      "$T$"
+    ],
+    "target": [
+      "$J_2$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "地球自转轴的进动主要由太阳和月球对地球赤道隆起（四极矩）的引力潮汐扭矩驱动。观测到的地球轴进动周期约为 25,772 年，对应的进动角速度为 $\\Omega_p \\approx 7.72 \\times 10^{-12} \\text{rad/s}$。对于一个扁率体的理论进动角速度由下式给出：$$ \\Omega_p = -\\frac{3}{2} \\left( \\frac{GM_S}{r_S^3} + \\frac{GM_M}{r_M^3}\\right) \\frac{C-A}{C \\omega} \\cos \\epsilon $$其中 $\\omega$ 为地球自转角速度，$\\epsilon$ 为黄赤交角，$C$ 和 $A$ 为极向和赤道向主惯量矩。地球的无量纲四极矩定义为 $J_2 = \\frac{C-A}{M_E R_E^2}$。已知观测到的进动率 $\\Omega_p$ 及以下物理参数，请反推计算出能产生此进动现象的地球无量纲四极矩 $J_2$ 的数值。物理参数：$\\omega = 7.29 \\times 10^{-5} \\text{ rad/s}$，$\\epsilon = 23.44^\\circ$，$G = 6.67 \\times 10^{-11} \\text{ m}^3 \\text{kg}^{-1} \\text{s}^{-2}$，太阳质量 $M_S = 1.99 \\times 10^{30} \\text{ kg}$，日地距离 $r_S = 1.50 \\times 10^{11} \\text{ m}$，月球质量 $M_M = 7.34 \\times 10^{22} \\text{ kg}$，地月距离 $r_M = 3.84 \\times 10^8 \\text{ m}$，极向惯量矩比例参数 $C = 0.3307 M_E R_E^2$。",
+    "answer": "$1.07 \\times 10^{-3}$",
+    "solution": "1. **建立反推关系**：由进动公式 $\\Omega_p = -\\frac{3}{2} \\sum \\frac{GM_i}{r_i^3} \\frac{C-A}{C \\omega} \\cos \\epsilon$，我们可以解出惯量矩扁率 $\\frac{C-A}{C}$：$$ \\frac{C-A}{C} = \\frac{2 \\Omega_p \\omega}{3 \\cos \\epsilon \\left( \\frac{GM_S}{r_S^3} + \\frac{GM_M}{r_M^3}\\right)} $$2. **计算潮汐扭矩因子**：太阳的贡献：$\\frac{GM_S}{r_S^3} = \\frac{6.67 \\times 10^{-11} \\times 1.99 \\times 10^{30}}{(1.50 \\times 10^{11})^3} \\approx 3.93 \\times 10^{-14} \\text{ s}^{-2}$。月球的贡献：$\\frac{GM_M}{r_M^3} = \\frac{6.67 \\times 10^{-11} \\times 7.34 \\times 10^{22}}{(3.84 \\times 10^8)^3} \\approx 8.66 \\times 10^{-14} \\text{ s}^{-2}$。总和：$\\sum \\frac{GM_i}{r_i^3} \\approx 12.59 \\times 10^{-14} \\text{ s}^{-2}$。3. **计算惯量矩扁率 $\\frac{C-A}{C}$**：分母：$3 \\cos(23.44^\\circ) \\times 12.59 \\times 10^{-14} \\approx 3 \\times 0.917 \\times 12.59 \\times 10^{-14} \\approx 3.46 \\times 10^{-13}$。分子：$2 \\Omega_p \\omega = 2 \\times 7.72 \\times 10^{-12} \\times 7.29 \\times 10^{-5} \\approx 1.12 \\times 10^{-15}$。扁率：$\\frac{C-A}{C} = \\frac{1.12 \\times 10^{-15}}{3.46 \\times 10^{-13}} \\approx 3.24 \\times 10^{-3}$。4. **反推四极矩 $J_2$**：已知 $C = 0.3307 M_E R_E^2$，且 $J_2 = \\frac{C-A}{M_E R_E^2}$。代入得：$J_2 = \\frac{C-A}{C} \\times \\frac{C}{M_E R_E^2} = 3.24 \\times 10^{-3} \\times 0.3307 \\approx 1.07 \\times 10^{-3}$。结论：反推得到的地球无量纲四极矩约为 $1.07 \\times 10^{-3}$，与实际测量值 $1.0826 \\times 10^{-3}$ 高度吻合。"
+  },
+  "verification": null
+}

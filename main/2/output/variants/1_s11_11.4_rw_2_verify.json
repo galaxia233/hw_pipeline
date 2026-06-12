@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-2-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "spin_vector_magnitude",
+      "coordinate": "general",
+      "scenario": "gyroscope_transport_verify",
+      "method": "verify_consistency",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-2",
+      "1_s11_11.4-2-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\mathbf{S}$",
+      "$\\mathbf{u}$",
+      "$\\mathbf{a}$"
+    ],
+    "target": [
+      "Derivation errors in $\\frac{d}{d\\tau}(g_{\\mu\\nu} S^\\mu S^\\nu)$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "For a torque-free gyroscope moving along a worldline with 4-velocity $u^\\mu$ and 4-acceleration $a^\\mu = \\nabla_{\\mathbf{u}} u^\\mu$, the spin vector $S^\\mu$ satisfies the Fermi-Walker transport equation:$$\\nabla_{\\mathbf{u}} S^\\mu = u^\\mu (a_\\nu S^\\nu)$$A physical spin vector must remain purely spatial in the gyroscope's local rest frame, imposing the orthogonality constraint $S^\\mu u_\\mu = 0$. The magnitude of the spin vector is $|S|^2 = g_{\\mu\\nu} S^\\mu S^\\nu$.Below is a student's derivation attempting to prove that this transport law preserves the spin magnitude, but it contains several errors. Find and correct all errors in the derivation.**Student's Derivation:**We compute the rate of change of the spin magnitude $|S|^2 = S^\\mu S_\\mu$:$$\\frac{d}{d\\tau}(S^\\mu S_\\mu) = (\\nabla_{\\mathbf{u}} S^\\mu) S_\\mu + S^\\mu (\\nabla_{\\mathbf{u}} S_\\mu)$$**Step 1**: Substitute the Fermi-Walker transport equation for the first term:$$(\\nabla_{\\mathbf{u}} S^\\mu) S_\\mu = u^\\mu S_\\mu (a_\\nu S^\\nu)$$Since the 4-velocity satisfies the normalization condition $u^\\mu u_\\mu = -1$, we can substitute $u^\\mu S_\\mu = -1$. Thus:$$(\\nabla_{\\mathbf{u}} S^\\mu) S_\\mu = -1 \\cdot (a_\\nu S^\\nu) = -a_\\nu S^\\nu$$**Step 2**: Compute $\\nabla_{\\mathbf{u}} S_\\mu$ using metric compatibility ($\\nabla_{\\mathbf{u}} g_{\\mu\\alpha} = 0$):$$\\nabla_{\\mathbf{u}} S_\\mu = \\nabla_{\\mathbf{u}}(g_{\\mu\\alpha} S^\\alpha) = g^{\\mu\\alpha} \\nabla_{\\mathbf{u}} S^\\alpha = g^{\\mu\\alpha} u^\\alpha(a_\\nu S^\\nu) = u^\\mu(a_\\nu S^\\nu)$$Thus:$$S^\\mu(\\nabla_{\\mathbf{u}} S_\\mu) = S^\\mu u^\\mu (a_\\nu S^\\nu)$$Again, using $u^\\mu S^\\mu = -1$:$$S^\\mu(\\nabla_{\\mathbf{u}} S_\\mu) = -a_\\nu S^\\nu$$**Step 3**: Combining both terms:$$\\frac{d}{d\\tau}(S^\\mu S_\\mu) = -a_\\nu S^\\nu - a_\\nu S^\\nu = -2 a_\\nu S^\\nu$$Since the correct physical conclusion is that the magnitude must be preserved (i.e., the final result should be 0), identify all errors in the above derivation.",
+    "answer": "1. **Step 1, logic/physics error**: Incorrectly substituted $u^\\mu S_\\mu = -1$ based on the velocity normalization $u^\\mu u_\\mu = -1$. The spin vector is orthogonal to velocity, so the correct constraint is $S^\\mu u_\\mu = 0$, meaning $u^\\mu S_\\mu = 0$. Correct value: $(\\nabla_{\\mathbf{u}} S^\\mu) S_\\mu = 0$.2. **Step 2, index error**: Used the inverse metric $g^{\\mu\\alpha}$ instead of the metric $g_{\\mu\\alpha}$ to lower the index, resulting in a free index position mismatch ($\\mu$ down on the LHS, up on the RHS). Correct expression: $\\nabla_{\\mathbf{u}} S_\\mu = g_{\\mu\\alpha} \\nabla_{\\mathbf{u}} S^\\alpha = u_\\mu(a_\\nu S^\\nu)$.3. **Step 2, index summation error**: The term $S^\\mu u^\\mu$ has two upper indices, violating the Einstein summation convention which requires one upper and one lower index to contract. Correct expression: $S^\\mu u_\\mu$.4. **Step 2 & 3, logic/conclusion error**: Incorrectly substituted $u^\\mu S^\\mu = -1$ again, leading to a non-zero intermediate result $-a_\\nu S^\\nu$ and a non-zero final result $-2 a_\\nu S^\\nu$. Correct evaluation: $S^\\mu u_\\mu = 0$, so $S^\\mu(\\nabla_{\\mathbf{u}} S_\\mu) = 0$, and the final sum is $0 + 0 = 0$.",
+    "solution": "We compute the rate of change of the spin magnitude $|S|^2 = S^\\mu S_\\mu$ along the worldline:$$\\frac{d}{d\\tau}(S^\\mu S_\\mu) = (\\nabla_{\\mathbf{u}} S^\\mu) S_\\mu + S^\\mu (\\nabla_{\\mathbf{u}} S_\\mu)$$**Step 1**: Substitute the Fermi-Walker transport equation for the first term:$$(\\nabla_{\\mathbf{u}} S^\\mu) S_\\mu = (a_\\nu S^\\nu)(u^\\mu S_\\mu) = 0$$where the last equality follows from the orthogonality constraint $S^\\mu u_\\mu = 0$.**Step 2**: Compute $\\nabla_{\\mathbf{u}} S_\\mu$ using metric compatibility ($\\nabla_{\\mathbf{u}} g_{\\mu\\alpha} = 0$):$$\\nabla_{\\mathbf{u}} S_\\mu = \\nabla_{\\mathbf{u}}(g_{\\mu\\alpha} S^\\alpha) = g_{\\mu\\alpha} \\nabla_{\\mathbf{u}} S^\\alpha = g_{\\mu\\alpha} u^\\alpha(a_\\nu S^\\nu) = u_\\mu(a_\\nu S^\\nu)$$Thus:$$S^\\mu(\\nabla_{\\mathbf{u}} S_\\mu) = (a_\\nu S^\\nu)(S^\\mu u_\\mu) = 0$$again by the orthogonality constraint.**Step 3**: Combining both terms:$$\\frac{d}{d\\tau}(S^\\mu S_\\mu) = 0 + 0 = 0$$This verifies that the Fermi-Walker transport law preserves the spin magnitude, which is physically required: a torque-free gyroscope should not change its intrinsic spin magnitude merely from being transported along a curved worldline."
+  },
+  "verification": null
+}

@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s16_16.7",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "static_spherical_star",
+      "scenario": "conservation_law",
+      "method": "christoffel_symbols"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.7",
+    "source_id": "1_s16_16.7",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.8,
+      "realism": 0.8,
+      "rationale": "基于真实致密星体模型，需结合能动量张量协变守恒律、热力学第一定律与相对论欧拉方程进行多步推导，物理逻辑严密且具明确天文物理背景。",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$T^{\\\\alpha \\\\beta}_{; \\\\beta}$"
+    ],
+    "metric": [
+      [
+        "$-e^{2\\\\Phi}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$e^{2\\\\Lambda}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\\\sin^2 \\\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.7. Evaluate the 4 components of the equation $\\mathbf{T}^{\\alpha \\beta}$ ; $\\beta = 0$ for the stress energy tensor describing a static, spherically-symmetric perfect fluid star.",
+    "answer": "$T^{t\\\\beta}{}_{;\\\\beta} = 0$, $T^{\\\\theta\\\\beta}{}_{;\\\\beta} = 0$, $T^{\\\\phi\\\\beta}{}_{;\\\\beta} = 0$；径向分量化简为 $p_{,r} = -(\\\\rho + p)\\\\Phi_{,r}$",
+    "solution": "Solution 16.7. The standard form for the metric of a static, spherically symmetric star is\\n$$\\n\\\\mathrm {d s}^{2} = - \\\\mathrm {e}^{2 \\\\Phi} \\\\mathrm {d t}^{2} + \\\\mathrm {e}^{2 \\\\Lambda} \\\\mathrm {d r}^{2} + \\\\mathrm {r}^{2} \\\\mathrm {d} \\\\Omega^{2}. \\\\tag {1}\\n$$\\nThe equation $\\mathbf{T}^{\\\\alpha \\\\beta}$ ; $\\beta = 0$ is most easily evaluated by recalling that it is equivalent to the first law of thermodynamics\\n$$\\n\\\\mathrm {d} \\\\rho / \\\\mathrm {d} \\\\tau = \\\\frac {\\\\rho + \\\\mathrm {p}}{\\\\mathrm {n}} \\\\frac {\\\\mathrm {d n}}{\\\\mathrm {d} \\\\tau} \\\\tag {2}\\n$$\\n(see Problem 5.19) and the Euler equation\\n$$\\n\\\\left(\\\\rho + p\\\\right) u_{a}; \\\\beta u^{\\\\beta} = - p, a - p, \\\\beta u^{\\\\beta} u_{a} \\\\tag {3}\\n$$\\n(see Problem 14.3). For a static star, both sides of Equation (2) vanish identically. The only nonzero component of $\\mathbf{u}$ is $\\mathbf{u}^{\\\\mathrm{t}}$ and $\\mathbf{u} \\\\cdot \\\\mathbf{u} = -1$ implies $\\mathbf{u}^{\\\\mathrm{t}} = \\\\mathbf{e}^{-\\\\Phi}$ . Since only $\\mathbf{p}_{,\\\\mathbf{r}}$ is nonzero, the only nontrivial component of Equation (3) is\\n$$\\n\\\\begin{array}{l} - p, r = (\\\\rho + p) u_{r; \\\\beta} u^{\\\\beta} = - (\\\\rho + p) \\\\Gamma_{r \\\\beta}^{\\\\alpha} u_{\\\\alpha} u^{\\\\beta} \\\\\\\\ = - (\\\\rho + p) \\\\Gamma_{r t}^{t} u_{t} u^{t} = (\\\\rho + p) \\\\Phi_{, r}. \\\\\\\\ \\\\end{array}\\n$$"
+  },
+  "verification": null
+}

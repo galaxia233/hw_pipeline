@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s12_12.12",
+    "type": "prove",
+    "tags": {
+      "metric": "newtonian_limit",
+      "target_object": "geodesic_deviation",
+      "coordinate": "riemann_tensor",
+      "scenario": "relative_acceleration",
+      "method": "curvature_potential_correspondence"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s12_12.12",
+    "source_id": "1_s12_12.12",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s12_12.12"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "通过牛顿极限下相对加速度与测地偏离方程的系数对比，串联基础运动学与曲率张量定义，逻辑链条清晰完整",
+      "overall": 0.83
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^j$",
+      "$\\Phi$",
+      "$n^k$"
+    ],
+    "target": [
+      "$R_{0k0}^j$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 12.12. By examining the relative acceleration of a family of test-particle trajectories in Newtonian gravity and comparing with the Newtonian limit of the equation of geodesic deviation, derive the correspondence$$R_{j 0 k 0} = \\frac {\\partial^{2} \\Phi}{\\partial x^{j} \\partial x^{k}}$$between the Newtonian potential and the Riemann tensor. (A Newtonian test particle is acted on only by gravity; a test particle in a relativistic theory of gravity follows a geodesic.)",
+    "answer": "$$R_{j 0 k 0} = \\frac {\\partial^{2} \\Phi}{\\partial x^{j} \\partial x^{k}}$$",
+    "solution": "Solution 12.12. Let the Newtonian test-particle trajectories be$$\\mathbf {x}^{\\mathrm {j}} = \\mathbf {x}^{\\mathrm {j}} (t, n).$$Here $n$ is a parameter telling which trajectory we are considering. The vector$$\\underline {{\\mathbf {n}}} = \\frac {\\partial} {\\partial \\mathbf {n}} = \\frac {\\partial \\mathbf {x}^{\\mathbf {k}}} {\\partial \\mathbf {n}} \\frac {\\partial} {\\partial \\mathbf {x}^{\\mathbf {k}}} = \\mathbf {n}^{\\mathbf {k}} \\frac {\\partial} {\\partial \\mathbf {x}^{\\mathbf {k}}}$$is a connecting vector between neighboring trajectories. The relative acceleration of neighboring trajectories is$$\\frac {\\partial^{2} \\mathbf {n}^{\\mathrm {j}}} {\\partial t^{2}} = \\frac {\\partial^{2}} {\\partial t^{2}} \\left(\\frac {\\partial \\mathbf {x}^{\\mathrm {j}}} {\\partial \\mathbf {n}}\\right) = \\frac {\\partial} {\\partial \\mathbf {n}} \\left(\\frac {\\partial^{2} \\mathbf {x}^{\\mathrm {j}}} {\\partial t^{2}}\\right) = \\frac {\\partial} {\\partial \\mathbf {n}} \\left(- \\frac {\\partial \\boldsymbol {\\Phi}} {\\partial \\mathbf {x}^{\\mathrm {j}}}\\right) = - \\mathbf {n}^{\\mathrm {k}} \\frac {\\partial} {\\partial \\mathbf {x}^{\\mathrm {k}}} \\left(\\frac {\\partial \\boldsymbol {\\Phi}} {\\partial \\mathbf {x}^{\\mathrm {j}}}\\right) = - \\mathbf {n}^{\\mathrm {k}} \\frac {\\partial^{2} \\boldsymbol {\\Phi}} {\\partial \\mathbf {x}^{\\mathrm {k}} \\partial \\mathbf {x}^{\\mathrm {j}}},$$where we have used the equation of motion $\\partial^2\\mathbf{x}^{\\mathrm{j}} / \\partial t^2 = -\\partial \\Phi /\\partial \\mathbf{x}^{\\mathrm{j}}$ . The equation of geodesic deviation is$$\\frac {\\mathrm {D}^{2} \\mathfrak {n}^{a}} {\\mathrm {d} \\tau^{2}} = - \\mathrm {R}_{\\beta \\gamma \\delta}^{a} \\mathfrak {n}^{\\gamma} \\mathrm {u}^{\\beta} \\mathrm {u}^{\\delta} .$$In the Newtonian limit (velocities $\\sim \\epsilon$ , gravitational fields $\\sim \\epsilon^2$ )$$u^{0} = 1 + \\mathcal {O} (\\epsilon), \\quad u^{j} = \\mathcal {O} (\\epsilon), \\quad \\Gamma_{\\beta \\gamma}^{\\alpha} = \\mathcal {O} (\\epsilon^{2})$$and $\\mathfrak{n}$ , which connects events of equal proper time, connects events of equal coordinate time to $\\mathcal{O}(\\epsilon)$ . Thus, $\\frac{\\mathrm{D}}{\\mathrm{d}\\tau} = \\frac{\\mathrm{d}}{\\mathrm{d}t} + \\mathcal{O}(\\epsilon)$ and so$$\\frac {d^{2} n^{j}} {d t^{2}} = - R_{0 k 0}^{j} n^{k} + \\mathcal {O} (\\epsilon).$$The Riemann components are then$$R_{0 k 0}^{j} = \\frac {\\partial^{2} \\Phi} {\\partial x^{k} \\partial x^{j}}$$in the Newtonian limit. Note that, unless the velocities involved approach the speed of light, the other components of $\\mathbf{R}_{\\beta \\gamma \\delta}^{\\alpha}$ do not enter into the equation of relative motion of test particles."
+  },
+  "verification": null
+}

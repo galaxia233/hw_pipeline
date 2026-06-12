@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-4-8",
+    "type": "prove",
+    "tags": {
+      "target_object": [
+        "$\\Lambda_c$",
+        "$a_c$",
+        "Minkowski metric"
+      ],
+      "coordinate": [
+        "t",
+        "r",
+        "\\theta",
+        "\\phi"
+      ],
+      "scenario": "cosmology_reduce_weak_field",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-4",
+      "1_s11_11.11-4-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "Minkowski 度规"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，爱因斯坦静态宇宙是一个由 FLRW 度规描述的闭合时空（曲率参数 $k=1$），包含无压强物质密度 $\\rho_m$ 和临界宇宙学常数 $\\Lambda_c = 4\\pi\\rho_m$，其临界尺度因子为 $a_c = 1/\\sqrt{4\\pi\\rho_m}$。该时空的线元为：$$ds^2 = -dt^2 + \\frac{a_c^2}{1-r^2} dr^2 + a_c^2 r^2 d\\theta^2 + a_c^2 r^2 \\sin^2\\theta d\\phi^2$$请将此爱因斯坦静态宇宙取低密度弱场极限 $\\rho_m \\to 0$，证明在此极限下该时空度规退化回到经典的平直时空，并写出对应的 Minkowski 线元。",
+    "answer": "当 $\\rho_m \\to 0$ 时，临界宇宙学常数 $\\Lambda_c = 4\\pi\\rho_m \\to 0$，临界尺度因子 $a_c = 1/\\sqrt{4\\pi\\rho_m} \\to \\inf ty$。为了考察度规的退化，引入物理径向坐标 $R = a_c r$。当 $a_c \\to \\inf ty$ 时，为保持局部物理距离 $R$ 有限，必然有 $r \\to 0$。因此在局部区域，度规中的分母 $1-r^2 \\approx 1$。代入原线元得：$$ds^2 \\to -dt^2 + a_c^2 dr^2 + a_c^2 r^2 d\\Omega^2 = -dt^2 + dR^2 + R^2 d\\Omega^2$$其中 $d\\Omega^2 = d\\theta^2 + \\sin^2\\theta d\\phi^2$。这正是经典的 Minkowski 平直时空线元。这表明在低密度极限下，爱因斯坦静态宇宙的闭合曲率趋于零，时空几何退化为无物质和宇宙学常数的平直时空。",
+    "solution": null
+  },
+  "verification": null
+}

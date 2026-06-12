@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s7_7.18",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "scalar_product",
+      "coordinate": "worldline_coordinate",
+      "scenario": "accelerated_worldline_scenario",
+      "method": "covariant_derivative_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.18",
+    "source_id": "1_s7_7.18",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.18"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "明确输运方程+利用联络反对称性证明内积守恒+相对论运动学基础场景",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathbf{x}$",
+      "$\\\\mathbf{y}$",
+      "$\\\\mathbf{u}$",
+      "$\\\\mathbf{a}$",
+      "$\\\\mathcal{C}$"
+    ],
+    "target": [
+      "$\\\\nabla_{\\\\mathbf{u}}(\\\\mathbf{x}\\\\cdot\\\\mathbf{y})$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.18. Show that the scalar product of two vectors is not altered as they are both Fermi-Walker transported along a curve $\\mathcal{C}$ .",
+    "answer": "0",
+    "solution": "Solution 7.18. Let the two vectors be $\\\\mathbf{x}$ and $\\\\mathbf{y}$ . Then the Fermi-Walker transport law reads\\\\n$$\\\\n\\\\begin{array}{l} \\\\nabla_{\\\\mathbf {u}} \\\\mathbf {x} = (\\\\mathbf {u} \\\\otimes \\\\mathbf {a} - \\\\mathbf {a} \\\\otimes \\\\mathbf {u}) \\\\cdot \\\\mathbf {x} \\\\\\\\ \\\\nabla_{\\\\mathbf {u}} \\\\mathbf {y} = (\\\\mathbf {u} \\\\otimes \\\\mathbf {a} - \\\\mathbf {a} \\\\otimes \\\\mathbf {u}) \\\\cdot \\\\mathbf {y}, \\\\\\\\ \\\\end{array}\\\\n$$\\\\nwhere $\\\\mathbf{u}$ is the tangent vector to the curve $\\\\mathcal{C}$ and $\\\\mathbf{a} = \\\\nabla_{\\\\mathbf{u}}\\\\mathbf{u}$ . Using the product rule we evaluate the change in the dot product along the curve:\\\\n$$\\\\n\\\\begin{array}{l} \\\\nabla_{\\\\mathbf {u}} (\\\\mathbf {x} \\\\cdot \\\\mathbf {y}) = (\\\\nabla_{\\\\mathbf {u}} \\\\mathbf {x}) \\\\cdot \\\\mathbf {y} + \\\\mathbf {x} \\\\cdot (\\\\nabla_{\\\\mathbf {u}} \\\\mathbf {y}) \\\\\\\\ = (\\\\mathbf {a} \\\\cdot \\\\mathbf {x}) (\\\\mathbf {u} \\\\cdot \\\\mathbf {y}) - (\\\\mathbf {a} \\\\cdot \\\\mathbf {y}) (\\\\mathbf {u} \\\\cdot \\\\mathbf {x}) + (\\\\mathbf {u} \\\\cdot \\\\mathbf {x}) (\\\\mathbf {a} \\\\cdot \\\\mathbf {y}) - (\\\\mathbf {a} \\\\cdot \\\\mathbf {x}) (\\\\mathbf {u} \\\\cdot \\\\mathbf {y}) = 0. \\\\\\\\ \\\\end{array}\\\\n$$\\\\nThe scalar product is unaltered."
+  },
+  "verification": null
+}

@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s1_1.16",
+    "type": "prove",
+    "tags": {
+      "metric": "relativistic_kinematics",
+      "target_object": "inertial_frames",
+      "coordinate": "Lorentz_transformation",
+      "scenario": "acceleration_transformation",
+      "method": "vector_decomposition"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.16",
+    "source_id": "1_s1_1.16",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.16"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "多步微分链式法则结合洛伦兹速度变换与矢量三重积，逻辑严密但属纯理论运动学推演",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$v$",
+      "$u$",
+      "$a$",
+      "$\\\\gamma$"
+    ],
+    "target": [
+      "$\\\\underline{a}'_{\\\\parallel}$",
+      "$\\\\underline{a}'_{\\\\perp}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s1_1.16.md]\\n\\nProblem 1.16. A particle moves with 3-velocity $\\underline{\\mathbf{u}}$ and 3-acceleration $\\underline{\\mathbf{a}}$ as seen by an inertial observer $\\mathcal{O}$ . Another inertial observer $\\mathcal{O}'$ has 3-velocity $\\underline{\\mathbf{v}}$ relative to $\\mathcal{O}$ . Show that the components of acceleration of the particle parallel and perpendicular to $\\underline{\\mathbf{v}}$ as measured by $\\mathcal{O}'$ are\\n$$\\n\\\\begin{array}{l}\\n\\\\underline {{\\\\mathsf {a}}}^{\\prime} \\\\| = \\\\frac {(1 - \\\\mathrm {v}^{2})^{3 / 2}}{(1 - \\\\underline {{\\\\mathrm {v}}} \\\\cdot \\\\underline {{\\\\mathrm {u}}})^{3}} \\\\underline {{\\\\mathsf {a}}} \\\\|\\n\\\\\\\\\\n\\\\underline {{{\\\\mathsf {a}}}}_{\\\\perp}^{\\prime} = \\\\frac {(1 - \\\\mathsf {v}^{2})}{(1 - \\\\underline {{{\\\\mathsf {v}}}} \\\\cdot \\\\underline {{{\\\\mathsf {u}}}})^{3}} \\\\left[ \\\\underline {{{\\\\mathsf {a}}}}_{\\\\perp} - \\\\underline {{{\\\\mathsf {v}}}} \\\\times (\\\\underline {{{\\\\mathsf {a}}}} \\\\times \\\\underline {{{\\\\mathsf {u}}}}) \\\\right].\\n\\\\\\\\\\n\\\\end{array}\\n$$",
+    "answer": "$$\\\\begin{array}{l}\\\\underline {{\\\\mathsf {a}}}^{\\\\prime} \\\\| = \\\\frac {(1 - \\\\mathrm {v}^{2})^{3 / 2}}{(1 - \\\\underline {{\\\\mathrm {v}}} \\\\cdot \\\\underline {{\\\\mathrm {u}}})^{3}} \\\\underline {{\\\\mathsf {a}}} \\\\|\\\\\\\\\\\\underline {{{\\\\mathsf {a}}}}_{\\\\perp}^{\\\\prime} = \\\\frac {(1 - \\\\mathsf {v}^{2})}{(1 - \\\\underline {{{\\\\mathsf {v}}}} \\\\cdot \\\\underline {{{\\\\mathsf {u}}}})^{3}} \\\\left[ \\\\underline {{{\\\\mathsf {a}}}}_{\\\\perp} - \\\\underline {{{\\\\mathsf {v}}}} \\\\times (\\\\underline {{{\\\\mathsf {a}}}} \\\\times \\\\underline {{{\\\\mathsf {u}}}}) \\\\right].\\\\\\\\\\\\end{array}$$",
+    "solution": "## Solution\\n\\nSolution 1.16. The transformation of 3-velocity, from Problem 1.8, is\\n$$\\nu_{\\\\perp}^{\\\\prime} = \\\\frac {\\\\gamma^{- 1}}{(1 - v u_{\\\\parallel})} u_{\\\\perp}, \\\\quad u_{\\\\parallel} = \\\\frac {u_{\\\\parallel} - v}{1 - v u_{\\\\parallel}}\\n$$\\nand the time transformation is\\n$$\\nt^{\\\\prime} = \\\\gamma (t - \\\\underline {v} \\\\cdot \\\\underline {x}).\\n$$\\nNow take differentials:\\n$$\\n\\\\mathrm {d} u_{\\\\perp}^{\\\\prime} = \\\\frac {\\\\gamma^{- 1} \\\\mathrm {d} u_{\\\\perp}}{(1 - \\\\mathrm {v} u_{\\\\parallel})} + \\\\frac {\\\\mathrm {v} \\\\gamma^{- 1} u_{\\\\perp}}{(1 - \\\\mathrm {v} u_{\\\\parallel})^{2}} \\\\mathrm {d} u_{\\\\parallel} = \\\\frac {\\\\gamma^{- 1} [ (1 - \\\\mathrm {v} u_{\\\\parallel}) \\\\mathrm {d} u_{\\\\perp} + \\\\mathrm {v} u_{\\\\perp} \\\\mathrm {d} u_{\\\\parallel} ]}{(1 - \\\\mathrm {v} u_{\\\\parallel})^{2}}\\n$$\\n$$\\n\\\\mathrm {d} u_{\\\\parallel}^{\\\\prime} = \\\\frac {\\\\mathrm {d} u_{\\\\parallel}}{1 - v u_{\\\\parallel}} - \\\\frac {v (v - u_{\\\\parallel}) d u_{\\\\parallel}}{(1 - v u_{\\\\parallel})^{2}} = \\\\frac {\\\\gamma^{- 2} d u_{\\\\parallel}}{(1 - v u_{\\\\parallel})^{2}}\\n$$\\n$$\\n\\\\mathrm {d t}^{\\\\prime} = \\\\gamma (\\\\mathrm {d t} - \\\\underline {v} \\\\cdot \\\\underline {d x}) = \\\\gamma \\\\mathrm {d t} (1 - \\\\underline {v} \\\\cdot \\\\underline {u}) = \\\\gamma \\\\mathrm {d t} (1 - v u_{\\\\parallel})\\n$$\\n$$\\n\\\\frac {\\\\mathrm {d} \\\\underline {u}^{\\\\prime}}{\\\\mathrm {d} t^{\\\\prime}} \\\\equiv \\\\underline {a}^{\\\\prime} \\\\| = \\\\frac {\\\\gamma^{- 3}}{(1 - \\\\mathrm {v} u_{\\\\|})^{3}} \\\\underline {a} \\\\| = \\\\frac {\\\\gamma^{- 3}}{(1 - \\\\underline {v} \\\\cdot \\\\underline {u})^{3}} \\\\underline {a} \\\\|. \\\\quad (\\\\text {A n s w e r})\\n$$\\nand\\n$$\\n\\\\begin{array}{l}\\n\\\\frac {\\\\mathrm {d} \\\\underline {u}_{\\\\perp}^{\\\\prime}}{\\\\mathrm {d} t^{\\\\prime}} \\\\equiv \\\\underline {a}_{\\\\perp}^{\\\\prime} = \\\\frac {\\\\gamma^{- 2}}{(1 - \\\\mathrm {v u}_{\\\\parallel})^{3}} \\\\left[ (1 - \\\\mathrm {v u}_{\\\\parallel}) \\\\underline {a}_{\\\\perp} + \\\\mathrm {v} \\\\underline {u}_{\\\\perp} a_{\\\\parallel} \\\\right] \\\\\\\\\\n= \\\\frac {\\\\gamma^{- 2}}{(1 - v u_{\\\\|})^{3}} [ \\\\underline {a}_{\\\\perp} - v (u_{\\\\|} \\\\underline {a}_{\\\\perp} - \\\\underline {u}_{\\\\perp} a_{\\\\|}) ] \\\\\\\\\\n= \\\\frac {\\\\gamma^{- 2}}{(1 - \\\\underline {\\\\mathrm {v}} \\\\cdot \\\\underline {\\\\mathrm {u}})^{3}} [ \\\\underline {\\\\mathrm {a}}_{\\\\perp} - \\\\underline {\\\\mathrm {v}} \\\\times (\\\\underline {\\\\mathrm {a}} \\\\times \\\\underline {\\\\mathrm {u}}) ]. \\\\tag {Answer} \\\\\\\\\\n\\\\end{array}\\n$$\\nIn the last line we have used the fact that\\n$$\\n\\\\begin{array}{l}\\n\\\\underline {{\\\\underline {a}}} \\\\times \\\\underline {{\\\\underline {u}}} = (\\\\underline {{a}}_{\\\\perp} + \\\\underline {{a}}_{\\\\parallel}) \\\\times (\\\\underline {{u}}_{\\\\perp} + \\\\underline {{u}}_{\\\\parallel}) \\\\\\\\\\n= \\\\underline {\\\\mathbf {a}}_{\\\\perp} \\\\times \\\\underline {\\\\mathbf {u}} \\\\| + \\\\underline {\\\\mathbf {a}} \\\\| \\\\times \\\\underline {\\\\mathbf {u}}_{\\\\perp} \\\\\\\\\\n\\\\end{array}\\n$$\\nand the rule for expanding vector triple products.]"
+  },
+  "verification": null
+}

@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s15_15.12-2-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "tidal_acceleration",
+      "coordinate": "ads_metric",
+      "scenario": "circular_orbit_geodesic_deviation",
+      "method": "riemann_tensor_calculation",
+      "generalization_axis": "substitute",
+      "metric": "AntiDeSitterStatic"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.12",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s15_15.12",
+      "1_s15_15.12-2",
+      "1_s15_15.12-2-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "AntiDeSitterStatic",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$K$"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在给定时空的赤道面 ($\\theta = \\pi/2$) 上，Paul 以径向坐标 $r = 1$ 做圆轨道运动。考虑一个与 Paul 相邻的自由质点，它与 Paul 之间仅存在极微小的径向间距 $\\xi^r$（其他方向间距为零）。请利用测地偏离方程及该时空的 Riemann 曲率张量，推导该相邻质点相对于 Paul 的径向潮汐加速度 $a^r$，将结果表示为 $a^r = K \\xi^r$，并求出比例系数 $K$ 的具体表达式。（注：需首先推导 Paul 在此圆轨道上的四维速度 $u^\\mu$。度规符号约定为 $(-,+,+,+)$，类时条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$，能量守恒量定义为 $E = -g_{tt} \\dot{t}$，角动量为 $L = g_{\\phi\\phi} \\dot{\\phi}$。）度规定义：$ds^2 = -\\cos h^2(r) dt^2 + dr^2 + \\sin h^2(r) d\\theta^2 + \\sin^2(\\theta) \\sin h^2(r) d\\phi^2$",
+    "answer": "$K = -1$",
+    "solution": "1. **推导 Paul 的四维速度 $u^\\mu$**：   对于赤道面上的圆轨道，$u^r = 0, u^\\theta = 0$。由守恒量定义，$E = -g_{tt} u^t = \\cos h^2(r) u^t$，$L = g_{\\phi\\phi} u^\\phi = \\sin h^2(r) u^\\phi$。   由类时条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$，得 $-E^2/\\cos h^2(r) + L^2/\\sin h^2(r) = -1$。   圆轨道条件要求径向加速度为零，即有效势的导数为零：$\\frac{d}{dr}(-E^2/\\cos h^2(r) + L^2/\\sin h^2(r)) = 0$，解得 $L^2 = E^2 \\frac{\\sin h^4(r)}{\\cos h^4(r)}$。   代入归一化条件：$-E^2/\\cos h^2(r) + E^2 \\frac{\\sin h^2(r)}{\\cos h^4(r)} = -1 \\implies -E^2 \\frac{\\cos h^2(r) - \\sin h^2(r)}{\\cos h^4(r)} = -1$。   由于 $\\cos h^2(r) - \\sin h^2(r) = 1$，得 $E^2/\\cos h^4(r) = 1 \\implies E = \\cos h^2(r)$，进而 $L = \\sin h^2(r)$。   在 $r = 1$ 处，$u^t = E/\\cos h^2(r) = 1$，$u^\\phi = L/\\sin h^2(r) = 1$。   所以 $u^\\mu = (1, 0, 0, 1)$。2. **应用测地偏离方程**：   相对加速度公式为 $a^r = - R^r_{\\ \\nu\\rho\\sigma} u^\\nu \\xi^\\rho u^\\sigma$。   由于分离矢量仅有径向分量 $\\xi^\\rho = (0, \\xi^r, 0, 0)$，且 $u^\\mu$ 仅含 $t$ 和 $\\phi$ 分量，方程简化为：   $a^r = - (R^r_{\\ trt} u^t u^t + R^r_{\\ \\phi r \\phi} u^\\phi u^\\phi) \\xi^r = - (R^1_{\\ 010} + R^1_{\\ 313}) \\xi^r$。3. **计算所需的 Riemann 张量分量**：   $R^r_{\\ trt} = R^1_{\\ 010} = g^{11} R_{1010} = 1 \\cdot \\cos h^2(r) = \\cos h^2(1)$。   $R^r_{\\ \\phi r \\phi} = R^1_{\\ 313} = g^{11} R_{1313} = 1 \\cdot (-\\sin^2(\\theta) \\sin h^2(r))$。   在赤道面 $\\theta = \\pi/2$，故 $R^1_{\\ 313} = - \\sin h^2(1)$。4. **计算径向潮汐加速度比例系数 $K$**：   $K = - (R^1_{\\ 010} + R^1_{\\ 313}) = - (\\cos h^2(1) - \\sin h^2(1)) = -1$。物理意义备注：在负常数曲率时空（类似 Anti-de Sitter 时空）中，圆轨道上的径向潮汐力表现为向心压缩（系数为负），这与 Schwarzschild 时空在强场区域出现的向外拉伸（系数为正）形成了鲜明对比，体现了负曲率时空的内禀几何特性。"
+  },
+  "verification": null
+}

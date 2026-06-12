@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-3",
+    "type": "calculate",
+    "tags": {
+      "target_object": "r_c",
+      "coordinate": "Schwarzschild",
+      "scenario": "spin_precession_critical_orbit",
+      "method": "apply_critical_condition",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$r_c$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Schwarzschild 时空度规为 $ds^2 = -\\frac{r-r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。考虑一个自转陀螺在赤道平面 ($\\theta=\\pi/2$) 绕中心天体做圆轨道运行。已知该度规下圆轨道陀螺的 de Sitter 进动率 (测地线进动率) 与坐标轨道角速度 $\\Omega_{orb} = \\frac{d\\phi}{dt}$ 的关系为 $\\Omega_{dS} = \\frac{3r_s}{4r} \\Omega_{orb}$。求使得陀螺自转轴每完成一圈公转恰好进动 $\\pi$ 角度的临界轨道半径 $r_c$ (以 $r_s$ 表示)，并判断类时粒子能否在该半径处维持稳定的圆轨道。",
+    "answer": "$r_c = \\frac{3}{2} r_s$；类时粒子不能在该半径处维持稳定的圆轨道，因为此半径为光子球，仅允许类光轨道。",
+    "solution": "1. 首先推导圆轨道的坐标角速度 $\\Omega_{orb}$。对于赤道面内的圆轨道，径向坐标不变，即 $\\dot{r}=0$。由径向测地线方程 $\\frac{d^2 r}{d\\tau^2} + \\Gamma^r_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = 0$，在圆轨道条件下简化为 $\\Gamma^r_{00} \\dot{t}^2 + \\Gamma^r_{33} \\dot{\\phi}^2 = 0$。代入 Christoffel 符号 $\\Gamma^r_{00} = \\frac{r_s (r-r_s)}{2r^3}$ 与 $\\Gamma^r_{33} = -(r-r_s)\\sin^2\\theta$ (对于 $\\theta=\\pi/2$, $\\sin\\theta=1$)，可得 $\\frac{r_s (r-r_s)}{2r^3} \\dot{t}^2 - (r-r_s) \\dot{\\phi}^2 = 0$，解得 $\\dot{\\phi}^2 = \\frac{r_s}{2r^3} \\dot{t}^2$，即坐标角速度 $\\Omega_{orb} = \\frac{d\\phi}{dt} = \\sqrt{\\frac{r_s}{2r^3}}$。2. 计算陀螺每轨的进动角 $\\Delta\\Psi$。进动角等于 de Sitter 进动率乘以坐标轨道周期：$\\Delta\\Psi = \\Omega_{dS} \\cdot T_{orb}$。其中 $T_{orb} = \\frac{2\\pi}{\\Omega_{orb}}$。3. 代入已知关系式 $\\Omega_{dS} = \\frac{3r_s}{4r} \\Omega_{orb}$，计算每轨进动角：$\\Delta\\Psi = \\left( \\frac{3r_s}{4r} \\Omega_{orb}\\right) \\times \\left( \\frac{2\\pi}{\\Omega_{orb}}\\right) = \\frac{3\\pi r_s}{2r}$。注意该进动角与轨道角速度的具体数值无关，仅由轨道半径 $r$ 决定。4. 令进动角等于 $\\pi$，求解临界半径：$\\frac{3\\pi r_s}{2r_c} = \\pi \\implies r_c = \\frac{3}{2} r_s$。5. 物理意义分析：$r_c = \\frac{3}{2} r_s = 3M$ 正是 Schwarzschild 黑洞的光子球半径。在该半径处，引力场极强，类时粒子的圆轨道不再是稳定的（最内稳定圆轨道 ISCO 位于 $r = 3r_s = 6M$），仅有光子可以维持不稳定的圆形轨道。因此，任何有质量的物理陀螺都无法在 $r_c$ 处稳定运行以实现每轨进动 $\\pi$ 的条件。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "1. 题目给定的核心物理关系存在系数错误：题目声称 de Sitter 进动率与坐标轨道角速度的关系为 $\\Omega_{dS} = \\frac{3r_s}{4r} \\Omega_{orb}$，但在 Schwarzschild 度规下，圆轨道的 de Sitter 进动率正确关系应为 $\\Omega_{dS} = \\frac{3r_s}{2r} \\Omega_{orb}$（对应每轨进动角 $\\Delta\\Psi = \\frac{3\\pi r_s}{r}$）。由于此系数错误，导致 answer 计算的临界半径错误：正确推导下，令每轨进动角等于 $\\pi$ 应得 $r_c = 3 r_s$（即最内稳定圆轨道 ISCO），而非解答给出的 $r_c = \\frac{3}{2} r_s$（光子球半径）。2. answer 对临界半径的物理意义解释基于错误的前提：解答声称 $r_c = \\frac{3}{2} r_s$ 为光子球，仅允许类光轨道；若按照正确的临界半径 $r_c = 3 r_s$，该处为 ISCO，允许类时圆轨道但不稳定（有效势二阶导数为零），物理判定依据完全不同。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

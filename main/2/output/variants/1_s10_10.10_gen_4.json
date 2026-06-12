@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-4",
+    "type": "calculate",
+    "tags": {
+      "target_object": "centrifugal_term",
+      "coordinate": "comoving_spatial",
+      "scenario": "cosmology",
+      "method": "geodesic_substitution",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\frac{L^2}{a^4 r^3}"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In a flat ($k=0$) FLRW universe described by the metric $ds^2 = -dt^2 + a^2(t)[dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2]$, a massive particle moves freely along a geodesic confined to the equatorial plane $\\theta = \\pi/2$ (which satisfies the $\\theta$ geodesic equation). The spacetime possesses a rotational Killing vector field $\\xi^\\mu = (0, 0, 0, 1)$. According to the theory of geodesics, the inner product $\\boldsymbol{\\xi} \\cdot \\mathbf{u}$ is constant along the geodesic, yielding a conserved angular momentum $L = g_{\\phi\\phi} \\dot{\\phi}$. The radial geodesic equation for this plane can be written as $\\ddot{r} + 2\\frac{\\dot{a}}{a}\\dot{t}\\dot{r} - r \\dot{\\phi}^2 = 0$. Apply the conservation of $L$ to this equation to eliminate $\\dot{\\phi}$. Calculate the explicit expression of the resulting effective centrifugal acceleration term (the term proportional to $L^2$) in the equation of motion for $\\ddot{r}$, and state its power-law dependence on the scale factor $a(t)$.",
+    "answer": "The effective centrifugal acceleration term is $\\frac{L^2}{a^4 r^3}$, which scales as $a^{-4}$.",
+    "solution": "1. From the rotational Killing vector $\\xi^\\mu = (0,0,0,1)$ and the 4-velocity $u^\\mu$, the conserved quantity along the geodesic is the angular momentum $L = g_{\\phi\\phi} \\dot{\\phi} = a^2(t) r^2 \\dot{\\phi}$ (since $\\theta=\\pi/2$, $\\sin\\theta=1$).2. Rearranging this gives the angular velocity in terms of the conserved quantity: $\\dot{\\phi} = \\frac{L}{a^2(t) r^2}$.3. Substitute this into the radial geodesic equation $\\ddot{r} + 2\\frac{\\dot{a}}{a}\\dot{t}\\dot{r} - r \\dot{\\phi}^2 = 0$:   $\\dot{\\phi}^2 = \\frac{L^2}{a^4(t) r^4}$.4. The centrifugal term in the equation is $- r \\dot{\\phi}^2 = - r \\left( \\frac{L^2}{a^4(t) r^4}\\right) = - \\frac{L^2}{a^4(t) r^3}$.5. In the rearranged equation of motion $\\ddot{r} = \\frac{L^2}{a^4 r^3} - 2\\frac{\\dot{a}}{a}\\dot{t}\\dot{r}$, the effective centrifugal acceleration (driving the comoving radial coordinate $r$ outward) is $\\frac{L^2}{a^4 r^3}$. Its dependence on the scale factor is $a^{-4}(t)$, indicating that cosmic expansion rapidly suppresses orbital centrifugal effects."
+  },
+  "verification": null
+}

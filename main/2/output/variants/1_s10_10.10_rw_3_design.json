@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-0-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "stationary observer energy & critical condition",
+      "coordinate": "stationary spacetime coordinates",
+      "scenario": "static observer in stationary spacetime design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-0",
+      "1_s10_10.10-0-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "killing_vector",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\mathbf{x}^{\\\\mu}$",
+      "$\\\\mathbf{u}^{\\\\alpha}$",
+      "$\\\\boldsymbol{\\\\xi}_{\\\\alpha}$"
+    ],
+    "target": [
+      "数值模拟验证静止观察者守恒能量与度规时间分量关系及临界条件"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在稳态时空中，存在类时 Killing 矢量场 $\\boldsymbol{\\xi}_t$，在稳态坐标系 $(t, x^1, x^2, x^3)$ 下其分量为 $\\xi_t^\\mu = (1, 0, 0, 0)$。沿测地线的能量守恒量定义为 $E = -\\boldsymbol{\\xi}_t \\cdot \\mathbf{u}$。对于相对坐标系保持空间静止的类时观察者，其四维速度 $\\mathbf{u} = (u^t, 0, 0, 0)$ 且满足类时条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$。理论推导指出，该静止观察者的守恒能量 $E = \\sqrt{-g_{tt}}$，且其能够保持静止的临界条件为 $g_{tt} < 0$，当达到临界值 $g_{tt} = 0$ 时，Killing 矢量 $\\boldsymbol{\\xi}_t$ 变为类光矢量。请设计一个数值模拟方案（可选择如施瓦西时空等具体稳态时空作为测试场景），来验证上述静止观察者守恒能量与度规分量 $g_{tt}$ 的关系，并探究观察者保持静止的临界条件及 Killing 矢量变为类光的边界特征。方案需说明：1) 模拟的时空区域与参数设定；2) 需要计算与测量的核心物理量及具体算法步骤；3) 如何通过数据结果（如数值、图表）验证理论结论与临界条件。",
+    "answer": "1) 场景与参数设定：选择施瓦西时空作为稳态时空测试场景，度规为 $ds^2 = -(1-2M/r)dt^2 + (1-2M/r)^{-1}dr^2 + r^2 d\\Omega^2$。设定参数 $M=1$，模拟区域为径向坐标 $r$ 从 $3M$ 到逼近 $2M$（视界）的一系列位置。\\n2) 计算量与算法步骤：\\n- 步骤一：在选定的每个径向坐标 $r_i$ 处，读取度规分量 $g_{tt}(r_i) = -(1-2M/r_i)$。\\n- 步骤二：计算静止观察者的四维速度时间分量 $u^t$：根据类时条件 $g_{tt}(u^t)^2 = -1$，求解 $u^t = \\sqrt{-1/g_{tt}(r_i)}$。\\n- 步骤三：计算 Killing 矢量与四维速度的内积守恒量 $E = -\\boldsymbol{\\xi}_t \\cdot \\mathbf{u} = -g_{tt} u^t$。\\n- 步骤四：计算 Killing 矢量的模长 $\\boldsymbol{\\xi}_t \\cdot \\boldsymbol{\\xi}_t = g_{tt}$。\\n3) 结果验证：\\n- 绘制 $E$ 与 $\\sqrt{-g_{tt}}$ 随 $r$ 变化的曲线图，验证两者在所有模拟点处完全吻合，从而证明 $E = \\sqrt{-g_{tt}}$ 关系。\\n- 绘制 $g_{tt}$ 随 $r$ 的变化图，观察在 $r > 2M$ 区域 $g_{tt} < 0$，静止观察者四维速度 $u^t$ 为实数，验证类时静止观察者存在的临界条件为 $g_{tt} < 0$。\\n- 当 $r \\to 2M$ 时，数值结果显示 $g_{tt} \\to 0$，此时 $\\boldsymbol{\\xi}_t \\cdot \\boldsymbol{\\xi}_t \\to 0$，验证 Killing 矢量在临界边界变为类光，且 $u^t \\to \\inf ty$ 表明无法保持静止。",
+    "solution": "方案利用了施瓦西时空作为具体稳态背景，通过遍历径向坐标计算度规分量与观察者四速度，巧妙地将抽象的理论结论转化为可数值验证的步骤。通过对比 $E$ 与 $\\sqrt{-g_{tt}}$ 的数值一致性验证了能量关系；通过逼近视界时 $g_{tt} \\to 0$ 的数值行为，验证了 Killing 矢量由类时转为类光的临界性质及静止观察者失效的条件，物理逻辑严谨且数值操作可行。"
+  },
+  "verification": null
+}

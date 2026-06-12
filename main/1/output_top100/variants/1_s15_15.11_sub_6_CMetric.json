@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-2-6",
+    "type": "prove",
+    "tags": {
+      "target_object": "geodesic_deviation",
+      "coordinate": "x_y_phi",
+      "scenario": "tidal_force_trace",
+      "method": "riemann_calculation",
+      "generalization_axis": "substitute",
+      "metric": "CMetric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-2",
+      "1_s15_15.11-2-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "CMetric",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "phi"
+    ],
+    "target": [
+      "$a^x$",
+      "$a^y$",
+      "$a^\\phi$"
+    ],
+    "metric": [
+      [
+        "-h(y)/(x + y)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1/((x + y)**2*f(x))",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/((x + y)**2*h(y))",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "f(x)/(x + y)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一个静态时空，其度规为：$$ds^2 = -\\frac{h(y)}{(x+y)^2} dt^2 + \\frac{1}{(x+y)^2 f(x)} dx^2 + \\frac{1}{(x+y)^2 h(y)} dy^2 + \\frac{f(x)}{(x+y)^2} d\\phi^2$$其中 $f(x)$ 和 $h(y)$ 为任意函数。请推导一个在坐标 $(x, y)$ 处空间静止的观察者（其4速度仅沿时间方向）所感受到的沿 $x, y, \\phi$ 方向的测地线偏离加速度 $a^x, a^y, a^\\phi$ 的精确表达式（设空间分离矢量分量分别为 $\\xi^x, \\xi^y, \\xi^\\phi$）。进一步，证明这三个方向的潮汐加速度系数之和（即 $\\frac{a^x}{\\xi^x} + \\frac{a^y}{\\xi^y} + \\frac{a^\\phi}{\\xi^\\phi}$）恰好等于 Ricci 张量的混合分量 $-R^0_{\\ 0}$。",
+    "answer": "$a^x = -\\frac{(x+y)(f'(x)+h'(y)) - 2(f(x)+h(y))}{2 h(y)} \\xi^x$ , $a^y = \\frac{(x+y)^2 h''(y) - 2(x+y) h'(y) + 2(f(x)+h(y))}{2 h(y)} \\xi^y$ , $a^\\phi = -\\frac{(x+y)(f'(x)+h'(y)) - 2(f(x)+h(y))}{2 h(y)} \\xi^\\phi$",
+    "solution": "1. 静止观察者的 4-速度为 $u^\\mu = (u^0, 0, 0, 0)$，由类时归一化条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$ 得：   $g_{00} (u^0)^2 = -1 \\implies u^0 = \\frac{x+y}{\\sqrt{h(y)}}$。2. 测地线偏离方程为 $a^\\alpha = -R^\\alpha_{\\beta\\gamma\\delta} u^\\beta \\xi^\\gamma u^\\delta$。因为观察者静止且分离矢量与4速度正交 $\\xi^0 = 0$，方程简化为：   $a^i = -R^i_{0 j 0} (u^0)^2 \\xi^j$。3. 计算所需的 Riemann 曲率张量混合分量：   $R^1_{010} = g^{11} R_{0101} = \\frac{(x+y)(\\frac{d}{dx}f(x) + \\frac{d}{dy}h(y)) - 2(f(x)+h(y))}{2(x+y)^2}$。   $R^2_{020} = g^{22} R_{0202} = \\frac{-(x+y)^2 \\frac{d^2}{dy^2}h(y) + 2(x+y) \\frac{d}{dy}h(y) - 2(f(x)+h(y))}{2(x+y)^2}$。   $R^3_{030} = g^{33} R_{0303} = \\frac{(x+y)(\\frac{d}{dx}f(x) + \\frac{d}{dy}h(y)) - 2(f(x)+h(y))}{2(x+y)^2}$。4. 将 $(u^0)^2 = \\frac{(x+y)^2}{h(y)}$ 代入偏离方程：   $a^x = -R^1_{010} (u^0)^2 \\xi^x = -\\frac{(x+y)(\\frac{d}{dx}f(x) + \\frac{d}{dy}h(y)) - 2(f(x)+h(y))}{2 h(y)} \\xi^x$。   $a^\\phi = -R^3_{030} (u^0)^2 \\xi^\\phi = -\\frac{(x+y)(\\frac{d}{dx}f(x) + \\frac{d}{dy}h(y)) - 2(f(x)+h(y))}{2 h(y)} \\xi^\\phi$。   $a^y = -R^2_{020} (u^0)^2 \\xi^y = \\frac{(x+y)^2 \\frac{d^2}{dy^2}h(y) - 2(x+y) \\frac{d}{dy}h(y) + 2(f(x)+h(y))}{2 h(y)} \\xi^y$。5. 证明潮汐加速度系数之和：   $\\frac{a^x}{\\xi^x} + \\frac{a^y}{\\xi^y} + \\frac{a^\\phi}{\\xi^\\phi} = - (R^1_{010} + R^2_{020} + R^3_{030}) (u^0)^2$。   由 Ricci 张量的定义 $R_{00} = R^\\mu_{0\\mu 0} = g^{\\mu\\nu} R_{\\nu 0 \\mu 0}$。由于 $R_{0000}=0$ 且 $R_{1010}=-R_{0101}$，得 $R_{00} = - (R^1_{010} + R^2_{020} + R^3_{030})$。   所以 $R^1_{010} + R^2_{020} + R^3_{030} = - R_{00}$。   代入得潮汐系数和 $= R_{00} (u^0)^2 = R_{00} \\frac{(x+y)^2}{h(y)}$。   而混合分量 $R^0_{0} = g^{00} R_{00} = - \\frac{(x+y)^2}{h(y)} R_{00}$，因此 $R_{00} \\frac{(x+y)^2}{h(y)} = - R^0_{0}$。   故 $\\frac{a^x}{\\xi^x} + \\frac{a^y}{\\xi^y} + \\frac{a^\\phi}{\\xi^\\phi} = - R^0_{0}$，证毕。"
+  },
+  "verification": null
+}

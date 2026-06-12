@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-4-9",
+    "type": "concept",
+    "tags": {
+      "target_object": "spin_vector_orthogonality_derivative",
+      "coordinate": "mixed",
+      "scenario": "cosmology_vs_black_hole_contrast",
+      "method": "component_calculation_contrast",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-4",
+      "1_s11_11.4-4-9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "正交性导数差异",
+      "观察者测地性质差异"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "-exp(sqrt(2)*omega*x)",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "-exp(sqrt(2)*omega*x)",
+        "0",
+        "-exp(2*sqrt(2)*omega*x)/2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，自旋矢量的输运规律与其所属观察者的运动状态密切相关。请分别在以下两种时空背景下，计算静止观察者平行输运的自旋矢量与四维速度内积的普通时间导数，并对比结果的物理含义：**背景一：Godel 时空**度规线元：$ds^2 = -dt^2 + dx^2 - 2 e^{\\sqrt{2}\\omega x} dt dy - \\frac{1}{2} e^{2\\sqrt{2}\\omega x} dy^2 + dz^2$。类时 Killing 矢量为 $\\partial_t$。由于 $g_{00}=-1$，静止观察者四维速度直接为 $u^\\mu = (1, 0, 0, 0)$。第二类 Christoffel 符号非零项：$\\Gamma^0_{01} = \\Gamma^0_{10} = \\sqrt{2}\\omega$，$\\Gamma^0_{12} = \\Gamma^0_{21} = \\frac{\\sqrt{2}\\omega e^{\\sqrt{2}\\omega x}}{2}$，$\\Gamma^1_{02} = \\Gamma^1_{20} = \\frac{\\sqrt{2}\\omega e^{\\sqrt{2}\\omega x}}{2}$，$\\Gamma^1_{22} = \\frac{\\sqrt{2}\\omega e^{2\\sqrt{2}\\omega x}}{2}$，$\\Gamma^2_{01} = \\Gamma^2_{10} = -\\sqrt{2}\\omega e^{-\\sqrt{2}\\omega x}$。**背景二：Schwarzschild 时空**度规线元：$ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。类时 Killing 矢量为 $\\partial_t$。静止观察者四维速度需归一化为 $u^\\mu = (\\frac{1}{\\sqrt{1-r_s/r}}, 0, 0, 0) = (\\sqrt{\\frac{r}{r-r_s}}, 0, 0, 0)$。第二类 Christoffel 符号非零项：$\\Gamma^0_{01} = \\Gamma^0_{10} = \\frac{r_s}{2r(r-r_s)}$，$\\Gamma^1_{00} = \\frac{r_s(r-r_s)}{2r^3}$，$\\Gamma^1_{11} = -\\frac{r_s}{2r(r-r_s)}$，$\\Gamma^1_{22} = -(r-r_s)$，$\\Gamma^1_{33} = -(r-r_s)\\sin^2\\theta$，$\\Gamma^2_{12} = \\Gamma^2_{21} = \\frac{1}{r}$，$\\Gamma^2_{33} = -\\frac{\\sin(2\\theta)}{2}$，$\\Gamma^3_{13} = \\Gamma^3_{31} = \\frac{1}{r}$，$\\Gamma^3_{23} = \\Gamma^3_{32} = \\frac{1}{\\tan\\theta}$。**问题**：在两种背景下，假设自旋矢量 $S^\\mu$ 沿静止观察者世界线作平行输运（$\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$）。请分别显式代入度规分量与 $\\Gamma^i_{jk}$，计算普通导数 $\\frac{d}{d\\tau}(g_{\\mu\\nu} u^\\mu S^\\nu)$。对比两种时空的计算结果，并解释该结果差异反映了何种关于观察者运动状态及自旋输运的物理性质差异？",
+    "answer": "Godel 时空结果：0。Schwarzschild 时空结果：$\\frac{r_s}{2r(r-r_s)} S^1$。物理含义差异：在 Godel 时空中，由类时 Killing 矢量定义的静止观察者沿测地线运动（$\\nabla_{\\mathbf{u}} \\mathbf{u} = 0$），加速度为零，因此平行输运的自旋矢量自然保持与四维速度的正交性（$\\frac{d}{d\\tau}(g_{\\mu\\nu} u^\\mu S^\\nu) = 0$）；而在 Schwarzschild 时空中，静止观察者为了抵抗引力必须加速（非测地线运动，加速度 $a^1 = \\frac{r_s}{2r^2}$），平行输运不再保持正交性，内积导数等于 $g_{\\mu\\nu} a^\\mu S^\\nu \\neq 0$。这表明只有在测地线上，平行输运才等同于 Fermi-Walker 输运并保持正交性；在非测地线上，必须引入 Fermi-Walker 输运以消除加速度带来的旋转，才能维持自旋与速度的正交性。",
+    "solution": "Godel 时空推导：1. 内积 $g_{\\mu\\nu}u^\\mu S^\\nu = g_{00}S^0 + g_{02}S^2 = -S^0 - e^{\\sqrt{2}\\omega x}S^2$。2. 导数 $\\frac{d}{d\\tau}(-S^0 - e^{\\sqrt{2}\\omega x}S^2) = -\\frac{dS^0}{d\\tau} - e^{\\sqrt{2}\\omega x}\\frac{dS^2}{d\\tau}$。3. 平行输运方程 $\\frac{dS^\\mu}{d\\tau} = -\\Gamma^\\mu_{0\\nu}S^\\nu$。   $\\frac{dS^0}{d\\tau} = -\\Gamma^0_{01}S^1 = -\\sqrt{2}\\omega S^1$。   $\\frac{dS^2}{d\\tau} = -\\Gamma^2_{01}S^1 = \\sqrt{2}\\omega e^{-\\sqrt{2}\\omega x}S^1$。4. 代入得 $-(-\\sqrt{2}\\omega S^1) - e^{\\sqrt{2}\\omega x}(\\sqrt{2}\\omega e^{-\\sqrt{2}\\omega x}S^1) = \\sqrt{2}\\omega S^1 - \\sqrt{2}\\omega S^1 = 0$。Schwarzschild 时空推导：1. 内积 $g_{\\mu\\nu}u^\\mu S^\\nu = g_{00}u^0 S^0 = -\\frac{r-r_s}{r} \\sqrt{\\frac{r}{r-r_s}} S^0 = -\\sqrt{\\frac{r-r_s}{r}} S^0$。2. 导数 $\\frac{d}{d\\tau}(-\\sqrt{\\frac{r-r_s}{r}} S^0) = -\\sqrt{\\frac{r-r_s}{r}} \\frac{dS^0}{d\\tau}$。3. 平行输运方程 $\\frac{dS^\\mu}{d\\tau} = -\\Gamma^\\mu_{0\\alpha}u^0 S^\\alpha$。   $\\frac{dS^0}{d\\tau} = -\\Gamma^0_{01}u^0 S^1 = -\\frac{r_s}{2r(r-r_s)} \\sqrt{\\frac{r}{r-r_s}} S^1$。4. 代入得 $-\\sqrt{\\frac{r-r_s}{r}} \\left( -\\frac{r_s}{2r(r-r_s)} \\sqrt{\\frac{r}{r-r_s}} S^1\\right) = \\frac{r_s}{2r(r-r_s)} S^1$。5. 由于加速度 $a^1 = \\Gamma^1_{00}(u^0)^2 = \\frac{r_s(r-r_s)}{2r^3} \\frac{r}{r-r_s} = \\frac{r_s}{2r^2}$，此结果等于 $g_{11}a^1S^1 = \\frac{r}{r-r_s} \\frac{r_s}{2r^2} S^1 = \\frac{r_s}{2r(r-r_s)} S^1$，与普遍关系 $\\frac{d}{d\\tau}(g_{\\mu\\nu} u^\\mu S^\\nu) = g_{\\mu\\nu} a^\\mu S^\\nu$ 一致。"
+  },
+  "verification": null
+}

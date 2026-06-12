@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-1-6-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "metric_coefficients_constraint",
+      "coordinate": "x_dependent_cartesian",
+      "scenario": "local_force_balance_verify",
+      "method": "verify_and_identify_errors",
+      "generalization_axis": "verify",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-1",
+      "1_s14_14.6-1-6",
+      "1_s14_14.6-1-6-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "DeSitter",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "校验横向应力对局部受力平衡贡献系数的推导过程"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，静止在引力场中的物质，其局部 $x$ 方向受力平衡由能量-动量守恒方程 $\\nabla_\\mu T^{\\mu x} = 0$ 描述。已知该引力场的度规为 $ds^2 = -dt^2 + e^{2x/\\alpha} dx^2 + e^{2x/\\alpha} dy^2 + e^{2x/\\alpha} dz^2$。以下是某学生为证明横向应力 $T^{\\hat{y}\\hat{y}}$ 和 $T^{\\hat{z}\\hat{z}}$ 对局部 $x$ 方向受力平衡的贡献系数相同而写出的推导过程，该过程的最终结论声称该性质是由度规分量满足 $\\frac{d g_{yy}}{d x} = \\frac{d g_{zz}}{d x}$ 的几何约束决定的。请仔细阅读该推导，找出其中所有的错误，并指出错误位置、错误类型以及正确值：\\n\\n【推导过程】\\n1. 局部受力平衡由 $\\nabla_\\mu T^{\\mu x} = 0$ 描述，展开后包含横向应力项 $\\Gamma^x_{yy} T^{yy} + \\Gamma^x_{zz} T^{zz}$。\\n2. 将坐标分量转换为物理分量：$T^{yy} = T^{\\hat{y}\\hat{y}} g_{yy}$，$T^{zz} = T^{\\hat{z}\\hat{z}} g_{zz}$。\\n3. 计算对应的 Christoffel 符号：对于只依赖 $x$ 的对角度规，$\\Gamma^x_{yy} = \\frac{1}{2} g^{xx} \\frac{\\partial g_{yy}}{\\partial x}$，$\\Gamma^x_{zz} = \\frac{1}{2} g^{xx} \\frac{\\partial g_{zz}}{\\partial x}$。\\n4. 写出横向应力对局部受力平衡的贡献：\\n$\\Gamma^x_{yy} T^{yy} = \\frac{1}{2} g^{xx} g_{yy} \\frac{\\partial g_{yy}}{\\partial x} T^{\\hat{y}\\hat{y}}$，\\n$\\Gamma^x_{zz} T^{zz} = \\frac{1}{2} g^{xx} g_{zz} \\frac{\\partial g_{zz}}{\\partial x} T^{\\hat{z}\\hat{z}}$。\\n5. 由于 $g_{yy} = e^{2x/\\alpha}$ 和 $g_{zz} = e^{2x/\\alpha}$，对 $x$ 求导得 $g_{yy,x} = \\frac{1}{\\alpha} e^{2x/\\alpha}$ 和 $g_{zz,x} = \\frac{1}{\\alpha} e^{2x/\\alpha}$。\\n6. 因此 $g_{yy} \\frac{\\partial g_{yy}}{\\partial x} = e^{2x/\\alpha} \\cdot \\frac{1}{\\alpha} e^{2x/\\alpha} = \\frac{1}{\\alpha} e^{4x/\\alpha}$，同理 $g_{zz} \\frac{\\partial g_{zz}}{\\partial x} = \\frac{1}{\\alpha} e^{4x/\\alpha}$，两者相等。\\n7. 结论：贡献系数相同，是由 $\\frac{d g_{yy}}{d x} = \\frac{d g_{zz}}{d x}$ 这一几何约束决定的。",
+    "answer": "1. 错误位置：步骤2中的 $T^{yy} = T^{\\hat{y}\\hat{y}} g_{yy}$ 和 $T^{zz} = T^{\\hat{z}\\hat{z}} g_{zz}$。\\n错误类型：升降指标混淆错误。\\n正确值：$T^{yy} = \\frac{T^{\\hat{y}\\hat{y}}}{g_{yy}}$，$T^{zz} = \\frac{T^{\\hat{z}\\hat{z}}}{g_{zz}}$。\\n\\n2. 错误位置：步骤3中的 $\\Gamma^x_{yy} = \\frac{1}{2} g^{xx} \\frac{\\partial g_{yy}}{\\partial x}$ 和 $\\Gamma^x_{zz} = \\frac{1}{2} g^{xx} \\frac{\\partial g_{zz}}{\\partial x}$。\\n错误类型：符号错误（Sign error）。\\n正确值：$\\Gamma^x_{yy} = -\\frac{1}{2} g^{xx} \\frac{\\partial g_{yy}}{\\partial x}$，$\\Gamma^x_{zz} = -\\frac{1}{2} g^{xx} \\frac{\\partial g_{zz}}{\\partial x}$。\\n\\n3. 错误位置：步骤5中的 $g_{yy,x} = \\frac{1}{\\alpha} e^{2x/\\alpha}$ 和 $g_{zz,x} = \\frac{1}{\\alpha} e^{2x/\\alpha}$。\\n错误类型：系数遗漏错误（Factor error）。\\n正确值：$g_{yy,x} = \\frac{2}{\\alpha} e^{2x/\\alpha}$，$g_{zz,x} = \\frac{2}{\\alpha} e^{2x/\\alpha}$。\\n\\n4. 错误位置：步骤7结论中的几何约束 $\\frac{d g_{yy}}{d x} = \\frac{d g_{zz}}{d x}$。\\n错误类型：对数导数概念遗漏错误。\\n正确值：$\\frac{1}{g_{yy}} \\frac{d g_{yy}}{d x} = \\frac{1}{g_{zz}} \\frac{d g_{zz}}{d x}$。",
+    "solution": "1. 局部受力平衡由 $\\nabla_\\mu T^{\\mu x} = 0$ 描述，展开后包含横向应力项 $\\Gamma^x_{yy} T^{yy} + \\Gamma^x_{zz} T^{zz}$。\\n2. 将坐标分量转换为物理分量：$T^{yy} = \\frac{T^{\\hat{y}\\hat{y}}}{g_{yy}}$，$T^{zz} = \\frac{T^{\\hat{z}\\hat{z}}}{g_{zz}}$。\\n3. 计算对应的 Christoffel 符号：对于只依赖 $x$ 的对角度规，$\\Gamma^x_{yy} = -\\frac{1}{2} g^{xx} \\frac{\\partial g_{yy}}{\\partial x}$，$\\Gamma^x_{zz} = -\\frac{1}{2} g^{xx} \\frac{\\partial g_{zz}}{\\partial x}$。\\n4. 写出横向应力对局部受力平衡的贡献：\\n$\\Gamma^x_{yy} T^{yy} = -\\frac{1}{2} g^{xx} \\frac{g_{yy,x}}{g_{yy}} T^{\\hat{y}\\hat{y}}$，\\n$\\Gamma^x_{zz} T^{zz} = -\\frac{1}{2} g^{xx} \\frac{g_{zz,x}}{g_{zz}} T^{\\hat{z}\\hat{z}}$。\\n5. 由于 $g_{yy} = e^{2x/\\alpha}$ 和 $g_{zz} = e^{2x/\\alpha}$，对 $x$ 求导得 $g_{yy,x} = \\frac{2}{\\alpha} e^{2x/\\alpha}$ 和 $g_{zz,x} = \\frac{2}{\\alpha} e^{2x/\\alpha}$。\\n6. 因此 $\\frac{g_{yy,x}}{g_{yy}} = \\frac{2}{\\alpha}$ 且 $\\frac{g_{zz,x}}{g_{zz}} = \\frac{2}{\\alpha}$，两者相等。\\n7. 代入贡献项表达式，可得 $T^{\\hat{y}\\hat{y}}$ 和 $T^{\\hat{z}\\hat{z}}$ 前的几何系数均为 $-\\frac{1}{\\alpha} e^{-2x/\\alpha}$，证明贡献系数相同。\\n8. 结论：贡献系数相同，是由 $\\frac{1}{g_{yy}} \\frac{d g_{yy}}{d x} = \\frac{1}{g_{zz}} \\frac{d g_{zz}}{d x}$ 这一几何约束决定的。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目给出的度规 $ds^2 = -dt^2 + e^{2x/\\alpha} dx^2 + e^{2x/\\alpha} dy^2 + e^{2x/\\alpha} dz^2$ 将 De Sitter 空间平面切割度规的时间坐标 $t$ 错误地替换为空间坐标 $x$。真正的 De Sitter 平面切割度规应为 $ds^2 = -dt^2 + e^{2t/\\alpha} dx^2 + e^{2t/\\alpha} dy^2 + e^{2t/\\alpha} dz^2$。这一根本性错误导致题目度规与摘要及物理场景严重矛盾：1. 题目度规至少有3个Killing矢量($\\\\partial_t, \\\\partial_y, \\\\partial_z$)，而摘要声称只有1个；2. 题目度规的Kretschmann标量是依赖坐标$x$的非常数，而摘要声称其为常数$\\\\frac{12}{\\\\alpha^2}$（这恰好是真正De Sitter空间的值）；3. 若使用真正的De Sitter度规，Christoffel符号$\\\\Gamma^x_{yy}$将为0，题目整个推导的前提将不复存在。虽然Answer在给定错误度规下的数学纠错是正确的，但题目的核心物理对象与场景存在致命错位。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

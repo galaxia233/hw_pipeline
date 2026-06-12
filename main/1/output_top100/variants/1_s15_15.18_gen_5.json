@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s15_15.18-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "$x_{min}$, $V_{eff}(x)$",
+      "coordinate": "t, x, y, z",
+      "scenario": "geodesic_limit_to_flat",
+      "method": "effective_potential_and_limit",
+      "generalization_axis": "limit",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.18",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s15_15.18",
+      "1_s15_15.18-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$x_{min}$",
+      "$V_{eff}(x)$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In the spacetime described by the metric $ds^2 = -dt^2 + e^{\\frac{2 x}{\\alpha}} dx^2 + e^{\\frac{2 x}{\\alpha}} dy^2 + e^{\\frac{2 x}{\\alpha}} dz^2$, consider a test particle of unit mass moving in the $x$-$y$ plane. The metric components are independent of $t$ and $y$, yielding conserved energy $E = -g_{tt} \\dot{t}$ and conserved transverse momentum $L = g_{yy} \\dot{y}$. Derive the effective potential $V_{eff}(x)$ governing the particle's 1D motion along the $x$-axis, and find the coordinate $x_{min}$ of its turning point (closest approach). Furthermore, verify that in the limit $\\alpha \\to \\inf ty$ (which corresponds to the cosmological constant $\\Lambda \\to 0$ and restores flat Minkowski spacetime), the equation of motion reduces to $\\dot{x}^2 = E^2 - 1 - L^2$, and explain why the curved spacetime's allowance for 'bouncing' trajectories (where $1 \\le E^2 < 1 + L^2$) vanishes in this limit. (Symbol convention $(-,+,+,+)$ is used.)",
+    "answer": "$V_{eff}(x) = \\sqrt{1 + L^2 e^{-\\frac{2 x}{\\alpha}}}$; $x_{min} = \\frac{\\alpha}{2} \\ln \\left( \\frac{L^2}{E^2 - 1}\\right)$",
+    "solution": "1. For a unit mass particle, the norm of the 4-velocity gives the kinematic constraint: $g_{\\mu\\nu} \\dot{x}^{\\mu} \\dot{x}^{\\nu} = -1$. Substituting the metric components, we get: $-\\dot{t}^2 + e^{\\frac{2 x}{\\alpha}} \\dot{x}^2 + e^{\\frac{2 x}{\\alpha}} \\dot{y}^2 = -1$.2. Using the conserved quantities $E = \\dot{t}$ and $L = e^{\\frac{2 x}{\\alpha}} \\dot{y}$, we substitute them into the norm equation: $-E^2 + e^{\\frac{2 x}{\\alpha}} \\dot{x}^2 + L^2 e^{-\\frac{2 x}{\\alpha}} = -1$.3. Rearranging for the $x$-motion term yields: $e^{\\frac{2 x}{\\alpha}} \\dot{x}^2 = E^2 - 1 - L^2 e^{-\\frac{2 x}{\\alpha}}$.4. We identify the effective potential $V_{eff}(x)$ such that $e^{\\frac{2 x}{\\alpha}} \\dot{x}^2 = E^2 - V_{eff}(x)^2$. Thus, $V_{eff}(x)^2 = 1 + L^2 e^{-\\frac{2 x}{\\alpha}}$, giving $V_{eff}(x) = \\sqrt{1 + L^2 e^{-\\frac{2 x}{\\alpha}}}$.5. The turning point $x_{min}$ occurs where the radial velocity vanishes, $\\dot{x} = 0$, which implies $E^2 = 1 + L^2 e^{-\\frac{2 x_{min}}{\\alpha}}$. Solving for $x_{min}$: $e^{-\\frac{2 x_{min}}{\\alpha}} = \\frac{E^2 - 1}{L^2} \\implies -\\frac{2 x_{min}}{\\alpha} = \\ln \\left( \\frac{E^2 - 1}{L^2}\\right) \\implies x_{min} = \\frac{\\alpha}{2} \\ln \\left( \\frac{L^2}{E^2 - 1}\\right)$.6. Taking the limit $\\alpha \\to \\inf ty$, the scale factor $e^{-\\frac{2 x}{\\alpha}} \\to 1$ for any finite $x$. The effective potential becomes constant: $V_{eff}(x) \\to \\sqrt{1 + L^2}$. The equation of motion simplifies to $\\dot{x}^2 = E^2 - 1 - L^2$, which is precisely the Minkowski spacetime kinematic constraint $-\\dot{t}^2 + \\dot{x}^2 + \\dot{y}^2 = -1$ with $E=\\dot{t}$ and $L=\\dot{y}$.7. In the curved spacetime, $V_{eff}(\\inf ty) = 1$, allowing particles with $1 \\le E^2 < 1 + L^2$ to exist at large $x$ and bounce back at $x_{min} > 0$. In the Minkowski limit, $V_{eff}$ loses its spatial dependence and becomes a constant barrier $\\sqrt{1+L^2}$. The condition $E^2 < 1 + L^2$ implies $\\dot{x}^2 < 0$ everywhere, making such trajectories physically impossible. Thus, the limit correctly restores the flat spacetime kinematic constraints by eliminating the 'bouncing' orbits allowed by the curved geometry."
+  },
+  "verification": null
+}

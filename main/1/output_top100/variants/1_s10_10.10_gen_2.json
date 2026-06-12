@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "Killing vector field",
+      "coordinate": "arbitrary",
+      "scenario": "geodesic conservation",
+      "method": "tensor symmetry decomposition",
+      "generalization_axis": "invert",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "killing_vector",
+    "soft_variant": "invert",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\mathbf{x}^{\\\\mu}$",
+      "$\\\\mathbf{u}^{\\\\alpha}$",
+      "$\\\\boldsymbol{\\\\xi}_{\\\\alpha}$"
+    ],
+    "target": [
+      "$\\nabla_{\\mu} \\xi_{\\nu} + \\nabla_{\\nu} \\xi_{\\mu} = 0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "设 $\\boldsymbol{\\xi}(\\mathbf{x}^{\\mu})$ 为时空中的一个矢量场，$\\mathbf{u}$ 为任意测地线的切矢量。已知对于时空中的任意测地线，内积 $\\boldsymbol{\\xi} \\cdot \\mathbf{u}$ 沿该测地线均保持为常数（即 $\\frac{d}{d\\lambda}(\\boldsymbol{\\xi} \\cdot \\mathbf{u}) = 0$，其中 $\\lambda$ 为仿射参数）。请利用测地线方程与该守恒性质，反推并证明 $\\boldsymbol{\\xi}$ 必定满足 Killing 方程 $\\nabla_{\\mu} \\xi_{\\nu} + \\nabla_{\\nu} \\xi_{\\mu} = 0$，从而说明 $\\boldsymbol{\\xi}$ 是一个 Killing 矢量场。",
+    "answer": "证明了 $\\boldsymbol{\\xi}$ 必定满足 Killing 方程 $\\nabla_{\\mu} \\xi_{\\nu} + \\nabla_{\\nu} \\xi_{\\mu} = 0$。",
+    "solution": "1. 根据内积沿测地线守恒的条件，写出导数方程：\\n\\n$\\frac{d}{d\\lambda}(\\xi_{\\mu} u^{\\mu}) = u^{\\nu} \\nabla_{\\nu} (\\xi_{\\mu} u^{\\mu}) = 0$ \\n\\n2. 利用 Leibniz 法规展开上式右边：\\n\\n$u^{\\nu} (\\nabla_{\\nu} \\xi_{\\mu}) u^{\\mu} + \\xi_{\\mu} u^{\\nu} \\nabla_{\\nu} u^{\\mu} = 0$ \\n\\n3. 因为 $\\mathbf{u}$ 是测地线的切矢量，满足测地线方程 $u^{\\nu} \\nabla_{\\nu} u^{\\mu} = 0$，故第二项为零，只剩下：\\n\\n$u^{\\mu} u^{\\nu} \\nabla_{\\nu} \\xi_{\\mu} = 0$ \\n\\n4. 该条件要求对时空中的*任意*测地线（即任意方向的切矢量 $u^{\\mu}$）均成立。将张量 $\\nabla_{\\nu} \\xi_{\\mu}$ 分解为对称部分 $S_{\\mu\\nu}$ 和反对称部分 $A_{\\mu\\nu}$：\\n\\n$\\nabla_{\\nu} \\xi_{\\mu} = \\frac{1}{2} (\\nabla_{\\nu} \\xi_{\\mu} + \\nabla_{\\mu} \\xi_{\\nu}) + \\frac{1}{2} (\\nabla_{\\nu} \\xi_{\\mu} - \\nabla_{\\mu} \\xi_{\\nu}) = S_{\\mu\\nu} + A_{\\mu\\nu}$ \\n\\n5. 将其代入守恒方程：\\n\\n$u^{\\mu} u^{\\nu} (S_{\\mu\\nu} + A_{\\mu\\nu}) = u^{\\mu} u^{\\nu} S_{\\mu\\nu} + u^{\\mu} u^{\\nu} A_{\\mu\\nu} = 0$ \\n\\n6. 由于 $u^{\\mu} u^{\\nu}$ 是对称张量，而 $A_{\\mu\\nu}$ 是反对称张量，两者的缩积必然为零（$u^{\\mu} u^{\\nu} A_{\\mu\\nu} = \\frac{1}{2}u^{\\mu} u^{\\nu}(\\nabla_{\\nu} \\xi_{\\mu} - \\nabla_{\\mu} \\xi_{\\nu}) = 0$）。因此方程简化为：\\n\\n$u^{\\mu} u^{\\nu} S_{\\mu\\nu} = 0$ \\n\\n7. 由于该方程对任意切矢量 $u^{\\mu}$ 均成立，对称双线性型 $u^{\\mu} u^{\\nu}$ 可以取任意值，这必然要求对称部分本身恒为零，即：\\n\\n$S_{\\mu\\nu} = \\frac{1}{2} (\\nabla_{\\mu} \\xi_{\\nu} + \\nabla_{\\nu} \\xi_{\\mu}) = 0$ \\n\\n8. 由此得出 $\\nabla_{\\mu} \\xi_{\\nu} + \\nabla_{\\nu} \\xi_{\\mu} = 0$，这正是 Killing 方程。因此，$\\boldsymbol{\\xi}$ 必定是一个 Killing 矢量场。"
+  },
+  "verification": null
+}

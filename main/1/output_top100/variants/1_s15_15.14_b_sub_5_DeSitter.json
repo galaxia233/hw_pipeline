@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s15_15.14_b-1-5",
+    "type": "calculate",
+    "tags": {
+      "target_object": "metric_parameter_alpha",
+      "coordinate": "cartesian",
+      "scenario": "kretschmann_measurement",
+      "method": "invert_from_invariant",
+      "generalization_axis": "substitute",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.14_b",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s15_15.14_b",
+      "1_s15_15.14_b-1",
+      "1_s15_15.14_b-1-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "DeSitter",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$\\alpha$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在一个具有时间平移对称性的真空中，一个处于局部惯性系的宇航员为了确定该时空的内禀几何参数 $\\alpha$，他在自己的局部惯性系中进行了全方位的潮汐力测量。他测量了沿不同空间方向分离的测试质点间的相对加速度，提取出了局部潮汐力张量的所有物理分量，并通过这些物理分量计算出了该处时空的 Kretschmann 标量 $K_{meas}$。已知该时空的度规为：\\n$$ ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}} dx^2 + e^{\\frac{2x}{\\alpha}} dy^2 + e^{\\frac{2x}{\\alpha}} dz^2 $$\\n其中 $\\alpha$ 为待定的内禀参数。已知 Kretschmann 标量在局部洛伦兹变换下保持不变的性质，请利用此性质与测得的 Kretschmann 标量 $K_{meas}$，反推该时空的内禀参数 $\\alpha$ 的表达式。",
+    "answer": "$\\alpha = \\sqrt{\\frac{12}{K_{meas}}}$",
+    "solution": "1. Kretschmann 标量 $K = R_{\\mu\\nu\\rho\\sigma} R^{\\mu\\nu\\rho\\sigma}$ 是一个坐标无关的内禀几何标量，在局部洛伦兹变换下也保持不变。因此，宇航员在局部惯性系中通过测量潮汐力张量的物理分量并计算出的 Kretschmann 标量 $K_{meas}$，直接等于该时空几何内禀的 Kretschmann 标量 $K$。\\n\\n2. 根据时空度规的几何属性数据，该时空的 Kretschmann 标量为：\\n   $$ K = \\frac{12}{\\alpha^2} $$\\n\\n3. 结合物理测量值，在观察者所在位置有：\\n $$ K_{meas} = \\frac{12}{\\alpha^2} $$\\n\\n4. 反推该时空的内禀参数 $\\alpha$：\\n $$ \\alpha = \\sqrt{\\frac{12}{K_{meas}}} $$"
+  },
+  "verification": null
+}

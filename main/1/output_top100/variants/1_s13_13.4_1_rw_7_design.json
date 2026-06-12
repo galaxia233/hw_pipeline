@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_1-8-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "Einstein_tensor_and_metric_degeneration",
+      "coordinate": "closed_AdS",
+      "scenario": "cosmology_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "AntiDeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.4_1",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.4_1",
+      "1_s13_13.4_1-8",
+      "1_s13_13.4_1-8-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "AntiDeSitter",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "chi",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "设计数值实验验证当尺度参数 \\alpha \\to \\inf ty 时，Einstein 张量退化至零，且径向坐标变换下度规退化至 Minkowski 度规"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "cos(t)**2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "cos(t)**2*sinh(chi)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*cos(t)**2*sinh(chi)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，反德西特 时空对应一个具有负宇宙学常数的真空解。考虑带有尺度参数 \\alpha 的闭合坐标 AdS 度规：$$ds^2 = -dt^2 + \\alpha^2 \\cos^2\\left(\\frac{t}{\\alpha}\\right) \\left[ d\\chi^2 + \\sin h^2(\\chi) (d\\theta^2 + \\sin^2(\\theta) d\\phi^2)\\right]$$其中 \\alpha 与等效宇宙学常数的关系为 \\Lambda = -\\frac{3}{\\alpha^2}。理论分析指出，当尺度参数 \\alpha \\to \\inf ty（即宇宙学常数 \\Lambda \\to 0）时，该时空的 Einstein 张量 G_{\\mu\\nu} 退化为零，且在引入径向坐标 r = \\alpha \\chi 的条件下，度规退化为 Minkowski 平直时空度规。请你设计一个数值模拟实验方案，从零开始验证上述时空的“平坦化退化”结论。要求包含：1. 模拟的参数设定（如何选取逐步增大的 \\alpha 序列，以及如何选取固定的物理观测点坐标）；2. 需要计算和提取的关键物理量（如 Einstein 张量、坐标变换后的度规分量偏差等）；3. 预期的数值结果趋势，以及判定退化结论成立的数值标准。",
+    "answer": "1. **参数设定**：设定 \\alpha 从小到大的一系列离散值，例如 \\alpha_k = 1, 10, 100, 1000, 10000。为了在空间不同位置检验退化，选取一组固定的物理观测点坐标 (t_p, r_p, \\theta_p, \\phi_p)，例如 t_p = 1, r_p = 5, \\theta_p = \\pi/2, \\phi_p = 0。由于需要计算原度规，对应的 \\chi 值随 \\alpha 变化为 \\chi_k = r_p / \\alpha_k。2. **计算关键物理量**：   - 对于每个 \\alpha_k，在对应的 (t_p, \\chi_k, \\theta_p, \\phi_p) 点处，计算 Einstein 张量分量 G_{\\mu\\nu} 的绝对值，或计算比值 G_{\\mu\\nu} / g_{\\mu\\nu}（理论上应趋于 -3/\\alpha_k^2）。   - 实施坐标变换 r = \\alpha_k \\chi，即 d\\chi = dr / \\alpha_k，将度规表达为关于 (t, r, \\theta, \\phi) 的形式 g'_{\\mu\\nu}(\\alpha_k)。计算变换后度规与 Minkowski 度规 \\eta_{\\mu\\nu} 的偏差 \\Delta g'_{\\mu\\nu} = g'_{\\mu\\nu}(\\alpha_k) - \\eta_{\\mu\\nu}。3. **预期结果与判定标准**：   - 预期结果：随着 \\alpha_k 增大，|G_{\\mu\\nu}| 和 |\\Delta g'_{\\mu\\nu}| 均呈现单调递减并趋于零的趋势。例如，|G_{00}| \\approx 3/\\alpha_k^2，而 g'_{11} \\approx \\cos^2(t_p/\\alpha_k) \\to 1, g'_{22} \\approx \\alpha_k^2 \\cos^2(t_p/\\alpha_k) \\sin h^2(r_p/\\alpha_k) \\to r_p^2。   - 判定标准：当 \\alpha_k 足够大时（如 \\alpha_k > 10^4），若 |G_{\\mu\\nu}| 的最大值小于设定阈值（如 10^{-6}），且度规偏差 |\\Delta g'_{\\mu\\nu}| 的最大值小于设定阈值（如 10^{-4}），即可在数值意义上验证退化结论成立。",
+    "solution": "数值实验设计的核心在于正确处理物理坐标与参数化坐标的关系。在固定物理观测点 (t_p, r_p) 时，参数 \\chi 必须随 \\alpha 动态调整（\\chi = r_p/\\alpha），否则若固定 \\chi，物理距离 r = \\alpha \\chi 会随 \\alpha 爆炸式增长，无法反映局部时空的平坦化。通过提取 Einstein 张量与度规的比值，可以有效避免度规分量本身随 \\alpha 变化带来的数值掩盖效应。径向变换后的度规分量偏差直观反映了局部几何向平直时空的收敛过程，\\cos(t/\\alpha) \\to 1 与 \\alpha \\sin h(r/\\alpha) \\to r 的泰勒展开性质在数值上将表现为误差随 \\alpha 的二阶或更高阶反比衰减。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.antidesitter_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.2,
+      "issue": "题目和答案存在多个严重错误：1. **Answer符号错误**：Answer中声称 Einstein张量与度规的比值 $G_{\\\\mu\\\\nu}/g_{\\\\mu\\\\nu}$ 理论上应趋于 $-3/\\\\alpha_k^2$，但根据爱因斯坦场方程 $G_{\\\\mu\\\\nu} = -\\\\Lambda g_{\\\\mu\\\\nu}$，代入题目给定的 $\\\\Lambda = -3/\\\\alpha^2$ 可得 $G_{\\\\mu\\\\nu} = (3/\\\\alpha^2) g_{\\\\mu\\\\nu}$，因此比值应为正号 $+3/\\\\alpha_k^2$；2. **度规排版错误**：题目与Answer中均将双曲正弦平方 $\\\\sinh^2$ 错写为 $\\\\sin h^2$，在LaTeX中这会被解析为 $\\\\sin(h^2)$ 的无意义表达式，彻底改变了度规的数学含义，导致做题者无法正确计算曲率，题目不可解；3. **场景与度规不匹配**：题目声称这是",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

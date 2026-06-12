@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s13_13.1-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "critical orbit radius",
+      "coordinate": "schwarzschild-like spherical",
+      "scenario": "Newtonian limit with cosmological constant",
+      "method": "weak field approximation and orbital stability analysis",
+      "generalization_axis": "apply",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.1",
+      "1_s13_13.1-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$a$",
+      "$R_{\\mu \\nu}$",
+      "$g_{\\mu \\nu}$",
+      "$R$",
+      "$T_{\\mu \\nu}$",
+      "$\\rho$",
+      "$v$"
+    ],
+    "target": [
+      "$r_c = \\left( \\frac{3GM}{\\Lambda}\\right)^{1/3}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义场方程 $R_{\\mu\\nu} - \\alpha g_{\\mu\\nu} R = 8\\pi G T_{\\mu\\nu}$ 中，只有当 $\\alpha = \\frac{1}{2}$ 时，方程才能在牛顿极限下还原为正确的泊松方程。基于此结论，考虑引入宇宙学常数 $\\Lambda$ 的标准爱因斯坦场方程：$$R_{\\mu\\nu} - \\frac{1}{2} g_{\\mu\\nu} R + \\Lambda g_{\\mu\\nu} = 8\\pi G T_{\\mu\\nu}$$在弱场低速的牛顿极限下（设度规的时间分量满足 $g_{00} = -(1+2\\phi)$，其中 $\\phi$ 为牛顿引力势，空间部分近似平直，忽略物质压强 $p$），推导该场方程给出的修正泊松方程，进而求出点质量 $M$ 在真空中的引力势 $\\phi(r)$，并据此预测：一个有质量的测试粒子在该引力场中能够维持稳定圆轨道的最大临界半径 $r_c$（用 $G, M, \\Lambda$ 表示）。",
+    "answer": "$r_c = \\left( \\frac{3GM}{\\Lambda}\\right)^{1/3}$",
+    "solution": "1. **推导修正泊松方程**：取含 $\\Lambda$ 的场方程的迹：$R - \\frac{1}{2} g^{\\mu\\nu} g_{\\mu\\nu} R + \\Lambda g^{\\mu\\nu} g_{\\mu\\nu} = 8\\pi G T$在4维时空中 $g^{\\mu\\nu} g_{\\mu\\nu} = 4$，且弱场低速下忽略压强 $p$，有 $T \\approx -\\rho$：$R - 2R + 4\\Lambda = -8\\pi G \\rho$$-R + 4\\Lambda = -8\\pi G \\rho$解得 $R = 4\\Lambda + 8\\pi G \\rho$。考察00分量：$R_{00} - \\frac{1}{2} g_{00} R + \\Lambda g_{00} = 8\\pi G T_{00}$在牛顿极限下，$R_{00} \\approx \\nabla^2 \\phi$，$g_{00} \\approx -1$，$T_{00} \\approx \\rho$：$\\nabla^2 \\phi - \\frac{1}{2} (-1) (4\\Lambda + 8\\pi G \\rho) + \\Lambda (-1) = 8\\pi G \\rho$$\\nabla^2 \\phi + 2\\Lambda + 4\\pi G \\rho - \\Lambda = 8\\pi G \\rho$整理得修正泊松方程：$\\nabla^2 \\phi = 4\\pi G \\rho - \\Lambda$2. **求点质量引力势**：对于真空中的点质量 $M$，$\\rho = 0$（除原点外），泊松方程变为 $\\nabla^2 \\phi = -\\Lambda$。标准点质量势 $-GM/r$ 满足 $\\nabla^2 (-GM/r) = 0$，而 $\\nabla^2 (-\\frac{1}{6} \\Lambda r^2) = -\\Lambda$，因此总引力势为：$\\phi(r) = -\\frac{GM}{r} - \\frac{1}{6} \\Lambda r^2$3. **预测稳定圆轨道最大临界半径**：粒子的有效引力加速度为 $a_r = -\\frac{d\\phi}{dr}$。$\\frac{d\\phi}{dr} = \\frac{GM}{r^2} - \\frac{\\Lambda}{3} r$要维持稳定圆轨道，必须存在指向中心的净引力，即 $\\frac{d\\phi}{dr} > 0$：$\\frac{GM}{r^2} - \\frac{\\Lambda}{3} r > 0$$3GM > \\Lambda r^3$解得稳定圆轨道的最大临界半径为：$r_c = \\left( \\frac{3GM}{\\Lambda}\\right)^{1/3}$"
+  },
+  "verification": null
+}

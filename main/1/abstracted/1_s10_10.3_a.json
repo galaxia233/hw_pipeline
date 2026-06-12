@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s10_10.3_a",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "coordinate-free",
+      "coordinate": "killing-vector",
+      "scenario": "lie-bracket",
+      "method": "symmetry-algebra"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s10_10.3_a",
+    "source_id": "1_s10_10.3_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s10_10.3_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.5,
+      "rationale": "标准微分几何证明题，逻辑链条清晰且具高度可泛化性，但偏向纯数学结构而缺乏具体天体或实验物理场景。",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$g_{\\mu\\nu}$",
+      "$K^\\mu$",
+      "$L^\\mu$",
+      "$[K,L]^\\mu$"
+    ],
+    "target": [
+      "$\\nabla_{(\\mu} [K,L]_{\\nu)}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "10.3 (a) Show that the commutator of two Killing vector fields is a Killing vector field.",
+    "answer": "$[K,L]^\\mu$ 满足基林条件 $\\mathcal{L}_{[K,L]} g_{\\mu\\nu} = 0$。",
+    "solution": "设 $K^\\mu$ 与 $L^\\mu$ 为两个 Killing 矢量场，满足 $\\mathcal{L}_K g_{\\mu\\nu} = 0$ 与 $\\mathcal{L}_L g_{\\mu\\nu} = 0$。根据李导数的基本性质，其对易子作用可写为算符交换子：$\\mathcal{L}_{[K,L]} = [\\mathcal{L}_K, \\mathcal{L}_L]$。将其作用于度规张量得 $\\mathcal{L}_{[K,L]} g_{\\mu\\nu} = (\\mathcal{L}_K \\mathcal{L}_L - \\mathcal{L}_L \\mathcal{L}_K) g_{\\mu\\nu}$。由于 $\\mathcal{L}_L g_{\\mu\\nu} = 0$，第一项为零；同理第二项亦为零。故 $\\mathcal{L}_{[K,L]} g_{\\mu\\nu} = 0$，即对易子矢量场仍保持度规不变，因此本身也是一个 Killing 矢量场。"
+  },
+  "verification": null
+}

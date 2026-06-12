@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s12_12.11",
+    "type": "prove",
+    "tags": {
+      "metric": "newtonian_gravity_limit",
+      "target_object": "universal_time_and_galilean_space",
+      "coordinate": "christoffel_and_riemann_tensor_components",
+      "scenario": "null_or_degenerate",
+      "method": "geodesic_identification_and_symmetry_proof"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s12_12.11",
+    "source_id": "1_s12_12.11",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s12_12.11"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "通过测地线方程重构牛顿运动学并计算联络与曲率，利用黎曼张量对称性进行反证，逻辑链条完整且深刻体现广义相对论的对应原理。",
+      "overall": 0.83
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$\\\\Gamma_{00}^{1}$",
+      "$\\\\Gamma_{00}^{2}$",
+      "$\\\\Gamma_{00}^{3}$",
+      "$R_{010}^{1}$",
+      "$R_{020}^{2}$",
+      "$R_{030}^{3}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 12.11. Show that the Newtonian equation of motion of a test particle in a Newtonian gravitational potential $\\Phi$ can be written as a geodesic equation in 4-dimensional spacetime. Compute the Christoffel symbols and the Riemann tensor, and show that they are not derivable from a metric.",
+    "answer": "$\\\\Gamma_{00}^{j} = \\\\frac{\\\\partial \\\\Phi}{\\\\partial x^j}$（其余全为零）；$R_{0k0}^{j} = \\\\frac{\\\\partial^2 \\\\Phi}{\\\\partial x^j \\\\partial x^k}$（其余全为零）。该结果违反由度规导出的黎曼张量反对称性质 $R_{a\\\\beta\\\\gamma\\\\delta}$，故证明其不能由任何度规导出。",
+    "solution": "Solution 12.11. The preferred coordinates of Newtonian theory are \"universal time\" $t$ and Galilean space coordinates $x^j$ . The equation of motion\\n$$\\n\\\\frac {\\\\mathrm {d}^{2} \\\\mathbf {x}^{\\\\mathrm {j}}}{\\\\mathrm {d t}^{2}} = - \\\\frac {\\\\partial \\\\Phi}{\\\\partial \\\\mathbf {x}^{\\\\mathrm {j}}}\\n$$\\ncan be written in 4-dimensional form:\\n$$\\n\\\\frac {d^{2} t}{d \\\\lambda^{2}} = 0\\n$$\\n$$\\n\\\\frac {\\\\mathrm {d}^{2} \\\\mathbf {x}^{\\\\mathrm {j}}}{\\\\mathrm {d} \\\\lambda^{2}} + \\\\frac {\\\\partial \\\\Phi}{\\\\partial \\\\mathbf {x}^{\\\\mathrm {j}}} \\\\bigg (\\\\frac {\\\\mathrm {d t}}{\\\\mathrm {d} \\\\lambda} \\\\bigg)^{2} = 0.\\n$$\\nFrom this we read off the Christoffel symbols:\\n$$\\n\\\\Gamma_{0 0}^{j} = \\\\frac {\\\\partial \\\\Phi}{\\\\partial \\\\mathbf {x}^{j}}; \\\\quad \\\\text {a l l o t h e r} \\\\Gamma_{\\\\beta \\\\gamma}^{\\\\alpha} \\\\text {v a n i s h}.\\n$$\\nThe standard formula for the components of the Riemann tensor gives\\n$$\\nR_{0 k 0}^{j} = - R_{0 0 k}^{j} = \\\\frac {\\\\partial^{2} \\\\Phi}{\\\\partial x^{j} \\\\partial x^{k}}; \\\\quad \\\\text {a l l o t h e r} \\\\quad R_{\\\\beta \\\\gamma \\\\delta}^{\\\\alpha} \\\\text {v a n i s h}.\\n$$\\nSuppose these were derivable from a metric, then we would have\\n$$\\nR_{j 0 k 0} = g_{j \\\\alpha} R_{0 k 0}^{\\\\alpha} = g_{j m} \\\\frac {\\\\partial^{2} \\\\Phi}{\\\\partial x^{m} \\\\partial x^{k}},\\n$$\\nbut\\n$$\\n\\\\mathrm {R}_{0 \\\\mathrm {j k 0}} = \\\\mathrm {g}_{0 \\\\alpha} \\\\mathrm {R}_{\\\\mathrm {j k 0}}^{\\\\alpha} = 0 \\\\neq - \\\\mathrm {R}_{\\\\mathrm {j 0 k 0}}.\\n$$\\nThis violates the antisymmetry property $\\mathbf{R}_{a\\\\beta \\\\gamma \\\\delta}$ has if it is derived from a metric."
+  },
+  "verification": null
+}

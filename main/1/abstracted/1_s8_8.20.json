@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s8_8.20",
+    "type": "concept",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object_vector_field",
+      "coordinate": "coordinate_free",
+      "scenario": "scenario_gravity_theory",
+      "method": "method_transport_equations"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.20",
+    "source_id": "1_s8_8.20",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.20"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "多运输定律推导与几何物理解释结合，逻辑链条完整，具有一般相对论基础理论价值",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mathbf{u}$",
+      "$\\mathbf{a}$"
+    ],
+    "target": [
+      "$\\nabla_{\\mathbf{u}} \\mathbf{u}$",
+      "$\\mathcal{L}_{\\mathbf{u}} \\mathbf{u}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 8.20. Find the most general vector field which is everywhere parallel-propagated along itself. Fermi-Walker transported along itself. Lie transported along itself.",
+    "answer": "Parallel-propagated: tangent vectors to a space-filling congruence of geodesics. Fermi-Walker transported: any field of properly normalized 4-velocities, or any congruence of geodesics. Lie transported: any vector field.",
+    "solution": "Solution 8.20. Let the vector field be $\\mathbf{u}(\\mathfrak{p})$ . If it is parallel propagated along itself, we have $\\nabla_{\\mathbf{u}}\\mathbf{u} = 0$ . This is just the geodesic equation, so the field must be a field of tangent vectors to a space-filling congruence of geodesics.If the field is F-W transported along itself, we have$$\\nabla_{\\mathbf {u}} \\mathbf {u} = (\\mathbf {u} \\otimes \\mathbf {a} - \\mathbf {a} \\otimes \\mathbf {u}) \\cdot \\mathbf {u} \\tag {1}$$where $\\mathbf{a} = \\nabla_{\\mathbf{u}}\\mathbf{u}$ . Thus$$\\mathbf {a} = \\mathbf {u} (\\mathbf {a} \\cdot \\mathbf {u}) - \\mathbf {a} (\\mathbf {u} \\cdot \\mathbf {u}). \\tag {2}$$Now dot $\\mathbf{u}$ into this and get $\\mathbf{a} \\cdot \\mathbf {u} = \\mathbf {u}^2 (\\mathbf {a} \\cdot \\mathbf {u}) - (\\mathbf {a} \\cdot \\mathbf {u}) \\mathbf {u}^2 = 0$ . From (2) we have that either $\\mathbf {u}^2 = -1$ or $\\mathbf {a} = 0$ . The first possibility means that any field of properly normalized 4-velocities is F-W transported along itself. The second says that the tangent vectors of any congruence of geodesics are also, even if they are not normalized to $-1$ .The Lie transport law is$$\\mathbf {0} = \\mathcal {L}_{\\mathbf {u}} \\mathbf {u} \\equiv [ \\mathbf {u}, \\mathbf {u} ]$$which is satisfied by any vector field."
+  },
+  "verification": null
+}

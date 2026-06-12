@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-3",
+    "type": "calculate",
+    "tags": {
+      "target_object": "Tidal force eigenvalues",
+      "coordinate": "spherical",
+      "scenario": "black hole",
+      "method": "Riemann tensor projection",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\lambda_1$",
+      "$\\lambda_2$",
+      "$\\lambda_3$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞外部，时空度规为 \\[ ds^2 = -\\frac{r-r_{s}}{r}dt^2 + \\frac{r}{r-r_{s}}dr^2 + r^2 d\\theta^2 + r^2 \\sin^{2}{\\left(\\theta \\right)} d\\phi^2 \\] 其中 $r_{s} = 2M$ 为 Schwarzschild 半径。根据局部加速观测者的相对运动方程，相邻自由下落测试粒子间的相对加速度由潮汐力张量 $R^{j}_{0k0}$ 决定（$d\\mathbf{v}^{j}/dt \\approx - R^{j}_{0k0} x^{k}$）。考虑一个在径向坐标 $r=r_{0}$ 处（$r_{0} > r_{s}$）通过自身加速度保持静止的观测者，试计算该观测者在局部正交参考系中感受到的潮汐力张量的三个主特征值 $\\lambda_1, \\lambda_2, \\lambda_3$，并根据特征值的符号解释各方向上物体受到的物理效果（拉伸或挤压）。",
+    "answer": "$\\lambda_1 = \\frac{r_{s}}{r_{0}^{3}}$（径向拉伸），$\\lambda_2 = -\\frac{r_{s}}{2r_{0}^{3}}$（横向挤压），$\\lambda_3 = -\\frac{r_{s}}{2r_{0}^{3}}$（横向挤压）",
+    "solution": "对于静止于 $r=r_0$ 处的观测者，其局部正交空间基矢量与坐标基矢量的关系为 $\\hat{e}_j = e_j / \\sqrt{g_{jj}}$，时间基为 $\\hat{e}_0 = e_0 / \\sqrt{-g_{00}}$。由于 Schwarzschild 度规是正交的，潮汐力张量的物理分量 $R^{\\hat{j}}_{\\hat{0}\\hat{k}\\hat{0}}$ 与坐标分量 $R^{j}_{0k0}$ 在对角元上存在简单对应关系。\\n\\n首先计算坐标基下的 Riemann 张量分量 $R^{j}_{0k0}$：\\n- 径向分量：$R^{1}_{010} = g^{11} R_{0101} = \\frac{r-r_{s}}{r} \\cdot \\frac{r_{s}}{r^{2}(r-r_{s})} = \\frac{r_{s}}{r^{3}}$。在 $r=r_0$ 处，该值为 $\\frac{r_{s}}{r_{0}^{3}}$。\\n- 极角分量：$R^{2}_{020} = g^{22} R_{0202} = \\frac{1}{r^{2}} \\cdot \\left(-\\frac{r_{s}}{2r}\\right) = -\\frac{r_{s}}{2r^{3}}$。在 $r=r_0$ 处，该值为 $-\\frac{r_{s}}{2r_{0}^{3}}$。\\n- 方位角分量：$R^{3}_{030} = g^{33} R_{0303} = \\frac{1}{r^{2} \\sin^{2}\\theta} \\cdot \\left(-\\frac{r_{s} \\sin^{2}\\theta}{2r}\\right) = -\\frac{r_{s}}{2r^{3}}$。在 $r=r_0$ 处，该值为 $-\\frac{r_{s}}{2r_{0}^{3}}$。\\n\\n由于正交坐标系中非对角元为零，物理基下的对角元与坐标基下的对角元相等（归一化因子刚好抵消），因此这三个值即为潮汐力张量的三个主特征值：\\n$\\lambda_1 = \\frac{r_{s}}{r_{0}^{3}}$\\n$\\lambda_2 = -\\frac{r_{s}}{2r_{0}^{3}}$\\n$\\lambda_3 = -\\frac{r_{s}}{2r_{0}^{3}}$\\n\\n物理意义解释：特征值的符号决定了相邻粒子的相对运动趋势。$\\lambda_1 > 0$ 表示径向（$r$ 方向）上的相邻粒子有相互远离的趋势，即受到**径向拉伸**；$\\lambda_2 < 0$ 和 $\\lambda_3 < 0$ 表示横向（$\\theta$ 和 $\\phi$ 方向）上的相邻粒子有相互靠近的趋势，即受到**横向挤压**。且径向拉伸的幅度恰好是横向挤压幅度的两倍，这体现了真空 Einstein 场方程（迹为零）的约束 $\\lambda_1 + \\lambda_2 + \\lambda_3 = 0$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "Solution 存在多处致命的物理推导与概念错误，纯属通过错误中间量凑出正确答案：\n1. **张量指标升降错误**：Solution 写出 $R^1_{010} = g^{11} R_{0101}$，但根据 Riemann 张量定义及前两指标的反对称性，正确关系应为 $R^1_{010} = g^{1\\sigma} R_{\\sigma 0 1 0} = g^{11} R_{1010} = -g^{11} R_{0101}$。\n2. **坐标分量数值捏造**：Solution 代入的 $R_{0101} = \\frac{r_s}{r^2(r-r_s)}$ 和 $R_{0202} = -\\frac{r_s}{2r}$ 并非 Schwarzschild 度规的真实坐标分量。正确的坐标分量应为 $R_{0101} = \\frac{r_s(r-r_s)}{2r^4}$ 和 $R_{0202} = -\\frac{r_s(r-r_s)}{2r^2}$。\n3. **物理分量与坐标分量转换概念错误**：Solution 断言“归一化因子刚好抵消，物理基下的对角元与坐标基下的对角元相等”。事实上，只有径向因 $-g_{00}g_{11}=1$ 使得因子抵消；横向因 $-g_{00}g_{22} = (1-r_s/r)r^2 \\neq 1$，归一化因子并未抵消。若使用真实的坐标分量 $R^2_{020}$ 进行转换，得到的横向物理分量应为 $-\\frac{r_s}{2r_0^3(1-r_s/r_0)}$。Solution 利用错误概念将伪坐标分量直接等同于物理分量，掩盖了推导过程中的拼凑行为。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

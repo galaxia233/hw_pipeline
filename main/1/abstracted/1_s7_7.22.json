@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "id": "1_s7_7.22",
+    "type": "calculate",
+    "tags": {
+      "metric": "random_walk",
+      "target_object": "relativistic_velocity_space",
+      "coordinate": "hyperbolic_metric",
+      "scenario": "rapidity_coordinates",
+      "method": "probability_distribution"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.22",
+    "source_id": "1_s7_7.22",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.22"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "将随机行走推广至曲线速度空间，结合相对论快度与扩散方程推导渐近分布，逻辑严密且具清晰物理图像",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$n$",
+      "$\\\\Delta v$",
+      "$c$",
+      "$\\\\Psi$",
+      "$\\\\theta$",
+      "$\\\\phi$",
+      "$P$"
+    ],
+    "target": [
+      "$P(\\\\Psi, n)$",
+      "$\\\\langle \\\\Psi \\\\rangle$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$\\\\sin h^2 \\\\Psi$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$\\\\sin h^2 \\\\Psi \\\\sin^2 \\\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.22. An inebriated astronaut pulses his rocket, firing in a random direction for each pulse. As measured in a momentarily comoving frame, each pulse corresponds to a velocity boost of $\\Delta v << c$ . Find the probability distribution of his resultant velocity after $n$ boosts, where $n$ is a very large number. Show that the drunk astronaut achieves highly relativistic velocities less efficiently than a sober astronaut (who fires his rocket always in the same direction), and takes on the average $3c / \\Delta v$ times as many pulses to achieve the same velocity.",
+    "answer": "Velocity-space probability distribution: $P(\\\\underline{v}, n) = (4 \\\\pi)^{-3/2} e^{-t} t^{-3/2} \\\\frac{\\\\Psi}{\\\\sin h \\\\Psi} e^{-(\\\\Psi^2 / 4t)}$ with $t \\\\equiv n\\\\Delta v^2 / 6$. Mean rapidity grows as $\\\\langle \\\\Psi \\\\rangle \\\\approx 2t$. The drunk astronaut requires $3c/\\\\Delta v$ times as many pulses as a sober astronaut to reach the same velocity.",
+    "solution": "Solution 7.22. For clarity first consider the Newtonian case. Let $\\mathbf{P}(\\underline{\\mathbf{v}},\\underline{\\mathbf{n}})$ be the probability of the velocity being $\\underline{\\mathbf{v}}$ after $\\mathbf{n}$ boosts. We want to find a differential equation for $\\mathbf{P}$ . To accomplish this note that if the velocity is $\\underline{\\mathbf{v}}$ at step $\\mathbf{n}$ then at step $\\mathbf{n} - 1$ the velocity must have been somewhere in velocity space at a distance $\\Delta \\mathbf{v}$ from $\\underline{\\mathbf{v}}$ . By symmetry $\\mathbf{P}(\\underline{\\mathbf{v}},\\underline{\\mathbf{n}})$ has equal contributions from points on the sphere of radius\\n$\\Delta \\mathbf{v}$ about $\\underline{\\mathbf{v}}$ so we can equate $\\mathbb{P}(\\underline{\\mathbf{v}},\\mathbf{n})$ with the isotropic average of $\\mathbb{P}$ , at $\\mathbf{n} - 1$ , over that sphere:\\n$$\\n\\\\begin{array}{l} \\\\mathrm {P} (\\underline {{v}}, n) = < \\\\mathrm {P} (\\underline {{v}} + \\\\Delta v, n - 1) >_{\\\\text {s p h e r e}} \\\\\\\\ = (1 / 6) \\\\left[ P \\\\left(\\underline {{v}} + \\\\Delta v \\\\underline {{e}}_{x}, n - 1\\\\right) + P \\\\left(\\underline {{v}} + \\\\Delta v \\\\underline {{e}}_{y}, n - 1\\\\right) + P \\\\left(\\underline {{v}} + \\\\Delta v \\\\underline {{e}}_{z}, n - 1\\\\right) \\\\right. \\\\\\\\ + \\\\mathrm {P} (\\underline {\\\\mathrm {v}} - \\\\Delta \\\\mathrm {v} \\\\underline {{\\\\mathrm {e}}}_{\\\\mathrm {x}}, n - 1) + \\\\mathrm {P} (\\underline {\\\\mathrm {v}} - \\\\Delta \\\\mathrm {v} \\\\underline {{\\\\mathrm {e}}}_{\\\\mathrm {y}}, n - 1) + \\\\mathrm {P} (\\underline {\\\\mathrm {v}} - \\\\Delta \\\\mathrm {v} \\\\underline {{\\\\mathrm {e}}}_{z}, n - 1) ] \\\\\\\\ \\\\approx \\\\mathrm {P} (\\underline {{v}}, n - 1) + (\\\\Delta v)^{2} \\\\nabla^{2} \\\\mathrm {P} / 6. \\\\tag {1} \\\\\\\\ \\\\end{array}\\n$$\\nThe differential equation then, is\\n$$\\n\\\\frac {\\\\partial \\\\mathbf {P}}{\\\\partial \\\\mathrm {n}} = \\\\frac {(\\\\Delta \\\\mathbf {v})^{2}}{6} \\\\nabla^{2} \\\\mathbf {P}, \\\\tag {2}\\n$$\\nthe standard diffusion equation. Its solution, with $\\mathrm{P}(\\underline{\\mathrm{v}},0) = \\delta^3 (\\underline{\\mathrm{v}})$ is\\n$$\\nP (v, n) = (4 \\\\pi)^{- \\\\frac {3}{2}} (n \\\\Delta v^{2} / 6)^{- \\\\frac {3}{2}} \\\\exp \\\\left(\\\\frac {- 3 v^{2}}{2 n \\\\Delta v^{2}}\\\\right).\\n$$\\nIn the relativistic problem the same arguments hold except that velocities do not add linearly; we must use the relativistic velocity addition formulas. Since $\\Delta v \\ll c$ , however, the proper velocity $\\Delta v$ does add linearly in a frame momentarily comoving with the rocket ship. Thus, the diffusion Equation (2) is locally valid in velocity space; we only need take into account that the global metric of relativistic velocity space is different. This is done by solving Equation (2) with $\\nabla^2$ representing the Laplacian in a curved-metric velocity space, with metric (see Problem 6.8).\\n$$\\n\\\\mathrm {d v}_{\\\\text {p r o p e r}}^{2} = \\\\mathrm {d} \\\\Psi^{2} + \\\\sin h^{2} \\\\Psi \\\\left(\\\\mathrm {d v}_{\\\\theta}^{2} + \\\\sin^{2} \\\\theta \\\\mathrm {d v}_{\\\\phi}^{2}\\\\right) \\\\tag {4}\\n$$\\nwhere $\\Psi$ is the rapidity parameter, that is $\\tan h \\\\Psi \\\\equiv |\\\\underline{\\\\mathbf{v}}|$ . Using the relation [Problem 7.7 (j)]\\n$$\\nP_{; a}^{; a} = g^{- \\\\frac {1}{2}} \\\\left(g^{\\\\frac {1}{2}} g^{\\\\alpha \\\\beta} P, \\\\beta\\\\right), a \\\\tag {5}\\n$$\\nand the fact that by spherical symmetry $\\frac{\\\\partial\\\\mathbf{P}}{\\\\partial\\\\mathbf{v}_{\\\\phi}} = \\\\frac{\\\\partial\\\\mathbf{P}}{\\\\partial\\\\mathbf{v}_{\\\\theta}} = 0$ we get\\n$$\\n\\\\frac {\\\\partial \\\\mathrm {P}}{\\\\partial \\\\mathrm {n}} = \\\\frac {\\\\Delta \\\\mathrm {v}^{2}}{6} \\\\left[ \\\\frac {1}{\\\\sin h^{2} \\\\Psi} \\\\frac {\\\\partial}{\\\\partial \\\\Psi} \\\\left(\\\\sin h^{2} \\\\Psi \\\\frac {\\\\partial \\\\mathrm {P}}{\\\\partial \\\\Psi}\\\\right) \\\\right]. \\\\tag {6}\\n$$\\nIt is not difficult to check that this has the solution\\n$$\\n\\\\mathrm {P} (\\\\underset {\\\\sim} {\\\\mathrm {v}}, \\\\mathrm {n}) = (4 \\\\pi)^{- \\\\frac {3}{2}} \\\\mathrm {e}^{- \\\\mathrm {t}} \\\\mathrm {t}^{- \\\\frac {3}{2}} \\\\frac {\\\\Psi}{\\\\sin h \\\\Psi} \\\\mathrm {e}^{- \\\\left(\\\\Psi^{2} / 4 \\\\mathrm {t}\\\\right)}, \\\\tag {7}\\n$$\\nwhere $t \\\\equiv n\\\\Delta v^2 / 6$ . This agrees with the Newtonian solution Equation (3) when $t \\\\ll 1$ , $\\Psi \\\\ll 1$ , (no restriction on $\\Psi^2 / 4t$ ).\\nThe probability of $\\Psi$ between $\\Psi$ and $\\Psi + \\\\mathrm{d}\\\\Psi$ is (using the velocity-space metric) $4\\\\pi \\\\sin h^2\\\\Psi \\\\mathrm{Pd}\\\\Psi$ which for $t >> 1$ , $\\Psi >> 1$ has the asymptotic behavior\\n$$\\n\\\\frac {d P}{d \\\\Psi} \\\\approx (4 \\\\pi)^{- \\\\frac {1}{2}} \\\\frac {\\\\Psi}{t^{\\\\frac {3}{2}}} e^{- \\\\Psi^{2} / 4 t - t + \\\\Psi} = (4 \\\\pi)^{- \\\\frac {1}{2}} \\\\frac {\\\\Psi}{t^{\\\\frac {3}{2}}} e^{- t (1 - \\\\frac {\\\\Psi}{2 t})^{2}}.\\n$$\\nOnly the exponential is of significance here, and this tells us that $\\Psi$ has a mean value $<\\\\Psi> \\\\approx 2t$ , and a standard deviation $\\Delta\\\\Psi \\\\sim \\\\sqrt{2t}$ , so $\\Delta\\\\Psi/<\\\\Psi> \\\\to 0$ as $t \\\\to \\\\inf ty$ . The mean rapidity $<\\\\Psi>$ increases linearly with number of steps, but the average boost per step is $\\Delta v^2/3$ . A sober pilot would increase his rapidity by $\\Delta v$ each step, $3c/\\\\Delta v$ times as much. Nevertheless it is amazing that the drunk astronaut does as well as he does; in the Newtonian case velocity or rapidity increased only as $n^{\\\\frac{1}{2}}$ , not as $n$ . The reason here has to do with the Lorentz transformation: if an observer moving away from you chooses a random direction to fire a bullet, the directions look biased outward from you (headlight effect)."
+  },
+  "verification": null
+}

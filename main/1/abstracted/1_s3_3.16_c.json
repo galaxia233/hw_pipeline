@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s3_3.16_c",
+    "type": "calculate",
+    "tags": {
+      "metric": "tensor_algebra",
+      "target_object": "symmetry_properties",
+      "coordinate": "combinatorial_counting",
+      "scenario": "independent_components",
+      "method": "abstract_manifold"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.16_c",
+    "source_id": "1_s3_3.16_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.16_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.2,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.3,
+      "rationale": "纯数学组合计数推导，逻辑直接但公式具有高度通用性，题干与解答完整清晰",
+      "overall": 0.55
+    }
+  },
+  "physical_data": {
+    "dimension": "$n$",
+    "variables": [
+      "$n$",
+      "$r$",
+      "$a$",
+      "$T^{\\\\alpha \\\\beta \\\\cdots}$"
+    ],
+    "target": [
+      "$N_{\\\\text{indep}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.16.\\n(a) In an $n$ -dimensional metric space, how many independent components are there for an $r$ -rank tensor $T^{\\alpha \\beta \\cdots}$ with no symmetries?   \\n(b) If the tensor is symmetric on $s$ of its indices, how many independent components are there?   \\n(c) If the tensor is antisymmetric on a of its indices, how many independent components are there?\\n\\n## Solution\\n\\n(c) For a antisymmetric indices and r-a other indices, consider first: How many ways are there of choosing the a indices? This is equal to the number of ways of choosing a things from n, with no repetitions:\\n$$\\nn! / (n - a)! a!.\\n$$\\nThe number of independent components is then\\n$$\\nn^{r - a} n! / (n - a)! a! \\quad .\\n$$\\nNote that if $\\mathbf{a} = \\mathbf{n}$ there is only one possibility for the $\\mathbf{a}$ indices. If $\\mathbf{a} > \\mathbf{n}$ , there are no possibilities; all components must be zero!",
+    "answer": "$n^{r-a} \\\\frac{n!}{(n-a)! a!}$",
+    "solution": "(c) For a antisymmetric indices and r-a other indices, consider first: How many ways are there of choosing the a indices? This is equal to the number of ways of choosing a things from n, with no repetitions:\\n$$\\nn! / (n - a)! a!.\\n$$\\nThe number of independent components is then\\n$$\\nn^{r - a} n! / (n - a)! a! \\quad .\\n$$\\nNote that if $\\mathbf{a} = \\mathbf{n}$ there is only one possibility for the $\\mathbf{a}$ indices. If $\\mathbf{a} > \\mathbf{n}$ , there are no possibilities; all components must be zero!"
+  },
+  "verification": null
+}

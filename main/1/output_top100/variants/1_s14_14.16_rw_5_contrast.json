@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s14_14.16-8-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "$R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma$",
+      "coordinate": "spherical",
+      "scenario": "contrast FLRW cosmology with Schwarzschild vacuum",
+      "method": "Ricci tensor calculation and physical comparison",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.16",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.16",
+      "1_s14_14.16-8",
+      "1_s14_14.16-8-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$R^{0}_{\\phantom{0}0} A^{0}$ and $R^{1}_{\\phantom{1}1} A^{1}$ contrast"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在弯曲时空中，将平直时空无源 Maxwell 方程的 Lorenz 规范形式（$\\partial_{\\nu} \\partial^{\\nu} A^{\\mu} = 0$）推广时存在最小耦合原理的歧义：一种推广直接得到 $A^{\\mu;\\nu}_{\\phantom{\\mu;\\nu};\\nu} = 0$，另一种从 $F^{\\mu\\nu}_{\\phantom{\\mu\\nu};\\nu} = 0$ 结合 Lorenz 规范推导得到 $A^{\\mu;\\nu}_{\\phantom{\\mu;\\nu};\\nu} = R^{\\mu}_{\\phantom{\\mu}\\sigma} A^{\\sigma}$。考虑以下两种度规背景：背景一：FLRW 宇宙学度规 $ds^{2} = -dt^{2} + \\frac{a^{2}(t)}{1-kr^{2}}dr^{2} + r^{2} a^{2}(t) d\\theta^{2} + r^{2} a^{2}(t) \\sin^{2}{\\theta} d\\phi^{2}$；背景二：Schwarzschild 真空度规 $ds^{2} = -\\frac{r-r_s}{r}dt^{2} + \\frac{r}{r-r_s}dr^{2} + r^{2} d\\theta^{2} + r^{2} \\sin^{2}{\\theta} d\\phi^{2}$。请在两种背景下分别计算歧义差异项 $R^{\\mu}_{\\phantom{\\mu}\\sigma} A^{\\sigma}$ 的时间分量（$\\mu=0$）和径向空间分量（$\\mu=1$），对比两者的结果差异，并解释这种差异如何反映了电磁势与背景时空物质分布及曲率特性的物理耦合。",
+    "answer": "在 FLRW 度规下：时间分量为 $3 \\frac{\\ddot{a}}{a} A^{0}$，空间分量为 $\\frac{2k + 2\\dot{a}^{2} + a\\ddot{a}}{a^{2}} A^{1}$；在 Schwarzschild 度规下：由于其为真空解，Ricci 张量恒为零（$R_{\\mu\\nu}=0$），因此时间分量和径向分量均为 $0$。对比与物理含义：FLRW 度规不具备时间平移 Killing 矢量（仅有旋转对称性），宇宙膨胀导致时空动力学与物质分布直接体现在 Ricci 张量中，使得最小耦合歧义项非零，电磁势与背景物质及膨胀发生了直接耦合；Schwarzschild 度规具有时间平移 Killing 矢量，其为真空解（$R_{\\mu\\nu}=0$），歧义项消失意味着无论采用哪种最小耦合方案，电磁势方程都完全等价。这说明最小耦合歧义本质上是物质分布效应而非纯几何曲率效应：只有在非真空（存在物质源）的时空中，不同的最小耦合方案才会导致电磁场的物理演化产生实质性差异；在真空时空中，几何曲率仅通过 Riemann 张量影响波的传播，而不会通过 Ricci 张量产生耦合歧义。",
+    "solution": "FLRW 度规下，Ricci 张量为对角形式，分量 $R_{00} = -3 \\frac{\\ddot{a}}{a}$，$R_{11} = \\frac{2k + a\\ddot{a} + 2\\dot{a}^{2}}{1 - kr^{2}}$，逆度规 $g^{00} = -1$，$g^{11} = \\frac{1 - kr^{2}}{a^{2}}$。故 $R^{0}_{\\phantom{0}0} A^{0} = g^{00} R_{00} A^{0} = 3 \\frac{\\ddot{a}}{a} A^{0}$，$R^{1}_{\\phantom{1}1} A^{1} = g^{11} R_{11} A^{1} = \\frac{2k + 2\\dot{a}^{2} + a\\ddot{a}}{a^{2}} A^{1}$。Schwarzschild 度规为真空解，满足 $R_{\\mu\\nu} = 0$，因此 $R^{\\mu}_{\\phantom{\\mu}\\sigma} A^{\\sigma}$ 的所有分量均为 0。物理对比：FLRW 时空包含物质分布，Ricci 曲率非零，最小耦合歧义项表现为电磁势与宇宙膨胀和空间曲率的耦合；Schwarzschild 时空为真空，Ricci 曲率为零，歧义项消失。这揭示了最小耦合原理的歧义本质上源于时空的物质内容而非纯粹的引力几何曲率。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "Answer中的物理解释存在严重的事实错误：它声称“FLRW度规不具备时间平移Killing矢量（仅有旋转对称性）”，这直接违背了宇宙学原理。FLRW度规的空间部分是最大对称空间，不仅具有各向同性（3个旋转Killing矢量），还具有均匀性（3个平移Killing矢量），总共拥有6个空间Killing矢量，绝非“仅有旋转对称性”。此外，Answer将Schwarzschild度规的“时间平移Killing矢量”与“真空解”并列作为歧义项消失的原因，逻辑上存在误导：非真空的静态度规（如静态球对称星体内部）同样具有时间平移Killing矢量，但歧义项并不消失。歧义项消失的唯一根本原因是真空条件$R_{\\mu\\nu}=0$，与是否具有时间平移Killing矢量无关。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

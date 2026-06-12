@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s18_18.2",
+    "type": "calculate",
+    "tags": {
+      "metric": "general_relativity_metric",
+      "target_object": "quadrupole_radiation_target",
+      "coordinate": "no_specific_coordinate",
+      "scenario": "compact_binary_scenario",
+      "method": "order_of_magnitude_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s18_18.2",
+    "source_id": "1_s18_18.2",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s18_18.2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "结合维里定理与四极矩辐射功率进行多步量纲分析，推导引力辐射反作用时标，逻辑链条完整且具有明确天体物理背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$M$",
+      "$R$",
+      "$T_{\\mathrm{dyn}}$",
+      "$T$"
+    ],
+    "target": [
+      "$T / T_{\\mathrm{dyn}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 18.2. A gravitationally bound dynamical system (e.g. a binary star) has, in order of magnitude, mass M and size R. Estimate the time for radiation reaction forces to affect the system substantially, and compare this time-scale with the dynamical time-scale for the system.",
+    "answer": "$\\frac{T}{T_{\\mathrm{dyn}}} \\sim \\left(\\frac{R}{M}\\right)^{5/2}$",
+    "solution": "Solution 18.2. The gravitational binding energy of the system is of order $\\mathbf{M}^2 / \\mathbf{R}$ and the kinetic energy is of order $\\mathbf{MR}^2 / \\mathrm{T}_{\\mathrm{dyn}}^2$ , where $\\mathrm{T}_{\\mathrm{dyn}}$ characterizes motions of the system. For a system in equilibrium the virial theorem gives$$\\mathrm {T}_{\\mathrm {d y n}}^{2} \\sim \\mathrm {R}^{3} / \\mathrm {M}.$$The rate at which energy is radiated gravitationally is governed by the square of the third time derivative of the quadrupole moment or roughly$$\\mathrm {P}^{\\mathrm {G W}} \\sim \\mathrm {M}^{2} \\mathrm {R}^{4} / \\mathrm {T}_{\\mathrm {d y n}}^{6}.$$The time for radiation reaction to affect the system is the time it takes to radiate a significant fraction of its energy as gravitational waves:$$\\mathrm {T} = \\frac {\\mathrm {K . E .}}{\\mathrm {P}^{\\mathrm {G W}}} \\sim \\frac {\\mathrm {T}_{\\mathrm {d y n}}^{4}}{\\mathrm {M R}^{2}} \\sim \\frac {\\mathrm {R T}_{\\mathrm {d y n}}^{2}}{\\mathrm {M}^{2}}.$$The ratio of this gravitational wave characteristic time to the dynamical time is then of order$$\\frac {\\mathrm {T}}{\\mathrm {T}_{\\mathrm {d y n}}} \\sim \\frac {\\mathrm {R T}_{\\mathrm {d y n}}}{\\mathrm {M}^{2}} \\sim \\left(\\frac {\\mathrm {R}}{\\mathrm {M}}\\right)^{\\frac {5}{2}}.$$Evidently gravitational radiation reaction forces play an appreciable role only in relativistically compact systems."
+  },
+  "verification": null
+}

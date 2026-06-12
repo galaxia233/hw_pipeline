@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s2_2.10_c",
+    "type": "calculate",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "particle_decay",
+      "coordinate": "lab_frame",
+      "scenario": "kinematics",
+      "method": "four_momentum_conservation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.10_c",
+    "source_id": "1_s2_2.10_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.10_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于狭义相对论四动量守恒与不变质量关系，需进行多步代数推导建立能量与出射角关联，具备明确的实验物理背景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$E_{\\\\mathbf{A}}$",
+      "$E_{\\\\mathbf{B}}$",
+      "$m_{\\\\mathbf{A}}$",
+      "$m_{\\\\mathbf{B}}$",
+      "$m_{\\\\mathbf{C}}$",
+      "$\\\\theta$",
+      "$\\\\mathbf{P}_{\\\\mathbf{A}}$",
+      "$\\\\mathbf{P}_{\\\\mathbf{B}}$"
+    ],
+    "target": [
+      "$\\\\theta$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 2.10. Consider the reaction $\\mathbf{A}\\rightarrow \\mathbf{B} + \\mathbf{C}$ (with particle masses $\\mathfrak{m}_{\\\\mathbf{A}}, \\mathfrak{m}_{\\\\mathbf{B}}, \\mathfrak{m}_{\\\\mathbf{C}}$ )。\\n(c) If A decays while moving in the lab frame, find the relation between the angle at which B comes off, and the energies of A and B.",
+    "answer": "- m_{\\\\mathbf{A}}^2 - m_{\\\\mathbf{B}}^2 + 2 E_{\\\\mathbf{A}} E_{\\\\mathbf{B}} - 2 (E_{\\\\mathbf{A}}^2 - m_{\\\\mathbf{A}}^2)^{1/2} (E_{\\\\mathbf{B}}^2 - m_{\\\\mathbf{B}}^2)^{1/2} \\\\cos \\\\theta = - m_{\\\\mathbf{C}}^2.",
+    "solution": "(c) In this case $\\mathbf{P}_{\\\\mathbf{A}} = (\\\\mathbf{E}_{\\\\mathbf{A}},\\\\mathbf{\\\\underline{P}}_{\\\\mathbf{A}}),\\\\mathbf{P}_{\\\\mathbf{B}} = (\\\\mathbf{E}_{\\\\mathbf{B}},\\\\mathbf{\\\\underline{P}}_{\\\\mathbf{B}}),$ so (1) becomes\\n$$- \\\\mathsf {m}_{\\\\mathbf {A}}^{2} - \\\\mathsf {m}_{\\\\mathbf {B}}^{2} + 2 \\\\mathsf {E}_{\\\\mathbf {A}} \\\\mathsf {E}_{\\\\mathbf {B}} - 2 (\\\\mathsf {E}_{\\\\mathbf {A}}^{2} - \\\\mathsf {m}_{\\\\mathbf {A}}^{2})^{\\\\frac {1}{2}} (\\\\mathsf {E}_{\\\\mathbf {B}}^{2} - \\\\mathsf {m}_{\\\\mathbf {B}}^{2})^{\\\\frac {1}{2}} \\\\cos \\\\theta = - \\\\mathsf {m}_{\\\\mathbf {C}}^{2}.$$"
+  },
+  "verification": null
+}

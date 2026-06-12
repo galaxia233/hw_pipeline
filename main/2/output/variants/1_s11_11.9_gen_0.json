@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-0",
+    "type": "calculate",
+    "tags": {
+      "target_object": "climatic_precession_period",
+      "coordinate": "ecliptic",
+      "scenario": "Milankovitch_cycles",
+      "method": "superposition_of_angular_velocities",
+      "generalization_axis": "apply",
+      "metric": "weak_field_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "weak_field_metric",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$X$",
+      "$Y$",
+      "$Z$",
+      "$r_s$",
+      "$r_M$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\psi$",
+      "$J$",
+      "$C$",
+      "$A$",
+      "$\\omega$",
+      "$T$"
+    ],
+    "target": [
+      "$T_c$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "地球自转轴由于日月潮汐力与地球四极矩耦合产生岁差，表现为春分点沿黄道向西退行，其角速度为 $\\Omega_p$。同时，由于太阳系其他行星的引力摄动，地球轨道的近日点沿黄道向东进动，其角速度为 $\\Omega_a$。这两者方向相反的进动共同决定了地球近日点与季节分点（如夏至点）的相对位置周期，该周期被称为气候岁差周期 $T_c$，它是决定地球日照量极值出现频率的关键轨道特征参数。已知地球自转轴岁差角速度 $\\Omega_p = 50.3 \\text{arcsec/yr}$，近日点进动角速度 $\\Omega_a = 11.6 \\text{arcsec/yr}$，请计算气候岁差周期 $T_c$ 的数值（以年为单位，保留整数）。",
+    "answer": "$T_c \\approx 20969 \\text{yr}$",
+    "solution": "春分点向西退行与近日点向东进动方向相反，因此两者的相对角速度为各自角速度之和：\\[ \\Omega_c = \\Omega_p + \\Omega_a \\]代入已知数据：\\[ \\Omega_c = 50.3 + 11.6 = 61.9 \\text{ arcsec/yr} \\]气候岁差周期为相对角速度完成一周（$360 \\times 3600 = 1296000 \\text{arcsec}$）所需的时间：\\[ T_c = \\frac{2\\pi}{\\Omega_c} = \\frac{1296000}{61.9} \\approx 20969 \\text{ yr} \\]该周期约 21000 年，对应于米兰科维奇循环中的岁差周期，决定了地球冰期周期的核心调制频率。"
+  },
+  "verification": null
+}

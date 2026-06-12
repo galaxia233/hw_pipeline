@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s3_3.24",
+    "type": "prove",
+    "tags": {
+      "metric": "exterior_algebra",
+      "target_object": "linear_independence",
+      "coordinate": "volume_form",
+      "scenario": "tensor_symmetry",
+      "method": "abstract_vector_space"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.24",
+    "source_id": "1_s3_3.24",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.24"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基于外代数基本性质进行双向逻辑推导，明确建立向量线性相关性与全反对称形式的关系，可无缝迁移至任意n维微分流形",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathbf{u}$",
+      "$\\\\mathbf{v}$",
+      "$\\\\mathbf{w}$",
+      "$\\\\mathbf{x}$",
+      "$\\\\varepsilon$"
+    ],
+    "target": [
+      "$\\\\mathbf{u} \\\\wedge \\\\mathbf{v} \\\\wedge \\\\mathbf{w} \\\\wedge \\\\mathbf{x}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.24. Show that four vectors $\\mathbf{u}, \\mathbf{v}, \\mathbf{w}, \\mathbf{x}$ , are linearly independent if and only if $\\mathbf{u} \\wedge \\mathbf{v} \\wedge \\mathbf{w} \\wedge \\mathbf{x} \\neq 0$ . Show that in this case $\\mathbf{u} \\wedge \\mathbf{v} \\wedge \\mathbf{w} \\wedge \\mathbf{x}$ is proportional to the totally antisymmetric tensor $\\varepsilon$ . (The “wedge” product is defined as the antisymmetrized direct product, e.g. $\\mathbf{u} \\wedge \\mathbf{v} = \\mathbf{u} \\otimes \\mathbf{v} - \\mathbf{v} \\otimes \\mathbf{u}$ .)",
+    "answer": "$\\\\mathbf{u}, \\\\mathbf{v}, \\\\mathbf{w}, \\\\mathbf{x}$ 线性无关当且仅当 $\\\\mathbf{u} \\\\wedge \\\\mathbf{v} \\\\wedge \\\\mathbf{w} \\\\wedge \\\\mathbf{x} \\\\neq 0$；且该楔积正比于全反对称张量 $\\\\varepsilon$。",
+    "solution": "Solution 3.24. Suppose $\\\\alpha \\\\mathbf{u} + \\\\beta \\\\mathbf{v} + \\\\gamma \\\\mathbf{w} + \\\\delta \\\\mathbf{x} = 0$ for $\\\\alpha, \\\\beta, \\\\gamma, \\\\delta$ not all zero. If $\\\\alpha \\\\neq 0$ , take the wedge product of this equation with $\\\\mathbf{v} \\\\wedge \\\\mathbf{w} \\\\wedge \\\\mathbf{x}$ and get $\\\\mathbf{u} \\\\wedge \\\\mathbf{v} \\\\wedge \\\\mathbf{w} \\\\wedge \\\\mathbf{x} = 0$ . If $\\\\alpha = 0$ , then form analogous product using the $\\\\beta, \\\\gamma, \\\\delta$ term. Conversely, if $\\\\mathbf{u}, \\\\mathbf{w}, \\\\mathbf{x}$ and $\\\\mathbf{v}$ are linearly independent, then any vector can be written as a linear combination of them; in particular, any 4 orthonormal basis vectors can be so written. Thus\\\\n$$\\\\n\\\\begin{array}{l}\\\\n0 \\\\neq e_{0} \\\\wedge e_{1} \\\\wedge e_{2} \\\\wedge e_{3} = \\\\left(a_{1} \\\\mathbf {u} + \\\\beta_{1} \\\\mathbf {v} + \\\\gamma_{1} \\\\mathbf {w} + \\\\delta_{1} \\\\mathbf {x}\\\\right) \\\\wedge \\\\left(a_{2} \\\\mathbf {u} + \\\\dot s\\\\right) \\\\\\\\ \\\\wedge \\\\left(\\\\alpha_{3} \\\\mathbf {u} + \\\\dot s\\\\right) \\\\wedge \\\\left(\\\\alpha_{4} \\\\mathbf {u} + \\\\dot s\\\\right) \\\\propto \\\\left(\\\\mathbf {u} \\\\wedge \\\\mathbf {v} \\\\wedge \\\\mathbf {w} \\\\wedge \\\\mathbf {x}\\\\right), \\\\\\\\\\\\n\\\\end{array}\\\\n$$\\\\nsince cross terms with a duplicated vector vanish. Hence $\\\\mathbf{u} \\\\wedge \\\\mathbf{v} \\\\wedge \\\\mathbf{w} \\\\wedge \\\\mathbf{x} \\\\neq 0$ . Since $\\\\mathbf{u} \\\\wedge \\\\mathbf{v} \\\\wedge \\\\mathbf{w} \\\\wedge \\\\mathbf{x}$ is totally antisymmetric on all “slots” and is a multiple of $\\\\mathbf{e}_0 \\\\wedge \\\\mathbf{e}_1 \\\\wedge \\\\mathbf{e}_2 \\\\wedge \\\\mathbf{e}_3$ , it must uniquely be proportional to the $\\\\varepsilon$ tensor. See Problems 3.20, 3.21."
+  },
+  "verification": null
+}

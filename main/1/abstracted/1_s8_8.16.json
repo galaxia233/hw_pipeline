@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s8_8.16",
+    "type": "prove",
+    "tags": {
+      "metric": "lie_derivative",
+      "target_object": "tensor_algebra",
+      "coordinate": "jacobi_identity",
+      "scenario": "differential_geometry",
+      "method": "commutator_relations"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.16",
+    "source_id": "1_s8_8.16",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.16"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "需验证标量与向量场对易子并利用雅可比恒等式推广至任意张量，逻辑严密但偏纯几何结构",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mathbf{u}$",
+      "$\\mathbf{v}$",
+      "$f$",
+      "$w$"
+    ],
+    "target": [
+      "$\\mathcal{L}_{\\mathbf{u}} \\mathcal{L}_{\\mathbf{v}} - \\mathcal{L}_{\\mathbf{v}} \\mathcal{L}_{\\mathbf{u}} - \\mathcal{L}_{[\\mathbf{u}, \\mathbf{v}]} = 0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 8.16. Show that$$\\mathcal {L}_{\\bf u} \\mathcal {L}_{\\bf v} - \\mathcal {L}_{\\bf v} \\mathcal {L}_{\\bf u} = \\mathcal {L}_{[ \\bf u, v ]}.$$",
+    "answer": "This completes the proof for scalars and for vectors, and hence in general.",
+    "solution": "Solution 8.16. If the operator identity holds for scalar functions and for vector fields, it will hold for arbitrary tensors. This is because the action of the Lie derivative on arbitrary tensors is determined by its action on scalars and vectors (see Problem 8.13). Let $f$ be a scalar function, then$$\\mathcal {L}_{\\bf u} \\mathcal {L}_{\\bf v} f - \\mathcal {L}_{\\bf v} \\mathcal {L}_{\\bf u} f = \\mathcal {L}_{\\bf u} \\nabla_{\\bf v} f - \\mathcal {L}_{\\bf v} \\nabla_{\\bf u} f = [ {\\bf u}, {\\bf v} ] f = \\mathcal {L}_{[ {\\bf u} , {\\bf v} ]} f.$$Now let $w$ be a vector field, then$$\\mathcal {L}_{\\mathbf {u}} \\mathcal {L}_{\\mathbf {v}} w - \\mathcal {L}_{\\mathbf {v}} \\mathcal {L}_{\\mathbf {u},} w - \\mathcal {L}_{[ \\mathbf {u} , \\mathbf {v} ]} w = [ \\mathbf {u} , [ \\mathbf {v} , w ] ] - [ \\mathbf {v} , [ \\mathbf {u} , w ] ] - [ [ \\mathbf {u} , \\mathbf {v} ] , w ] = 0 .$$The vanishing of this last expression (the Jacobi identity for commutators) can easily be checked e.g. by writing out all terms. This completes the proof for scalars and for vectors, and hence in general."
+  },
+  "verification": null
+}

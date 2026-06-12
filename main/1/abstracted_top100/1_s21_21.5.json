@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s21_21.5",
+    "type": "calculate",
+    "tags": {
+      "metric": "curved_spacetime",
+      "target_object": "scalar_field",
+      "coordinate": "stress_energy_tensor",
+      "scenario": "equations_of_motion",
+      "method": "covariant_divergence"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s21_21.5",
+    "source_id": "1_s21_21.5",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s21_21.5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "变分法推导场方程与能动张量，结合协变导数性质与运动方程验证守恒律，物理逻辑链条完整且具有标准GR场论结构",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\Phi$",
+      "$m$",
+      "$g_{\\\\mu\\\\nu}$",
+      "$x^\\\\alpha$"
+    ],
+    "target": [
+      "$T^{\\\\mu\\\\nu}_{;\\\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 21.5. The Lagrangian density for a scalar field is\\n$\\\\mathbf{L} = -(8\\\\pi)^{-1}(\\\\Phi_{;a}\\\\Phi^{;a} + \\\\mathfrak{m}^{2}\\\\Phi^{2})$ . Find the equations of motion and the stress-energy tensor. Verify explicitly that the stress-energy tensor has vanishing divergence.",
+    "answer": "Equations of motion: $\\\\square \\\\Phi - m^2 \\\\Phi = 0$. Stress-energy tensor: $T_{\\\\mu\\\\nu} = \\\\frac{1}{4\\\\pi} \\\\left[ \\\\Phi_{,\\\\mu} \\\\Phi_{,\\\\nu} - \\\\frac{1}{2} g_{\\\\mu\\\\nu} (\\\\Phi_{,\\\\alpha} \\\\Phi^{,\\\\alpha} + m^2 \\\\Phi^2) \\\\right]$. Divergence: $T^{\\\\mu\\\\nu}_{;\\\\nu} = 0$.",
+    "solution": "Solution 21.5. Taking the variation of the action\\n$$\\nS = - (8 \\\\pi)^{- 1} \\\\int (\\\\Phi_{; a} \\\\Phi^{; a} + m^{2} \\\\Phi^{2}) (- g)^{\\\\frac {1}{2}} d^{4} x\\n$$\\ngivessus\\n$$\\n0 = \\\\frac {\\\\delta \\\\mathbf {L}}{\\\\delta \\\\Phi} = \\\\left[ 2 \\\\mathfrak {m}^{2} \\\\Phi - 2 (- \\\\mathfrak {g})^{- \\\\frac {1}{2}} [ (- \\\\mathfrak {g})^{\\\\frac {1}{2}} \\\\Phi^{, a} ]_{, a} \\\\right] (- \\\\mathfrak {g})^{\\\\frac {1}{2}}\\n$$\\nor\\n$$\\n\\\\square \\\\Phi - \\\\mathrm {m}^{2} \\\\Phi = 0. \\\\tag {1}\\n$$\\nFrom Problem 21.3 the stress-energy is\\n$$\\n\\\\begin{array}{l}\\nT_{\\\\mu \\\\nu} \\\\equiv - 2 (- g)^{- \\\\frac {1}{2}} \\\\frac {\\\\delta [ (- g)^{\\\\frac {1}{2}} L ]}{\\\\delta g^{\\\\mu \\\\nu}} \\\\\\\\\\n= \\\\frac {1}{4 \\\\pi} (- \\\\mathrm {g})^{- \\\\frac {1}{2}} \\\\left[ \\\\Phi_{, \\\\mu} \\\\Phi_{, \\\\nu} (- \\\\mathrm {g})^{\\\\frac {1}{2}} - \\\\frac {1}{2} (\\\\Phi_{, a} \\\\Phi^{, a} + \\\\mathrm {m}^{2} \\\\Phi^{2}) (- \\\\mathrm {g})^{\\\\frac {1}{2}} \\\\mathrm {g}_{\\\\mu \\\\nu} \\\\right] \\\\\\\\\\n= \\\\frac {1}{4 \\\\pi} \\\\left[ \\\\Phi_{, \\\\mu} \\\\Phi_{, \\\\nu} - \\\\frac {1}{2} g_{\\\\mu \\\\nu} \\\\left(\\\\Phi_{, a} \\\\Phi^{, a} + m^{2} \\\\Phi^{2}\\\\right) \\\\right] \\\\tag {2} \\\\\\\\\\n\\\\end{array}\\n$$\\nand hence its divergence is\\n$$\\n\\\\mathrm {T}_{; \\\\nu}^{\\\\mu \\\\nu} = \\\\frac {1}{4 \\\\pi} \\\\left(\\\\Phi_{; \\\\nu}^{, \\\\mu} \\\\Phi_{; \\\\nu}^{, \\\\nu} + \\\\Phi_{; \\\\nu}^{, \\\\mu} \\\\square \\\\Phi - \\\\Phi_{, a}^{; \\\\mu} \\\\Phi_{, a}^{, a} - \\\\mathrm {m}^{2} \\\\Phi \\\\Phi_{, a}^{, \\\\mu}\\\\right).\\n$$\\nFor a scalar field $\\\\Phi$ , we also have the relation\\n$$\\n\\\\Phi_{; \\\\nu}^{\\prime \\\\mu} = \\\\Phi_{, \\\\nu}^{i \\\\mu}, \\\\tag {4}\\n$$\\nthus Equation (3) becomes\\n$$\\n\\\\mathrm {T}_{; \\\\nu}^{\\\\mu \\\\nu} = \\\\frac {\\\\Phi^{\\\\prime} \\\\mu}{4 \\\\pi} (\\\\square \\\\Phi - \\\\mathrm {m}^{2} \\\\Phi) \\\\tag {5}\\n$$\\nwhich, by Equation (1), vanishes."
+  },
+  "verification": null
+}

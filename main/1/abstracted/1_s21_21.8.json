@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s21_21.8",
+    "type": "calculate",
+    "tags": {
+      "metric": "thin_shell_geometry",
+      "target_object": "extrinsic_curvature_discontinuity",
+      "coordinate": "Gaussian_normal_coordinates",
+      "scenario": "initial_value_formalism",
+      "method": "junction_condition_integration"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s21_21.8",
+    "source_id": "1_s21_21.8",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s21_21.8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "结合初值方程与高斯正规坐标推导壳层跃变关系，逻辑链条严密且可推广至各类薄壳物理模型",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$n$",
+      "$x^i$",
+      "$K_j^i$",
+      "$S_j^i$"
+    ],
+    "target": [
+      "$K_j^i$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s21_21.8.md]\\n\\nProblem 21.8. A surface layer is a timelike 3-surface separating two regions of spacetime. In general relativity the intrinsic geometry of such a 3-surface is well defined, but the extrinsic curvature may be discontinuous. That is, we may get a different extrinsic curvature tensor $\\mathbf{K}$ if we evaluate it with respect to the 4-geometry on one side or the other. The surface stress-energy $S^{\\alpha}_{\\beta}$ contained in such a surface layer is defined as\\n$$\\nS^{\\alpha} \\beta = \\lim_{\\varepsilon\\rightarrow 0} \\int_{- \\varepsilon}^{+ \\varepsilon} T^{\\alpha} \\beta d n\\n$$\\nwhere $\\mathbf{n}$ is proper distance perpendicular to the 3-surface. Use the initial value equations to find the discontinuity in $\\mathbf{K}$ in terms of $S^{\\alpha}\\beta$ .",
+    "answer": "$\\\\left[ K_j^i \\\\right] = 8\\\\pi \\\\left( S_j^i - \\\\frac{1}{2} \\\\delta_j^i S_k^k \\\\right)$",
+    "solution": "Solution 21.8. For simplicity choose coordinates (Gaussian normal coordinates; see Problem 8.25) in which the metric takes the form $\\mathrm{ds}^2 = \\mathrm{dn}^2 + (^3)\\mathbf{g}_{ij}\\mathrm{dx}^i\\mathrm{dx}^j$ . The coordinates $\\mathbf{x}^i (\\mathbf{i} = 1,2,3)$ span the surface layer which is taken to be at $\\mathfrak{n} = 0$ . From the initial value equations we have\\n$$\\n\\\\begin{array}{l}\\nG_{j}^{i} =^{(3)} G_{j}^{i} + \\left(K_{j}^{i} - \\delta_{j}^{i} \\operatorname {T r} K\\right)_{, n} - (\\operatorname {T r} K) K_{j}^{i} + \\frac {1}{2} \\delta_{j}^{i} (\\operatorname {T r} K)^{2}\\n+ \\frac {1}{2} \\delta_{j}^{i} \\operatorname {T r} \\left(\\mathrm {K}^{2}\\right) = 8 \\pi \\mathrm {T}_{j}^{i}.\\n\\\\end{array}\\n.$$\\nWe now integrate over $\\mathfrak{n}$ from $-\\epsilon$ to $+\\epsilon$ , using the fact that $\\mathfrak{n}$ represents proper distance perpendicular to the 3-surface, and we let $\\epsilon \\rightarrow 0$ . Since the intrinsic geometry of the 3-surface is well defined, the only term that survives this limiting integration is the term involving the derivatives of the extrinsic curvature, so for [K] the discontinuity in $\\mathbf{K}$ , we find\\n$$\\n\\\\left[ \\mathrm {K}_{\\mathrm {j}}^{\\mathrm {i}}\\right] - \\delta_{\\mathrm {j}}^{\\mathrm {i}} \\operatorname {T r} [ \\mathrm {K} ] = 8 \\pi \\mathrm {S}_{\\mathrm {j}}^{\\mathrm {i}}\\n$$\\nor\\n$$\\n\\operatorname {T r} [ \\mathrm {K} ] = - 4 \\pi \\mathrm {S}_{\\mathrm {i}}^{\\mathrm {i}} = - 4 \\pi^{(3)} \\mathrm {g}_{\\mathrm {i j}} \\mathrm {S}^{\\mathrm {i j}}\\n$$\\nand\\n$$\\n\\\\left[ \\mathrm {K}_{\\mathrm {j}}^{\\mathrm {i}}\\right] = 8 \\pi \\left(\\mathrm {S}_{\\mathrm {j}}^{\\mathrm {i}} - \\frac {1}{2} \\delta_{\\mathrm {j}}^{\\mathrm {i}} \\mathrm {S}_{\\mathrm {k}}^{\\mathrm {k}}\\right).\\n$$"
+  },
+  "verification": null
+}

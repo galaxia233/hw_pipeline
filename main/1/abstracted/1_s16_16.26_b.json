@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "id": "1_s16_16.26_b",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "spherical_symmetry",
+      "coordinate": "collapsing_star",
+      "scenario": "perfect_fluid",
+      "method": "einstein_field_equations"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.26_b",
+    "source_id": "1_s16_16.26_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.26_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "球对称流体坍缩模型结合爱因斯坦场方程多步微积分推导",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$R$",
+      "$r$",
+      "$\\\\Phi$",
+      "$\\\\Lambda$",
+      "$\\\\rho$",
+      "$m$",
+      "$U$",
+      "$\\\\Gamma$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$\\\\Gamma^{2}=1+U^{2}-2m/r$"
+    ],
+    "metric": [
+      [
+        "$-e^{2\\\\Phi}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$e^{2\\\\Lambda}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\\\sin^2\\\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.26. If $\\mathbf{R}$ is a comoving coordinate, the metric for a spherically symmetric collapsing star (see Problem 16.25) can be written as\\n$$\\n\\\\mathrm {d s}^{2} = - \\\\mathrm {e}^{2 \\\\Phi} \\\\mathrm {d t}^{2} + \\\\mathrm {e}^{2 \\\\Lambda} \\\\mathrm {d R}^{2} + \\\\mathrm {r}^{2} (\\\\mathrm {t}, \\\\mathrm {R}) \\\\mathrm {d}\\\\Omega^{2}\\n$$\\nwhere $\\Phi$ and $\\Lambda$ are functions of $\\mathbb{R}$ , t. If the star is made of a perfect fluid it is often useful to define the following functions:\\n$$\\n\\\\begin{array}{l}\\n m \\\\equiv \\\\int_{0}^{R} 4 \\\\pi r^{2} \\\\rho r^{\\prime} d R \\\\\\\\\\n \\\\mathrm {U} \\\\equiv \\\\mathrm {e}^{- \\\\Phi} \\\\dot {r} \\\\\\\\\\n \\\\Gamma^{2} \\\\equiv e^{- 2 \\\\Lambda} (r^{\\prime})^{2}.\\n \\\\end{array}\\n$$\\nHere primes denote partial differentiation with respect to $\\mathbf{R}$ , and dots with respect to $t$ . The function $m$ is interpreted as the mass interior to the shell at $\\mathbf{R}$ , and $U$ is the rate at which a shell is moving with respect to the proper time of a comoving observer.\\nProve the following relations:\\n$$\\n\\\\Gamma^{2} = 1 + U^{2} - 2 m / r. \\\\tag {b}\\n$$\\n[Hint: Use $\\mathbf{G}_{\\\\mathfrak{t}}^{\\mathfrak{t}} = -8\\\\pi \\\\rho$ and $\\mathbf{G}_{\\\\mathbf{R}}^{\\mathbf{t}} = 0$ (Problem 9.20).]",
+    "answer": "$\\\\Gamma^{2}=1+U^{2}-2m/r$",
+    "solution": "(b) From $\\mathbf{G}_{\\\\hat{\\\\mathbf{t}}}^{\\\\hat{\\\\mathbf{t}}}=-8 \\\\pi \\\\rho$ (see Problem 9.20) we have\\n$$\\n8 \\\\pi \\\\rho r^{2}=1-r^{\\\\prime 2} e^{-2 \\\\Lambda}+\\\\dot{r}^{2} e^{-2 \\\\Phi}+2 r \\\\dot{r} e^{-2 \\\\Phi} \\\\dot{\\\\Lambda}+2 r e^{-2 \\\\Lambda}\\\\left(r^{\\\\prime} \\\\Lambda^{\\\\prime}-r^{\\\\prime \\\\prime}\\\\right).\\n$$\\nNow use $\\mathbf{G}_{\\\\widehat{\\\\mathbf{R}}}^{\\\\widehat{\\\\mathbf{t}}}=0$ to eliminate $\\dot{\\\\Lambda}$ , and note that $8 \\\\pi r^{2} \\\\rho r'$ is an exact differential with respect to $\\mathbf{R}$\\n$$\\n\\\\begin{aligned}\\n8 \\\\pi \\\\rho r^{2} r^{\\\\prime} &=r^{\\\\prime}-\\\\left(r^{\\\\prime}\\\\right)^{3} e^{-2 \\\\Lambda}+\\\\dot{r}^{2} r^{\\\\prime} e^{-2 \\\\Phi}+2 r \\\\dot{r} e^{-2 \\\\Phi}\\\\left(\\\\dot{r}^{\\\\prime}-\\\\dot{r} \\\\Phi^{\\\\prime}\\\\right) \\\\\\\\\\n& +2 \\\\mathrm{rr}^{\\\\prime} \\\\mathrm {e}^{-2 \\\\Lambda}\\\\left(\\\\mathrm {r}^{\\\\prime} \\\\Lambda^{\\\\prime}-\\\\mathrm {r}^{\\\\prime \\\\prime}\\\\right) \\\\\\\\\\n& =\\\\left[r-e^{-2 \\\\Lambda} r\\\\left(r^{\\\\prime}\\\\right)^{2}+r\\\\left(\\\\dot{r}\\\\right)^{2} e^{-2 \\\\Phi}\\\\right]^{\\\\prime}.\\n\\\\end{aligned}\\n$$\\nIntegration gives the desired relation\\n$$\\n\\\\begin{aligned}\\n2 m &=r\\\\left(1-e^{-2 \\\\Lambda}\\\\left(r^{\\\\prime}\\\\right)^{2}+\\\\dot{r}^{2} e^{-2 \\\\Phi}\\\\right) \\\\\\\\\\n& =\\\\mathrm {r}(1-\\\\Gamma^{2}+\\\\mathrm {U}^{2}).\\n\\\\end{aligned}\\n$$"
+  },
+  "verification": null
+}

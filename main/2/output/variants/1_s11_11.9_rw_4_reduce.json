@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-1-4",
+    "type": "calculate",
+    "tags": {
+      "target_object": "geodetic_precession",
+      "coordinate": "spherical_polar",
+      "scenario": "spin_precession_reduce",
+      "method": "limit_reduction",
+      "generalization_axis": "limit",
+      "metric": "weak_field_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-1",
+      "1_s11_11.9-1-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "weak_field_metric",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$X$",
+      "$Y$",
+      "$Z$",
+      "$r_s$",
+      "$r_M$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\psi$",
+      "$J$",
+      "$C$",
+      "$A$",
+      "$\\omega$",
+      "$T$"
+    ],
+    "target": [
+      "geodetic_precession_rate"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论的 Schwarzschild 时空（度规定义为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2(\\theta) d\\phi^2$，其中 $r_s = 2GM/c^2$ 为 Schwarzschild 半径）中，引力曲率会导致运动陀螺仪的自旋发生测地进动。已知对于沿赤道面（$\\theta = \\pi/2$）半径为 $r$ 的圆轨道运动的陀螺仪，其测地进动的 GR 精确角速度大小可表示为 $\\Omega_{GR} = \\frac{3}{2} \\frac{GM}{c^2 r^3} \\frac{r v}{1 - 3GM/c^2 r}$，其中 $v$ 为轨道速度。在经典力学中，地球自转轴因外部天体引力潮汐力引起的进动也包含 $\\frac{3}{2} \\frac{GM}{r^3}$ 因子。请通过取远场弱引力极限 $r \\to \\inf ty$（即 $r_s/r \\to 0$），将此 GR 结果归约到经典弱场对应，并写出其与牛顿引力势 $\\Phi = -GM/r$ 的关系。",
+    "answer": "取远场极限 $r \\to \\inf ty$，此时 $r_s/r = 2GM/c^2 r \\to 0$。精确表达式分母中的因子 $\\frac{1}{1 - 3GM/c^2 r}$ 在该极限下趋于 1。因此，GR 精确进动率归约为 $\\Omega_{weak} = \\frac{3}{2} \\frac{GM}{c^2 r^3} r v$。该经典对应结果反映了在弱场极限下，时空曲率引起的测地进动退化为由牛顿引力势梯度 $\\nabla \\Phi$ 主导的效应，可表示为 $\\Omega_{weak} = \\frac{3}{2} \\nabla \\Phi \\times v / c^2$，与经典潮汐进动中的 $\\frac{3}{2} \\frac{GM}{r^3}$ 因子同源。",
+    "solution": "1. 确定物理极限：远场弱引力极限意味着观察点远离引力源，时空趋于平直，对应 $r \\to \\inf ty$ 或 Schwarzschild 半径比 $r_s/r \\to 0$。2. 对 GR 表达式进行近似：将分母 $(1 - 3GM/c^2 r)^{-1}$ 在 $GM/c^2 r \\ll 1$ 条件下按泰勒展开，在零阶近似下忽略高阶曲率修正，得 $(1 - 3GM/c^2 r)^{-1} \\approx 1$。3. 代入得到弱场结果：将近似结果代入原式，得 $\\Omega_{GR} \\to \\Omega_{weak} = \\frac{3}{2} \\frac{GM}{c^2 r^3} r v$。4. 联系牛顿势：由于牛顿引力势 $\\Phi = -GM/r$，其梯度大小为 $|\\nabla \\Phi| = GM/r^2$，且 $\\nabla \\Phi \\times v = -\\frac{GM}{r^3} (r \\times v)$，因此 $\\Omega_{weak}$ 中的 $GM/r^3$ 体现了引力场梯度（潮汐效应）在弱场下对自旋进动的决定作用，证明了 GR 的测地进动在弱场极限下平滑过渡到经典引力梯度的后牛顿效应。"
+  },
+  "verification": null
+}

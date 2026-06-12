@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s13_13.11-2-6-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "Euler equation",
+      "coordinate": "Cartesian",
+      "scenario": "low-velocity limit verify",
+      "method": "covariant conservation expansion",
+      "generalization_axis": "verify",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.11",
+      "1_s13_13.11-2",
+      "1_s13_13.11-2-6",
+      "1_s13_13.11-2-6-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "DeSitter",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "Verify the derivation of the curved-spacetime Euler equation from covariant conservation law"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In general relativity, the motion of a perfect fluid in a curved spacetime is governed by the local covariant conservation of its stress-energy tensor, $\\nabla_\\mu T^{\\mu\\nu} = 0$. Consider the static metric $\\mathrm{d}s^2 = -\\mathrm{d}t^2 + e^{2x/\\alpha}(\\mathrm{d}x^2+\\mathrm{d}y^2+\\mathrm{d}z^2)$, where $\\alpha$ is a constant scale parameter. For a perfect fluid described by $T^{\\mu\\nu} = (\\rho+p)u^\\mu u^\\nu + p g^{\\mu\\nu}$, in the low-velocity limit ($v \\ll c$, $p \\ll \\rho$), the correct curved-spacetime Euler equation obtained from $\\nabla_\\mu T^{\\mu x} = 0$ should be: $\\rho \\left( \\frac{d v^x}{dt} + \\frac{1}{\\alpha} (v^x)^2 - \\frac{1}{\\alpha} (v^y)^2 - \\frac{1}{\\alpha} (v^z)^2\\right) = - e^{-2x/\\alpha} \\partial_x p$.Below is a student's derivation attempting to reach this conclusion. Read the derivation and find all errors, specifying their locations, types, and correct values.**Student's Derivation:**1. Expand the spatial covariant conservation law $\\nabla_\\mu T^{\\mu 1} = 0$ (where $x^1 = x$): $\\partial_0 T^{01} + \\partial_j T^{j1} + \\Gamma^\\mu_{\\mu\\lambda} T^{\\lambda 1} + \\Gamma^1_{\\mu\\lambda} T^{\\mu\\lambda} = 0$.2. In the low-velocity limit, the stress-energy tensor components are approximated as $T^{00} \\approx \\rho$, $T^{0i} \\approx \\rho v^i$, and $T^{ij} \\approx \\rho v^i v^j + p g^{ij}$. For the given metric, $g^{ij} = e^{-2x/\\alpha} \\delta^{ij}$, so $T^{11} \\approx \\rho (v^x)^2 + p e^{-2x/\\alpha}$, $T^{22} \\approx \\rho (v^y)^2 + p e^{-2x/\\alpha}$, and $T^{33} \\approx \\rho (v^z)^2 + p e^{-2x/\\alpha}$.3. Calculate the geometric terms using the Christoffel symbols $\\Gamma^1_{11} = 1/\\alpha$, $\\Gamma^1_{22} = -1/\\alpha$, $\\Gamma^1_{33} = -1/\\alpha$, and $\\Gamma^\\mu_{\\mu 1} = 1/\\alpha$ (since only $\\Gamma^1_{11}$ depends on $x^1$ directly): $\\Gamma^\\mu_{\\mu\\lambda} T^{\\lambda 1} + \\Gamma^1_{\\mu\\lambda} T^{\\mu\\lambda} = \\frac{1}{\\alpha} T^{11} + \\frac{1}{\\alpha} T^{11} - \\frac{1}{\\alpha} T^{22} - \\frac{1}{\\alpha} T^{33} = \\frac{2}{\\alpha} (\\rho (v^x)^2 + p e^{-2x/\\alpha}) - \\frac{1}{\\alpha} (\\rho (v^y)^2 + p e^{-2x/\\alpha}) - \\frac{1}{\\alpha} (\\rho (v^z)^2 + p e^{-2x/\\alpha})$.4. Combine the pressure terms from the spatial derivatives and geometric terms: $\\partial_1 (p e^{-2x/\\alpha}) + \\frac{2}{\\alpha} p e^{-2x/\\alpha} + \\frac{2}{\\alpha} p e^{-2x/\\alpha} - \\frac{1}{\\alpha} p e^{-2x/\\alpha} - \\frac{1}{\\alpha} p e^{-2x/\\alpha} = e^{-2x/\\alpha} \\partial_1 p + \\frac{2}{\\alpha} p e^{-2x/\\alpha}$.5. For the velocity terms, use the time-component conservation law $\\nabla_\\mu T^{\\mu 0} = 0$ to derive the continuity equation. Since $\\Gamma^\\mu_{\\mu 0} = 0$ and $\\Gamma^\\mu_{\\mu 1} = 1/\\alpha$, this yields $\\partial_0 \\rho + \\partial_j (\\rho v^j) + \\frac{1}{\\alpha} \\rho v^x = 0$.6. Expand the velocity derivatives using the continuity equation: $\\partial_0 (\\rho v^x) + \\partial_j (\\rho v^j v^x) = \\rho (\\partial_0 v^x + v^j \\partial_j v^x) + \\frac{1}{\\alpha} \\rho (v^x)^2$.7. Combine all velocity terms with the geometric velocity terms: $\\rho (\\partial_0 v^x + v^j \\partial_j v^x) + \\frac{1}{\\alpha} \\rho (v^x)^2 + \\frac{2}{\\alpha} \\rho (v^x)^2 - \\frac{1}{\\alpha} \\rho (v^y)^2 - \\frac{1}{\\alpha} \\rho (v^z)^2 = \\rho \\left( \\frac{d v^x}{dt} + \\frac{3}{\\alpha} (v^x)^2 - \\frac{1}{\\alpha} (v^y)^2 - \\frac{1}{\\alpha} (v^z)^2\\right)$.8. Substituting the combined pressure and velocity terms back yields the curved-spacetime Euler equation: $\\rho \\left( \\frac{d v^x}{dt} + \\frac{3}{\\alpha} (v^x)^2 - \\frac{1}{\\alpha} (v^y)^2 - \\frac{1}{\\alpha} (v^z)^2\\right) = - e^{-2x/\\alpha} \\partial_x p + \\frac{2}{\\alpha} p e^{-2x/\\alpha}$.",
+    "answer": "Error 1: Location: Step 3 and Step 5. Error: $\\Gamma^\\mu_{\\mu 1} = 1/\\alpha$. Type: Factor error (Index contraction omission). Correct value: $\\Gamma^\\mu_{\\mu 1} = \\Gamma^1_{11} + \\Gamma^2_{21} + \\Gamma^3_{31} = 3/\\alpha$. This also makes the coefficient in Step 3's geometric term $4/\\alpha$ instead of $2/\\alpha$, and the coefficient in Step 5's continuity equation $3/\\alpha$ instead of $1/\\alpha$.Error 2: Location: Step 4. Error: $+ \\frac{2}{\\alpha} p e^{-2x/\\alpha}$ (the second term in the expansion of $\\partial_1 (p e^{-2x/\\alpha})$). Type: Sign error. Correct value: $- \\frac{2}{\\alpha} p e^{-2x/\\alpha}$ (since $\\partial_1 (p e^{-2x/\\alpha}) = e^{-2x/\\alpha} \\partial_1 p - \\frac{2}{\\alpha} p e^{-2x/\\alpha}$). Error 3: Location: Step 6. Error: $+ \\frac{1}{\\alpha} \\rho (v^x)^2$. Type: Sign error & factor error. Correct value: $- \\frac{3}{\\alpha} \\rho (v^x)^2$. Because substituting the continuity equation $\\partial_0 \\rho + \\partial_j(\\rho v^j) = - \\frac{3}{\\alpha} \\rho v^x$ into $\\rho \\frac{dv^x}{dt} + v^x(\\partial_0 \\rho + \\partial_j(\\rho v^j))$ gives a negative sign and the correct factor $3/\\alpha$.",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "Answer 遗漏了学生推导中多处关键的漏项错误，导致其提供的 'Correct value' 实际上并不是该步骤的完整正确表达式，严重误导做题者：\\n1. Error 1 中，Answer 仅指出 $\\Gamma^\\\\mu_{\\\\mu 1}$ 的系数错误（$1/\\\\alpha \\\\to 3/\\\\alpha$），但学生在 Step 3 还犯了漏项错误：完全忽略了 $\\\\Gamma^\\\\mu_{\\\\mu\\\\lambda} T^{\\\\lambda 1}$ 中 $\\\\lambda=2,3$ 的贡献。正确的几何项必须包含 $\\\\frac{1}{\\\\alpha} T^{21}$ 和 $\\\\frac{1}{\\\\alpha} T^{31}$（即 $\\\\frac{1}{\\\\alpha} \\\\rho v^y v^x + \\\\frac{1}{\\\\alpha} \\\\rho v^z v^x$）。Answer 声称的 Correct value $\\\\frac{4}{\\\\alpha} T^{11} - \\\\frac{1}{\\\\alpha} T^{22} - \\\\frac{1}{\\\\alpha} T^{33}$ 是不完整的。\\n2. Error 1 中对 Step 5 连续性方程的修正同样遗漏了交叉项：学生忽略了 $\\\\Gamma^\\\\mu_{\\\\mu 2} \\\\rho v^y = \\\\frac{1}{\\\\alpha} \\\\rho v^y$ 和 $\\\\Gamma^\\\\mu_{\\\\mu 3} \\\\rho v^z = \\\\frac{1}{\\\\alpha} \\\\rho v^z$。正确的连续性方程应为 $\\\\partial_0 \\\\rho + \\\\partial_j (\\\\rho v^j) + \\\\frac{3}{\\\\alpha} \\\\rho v^x + \\\\frac{1}{\\\\alpha} \\\\rho v^y + \\\\frac{1}{\\\\alpha} \\\\rho v^z = 0$。\\n3. Error 3 中，Answer 声称 Step 6 的 Correct value 为 $-\\\\frac{3}{\\\\alpha} \\\\rho (v^x)^2$，但由于连续性方程的不完整，真正的 Correct value 应包含交叉项：$-\\\\frac{3}{\\\\alpha} \\\\rho (v^x)^2 - \\\\frac{1}{\\\\alpha} \\\\rho v^y v^x - \\\\frac{1}{\\\\alpha} \\\\rho v^z v^x$。虽然这些交叉项在最终欧拉方程中会抵消，但作为指出中间步骤错误的 Answer，必须给出该步骤完整的正确表达式，否则做题者按 Answer 修改后中间步骤仍是不成立的错误等式。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

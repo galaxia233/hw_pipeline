@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s13_13.2-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "Newtonian limit of radial geodesic",
+      "coordinate": "Schwarzschild",
+      "scenario": "black hole",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.2",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.2",
+      "1_s13_13.2-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\frac{d^2 r}{d t^2}"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Consider the Schwarzschild spacetime describing the geometry outside a spherically symmetric mass $M$. The metric in coordinates $(t, r, \\theta, \\phi)$ is given by $g_{00} = \\frac{-r+r_s}{r}$, $g_{11} = \\frac{r}{r-r_s}$, $g_{22} = r^2$, $g_{33} = r^2 \\sin^2 \\theta$, where $r_s = 2M$ is the Schwarzschild radius. Using the Christoffel symbols provided in the fact sheet, prove that in the Newtonian limit (weak field $r \\gg r_s$ and slow coordinate velocity $dr/dt \\ll 1$), the radial component of the geodesic equation for a massive particle reduces exactly to the Newtonian inverse-square law of gravitation: $\\frac{d^2 r}{d t^2} = -\\frac{M}{r^2}$.",
+    "answer": "In the Newtonian limit, the radial geodesic equation reduces to $\\frac{d^2 r}{d t^2} = -\\frac{M}{r^2}$.",
+    "solution": "The geodesic equation for the radial coordinate $x^1 = r$ is: $\\frac{d^2 r}{d \\tau^2} + \\Gamma^1_{\\alpha \\beta} \\frac{d x^\\alpha}{d \\tau} \\frac{d x^\\beta}{d \\tau} = 0$. For purely radial motion, $\\dot{\\theta} = 0$ and $\\dot{\\phi} = 0$. The equation expands to: $\\ddot{r} + \\Gamma^1_{00} \\dot{t}^2 + \\Gamma^1_{11} \\dot{r}^2 = 0$. From the fact sheet, the relevant Christoffel symbols are $\\Gamma^1_{00} = \\frac{r_s (r - r_s)}{2 r^3}$ and $\\Gamma^1_{11} = -\\frac{r_s}{2 r (r - r_s)}$. In the Newtonian limit of slow motion, the coordinate velocity $v = dr/dt \\ll 1$, which implies $\\dot{r} \\ll \\dot{t}$. Therefore, the term $\\Gamma^1_{11} \\dot{r}^2$ is of order $v^2$ and can be neglected compared to $\\Gamma^1_{00} \\dot{t}^2$. Furthermore, for a slowly moving massive particle, the proper time $\\tau$ approximately equals the coordinate time $t$, so $dt/d\\tau \\approx 1$ and $d^2r/d\\tau^2 \\approx d^2r/dt^2$. In the weak field limit $r \\gg r_s$, the Christoffel symbol $\\Gamma^1_{00}$ simplifies to: $\\Gamma^1_{00} \\approx \\frac{r_s}{2 r^2} = \\frac{M}{r^2}$. Substituting these approximations into the geodesic equation yields: $\\frac{d^2 r}{d t^2} + \\frac{M}{r^2} (1)^2 = 0$, which gives $\\frac{d^2 r}{d t^2} = -\\frac{M}{r^2}$. This is exactly the Newtonian inverse-square law of gravitation."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "1. 题目不自包含：题目明确要求参考外部资料 'the fact sheet' 获取 Christoffel 符号，做题者无法仅凭题目本身完成，违背 self-contained 要求。\n2. 措辞物理逻辑矛盾：题目要求证明在牛顿极限（即弱场和慢速近似条件）下，方程 'reduces exactly'（精确退化为）牛顿定律。在近似条件下只能是近似退化，使用 'exactly' 是错误的。\n3. 核心推导存在严重数学概念错误：解答在将固有时的导数转换到坐标时间时，声称 'proper time τ approximately equals the coordinate time t, so d²r/dτ² ≈ d²r/dt²'。这违背了复合函数求导的链式法则：d²r/dτ² = d²r/dt² (dt/dτ)² + (dr/dt)(d²t/dτ²)。仅凭 dt/dτ≈1 无法直接得出 d²r/dτ²≈d²r/dt²，解答完全忽略了 (dr/dt)(d²t/dτ²) 项。要证明该项可忽略，必须利用时间测地线方程证明 d²t/dτ² ~ O(v) 从而该项为 O(v²)，而解答跳过了这一关键推导步骤并给出了错误的理由。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "id": "1_s5_5.1_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "stress_energy_tensor",
+      "target_object": "inertial_coordinate_system",
+      "coordinate": "polar_to_cartesian_transformation",
+      "scenario": "rotating_mass_distribution",
+      "method": "continuum_limit_approximation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.1_b",
+    "source_id": "1_s5_5.1_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.1_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "相对论连续介质应力能张量计算，结合密度洛伦兹变换、薄环δ函数建模与坐标系转换，逻辑链条完整且物理背景清晰",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$r$",
+      "$\\\\phi$",
+      "$N$",
+      "$m$",
+      "$a$",
+      "$\\\\omega$",
+      "$\\\\beta$",
+      "$\\\\gamma$",
+      "$\\\\rho_0$"
+    ],
+    "target": [
+      "$T^{\\\\mu\\\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.1. Calculate the nonzero components in an inertial frame S of the stress-energy tensor for the following systems:\\n(b) A ring of $\\mathbf{N}$ similar particles of mass $m$ rotating counterclockwise in the $x-y$ plane about some point fixed in $S$ at a radius $a$ and angular velocity $\\omega$ . (The width of the ring is much less than $a$ .) Do not include the stress-energy of whatever forces keep them in orbit. Assume $\\mathbf{N}$ is large enough that one can treat the particles as being continuously distributed.",
+    "answer": "$\\\\mathrm {T}^{\\\\mu \\\\nu} = \\\\frac {\\\\gamma \\\\mathrm {N m} \\\\delta ([ \\\\mathrm {x}^{2} + \\\\mathrm {y}^{2} ]^{\\\\frac {1}{2}} - \\\\mathrm {a}) \\\\delta (\\\\mathbf {z})}{2 \\\\pi \\\\mathrm {a}} \\\\left[ \\\\begin{array}{c c c} 1 & - \\\\beta \\\\sin \\\\phi & \\\\beta \\\\cos \\\\phi \\\\\\\\ & \\\\beta^{2} \\\\sin^{2} \\\\phi & - \\\\beta^{2} \\\\sin \\\\phi \\\\cos \\\\phi \\\\\\\\ & & \\\\beta^{2} \\\\cos^{2} \\\\phi \\\\\\\\ (\\\\text {s y m m e t r i c}) & & 0 \\\\end{array} \\\\right]$",
+    "solution": "(b) Let the circle of motion be in the $x - y$ plane. Consider a continuum of rest mass density $\\rho_0$ at the point $x = 0$ , $y = a$ moving with velocity $\\beta = \\omega a$ . From part (a), at $x = 0$ , $y = a$ we have $T^{00} = \\rho_0 \\gamma^2$ etc. Now if we consider a ring of matter, all points on the ring are equivalent so that in polar coordinates the nonzero components of $T^{\\\\mu \\\\nu}$ are\\n$$\\n\\\\mathbf {T}^{0 0} = \\\\rho_{0} \\\\gamma^{2}, \\\\quad \\\\mathbf {T}^{0 \\\\hat {\\\\phi}} = \\\\rho_{0} \\\\gamma^{2} \\\\beta = \\\\mathbf {T}^{\\\\hat {\\\\phi} 0}, \\\\quad \\\\mathbf {T}^{\\\\hat {\\\\phi} \\\\hat {\\\\phi}} = \\\\rho_{0} \\\\gamma^{2} \\\\beta^{2} .\\n$$\\nWe now must relate $\\rho_0$ to the collection of particles. If we assume that $\\mathbf{N}$ is large enough so that we can view the particles as continuously distributed around the ring, then $\\rho_0 \\propto \\delta(\\mathbf{r} - \\mathbf{a}) \\delta(z)$ . The total energy of the particles must be $\\gamma \\mathbf{Nm}$ so\\n$$\\n\\\\mathrm {T}^{0 0} 2 \\\\pi \\\\mathrm {r d r d z} = \\\\gamma \\\\mathrm {N m}\\n$$\\nand $\\rho_0 = \\\\mathrm{Nm}\\\\delta (\\\\mathbf {r} - \\\\mathbf {a})\\\\delta (z) / 2\\\\pi \\\\mathrm {ay}$ . The results can now be expressed in cartesian coordinates by making the usual transformation $\\mathbf{x} = \\\\mathbf {r}\\\\cos \\\\phi$ , $\\mathbf {y} = \\\\mathbf {r}\\\\sin \\\\phi$ :\\n$$\\n\\\\mathrm {T}^{\\\\mu \\\\nu} = \\\\frac {\\\\gamma \\\\mathrm {N m} \\\\delta ([ \\\\mathrm {x}^{2} + \\\\mathrm {y}^{2} ]^{\\\\frac {1}{2}} - \\\\mathrm {a}) \\\\delta (\\\\mathbf {z})}{2 \\\\pi \\\\mathrm {a}} \\\\left[ \\\\begin{array}{c c c} 1 & - \\\\beta \\\\sin \\\\phi & \\\\beta \\\\cos \\\\phi \\\\\\\\\\\\\\\\ & \\\\beta^{2} \\\\sin^{2} \\\\phi & - \\\\beta^{2} \\\\sin \\\\phi \\\\cos \\\\phi \\\\\\\\\\\\\\\\ & & \\\\beta^{2} \\\\cos^{2} \\\\phi \\\\\\\\\\\\\\\\ (\\\\text {s y m m e t r i c}) & & 0 \\\\end{array} \\\\right]$"
+  },
+  "verification": null
+}

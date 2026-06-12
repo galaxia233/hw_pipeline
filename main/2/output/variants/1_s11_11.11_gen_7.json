@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "$-2M/r^3$",
+      "coordinate": "spherical",
+      "scenario": "black hole",
+      "method": "tetrad_transformation_and_weak_field_limit",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$-2M/r^3$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "While the seed problem examined the rotational precession of a gyroscope, another fundamental manifestation of spacetime curvature is tidal forces, which govern the relative acceleration of neighboring freely falling particles. Consider a static observer at coordinate radius $r$ in the Schwarzschild geometry described by the metric $ds^2 = \\frac{-r+r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$. Using the coordinate Riemann tensor component $R_{0101} = \\frac{r_s}{r^2(r-r_s)}$ and the metric components, construct the physical (orthonormal) tidal tensor component $R^{\\hat{1}}_{\\hat{0}\\hat{1}\\hat{0}}$ experienced by this observer. Prove that in the far-field Newtonian limit ($r \\to \\inf ty$), the relativistic radial tidal acceleration reduces exactly to the classical Newtonian radial tidal acceleration $-2M/r^3$. (Note: $r_s = 2M$, and the signature convention is (-,+,+,+))",
+    "answer": "$-2M/r^3$",
+    "solution": "1. The static observer's 4-velocity is aligned with the coordinate time, so their orthonormal tetrad basis vectors are $e_{\\hat{0}}^0 = 1/\\sqrt{-g_{00}} = \\sqrt{\\frac{r}{r-r_s}}$ and $e_{\\hat{1}}^1 = 1/\\sqrt{g_{11}} = \\sqrt{\\frac{r-r_s}{r}}$. \\n2. The orthonormal Riemann tensor component is obtained by transforming the coordinate component: $R_{\\hat{0}\\hat{1}\\hat{0}\\hat{1}} = (e_{\\hat{0}}^0)^2 (e_{\\hat{1}}^1)^2 R_{0101}$. Substituting the values: $R_{\\hat{0}\\hat{1}\\hat{0}\\hat{1}} = \\frac{r}{r-r_s} \\frac{r-r_s}{r} \\frac{r_s}{r^2(r-r_s)} = \\frac{r_s}{r^2(r-r_s)}$. \\n3. The physical tidal tensor component is $R^{\\hat{1}}_{\\hat{0}\\hat{1}\\hat{0}} = \\eta^{\\hat{1}\\hat{1}} R_{\\hat{1}\\hat{0}\\hat{1}\\hat{0}} = R_{\\hat{0}\\hat{1}\\hat{0}\\hat{1}} = \\frac{r_s}{r^2(r-r_s)} = \\frac{2M}{r^2(r-2M)}$. \\n4. The relativistic tidal acceleration in the radial direction is given by the geodesic deviation equation $a^{\\hat{1}} = - R^{\\hat{1}}_{\\hat{0}\\hat{1}\\hat{0}} \\xi^{\\hat{1}} = - \\frac{2M}{r^2(r-2M)} \\xi^{\\hat{1}}$. \\n5. Taking the far-field limit $r \\to \\inf ty$, the denominator $r^2(r-2M) \\approx r^3$, so the expression simplifies to $a^{\\hat{1}} \\approx - \\frac{2M}{r^3} \\xi^{\\hat{1}}$, which exactly matches the classical Newtonian radial tidal acceleration."
+  },
+  "verification": null
+}

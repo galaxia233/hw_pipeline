@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s5_5.1_c",
+    "type": "calculate",
+    "tags": {
+      "metric": "stress_energy_tensor",
+      "target_object": "particle_rings",
+      "coordinate": "cylindrical_coordinates",
+      "scenario": "inertial_frame",
+      "method": "superposition_principle"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.1_c",
+    "source_id": "1_s5_5.1_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.1_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "超原理解释清晰+粒子环物理模型+公式推导完整",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\phi$",
+      "$z$"
+    ],
+    "target": [
+      "$T^{00}$",
+      "$T^{\\hat{\\phi}\\hat{\\phi}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.1. Calculate the nonzero components in an inertial frame S of the stress-energy tensor for the following systems:(c) Two such rings of particles, one rotating clockwise, the other counter-clockwise, at the same radius a. The particles do not collide or interact with each other in any way.",
+    "answer": "$\\mathbf {T}^{0 0} = \\mathbf {T}^{\\hat {\\phi} \\hat {\\phi}} / \\beta^{2} = \\gamma \\mathrm {N m} \\delta (\\mathrm {r} - \\mathrm {a}) \\delta (\\mathrm {z}) / \\pi \\mathrm {a}.$",
+    "solution": "If we have an additional ring rotating in the opposite direction then that ring's stress-energy is the same as that in (b), with the sign of $\\beta = \\omega a$ reversed. We can then add the two cases. In the sum, terms linear in $\\beta$ disappear; terms quadratic in $\\beta$ are doubled. In polar coordinates, the nonzero components are$$ \\mathbf {T}^{0 0} = \\mathbf {T}^{\\hat {\\phi} \\hat {\\phi}} / \\beta^{2} = \\gamma \\mathrm {N m} \\delta (\\mathrm {r} - \\mathrm {a}) \\delta (\\mathrm {z}) / \\pi \\mathrm {a}.$$"
+  },
+  "verification": null
+}

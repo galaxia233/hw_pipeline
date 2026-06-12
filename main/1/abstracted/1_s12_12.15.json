@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "id": "1_s12_12.15",
+    "type": "calculate",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "spin_target",
+      "coordinate": "lab_coordinates",
+      "scenario": "thermal_gas_scenario",
+      "method": "tensor_contractions_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s12_12.15",
+    "source_id": "1_s12_12.15",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s12_12.15"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "Combines relativistic tensor construction for arbitrary spin with thermal velocity averaging to extract field properties from macroscopic observables.",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathfrak{m}_0$",
+      "$Q$",
+      "$Q_0$",
+      "$k$",
+      "$T$",
+      "$s$",
+      "$v$",
+      "$u^\\\\mu$",
+      "$x^\\\\mu$",
+      "$\\\\tau$",
+      "$q_0$"
+    ],
+    "target": [
+      "$s$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 12.15. New particles of mass $\\mathfrak{m}_0$ are created which carry a new kind of charge, evidenced by a classical inverse-square force law. A container holds a perfect monatomic gas of these particles in thermal equilibrium. The total charge $Q$ in the container is measured by the average force on test particles outside, and it is observed to vary with temperature as $Q \\propto Q_0(1 + 6kT / m_0)$ . What is the spin of the new force field?",
+    "answer": "5",
+    "solution": "Solution 12.15. The geometrical object which tells about the charge is a scalar, vector, 2-tensor, etc. for spins 0, 1, 2, etc. For example, the charge density of a particle of rest-charge $\\\\mathbf{q}_0$ moving along a worldline $\\\\mathbf{x}^{\\\\mu} = \\\\mathbf{z}^{\\\\mu}(\\\\tau)$ with 4-velocity $\\\\mathbf{u}$ is\\n$$\\n\\\\rho \\\\left(\\\\mathbf {x}^{\\\\sigma}\\\\right) = q_{0} \\\\int \\\\delta^{4} \\\\left[\\\\mathbf {x}^{\\\\mu} - z^{\\\\mu} (\\\\tau) \\\\right] d \\\\tau \\\\quad (s c a l a r)\\n$$\\n$$\\nJ^{\\\\mu} \\\\left(\\\\mathbf {x}^{\\\\sigma}\\\\right) = q_{0} \\\\int u^{\\\\mu} \\\\delta^{4} \\\\left[\\\\mathbf {x}^{\\\\sigma} - z^{\\\\sigma} (r) \\\\right] d r \\\\tag {1}\\n$$\\n$$\\n\\\\mathrm {T}^{\\\\mu \\\\nu} (\\\\mathbf {x}^{\\\\sigma}) = q_{0} \\\\int \\\\mathrm{u}^{\\\\mu} \\\\mathrm{u}^{\\\\nu} \\\\delta^{4} [\\\\mathbf {x}^{\\\\sigma} - \\\\mathbf{z}^{\\\\sigma} (\\\\tau) ] \\\\mathrm{d} \\\\tau \\\\quad \\\\text {(s p i n 2)}\\n$$\\n$$\\n\\\\mathrm {T}^{\\\\mu \\\\nu \\\\dot s \\\\rho} (\\\\mathbf {x}^{\\\\sigma}) = q_{0} \\\\int u^{\\\\mu} u^{\\\\nu} \\\\dot s u^{\\\\rho} \\\\delta^{4} [\\\\mathbf {x}^{\\\\sigma} - z^{\\\\sigma} (\\\\tau) ] d \\\\tau . \\\\quad (\\\\text {s p i n} \\\\mathbf {s})\\n$$\\nThe charge of a particle in a laboratory volume, measured by the \"Coulomb\" part of its interaction in the lab is\\n$$\\n\\\\begin{array}{l}\\nq = \\\\int T^{0 0 \\\\dot s 0} d^{3} x (labframe) \\\\\\\\\\n= (- 1)^{s} \\\\int T^{\\\\alpha \\\\beta \\\\dot s \\\\gamma} u_{\\\\alpha}^{L A B} u_{\\\\beta}^{L A B} \\\\dot s u_{\\\\gamma}^{L A B} d^{3} x. (2) \\\\\\\\\\n\\\\end{array}\\n$$\\nSubstituting Equation (1) into Equation (2) gives the measured charge of a single particle\\n$$\\n\\\\begin{array}{l}\\nq = q_{0} \\\\int d^{3} x \\\\int d \\\\tau (- u \\\\cdot u^{\\\\mathrm {L A B}})^{s} \\\\delta^{4} [ x^{\\\\sigma} - z^{\\\\sigma} (r) ] \\\\\\\\\\n= q_{0} \\\\int d^{3} x d t \\\\left(\\\\frac {d \\\\tau}{d t}\\\\right) (- u \\\\cdot u^{\\\\mathrm {L A B}})^{s} \\\\delta^{4} [ x^{\\\\sigma} - z^{\\\\sigma} (\\\\tau) ]. \\\\\\\\\\n\\\\end{array}\\n$$\\nIntegrating out the delta function, and using $\\\\mathbf{u} \\\\cdot \\\\mathbf{u}^{LAB} = -\\\\gamma$ and $\\\\mathrm{d}\\\\tau / \\\\mathrm{dt} = 1 / \\\\gamma$ , we get $q = q_0 \\\\gamma^{s-1} \\\\approx q_0 \\\\left(1 + \\\\frac{s-1}{2} v^2\\\\right)$ for $v << c$ . Now for a perfect gas we have $<v^2> = 3kT / m_0$ . So when we sum the charges of all the particles in the gas we get\\n$$\\n\\\\mathrm {Q} = \\\\sum_{\\\\mathbf{n}} \\\\mathbf{q} = \\\\mathrm{n q}_{0} \\\\left[ 1 + \\\\frac{\\\\mathbf{s} - 1}{2} \\\\left(\\\\frac {3 \\\\mathrm{k T}}{\\\\mathbf{m}_{0}}\\\\right) \\\\right],\\n$$\\nand from the temperature dependence given in the problem we now read off $\\\\mathbf{s} = 5$ ."
+  },
+  "verification": null
+}

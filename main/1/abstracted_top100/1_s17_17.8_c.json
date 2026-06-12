@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s17_17.8_c",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "coordinate",
+      "coordinate": "scenario",
+      "scenario": "method",
+      "method": "kerr-spacetime"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.8_c",
+    "source_id": "1_s17_17.8_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.8_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于平稳轴对称度规隐式信息结合判别式分析推导运动学禁闭，逻辑链条完整且具典型天体物理背景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$a$"
+    ],
+    "target": [
+      "$\\Omega$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 17.8 (c) An observer (not necessarily freely-falling) orbits a Kerr black hole in the equatorial $(\\theta = \\pi /2)$ plane.(c) If the observer is in the region $\\mathbf{r}_{-} < \\mathbf{r} < \\mathbf{r}_{+}$ , show that he cannot remain at constant radius.",
+    "answer": "The observer therefore cannot remain at constant $\\mathbf{r}$ .",
+    "solution": "(c) The discriminant of $\\mathbf{Y}$ defined in Equation (2) is$$(\\mathbf {g}_{0 \\phi})^{2} - \\mathbf {g}_{0 0} \\mathbf {g}_{\\phi \\phi} = \\mathbf {r}^{2} - 2 \\mathbf {M r} + \\mathbf {a}^{2} = (\\mathbf {r} - \\mathbf {r}_{+}) (\\mathbf {r} - \\mathbf {r}_{-}),$$and is negative if $\\mathbf{r}_{-} < \\mathbf{r} < \\mathbf{r}_{+}$ . If the discriminant of $\\mathbf{Y}$ is negative, then $\\mathbf{Y}$ has the same sign for any $\\Omega$ , i.e. the same sign as $\\mathbf{g}_{\\phi \\phi}$ which is positive. This violates Equation (2), which assumed only timelike motion and constant $\\mathbf{r}$ . The observer therefore cannot remain at constant $\\mathbf{r}$ .Note that as $\\mathbf{r} \\to \\mathbf{r}_+$ , then $\\Omega$ goes to $-\\mathbf{g}_{0\\phi} / \\mathbf{g}_{00} = \\mathbf {a} / 2\\mathbf{M}\\mathbf {r}_+$ ."
+  },
+  "verification": null
+}

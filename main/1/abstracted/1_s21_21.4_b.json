@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s21_21.4_b",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "einstein_field_equations",
+      "coordinate": "spacetime_coordinates",
+      "scenario": "general_relativity",
+      "method": "palatini_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s21_21.4_b",
+    "source_id": "1_s21_21.4_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s21_21.4_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于广义协变作用量的Palatini变分法推导爱因斯坦场方程，需处理联络依赖关系与散项抵消，逻辑严密且为理论物理核心基石",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$G_{\\\\mu\\\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Consider the action\\n$$\\n\\\\mathbf {S} = (1 6 \\\\pi)^{- 1} \\\\int (- \\\\mathbf {g})^{\\\\frac {1}{2}} \\\\mathsf {R d}^{4} \\\\mathbf {x} + \\\\int \\\\mathsf {L}_{\\\\mathrm {m a t t e r}} (- \\\\mathbf {g})^{\\\\frac {1}{2}} \\\\mathsf {d}^{4} \\\\mathbf {x} ,\\n$$\\nwhere $\\mathbf{R}$ is the Ricci scalar and $\\mathbf{L}_{\\\\mathrm{matter}}$ contains g's but no $\\Gamma$ 's (so that $\\Gamma$ 's are present only in $\\mathbf{R}$ ).\\n(b) Now assume $\\Gamma$ 's are Christoffel symbols used to define covariant derivatives in the usual way. Show that $\\delta S = 0$ (where now $\\delta \\\\Gamma^{\\\\alpha}{}_{\\\\beta \\\\nu}$ is not independent of $\\delta g^{\\\\alpha \\\\beta}$ ) leads to the Einstein field equations.",
+    "answer": "$G_{\\\\mu\\\\nu} = 8\\\\pi T_{\\\\mu\\\\nu}$",
+    "solution": "(b) Although $\\\\Gamma_{\\\\mu \\\\nu}^{a}$ (now taken to be the Christoffel symbols formed from $\\mathfrak{g}_{\\\\alpha \\\\beta}$ ) is not a tensor, $\\delta \\\\Gamma_{\\\\mu \\\\nu}^{a}$ is a tensor (Problem 8.26). Thus we can simplify the calculation of $\\delta \\\\mathbb{R}_{\\\\mu \\\\nu}$ by working in a local inertial frame, where the $\\Gamma$ 's vanish. In this frame, Equation (2) gives\\n$$\\n\\\\delta \\\\mathbf {R}_{\\\\mu \\\\nu} = \\\\delta \\\\Gamma_{\\\\mu \\\\nu , a}^{a} - \\\\delta \\\\Gamma_{\\\\mu a, \\\\nu}^{a} = \\\\delta \\\\Gamma_{\\\\mu \\\\nu ; a}^{a} - \\\\delta \\\\Gamma_{\\\\mu a; \\\\nu}^{a}. \\\\tag {20}\\n$$\\nSince this is a tensor equation, it is valid in any coordinate system. The $\\Gamma$ 's are Christoffel symbols, so $g_{\\\\mu \\\\nu; a} = 0$ and\\n$$\\n\\\\begin{array}{l}\\n(- \\\\mathbf {g})^{\\\\frac {1}{2}} \\\\mathbf {g}^{\\\\mu \\\\nu} \\\\delta \\\\mathsf {R}_{\\\\mu \\\\nu} = (- \\\\mathbf {g})^{\\\\frac {1}{2}} \\\\left[ (\\\\mathbf {g}^{\\\\mu \\\\nu} \\\\delta \\\\Gamma_{\\\\mu \\\\nu}^{a}); a - (\\\\delta \\\\Gamma_{\\\\mu a}^{a} \\\\mathbf {g}^{\\\\mu \\\\nu});_{\\\\nu} \\\\right] \\\\\\\\ = \\\\left((- g)^{\\\\frac {1}{2}} g^{\\\\mu \\\\nu} \\\\delta \\\\Gamma_{\\\\mu \\\\nu}^{a}\\\\right)_{, a} - \\\\left(\\\\delta \\\\Gamma_{\\\\mu a}^{a} g^{\\\\mu \\\\nu} (- g)^{\\\\frac {1}{2}}\\\\right), \\\\\\\\ \\\\end{array}\\n$$\\n(where we have used Problem 7.7(g) in the second line). Since this is a perfect divergence, it does not contribute to $\\delta S$ . The remaining terms in Equations (1) and (18) lead to Equation (19) as in part (a)."
+  },
+  "verification": null
+}

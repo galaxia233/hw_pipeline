@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s11_11.1_i",
+    "type": "prove",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "angular_momentum_tensor",
+      "coordinate": "conservation_law",
+      "scenario": "four_vector",
+      "method": "proper_time"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s11_11.1_i",
+    "source_id": "1_s11_11.1_i",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s11_11.1_i"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.3,
+      "realism": 0.7,
+      "rationale": "狭义相对论角动量张量守恒性证明，涉及四维矢量求导与自由粒子条件，逻辑链条清晰但无配套解答",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\mu$",
+      "$p^\\\\mu$",
+      "$\\\\Delta x^\\\\mu$",
+      "$\\\\tau$",
+      "$J^{\\\\mu\\\\nu}$"
+    ],
+    "target": [
+      "$\\\\frac{\\\\mathrm{d}J^{\\\\mu\\\\nu}}{\\\\mathrm{d}\\\\tau} = 0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 11.1. In special relativity, when a particle is at an event B and has 4-momentum p, its angular momentum about event A is\\n$$\\n\\\\mathbf {J} = \\\\Delta \\\\mathbf {x} \\\\otimes \\\\mathbf {p} - \\\\mathbf {p} \\\\otimes \\\\Delta \\\\mathbf {x}\\n$$\\nwhere $\\pmb{\\Delta}\\mathbf{x}$ is the 4-vector from event A to event B\\n(i) Show that for a freely moving (i.e. unaccelerated) particle $\\mathbf{J}$ is conserved - i.e. $\\mathrm{d}\\mathbf{J} / \\mathrm{d}\\tau = 0$",
+    "answer": "$\\\\mathrm{d}\\\\mathbf{J} / \\\\mathrm{d}\\\\tau = 0$",
+    "solution": null
+  },
+  "verification": null
+}

@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s12_12.19",
+    "type": "calculate",
+    "tags": {
+      "metric": "gravitation",
+      "target_object": "quantum_model",
+      "coordinate": "bohr_radius",
+      "scenario": "order_estimation",
+      "method": "force_balance"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s12_12.19",
+    "source_id": "1_s12_12.19",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s12_12.19"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.3,
+      "generalizability": 0.5,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "结合经典引力与旧量子化条件的量纲估算，步骤完整但属非相对论思想实验",
+      "overall": 0.53
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$G$",
+      "$m_N$",
+      "$r$",
+      "$\\omega$",
+      "$n$",
+      "$\\hbar$"
+    ],
+    "target": [
+      "$r$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 12.19. Estimate the Bohr radius of a \"gravitational atom\", e.g. two neutrons bound by their gravitational attraction in their lowest energy state.",
+    "answer": "r = 2 \\hbar^ {2} / G m _ {N} ^ {3} = 6 \\times 1 0 ^ {2 4} c m \\approx 6 \\times 1 0 ^ {6} l i g h t y e a r s!",
+    "solution": "Solution 12.19. Force balance gives us$$\\mathrm {G m}_{\\mathbf {N}}^{2} / \\mathrm {r}^{2} = \\mathrm {m}_{\\mathbf {N}} \\omega^{2} \\left(\\frac {1}{2} \\mathrm {r}\\right).$$According to Bohr quantization the separation radius must satisfy$$2 m \\omega \\left(\\frac {1}{2} r\\right)^{2} = n \\pi .$$From these two equations, the separation is$$r = 2 n^{2} \\hbar^{2} / G m_{N}^{3}.$$The lowest energy level is the $n = 1$ level. In this level the separation is$$r = 2 \\hbar^{2} / G m_{N}^{3} = 6 \\times 1 0^{2 4} c m \\approx 6 \\times 1 0^{6} l i g h t y e a r s!$$"
+  },
+  "verification": null
+}

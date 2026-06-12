@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "id": "1_s15_15.3",
+    "type": "calculate",
+    "tags": {
+      "metric": "schwarzschild_metric",
+      "target_object": "coordinate_velocity",
+      "coordinate": "schwarzschild_coordinates",
+      "scenario": "black_hole_radial_infall",
+      "method": "geodesic_conservation_and_local_frame"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s15_15.3",
+    "source_id": "1_s15_15.3",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s15_15.3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "结合四速归一化与时间平移守恒量推导坐标速度，并通过正交标架投影求局域观测量，逻辑链条完整且具典型相对论动力学背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$dr/dt$",
+      "$d\\hat{r}/d\\hat{t}$"
+    ],
+    "metric": [
+      [
+        "$-(1-2M/r)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2M/r)^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2\\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 15.3. A particle falls radially into a Schwarzschild metric. As measured by proper time at infinity, what is its inward coordinate velocity (dr/dt) at a (curvature-) radius $r$ ? What is the locally-measured velocity relative to a stationary observer at the same radius?",
+    "answer": "$(dr/dt)^2 = (1 - 2M/r)^2 [1 - (1-2M/r)u_0^{-2}]$, locally measured velocity $d\\hat{r}/d\\hat{t} = (1 - 2M/r)^{-1} dr/dt$.",
+    "solution": "We have two constants for radial fall: $\\mathbf {u} \\cdot \\mathbf {u} = -1$ and $\\mathbf {u} \\cdot \\partial/\\partial t = \\mathbf {u}_0 = -(1 - 2\\mathbf {M}/\\mathbf {r})\\mathbf {u}^0$ . From these we get$$\\begin {array}{l} \\mathbf {u} \\cdot \\mathbf {u} = - 1 = - (1 - 2 \\mathrm {M} / \\mathrm {r}) \\left(\\mathrm {u}^{0}\\right)^{2} + (1 - 2 \\mathrm {M} / \\mathrm {r})^{- 1} \\left(\\mathrm {u}^{\\mathrm {r}}\\right)^{2} \\\\= \\left[ - (1 - 2 \\mathrm {M} / \\mathrm {r}) + (1 - 2 \\mathrm {M} / \\mathrm {r})^{- 1} (\\mathrm {d r} / \\mathrm {d} t)^{2}\\right] \\left(\\mathrm {u}^{0}\\right)^{2} \\\\= \\left[ - (1 - 2 M / r) + (1 - 2 M / r)^{- 1} (d r / d t)^{2}\\right] \\left(u_{0}\\right)^{2} (1 - 2 M / r)^{2}. \\\\\\end {array}$$Solving for $(\\mathrm{dr} / \\mathrm{dt})^2$ we find$$\\left(\\mathrm {d r} / \\mathrm {d t}\\right)^{2} = (1 - 2 \\mathrm {M} / \\mathrm {r})^{2} \\left[ 1 - (1 - 2 \\mathrm {M} / \\mathrm {r}) \\left(\\mathrm {u}_{0}\\right)^{- 2}\\right].$$A stationary observer measures time intervals $\\hat{\\mathbf{d}}\\mathbf{t} = (1 - 2\\mathbf {M} / \\mathbf {r})^{\\frac {1}{2}}\\mathbf{d}\\mathbf{t}$ and radial distances $\\hat{\\mathbf{d}}\\mathbf{r} = (1 - 2\\mathbf {M} / \\mathbf {r})^{-\\frac {1}{2}}\\mathbf{d}\\mathbf{r}$ so he measures velocity$$\\frac {\\mathrm {d} \\hat {\\mathbf {r}}}{\\mathrm {d} \\hat {\\mathbf {t}}} = (1 - 2 \\mathbf {M} / \\mathbf {r})^{- 1} \\frac {\\mathrm {d} \\mathbf {r}}{\\mathrm {d} t}.$$Notice that independent of the value of $\\mathbf{u}_0$ this locally measured velocity approaches the velocity of light as r approaches 2M."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "metric_latex": [
+      [
+        "\\frac{- r + r_{s}}{r}",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "\\frac{r}{r - r_{s}}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r^{2} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_001": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_010": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_100": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{3}}",
+      "Gamma_111": "- \\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_122": "- r + r_{s}",
+      "Gamma_133": "\\left(- r + r_{s}\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_233": "- \\frac{\\sin{\\left(2 \\theta \\right)}}{2}",
+      "Gamma_313": "\\frac{1}{r}",
+      "Gamma_323": "\\frac{1}{\\tan{\\left(\\theta \\right)}}",
+      "Gamma_331": "\\frac{1}{r}",
+      "Gamma_332": "\\frac{1}{\\tan{\\left(\\theta \\right)}}"
+    },
+    "riemann": {
+      "R_0101": "\\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0110": "- \\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0202": "- \\frac{r_{s}}{2 r}",
+      "R_0220": "\\frac{r_{s}}{2 r}",
+      "R_0303": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_0330": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1001": "\\frac{r_{s} \\left(r - r_{s}\\right)}{r^{4}}",
+      "R_1010": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{r^{4}}",
+      "R_1212": "- \\frac{r_{s}}{2 r}",
+      "R_1221": "\\frac{r_{s}}{2 r}",
+      "R_1313": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1331": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_2002": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_2020": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_2112": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2121": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2323": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_2332": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_3003": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_3030": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_3113": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3131": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3223": "- \\frac{r_{s}}{r}",
+      "R_3232": "\\frac{r_{s}}{r}"
+    },
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "\\frac{48 M^{2}}{r^{6}}",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量 (∂_t)，对应能量守恒",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "rot_phi",
+        "description": "绕 φ 轴旋转 Killing 矢量 (∂_φ)，对应角动量守恒",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s14_14.2-8-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "T_local",
+      "coordinate": "spherical",
+      "scenario": "thermal_equilibrium_RN_reduce_flat",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "ReissnerNordstrom"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.2",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.2",
+      "1_s14_14.2-8",
+      "1_s14_14.2-8-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "ReissnerNordstrom",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$T(r) = T_0$"
+    ],
+    "metric": [
+      [
+        "-Q**2/(4*pi*r**2*eps_0) + 1 - r_s/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "4*pi*r**2*eps_0/(Q**2 + 4*pi*r**2*eps_0 - 4*pi*r*r_s*eps_0)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一个处于静态热平衡的系统，其时空背景为带电荷 $Q$ 的 Reissner-Nordström 黑洞，线元为：$$ds^2 = -\\left(1 - \\frac{r_s}{r} + \\frac{Q^2}{4\\pi\\epsilon_0 r^2}\\right) dt^2 + \\frac{dr^2}{1 - \\frac{r_s}{r} + \\frac{Q^2}{4\\pi\\epsilon_0 r^2}} + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$其中 $r_s$ 为 Schwarzschild 半径参数。已知在该时空中，局部温度 $T(r)$ 与度规分量满足广义相对论的热平衡条件（Tolman 关系） $T(r) \\sqrt{-g_{00}(r)} = T_0$，其中 $T_0$ 为 $r \\to \\inf ty$ 处的背景温度。在弱场极限下（$r_s/r \\ll 1$ 且 $Q^2/(4\\pi\\epsilon_0 r^2) \\ll 1$），局部温度相对于无穷远温度的相对偏差为$$\\frac{T(r)}{T_0} - 1 \\approx \\frac{r_s}{2r} - \\frac{Q^2}{8\\pi\\epsilon_0 r^2}$$请通过取质量与电荷均趋于零的极限（即 $r_s \\to 0$ 且 $Q \\to 0$），将上述广义相对论弱场近似下的局部温度偏差结果归约到经典无引力场时的物理对应，并说明其物理意义。",
+    "answer": "当取 $r_s \\to 0$ 且 $Q \\to 0$ 的极限时，弱场近似下的局部温度偏差公式中，引力修正项 $\\frac{r_s}{2r} \\to 0$ 和静电修正项 $\\frac{Q^2}{8\\pi\\epsilon_0 r^2} \\to 0$ 均消失。因此，局部温度相对偏差归约为 $\\frac{T(r)}{T_0} - 1 = 0$，即 $T(r) = T_0$ 恒定。在物理上，当引力场（质量）和静电场（电荷）均消失时，时空退化为平直的闵可夫斯基时空，不存在引力红移效应，系统回到经典热力学中的恒温平衡条件。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.reissnernordstrom_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "度规表达式存在严重的量纲错误：线元中静电项 $\\frac{Q^2}{4\\pi\\epsilon_0 r^2}$ 缺少了 $G/c^4$ 因子。在SI单位制下，该项的量纲为 $[Q^2/(4\\pi\\epsilon_0 r^2)] = kg \\cdot m / s^2$（力的量纲），而度规分量必须是无量纲的。正确的SI单位制表达式应为 $\\frac{G Q^2}{4\\pi\\epsilon_0 c^4 r^2}$。此量纲错误直接传递至题目给出的弱场近似公式 $\\frac{Q^2}{8\\pi\\epsilon_0 r^2}$，使其同样存在量纲非法的问题。此外，题目文本中存在排版错误：'$r \\to \\inf ty$' 应为 '$r \\to \\infty$'。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s9_9.10",
+    "type": "prove",
+    "tags": {
+      "metric": "abstract_index_notation",
+      "target_object": "covariant_derivative_commutator",
+      "coordinate": "riemann_tensor_symmetry",
+      "scenario": "second_rank_tensor",
+      "method": "tensor_algebra"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.10",
+    "source_id": "1_s9_9.10",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.10"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.5,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.3,
+      "rationale": "基于协变导数对易子与里奇张量对称性的纯张量恒等式证明，逻辑链完整但缺乏具体物理场景应用",
+      "overall": 0.62
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mu$",
+      "$\\nu$"
+    ],
+    "target": [
+      "$A_{;\\mu\\nu}^{\\mu\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.10. Prove that for any second rank tensor$$\\mathrm {A}_{; \\mu \\nu}^{\\mu \\nu} = \\mathrm {A}_{; \\nu \\mu}^{\\mu \\nu}.$$",
+    "answer": "$0$",
+    "solution": "Solution 9.10. Form the tensor$$\\mathbf {C}_{\\mu \\nu}^{\\alpha \\beta} \\equiv \\mathbf {A}_{; \\mu \\nu}^{\\alpha \\beta} - \\mathbf {A}_{; \\nu \\mu}^{\\alpha \\beta}.$$From Problem 9.8 we have$$\\mathbf {C}_{\\mu \\nu}^{\\alpha \\beta} = - \\mathbf {A}_{\\sigma \\mu \\nu}^{\\sigma \\beta} \\mathbf {R}_{\\sigma \\mu \\nu}^{\\alpha} - \\mathbf {A}_{\\sigma \\mu \\nu}^{\\alpha \\sigma} \\mathbf {R}_{\\sigma \\mu \\nu}^{\\beta}$$so that$$\\mathbf {C}_{\\mu \\nu}^{\\mu \\nu} = - \\mathrm {A}_{\\sigma \\mu \\nu}^{\\sigma \\nu} \\mathbf {R}_{\\sigma \\mu \\nu}^{\\mu} - \\mathrm {A}_{\\sigma \\mu \\nu}^{\\mu \\sigma} \\mathbf {R}_{\\sigma \\mu \\nu}^{\\nu} = - \\mathrm {A}_{\\sigma \\nu}^{\\sigma \\nu} \\mathbf {R}_{\\sigma \\nu} + \\mathrm {A}_{\\sigma \\mu}^{\\mu \\sigma} \\mathbf {R}_{\\sigma \\mu} = 0.$$"
+  },
+  "verification": null
+}

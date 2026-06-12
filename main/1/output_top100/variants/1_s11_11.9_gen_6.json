@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-6",
+    "type": "prove",
+    "tags": {
+      "target_object": "metric_component",
+      "coordinate": "txyz",
+      "scenario": "cosmology",
+      "method": "geodesic_precession",
+      "generalization_axis": "invert",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$g_{22}(x)$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In a cosmological spacetime, the metric takes the form $ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}} dx^2 + g_{22}(x) dy^2 + g_{33}(x) dz^2$. A probe moves along the $y$-axis with a constant physical velocity $v$ (where $v = \\frac{dy_{phys}}{dt}$, and the physical distance is defined as $dy_{phys} = \\sqrt{g_{22}} dy$). A gyroscope aboard the probe undergoes geodesic precession in the $x-y$ plane. Experimental observations reveal two key features:1. The coordinate time period of a full precession cycle is $T = \\frac{2\\pi \\alpha}{v}$.2. This period $T$ is observed to be constant and independent of the position $x$ where the measurement is taken.Given that $g_{22}(0) = 1$, infer the functional form of the metric component $g_{22}(x)$ that leads to these observed properties.",
+    "answer": "$e^{\\frac{2x}{\\alpha}}$",
+    "solution": "1. The observed coordinate angular frequency of precession is $\\Omega = \\frac{2\\pi}{T} = \\frac{v}{\\alpha}$.2. To find the theoretical precession rate, we introduce the orthonormal coframe: $\\theta^0 = dt$, $\\theta^1 = e^{\\frac{x}{\\alpha}} dx$, $\\theta^2 = \\sqrt{g_{22}(x)} dy$, $\\theta^3 = \\sqrt{g_{33}(x)} dz$.3. Calculate the exterior derivative of $\\theta^2$: $d\\theta^2 = \\frac{1}{2} \\frac{\\partial_x g_{22}}{\\sqrt{g_{22}}} dx \\wedge dy = \\frac{1}{2} \\frac{\\partial_x g_{22}}{g_{22}} \\theta^1 \\wedge \\theta^2$.4. From Cartan's first structure equation $d\\theta^a = - \\omega^a_{\\ b} \\theta^b$, the non-zero connection form governing the rotation in the $x-y$ plane is identified as $\\omega^1_{\\ 2} = \\frac{1}{2} \\frac{\\partial_x g_{22}}{g_{22}} \\theta^2$.5. The probe's 4-velocity in the orthonormal frame is $u = \\gamma e_0 + \\gamma v e_2$, where $\\gamma = \\frac{1}{\\sqrt{1-v^2}}$ is the Lorentz factor for the physical velocity $v$. The physical precession angular frequency in the probe's rest frame is given by evaluating the connection form on the 4-velocity: $\\Omega_{phys} = \\omega^1_{\\ 2}(u) = \\frac{1}{2} \\frac{\\partial_x g_{22}}{g_{22}} \\theta^2(\\gamma e_0 + \\gamma v e_2) = \\frac{1}{2} \\frac{\\partial_x g_{22}}{g_{22}} \\gamma v$.6. The coordinate angular frequency (precession per unit coordinate time $t$) is obtained by dividing the proper frequency by $\\gamma$: $\\Omega = \\frac{\\Omega_{phys}}{\\gamma} = \\frac{1}{2} \\frac{\\partial_x g_{22}}{g_{22}} v$.7. Equating the theoretical expression with the observed value $\\Omega = \\frac{v}{\\alpha}$, we obtain $\\frac{1}{2} \\frac{\\partial_x g_{22}}{g_{22}} v = \\frac{v}{\\alpha}$, which simplifies to $\\frac{\\partial_x g_{22}}{g_{22}} = \\frac{2}{\\alpha}$.8. Since the observed period $T$ (and thus $\\Omega$) is independent of the position $x$, the relation $\\frac{\\partial_x g_{22}}{g_{22}} = \\frac{2}{\\alpha}$ holds for all $x$. Integrating this differential equation yields $\\ln g_{22}(x) = \\frac{2x}{\\alpha} + C$.9. Applying the boundary condition $g_{22}(0) = 1$ gives $C = 0$. Thus, the inferred metric component is $g_{22}(x) = e^{\\frac{2x}{\\alpha}}$."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "解答第3步存在致命的数学推导错误：在将坐标基底的外微分 $dx \\wedge dy$ 转换为正交标架基底 $\\theta^1 \\wedge \\theta^2$ 时，遗漏了关键的因子 $e^{-x/\\alpha}$。根据定义 $\\theta^1 = e^{x/\\alpha} dx$ 和 $\\theta^2 = \\sqrt{g_{22}} dy$，正确的转换应为 $dx \\wedge dy = e^{-x/\\alpha} \\frac{1}{\\sqrt{g_{22}}} \\theta^1 \\wedge \\theta^2$，因此正确的 $d\\theta^2$ 应为 $\\frac{1}{2} \\frac{\\partial_x g_{22}}{g_{22}} e^{-x/\\alpha} \\theta^1 \\wedge \\theta^2$，而非解答中错误给出的 $\\frac{1}{2} \\frac{\\partial_x g_{22}}{g_{22}} \\theta^1 \\wedge \\theta^2$。由于此遗漏，推导出的微分方程 $\\frac{\\partial_x g_{22}}{g_{22}} = \\frac{2}{\\alpha}$ 是错误的，正确方程应为 $\\frac{\\partial_x g_{22}}{g_{22}} = \\frac{2}{\\alpha} e^{x/\\alpha}$。积分后正确答案应为 $g_{22}(x) = e^{2(e^{x/\\alpha}-1)}$，而非 $e^{2x/\\alpha}$。更严重的是，若按错误答案 $g_{22}=e^{2x/\\alpha}$ 计算，正确的进动角频率为 $\\Omega = \\frac{v}{\\alpha} e^{-x/\\alpha}$，这依赖于坐标 $x$，直接与题目条件2（周期 $T$ 与位置 $x$ 无关）相矛盾。此外，度规摘要也存在错误：De Sitter 空间有10个Killing矢量而非1个；Kretschmann标量应为 $\\frac{12}{\\alpha^4}$（存在量纲错误）；且给定度规形式并非真正的De Sitter度规。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s12_12.9",
+    "type": "prove",
+    "tags": {
+      "metric": "equivalence_principle",
+      "target_object": "gravitational_mass_energy",
+      "coordinate": "static_equilibrium",
+      "scenario": "local_lorentz_frame",
+      "method": "weak_field_approximation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s12_12.9",
+    "source_id": "1_s12_12.9",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s12_12.9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "综合等效原理、能量守恒与虚功原理，在半经典极限下推导扩展体平衡条件，物理背景真实且逻辑链条完整。",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mathbf{M}$",
+      "$\\underline{\\mathbf{F}}_{i}$",
+      "$\\underline{\\mathbf{g}}$",
+      "$\\underline{\\mathbf{x}}_{i}$",
+      "$c$"
+    ],
+    "target": [
+      "$\\underline{F}_{i}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 12.9. Consider an extended body of mass $\\mathbf{M}$ with several forces $\\underline{\\mathbf{F}}_{i}$ acting on it. Using the equivalence of gravitational mass and energy show that the condition for equilibrium of the body is$$\\sum \\underline {{F}}_{i} \\left(1 - \\underline {{g}} \\cdot \\underline {{x}}_{i} / c^{2}\\right) = - M g$$where $\\underline{\\mathbf{g}}$ is the acceleration of gravity and $\\underline{\\mathbf{x}}_i$ denotes the point of application of each of the forces, measured in a local Lorentz frame.",
+    "answer": "\\sum_{i} \\underline{F}_{i} \\left(1 - \\frac{\\underline{g} \\cdot \\underline{x}_{i}}{c^{2}}\\right) = - M g",
+    "solution": "Solution 12.9. Consider a virtual displacement $\\underline{\\delta}$ ; the energy must be stationary in $\\underline{\\delta}$ . If we include in the energy, the gravitational potential energy of the work done on or by forces, then the change in energy for any one force is$$\\mathrm {d E}_{\\mathrm {i}} = - \\underline {{F}}_{\\mathrm {i}} \\cdot \\underline {{\\delta}} + (\\mathrm {d E}_{\\mathrm {i}}) (\\underline {{g}} / c^{2}) \\cdot \\underline {{x}}_{\\mathrm {i}}$$and the change in energy from raising the object mass is$$\\mathrm {d E} = - \\underline {{\\mathbf {M}}} \\underline {{\\mathbf {g}}} \\cdot \\underline {{\\delta}}.$$Thus$$\\mathrm {d E}_{\\text {t o t a l}} = - \\sum_{\\sim} \\underset {\\sim} {\\mathrm {F}_{\\mathrm {i}}} \\cdot \\underset {\\sim} {\\delta} \\left(1 - \\frac {\\underset {\\sim} {\\mathrm {g}} \\cdot \\underset {\\sim} {\\mathrm {x}_{\\mathrm {i}}}}{\\mathrm {c}^{2}}\\right) - \\underset {\\sim} {\\mathrm {M g}} \\cdot \\underset {\\sim} {\\delta}$$for any $\\underline{\\delta}$ and hence$$\\sum_{i} \\underset {\\sim} {F}_{i} \\left(1 - \\frac {\\underline {{g}} \\cdot \\underset {\\sim} {x}_{i}}{c^{2}}\\right) = - M g.$$Note that by taking the gravitational potential relative to the center of gravity, we avoid having to add the gravitational potential energy of the gravitational potential energy. (This argument is due to K. Nordtvedt.)"
+  },
+  "verification": null
+}

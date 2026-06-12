@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "id": "1_s6_6.5",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "coordinate_transformation",
+      "coordinate": "dimensionality_reduction",
+      "scenario": "projector_metric",
+      "method": "flat_space"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s6_6.5",
+    "source_id": "1_s6_6.5",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s6_6.5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "投影度规结构清晰，需计算行列式降秩并结合Gram-Schmidt构造正交坐标，逻辑链条完整但属纯几何练习",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 3,
+    "variables": [
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$\\\\zeta$",
+      "$\\\\eta$"
+    ],
+    "metric": [
+      [
+        "$\\\\frac{160}{169}$",
+        "$-\\\\frac{12}{169}$",
+        "$-\\\\frac{36}{169}$"
+      ],
+      [
+        "$-\\\\frac{12}{169}$",
+        "$\\\\frac{153}{169}$",
+        "$-\\\\frac{48}{169}$"
+      ],
+      [
+        "$-\\\\frac{36}{169}$",
+        "$-\\\\frac{48}{169}$",
+        "$\\\\frac{25}{169}$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 6.5. A space purports to be 3-dimensional, with coordinates $x, y, z$ and the metric\\n$$\\n\\\\mathrm {d s}^{2} = \\\\mathrm {d x}^{2} + \\\\mathrm {d y}^{2} + \\\\mathrm {d z}^{2} - \\\\left(\\\\frac {3}{1 3} \\\\mathrm {d x} + \\\\frac {4}{1 3} \\\\mathrm {d y} + \\\\frac {1 2}{1 3} \\\\mathrm {d z}\\\\right)^{2}.\\n$$\\nShow that it is really a two-dimensional space, and find two new coordinates $\\zeta$ and $\\eta$ for which the line element takes the form\\n$$\\n\\\\mathrm {d s}^{2} = \\\\mathrm {d} \\\\zeta^{2} + \\\\mathrm {d} \\\\eta^{2}.\\n$$",
+    "answer": "Space is 2-dimensional. New coordinates: $\\\\xi = \\\\frac{12}{5}\\\\left(\\\\frac{3}{13}x + \\\\frac{4}{13}y\\\\right)$, $\\\\eta = \\\\frac{13}{5}\\\\left(-\\\\frac{4}{13}x + \\\\frac{3}{13}y\\\\right)$, yielding $ds^2 = d\\\\xi^2 + d\\\\eta^2$.",
+    "solution": "Solution 6.5. We can decide if the space is 3-dimensional or not by evaluating the 3-volume spanned by $\\mathrm{d}x\\mathrm{d}y\\mathrm{d}z$\\n$$\\n\\\\begin{array}{l} \\\\mathrm {d V} = \\\\mathrm {g}^{\\\\frac {1}{2}} \\\\mathrm {d x d y d z} \\\\\\\\ = \\\\left| \\\\begin{array}{l l l} 1 - \\\\left(\\\\frac {3}{1 3}\\\\right)^{2} & - \\\\left(\\\\frac {3}{1 3}\\\\right) \\\\left(\\\\frac {4}{1 3}\\\\right) & - \\\\left(\\\\frac {1 2}{1 3}\\\\right) \\\\left(\\\\frac {3}{1 3}\\\\right) \\\\\\\\ - \\\\left(\\\\frac {3}{1 3}\\\\right) \\\\left(\\\\frac {4}{1 3}\\\\right) & 1 - \\\\left(\\\\frac {4}{1 3}\\\\right)^{2} & - \\\\left(\\\\frac {4}{1 3}\\\\right) \\\\left(\\\\frac {1 2}{1 3}\\\\right) \\\\\\\\ - \\\\left(\\\\frac {1 2}{1 3}\\\\right) \\\\left(\\\\frac {3}{1 3}\\\\right) & - \\\\left(\\\\frac {4}{1 3}\\\\right) \\\\left(\\\\frac {1 2}{1 3}\\\\right) & 1 - \\\\left(\\\\frac {1 2}{1 3}\\\\right)^{2} \\\\end{array} \\\\right| d x d y d z = 0. \\\\\\\\\\n\\\\end{array}\\n$$\\nSince this is identically zero for all $x, y, z$ , the 3 coordinates are always linearly dependent. The space is thus either two dimensional or one dimensional. We can now throw away one coordinate, say $z$ , by taking $z =$ constant; this is allowed because it is an \"ignorable coordinate,\" i.e. the coefficients of the metric do not depend on $z$ . The metric left is\\n$$\\n\\\\mathrm {d s}^{2} = \\\\mathrm {d x}^{2} + \\\\mathrm {d y}^{2} - \\\\left(\\\\frac {3}{1 3} \\\\mathrm {d x} + \\\\frac {4}{1 3} \\\\mathrm {d y}\\\\right)^{2}.\\n$$\\nIt is in fact 2-dimensional, not 1-dimensional, because\\n$$\\n\\\\mathbf {g} = \\\\det \\\\left( \\\\begin{array}{c c} 1 - \\\\left(\\\\frac {3}{1 3}\\\\right)^{2} & - \\\\left(\\\\frac {3}{1 3}\\\\right) \\\\left(\\\\frac {4}{1 3}\\\\right) \\\\\\\\ \\\\left(\\\\frac {3}{1 3}\\\\right) \\\\left(\\\\frac {4}{1 3}\\\\right) & 1 - \\\\left(\\\\frac {4}{1 3}\\\\right)^{2} \\\\end{array} \\\\right) \\\\neq 0.\\n$$\\nIt is not difficult to find the coordinate transformation (e.g. by Gram-Schmidt orthogonalization)\\n$$\\n\\\\begin{array}{l} \\\\xi = \\\\frac {1 2}{5} \\\\left(\\\\frac {3}{1 3} x + \\\\frac {4}{1 3} y\\\\right) \\\\\\\\ \\\\eta = \\\\frac {1 3}{5} \\\\left(- \\\\frac {4}{1 3} x + \\\\frac {3}{1 3} y\\\\right) \\\\\\\\\\n\\\\end{array}\\n$$\\nwhich gives $\\mathrm{ds}^2 = \\mathrm{d}\\xi^2 +\\mathrm{d}\\eta^2$ , obviously the simplest form of the metric. The more sophisticated reader will notice that the original metric was of the form\\n$$\\n\\\\mathbf {g}_{\\alpha \\beta} = \\\\delta_{\\alpha \\beta} - \\\\mathbf {V}_{\\alpha} \\\\mathbf {V}_{\\beta},\\n$$\\nwhere $\\mathbf{V}_{\\alpha}$ is the Euclidean unit vector $\\left(\\frac{3}{13}, \\frac{4}{13}, \\frac{12}{13}\\right)$ . This metric just projects a 3-dimensional Euclidean space into a 2-dimensional space perpendicular to $\\mathbf{V}$ , so it is obvious that there had to exist $\\xi$ and $\\eta$ coordinates which make it a flat-space 2-dimensional metric."
+  },
+  "verification": null
+}

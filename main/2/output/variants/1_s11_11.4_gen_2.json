@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "spin_vector_magnitude",
+      "coordinate": "general",
+      "scenario": "gyroscope_transport",
+      "method": "verify_consistency",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\mathbf{S}$",
+      "$\\mathbf{u}$",
+      "$\\mathbf{a}$"
+    ],
+    "target": [
+      "$\\frac{d}{d\\tau}(g_{\\mu\\nu} S^{\\mu} S^{\\nu})$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "For a torque-free gyroscope moving along a worldline with 4-velocity $u^{\\mu}$ and 4-acceleration $a^{\\mu} = \\nabla_{\\mathbf{u}} u^{\\mu}$, the spin vector $S^{\\mu}$ satisfies the Fermi-Walker transport equation:$$\\nabla_{\\mathbf{u}} S^{\\mu} = u^{\\mu} (a_{\\nu} S^{\\nu})$$A physical spin vector must remain purely spatial in the gyroscope's local rest frame, imposing the orthogonality constraint $S^{\\mu} u_{\\mu} = 0$. Verify the physical consistency of this transport law by proving that it preserves the magnitude of the spin vector; specifically, show that $\\frac{d}{d\\tau}(g_{\\mu\\nu} S^{\\mu} S^{\\nu}) = 0$.",
+    "answer": "$0$",
+    "solution": "We compute the rate of change of the spin magnitude $|\\mathbf{S}|^{2} = g_{\\mu\\nu} S^{\\mu} S^{\\nu} = S^{\\mu} S_{\\mu}$ along the worldline:$$\\frac{d}{d\\tau}(S^{\\mu} S_{\\mu}) = (\\nabla_{\\mathbf{u}} S^{\\mu}) S_{\\mu} + S^{\\mu} (\\nabla_{\\mathbf{u}} S_{\\mu})$$**Step 1**: Substitute the Fermi-Walker transport equation for the first term:$$\\nabla_{\\mathbf{u}} S^{\\mu} = u^{\\mu}(a_{\\nu} S^{\\nu})$$Thus:$$(\\nabla_{\\mathbf{u}} S^{\\mu}) S_{\\mu} = (a_{\\nu} S^{\\nu})(u^{\\mu} S_{\\mu}) = 0$$where the last equality follows from the orthogonality constraint $S^{\\mu} u_{\\mu} = 0$.**Step 2**: Compute $\\nabla_{\\mathbf{u}} S_{\\mu}$ using metric compatibility ($\\nabla_{\\mathbf{u}} g_{\\mu\\alpha} = 0$):$$\\nabla_{\\mathbf{u}} S_{\\mu} = \\nabla_{\\mathbf{u}}(g_{\\mu\\alpha} S^{\\alpha}) = g_{\\mu\\alpha} \\nabla_{\\mathbf{u}} S^{\\alpha} = g_{\\mu\\alpha} u^{\\alpha}(a_{\\nu} S^{\\nu}) = u_{\\mu}(a_{\\nu} S^{\\nu})$$Thus:$$S^{\\mu}(\\nabla_{\\mathbf{u}} S_{\\mu}) = (a_{\\nu} S^{\\nu})(S^{\\mu} u_{\\mu}) = 0$$again by the orthogonality constraint.**Step 3**: Combining both terms:$$\\frac{d}{d\\tau}(S^{\\mu} S_{\\mu}) = 0 + 0 = 0$$This verifies that the Fermi-Walker transport law preserves the spin magnitude, which is physically required: a torque-free gyroscope should not change its intrinsic spin magnitude merely from being transported along a curved worldline."
+  },
+  "verification": null
+}

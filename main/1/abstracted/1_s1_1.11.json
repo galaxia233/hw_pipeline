@@ -1,0 +1,169 @@
+{
+  "metadata": {
+    "id": "1_s1_1.11",
+    "type": "concept",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.11",
+    "source_id": "1_s1_1.11",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.11"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.6,
+      "rationale": "经典狭义相对论圆轨道观测者时间膨胀悖论+惯性系与非惯性系双方法推导+理想化同步时钟情境",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\omega$",
+      "$\\\\phi$",
+      "$z$",
+      "$\\\\tau_\\\\mathrm{A}$",
+      "$\\\\tau_\\\\mathrm{E}$"
+    ],
+    "target": [
+      "$\\\\tau_\\\\mathrm{A}$",
+      "$\\\\tau_\\\\mathrm{E}$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.11. Two rings rotate with equal and opposite angular velocity $\\omega$ about a common center. Suppose Adam rides on one ring and Eve on the other, and that at some moment they pass each other and their clocks agree. At the moment they pass, Eve sees Adam's clock running more\\nslowly, so she expects to be ahead the next time they meet. But Adam expects just the reverse. What really happens? Can you reconcile this with Adam's (or Eve's) observations?",
+    "answer": "$\\\\tau_\\\\mathrm{A} = \\\\tau_\\\\mathrm{E}$（两人下次相遇时时钟读数完全相同）",
+    "solution": "Solution 1.11. By symmetry, the clocks must read the same the next time Adam and Eve meet. An easy way to see this is by considering proper time intervals in a coordinate system fixed to an inertial observer at rest.\\nIn polar coordinates\\n$$\\n- \\\\mathrm {d} r^{2} = - \\\\mathrm {d} t^{2} + \\\\mathrm {d} r^{2} + r^{2} \\\\mathrm {d} \\\\phi^{2} + \\\\mathrm {d} z^{2}. \\\\tag {1}\\n$$\\nThe coordinates of an instantaneously comoving inertial frame attached to Adam are $\\\\phi_{\\\\mathbf{A}} = \\\\omega t$ , with $\\\\mathbf{r}$ and $\\\\mathbf{z}$ constant, and the coordinates of Eve are $\\\\phi_{\\\\mathbf{E}} = -\\\\omega t$ , with $\\\\mathbf{r}$ and $\\\\mathbf{z}$ constant. Thus\\n$$\\n\\\\mathrm {d} \\\\tau_{\\\\mathbf {A}}^{2} = \\\\mathrm {d} \\\\tau_{\\\\mathbf {E}}^{2} = \\\\mathrm {d} t^{2} \\\\left(1 - r^{2} \\\\omega^{2}\\\\right) \\\\tag {2}\\n$$\\nand proper time intervals for Adam and Eve are identical.\\nA second method is to consider a noninertial coordinate system attached to Adam. He may define surfaces of simultaneity by extending hypersurfaces orthogonal to his world line, the distance between hypersurfaces being at equal intervals of his proper time. At points where his hypersurfaces intersect Eve's world line, her proper time $\\\\tau_{\\\\mathbf{E}}$ is read off and Adam can compute $\\\\tau_{\\\\mathbf{A}}$ as a function of $\\\\tau_{\\\\mathbf{E}}$ . One proceeds by determining the 4-vector $\\\\mathbf{w}$ which connects Adam's and Eve's world lines and which is orthogonal to Adam's 4-velocity:\\n$$\\n\\\\begin{array}{l} \\\\mathrm {t} = \\\\gamma \\\\tau_{\\\\mathbf {A}} \\\\\\\\ \\\\mathrm {x} = \\\\sin \\\\omega \\\\mathrm {t} = \\\\sin \\\\omega \\\\gamma \\\\tau_{\\\\mathbf {A}} \\\\\\\\ \\\\mathrm {y} = \\\\cos \\\\omega \\\\mathrm {t} = \\\\cos \\\\omega \\\\gamma \\\\tau_{\\\\mathbf {A}} \\\\\\\\ z = 0 \\\\end{array}\\n$$\\n$$\\n\\\\begin{array}{l} \\\\mathrm {t} = \\\\gamma \\\\tau_{\\\\mathrm {E}} \\\\\\\\ \\\\mathrm {x} = - \\\\sin \\\\omega \\\\mathrm {t} = - \\\\sin \\\\omega \\\\gamma \\\\tau_{\\\\mathrm {E}} \\\\\\\\ \\\\mathrm {y} = \\\\cos \\\\omega \\\\mathrm {t} = \\\\cos \\\\omega \\\\gamma \\\\tau_{\\\\mathrm {E}} \\\\\\\\ z = 0 \\\\end{array}\\n$$\\nwhere we have taken the ring to have unit radius. From these relations\\n$$\\nw \\\\equiv x_{A} - x_{E} = \\\\left[ \\\\gamma \\\\left(\\\\tau_{A} - \\\\tau_{E}\\\\right), \\\\sin \\\\omega \\\\gamma \\\\tau_{A} + \\\\sin \\\\omega \\\\gamma \\\\tau_{E}, \\\\cos \\\\omega \\\\gamma \\\\tau_{A} - \\\\cos \\\\omega \\\\gamma \\\\tau_{E}, 0 \\\\right]\\n$$\\n$$\\n\\\\mathbf {u}_{\\\\mathbf {A}} = (\\\\gamma , \\\\omega \\\\gamma \\\\cos \\\\omega \\\\gamma \\\\tau_{\\\\mathbf {A}}, - \\\\omega \\\\gamma \\\\sin \\\\omega \\\\gamma \\\\tau_{\\\\mathbf {A}}, 0)\\n$$\\nso that requiring $\\\\mathbf{w} \\\\cdot \\\\mathbf{u}_{\\\\mathbf{A}} = 0$ gives\\n$$\\n\\\\tau_{\\\\mathbf {A}} - \\\\tau_{\\\\mathbf {E}} = \\\\omega \\\\gamma^{- 1} \\\\sin \\\\left[ \\\\omega \\\\gamma \\\\left(\\\\tau_{\\\\mathbf {A}} + \\\\tau_{\\\\mathbf {E}}\\\\right) \\\\right]. \\\\tag {4}\\n$$\\nEquation (4) is transcendental for $\\\\tau_{\\\\mathbf{A}}(\\\\tau_{\\\\mathbf{E}})$ . One may easily see, however, that $\\\\tau_{\\\\mathbf{A}} = \\\\tau_{\\\\mathbf{E}}$ when\\n$$\\n\\\\sin 2 \\\\omega \\\\gamma \\\\tau_{\\\\mathbf {A}} = \\\\sin 2 \\\\omega t = 0, \\\\tag {5}\\n$$\\ni.e. whenever Adam's and Eve's world lines cross."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

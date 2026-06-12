@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-4-8",
+    "type": "calculate",
+    "tags": {
+      "target_object": "Conserved_Energy",
+      "coordinate": "static_patch",
+      "scenario": "cosmology_reduce_local_flat",
+      "method": "limit_approximation",
+      "generalization_axis": "limit",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-4",
+      "1_s10_10.11-4-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "DeSitter",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$E_{\\text{classical}}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，De Sitter 类静态宇宙度规为：$$ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}}(dx^2 + dy^2 + dz^2)$$其中 $\\alpha$ 为常数。该时空具有类时 Killing 矢量 $\\xi^{\\mu} = (1, 0, 0, 0)$，对应的 Einstein 张量为 $G_{00} = -\\frac{e^{-\\frac{2x}{\\alpha}}}{\\alpha^2}$，$G_{11} = \\frac{1}{\\alpha^2}$。设物质场能动张量 $T_{\\mu\\nu} = \\frac{1}{8\\pi} G_{\\mu\\nu}$。根据守恒流 $J^{\\mu} = T^{\\mu\\nu} \\xi_{\\nu}$ 的物理意义，推导可得在坐标范围 $x \\in [0, L], y \\in [0, L], z \\in [0, L]$ 的空间区域中，系统的总守恒能量精确表达式为：$$E = -\\frac{L^2}{8\\pi\\alpha} \\left( e^{\\frac{L}{\\alpha}} - 1\\right)$$请将上述 GR 语境下的复杂结果，取局部平直近似极限 $L/\\alpha \\to 0$（即空间尺度远小于曲率尺度，度规的非均匀弯曲效应可忽略，时空退化为局部惯性系），求总守恒能量 $E$ 回到的经典对应表达式。",
+    "answer": "在局部平直近似极限 $L/\\alpha \\to 0$ 下，对指数项进行泰勒展开：$e^{\\frac{L}{\\alpha}} - 1 \\approx \\frac{L}{\\alpha}$。代入原式得：$$E \\approx -\\frac{L^2}{8\\pi\\alpha} \\cdot \\frac{L}{\\alpha} = -\\frac{L^3}{8\\pi\\alpha^2}$$这一经典对应结果反映了在局部惯性系中，时空弯曲导致的非均匀性消失，能量密度近似为常数 $\\rho_0 = -\\frac{1}{8\\pi\\alpha^2}$，固有体积近似为 $V \\approx L^3$，总能量即为局部能量密度与固有体积的乘积 $E = \\rho_0 V$。",
+    "solution": null
+  },
+  "verification": null
+}

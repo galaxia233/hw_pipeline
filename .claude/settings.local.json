@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(rm -rf variants/*)",
-      "Bash(python main.py generate test.json --num 3 -o ./variants)"
+      "Bash(python main.py generate test.json --num 3 -o ./variants)",
+      "Bash(pip list *)",
+      "Bash(Select-String -Pattern \"pdf|PyPDF|pikepdf|fitz|poppler\")"
     ]
   }
 }

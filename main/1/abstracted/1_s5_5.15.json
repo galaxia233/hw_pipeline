@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s5_5.15",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "Cartesian_coordinate",
+      "scenario": "isolated_physical_system",
+      "method": "conservation_law_divergence"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.15",
+    "source_id": "1_s5_5.15",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.15"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于能动张量守恒的导数转换与高斯定理结合，需多步张量运算及边界条件处理",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^i$",
+      "$T^{00}$",
+      "$T^{ij}$",
+      "\\delta^i_j"
+    ],
+    "target": [
+      "$T^{ij}$",
+      "$T^{00}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.15. Show that in special relativity the stress-energy of an isolated physical system of finite extent obeys the tensor virial theorem$$\\int \\mathrm {T}^{\\mathrm {i j}} \\mathrm {d}^{3} \\mathbf {x} = \\frac {1}{2} \\frac {\\mathrm {d}^{2}}{\\mathrm {d t}^{2}} \\int \\mathrm {T}^{0 0} \\mathbf {x}^{\\mathrm {i}} \\mathbf {x}^{\\mathrm {j}} \\mathrm {d}^{3} \\mathbf {x}.$$",
+    "answer": "$\\int T^{ij} d^3x = \\frac{1}{2} \\frac{d^2}{dt^2} \\int T^{00} x^i x^j d^3x$",
+    "solution": "Solution 5.15. The technique here is to use the equations of motion $(\\mathbf{T}^{\\mu \\nu}, \\nu = 0)$ to convert first derivative terms to divergences and then, by Gauss's theorem, to vanishing surface integrals outside the system. By repeated use of the equations of motion we have$$\\mathrm {T}_{, 0 0}^{0 0} = - \\mathrm {T}_{, \\mathrm {k} 0}^{0 \\mathrm {k}} = - \\mathrm {T}_{, 0 \\mathrm {k}}^{\\mathrm {k} 0} = \\mathrm {T}_{, \\mathrm {mk}}^{\\mathrm {km}}.$$Now multiply by $\\mathbf{x}^i\\mathbf{x}^j$$$\\begin{array}{l} \\left(\\mathbf {x}^{\\mathrm {i}} \\mathbf {x}^{\\mathrm {j}} \\mathbf {T}^{0 0}\\right)_{, 0 0} = \\mathbf {x}^{\\mathrm {i}} \\mathbf {x}^{\\mathrm {j}} \\left(\\mathbf {T}^{\\mathrm {km}}\\right)_{, \\mathrm {km}} \\\\ = \\left(\\mathrm {T}^{\\mathrm {km}} \\mathrm {x}^{\\mathrm {i}} \\mathrm {x}^{\\mathrm {j}}\\right)_{\\mathrm {,km}} - 2 \\left(\\mathrm {x}^{\\mathrm {i}} \\mathrm {x}^{\\mathrm {j}}\\right)_{\\mathrm {,k}} \\mathrm {T}^{\\mathrm {km}}_{\\mathrm {,m}} - \\mathrm {T}^{\\mathrm {km}} \\left(\\mathrm {x}^{\\mathrm {i}} \\mathrm {x}^{\\mathrm {j}}\\right)_{\\mathrm {,km}} \\\\ = \\left(\\mathrm {T}^{\\mathrm {km}} \\mathrm {x}^{\\mathrm {i}} \\mathrm {x}^{\\mathrm {j}}\\right)_{\\mathrm {,km}} - 2 \\left(\\mathrm {x}^{\\mathrm {j}} \\mathrm {T}^{\\mathrm {im}}_{\\mathrm {,m}} + \\mathrm {x}^{\\mathrm {i}} \\mathrm {T}^{\\mathrm {jm}}_{\\mathrm {,m}}\\right) - 2 \\mathrm {T}^{\\mathrm {ij}}. \\\\ \\end{array}$$The first derivative terms can be simplified, e.g.$$\\mathbf {x}^{\\mathrm {j}} \\mathbf {T}_{, \\mathrm {m}}^{\\mathrm {im}} = (\\mathbf {x}^{\\mathrm {j}} \\mathbf {T}^{\\mathrm {im}})_{, \\mathrm {m}} - \\delta_{\\mathrm {m}}^{\\mathrm {j}} \\mathbf {T}^{\\mathrm {im}} .$$If we make this simplification, integrate over all space, and ignore all divergences which can be converted to vanishing surface integrals we see$$\\begin{array}{l} \\frac {d^{2}}{d t^{2}} \\int x^{i} x^{j} T^{0 0} d^{3} x = \\int [ 0 - 2 (- T^{ij} - T^{ij}) - 2 T^{ij} ] d^{3} x \\\\ = 2 \\int T^{ij} d^{3} x. \\\\ \\end{array}$$"
+  },
+  "verification": null
+}

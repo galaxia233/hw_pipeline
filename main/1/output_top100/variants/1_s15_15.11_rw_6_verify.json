@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-0-4-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "Kretschmann scalar and singularity location",
+      "coordinate": "Carter-like coordinates",
+      "scenario": "Curvature analysis on symmetric plane verify",
+      "method": "evaluate curvature scalar limits verify",
+      "generalization_axis": "verify",
+      "metric": "CMetric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-0",
+      "1_s15_15.11-0-4",
+      "1_s15_15.11-0-4-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "CMetric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "phi"
+    ],
+    "target": [
+      "Kretschmann标量展开项的错误",
+      "物理奇点位置的判断"
+    ],
+    "metric": [
+      [
+        "-h(y)/(x + y)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1/((x + y)**2*f(x))",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/((x + y)**2*h(y))",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "f(x)/(x + y)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在由度规 $ds^2 = -\\frac{h(y)}{(x+y)^2} dt^2 + \\frac{1}{(x+y)^2 f(x)} dx^2 + \\frac{1}{(x+y)^2 h(y)} dy^2 + \\frac{f(x)}{(x+y)^2} d\\phi^2$ 描述的四维时空中，度规分量在 $x+y=0$、$f(x)=0$ 及 $h(y)=0$ 处出现奇异。为了判断这些度规奇异的物理本质，我们考察对称面 $y = \\pi/2$ 上的 Kretschmann 标量 $K = R_{abcd}R^{abcd}$。已知在该平面上，$K$ 的表达式包含分母因子 $(x+y)^{12}$、$f(x)^2$ 与 $h(y)^2$ 等。以下是一段关于 $K$ 的展开计算及奇点分析的推导，其中包含若干物理或代数错误。请找出并修正推导中的所有错误。推导过程：由对角度规，Riemann 张量指标的升起可简化为 $R^{abcd} = g^{aa} g^{bb} g^{cc} g^{dd} R_{abcd}$。在对称面 $y = \\pi/2$ 上，我们将计算展开为以下主要项：第一项：$R_{0101} R^{0101} = g^{00} g^{11} (R_{0101})^2$。代入度规逆分量 $g^{00} = -(x+\\pi/2)^2 / h(\\pi/2)$ 和 $g^{11} = (x+\\pi/2)^2 f(x)$，计算得到该项最终化简为 $\\frac{f(x)}{8 h(\\pi/2)}$。第二项：$R_{0202} R^{0202} = g^{00} g^{22} (R_{0202})^2$。代入 $g^{00} = -(x+\\pi/2)^2 / h(\\pi/2)$ 和 $g^{22} = (x+\\pi/2)^2 h(\\pi/2)$，计算化简为 $-\\frac{1}{8 f(x)}$。第四项：$R_{1212} R^{1212} = g^{11} g^{22} (R_{1212})^2$。代入 $g^{11} = (x+\\pi/2)^2 f(x)$ 和 $g^{22} = (x+\\pi/2)^2 h(\\pi/2)$，计算化简为 $\\frac{1}{16 f(x)^2}$。第六项：$R_{1313} R^{1313} = g^{11} g^{33} (R_{1313})^2$。代入 $g^{11} = (x+\\pi/2)^2 f(x)$ 和 $g^{33} = (x+\\pi/2)^2 / f(x)$，计算化简为 $\\frac{1}{16 h(\\pi/2)^2}$。第八项：$R_{0303} R^{0303} = g^{00} g^{33} (R_{0303})^2$。代入 $g^{00} = -(x+\\pi/2)^2 / h(\\pi/2)$ 和 $g^{33} = (x+\\pi/2)^2 / f(x)$，计算化简为 $\\frac{1}{8 (2x+\\pi)^{12} h(\\pi/2)}$。基于以上计算，当 $f(x) \\to 0$ 时，第二项和第四项趋于无穷，故 $f(x)=0$ 为内禀物理奇点；当 $h(\\pi/2) \\to 0$ 时，第一项 $\\frac{f(x)}{8 h(\\pi/2)}$ 由于分子含 $f(x)$ 可能趋于零，但第六项趋于无穷，故 $h(y)=0$ 为内禀物理奇点；当 $x+y \\to 0$ 时，第八项分母趋于零，故 $x+y=0$ 为内禀物理奇点。",
+    "answer": "1. 第一项：表达式 $\\frac{f(x)}{8 h(\\pi/2)}$，错误类型：度规分量错误引用/化简错误。正确值：分子不含 $f(x)$，应为 $\\frac{1}{8 h(\\pi/2)}$。2. 第二项：表达式 $-\\frac{1}{8 f(x)}$，错误类型：sign error 与 missing factor。正确值：符号应为正，且分子应包含 $h(\\pi/2)$，即 $\\frac{h(\\pi/2)}{8 f(x)}$。3. 第四项：表达式 $\\frac{1}{16 f(x)^2}$，错误类型：factor error。正确值：分母系数应为 32，即 $\\frac{1}{32 f(x)^2}$。4. 第六项：表达式 $\\frac{1}{16 h(\\pi/2)^2}$，错误类型：factor error。正确值：分母系数应为 32，即 $\\frac{1}{32 h(\\pi/2)^2}$。5. 第八项：表达式 $\\frac{1}{8 (2x+\\pi)^{12} h(\\pi/2)}$，错误类型：变量混淆错误。正确值：分母应为 $f(x)$ 而不是 $h(\\pi/2)$，且分子应包含 $h(\\pi/2)$，即 $\\frac{h(\\pi/2)}{8 (2x+\\pi)^{12} f(x)}$。6. 结论分析：认为第一项在 $h(\\pi/2) \\to 0$ 时“可能趋于零”，错误类型：逻辑推理错误（由错误1导致）。正确值：修正后的第一项在 $h(\\pi/2) \\to 0$ 时必然发散。",
+    "solution": null
+  },
+  "verification": null
+}

@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s15_15.15",
+    "type": "prove",
+    "tags": {
+      "metric": "kruskal-coordinates",
+      "target_object": "schwarzschild-geometry",
+      "coordinate": "embedding-theorem",
+      "scenario": "spacelike-slice",
+      "method": "differential-geometry"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s15_15.15",
+    "source_id": "1_s15_15.15",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s15_15.15"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基于Kruskal度规的多步微分几何推导结合隐函数不等式分析时空切片嵌入条件",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$u$",
+      "$v$",
+      "$r$",
+      "$\\phi$",
+      "$z$",
+      "$M$"
+    ],
+    "target": [
+      "$\\frac{dz}{dr}$",
+      "$\\frac{dv}{du}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s15_15.15.md]15.15. Show that the spacelike slice $\\mathbf{v} = \\text{constant}(|\\mathbf{v}| > 1)$ of the Schwarzschild geometry in Kruskal coordinates $\\mathbf{u}, \\mathbf{v}$ cannot be embedded in a Euclidean 3-space. What is the general condition on the slope $\\mathrm{dv} / \\mathrm{du}$ of a spacelike slice of the Schwarzschild geometry that allows it to be embedded in a Euclidean 3-space?",
+    "answer": "对于 $|v|>1$，当 $r < 2M \\ln v^2$ 时嵌入失效。广义嵌入条件为 $\\frac{r}{2 M} e^{r / 2 M}\\left[1-(\\mathrm{dv} / \\mathrm{du})^{2}\\right] \\geq\\left(\\mathrm{u}-\\mathrm{v} \\frac{\\mathrm{dv}}{\\mathrm{du}}\\right)^{2}$。",
+    "solution": "Solution 15.15. In Kruskal coordinates, the Schwarzschild geometry is given by$$\\mathrm {d s}^{2} = \\frac {3 2 M^{3}}{\\mathrm {r}} \\mathrm {e}^{- \\mathrm {r} / 2 \\mathrm {M}} (- \\mathrm {d v}^{2} + \\mathrm {d u}^{2}) + \\mathrm {r}^{2} \\mathrm {d} \\Omega^{2} \\tag {1a}$$where$$\\left(\\frac {\\mathrm {r}}{2 \\mathrm {M}} - 1\\right) \\mathrm {e}^{\\mathrm {r} / 2 \\mathrm {M}} = \\mathrm {u}^{2} - \\mathrm {v}^{2}. \\tag {1b}$$Setting $\\mathbf{v} = \\mathbf{\\theta}$ constant, and $\\theta = \\pi /2$ in Equation (1a) and equating the line element to a Euclidean surface of revolution gives$$\\frac {3 2 \\mathrm {M}^{3}}{\\mathrm {r}} \\mathrm {e}^{- \\mathrm {r} / 2 \\mathrm {M}} \\mathrm {d u}^{2} + \\mathrm {r}^{2} \\mathrm {d} \\phi^{2} = [ 1 + (\\mathrm {d z} / \\mathrm {d r})^{2} ] \\mathrm {d r}^{2} + \\mathrm {r}^{2} \\mathrm {d} \\phi^{2} \\tag {2}$$or$$1 + \\left(\\frac {\\mathrm {d} z}{\\mathrm {d r}}\\right)^{2} = \\frac {3 2 \\mathrm {M}^{3}}{\\mathrm {r}} \\mathrm {e}^{- \\mathrm {r} / 2 \\mathrm {M}} \\left(\\frac {\\mathrm {d u}}{\\mathrm {d r}}\\right)^{2}.$$We can calculate du/dr from Equation (1b) to arrive at$$1 + \\left(\\frac {\\mathrm {d} z}{\\mathrm {d r}}\\right)^{2} = \\frac {\\mathrm {r}}{2 \\mathrm {M}} \\frac {\\mathrm {e}^{\\mathrm {r} / 2 \\mathrm {M}}}{(\\mathrm {r} / 2 \\mathrm {M} - 1) \\mathrm {e}^{\\mathrm {r} / 2 \\mathrm {M}} + \\mathrm {v}^{2}}. \\tag {3}$$For embedding, $z$ must be a real function, so we must have$$\\frac {\\mathrm {r} / 2 \\mathrm {M} \\mathrm {e}^{\\mathrm {r} / 2 \\mathrm {M}}}{(\\mathrm {r} / 2 \\mathrm {M} - 1) \\mathrm {e}^{\\mathrm {r} / 2 \\mathrm {M}} + \\mathrm {v}^{2}} \\geq 1. \\tag {4}$$From Equation (4), we conclude$$r / 2 M \\geq \\log v^{2}.$$Thus, for $|v| > 1$ , there will be a minimum value of $r$ inside which the embedding breaks down.Geometrically, the necessary condition for embedding is that$$\\frac {\\mathrm {d} (\\text {c i r c u m f e r e n c e})}{\\mathrm {d} (\\text {p r o p e r r a d i u s})} \\leq 2 \\pi .$$We now consider the general condition on dv/du which allows Euclidean embedding: Suppose we have a slice described by $\\mathbf{v}(\\mathbf{u})$ . Then$$\\begin{array}{l} \\mathrm {d s}^{2} = \\frac {3 2 \\mathrm {M}^{3}}{\\mathrm {r}} \\mathrm {e}^{- \\mathrm {r} / 2 \\mathrm {M}} \\left[ 1 - \\left(\\frac {\\mathrm {d v}}{\\mathrm {d u}}\\right)^{2}\\right] \\mathrm {d u}^{2} + \\mathrm {r}^{2} \\mathrm {d} \\phi^{2} \\tag {6} \\\\ = \\frac {3 2 M^{3}}{r} e^{- r / 2 M} \\left[ 1 - \\left(\\frac {d v}{d u}\\right)^{2}\\right] \\left[ \\frac {(r / 8 M^{2}) e^{r / 2 M}}{(u - v \\frac {d v}{d u})}\\right]^{2} d r^{2} + r^{2} d \\phi^{2} \\\\ \\end{array}$$and we require$$\\frac {\\mathrm {r}}{2 \\mathrm {M}} \\mathrm {e}^{\\mathrm {r} / 2 \\mathrm {M}} \\left[ 1 - \\left(\\frac {\\mathrm {d v}}{\\mathrm {d u}}\\right)^{2}\\right] \\geq \\left(\\mathrm {u} - \\mathrm {v} \\frac {\\mathrm {d v}}{\\mathrm {d u}}\\right)^{2} \\tag {7}$$at each r."
+  },
+  "verification": null
+}

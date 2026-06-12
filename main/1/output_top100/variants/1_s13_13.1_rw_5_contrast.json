@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "id": "1_s13_13.1-6-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "修正场方程 00 分量中参数 α 的作用对比",
+      "coordinate": [
+        "t",
+        "r",
+        "theta",
+        "phi"
+      ],
+      "scenario": "cosmology_vacuum_contrast",
+      "method": "tensor_calculation_contrast",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s13_13.1",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.1",
+      "1_s13_13.1-6",
+      "1_s13_13.1-6-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "参数 α 在修正场方程中的物理约束与真空免疫性"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑修正的引力场方程 $R_{\\mu\\nu} - \\alpha g_{\\mu\\nu} R = 8\\pi T_{\\mu\\nu}$（其中 $\\alpha$ 为常数）。请在以下两种物理背景下分别推导该场方程的 00 分量方程：背景 A（宇宙学演化）：FLRW 度规$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$$假设宇宙充满完美流体，能动张量为 $T_{\\mu\\nu} = (\\rho+p)u_\\mu u_\\nu + p g_{\\mu\\nu}$，在共动坐标系下 $T_{00} = \\rho$。背景 B（静态真空）：Schwarzschild 度规$$ds^2 = \\frac{-(r-r_s)}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$外部为真空区域，能动张量 $T_{\\mu\\nu} = 0$。推导完成后，请对比两种背景下参数 $\\alpha$ 对 00 分量方程的影响差异：在背景 A 中，为了使修正的 Friedmann 方程不包含宇宙膨胀的加速度项 $\\ddot{a}$（即退化为纯粹的能量约束方程），$\\alpha$ 必须取何值？在背景 B 中，$\\alpha$ 是否对 00 分量方程产生任何影响？从真空与非真空时空曲率的角度解释这一差异的物理含义。",
+    "answer": "在背景 A (FLRW) 中，修正场方程的 00 分量为 $R_{00} - \\alpha g_{00} R = 8\\pi T_{00}$。代入 FLRW 度规的 $R_{00} = -3\\frac{\\ddot{a}}{a}$，$R = \\frac{6(k + a\\ddot{a} + \\dot{a}^2)}{a^2}$ 及 $g_{00} = -1$，可得：$$8\\pi\\rho = -3\\frac{\\ddot{a}}{a} + \\alpha \\frac{6(k + a\\ddot{a} + \\dot{a}^2)}{a^2} = \\frac{6\\alpha k}{a^2} + \\frac{6\\alpha \\dot{a}^2}{a^2} + (6\\alpha - 3)\\frac{\\ddot{a}}{a}$$要使该方程不包含加速度项 $\\ddot{a}$，则需 $6\\alpha - 3 = 0$，即 $\\alpha = \\frac{1}{2}$。在背景 B (Schwarzschild) 中，由于是真空解，Ricci 张量和 Ricci 标量均为零：$R_{00} = 0$，$R = 0$。代入修正场方程 00 分量：$$0 - \\alpha g_{00} \\cdot 0 = 8\\pi \\cdot 0 \\implies 0 = 0$$参数 $\\alpha$ 在方程中完全消失，对 Schwarzschild 真空解没有任何影响。对比与物理含义：在 FLRW 时空中（充满物质），Ricci 标量 $R \\neq 0$，修正项 $\\alpha g_{\\mu\\nu} R$ 会对场方程产生实质性的贡献，引入虚假的动力学项（如 $\\ddot{a}$），必须通过严格限制 $\\alpha = \\frac{1}{2}$ 才能与标准物理一致。而在 Schwarzschild 真空时空中，由于 $R = 0$，修正项 $\\alpha g_{\\mu\\nu} R$ 自动为零，对真空时空的场方程毫无影响。这表明修改场方程的迹部分（与 $R$ 成正比的项）仅在存在物质分布、导致时空具有非零 Ricci 标量的区域才起作用；对于无物质的真空区域，此类修正完全不可见，真空解对 $\\alpha$ 的取值具有免疫性。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

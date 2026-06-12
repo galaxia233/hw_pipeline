@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "expansion scalar",
+      "coordinate": "comoving",
+      "scenario": "cosmology",
+      "method": "covariant derivative",
+      "generalization_axis": "extend",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "3H"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Consider the Friedmann-Lemaitre-Robertson-Walker (FLRW) cosmological metric:$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2(\\theta) d\\phi^2$$where $a(t)$ is the scale factor and $k$ is the spatial curvature parameter. The fundamental observers comoving with the cosmic expansion are described by the 4-velocity vector field $u^\\mu = (1, 0, 0, 0)$. The expansion scalar $\\theta$, which characterizes the rate of volume expansion of this congruence of worldlines, is defined as the covariant divergence of the 4-velocity: $\\theta = u^\\mu_{;\\mu}$. Using the Christoffel symbols $\\Gamma^i_{jk}$ for this metric, derive the expression for the expansion scalar and prove that $\\theta = 3H$, where $H = \\frac{\\dot{a}(t)}{a(t)}$ is the Hubble parameter.",
+    "answer": "$\\theta = 3H$",
+    "solution": "The expansion scalar is defined as $\\theta = u^\\mu_{;\\mu}$. Expanding the covariant derivative, we have:$$ \\theta = \\partial_\\mu u^\\mu + \\Gamma^\\mu_{\\mu \\alpha} u^\\alpha $$Since the components of the comoving 4-velocity $u^\\mu = (1, 0, 0, 0)$ are constants in these coordinates, the partial derivative term vanishes: $\\partial_\\mu u^\\mu = 0$. Thus, the expression simplifies to:$$ \\theta = \\Gamma^\\mu_{\\mu \\alpha} u^\\alpha $$Because $u^\\alpha$ is only non-zero for $\\alpha = 0$, the sum reduces to:$$ \\theta = \\Gamma^0_{00} + \\Gamma^1_{10} + \\Gamma^2_{20} + \\Gamma^3_{30} $$From the metric component $g_{00} = -1$ being constant, we have $\\Gamma^0_{00} = 0$. From the provided Christoffel symbols for the FLRW metric, the non-zero components are:$$ \\Gamma^1_{10} = \\frac{\\frac{d}{dt} a(t)}{a(t)} $$$$ \\Gamma^2_{20} = \\frac{\\frac{d}{dt} a(t)}{a(t)} $$$$ \\Gamma^3_{30} = \\frac{\\frac{d}{dt} a(t)}{a(t)} $$Substituting these values, we get:$$ \\theta = 0 + \\frac{\\frac{d}{dt} a(t)}{a(t)} + \\frac{\\frac{d}{dt} a(t)}{a(t)} + \\frac{\\frac{d}{dt} a(t)}{a(t)} = 3 \\frac{\\frac{d}{dt} a(t)}{a(t)} $$By definition, the Hubble parameter is $H = \\frac{\\dot{a}(t)}{a(t)}$, so the expansion scalar is $\\theta = 3H$."
+  },
+  "verification": null
+}

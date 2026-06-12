@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s13_13.1-2-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "Newtonian limit of cosmological constant",
+      "coordinate": "Newtonian weak-field",
+      "scenario": "verify derivation",
+      "method": "weak-field approximation",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.1",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.1",
+      "1_s13_13.1-2",
+      "1_s13_13.1-2-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$a$",
+      "$R_{\\mu \\nu}$",
+      "$g_{\\mu \\nu}$",
+      "$R$",
+      "$T_{\\mu \\nu}$",
+      "$\\rho$",
+      "$v$"
+    ],
+    "target": [
+      "校验含宇宙学常数的牛顿极限泊松方程推导中的错误"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在宇宙学中，宇宙学常数 $\\Lambda$ 通常被解释为真空的能量密度。将真空能量分离出来后，爱因斯坦场方程可写为：$$R_{\\mu\\nu} - \\frac{1}{2} g_{\\mu\\nu} R - \\Lambda g_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$$在弱场低速的牛顿极限下，时空度规可近似为 $ds^2 = -(1+2\\Phi)dt^2 + (1-2\\Phi)(dx^2+dy^2+dz^2)$，其中 $\\Phi$ 为牛顿引力势，满足 $|\\Phi| \\ll 1$。某同学对该场方程取牛顿极限的推导如下：『将场方程取00分量：$$G_{00} - \\Lambda g_{00} = 8\\pi T_{00}$$在弱场静态牛顿极限下，代入已知近似：1. Einstein 张量的00分量：$G_{00} \\approx \\nabla^2\\Phi$；2. 度规的时间分量：由 $ds^2 = -(1+2\\Phi)dt^2 + ...$，略去小量 $\\Phi$，得 $g_{00} \\approx +1$；3. 物质能动张量的00分量：$T_{00} \\approx \\rho$。将上述近似代入方程：$$\\nabla^2\\Phi - \\Lambda(+1) = 8\\pi \\rho$$移项整理得：$$\\nabla^2\\Phi = 8\\pi \\rho + \\Lambda$$为与标准泊松方程 $\\nabla^2\\Phi = 4\\pi \\rho_{eff}$ 对比，将右侧提取 $4\\pi$ 因子：$$\\nabla^2\\Phi = 4\\pi \\left( \\rho + \\frac{\\Lambda}{4\\pi}\\right)$$由此可得，正的宇宙学常数（$\\Lambda > 0$）对应的有效质量密度为 $\\rho_{\\Lambda} = \\frac{\\Lambda}{4\\pi}$。』已知正确的物理结论是：正的宇宙学常数在经典牛顿引力框架下产生排斥力，对应负的有效质量密度。请找出上述推导中的所有错误，指明其位置、错误类型，并给出正确值。",
+    "answer": "推导中存在以下4个错误：1. 位置：步骤1 \"$G_{00} \\approx \\nabla^2\\Phi$\"。错误类型：系数遗漏（Factor error）。正确值：$G_{00} \\approx 2\\nabla^2\\Phi$。2. 位置：步骤2 \"得 $g_{00} \\approx +1$\"。错误类型：符号错误（Sign error）。正确值：$g_{00} \\approx -1$。3. 位置：步骤 \"将右侧提取 $4\\pi$ 因子：$\\nabla^2\\Phi = 4\\pi \\left( \\rho + \\frac{\\Lambda}{4\\pi}\\right)$\"。错误类型：系数遗漏（Factor error）。正确值：$8\\pi\\rho$ 提取 $4\\pi$ 后应为 $2\\rho$，提取后的表达式应为 $4\\pi \\left( 2\\rho + \\frac{\\Lambda}{4\\pi}\\right)$（注：此处仅指代数提取错误；修正前述物理错误后，正确的最终等式应为 $\\nabla^2\\Phi = 4\\pi \\left( \\rho - \\frac{\\Lambda}{8\\pi}\\right)$）。4. 位置：结论 \"$\\rho_{\\Lambda} = \\frac{\\Lambda}{4\\pi}$\"。错误类型：系数与符号错误（Factor & Sign error）。正确值：$\\rho_{\\Lambda} = -\\frac{\\Lambda}{8\\pi}$。",
+    "solution": "将包含宇宙学常数的爱因斯坦场方程取00分量：$$G_{00} - \\Lambda g_{00} = 8\\pi T_{00}$$在弱场静态牛顿极限下，代入已知近似：1. Einstein 张量分量：$G_{00} \\approx 2\\nabla^2\\Phi$2. 度规时间分量：$ds^2 = -(1+2\\Phi)dt^2 + ...$，略去小量 $\\Phi$，得 $g_{00} \\approx -1$3. 物质能动张量分量：$T_{00} \\approx \\rho$代入近似：$$2\\nabla^2\\Phi - \\Lambda(-1) = 8\\pi \\rho$$$$2\\nabla^2\\Phi + \\Lambda = 8\\pi \\rho$$$$\\nabla^2\\Phi = 4\\pi \\rho - \\frac{\\Lambda}{2} = 4\\pi \\left( \\rho - \\frac{\\Lambda}{8\\pi}\\right)$$与标准泊松方程 $\\nabla^2\\Phi = 4\\pi \\rho_{eff}$ 对比，可知宇宙学常数对应的等效质量密度为 $\\rho_{\\Lambda} = -\\frac{\\Lambda}{8\\pi}$。当 $\\Lambda > 0$ 时，$\\rho_{\\Lambda} < 0$，产生排斥力。"
+  },
+  "verification": null
+}

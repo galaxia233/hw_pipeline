@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s7_7.15_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric_inferred_minkowski",
+      "target_object": "target_minimum_relative_speed",
+      "coordinate": "coordinate_earth_inertial_frame",
+      "scenario": "scenario_interstellar_rocket_maneuver",
+      "method": "method_velocity_space_geometric_optimization"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.15_b",
+    "source_id": "1_s7_7.15_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.15_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.7,
+      "realism": 0.8,
+      "rationale": "速度空间几何极值问题，结合火箭最优推力变轨背景，结构可迁移至相对论推进与任意维度运动学场景",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathbf{v}_1$",
+      "$\\\\mathbf{v}_2$",
+      "$c$"
+    ],
+    "target": [
+      "$v_{\\\\min}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "# Problem 7.15.\\n(b) A rocket ship in interstellar space with velocity $\\underline{\\mathbf{v}}_1$ (with respect to the earth) changes its velocity to a new velocity $\\underline{\\mathbf{v}}_2$ , in a manner that uses up the least fuel. What is the ship's smallest velocity relative to earth during the change?",
+    "answer": "$v_{\\\\min} = \\\\frac{|\\\\mathbf{v}_1 \\\\times \\\\mathbf{v}_2|}{|\\\\mathbf{v}_2 - \\\\mathbf{v}_1|}$",
+    "solution": null
+  },
+  "verification": null
+}

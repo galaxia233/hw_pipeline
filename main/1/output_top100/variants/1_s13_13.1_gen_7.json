@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s13_13.1-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "Newtonian limit of geodesic equation",
+      "coordinate": "Schwarzschild",
+      "scenario": "black hole",
+      "method": "limit_expansion",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.1",
+      "1_s13_13.1-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\frac{d^{2} r}{d t^{2}} = -\\frac{r_{s}}{2 r^{2}}$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，合理的引力理论必须在弱场和低速条件下还原为牛顿引力。考虑 Schwarzschild 黑洞度规：$$ds^{2} = \\frac{-r+r_{s}}{r} dt^{2} + \\frac{r}{r-r_{s}} dr^{2} + r^{2} d\\theta^{2} + r^{2} \\sin^{2}(\\theta) d\\phi^{2}$$其中 $r_{s} = 2M$ 为 Schwarzschild 半径。请证明：对于沿径向自由下落的粒子，在远距离弱场极限（$r \\gg r_{s}$）和低速极限（$dr/dt \\ll 1$）下，其测地线方程退化为经典的牛顿引力加速度形式 $\\frac{d^{2} r}{d t^{2}} = -\\frac{r_{s}}{2 r^{2}}$。",
+    "answer": "证明了在弱场低速极限下，径向测地线方程退化为 $\\frac{d^{2} r}{d t^{2}} = -\\frac{r_{s}}{2 r^{2}}$",
+    "solution": "对于径向自由下落粒子，测地线方程为：$$\\frac{d^{2} r}{d \\tau^{2}} + \\Gamma^{r}_{t t} \\left(\\frac{d t}{d \\tau}\\right)^{2} + \\Gamma^{r}_{r r} \\left(\\frac{d r}{d \\tau}\\right)^{2} = 0$$在低速极限下，空间速度远小于时间速度，即 $\\frac{d r}{d \\tau} \\ll \\frac{d t}{d \\tau}$，因此包含 $\\left(\\frac{d r}{d \\tau}\\right)^{2}$ 的项可以作为高阶小量忽略。方程简化为：$$\\frac{d^{2} r}{d \\tau^{2}} + \\Gamma^{r}_{t t} \\left(\\frac{d t}{d \\tau}\\right)^{2} = 0$$由度规给出的 Christoffel 符号为：$$\\Gamma^{r}_{t t} = \\frac{r_{s} (r - r_{s})}{2 r^{3}}$$在弱场极限 $r \\gg r_{s}$ 下，对该 Christoffel 符号作零级近似，保留主导项：$$\\Gamma^{r}_{t t} \\approx \\frac{r_{s} r}{2 r^{3}} = \\frac{r_{s}}{2 r^{2}}$$同时，在弱场低速极限下，固有时间 $\\tau$ 与坐标时间 $t$ 近似相等。由类时条件 $g_{t t} \\left(\\frac{d t}{d \\tau}\\right)^{2} \\approx -1$，且 $g_{t t} \\approx -1$，可得 $\\frac{d t}{d \\tau} \\approx 1$，且 $\\frac{d^{2} r}{d \\tau^{2}} \\approx \\frac{d^{2} r}{d t^{2}}$。代入测地线方程得：$$\\frac{d^{2} r}{d t^{2}} + \\frac{r_{s}}{2 r^{2}} \\times 1^{2} = 0$$即：$$\\frac{d^{2} r}{d t^{2}} = -\\frac{r_{s}}{2 r^{2}}$$这正好对应于牛顿引力势 $\\Phi = -\\frac{r_{s}}{2 r} = -\\frac{M}{r}$ 所产生的经典加速度，验证了度规几何在极限下与牛顿引力的自洽性。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "solution 中从 $\\frac{dt}{d\\tau} \\approx 1$ 直接推导出 $\\frac{d^{2} r}{d \\tau^{2}} \\approx \\frac{d^{2} r}{d t^{2}}$ 存在严重的逻辑跳跃和遗漏关键步骤。数学上，$\\frac{d^2r}{d\\tau^2} = \\frac{d}{d\\tau}(\\frac{dr}{dt}\\frac{dt}{d\\tau}) = (\\frac{dt}{d\\tau})^2 \\frac{d^2r}{dt^2} + \\frac{dr}{dt} \\frac{d^2t}{d\\tau^2}$。要得出 $\\frac{d^2r}{d\\tau^2} \\approx \\frac{d^2r}{dt^2}$，不仅需要 $\\frac{dt}{d\\tau} \\approx 1$，还需要论证 $\\frac{dr}{dt} \\frac{d^2t}{d\\tau^2}$ 为高阶小量可以忽略（实际上由 $t$ 的测地线方程可知 $\\frac{d^2t}{d\\tau^2} \\approx -\\frac{r_s}{r^2}\\frac{dr}{dt}$，该项为 $\\frac{r_s}{r^2}(\\frac{dr}{dt})^2$，在低速下确实可忽略），但 solution 完全未提及 $\\frac{d^2t}{d\\tau^2}$，直接用“固有时间与坐标时间近似相等”的直觉抹杀了二阶导数的非平凡转换关系，属于引入未经证明的假设和逻辑跳跃。此外，将类时条件 $g_{\\mu\\nu}\\frac{dx^\\mu}{d\\tau}\\frac{dx^\\nu}{d\\tau}=-1$ 直接简写为 $g_{tt}(\\frac{dt}{d\\tau})^2 \\approx -1$ 也缺乏对 $g_{rr}(\\frac{dr}{d\\tau})^2$ 项为何被忽略的明确交代。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s4_4.1",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "electromagnetism",
+      "coordinate": "cylindrical_coordinates",
+      "scenario": "current_wire",
+      "method": "lorentz_transformation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.1",
+    "source_id": "1_s4_4.1",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "Requires relativistic transformation of EM field tensor combined with superposition principle; multi-step logical chain connecting current, charge density, and frame-dependent fields.",
+      "overall": 0.83
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$z$",
+      "$\\\\phi$",
+      "$\\\\rho_0$",
+      "$A$",
+      "$\\\\beta$",
+      "$I$"
+    ],
+    "target": [
+      "$B^{\\\\hat{\\\\phi}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 4.1. Find the magnetic field $\\underline{\\mathsf{B}}$ from a current I in an infinitely long straight wire, by appropriate Lorentz transformations and superpositions of the electric field of an infinitely long straight charge distribution.\\n\\n## Solution\\n\\nSolution 4.1. Suppose the wire lies on the $z$ -axis of cylindrical polar coordinates and has proper charge density $\\rho_0$ . In the rest frame of the wire $\\mathbf{J}^0 = \\rho_0$ and $\\underline{\\mathbf{J}} = 0$ , and from Gauss' law the only nonvanishing component of the field tensor is $\\mathbf{E}^{\\mathrm{r}} = \\rho_0\\mathbf{A} / 2\\pi \\mathbf{r} = \\mathbf{F}^{0\\mathrm{r}}$ , where $\\mathbf{A}$ is the cross sectional area of the wire. If the wire is moving in the $+z$ direction with velocity $\\beta$ relative to the lab, the Lorentz transformation $\\Lambda_{0}^{0'} = \\gamma$ , $\\Lambda_{z}^{0'} = \\beta y$ gives\\n$$\\nJ^{0^{\\prime}} = \\gamma \\rho_{0} \\quad J^{z^{\\prime}} = \\beta \\gamma \\rho_{0}\\n$$\\n$$\\n\\mathbf {B}^{\\hat {\\phi}} = \\mathbf {F}^{z^{\\prime} \\mathbf {r}^{\\prime}} = \\boldsymbol {\\Lambda}_{^{\\prime} 0}^{z^{\\prime}} \\mathbf {F}^{0 \\mathbf {r}} = \\beta \\gamma \\rho_{0} \\mathbf {A} / 2 \\pi \\mathbf {r} \\qquad \\mathbf {E}^{\\mathbf {r}^{\\prime}} = \\gamma \\rho_{0} \\mathbf {A} / 2 \\pi \\mathbf {r} .\\n$$\\n$(\\mathbf{B}^{\\hat{\\phi}}$ is the \"physical component,\" i.e. the component related to the unit vector $\\mathbf{e}_{\\phi}$ .) If we now superpose the field of a similar wire of charge density $-\\gamma \\rho_{0}$ , at rest in the lab, the total charge density and $\\underline{\\mathbf{E}}$ field both cancel. The current $\\mathrm{I} = \\int \\mathrm {J} ^ { \\mathbf {z } } \\mathrm {d } \\mathbf {x } \\mathrm {d } \\mathbf {y } = \\beta \\gamma \\rho _ {0} \\mathbf {A }$ produces only a B field $\\mathbf {B } ^ { \\hat { \\phi } } = \\mathrm {I } / 2 \\pi \\mathrm {r }$ .",
+    "answer": "$B^{\\\\hat{\\\\phi}} = \\\\frac{I}{2\\\\pi r}$",
+    "solution": "Suppose the wire lies on the $z$ -axis of cylindrical polar coordinates and has proper charge density $\\rho_0$ . In the rest frame of the wire $\\mathbf{J}^0 = \\rho_0$ and $\\underline{\\mathbf{J}} = 0$ , and from Gauss' law the only nonvanishing component of the field tensor is $\\mathbf{E}^{\\mathrm{r}} = \\rho_0\\mathbf{A} / 2\\pi \\mathbf{r} = \\mathbf{F}^{0\\mathrm{r}}$ , where $\\mathbf{A}$ is the cross sectional area of the wire. If the wire is moving in the $+z$ direction with velocity $\\beta$ relative to the lab, the Lorentz transformation $\\Lambda_{0}^{0'} = \\gamma$ , $\\Lambda_{z}^{0'} = \\beta y$ gives\\n$$\\nJ^{0^{\\prime}} = \\gamma \\rho_{0} \\quad J^{z^{\\prime}} = \\beta \\gamma \\rho_{0}\\n$$\\n$$\\n\\mathbf {B}^{\\hat {\\phi}} = \\mathbf {F}^{z^{\\prime} \\mathbf {r}^{\\prime}} = \\boldsymbol {\\Lambda}_{^{\\prime} 0}^{z^{\\prime}} \\mathbf {F}^{0 \\mathbf {r}} = \\beta \\gamma \\rho_{0} \\mathbf {A} / 2 \\pi \\mathbf {r} \\qquad \\mathbf {E}^{\\mathbf {r}^{\\prime}} = \\gamma \\rho_{0} \\mathbf {A} / 2 \\pi \\mathbf {r} .\\n$$\\n$(\\mathbf{B}^{\\hat{\\phi}}$ is the \"physical component,\" i.e. the component related to the unit vector $\\mathbf{e}_{\\phi}$ .) If we now superpose the field of a similar wire of charge density $-\\gamma \\rho_{0}$ , at rest in the lab, the total charge density and $\\underline{\\mathbf{E}}$ field both cancel. The current $\\mathrm{I} = \\int \\mathrm {J} ^ { \\mathbf {z } } \\mathrm {d } \\mathbf {x } \\mathrm {d } \\mathbf {y } = \\beta \\gamma \\rho _ {0} \\mathbf {A }$ produces only a B field $\\mathbf {B } ^ { \\hat { \\phi } } = \\mathrm {I } / 2 \\pi \\mathrm {r }$ ."
+  },
+  "verification": null
+}

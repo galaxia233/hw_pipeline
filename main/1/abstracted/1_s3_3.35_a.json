@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s3_3.35_a",
+    "type": "prove",
+    "tags": {
+      "metric": "conserved_vector_field",
+      "target_object": "invariant_integral",
+      "coordinate": "four_dimensional_gauss_theorem",
+      "scenario": "Lorentz_scalar",
+      "method": "special_relativity_context"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.35_a",
+    "source_id": "1_s3_3.35_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.35_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "利用四维散度定理与边界衰减条件证明守恒荷的超曲面积分具有坐标不变性",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^{\\mu}$",
+      "$x'^{\\mu}$",
+      "$\\mathbf{J}^{\\alpha}$",
+      "$r$"
+    ],
+    "target": [
+      "$\\int \\mathbf{J}^{0}\\mathrm{d}^{3}x$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.35. A vector field $\\mathbf{J}^{\\alpha}(\\mathbf{x}^{\\mu})$ satisfies $\\mathbf{J}_{,\\alpha}^{\\alpha} = 0$ and $\\mathbf{J}^{\\alpha}$ falls off faster than $\\mathbf{r}^{-2}$ at large distances from the origin. (a) Show that $\\int \\mathbf{J}^{0}\\mathrm{d}^{3}\\mathbf{x}$ is constant in time. (b) Show that the integral is a scalar, i.e. $\\int \\mathbf{J}^{0}\\mathrm{d}^{3}\\mathbf{x} = \\int \\mathbf{J}^{0}\\mathrm{d}^{3}\\mathbf{x}^{\\prime}$ .",
+    "answer": "$\\int \\mathbf{J}^{0}\\mathrm{d}^{3}\\mathbf{x} = \\int \\mathbf{J}^{0}\\mathrm{d}^{3}\\mathbf{x}^{\\prime}$",
+    "solution": null
+  },
+  "verification": null
+}

@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-3-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "innermost_stable_circular_orbit",
+      "coordinate": "schwarzschild",
+      "scenario": "black_hole_design",
+      "method": "numerical_simulation",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-3",
+      "1_s10_10.12-3-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "设计数值模拟方案验证 $r_{ISCO} = 3r_s$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In the Schwarzschild black hole spacetime, the line element is given by:$$ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2{\\theta} d\\phi^2$$Consider a massive test particle confined to the equatorial plane $\\theta = \\pi/2$. The time translation and rotation Killing vectors give the conserved specific energy $E = \\frac{r - r_s}{r} \\dot{t}$ and specific angular momentum $L = r^2 \\dot{\\phi}$. Using the timelike normalization condition $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$, the radial motion can be described by the effective potential $V_{eff}(r) = \\left(1 - \\frac{r_s}{r}\\right) \\left(1 + \\frac{L^2}{r^2}\\right)$, such that $\\dot{r}^2 = E^2 - V_{eff}(r)$. Theoretical analysis indicates that the innermost stable circular orbit (ISCO) for this particle is located at $r_{ISCO} = 3 r_s$.Please design a numerical simulation scheme using test particle orbits to verify the conclusion that $r_{ISCO} = 3 r_s$. Your design must specify the initial conditions, the perturbation method, the quantities to be measured, and the expected results that demonstrate the marginal stability at $r = 3r_s$.",
+    "answer": "1. **Geodesic Equation Setup**: From $\\dot{r}^2 = E^2 - V_{eff}(r)$, derive the second-order radial equation of motion: $\\ddot{r} = -\\frac{1}{2} \\frac{dV_{eff}}{dr}$. Combine with $\\dot{\\phi} = L/r^2$ to form a system of ODEs for $(r, \\dot{r}, \\phi)$.2. **Initial Conditions**: For a given trial radius $r_0$, the circular orbit parameters are $L^2 = \\frac{r_s r_0^2}{2r_0 - 3r_s}$ and $E^2 = V_{eff}(r_0, L)$. Set initial conditions $r(0) = r_0$, $\\dot{r}(0) = \\delta v_r$ (a small radial velocity perturbation, e.g., $0.01$), and $\\dot{\\phi}(0) = L/r_0^2$.3. **Simulation Execution**: Choose a set of trial radii $r_0$ ranging from just above $3r_s$ (e.g., $3.1r_s, 3.5r_s, 5r_s$) to exactly $3r_s$. Numerically integrate the ODEs for a sufficiently long affine parameter $\\tau$.4. **Measurement**: Plot the radial coordinate $r(\\tau)$ for each trial radius. For $r_0 > 3r_s$, measure the amplitude and period of radial oscillations around $r_0$. For $r_0 = 3r_s$, observe the evolution of $r(\\tau)$.5. **Expected Results**: For $r_0 > 3r_s$, the perturbed particle will exhibit bounded radial oscillations (stable orbit). As $r_0$ approaches $3r_s$, the oscillation period will diverge (frequency goes to zero). For $r_0 = 3r_s$, the small perturbation will cause the particle to monotonically spiral inwards towards the horizon (unstable plunge), verifying that $3r_s$ is the marginal stability radius (ISCO).",
+    "solution": "The stability of a circular orbit in general relativity is determined by the second derivative of the effective potential, $V_{eff}''(r_0)$. For $V_{eff}''(r_0) > 0$, a radial perturbation leads to a restoring force, resulting in bounded oscillations (epicyclic motion). For $V_{eff}''(r_0) < 0$, a perturbation leads to an anti-restoring force, causing the orbit to plunge into the black hole. The ISCO corresponds to the boundary where $V_{eff}''(r_0) = 0$, meaning the restoring force vanishes. By numerically integrating the geodesic equations with a small perturbation and observing the transition from bounded oscillations to unbounded plunging exactly at $r_0 = 3r_s$, one directly verifies the theoretical prediction $r_{ISCO} = 3r_s$ derived from the vanishing of the effective potential's curvature. The divergence of the oscillation period near $3r_s$ is a characteristic signature of marginal stability in dynamical systems."
+  },
+  "verification": null
+}

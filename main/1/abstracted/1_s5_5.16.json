@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s5_5.16",
+    "type": "prove",
+    "tags": {
+      "metric": "stress_energy_tensor",
+      "target_object": "timelike_eigenvector",
+      "coordinate": "local_rest_frame",
+      "scenario": "energy_flux_vector",
+      "method": "coordinate_free_proof"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.16",
+    "source_id": "1_s5_5.16",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.16"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "题目通过应力-能量张量的代数性质关联观者物理测量，逻辑需双向推导并解释特征值的能量密度含义，结构可直接迁移至各类流体或介质模型。",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T^{\\mu\\nu}$",
+      "$v^{\\mu}$",
+      "$u^{\\mu}$",
+      "$\\alpha$",
+      "$S^{\\mu}$"
+    ],
+    "target": [
+      "$T^{\\mu}_{\\\\phantom{\\\\mu}\\\\nu} v^{\\\\nu} = \\\\alpha v^{\\\\mu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.16. Show that the stress-energy tensor $\\\\mathbf{T}^{\\\\mu \\\\nu}$ has a timelike eigenvector if and only if there is a physical observer who sees no net energy flux in any direction. What is the significance of the eigenvalue?",
+    "answer": "当且仅当存在某观者在其静止系中测得空间能流矢量为零时，$\\\\mathbf{T}^{\\\\mu\\\\nu}$ 具有类时特征向量；该特征值 $\\\\alpha$ 等于该观者测得的能量密度的负值（即 $\\\\rho = -\\\\alpha$）。",
+    "solution": "Solution 5.16. Suppose $\\\\mathbf {v}$ is a timelike eigenvector\\n$$\\n\\\\mathbf {T} \\\\cdot \\\\mathbf {v} = a \\\\mathbf {v}.\\n$$\\nConsider the stress-energy measured by an observer with 4-velocity $\\\\mathbf{u} = \\\\pm \\\\mathbf {v} / |\\\\mathbf {v}|$ . (Choose the sign to make $\\\\mathbf {u}$ future-pointing.) In that observer's rest frame $\\\\mathbf {u} = (1,0)$ and the energy flux vector $\\\\mathbf {S}$ is\\n$$\\n- \\\\mathbf {S} = \\\\mathbf {T} \\\\cdot \\\\mathbf {u} = \\\\frac {1}{| \\\\mathbf {v} |} \\\\mathbf {T} \\\\cdot \\\\mathbf {v} = \\\\frac {\\\\alpha}{| \\\\mathbf {v} |} \\\\mathbf {v} = \\\\alpha \\\\mathbf {u} = (\\\\alpha , 0).\\n$$\\nThus the observer sees no energy flux, and $\\\\alpha$ is the negative of the energy density he sees.\\nConversely if an observer with 4-velocity $\\\\mathbf {u}$ sees no spatial flux, then $-\\\\mathbf {S} = \\\\mathbf {T} \\\\cdot \\\\mathbf {u} = \\\\alpha \\\\mathbf {u}$ for some $\\\\alpha$ , and $\\\\mathbf {u}$ is thus a timelike eigenvector of $\\\\mathbf {T}$ ."
+  },
+  "verification": null
+}

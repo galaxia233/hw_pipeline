@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "id": "1_s15_15.18-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "anisotropic_fluid_state_equation",
+      "coordinate": "static_planar",
+      "scenario": "cosmology",
+      "method": "einstein_equation_inversion",
+      "generalization_axis": "invert",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.18",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s15_15.18",
+      "1_s15_15.18-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$\\rho$",
+      "$p_x$",
+      "$p_y$",
+      "$p_z$",
+      "$p_x = \\rho$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在宇宙学中，某些度规并非由纯宇宙学常数或完美流体支撑，而是由具有各向异性压强的物质源产生。已知一种静态平面对称度规为 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$，其 Einstein 张量的非零分量为 $G_{00} = -\\frac{e^{-2x/\\alpha}}{\\alpha^2}$，$G_{11} = \\frac{1}{\\alpha^2}$（其余分量 $G_{22}=0$, $G_{33}=0$）。假设该几何完全源于一种在此坐标系中静止的各向异性流体（即流体四速度 $u^\\mu = (1,0,0,0)$），请通过 Einstein 场方程 $G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$，反推该流体的能量密度 $\\rho$ 以及沿三个空间坐标轴的主压强 $p_x, p_y, p_z$，并指出这些量之间满足的各向异性状态方程特征关系。",
+    "answer": "能量密度 $\\rho = \\frac{e^{-2x/\\alpha}}{8\\pi \\alpha^2}$，主压强 $p_x = \\frac{e^{-2x/\\alpha}}{8\\pi \\alpha^2}$，$p_y = 0$，$p_z = 0$；状态方程特征关系为 $p_x = \\rho$ 且 $p_y = p_z = 0$。",
+    "solution": "对于静止的各向异性流体，其混合指标的能动张量形式为 $T^\\mu_\\nu = \\text{diag}(-\\rho, p_x, p_y, p_z)$。根据 Einstein 场方程 $G^\\mu_\\nu = 8\\pi T^\\mu_\\nu$，我们需要先求出混合指标的 Einstein 张量 $G^\\mu_\\nu = G_{\\mu\\nu} g^{\\mu\\nu}$。已知度规分量 $g_{00} = -1$, $g_{11} = e^{2x/\\alpha}$, $g_{22} = e^{2x/\\alpha}$, $g_{33} = e^{2x/\\alpha}$，其逆为 $g^{00} = -1$, $g^{11} = e^{-2x/\\alpha}$, $g^{22} = e^{-2x/\\alpha}$, $g^{33} = e^{-2x/\\alpha}$。计算得：\\n$G^0_0 = G_{00} g^{00} = \\left(-\\frac{e^{-2x/\\alpha}}{\\alpha^2}\\right) \\times (-1) = \\frac{e^{-2x/\\alpha}}{\\alpha^2}$\\n$G^1_1 = G_{11} g^{11} = \\frac{1}{\\alpha^2} \\times e^{-2x/\\alpha} = \\frac{e^{-2x/\\alpha}}{\\alpha^2}$\\n$G^2_2 = G_{22} g^{22} = 0$\\n$G^3_3 = G_{33} g^{33} = 0$\\n代入场方程得：\\n$\\rho = -T^0_0 = -G^0_0 / (8\\pi) = \\frac{e^{-2x/\\alpha}}{8\\pi \\alpha^2}$\\n$p_x = T^1_1 = G^1_1 / (8\\pi) = \\frac{e^{-2x/\\alpha}}{8\\pi \\alpha^2}$\\n$p_y = T^2_2 = G^2_2 / (8\\pi) = 0$\\n$p_z = T^3_3 = G^3_3 / (8\\pi) = 0$\\n对比 $\\rho$ 与主压强的表达式，可反推该物质源具有极强的各向异性，其状态方程特征关系为 $p_x = \\rho$ 且 $p_y = p_z = 0$（这对应于一种沿 $x$ 轴流动的无质量流或具有特定对称性的拓扑缺陷属性）。"
+  },
+  "verification": null
+}

@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "id": "1_s1_1.10",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_minkowski",
+      "target_object": "target_object_timelike_vector",
+      "coordinate": "coordinate_cartesian",
+      "scenario": "scenario_special_relativity",
+      "method": "method_direct_verification"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.10",
+    "source_id": "1_s1_1.10",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.10"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.4,
+      "generalizability": 0.5,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基础向量内积计算与双曲几何背景，步骤直接但涉及相对论核心概念",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$\\mathbf{A} \\cdot \\mathbf{A}$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.10. Show that $\\mathbf{A} = 3^{\\frac{1}{2}}\\mathbf{e}_{t} + 2^{\\frac{1}{2}}\\mathbf{e}_{x}$ is a unit timelike vector in special relativity. Show that the angle between $\\mathbf{A}$ and $\\mathbf{e}_{t}$ is not real.",
+    "answer": "No real $\\theta$ satisfies $\\cos\\theta = -\\sqrt{3}$; $\\mathbf{A}$ is a unit timelike vector.",
+    "solution": "Solution 1.10. The length of $\\mathbf{A}$ is $|\\mathbf{A} \\cdot \\mathbf{A}|^{\\frac{1}{2}}$ and$$\\begin{array}{l} \\mathbf {A} \\cdot \\mathbf {A} = \\left(3^{\\frac {1}{2}} \\mathbf {e}_{t} + 2^{\\frac {1}{2}} \\mathbf {e}_{\\mathbf {x}}\\right) \\cdot \\left(3^{\\frac {1}{2}} \\mathbf {e}_{t} + 2^{\\frac {1}{2}} \\mathbf {e}_{\\mathbf {x}}\\right) \\\\ = 3 \\mathbf {e}_{\\mathrm {t}} \\cdot \\mathbf {e}_{\\mathrm {t}} + 2 \\mathbf {e}_{\\mathrm {x}} \\cdot \\mathbf {e}_{\\mathrm {x}} + 2 \\sqrt {6} \\mathbf {e}_{\\mathrm {t}} \\cdot \\mathbf {e}_{\\mathrm {x}} \\\\ = - 3 + 2 + 0 = - 1. \\\\ \\end{array}$$If $\\theta$ is the angle between A and $\\mathbf{e}_{\\mathrm{t}}$ then$$\\cos \\theta = \\frac {\\mathbf {A} \\cdot \\mathbf {e}_{t}}{| \\mathbf {A} \\cdot \\mathbf {A} |^{\\frac{1}{2}} | \\mathbf {e}_{t} \\cdot \\mathbf {e}_{t} |^{\\frac{1}{2}}} = - 3^{\\frac{1}{2}}$$which is satisfied by no real $\\theta$ ."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

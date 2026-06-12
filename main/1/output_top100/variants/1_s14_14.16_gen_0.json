@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s14_14.16-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "dispersion_relation_and_instability_threshold",
+      "coordinate": "local_inertial_frame",
+      "scenario": "maxwell_equations_in_einstein_space",
+      "method": "local_flat_approximation_and_plane_wave_analysis",
+      "generalization_axis": "apply",
+      "metric": "metric_tensor"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.16",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.16",
+      "1_s14_14.16-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric_tensor",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$A^\\\\mu$",
+      "$J^\\\\mu$",
+      "$F^{\\\\mu\\\\nu}$",
+      "$R^\\\\mu_\\\\sigma$"
+    ],
+    "target": [
+      "$k_c$",
+      "$\\Lambda < 0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In an Einstein spacetime where the Ricci tensor satisfies $R_{\\mu\\nu} = \\Lambda g_{\\mu\\nu}$ (with $\\Lambda$ being the cosmological constant), the curved-spacetime Maxwell equations in the Lorenz gauge $\\nabla_{\\nu} A^{\\nu} = 0$ yield the wave equation for the vector potential: $\\nabla_{\\nu} \\nabla^{\\nu} A^{\\mu} - R^{\\mu}_{\\phantom{\\mu}\\sigma} A^{\\sigma} = 0$. To analyze the local behavior of electromagnetic waves, we approximate the covariant wave operator in a locally flat frame as $\\nabla_{\\nu} \\nabla^{\\nu} \\approx -\\partial_t^2 + \\partial_x^2 + \\partial_y^2 + \\partial_z^2$, while retaining the curvature term $R^{\\mu}_{\\phantom{\\mu}\\sigma} A^{\\sigma} \\approx \\Lambda A^{\\mu}$. Apply this approximated wave equation to the plane wave ansatz $A^{\\mu} \\propto e^{-i\\omega t + i \\mathbf{k} \\cdot \\mathbf{x}}$ (where $\\mathbf{k}$ is the spatial wave vector and $k^2 = |\\mathbf{k}|^2$). Prove that the local dispersion relation is $\\omega^2 = k^2 + \\Lambda$, and derive the critical wave number $k_c$ at which the modes transition from oscillatory to exponentially growing behavior. Furthermore, prove that this apparent instability only occurs in anti-de Sitter spacetime ($\\Lambda < 0$).",
+    "answer": "The local dispersion relation is $\\omega^2 = k^2 + \\Lambda$. The critical wave number is $k_c = \\sqrt{|\\Lambda|}$, and the apparent instability occurs only in anti-de Sitter spacetime ($\\Lambda < 0$).",
+    "solution": "1. Substitute the locally flat approximations into the curved-spacetime Maxwell wave equation: \\n $(-\\partial_t^2 + \\partial_x^2 + \\partial_y^2 + \\partial_z^2 - \\Lambda) A^{\\mu} = 0$. \\n 2. Apply the plane wave ansatz $A^{\\mu} \\propto e^{-i\\omega t + i \\mathbf{k} \\cdot \\mathbf{x}}$. The partial derivatives yield: \\n $-\\partial_t^2 A^{\\mu} = \\omega^2 A^{\\mu}$, and $(\\partial_x^2 + \\partial_y^2 + \\partial_z^2) A^{\\mu} = -k^2 A^{\\mu}$. \\n 3. Substituting these into the wave equation gives the algebraic condition: \\n $(\\omega^2 - k^2 - \\Lambda) A^{\\mu} = 0$, which simplifies to the dispersion relation $\\omega^2 = k^2 + \\Lambda$. \\n 4. Analyze the stability of the modes: \\n - Oscillatory behavior requires $\\omega^2 > 0$, which occurs when $k^2 + \\Lambda > 0$. \\n - Exponential growth (instability) requires $\\omega^2 < 0$, which occurs when $k^2 + \\Lambda < 0$. \\n 5. In de Sitter spacetime ($\\Lambda > 0$), $k^2 + \\Lambda > 0$ for all $k$, meaning all modes are oscillatory and no instability exists. \\n 6. In anti-de Sitter spacetime ($\\Lambda < 0$), let $\\Lambda = -|\\Lambda|$. The condition for instability becomes $k^2 - |\\Lambda| < 0$, or $k < \\sqrt{|\\Lambda|}$. The transition between oscillatory and exponentially growing behavior happens at $\\omega^2 = 0$, yielding the critical wave number: \\n $k_c^2 = |\\Lambda| \\implies k_c = \\sqrt{|\\Lambda|}$. \\n Thus, the apparent instability only occurs in anti-de Sitter spacetime. \\n (Note: While this derivation reveals how the Ricci curvature term introduces a tachyonic-like effective mass for $A^{\\mu}$ in AdS under the Lorenz gauge, the physical electromagnetic field $F_{\\mu\\nu}$ remains stable due to the conformal invariance of Maxwell's equations, indicating that this instability is a gauge-dependent feature.)"
+  },
+  "verification": null
+}

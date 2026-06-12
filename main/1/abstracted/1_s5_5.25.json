@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s5_5.25",
+    "type": "calculate",
+    "tags": {
+      "metric": "relativistic_hydrodynamics",
+      "target_object": "thermodynamics",
+      "coordinate": "bernoulli_principle",
+      "scenario": "adiabatic_process",
+      "method": "sound_speed_limit"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.25",
+    "source_id": "1_s5_5.25",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.25"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "结合相对论伯努利方程、热力学第一定律与声速定义的多步代数推导，具有明确的喷流/风洞物理背景且解答完整",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$v$",
+      "$v_{\\max}$",
+      "$a$",
+      "$P$",
+      "$\\rho$",
+      "$n$",
+      "$\\gamma$",
+      "$m$"
+    ],
+    "target": [
+      "$v_{\\max}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.25. A relativistic wind tunnel is to be fed from a tank of perfect adiabatic compressed gas. Suppose the gas has an equation of state $p \\propto n^{\\gamma}$ with $\\gamma$ constant, and the speed of sound in the tank is $a$ . What is the largest wind velocity $v_{\\max}$ which can be obtained? (No gravitational forces; isentropic flow.)",
+    "answer": "$v_{\\max}^{2} = 1 - [1 - a^{2} / (\\gamma - 1)]^{2}$",
+    "solution": "Solution 5.25. The relativistic Bernoulli equation, which expresses the conservation of energy along flow lines of a perfect fluid, is (Problem 14.7)$$( 1 - v^{2} )^{- \\frac {1} {2}} = \\left( \\frac {n} {P + \\rho}\\right) \\times c o n s t a n t .$$(This equation follows from $\\mathrm{T}^{0\\nu}, _{\\nu} = 0$ , from $(\\mathrm{nu}^{\\mu})_{,\\mu} = 0$ and from the first law of thermodynamics $\\mathrm{d}\\rho / (\\mathrm{P} + \\rho) = \\mathrm{dn} / \\mathrm{n}$ .) Since the gas starts in the tank at zero velocity, we have: constant $= (\\mathrm{P}_0 + \\rho_0) / \\mathrm{n}_0$ . An upper bound for $\\mathfrak{n} / (\\mathbb{P} + \\rho)$ which will give an upper bound $\\mathbf{v}_{\\max}$ for $\\mathbf{v}$ , occurs when $\\mathrm{P} \\to 0$ implying $\\rho = \\mathfrak{mn}$ , so$$\\left( 1 - \\mathrm {v}_{\\mathrm {m a x}}^{2}\\right)^{- \\frac {1} {2}} = \\frac {1} {\\mathrm {m}} \\left( \\frac {\\mathrm {P}_{0} + \\rho_{0}} {\\mathrm {n}_{0}}\\right) .$$Now we have to try and write the right hand side only in terms of $\\mathbf{a}$ , the sound velocity of the gas with $\\mathbf{P}_0, \\rho_0, \\mathbf{n}_0$ . We have $\\mathbf{P} = \\mathbf{Kn}^{\\gamma}$ where $\\mathbf{K}$ is a constant telling what adiabat the gas is on. The first law reads$$\\frac {\\mathrm {d} \\rho} {\\mathrm {d} n} = \\frac {\\mathrm {K n}^{\\gamma} + \\rho} {n}$$which is integrable and (with $\\rho \\to \\mathfrak{mn}$ when $\\mathfrak{n} \\to 0$ ) gives$$\\rho = \\mathrm {m n} + \\frac {\\mathrm {K}} {\\gamma - 1} \\mathrm {n}^{\\gamma} .$$The speed of sound a is given by$$a^{2} = \\frac {d P} {d \\rho} = \\frac {d P / d n} {d \\rho / d n} = \\frac {\\gamma K n^{\\gamma - 1}} {m + \\gamma K n^{\\gamma - 1} / ( \\gamma - 1 )} \\tag {1}$$and the first law of thermodynamics gives us$$\\frac {\\mathrm {P} + \\rho} {\\mathrm {n}} = \\frac {\\mathrm {d} \\rho} {\\mathrm {d n}} = \\left( \\frac {\\mathrm {d P}} {\\mathrm {d n}}\\right) \\left( \\frac {\\mathrm {d} \\rho} {\\mathrm {d P}}\\right) = ( \\gamma \\mathrm {K n}^{\\gamma - 1} ) ( 1 / \\mathrm {a}^{2} ) . \\tag {2}$$But Equation (1) contains just this same combination $\\gamma \\mathrm{Kn}^{\\gamma - 1}$ . So we can solve Equation (1) for$$\\gamma \\mathrm {K n}^{\\gamma - 1} = \\mathrm {m a}^{2} / [ 1 - \\mathrm {a}^{2} / ( \\gamma - 1 ) ]$$and get$$\\frac {1} {m} \\left( \\frac {P_{0} + \\rho_{0}} {n_{0}}\\right) = \\frac {1} {1 - a^{2} / ( \\gamma - 1 )}$$and therefore$$\\mathbf {v}_{\\mathrm {m a x}}^{2} = \\mathbf {1} - [ 1 - \\mathbf {a}^{2} / ( \\gamma - 1 ) ]^{2} .$$(Notice that $\\mathbf{v}_{\\max} \\rightarrow 1$ in the limit of highly relativistic gas, for which $\\gamma \\rightarrow 4/3$ and $a^2 \\rightarrow 1/3$ .)"
+  },
+  "verification": null
+}

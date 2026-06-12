@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s13_13.2-7-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "Newtonian limit of radial geodesic acceleration",
+      "coordinate": "Schwarzschild_spherical_Minkowski_Cartesian",
+      "scenario": "free_fall_contrast",
+      "method": "Killing_vector_and_geodesic",
+      "generalization_axis": "compare",
+      "metric": "Minkowski"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.2",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.2",
+      "1_s13_13.2-7",
+      "1_s13_13.2-7-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Minkowski",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\frac{d^2 r}{d t^2} vs \\frac{d^2 x}{d t^2}"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑两种时空背景：背景 A（Schwarzschild 时空）：描述球对称质量 $M$ 外部的引力场。在坐标 $(t, r, \\theta, \\phi)$ 下，度规分量为 $g_{00} = -(1-r_s/r)$，$g_{11} = (1-r_s/r)^{-1}$，$g_{22} = r^2$，$g_{33} = r^2 \\sin^2\\theta$，其中 $r_s = 2M$ 为 Schwarzschild 半径。该时空具有时间平移 Killing 矢量 $\\xi^\\mu = (1,0,0,0)$。径向 geodesic 的相关 Christoffel 符号为 $\\Gamma^r_{tt} = \\frac{r_s(r-r_s)}{2r^3}$ 和 $\\Gamma^r_{rr} = -\\frac{r_s}{2r(r-r_s)}$。背景 B（Minkowski 时空）：描述无引力源的平直时空。在坐标 $(t, x, y, z)$ 下，度规分量为 $g_{00} = -1$，$g_{11} = 1$，$g_{22} = 1$，$g_{33} = 1$。该时空具有时间平移 Killing 矢量 $\\xi^\\mu = (1,0,0,0)$。所有 Christoffel 符号均为 0。请针对沿径向（背景 A 中 $d\\theta/d\\tau = d\\phi/d\\tau = 0$；背景 B 中 $dy/d\\tau = dz/d\\tau = 0$）的自由落体运动，分别在两种背景下，利用各自的时间平移 Killing 矢量推导守恒量 $E$ 以确定 $\\dot{t}$，进而求出大质量粒子在牛顿极限（弱场 $r \\gg r_s$ 且低速 $dr/dt \\ll 1$）下的径向坐标加速度 $\\frac{d^2 r}{d t^2}$ 与 $\\frac{d^2 x}{d t^2}$，对比两者的结果，并解释该差异在时空曲率与引力相互作用层面的物理含义。",
+    "answer": "Schwarzschild 时空中径向坐标加速度为 $\\frac{d^2 r}{d t^2} = -\\frac{M}{r^2}$，而 Minkowski 时空中为 $\\frac{d^2 x}{d t^2} = 0$。差异在于 Schwarzschild 时空具有由质量 $M$ 引起的时空曲率，导致 $\\Gamma^r_{tt} \\neq 0$，进而产生坐标加速度，这恰好对应牛顿引力平方反比律；而 Minkowski 平直时空无曲率，$\\Gamma^x_{tt} = 0$，自由粒子保持匀速直线运动（牛顿第一定律）。这表明在广义相对论中，引力是时空曲率的几何效应，而非平直时空中的外力。",
+    "solution": "背景 A (Schwarzschild):Killing 矢量 $\\xi^\\mu=(1,0,0,0)$ 对应守恒量 $E = -g_{tt} \\dot{t} = (1-r_s/r) \\dot{t}$。对于从无穷远静止释放的粒子，$E=1$，故 $\\dot{t} = (1-r_s/r)^{-1}$。在牛顿极限下 $r \\gg r_s$，$\\dot{t} \\approx 1$。径向 geodesic 方程: $\\ddot{r} + \\Gamma^r_{tt} \\dot{t}^2 + \\Gamma^r_{rr} \\dot{r}^2 = 0$。代入 $\\Gamma^r_{tt} = \\frac{r_s(r-r_s)}{2r^3}$，在 $r \\gg r_s$ 时 $\\Gamma^r_{tt} \\approx \\frac{r_s}{2r^2} = \\frac{M}{r^2}$。低速时 $\\dot{r} \\ll \\dot{t}$，忽略 $\\Gamma^r_{rr} \\dot{r}^2$，得 $\\ddot{r} \\approx -\\frac{M}{r^2}$。牛顿极限下 $\\ddot{r} \\approx \\frac{d^2 r}{d t^2}$，故 $\\frac{d^2 r}{d t^2} = -\\frac{M}{r^2}$。背景 B (Minkowski):Killing 矢量 $\\xi^\\mu=(1,0,0,0)$ 对应守恒量 $E = -g_{tt} \\dot{t} = \\dot{t}$。静止粒子 $E=1$，故 $\\dot{t} = 1$。径向 geodesic 方程: $\\ddot{x} + \\Gamma^x_{tt} \\dot{t}^2 = 0$。由于所有 Christoffel 符号为 0，$\\ddot{x} = 0$。牛顿极限下 $\\frac{d^2 x}{d t^2} = 0$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.minkowski_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "包含多重实质错误：1. **概念错误**：题目要求推导“大质量粒子”的 geodesic 运动，但在广义相对论中，大质量粒子会显著扰动背景时空，不能作为测试粒子沿给定背景度规的 geodesic 运动，应使用“测试粒子”或“小质量粒子”；2. **摘要事实错误**：度规摘要声称 Minkowski 时空的 Killing 矢量只有 4 个，实际上 Minkowski 平直时空具有 10 个 Killing 矢量（4个平移、3个旋转、3个伪旋转/Boost），摘要遗漏了6个；3. **Solution 引入未声明假设**：Solution 在推导 $\\dot{t}$ 时直接假设“对于从无穷远静止释放的粒子，E=1”，但题目本身仅给出了“低速 $dr/dt \\ll 1$”的条件，并未声明粒子从无穷远静止释放，此为引入未经题目证明的初始条件。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

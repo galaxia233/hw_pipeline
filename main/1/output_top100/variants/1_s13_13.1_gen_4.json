@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s13_13.1-4",
+    "type": "calculate",
+    "tags": {
+      "target_object": "critical equation of state parameter",
+      "coordinate": "comoving spherical",
+      "scenario": "cosmology",
+      "method": "field equations",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s13_13.1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.1",
+      "1_s13_13.1-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$w_c = -\\frac{1}{3}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，爱因斯坦场方程的标准形式为 $G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$。考虑一个空间均匀且各向同性的 FLRW 宇宙，其度规为：$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2}dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$$宇宙由理想流体填充，其能动张量为 $T_{\\mu\\nu} = (\\rho + p)u_\\mu u_\\nu + p g_{\\mu\\nu}$，流体4速度为 $u^\\mu = (1, 0, 0, 0)$。设流体满足状态方程 $p = w\\rho$，其中 $w$ 为常数。利用爱因斯坦场方程，推导宇宙尺度因子 $a(t)$ 的加速膨胀方程，并计算使得宇宙发生加速膨胀（即 $\\ddot{a} > 0$）的状态方程参数 $w$ 的临界值。",
+    "answer": "$w_c = -\\frac{1}{3}$",
+    "solution": "1. 计算能动张量的分量。流体4速度 $u^\\mu = (1,0,0,0)$，对应的协变分量 $u_\\mu = (-1,0,0,0)$。代入理想流体能动张量公式，得：$$T_{00} = (\\rho+p)u_0 u_0 + p g_{00} = \\rho+p - p = \\rho$$$$T_{11} = (\\rho+p)u_1 u_1 + p g_{11} = p \\frac{a^2(t)}{1-kr^2}$$2. 应用爱因斯坦场方程 $G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$ 的 $(0,0)$ 分量：$$G_{00} = \\frac{3(k + \\dot{a}^2)}{a^2} = 8\\pi \\rho$$解出 $k + \\dot{a}^2 = \\frac{8\\pi \\rho a^2}{3}$。3. 应用场方程的 $(1,1)$ 分量：$$G_{11} = \\frac{k + 2 a \\ddot{a} + \\dot{a}^2}{k r^2 - 1} = 8\\pi T_{11} = 8\\pi \\left( - \\frac{p a^2(t)}{k r^2 - 1}\\right)$$消去分母 $k r^2 - 1$，得：$$k + 2 a \\ddot{a} + \\dot{a}^2 = -8\\pi p a^2$$4. 将步骤2中的 $k + \\dot{a}^2$ 代入步骤3的方程：$$\\frac{8\\pi \\rho a^2}{3} + 2 a \\ddot{a} = -8\\pi p a^2$$整理得宇宙加速膨胀方程：$$\\frac{\\ddot{a}}{a} = -\\frac{4\\pi}{3}(\\rho + 3p)$$5. 要使宇宙加速膨胀，需满足 $\\ddot{a} > 0$，即 $\\frac{\\ddot{a}}{a} > 0$。这要求：$$-\\frac{4\\pi}{3}(\\rho + 3p) > 0 \\implies \\rho + 3p < 0$$代入状态方程 $p = w\\rho$：$$\\rho + 3w\\rho < 0 \\implies \\rho(1 + 3w) < 0$$由于能量密度 $\\rho > 0$，必须满足 $1 + 3w < 0$，即 $w < -\\frac{1}{3}$。因此，状态方程参数 $w$ 的临界值为 $w_c = -\\frac{1}{3}$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-5-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "expansion scalar",
+      "coordinate": "comoving_and_static",
+      "scenario": "FLRW_and_Schwarzschild_contrast",
+      "method": "covariant_derivative",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-5",
+      "1_s10_10.11-5-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "expansion scalar"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "分别考虑两种时空背景下的特征观测者汇并计算其膨胀标量 $\\theta = u^\\mu_{;\\mu}$：背景A：FLRW宇宙学度规$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2(\\theta) d\\phi^2$$观测者为共动观测者，4-速度场 $u^\\mu = (1, 0, 0, 0)$。背景B：Schwarzschild真空度规$$ds^2 = \\frac{-r+r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2(\\theta) d\\phi^2$$观测者为静态观测者，其4-速度场 $u^\\mu$ 与时间平移Killing矢量（Fact Sheet给出其分量为 $\\xi^\\mu = (1, 0, 0, 0)$）成正比，且满足类时归一化条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$。请利用对应度规的 Christoffel 符号 $\\Gamma^i_{jk}$，分别推导这两种观测者汇的膨胀标量 $\\theta$，并对比两者结果的差异，解释该差异反映的宇宙膨胀与静态引力场的物理含义。",
+    "answer": "FLRW共动观测者的膨胀标量为 $\\theta = 3H$；Schwarzschild静态观测者的膨胀标量为 $\\theta = 0$。物理含义差异：$\\theta = 3H$ 体现了宇宙学原理下的各向同性空间膨胀，观测者间的固有距离随宇宙演化增加；$\\theta = 0$ 体现了静态真空引力场中不存在内在体积膨胀，静态观测者汇构成刚性结构，反映了局域静态引力场与宇宙学时空在膨胀几何上的本质不同。",
+    "solution": "1. FLRW背景：共动观测者4-速度 $u^\\mu = (1, 0, 0, 0)$。膨胀标量 $\\theta = u^\\mu_{;\\mu} = \\partial_\\mu u^\\mu + \\Gamma^\\mu_{\\mu\\alpha} u^\\alpha$。因 $u^\\mu$ 为常数，$\\partial_\\mu u^\\mu = 0$，故 $\\theta = \\Gamma^0_{00} + \\Gamma^1_{10} + \\Gamma^2_{20} + \\Gamma^3_{30}$。由度规可知 $\\Gamma^0_{00} = 0$，且空间度规含因子 $a^2(t)$，使得 $\\Gamma^1_{10} = \\Gamma^2_{20} = \\Gamma^3_{30} = \\dot{a}/a = H$，所以 $\\theta = 3H$。2. Schwarzschild背景：时间平移Killing矢量 $\\xi^\\mu = (1,0,0,0)$，归一化后 $u^\\mu = (1/\\sqrt{1-r_s/r}, 0, 0, 0)$。计算 $\\theta = \\partial_\\mu u^\\mu + \\Gamma^\\mu_{\\mu\\alpha} u^\\alpha$。因 $u^1=u^2=u^3=0$ 且 $u^0$ 不含时间 $t$，有 $\\partial_\\mu u^\\mu = 0$。求和项仅剩 $\\Gamma^\\mu_{\\mu 0} u^0 = (\\Gamma^0_{00} + \\Gamma^1_{10} + \\Gamma^2_{20} + \\Gamma^3_{30}) u^0$。因 Schwarzschild 度规的所有分量均不含时间 $t$，故 $\\partial_0 g_{\\mu\\nu} = 0$，导致这四个 Christoffel 符号全为0，因此 $\\theta = 0$。3. 对比：FLRW的 $\\theta=3H>0$ 反映宇宙空间均匀膨胀；Schwarzschild的 $\\theta=0$ 反映静态引力场中无体积膨胀，几何表现为刚性。差异本质在于度规对时间的依赖性不同。"
+  },
+  "verification": null
+}

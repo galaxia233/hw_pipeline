@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-0-4-9",
+    "type": "concept",
+    "tags": {
+      "target_object": "radial_weight_evolution_equation",
+      "coordinate": "exponential_x_vs_spherical_r",
+      "scenario": "curved_space_weight_stress_contrast",
+      "method": "covariant_conservation_derivation_contrast",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-0",
+      "1_s14_14.6-0-4",
+      "1_s14_14.6-0-4-9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "径向重量演化方程",
+      "积分能量密度项的耦合与脱耦"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑两种不同的引力场背景，容器底面径向重量均定义为正应力积分：\\n背景A（均匀引力场）：度规为 $\\mathrm{d}s^2 = - \\mathrm{d}t^2 + e^{\\frac{2x}{\\alpha}} ( \\mathrm{d}x^2 + \\mathrm{d}y^2 + \\mathrm{d}z^2 )$，其中 $\\alpha$ 为常数。定义重量 $W_A(x) = \\int e^{\\frac{2x}{\\alpha}} T^{xx} \\mathrm{d}y \\mathrm{d}z$。\\n背景B（Schwarzschild场）：度规为 $\\mathrm{d}s^2 = -\\left(1-\\frac{r_s}{r}\\right)\\mathrm{d}t^2 + \\frac{r}{r-r_s}\\mathrm{d}r^2 + r^2\\mathrm{d}\\theta^2 + r^2\\sin^2\\theta\\mathrm{d}\\phi^2$。定义横向面积元 $\\mathrm{d}A = r^2\\sin\\theta \\mathrm{d}\\theta \\mathrm{d}\\phi$，重量 $W_B(r) = \\int g_{rr} T^{rr} \\mathrm{d}A = \\int \\frac{r^3}{r-r_s} T^{rr} \\sin\\theta \\mathrm{d}\\theta \\mathrm{d}\\phi$。\\n请分别在两种背景下，从能动张量协变守恒律 $T^{\\mu\\nu}_{;\\nu} = 0$ 的径向分量出发，推导重量 $W$ 的演化方程。对比两个演化方程中是否出现积分能量密度项，并利用 Christoffel 符号与度规分量 $g_{tt}$ 的关系解释该差异的几何与物理含义。",
+    "answer": "背景A演化方程为：\\n$$\\partial_x W_A(x) + \\frac{2}{\\alpha} W_A(x) - \\frac{1}{\\alpha} \\int e^{\\frac{2x}{\\alpha}} T^{yy} \\mathrm{d}y \\mathrm{d}z - \\frac{1}{\\alpha} \\int e^{\\frac{2x}{\\alpha}} T^{zz} \\mathrm{d}y \\mathrm{d}z = 0$$\\n该方程不含积分能量密度项 $\\int T^{tt} \\mathrm{d}y \\mathrm{d}z$，重量演化与积分能量密度完全脱耦。\\n\\n背景B演化方程为：\\n$$\\partial_r W_B(r) + \\left( \\frac{\\partial_r(g_{rr} \\sqrt{g_{\\perp}})}{g_{rr} \\sqrt{g_{\\perp}}} - \\frac{2}{r} - \\Gamma^r_{rr}\\right) W_B(r) + \\frac{r_s}{2r^2} \\int T^{tt} \\mathrm{d}A - r \\int g_{\\theta\\theta} T^{\\theta\\theta} \\frac{\\mathrm{d}A}{r^2} - r \\int g_{\\phi\\phi} T^{\\phi\\phi} \\frac{\\mathrm{d}A}{r^2} = 0$$\\n该方程包含能量密度项 $\\frac{r_s}{2r^2} \\int T^{tt} \\mathrm{d}A$，重量演化与能量密度耦合。\\n\\n差异的物理含义：背景A中度规分量 $g_{tt} = -1$ 为常数，使得 Christoffel 符号 $\\Gamma^x_{tt} = -\\frac{1}{2} g^{xx} g_{tt,x} = 0$，径向方向不受时间维度几何梯度的驱动，因此能量密度不参与重量演化；背景B中度规分量 $g_{tt} = -(1-r_s/r)$ 随径向坐标变化，$\\Gamma^r_{tt} = \\frac{r_s(r-r_s)}{2r^3} \\neq 0$，引力场的时间弯曲结构将能量密度直接耦合至径向应力演化，决定了重量对能量密度的依赖。",
+    "solution": "背景A推导：\\n1. 径向协变守恒律 $T^{x\\beta}_{;\\beta}=0$ 展开为 $|g|^{-1/2} \\partial_x(|g|^{1/2} T^{xx}) + \\Gamma^x_{\\beta\\gamma} T^{\\beta\\gamma} = 0$。\\n2. 代入 $|g|^{1/2} = e^{3x/\\alpha}$ 及 Christoffel 符号 $\\Gamma^x_{xx}=1/\\alpha$, $\\Gamma^x_{yy}=-1/\\alpha$, $\\Gamma^x_{zz}=-1/\\alpha$, $\\Gamma^x_{tt}=0$。\\n3. 得到 $\\partial_x T^{xx} + \\frac{4}{\\alpha} T^{xx} - \\frac{1}{\\alpha} T^{yy} - \\frac{1}{\\alpha} T^{zz} = 0$。乘以 $e^{2x/\\alpha}$ 并在 $\\mathrm{d}y \\mathrm{d}z$ 上积分，利用 $\\partial_x W_A = \\frac{2}{\\alpha} W_A + \\int e^{2x/\\alpha} \\partial_x T^{xx} \\mathrm{d}y \\mathrm{d}z$ 整理即得结果。\\n\\n背景B推导：\\n1. 径向协变守恒律 $\\nabla_\\mu T^{r\\mu} = 0$，忽略横向流并展开：$\\frac{2}{r} T^{rr} + \\partial_r T^{rr} + \\Gamma^r_{tt} T^{tt} + \\Gamma^r_{rr} T^{rr} + \\Gamma^r_{\\theta\\theta} T^{\\theta\\theta} + \\Gamma^r_{\\phi\\phi} T^{\\phi\\phi} = 0$。\\n2. 对重量求导：$\\partial_r W_B(r) = \\int \\partial_r(g_{rr} \\sqrt{g_{\\perp}} T^{rr}) \\mathrm{d}\\theta \\mathrm{d}\\phi = \\int \\left[ \\partial_r(g_{rr} \\sqrt{g_{\\perp}}) T^{rr} + g_{rr} \\sqrt{g_{\\perp}} \\partial_r T^{rr}\\right] \\mathrm{d}\\theta \\mathrm{d}\\phi$。\\n3. 代入 $\\partial_r T^{rr}$ 并合并 $T^{rr}$ 的积分项为 $W_B(r)$ 项，保留度规因子。\\n4. 计算关键能量密度项：$\\int g_{rr} \\sqrt{g_{\\perp}} \\Gamma^r_{tt} T^{tt} \\mathrm{d}\\theta \\mathrm{d}\\phi = \\int \\frac{r}{r-r_s} r^2 \\sin\\theta \\frac{r_s(r-r_s)}{2r^3} T^{tt} \\mathrm{d}\\theta \\mathrm{d}\\phi = \\frac{r_s}{2} \\int T^{tt} \\sin\\theta \\mathrm{d}\\theta \\mathrm{d}\\phi = \\frac{r_s}{2r^2} \\int T^{tt} \\mathrm{d}A$。\\n5. 对比 $\\Gamma^x_{tt}=0$ 与 $\\Gamma^r_{tt} \\neq 0$，根源在于 $g_{tt}$ 是否为常数。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "Answer中背景B演化方程的 $W_B(r)$ 系数符号完全反了。根据推导，将 $\\partial_r T^{rr}$ 的积分项 $\\int g_{rr} \\sqrt{g_{\\\\perp}} \\partial_r T^{rr} = \\partial_r W_B - \\int \\partial_r(g_{rr} \\sqrt{g_{\\\\perp}}) T^{rr}$ 代入原方程后，合并 $T^{rr}$ 的积分项应为 $\\\\int g_{rr} \\\\sqrt{g_{\\\\perp}} \\\\left( - \\\\frac{\\\\partial_r(g_{rr} \\\\sqrt{g_{\\\\perp}})}{g_{rr} \\\\sqrt{g_{\\\\perp}}} + \\\\frac{2}{r} + \\\\Gamma^r_{rr} \\\\right) T^{rr}$，提取出 $W_B$ 后系数应为 $\\\\left( - \\\\frac{\\\\partial_r(g_{rr} \\\\sqrt{g_{\\\\perp}})}{g_{rr} \\\\sqrt{g_{\\\\perp}}} + \\\\frac{2}{r} + \\\\Gamma^r_{rr} \\\\right)$。但Answer中写成了 $\\\\left( \\\\frac{\\\\partial_r(g_{rr} \\\\sqrt{g_{\\\\perp}})}{g_{rr} \\\\sqrt{g_{\\\\perp}}} - \\\\frac{2}{r} - \\\\Gamma^r_{rr} \\\\right)$，属于合并同类项时典型的 sign error，导致微分方程演化方向错误。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

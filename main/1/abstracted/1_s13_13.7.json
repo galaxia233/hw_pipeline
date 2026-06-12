@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s13_13.7",
+    "type": "prove",
+    "tags": {
+      "metric": "energy_condition",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "tensor_algebra",
+      "scenario": "proof",
+      "method": "general_relativity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.7",
+    "source_id": "1_s13_13.7",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基于应力能张量代数性质的递推证明，逻辑链条完整，具标准广义相对论物理背景且解答详尽。",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathbf{T}$",
+      "$\\\\mathbf{u}$",
+      "$n$",
+      "$\\\\rho$"
+    ],
+    "target": [
+      "$(- 1)^{n} \\\\mathbf{T}^{n}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 13.7. The \"dominant energy condition\" on $\\mathbf{T}^{\\mu \\nu}$ requires that the weak energy condition be satisfied (all observers see a nonnegative energy density) and furthermore, that all observers see energy density greater or equal to the magnitude of the energy-flux 3-vector. Show that the statement\\n$$\\n\\\\mathbf {u} \\\\cdot (- \\\\mathbf {T})^{\\\\mathbf {n}} \\\\cdot \\\\mathbf {u} \\\\leq 0\\n$$\\nfor all nonspacelike vectors $\\mathbf{u}$ reduces to the weak energy condition for $\\mathfrak{n} = 1$ and to the dominant energy condition for $\\mathfrak{n} = 2$ . What about $\\mathfrak{n} > 2$ ? [Here $(\\\\mathbf{T}^2)_{\\\\mu \\\\nu} \\\\equiv \\\\mathbf{T}_\\\\mu^\\\\sigma \\\\mathbf{T}_{\\\\sigma \\\\nu}$ and so forth.]",
+    "answer": "The statement reduces to the weak energy condition for $n=1$ and the dominant energy condition for $n=2$. For $n>2$, it follows recursively from the $n-2$ case, meaning the dominant energy condition is both necessary and sufficient for the statement to hold for all $n$.",
+    "solution": "Solution 13.7. For $n = 0$ the statement reads $\\mathbf{u} \\cdot \\mathbf{u} \\leq 0$ and is trivial. For $n = 1$ the statement is $\\mathbf{u} \\cdot \\mathbf{T} \\cdot \\mathbf{u} \\geq 0$ for all timelike $\\mathbf{u}$ . This is just the weak energy condition. For $n = 2$ the statement is that $(\\mathbf{u} \\cdot \\mathbf{T}) \\cdot (\\mathbf{u} \\cdot \\mathbf{T}) \\leq 0$ or that $\\mathbf{u} \\cdot \\mathbf{T}$ must be nonspacelike. But for an observer with 4-velocity $\\mathbf{u}$ , $\\mathbf{u} \\cdot \\mathbf{T} = (-\\rho, [\\text{Energy flux}]^{\\mathrm{i}})$ so, by the dominant energy condition, $|\\rho| > |\\text{Energy flux}|$ and $\\mathbf{u} \\cdot \\mathbf{T}$ is indeed nonspacelike.\\nNow consider any $n$ and the statement\\n$$\\n(- 1)^{n} \\\\mathbf {u} \\\\cdot \\\\mathbf {T} \\\\cdot \\\\mathbf {T} \\\\dot s \\\\mathbf {T} \\\\cdot \\\\mathbf {u} \\\\leq 0.\\n$$\\nSince $\\mathbf{u} \\cdot \\mathbf{T}$ is nonspacelike, the statement for any $\\mathfrak{n}$ is equivalent to the statement for $\\mathfrak{n}-2$ . But we have shown that the dominant energy condition implies the $\\mathfrak{n}=1$ and $\\mathfrak{n}=2$ cases so it follows that the dominant energy condition implies the statement for all $\\mathfrak{n}$ . The converse follows immediately, any stress energy satisfying the statement for $\\mathfrak{n}=1$ and $\\mathfrak{n}=2$ satisfies all the requirements of the dominant energy condition."
+  },
+  "verification": null
+}

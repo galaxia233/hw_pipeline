@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "Newtonian_energy_conservation",
+      "coordinate": "spherical_cosmological",
+      "scenario": "cosmology",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\frac{1}{2}\\dot{R}^2 - \\frac{GM}{R} = 0"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In general relativity, if a spacetime possesses a timelike Killing vector $\\xi^\\mu$, one can construct a conserved energy current $J^\\mu = T^{\\mu\\nu}\\xi_\\nu$ such that $J^\\mu_{;\\mu} = 0$. The FLRW metric for a homogeneous and isotropic universe is given by$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2}dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$$This spacetime has no timelike Killing vector for a general scale factor $a(t)$, meaning a covariant energy conservation law of the form $J^\\mu_{;\\mu}=0$ does not exist. However, taking the spatially flat limit ($k \\to 0$) of the Einstein field equations for a pressureless dust universe ($p=0$) restores a classical Newtonian energy conservation. Using the $G_{00}$ component of the Einstein tensor provided in the Fact Sheet, prove that the $k \\to 0$ limit of the field equation $G_{00} = 8\\pi T_{00}$ yields the Friedmann equation $3\\frac{\\dot{a}^2}{a^2} = 8\\pi\\rho$. Show that this equation can be algebraically rearranged into $\\frac{1}{2}(\\dot{a}r)^2 - \\frac{4\\pi}{3}\\rho (ar)^3 \\frac{1}{ar} = 0$, and explain why this corresponds exactly to the Newtonian mechanical energy conservation $\\frac{1}{2}\\dot{R}^2 - \\frac{GM}{R} = 0$ for a test particle at physical distance $R = ar$ from the center of a uniform dust sphere of mass $M = \\frac{4\\pi}{3}\\rho R^3$. Finally, contrast the origin of this Newtonian conservation law with the general relativistic conservation law derived from a timelike Killing vector.",
+    "answer": "The $k \\to 0$ limit of the Einstein field equation yields the Newtonian energy conservation $\\frac{1}{2}\\dot{R}^2 - \\frac{GM}{R} = 0$, which originates from the dynamical field equations (Bianchi identities) rather than the geometric symmetry of a timelike Killing vector.",
+    "solution": "1. From the Fact Sheet, the Einstein tensor component is $G_{00} = \\frac{3(k + \\dot{a}^2)}{a^2}$.2. The stress-energy tensor for pressureless dust is $T_{00} = \\rho$. The Einstein field equation gives $G_{00} = 8\\pi T_{00} = 8\\pi\\rho$.3. Taking the spatially flat limit $k \\to 0$, we get $3\\frac{\\dot{a}^2}{a^2} = 8\\pi\\rho$, which is the first Friedmann equation.4. Rearranging this equation: $\\dot{a}^2 = \\frac{8\\pi}{3}\\rho a^2$.5. Multiplying both sides by $\\frac{1}{2}r^2$: $\\frac{1}{2}(\\dot{a}r)^2 = \\frac{4\\pi}{3}\\rho (ar)^3 \\frac{1}{ar}$.6. Define the physical distance $R = ar$ and the mass enclosed within radius $R$ as $M = \\frac{4\\pi}{3}\\rho R^3$. The equation becomes $\\frac{1}{2}\\dot{R}^2 = \\frac{GM}{R}$ (in geometric units where $G=1$, or restoring $G$ as $\\frac{1}{2}\\dot{R}^2 = \\frac{GM}{R}$). This is exactly the Newtonian energy conservation equation for a test particle on the surface of a uniform expanding sphere, where $\\frac{1}{2}\\dot{R}^2$ is the kinetic energy per unit mass and $-\\frac{GM}{R}$ is the gravitational potential energy per unit mass.7. Contrast: In the Killing vector approach, energy conservation $J^\\mu_{;\\mu}=0$ arises purely from the geometric symmetry of the spacetime (the existence of a timelike Killing vector), independent of the specific matter content. In the FLRW $k \\to 0$ limit, the Newtonian energy conservation arises dynamically from the Einstein field equations (specifically the time-time component $G_{00} = 8\\pi T_{00}$) for a specific matter type (dust), compensating for the absence of a timelike Killing vector. This shows how the Newtonian limit restores a conservation law through the dynamics of gravity itself."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.2,
+      "issue": "1. 题目不自包含且缺少必要条件：题目明确要求 'Using the $G_{00}$ component of the Einstein tensor provided in the Fact Sheet'，但题目文本中并未包含该 Fact Sheet 或给出 $G_{00}$ 的具体表达式，导致做题者无法仅凭题目本身完成推导。\n2. 物理概念表述不准确：题目声称 'taking the spatially flat limit ($k \\to 0$) ... restores a classical Newtonian energy conservation'，这暗示仅在 $k=0$ 时才存在牛顿能量守恒类比。实际上，对于任何 $k$ 值，Friedmann 方程都可以写成牛顿能量守恒的形式 $\\frac{1}{2}\\dot{R}^2 - \\frac{GM}{R} = E$（其中总能量 $E = -\\frac{1}{2}kc^2 r^2$），$k=0$ 仅对应于总能量 $E=0$ 的临界情况，并非从无到有地'恢复'了守恒定律。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s3_3.11",
+    "type": "concept",
+    "tags": {
+      "metric": "rank_2_tensor",
+      "target_object": "tensor_product_decomposition",
+      "coordinate": "matrix_column_proportionality",
+      "scenario": "coordinate_free_formulation",
+      "method": "basis_transformation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.11",
+    "source_id": "1_s3_3.11",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.11"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "Abstract tensor product condition verified via matrix proportionality and coordinate-free directional mapping; complete logical derivation but lacks concrete physical application scenario.",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$K^{\\\\alpha\\\\beta}$",
+      "$A^{\\\\alpha}$",
+      "$B^{\\\\beta}$",
+      "$v_{\\\\beta}$",
+      "$W^{\\\\alpha}$",
+      "$\\\\lambda_{\\\\mu}$"
+    ],
+    "target": [
+      "$K^{\\\\alpha\\\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.11. You are given a tensor $\\mathbf{K}^{\\alpha \\beta}$ . How can you test whether it is a direct product of two vectors $\\mathbf{K}^{\\alpha \\beta} = \\mathbf{A}^{\\alpha} \\mathbf{B}^{\\beta}$ ? Can you express the test in coordinate-free language?\\n\\n## Solution\\n\\nSolution 3.11. In a basis $\\mathbf{K}$ is represented by a matrix $\\mathbf{K}^{a\\beta}$ . An obviously necessary and sufficient condition for $\\mathbf{K}^{a\\beta}$ to be expressible as $\\mathbf{A}^{\\alpha}\\mathbf{B}^{\\beta}$ is that all columns of the matrix are proportional to each other.\\nIn basis-free language, $\\mathbf{K}$ can be written as\\n$$\\n\\\\mathbf {K} = \\\\mathbf {A} \\\\otimes \\\\mathbf {B}\\n$$\\nif and only if the vector $\\mathbf{W} = \\mathbf{K} \\cdot \\mathbf{v}$ (i.e. $\\mathbf{W}^{\\alpha} = \\mathbf{K}^{a\\beta} \\mathbf{v}_{\\beta}$ ) is in the same direction for any choice of $\\mathbf{v}$ . Proof: In some frame choose 4 basis vectors $\\mathbf{e}^{0}, \\mathbf{e}^{1}, \\cdots$ to satisfy $\\mathbf{e}^{\\mu} \\cdot \\mathbf{e}_{\\nu} = \\delta_{\\nu}^{\\mu}$ . By linearity the direction of $\\mathbf{W}$\\nis independent of any $\\mathbf{v}$ if and only if it is independent of the 4 basis vectors $\\mathbf{e}^{\\mu}$ . Our condition then is\\n$$\\n\\\\mathbf {K} \\\\cdot \\\\mathbf {e}^{0} = \\\\lambda_{0} \\\\mathbf {W}, \\\\quad \\\\mathbf {K} \\\\cdot \\\\mathbf {e}^{1} = \\\\lambda_{1} \\\\mathbf {W}, \\\\dot s\\n$$\\nor\\n$$\\n\\\\mathrm {K}^{\\\\alpha 0} = \\\\lambda_{0} \\\\mathrm {W}^{\\\\alpha}, \\\\quad \\\\mathrm {K}^{\\\\alpha 1} = \\\\lambda_{1} \\\\mathrm {W}^{\\\\alpha} \\\\dot s .\\n$$\\nOur basis-free criterion then is equivalent to the columns being proportional.",
+    "answer": "Coordinate condition: All columns of the matrix representation $K^{a\\\\beta}$ are proportional to each other. Coordinate-free condition: For any arbitrary vector $\\\\mathbf{v}$, the resulting vector $\\\\mathbf{W} = \\\\mathbf{K} \\\\cdot \\\\mathbf{v}$ always points in a fixed direction (independent of the direction of $\\\\mathbf{v}$), which is equivalent to stating that the rank-2 tensor $\\\\mathbf{K}$ has rank 1.",
+    "solution": "In a basis $\\mathbf{K}$ is represented by a matrix $\\mathbf{K}^{a\\beta}$ . An obviously necessary and sufficient condition for $\\mathbf{K}^{a\\beta}$ to be expressible as $\\mathbf{A}^{\\alpha}\\mathbf{B}^{\\beta}$ is that all columns of the matrix are proportional to each other.\\nIn basis-free language, $\\mathbf{K}$ can be written as\\n$$\\n\\\\mathbf {K} = \\\\mathbf {A} \\\\otimes \\\\mathbf {B}\\n$$\\nif and only if the vector $\\mathbf{W} = \\mathbf{K} \\cdot \\mathbf{v}$ (i.e. $\\mathbf{W}^{\\alpha} = \\mathbf{K}^{a\\beta} \\mathbf{v}_{\\beta}$ ) is in the same direction for any choice of $\\mathbf{v}$ . Proof: In some frame choose 4 basis vectors $\\mathbf{e}^{0}, \\mathbf{e}^{1}, \\cdots$ to satisfy $\\mathbf{e}^{\\mu} \\cdot \\mathbf{e}_{\\nu} = \\delta_{\\nu}^{\\mu}$ . By linearity the direction of $\\mathbf{W}$\\nis independent of any $\\mathbf{v}$ if and only if it is independent of the 4 basis vectors $\\mathbf{e}^{\\mu}$ . Our condition then is\\n$$\\n\\\\mathbf {K} \\\\cdot \\\\mathbf {e}^{0} = \\\\lambda_{0} \\\\mathbf {W}, \\\\quad \\\\mathbf {K} \\\\cdot \\\\mathbf {e}^{1} = \\\\lambda_{1} \\\\mathbf {W}, \\\\dot s\\n$$\\nor\\n$$\\n\\\\mathrm {K}^{\\\\alpha 0} = \\\\lambda_{0} \\\\mathrm {W}^{\\\\alpha}, \\\\quad \\\\mathrm {K}^{\\\\alpha 1} = \\\\lambda_{1} \\\\mathrm {W}^{\\\\alpha} \\\\dot s .\\n$$\\nOur basis-free criterion then is equivalent to the columns being proportional."
+  },
+  "verification": null
+}

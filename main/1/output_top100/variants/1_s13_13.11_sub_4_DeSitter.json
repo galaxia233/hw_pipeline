@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s13_13.11-0-4",
+    "type": "calculate",
+    "tags": {
+      "target_object": "komar_mass",
+      "coordinate": "cartesian",
+      "scenario": "static_negative_curvature_space",
+      "method": "integral",
+      "generalization_axis": "substitute",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.11",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s13_13.11",
+      "1_s13_13.11-0",
+      "1_s13_13.11-0-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "DeSitter",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$0$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "对于具有度规 $\\mathrm{d}s^2 = -\\mathrm{d}t^2 + e^{2x/\\alpha}(\\mathrm{d}x^2 + \\mathrm{d}y^2 + \\mathrm{d}z^2)$ 的时空，其具有时间平移 Killing 矢量 $\\xi^\\mu = (1,0,0,0)$。请计算该时空的 Komar 质量 $M = -\\frac{1}{8\\pi} \\int_S \\nabla^\\mu \\xi^\\nu \\mathrm{d}S_{\\mu\\nu}$，并从度规时间分量与 Newtonian 引力势的关系解释这一结果。",
+    "answer": "$0$",
+    "solution": "1. 计算 Killing 矢量的旋度 $\\nabla_\\mu \\xi_\\nu$：Killing 矢量的下指标分量为 $\\xi_\\nu = g_{\\nu t}$，由度规可知 $\\xi_t = -1$, $\\xi_x = 0$, $\\xi_y = 0$, $\\xi_z = 0$。由于这些分量均为常数，其普通导数 $\\partial_\\mu \\xi_\\nu = 0$。旋度定义为 $\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu - \\Gamma^\\sigma_{\\mu\\nu} \\xi_\\sigma$。该度规的 Christoffel 符号中不含任何时间指标分量，即 $\\Gamma^t_{\\mu\\nu} = 0$，因此 $\\Gamma^\\sigma_{\\mu\\nu} \\xi_\\sigma = \\Gamma^t_{\\mu\\nu} \\xi_t = 0$。由此可得 $\\nabla_\\mu \\xi_\\nu = 0$，进而其指标提升形式 $\\nabla^\\mu \\xi^\\nu = g^{\\mu\\rho} g^{\\nu\\lambda} \\nabla_\\rho \\xi_\\lambda = 0$。2. 计算 Komar 质量：代入 Komar 积分公式 $M = -\\frac{1}{8\\pi} \\int_S \\nabla^\\mu \\xi^\\nu \\mathrm{d}S_{\\mu\\nu}$，由于被积函数为0，可得 $M = 0$。3. 物理意义：在静态近牛顿极限中，时间平移 Killing 矢量的旋度与 Newtonian 引力势密切相关，即 $\\nabla_i \\xi_t = \\partial_i \\Phi$。此处 $\\nabla_\\mu \\xi_\\nu = 0$ 意味着 Newtonian 势 $\\Phi = 0$。尽管该时空存在非零的 Ricci 标量（即存在物质分布和空间曲率），但其度规的时间分量 $g_{tt} = -1$ 使得 Killing 矢量的长度为常数，不存在引力红移，因此没有 Newtonian 引力势，对应的引力场能量为0。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "1. **度规与摘要信息严重不符**：摘要声称度规为 DeSitter，但题目中度规 $\\mathrm{d}s^2 = -\\mathrm{d}t^2 + e^{2x/\\alpha}(\\mathrm{d}x^2 + \\mathrm{d}y^2 + \\mathrm{d}z^2)$ 根本不是 De Sitter 度规（真正的 De Sitter 静态度规的时间分量应为 $-(1-r^2/\\alpha^2)$ 且空间部分不同）。计算题目中度规的 Ricci 标量得到 $R = -2/\\alpha^2$，不仅与摘要中声称的 De Sitter 性质矛盾，且符号完全相反（De Sitter 的 Ricci 标量应为正的 $12/\\alpha^2$）。\n2. **Kretschmann 标量量纲与数值错误**：摘要中给出的 Kretschmann 标量为 $\\frac{12}{\\alpha^{2}}$，量纲上严重错误（Kretschmann 标量应具有 $[L]^{-4}$ 的量纲，即 $\\alpha^{-4}$）；真正的 De Sitter 度规 Kretschmann 标量为 $12/\\alpha^4$，而题目中度规的实际 Kretschmann 标量为 $4/\\alpha^4$。\n3. **Killing 量数量错误**：摘要声称该度规只有 1 个 Killing 矢量，但题目中的度规明显不依赖于 $t, y, z$，因此至少存在 3 个 Killing 矢量：$\\partial_t, \\partial_y, \\partial_z$。\n4. **Solution 物理意义解释概念错误**：solution 最后得出“引力场能量为0”的结论是错误的。Komar 质量定义在非真空时空中并不直接代表总引力场能量，且由于非真空时空存在物质分布（$R_{\\mu\\nu} \\neq 0$），其引力场能量不可能为零。Komar 质量为0仅仅反映了所选 Killing 矢量在该坐标系下的旋度为0，不能等同于无引力能量。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

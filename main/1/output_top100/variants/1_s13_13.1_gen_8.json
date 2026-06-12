@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s13_13.1-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "Newtonian宇宙学加速度方程",
+      "coordinate": "FLRW",
+      "scenario": "cosmology",
+      "method": "Newtonian_limit",
+      "generalization_axis": "limit",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s13_13.1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.1",
+      "1_s13_13.1-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\frac{\\ddot{a}}{a} = - \\frac{4 \\pi G}{3} \\rho$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Newtonian 宇宙学仅从 Newtonian 引力和均匀密度假设即可推导出宇宙膨胀的加速度方程 $\\frac{\\ddot{a}}{a} = - \\frac{4 \\pi G}{3} \\rho$。在广义相对论中，FLRW 度规描述了均匀各向同性的膨胀宇宙，其线元为：\\n$$ds^2 = -dt^2 + \\frac{a^2(t)}{1 - k r^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2(\\theta) d\\phi^2$$\\n考虑该度规下的尘埃宇宙（即取压力 $p = 0$ 的极限情况），请证明：Einstein 场方程的时间-时间分量在这一极限下恰好还原为 Newtonian 宇宙学的加速度方程 $\\frac{\\ddot{a}}{a} = - \\frac{4 \\pi G}{3} \\rho$。\\n（提示：可利用 Einstein 场方程的迹消除形式 $R_{\\mu \\nu} = 8 \\pi G (T_{\\mu \\nu} - \\frac{1}{2} g_{\\mu \\nu} T)$ 进行推导。）",
+    "answer": "证明了在 $p=0$ 的尘埃极限下，广义相对论的场方程分量 $R_{00} = 4 \\pi G \\rho$ 结合几何量 $R_{00} = - \\frac{3 \\ddot{a}}{a}$，还原为 Newtonian 宇宙学加速度方程 $\\frac{\\ddot{a}}{a} = - \\frac{4 \\pi G}{3} \\rho$。",
+    "solution": "1. 对于尘埃（压力 $p=0$ 的极限），能动张量为 $T_{\\mu \\nu} = \\rho u_{\\mu} u_{\\nu}$。在共动坐标系中，四维速度为 $u^{\\mu} = (1, 0, 0, 0)$，其协变分量为 $u_{\\mu} = (-1, 0, 0, 0)$，因此 $T_{00} = \\rho$，其余空间分量 $T_{ij} = 0$。\\n2. 计算能动张量的迹：$T = g^{\\mu \\nu} T_{\\mu \\nu} = g^{00} T_{00} = - \\rho$。\\n3. 将上述结果代入 Einstein 场方程的迹消除形式 $R_{00} = 8 \\pi G (T_{00} - \\frac{1}{2} g_{00} T)$。代入 $T_{00} = \\rho$，$g_{00} = -1$，$T = - \\rho$，得：\\n$$R_{00} = 8 \\pi G \\left( \\rho - \\frac{1}{2} (-1) (- \\rho)\\right) = 8 \\pi G \\left( \\rho - \\frac{1}{2} \\rho\\right) = 4 \\pi G \\rho$$\\n4. 由 FLRW 度规的几何属性数据，Ricci 张量的时间-时间分量为 $R_{00} = - \\frac{3 \\ddot{a}}{a}$。\\n5. 联立几何量与物理量结果：\\n$$- \\frac{3 \\ddot{a}}{a} = 4 \\pi G \\rho$$\\n6. 移项即得 Newtonian 宇宙学加速度方程：\\n$$\\frac{\\ddot{a}}{a} = - \\frac{4 \\pi G}{3} \\rho$$\\n这证明了在零压（尘埃）极限下，FLRW 时空的 Einstein 场方程完美还原为经典 Newtonian 宇宙学的加速度方程。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

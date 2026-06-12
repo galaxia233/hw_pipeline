@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-1-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "Komar_superpotential_divergence",
+      "coordinate": "FLRW",
+      "scenario": "FLRW_to_Minkowski_reduce",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-1",
+      "1_s10_10.11-1-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "killing_vector",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mu$",
+      "$\\nu$"
+    ],
+    "target": [
+      "\\\\nabla_\\\\nu F^{\\\\mu\\\\nu}"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，FLRW 度规描述了均匀各向同性膨胀的宇宙：\\n$ds^2 = -dt^2 + \\\\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\\\theta^2 + r^2 a^2(t) \\\\sin^2\\\\theta d\\\\phi^2$\\n其中 $k$ 为空间曲率参数，$a(t)$ 为尺度因子。该时空存在绕 $\\phi$ 轴旋转的 Killing 矢量 $\\xi^\\\\mu = (0,0,0,1)$，对应于宇宙的空间各向同性。由该 Killing 矢量构造的 Komar 超势 $F^{\\\\mu\\\\nu} = \\\\nabla^\\\\mu \\\\xi^\\\\nu - \\\\nabla^\\\\nu \\\\xi^\\\\mu$ 的协变散度满足 $\\\\nabla_\\\\nu F^{\\\\mu\\\\nu} = 2 R^{\\\\mu\\\\nu} \\\\xi_\\\\nu$。\\n已知在 FLRW 度规下，Ricci 张量与 Killing 矢量的缩并 $2 R^{\\\\mu\\\\nu} \\\\xi_\\\\nu$ 仅在 $\\mu=3$ 分量非零，其值为 $\\\\frac{4k + 2a(t) \\\\ddot{a}(t) + 4 \\\\dot{a}(t)^2}{a^2(t)}$。请通过取宇宙的平直静态极限（即空间曲率参数 $k \\\\to 0$ 且尺度因子 $a(t) \\\\to 1$，此时时空退化为经典平直时空），求 Komar 超势散度 $\\\\nabla_\\\\nu F^{\\\\mu\\\\nu}$ 的极限值，并说明其在经典力学中对应何种物理守恒定律。",
+    "answer": "当 $k \\\\to 0$ 且 $a(t) \\\\to 1$ 时（意味着宇宙无空间曲率且停止膨胀，此时 $\\\\dot{a} \\\\to 0, \\\\ddot{a} \\\\to 0$），FLRW 度规退化为经典平直时空（Minkowski 度规）。此时 Komar 超势散度 $\\\\nabla_\\\\nu F^{\\\\mu\\\\nu} = 2 R^{\\\\mu\\\\nu} \\\\xi_\\\\nu$ 的唯一非零分量 $\\\\frac{4k + 2a \\\\ddot{a} + 4 \\\\dot{a}^2}{a^2} \\\\to 0$。因此超势散度的极限值为 0。在经典力学中，这对应于平直时空中旋转 Killing 矢量无源，意味着系统角动量严格守恒。",
+    "solution": "推导思路：在 FLRW 度规下，Killing 矢量 $\\\\xi^\\\\mu = (0,0,0,1)$ 对应的 Komar 超势散度由时空曲率贡献。取 $k \\\\to 0$ 且 $a(t) \\\\to 1$（即 $\\\\dot{a} \\\\to 0, \\\\ddot{a} \\\\to 0$），时空退化为无曲率的 Minkowski 平直时空，所有 Ricci 张量分量 $R^{\\\\mu\\\\nu}$ 归零，从而 $2 R^{\\\\mu\\\\nu} \\\\xi_\\\\nu = 0$。物理上，Komar 超势散度衡量了守恒量（如角动量）的耗散，其归零意味着在经典平直时空中角动量守恒。"
+  },
+  "verification": null
+}

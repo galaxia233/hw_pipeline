@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s13_13.2-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "Kretschmann_scalar, Weyl_tensor, Singularity",
+      "coordinate": "Schwarzschild",
+      "scenario": "black_hole",
+      "method": "tensor_identity",
+      "generalization_axis": "extend",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.2",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.2",
+      "1_s13_13.2-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$C_{\\alpha\\beta\\gamma\\delta}$",
+      "$K$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Nordström 的二阶引力理论通过 $C_{\\mu\\nu\\rho\\sigma}=0$ 和 $R = \\kappa g_{\\mu\\nu} T^{\\mu\\nu}$ 定义，该理论中 Weyl 张量为零导致真空区域无潮汐力，从而预言星光不偏折，且不存在真实的曲率奇点。在广义相对论的 Schwarzschild 黑洞时空中，外部真空区域的几何性质截然不同。已知 Schwarzschild 度规为 \\n$$ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$\\n请证明：\\n1. 在 Schwarzschild 黑洞外部的真空区域（$r>r_s$），Weyl 张量 $C_{\\alpha\\beta\\gamma\\delta}$ 完全等同于 Riemann 张量 $R_{\\alpha\\beta\\gamma\\delta}$；\\n2. 利用 Fact Sheet 提供的 Kretschmann 标量 $K = \\frac{48 M^2}{r^6}$（其中 $r_s = 2M$），证明 $r=0$ 是真实的物理奇点，而 $r=r_s$ 仅是坐标奇点，并据此说明 Schwarzschild 时空与 Nordström 理论在星光偏折和奇点性质上的根本分歧。",
+    "answer": "1. 在真空区域 $R_{\\mu\\nu}=0$ 且 $R=0$，代入 Weyl 张量定义式可得 $C_{\\alpha\\beta\\gamma\\delta} = R_{\\alpha\\beta\\gamma\\delta}$；2. 当 $r \\to 0$ 时 $K \\to \\inf ty$，表明存在真实曲率奇点；当 $r=r_s$ 时 $K$ 为有限值，仅为坐标奇点。非零的 Weyl 张量提供了潮汐力，导致星光偏折，这与 Nordström 理论中 $C=0$ 导致无偏折和无真实奇点的结论形成根本对立。",
+    "solution": "1. **证明 Weyl 张量等于 Riemann 张量**：\\nWeyl 张量的定义为：\\n$$C_{\\alpha\\beta\\gamma\\delta} = R_{\\alpha\\beta\\gamma\\delta} - \\frac{1}{2}(g_{\\alpha\\gamma}R_{\\beta\\delta} - g_{\\alpha\\delta}R_{\\beta\\gamma} - g_{\\beta\\gamma}R_{\\alpha\\delta} + g_{\\beta\\delta}R_{\\alpha\\gamma}) + \\frac{1}{6}R(g_{\\alpha\\gamma}g_{\\beta\\delta} - g_{\\alpha\\delta}g_{\\beta\\gamma})$$\\n对于 Schwarzschild 黑洞外部的真空区域，Einstein 场方程的真空解要求 Ricci 张量 $R_{\\mu\\nu} = 0$，同时由 Fact Sheet 可知 Ricci 标量 $R = 0$。将 $R_{\\mu\\nu}=0$ 和 $R=0$ 代入 Weyl 张量定义式，所有包含 Ricci 张量和 Ricci 标量的项均消失，直接得到：\\n$$C_{\\alpha\\beta\\gamma\\delta} = R_{\\alpha\\beta\\gamma\\delta}$$\\n这表明真空区域的曲率完全由“自由引力场”（Weyl 张量/潮汐力）贡献。\\n\\n2. **奇点性质分析与物理分歧**：\\nKretschmann 标量是 Riemann 张量的完全缩并 $K = R_{\\alpha\\beta\\gamma\\delta} R^{\\alpha\\beta\\gamma\\delta}$，它是与坐标选择无关的曲率不变量。由 Fact Sheet 给出：\\n$$K = \\frac{48 M^2}{r^6}$$\\n- 在 $r = r_s = 2M$ 处（视界位置），度规分量 $g_{00}$ 和 $g_{11}$ 出现发散或零点，但代入 $r=2M$ 计算可得 $K = 48 M^2 / (2M)^6 = 3 / (2 M^4)$，这是一个有限值。曲率不变量有限说明 $r=r_s$ 处时空曲率并未发散，该奇点仅是由于坐标选择不当造成的**坐标奇点**。\\n- 当 $r \\to 0$ 时，$K \\to \\inf ty$，曲率不变量发散，表明时空曲率在此处无限增大，这是无法通过坐标变换消除的**真实物理奇点**。\\n\\n**根本分歧**：\\n在 Nordström 理论中，$C_{\\mu\\nu\\rho\\sigma}=0$ 意味着没有任何潮汐力（自由引力场），因此光线沿直线传播不发生偏折，且真空区域 Riemann 张量为零，不存在真实曲率奇点。而在广义相对论的 Schwarzschild 时空中，$C_{\\alpha\\beta\\gamma\\delta} \\neq 0$（如横向潮汐力分量 $R_{0202}$ 不为零），非零的 Weyl 曲率提供了改变光线传播方向的潮汐力，导致星光偏折；同时 Weyl 曲率在 $r \\to 0$ 处发散，产生了真实的物理奇点。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "solution 第2部分存在明显的数学计算系数因子错误：在计算视界处的 Kretschmann 标量时，代入 $r=2M$ 得到 $K = 48 M^2 / (2M)^6 = 48 M^2 / 64 M^6 = 3 / (4 M^4)$，但 solution 中错误地写成了 $3 / (2 M^4)$，将系数 $3/4$ 错算为 $3/2$。此外，answer 和 solution 中均出现了排版/拼写错误，将无穷大 infinity 错拼为 'inf ty'（如 $K \\to \\inf ty$）。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

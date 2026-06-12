@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "id": "1_s2_2.3",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "four_momentum_conservation",
+      "coordinate": "inertial_rest_frame",
+      "scenario": "free_electron_photon_interaction",
+      "method": "invariant_squaring_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.3",
+    "source_id": "1_s2_2.3",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.9,
+      "rationale": "利用四动量守恒与洛伦兹标量性质进行多步推导，揭示真空自由电子辐射的运动学禁戒机制，物理动机明确且直接关联实际辐射过程（如轫致辐射需原子核参与）。",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$m_e$",
+      "$\\mathbf{p}_e$",
+      "$\\mathbf{p}_\\gamma$",
+      "$\\mathbf{p}'_e$"
+    ],
+    "target": [
+      "$p_{e}^{\\mu} p_{\\gamma \\mu}$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$-1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$-1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$-1$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "-1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "-1"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "[文件 1: 1_s2_2.3.md]Problem 2.3. Show that it is impossible for an isolated free electron to absorb or emit a photon.## SolutionSolution 2.3. By conservation of 4-momentum, we would have to have$$\\mathbf {p}_{\\gamma} + \\mathbf {p}_{\\mathrm {e}} = \\mathbf {p}_{\\mathrm {e}}^{\\prime}, \\tag {1},$$where $\\mathbf{p}_{\\gamma}$ is the photon momentum, $\\mathbf{p}_{e}$ and $\\mathbf{p}_{e}^{\\prime}$ are the electron's momentum when the photon is/is not present.Squaring both sides of Equation (1)$$\\begin{array}{l} \\mathbf {p}_{\\gamma} \\cdot \\mathbf {p}_{\\gamma} + 2 \\mathbf {p}_{\\mathbf {e}} \\cdot \\mathbf {p}_{\\gamma} + \\mathbf {p}_{\\mathbf {e}} \\cdot \\mathbf {p}_{\\mathbf {e}} = \\mathbf {p}_{\\mathbf {e}}^{\\prime} \\cdot \\mathbf {p}_{\\mathbf {e}}^{\\prime} \\\\ 0 + 2 \\mathbf {p}_{\\mathbf {e}} \\cdot \\mathbf {p}_{\\gamma} - m_{\\mathbf {e}}^{2} = - m_{\\mathbf {e}}^{2} \\\\ \\mathbf {p}_{\\mathbf {e}} \\cdot \\mathbf {p}_{\\gamma} = 0. \\\\ \\end{array}$$But in the frame where $\\mathbf{p}_{\\mathbf{e}} = (\\mathfrak{m},\\underline{\\mathfrak{0}})$ and $\\mathbf{p}_{\\gamma} = (\\mathbf{E},\\underline{\\mathbf{p}})$ , this says that the photon energy must be zero, i.e. there is no photon. Thus the process cannot occur.",
+    "answer": "Thus the process cannot occur.",
+    "solution": "Solution 2.3. By conservation of 4-momentum, we would have to have$$\\mathbf {p}_{\\gamma} + \\mathbf {p}_{\\mathrm {e}} = \\mathbf {p}_{\\mathrm {e}}^{\\prime}, \\tag {1},$$where $\\mathbf{p}_{\\gamma}$ is the photon momentum, $\\mathbf{p}_{e}$ and $\\mathbf{p}_{e}^{\\prime}$ are the electron's momentum when the photon is/is not present.Squaring both sides of Equation (1)$$\\begin{array}{l} \\mathbf {p}_{\\gamma} \\cdot \\mathbf {p}_{\\gamma} + 2 \\mathbf {p}_{\\mathbf {e}} \\cdot \\mathbf {p}_{\\gamma} + \\mathbf {p}_{\\mathbf {e}} \\cdot \\mathbf {p}_{\\mathbf {e}} = \\mathbf {p}_{\\mathbf {e}}^{\\prime} \\cdot \\mathbf {p}_{\\mathbf {e}}^{\\prime} \\\\ 0 + 2 \\mathbf {p}_{\\mathbf {e}} \\cdot \\mathbf {p}_{\\gamma} - m_{\\mathbf {e}}^{2} = - m_{\\mathbf {e}}^{2} \\\\ \\mathbf {p}_{\\mathbf {e}} \\cdot \\mathbf {p}_{\\gamma} = 0. \\\\ \\end{array}$$But in the frame where $\\mathbf{p}_{\\mathbf{e}} = (\\mathfrak{m},\\underline{\\mathfrak{0}})$ and $\\mathbf{p}_{\\gamma} = (\\mathbf{E},\\underline{\\mathbf{p}})$ , this says that the photon energy must be zero, i.e. there is no photon. Thus the process cannot occur."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "m_e",
+      "\\mathbf{p}_e",
+      "\\mathbf{p}_\\gamma",
+      "\\mathbf{p}'_e"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

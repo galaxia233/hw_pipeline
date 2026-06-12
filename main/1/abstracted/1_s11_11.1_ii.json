@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s11_11.1_ii",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_Spacetime",
+      "target_object": "Angular_Momentum_Tensor",
+      "coordinate": "Cartesian",
+      "scenario": "Particle_Collision",
+      "method": "Conservation_of_Four_Momentum"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s11_11.1_ii",
+    "source_id": "1_s11_11.1_ii",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s11_11.1_ii"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.7,
+      "rationale": "基于角动量张量定义与四动量守恒律的线性叠加证明，逻辑链完整且对应实际粒子散射场景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$J^{\\\\mu\\\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 11.1. In special relativity, when a particle is at an event B and has 4-momentum p, its angular momentum about event A is\\n$$\\n\\\\mathbf {J} = \\\\Delta \\\\mathbf {x} \\\\otimes \\\\mathbf {p} - \\\\mathbf {p} \\\\otimes \\\\Delta \\\\mathbf {x}\\n$$\\nwhere $\\pmb{\\Delta}\\mathbf{x}$ is the 4-vector from event A to event B\\n(ii), Suppose that several particles\\n![](images/400037e0d3c3af84478eeed57d9d0f4fa4399a0b44a3715dbd2d8fd2346873c4.jpg)\\ncollide at an event B, thereby producing several other particles. Show that the sum of the angular momenta of the particles about an event A is the same after the collision as before:\\n$$\\n\\\\sum_{(\\mathbf {k})} \\\\left. \\\\mathbf {J}_{(\\mathbf {k})} \\\\right|_{\\\\text {a f t e r}} = \\\\sum_{(\\mathbf {k})} \\\\left. \\\\mathbf {J}_{(\\mathbf {k})} \\\\right|_{\\\\text {b e f o r e}}.\\n$$",
+    "answer": "$\\\\sum_{(k)} \\\\mathbf{J}_{(k)}|_{\\\\text{after}} = \\\\sum_{(k)} \\\\mathbf{J}_{(k)}|_{\\\\text{before}}$",
+    "solution": null
+  },
+  "verification": null
+}

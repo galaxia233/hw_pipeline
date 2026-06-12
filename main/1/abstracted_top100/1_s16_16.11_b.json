@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "id": "1_s16_16.11_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "null_coordinates",
+      "scenario": "vaidya_metric",
+      "method": "radiation_field"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.11_b",
+    "source_id": "1_s16_16.11_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.11_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "Vaidya metric derivation requires multi-step computation of connection and curvature tensors to extract radiation stress-energy tensor and physical interpretation.",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$u$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$",
+      "$M$"
+    ],
+    "target": [
+      "$T_{uu}$"
+    ],
+    "metric": [
+      [
+        "$-(1 - 2M/r)$",
+        "$-1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\\\sin^2 \\\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s16_16.11_b.md]\\n\\nProblem 16.11.\\n(b) Now let $\\mathbf{M}$ be a function of the null coordinate $\\mathfrak{u}$ in part (a). Show that the space-time is not vacuum, and find the corresponding $T^{\\alpha \\beta}$ . Give a physical interpretation. (This is the \"Vaidya\" metric.)",
+    "answer": "$T_{uu} = -M' / 4\\\\pi r^2$（其余分量为零）；物理诠释：纯辐射场（pure radiation field），对应因携带辐射能量流出而导致质量减小的球对称恒星外部度规。",
+    "solution": "Solution 16.11.\\n(b) We wish to compute the Einstein tensor $\\mathbf{G}_{\\\\alpha \\\\beta}$ when $\\mathbf{M} = \\mathbf{M}(\\\\mathbf{u})$ . The Christoffel symbols are most easily found from the Lagrangian for geodesics (see Problem 7.25):\\n$$\\nL = - \\\\left(1 - \\\\frac {2 M}{r}\\\\right) \\\\dot {u}^{2} - 2 \\\\dot {u} \\\\dot {r} + r^{2} \\\\dot {\\\\theta}^{2} + r^{2} \\\\sin^{2} \\\\theta \\\\dot {\\\\phi}^{2}. \\\\tag {3}\\n$$\\nThe Euler-Lagrange equation\\n$$\\n\\\\frac {d}{d s} \\\\left(\\\\frac {\\\\partial L}{\\\\partial \\\\dot {r}}\\\\right) - \\\\frac {\\\\partial L}{\\\\partial r} = 0 \\\\tag {4}\\n$$\\ngivesthegeodesic equation\\n$$\\n\\\\ddot {u} - \\\\left(\\\\mathrm {M} / \\\\mathrm {r}^{2}\\\\right) \\\\dot {u}^{2} + \\\\mathrm {r} \\\\dot {\\\\theta}^{2} + \\\\mathrm {r} \\\\sin^{2} \\\\theta \\\\dot {\\\\phi}^{2} = 0 \\\\tag {5}\\n$$\\nfrom which we read off the nonzero Christoffel symbols\\n$$\\n\\\\Gamma_{u u}^{u} = - \\\\frac {M}{r^{2}}, \\\\qquad \\\\Gamma_{\\\\theta \\\\theta}^{u} = r, \\\\qquad \\\\Gamma_{\\\\phi \\\\phi}^{u} = r \\\\sin^{2} \\\\theta .\\n$$\\nSimilarly, Equation (4) with $\\mathfrak{r}$ replaced by $\\mathfrak{u}$ , $\\theta$ and $\\phi$ gives the remaining Christoffel symbols\\n$$\\n\\\\Gamma_{\\\\mathrm {u u}}^{\\\\mathrm {r}} = \\\\frac {\\\\mathrm {M}}{\\\\mathrm {r}^{2}} \\\\left(1 - \\\\frac {2 \\\\mathrm {M}}{\\\\mathrm {r}}\\\\right) - \\\\frac {\\\\mathrm {M}^{\\\\prime}}{\\\\mathrm {r}}, \\\\qquad \\\\Gamma_{\\\\theta \\\\theta}^{\\\\mathrm {r}} = - \\\\mathrm {r} \\\\left(1 - \\\\frac {2 \\\\mathrm {M}}{\\\\mathrm {r}}\\\\right),\\n$$\\n$$\\n\\\\Gamma_{\\\\phi \\\\phi}^{r} = - \\\\left(1 - \\\\frac {2 M}{r}\\\\right) r \\\\sin^{2} \\\\theta , \\\\quad \\\\Gamma_{u r}^{r} = \\\\frac {M}{r^{2}}, \\\\quad \\\\Gamma_{r \\\\theta}^{\\\\theta} = \\\\frac {1}{r},\\n$$\\n$$\\n\\\\Gamma_{\\\\phi \\\\phi}^{\\\\theta} = - \\\\sin \\\\theta \\\\cos \\\\theta , \\\\quad \\\\Gamma_{r \\\\phi}^{\\\\phi} = \\\\frac {1}{r}, \\\\quad \\\\Gamma_{\\\\theta \\\\phi}^{\\\\phi} = \\\\cot \\\\theta .\\n$$\\nThese all have their Schwarzschild values except $\\Gamma_{uu}^{r}$ . From the formula for the Ricci tensor (MTW, Equation 8.51b)\\n$$\\n\\\\mathrm {R}_{\\\\alpha \\\\beta} = \\\\Gamma_{\\\\alpha \\\\beta , \\\\gamma}^{\\\\gamma} - (\\\\log | \\\\mathrm {g} |^{\\\\frac {1}{2}})_{, \\\\alpha \\\\beta} + (\\\\log | \\\\mathrm {g} |^{\\\\frac {1}{2}})_{, \\\\gamma} \\\\Gamma_{\\\\alpha \\\\beta}^{\\\\gamma} - \\\\Gamma_{\\\\beta \\\\delta}^{\\\\gamma} \\\\Gamma_{a \\\\gamma}^{\\\\delta}\\n$$\\nwe see that all the $\\mathbf{R}_{\\\\alpha \\\\beta}$ will have their Schwarzschild values (i.e. zero) except\\n$$\\nR_{u u} = - 2 M^{\\\\prime} / r^{2}.\\n$$\\nThe Ricci scalar is\\n$$\\nR = g^{u u} R_{u u} = 0\\n$$\\nso the only nonzero component of the Einstein tensor is\\n$$\\nG_{u u} = - 2 M^{\\\\prime} / r^{2}\\n$$\\nwhich implies that\\n$$\\n\\\\mathrm {T}_{\\\\mathrm {u u}} = - \\\\mathrm {M}^{\\\\prime} / 4 \\\\pi \\\\mathrm {r}^{2},\\n$$\\nand that all other components of $\\mathbf{T}$ are zero. Since the vector $\\mathbf{k} = \\\\nabla \\\\mathbf{u}$ , that is $\\mathbf{k}_{\\\\alpha} = (1,0,0,0)$ , is null, the stress-energy tensor\\n$$\\n\\\\mathbf {T} = - \\\\frac {\\\\mathbf {M}^{\\\\prime}}{4 \\\\pi \\\\mathbf {r}^{2}} \\\\mathbf {k} \\\\otimes \\\\mathbf {k}\\n$$\\ncorresponds to a pure radiation field. Thus a physical interpretation of this solution (called the Vaidya metric) is the exterior metric of a spherical star whose mass is decreasing because of the energy carried off in radiation."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "metric_latex": [
+      [
+        "\\frac{- r + r_{s}}{r}",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "\\frac{r}{r - r_{s}}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r^{2} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_001": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_010": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_100": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{3}}",
+      "Gamma_111": "- \\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_122": "- r + r_{s}",
+      "Gamma_133": "\\left(- r + r_{s}\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_233": "- \\frac{\\sin{\\left(2 \\theta \\right)}}{2}",
+      "Gamma_313": "\\frac{1}{r}",
+      "Gamma_323": "\\frac{1}{\\tan{\\left(\\theta \\right)}}",
+      "Gamma_331": "\\frac{1}{r}",
+      "Gamma_332": "\\frac{1}{\\tan{\\left(\\theta \\right)}}"
+    },
+    "riemann": {
+      "R_0101": "\\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0110": "- \\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0202": "- \\frac{r_{s}}{2 r}",
+      "R_0220": "\\frac{r_{s}}{2 r}",
+      "R_0303": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_0330": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1001": "\\frac{r_{s} \\left(r - r_{s}\\right)}{r^{4}}",
+      "R_1010": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{r^{4}}",
+      "R_1212": "- \\frac{r_{s}}{2 r}",
+      "R_1221": "\\frac{r_{s}}{2 r}",
+      "R_1313": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1331": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_2002": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_2020": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_2112": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2121": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2323": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_2332": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_3003": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_3030": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_3113": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3131": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3223": "- \\frac{r_{s}}{r}",
+      "R_3232": "\\frac{r_{s}}{r}"
+    },
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "\\frac{48 M^{2}}{r^{6}}",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量 (∂_t)，对应能量守恒",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "rot_phi",
+        "description": "绕 φ 轴旋转 Killing 矢量 (∂_φ)，对应角动量守恒",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

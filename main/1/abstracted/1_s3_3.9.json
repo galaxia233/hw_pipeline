@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s3_3.9",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "tensor_transformation",
+      "coordinate": "coordinate_change",
+      "scenario": "scalar_density",
+      "method": "algebraic_proof"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.9",
+    "source_id": "1_s3_3.9",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "基于张量一般变换律与行列式乘积性质的证明，逻辑链条完整且步骤清晰，但属于形式化数学结构验证，缺乏具体天体或实验物理场景",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$g_{\\mu\\nu}$",
+      "$\\mathbf{g}$",
+      "$x^{\\mu}$",
+      "$\\bar{x}^{\\mu}$"
+    ],
+    "target": [
+      "$\\mathbf{g}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.9. Show that the determinant of the metric tensor $\\mathbf{g} \\equiv \\det(\\mathbf{g}_{\\mu \\nu})$ is not a scalar.",
+    "answer": "$\\overline{\\mathbf{g}} = \\mathbf{g} \\left[ \\det \\left( \\frac{\\partial \\mathbf{x}^{\\alpha}}{\\partial \\overline{\\mathbf{x}}^{\\mu}}\\right)\\right]^{2} \\neq \\mathbf{g}$，故不为标量。",
+    "solution": "Solution 3.9. Under the coordinate transformation $\\mathbf{x}^{\\mu}\\rightarrow \\overline{\\mathbf{x}}^{\\mu}(\\mathbf{x}^{\\nu})$ the transformation of $\\mathbf{g}_{\\alpha \\beta}$ is$$\\mathbf {g}_{\\overline {{\\mu}} \\overline {{\\nu}}} = \\mathbf {g}_{\\alpha \\beta} \\frac {\\partial \\mathbf {x}^{\\alpha}}{\\partial \\overline {{\\mathbf {x}}}^{\\mu}} \\frac {\\partial \\mathbf {x}^{\\beta}}{\\partial \\overline {{\\mathbf {x}}}^{\\nu}},$$and therefore the transformation of $\\mathbf{g}$ is$$\\overline {{\\mathbf {g}}} = \\det (\\mathbf {g}_{\\overline {{\\mu}} \\overline {{\\nu}}}) = \\det (\\mathbf {g}_{\\alpha \\beta}) \\det \\left(\\frac {\\partial \\mathbf {x}^{\\alpha}}{\\partial \\overline {{\\mathbf {x}}}^{\\mu}}\\right) \\det \\left(\\frac {\\partial \\mathbf {x}^{\\beta}}{\\partial \\overline {{\\mathbf {x}}}^{\\nu}}\\right) = \\mathbf {g} \\left[ \\det \\left(\\frac {\\partial \\mathbf {x}^{\\alpha}}{\\partial \\overline {{\\mathbf {x}}}^{\\mu}}\\right)\\right]^{2}.$$Since $\\overline{\\mathbf{g}}\\neq \\mathbf{g}$ ， $\\overline{\\mathbf{g}}$ is not a scalar."
+  },
+  "verification": null
+}

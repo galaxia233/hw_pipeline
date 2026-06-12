@@ -1,0 +1,152 @@
+{
+  "metadata": {
+    "id": "1_s9_9.19",
+    "type": "calculate",
+    "tags": {
+      "metric": "conformal_metric",
+      "target_object": "curvature_tensors",
+      "coordinate": "Cartesian_coordinates",
+      "scenario": "theoretical_research",
+      "method": "tensor_computation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.19",
+    "source_id": "1_s9_9.19",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.19"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "需多步推导联络与曲率张量，结构可推广至任意维共形平坦时空，解答步骤完整且具理论物理动机",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$R_{\\\\mu\\\\nu}$",
+      "$R$",
+      "$R_{\\\\alpha\\\\beta\\\\gamma\\\\delta}$"
+    ],
+    "metric": [
+      [
+        "$-e^{2\\\\phi}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$e^{2\\\\phi}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$e^{2\\\\phi}$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$e^{2\\\\phi}$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "-e**(2*phi)",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "e**(2*phi)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "e**(2*phi)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "e**(2*phi)"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 9.19. Compute the Riemann tensor, Ricci tensor, and scalar curvature of the conformally-flat metric $\\mathbf{g}_{\\mu \\nu} = \\mathrm{e}^{2\\phi}\\eta_{\\mu \\nu}$ where $\\phi = \\phi (\\mathbf{x}^{\\mu})$ is an arbitrary function.\\n\\n## Solution\\n\\nSection 9.19. In a conformally flat spacetime the Weyl tensor vanishes, so the Riemann tensor can easily be computed from the Ricci tensor\\n$$\\n\\\\mathrm {R}_{\\\\mu \\\\nu} = - \\\\left(\\\\log | \\\\mathrm {g} |^{\\\\frac {1}{2}}\\\\right)_{, \\\\mu \\\\nu} + \\\\Gamma_{\\\\mu \\\\nu , \\\\alpha}^{\\\\alpha} + \\\\left(\\\\log | \\\\mathrm {g} |^{\\\\frac {1}{2}}\\\\right)_{, \\\\alpha} \\\\Gamma_{\\\\mu \\\\nu}^{\\\\alpha} - \\\\Gamma_{\\\\mu \\\\alpha}^{\\\\beta} \\\\Gamma_{\\\\nu \\\\beta}^{\\\\alpha}.\\n$$\\nThe expressions we need are\\n$$\\n\\\\begin{array}{l} \\\\Gamma_{\\\\gamma \\\\beta}^{a} = - \\\\phi^{, a} \\\\eta_{\\\\gamma \\\\beta} + \\\\phi_{, \\\\beta} \\\\delta_{\\\\gamma}^{a} + \\\\phi_{, \\\\gamma} \\\\delta_{\\\\beta}^{a} \\\\\\\\ \\\\Gamma_{\\\\gamma \\\\beta , a}^{a} = - \\\\nabla^{2} \\\\phi \\\\eta_{\\\\gamma \\\\beta} + 2 \\\\phi , \\\\beta \\\\gamma \\\\\\\\ \\\\Gamma_{\\\\gamma \\\\beta}^{a} \\\\Gamma_{\\\\mu a}^{\\\\gamma} = 6 \\\\phi_{, \\\\mu} \\\\phi_{, \\\\beta} - 2 (\\\\nabla \\\\phi )^{2} \\\\eta_{\\\\mu \\\\beta} \\\\\\\\ - \\\\mathbf {g} = \\\\mathbf {e}^{8 \\\\phi}, \\\\quad \\\\log | \\\\mathbf {g} |^{\\\\frac {1}{2}} = 4 \\\\phi \\\\\\\\ \\\\left(\\\\log \\\\left| \\\\mathbf {g} \\\\right|^{\\\\frac {1}{2}}\\\\right)_{, \\\\alpha} \\\\Gamma_{\\\\gamma \\\\beta}^{\\\\alpha} = - 4 (\\\\nabla \\\\phi )^{2} \\\\eta_{\\\\gamma \\\\beta} + 8 \\\\phi , \\\\beta \\\\phi , \\\\gamma \\\\\\\\ \\\\left(\\\\log | \\\\mathbf {g} |^{\\\\frac {1}{2}}\\\\right), \\\\gamma \\\\beta = 4 \\\\phi , \\\\gamma \\\\beta . \\\\\\\\ \\\\end{array}\\n$$\\nIn the above expressions raising and lowering have been done with $\\eta_{\\mu \\nu}$ , e.g.\\n$$\\n\\\\phi^{, a} \\\\equiv \\\\eta^{\\\\mu a} \\\\phi_{, \\\\mu}; \\\\quad \\\\nabla^{2} \\\\phi \\\\equiv \\\\eta^{\\\\mu a} \\\\phi_{, \\\\mu a}; \\\\quad (\\\\nabla \\\\phi )^{2} \\\\equiv \\\\eta^{\\\\mu a} \\\\phi_{, \\\\mu} \\\\phi_{, a}.\\n$$\\nThe Ricci tensor and scalar are then\\n$$\\n\\\\begin{array}{l} \\\\mathrm {R}_{\\\\mu \\\\nu} = - 2 \\\\phi_{, \\\\mu \\\\nu} + 2 \\\\phi_{, \\\\mu} \\\\phi_{, \\\\nu} - \\\\eta_{\\\\mu \\\\nu} [ \\\\nabla^{2} \\\\phi + 2 (\\\\nabla \\\\phi )^{2} ] \\\\\\\\ \\\\mathbf {R} \\\\equiv \\\\mathbf {R}_{\\\\mu}^{\\\\mu} = \\\\mathbf {e}^{- 2 \\\\phi} \\\\eta^{\\\\mu \\\\nu} \\\\mathbf {R}_{\\\\mu \\\\nu} = - 6 \\\\mathbf {e}^{- 2 \\\\phi} [ \\\\nabla^{2} \\\\phi + (\\\\nabla \\\\phi )^{2} ] \\\\\\\\ \\\\end{array}\\n$$\\nand the Riemann tensor is\\n$$\\n\\\\begin{array}{l} \\\\mathsf {R}_{\\\\alpha \\\\beta \\\\gamma \\\\delta} = \\\\mathsf {C}_{\\\\alpha \\\\beta \\\\gamma \\\\delta} + \\\\frac {1}{2} \\\\left(\\\\mathsf {g}_{\\\\alpha \\\\gamma} \\\\mathsf {R}_{\\\\beta \\\\delta} - \\\\mathsf {g}_{\\\\alpha \\\\delta} \\\\mathsf {R}_{\\\\beta \\\\gamma} - \\\\mathsf {g}_{\\\\beta \\\\gamma} \\\\mathsf {R}_{\\\\alpha \\\\delta} + \\\\mathsf {g}_{\\\\beta \\\\delta} \\\\mathsf {R}_{\\\\alpha \\\\gamma}\\\\right) \\\\\\\\ - \\\\frac {1}{6} \\\\left(\\\\mathbf {g}_{\\\\alpha \\\\gamma} \\\\mathbf {g}_{\\\\beta \\\\delta} - \\\\mathbf {g}_{\\\\alpha \\\\delta} \\\\mathbf {g}_{\\\\beta \\\\gamma}\\\\right) \\\\mathbf {R} \\\\\\\\ = \\\\frac {1}{2} \\\\mathrm {e}^{2 \\\\phi} (\\\\eta_{\\\\alpha \\\\gamma} \\\\mathrm {R}_{\\\\beta \\\\delta} - \\\\eta_{\\\\alpha \\\\delta} \\\\mathrm {R}_{\\\\beta \\\\gamma} - \\\\eta_{\\\\beta \\\\gamma} \\\\mathrm {R}_{\\\\alpha \\\\delta} + \\\\eta_{\\\\beta \\\\delta} \\\\mathrm {R}_{\\\\alpha \\\\gamma}) \\\\\\\\ - \\\\frac {1}{6} \\\\mathrm {e}^{4 \\\\phi} (\\\\eta_{\\\\alpha \\\\gamma} \\\\eta_{\\\\beta \\\\delta} - \\\\eta_{\\\\alpha \\\\delta} \\\\eta_{\\\\beta \\\\gamma}) \\\\mathsf {R} \\\\\\\\ = \\\\mathrm {e}^{2 \\\\phi} [ \\\\eta_{\\\\alpha \\\\gamma} (\\\\phi , \\\\beta \\\\phi , \\\\delta - \\\\phi , \\\\beta \\\\delta) - \\\\eta_{\\\\alpha \\\\delta} (\\\\phi , \\\\beta \\\\phi , \\\\gamma - \\\\phi , \\\\beta \\\\gamma) \\\\\\\\ - \\\\eta_{\\\\beta \\\\gamma} (\\\\phi , a \\\\phi , \\\\delta - \\\\phi , a \\\\delta) + \\\\eta_{\\\\beta \\\\delta} (\\\\phi , a \\\\phi , \\\\gamma - \\\\phi , a \\\\gamma) \\\\\\\\ \\\\left. + (\\\\nabla \\\\phi )^{2} (\\\\vphantom{\\\\int} - \\\\eta_{a \\\\gamma} \\\\eta_{\\\\beta \\\\delta} + \\\\eta_{a \\\\delta} \\\\eta_{\\\\beta \\\\gamma}) ] \\\\right.. \\\\\\\\ \\\\end{array}\\n$$",
+    "answer": "$R_{\\\\mu\\\\nu} = - 2 \\\\phi_{,\\\\mu\\\\nu} + 2 \\\\phi_{,\\\\mu} \\\\phi_{,\\\\nu} - \\\\eta_{\\\\mu \\\\nu} [ \\\\nabla^2 \\\\phi + 2 (\\\\nabla \\\\phi)^2 ]$\\n$R = - 6 e^{-2\\\\phi} [ \\\\nabla^2 \\\\phi + (\\\\nabla \\\\phi)^2 ]$\\n$R_{\\\\alpha\\\\beta\\\\gamma\\\\delta} = e^{2\\\\phi} [ \\\\eta_{\\\\alpha\\\\gamma} (\\\\phi_{,\\\\beta} \\\\phi_{,\\\\delta} - \\\\phi_{,\\\\beta\\\\delta}) - \\\\eta_{\\\\alpha\\\\delta} (\\\\phi_{,\\\\beta} \\\\phi_{,\\\\gamma} - \\\\phi_{,\\\\beta\\\\gamma}) - \\\\eta_{\\\\beta\\\\gamma} (\\\\phi_{,a} \\\\phi_{,\\\\delta} - \\\\phi_{,a\\\\delta}) + \\\\eta_{\\\\beta\\\\delta} (\\\\phi_{,a} \\\\phi_{,\\\\gamma} - \\\\phi_{,a\\\\gamma}) + (\\\\nabla \\\\phi)^2 (- \\\\eta_{a\\\\gamma} \\\\eta_{\\\\beta\\\\delta} + \\\\eta_{a\\\\delta} \\\\eta_{\\\\beta\\\\gamma}) ]$",
+    "solution": "Section 9.19. In a conformally flat spacetime the Weyl tensor vanishes, so the Riemann tensor can easily be computed from the Ricci tensor\\n$$\\n\\\\mathrm {R}_{\\\\mu \\\\nu} = - \\\\left(\\\\log | \\\\mathrm {g} |^{\\\\frac {1}{2}}\\\\right)_{, \\\\mu \\\\nu} + \\\\Gamma_{\\\\mu \\\\nu , \\\\alpha}^{\\\\alpha} + \\\\left(\\\\log | \\\\mathrm {g} |^{\\\\frac {1}{2}}\\\\right)_{, \\\\alpha} \\\\Gamma_{\\\\mu \\\\nu}^{\\\\alpha} - \\\\Gamma_{\\\\mu \\\\alpha}^{\\\\beta} \\\\Gamma_{\\\\nu \\\\beta}^{\\\\alpha}.\\n$$\\nThe expressions we need are\\n$$\\n\\\\begin{array}{l} \\\\Gamma_{\\\\gamma \\\\beta}^{a} = - \\\\phi^{, a} \\\\eta_{\\\\gamma \\\\beta} + \\\\phi_{, \\\\beta} \\\\delta_{\\\\gamma}^{a} + \\\\phi_{, \\\\gamma} \\\\delta_{\\\\beta}^{a} \\\\\\\\ \\\\Gamma_{\\\\gamma \\\\beta , a}^{a} = - \\\\nabla^{2} \\\\phi \\\\eta_{\\\\gamma \\\\beta} + 2 \\\\phi , \\\\beta \\\\gamma \\\\\\\\ \\\\Gamma_{\\\\gamma \\\\beta}^{a} \\\\Gamma_{\\\\mu a}^{\\\\gamma} = 6 \\\\phi_{, \\\\mu} \\\\phi_{, \\\\beta} - 2 (\\\\nabla \\\\phi )^{2} \\\\eta_{\\\\mu \\\\beta} \\\\\\\\ - \\\\mathbf {g} = \\\\mathbf {e}^{8 \\\\phi}, \\\\quad \\\\log | \\\\mathbf {g} |^{\\\\frac {1}{2}} = 4 \\\\phi \\\\\\\\ \\\\left(\\\\log \\\\left| \\\\mathbf {g} \\\\right|^{\\\\frac {1}{2}}\\\\right)_{, \\\\alpha} \\\\Gamma_{\\\\gamma \\\\beta}^{\\\\alpha} = - 4 (\\\\nabla \\\\phi )^{2} \\\\eta_{\\\\gamma \\\\beta} + 8 \\\\phi , \\\\beta \\\\phi , \\\\gamma \\\\\\\\ \\\\left(\\\\log | \\\\mathbf {g} |^{\\\\frac {1}{2}}\\\\right), \\\\gamma \\\\beta = 4 \\\\phi , \\\\gamma \\\\beta . \\\\\\\\ \\\\end{array}\\n$$\\nIn the above expressions raising and lowering have been done with $\\eta_{\\mu \\nu}$ , e.g.\\n$$\\n\\\\phi^{, a} \\\\equiv \\\\eta^{\\\\mu a} \\\\phi_{, \\\\mu}; \\\\quad \\\\nabla^{2} \\\\phi \\\\equiv \\\\eta^{\\\\mu a} \\\\phi_{, \\\\mu a}; \\\\quad (\\\\nabla \\\\phi )^{2} \\\\equiv \\\\eta^{\\\\mu a} \\\\phi_{, \\\\mu} \\\\phi_{, a}.\\n$$\\nThe Ricci tensor and scalar are then\\n$$\\n\\\\begin{array}{l} \\\\mathrm {R}_{\\\\mu \\\\nu} = - 2 \\\\phi_{, \\\\mu \\\\nu} + 2 \\\\phi_{, \\\\mu} \\\\phi_{, \\\\nu} - \\\\eta_{\\\\mu \\\\nu} [ \\\\nabla^{2} \\\\phi + 2 (\\\\nabla \\\\phi )^{2} ] \\\\\\\\ \\\\mathbf {R} \\\\equiv \\\\mathbf {R}_{\\\\mu}^{\\\\mu} = \\\\mathbf {e}^{- 2 \\\\phi} \\\\eta^{\\\\mu \\\\nu} \\\\mathbf {R}_{\\\\mu \\\\nu} = - 6 \\\\mathbf {e}^{- 2 \\\\phi} [ \\\\nabla^{2} \\\\phi + (\\\\nabla \\\\phi )^{2} ] \\\\\\\\ \\\\end{array}\\n$$\\nand the Riemann tensor is\\n$$\\n\\\\begin{array}{l} \\\\mathsf {R}_{\\\\alpha \\\\beta \\\\gamma \\\\delta} = \\\\mathsf {C}_{\\\\alpha \\\\beta \\\\gamma \\\\delta} + \\\\frac {1}{2} \\\\left(\\\\mathsf {g}_{\\\\alpha \\\\gamma} \\\\mathsf {R}_{\\\\beta \\\\delta} - \\\\mathsf {g}_{\\\\alpha \\\\delta} \\\\mathsf {R}_{\\\\beta \\\\gamma} - \\\\mathsf {g}_{\\\\beta \\\\gamma} \\\\mathsf {R}_{\\\\alpha \\\\delta} + \\\\mathsf {g}_{\\\\beta \\\\delta} \\\\mathsf {R}_{\\\\alpha \\\\gamma}\\\\right) \\\\\\\\ - \\\\frac {1}{6} \\\\left(\\\\mathbf {g}_{\\\\alpha \\\\gamma} \\\\mathbf {g}_{\\\\beta \\\\delta} - \\\\mathbf {g}_{\\\\alpha \\\\delta} \\\\mathbf {g}_{\\\\beta \\\\gamma}\\\\right) \\\\mathbf {R} \\\\\\\\ = \\\\frac {1}{2} \\\\mathrm {e}^{2 \\\\phi} (\\\\eta_{\\\\alpha \\\\gamma} \\\\mathrm {R}_{\\\\beta \\\\delta} - \\\\eta_{\\\\alpha \\\\delta} \\\\mathrm {R}_{\\\\beta \\\\gamma} - \\\\eta_{\\\\beta \\\\gamma} \\\\mathrm {R}_{\\\\alpha \\\\delta} + \\\\eta_{\\\\beta \\\\delta} \\\\mathrm {R}_{\\\\alpha \\\\gamma}) \\\\\\\\ - \\\\frac {1}{6} \\\\mathrm {e}^{4 \\\\phi} (\\\\eta_{\\\\alpha \\\\gamma} \\\\eta_{\\\\beta \\\\delta} - \\\\eta_{\\\\alpha \\\\delta} \\\\eta_{\\\\beta \\\\gamma}) \\\\mathsf {R} \\\\\\\\ = \\\\mathrm {e}^{2 \\\\phi} [ \\\\eta_{\\\\alpha \\\\gamma} (\\\\phi , \\\\beta \\\\phi , \\\\delta - \\\\phi , \\\\beta \\\\delta) - \\\\eta_{\\\\alpha \\\\delta} (\\\\phi , \\\\beta \\\\phi , \\\\gamma - \\\\phi , \\\\beta \\\\gamma) \\\\\\\\ - \\\\eta_{\\\\beta \\\\gamma} (\\\\phi , a \\\\phi , \\\\delta - \\\\phi , a \\\\delta) + \\\\eta_{\\\\beta \\\\delta} (\\\\phi , a \\\\phi , \\\\gamma - \\\\phi , a \\\\gamma) \\\\\\\\ \\\\left. + (\\\\nabla \\\\phi )^{2} (\\\\vphantom{\\\\int} - \\\\eta_{a \\\\gamma} \\\\eta_{\\\\beta \\\\delta} + \\\\eta_{a \\\\delta} \\\\eta_{\\\\beta \\\\gamma}) ] \\\\right.. \\\\\\\\ \\\\end{array}\\n$$"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "- e^{2 \\phi}",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "e^{2 \\phi}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "e^{2 \\phi}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "e^{2 \\phi}"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

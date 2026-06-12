@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "id": "1_s9_9.34_iii",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "extrinsic_curvature",
+      "coordinate": "surface_embedding",
+      "scenario": "euclidean_space",
+      "method": "eigenvalue_problem"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.34_iii",
+    "source_id": "1_s9_9.34_iii",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.34_iii"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.5,
+      "rationale": "曲率张量特征值计算+多步微分几何推导+明确解析解",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 3,
+    "variables": [
+      "$x$",
+      "$y$",
+      "$z$",
+      "$a$",
+      "$b$",
+      "$c$"
+    ],
+    "target": [
+      "$K_{ij}$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 9.34. The eigenvalues and eigenvectors of the extrinsic curvature tensor are called the principal curvatures and principal directions. Find the principal curvatures and directions for the following surfaces embedded in a 3-dimensional Euclidean space.(iii) quadratic surface (compute at origin only): $z = \\frac{1}{2} (\\mathrm{ax}^2 + 2\\mathrm{bxy} + \\mathrm{cy}^2)$ .",
+    "answer": "$K_{\\pm} = \\frac{c+a}{2} \\pm \\frac{c-a}{2} \\left[ 1 + \\frac{4 b^{2}}{(c - a)^{2}}\\right]^{\\frac{1}{2}}$$V_{\\pm} = \\left(e_{x} + a_{\\pm} e_{y}\\right) / \\beta_{\\pm}$$a_{\\pm} \\equiv \\gamma \\left[ 1 \\pm (1 + \\gamma^{-2})^{\\frac{1}{2}}\\right]$$\\beta_{\\pm} \\equiv (1 + a_{\\pm}^{2})^{\\frac{1}{2}}$$\\gamma \\equiv (a-c)/(2b)$",
+    "solution": "(iii) In cartesian coordinates$$\\mathrm {d s}^{2} = \\mathrm {d x}^{2} + \\mathrm {d y}^{2} + \\mathrm {d z}^{2} \\tag {3}$$the surface is$$\\mathrm {f} (\\mathbf {x}, \\mathbf {y}, \\mathbf {z}) = 0 \\tag {4}$$where$$f = - \\frac {1}{2} \\left(a x^{2} + 2 b x y + c y^{2}\\right) + z. \\tag {5}.$$The unit normal is$$\\mathbf {n} = \\nabla f / | \\nabla f | = \\frac {1}{N} [ - (\\mathbf {a x} + \\mathbf {b y}) \\mathbf {e}_{\\mathbf {x}} - (\\mathbf {b x} + \\mathbf {c y}) \\mathbf {e}_{\\mathbf {y}} + (\\mathbf {e}_{\\mathbf {z}}) ] \\tag {6}$$where$$\\mathbf {N} \\equiv \\left[ (\\mathbf {a x} + \\mathbf {b y})^{2} + (\\mathbf {b x} + \\mathbf {c y})^{2} + 1\\right]^{\\frac {1}{2}}. \\tag {7}$$Note that since $\\mathbf{n} = \\mathbf{e}_{\\mathbf{z}}$ at the origin, $\\mathbf{e}_{\\mathbf{x}}$ and $\\mathbf{e}_{\\mathbf{y}}$ can be used as basis vectors in the surface there. Thus$$\\mathbf {K}_{i j} = - \\mathbf {e}_{j} \\cdot \\nabla_{i} \\mathbf {n} = - n_{j; i} = - n_{j, i}$$since the connection coefficients vanish for the metric (3). Because $\\mathbf{N}_{,\\mathbf{x}} = \\mathbf{N}_{,\\mathbf{y}} = 0$ at the origin, we have$$K_{i j} = \\left[ \\begin{array}{c c} a & b \\\\ b & c \\end{array}\\right].$$The secular equation is$$0 = \\det \\left(\\mathrm {K}_{\\mathrm {i j}} - \\mathrm {K g}_{\\mathrm {i j}}\\right) = \\left| \\begin{array}{c c} \\mathrm {a} - \\mathrm {K} & \\mathrm {b} \\\\ \\mathrm {b} & \\mathrm {c} - \\mathrm {K} \\end{array}\\right| \\tag {8}$$where $\\mathbf{g}_{ij}$ is found by restricting (3) to the surface (5). Since $dz = 0$ at the origin, $\\mathbf{g}_{ij} = \\delta_{ij}$ at the origin. The principal curvatures are found from Equation (8) to be$$\\mathrm {K}_{\\pm} = \\frac {c + a}{2} \\pm \\frac {c - a}{2} \\left[ 1 + \\frac {4 b^{2}}{(c - a)^{2}}\\right]^{\\frac {1}{2}}. \\tag {9}$$With these eigenvalues, the principal vectors are found from$$\\left[ \\begin{array}{c c} a - K_{\\pm} & b \\\\ b & c - K_{\\pm} \\end{array}\\right] \\left[ \\begin{array}{l} V_{\\pm}^{x} \\\\ V_{\\pm}^{y} \\end{array}\\right] = 0. \\tag {10}$$The solutions are:$$\\begin{array}{l} V_{\\pm} = \\left(e_{x} + a_{\\pm} e_{y}\\right) / \\beta_{\\pm} \\\\ a_{\\pm} \\equiv \\gamma \\left[ 1 \\pm (1 + \\gamma^{-2})^{\\frac {1}{2}}\\right] \\\\ \\beta_{\\pm} \\equiv (1 + \\alpha_{\\pm}^{2})^{\\frac {1}{2}} \\\\ \\gamma \\equiv (a - c) / 2 b. \\end{array}$$"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 3,
+    "variables": [
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

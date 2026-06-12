@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s18_18.5",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "reduced_quadrupole_moment",
+      "coordinate": "spatial_cartesian_coordinates",
+      "scenario": "slow_motion_weak_field_source",
+      "method": "radiation_reaction_flux"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s18_18.5",
+    "source_id": "1_s18_18.5",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s18_18.5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "需结合连续性方程、散度定理与分部积分完成多步推导，具明确天体物理辐射背景",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^j$",
+      "$X_{jk}$",
+      "$\\\\rho$",
+      "$\\\\Phi$",
+      "$E$",
+      "$J^i$"
+    ],
+    "target": [
+      "$\\\\frac{\\\\mathrm{d}E}{\\\\mathrm{d}t}$",
+      "$\\\\frac{\\\\mathrm{d}J^i}{\\\\mathrm{d}t}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s18_18.5.md]\\n\\nProblem 18.5. The radiation reaction forces on a slow-motion, weak field source can be derived from an addition to the Newtonian potential\\n$$\\n\\\\Phi^{\\\\text {r e a c t .}} = \\\\frac {1}{5} X_{j k}^{(5)} x^{j} x^{k}.\\n$$\\n(Cf. W. Burke, J. Math. Phys. 12, 402 (1971); MTW pp. 993.) Here $\\mathfrak{X}_{\\mathbf{jk}}$ is the reduced quadrupole moment of the source $\\mathbf{x}_{\\mathbf{jk}} \\equiv \\int \\rho (\\mathbf{x}_{\\mathbf{j}}\\mathbf{x}_{\\mathbf{k}} - \\frac{1}{3}\\delta_{\\mathbf{jk}}\\mathbf{r}^{2})\\mathrm{d}^{3}\\mathbf{x}$ at a given time. The superscript (5) indicates the fifth time derivative. From this potential derive expressions for the time-averaged rates at which the source loses energy and angular-momentum, in terms of derivatives of $\\mathfrak{X}_{\\mathbf{jk}}$ .\\n\\n## Solution\\n\\nSolution 18.5. The radiation reaction force on an element of the source is\\n$$\\n\\\\mathrm {d F}_{\\\\mathrm {i}} = - \\\\Phi_{, \\\\mathrm {i}} \\\\rho \\\\mathrm {d}^{3} \\\\mathrm {x}.\\n$$\\nThe rate at which the source element loses energy is the rate at which the reaction forces do work on the source element: $\\mathbf{v}^{\\mathrm{i}}\\mathbf{d}\\mathbf{F}_{\\mathrm{i}}$ where $\\mathbf{v}$ is the velocity of the source element. For the whole source, then\\n$$\\n\\\\frac {\\\\mathrm {d} \\\\mathbf {E}}{\\\\mathrm {d} t} = - \\\\int \\\\Phi_{, \\\\mathbf {i}} \\\\mathbf {v}^{\\\\mathbf {i}} \\\\rho \\\\mathrm {d}^{3} \\\\mathbf {x} = \\\\int \\\\Phi (\\\\mathbf {v}^{\\\\mathbf {i}} \\\\rho)_{, \\\\mathbf {i}} \\\\mathrm {d}^{3} \\\\mathbf {x}.\\n$$\\nHere we have used Gauss' divergence theorem and evaluated the surface integral on a surface outside the source to obtain the second equality. The equation of continuity tells us that $\\nabla \\cdot (\\underline{\\nu}\\rho) = -\\partial \\rho /\\partial t$ so\\n$$\\n\\\\begin{array}{l} \\\\frac {\\\\mathrm {d} E}{\\\\mathrm {d} t} = - \\\\int \\\\Phi \\\\frac {\\\\partial \\\\rho}{\\\\partial t} d^{3} x = - \\\\frac {1}{5} \\\\mathbf {f}_{j k}^{(5)} \\\\frac {\\\\mathrm {d}}{\\\\mathrm {d} t} \\\\int x^{j} x^{k} \\\\rho d^{3} x \\\\\\\\ = - \\\\frac {1}{5} \\\\mathbf {f}_{\\\\mathrm {j k}}^{(5)} \\\\frac {\\\\mathrm {d}}{\\\\mathrm {d t}} \\\\left(\\\\mathbf {f}_{\\\\mathrm {j k}} + \\\\frac {1}{3} \\\\delta_{\\\\mathrm {j k}} \\\\int \\\\mathrm {r}^{2} \\\\rho \\\\mathrm {d}^{3} x\\\\right). \\\\\\\\ \\\\end{array}\\n$$\\nSince $\\pmb{\\mathcal{I}}_{\\mathbf{jk}}\\delta_{\\mathbf{jk}} = 0$ we drop the final term to arrive at\\n$$\\n\\\\mathrm {d E} / \\\\mathrm {d t} = - \\\\left(\\\\frac {1}{5}\\\\right) \\\\dot {\\\\mathbf {f}}_{\\\\mathbf {j k}}^{(5)} \\\\dot {\\\\mathbf {f}}_{\\\\mathbf {j k}}.\\n$$\\nNow we time average over several oscillations. Since secular changes in parameters of the source are assumed to be small over the several oscilla-\\ntions, we have\\n$$\\n\\\\frac {1}{\\\\mathrm {T}} \\\\int_{0}^{\\\\mathrm {T}} \\\\mathbf {\\\\ddot {t}}_{\\\\mathbf {j k}}^{(5)} \\\\dot {\\\\mathbf {\\\\ddot {t}}}_{\\\\mathbf {j k}} \\\\mathrm {d t} \\\\approx \\\\frac {1}{\\\\mathrm {T}} \\\\int_{0}^{\\\\mathrm {T}} \\\\mathbf {\\\\ddot {t}}_{\\\\mathbf {j k}} \\\\dot {\\\\mathbf {\\\\ddot {t}}}_{\\\\mathbf {j k}} \\\\mathrm {d t}\\n$$\\nand\\n$$\\n\\\\frac {d E}{d t} = - \\\\frac {1}{5} < \\\\underbrace {\\\\cdots}_{j k} \\\\underbrace {\\\\cdots}_{j k} >.\\n$$\\nTo find the rate of loss of angular momentum we use the fact that for an element of the source\\n$$\\n\\\\frac {\\\\mathrm {d} \\\\mathbf {J}}{\\\\mathrm {d} t} = \\\\text {r a d i a t i o n r e a c t i o n t o r q u e} = \\\\mathbf {r} \\\\times \\\\mathrm {d} \\\\mathbf {F} = - \\\\mathbf {r} \\\\times \\\\nabla \\\\Phi \\\\rho \\\\mathrm {d}^{3} \\\\mathbf {x}\\n$$\\nand for the whole source\\n$$\\n\\\\begin{array}{l} \\\\frac {d J^{i}}{d t} = - \\\\varepsilon^{i j k} \\\\int x^{j} \\\\Phi_{, k} \\\\rho d^{3} x \\\\\\\\ = - \\\\varepsilon^{\\\\mathrm {i j k}} \\\\int \\\\mathbf {x}^{\\\\mathrm {j}} \\\\left(\\\\frac {2}{5} \\\\mathbf {f}_{\\\\mathrm {k m}}^{(5)} \\\\mathbf {x}^{\\\\mathrm {m}}\\\\right) \\\\rho \\\\mathrm {d}^{3} \\\\mathbf {x} \\\\\\\\ = - \\\\frac {2}{5} \\\\varepsilon^{\\\\mathrm {i j k}} \\\\mathbf {F}_{\\\\mathrm {k m}}^{(5)} \\\\int \\\\mathbf {x}^{\\\\mathrm {j}} \\\\mathbf {x}^{\\\\mathrm {m}} \\\\rho \\\\mathrm {d}^{3} \\\\mathbf {x} = - \\\\frac {2}{5} \\\\varepsilon^{\\\\mathrm {i j k}} \\\\mathbf {F}_{\\\\mathrm {k m}}^{(5)} \\\\mathbf {F}_{\\\\mathrm {j m}}. \\\\\\\\ \\\\end{array}\\n$$\\nTime averaging, and integrating (in time) by parts as above gives us\\n$$\\n\\\\frac {d J^{i}}{d t} = - \\\\frac {2}{5} \\\\varepsilon^{i j k} < \\\\ddot {\\\\pi}_{k m} \\\\ddot {\\\\pi}_{j m} >.\\n$$",
+    "answer": "$\\\\frac{\\\\mathrm{d}E}{\\\\mathrm{d}t} = -\\\\frac{1}{5} \\\\langle \\\\dddot{X}_{jk} \\\\dddot{X}_{jk} \\\\rangle$, $\\\\frac{\\\\mathrm{d}J^i}{\\\\mathrm{d}t} = -\\\\frac{2}{5} \\\\varepsilon^{ijk} \\\\langle \\\\dddot{X}_{km} \\\\dddot{X}_{jm} \\\\rangle$",
+    "solution": "The radiation reaction force on an element of the source is\\n$$\\n\\\\mathrm {d F}_{\\\\mathrm {i}} = - \\\\Phi_{, \\\\mathrm {i}} \\\\rho \\\\mathrm {d}^{3} \\\\mathrm {x}.\\n$$\\nThe rate at which the source element loses energy is the rate at which the reaction forces do work on the source element: $\\mathbf{v}^{\\mathrm{i}}\\mathbf{d}\\mathbf{F}_{\\mathrm{i}}$ where $\\mathbf{v}$ is the velocity of the source element. For the whole source, then\\n$$\\n\\\\frac {\\\\mathrm {d} \\\\mathbf {E}}{\\\\mathrm {d} t} = - \\\\int \\\\Phi_{, \\\\mathbf {i}} \\\\mathbf {v}^{\\\\mathbf {i}} \\\\rho \\\\mathrm {d}^{3} \\\\mathbf {x} = \\\\int \\\\Phi (\\\\mathbf {v}^{\\\\mathbf {i}} \\\\rho)_{, \\\\mathbf {i}} \\\\mathrm {d}^{3} \\\\mathbf {x}.\\n$$\\nHere we have used Gauss' divergence theorem and evaluated the surface integral on a surface outside the source to obtain the second equality. The equation of continuity tells us that $\\nabla \\cdot (\\underline{\\nu}\\rho) = -\\partial \\rho /\\partial t$ so\\n$$\\n\\\\begin{array}{l} \\\\frac {\\\\mathrm {d} E}{\\\\mathrm {d} t} = - \\\\int \\\\Phi \\\\frac {\\\\partial \\\\rho}{\\\\partial t} d^{3} x = - \\\\frac {1}{5} \\\\mathbf {f}_{j k}^{(5)} \\\\frac {\\\\mathrm {d}}{\\\\mathrm {d} t} \\\\int x^{j} x^{k} \\\\rho d^{3} x \\\\\\\\ = - \\\\frac {1}{5} \\\\mathbf {f}_{\\\\mathrm {j k}}^{(5)} \\\\frac {\\\\mathrm {d}}{\\\\mathrm {d t}} \\\\left(\\\\mathbf {f}_{\\\\mathrm {j k}} + \\\\frac {1}{3} \\\\delta_{\\\\mathrm {j k}} \\\\int \\\\mathrm {r}^{2} \\\\rho \\\\mathrm {d}^{3} x\\\\right). \\\\\\\\ \\\\end{array}\\n$$\\nSince $\\pmb{\\mathcal{I}}_{\\mathbf{jk}}\\delta_{\\mathbf{jk}} = 0$ we drop the final term to arrive at\\n$$\\n\\\\mathrm {d E} / \\\\mathrm {d t} = - \\\\left(\\\\frac {1}{5}\\\\right) \\\\dot {\\\\mathbf {f}}_{\\\\mathbf {j k}}^{(5)} \\\\dot {\\\\mathbf {f}}_{\\\\mathbf {j k}}.\\n$$\\nNow we time average over several oscillations. Since secular changes in parameters of the source are assumed to be small over the several oscilla-tions, we have\\n$$\\n\\\\frac {1}{\\\\mathrm {T}} \\\\int_{0}^{\\\\mathrm {T}} \\\\mathbf {\\\\ddot {t}}_{\\\\mathbf {j k}}^{(5)} \\\\dot {\\\\mathbf {\\\\ddot {t}}}_{\\\\mathbf {j k}} \\\\mathrm {d t} \\\\approx \\\\frac {1}{\\\\mathrm {T}} \\\\int_{0}^{\\\\mathrm {T}} \\\\mathbf {\\\\ddot {t}}_{\\\\mathbf {j k}} \\\\dot {\\\\mathbf {\\\\ddot {t}}}_{\\\\mathbf {j k}} \\\\mathrm {d t}\\n$$\\nand\\n$$\\n\\\\frac {d E}{d t} = - \\\\frac {1}{5} < \\\\underbrace {\\\\cdots}_{j k} \\\\underbrace {\\\\cdots}_{j k} >.\\n$$\\nTo find the rate of loss of angular momentum we use the fact that for an element of the source\\n$$\\n\\\\frac {\\\\mathrm {d} \\\\mathbf {J}}{\\\\mathrm {d} t} = \\\\text {r a d i a t i o n r e a c t i o n t o r q u e} = \\\\mathbf {r} \\\\times \\\\mathrm {d} \\\\mathbf {F} = - \\\\mathbf {r} \\\\times \\\\nabla \\\\Phi \\\\rho \\\\mathrm {d}^{3} \\\\mathbf {x}\\n$$\\nand for the whole source\\n$$\\n\\\\begin{array}{l} \\\\frac {d J^{i}}{d t} = - \\\\varepsilon^{i j k} \\\\int x^{j} \\\\Phi_{, k} \\\\rho d^{3} x \\\\\\\\ = - \\\\varepsilon^{\\\\mathrm {i j k}} \\\\int \\\\mathbf {x}^{\\\\mathrm {j}} \\\\left(\\\\frac {2}{5} \\\\mathbf {f}_{\\\\mathrm {k m}}^{(5)} \\\\mathbf {x}^{\\\\mathrm {m}}\\\\right) \\\\rho \\\\mathrm {d}^{3} \\\\mathbf {x} \\\\\\\\ = - \\\\frac {2}{5} \\\\varepsilon^{\\\\mathrm {i j k}} \\\\mathbf {F}_{\\\\mathrm {k m}}^{(5)} \\\\int \\\\mathbf {x}^{\\\\mathrm {j}} \\\\mathbf {x}^{\\\\mathrm {m}} \\\\rho \\\\mathrm {d}^{3} \\\\mathbf {x} = - \\\\frac {2}{5} \\\\varepsilon^{\\\\mathrm {i j k}} \\\\mathbf {F}_{\\\\mathrm {k m}}^{(5)} \\\\mathbf {F}_{\\\\mathrm {j m}}. \\\\\\\\ \\\\end{array}\\n$$\\nTime averaging, and integrating (in time) by parts as above gives us\\n$$\\n\\\\frac {d J^{i}}{d t} = - \\\\frac {2}{5} \\\\varepsilon^{i j k} < \\\\ddot {\\\\pi}_{k m} \\\\ddot {\\\\pi}_{j m} >.\\n$$"
+  },
+  "verification": null
+}

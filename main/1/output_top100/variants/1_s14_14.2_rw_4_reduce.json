@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s14_14.2-4-4",
+    "type": "calculate",
+    "tags": {
+      "target_object": "event horizon of Schwarzschild black hole",
+      "coordinate": "spherical",
+      "scenario": "Reissner-Nordström black hole thermal equilibrium reduce to Schwarzschild limit",
+      "method": "limit taking",
+      "generalization_axis": "limit",
+      "metric": "ReissnerNordstrom"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.2",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.2",
+      "1_s14_14.2-4",
+      "1_s14_14.2-4-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "ReissnerNordstrom",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$r_c$",
+      "$Q \\to 0$ limit"
+    ],
+    "metric": [
+      [
+        "-Q**2/(4*pi*r**2*eps_0) + 1 - r_s/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "4*pi*r**2*eps_0/(Q**2 + 4*pi*r**2*eps_0 - 4*pi*r*r_s*eps_0)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，静态系统的热平衡条件为 $T(r) \\sqrt{-g_{00}(r)} = \\text{constant}$。考虑一个与 Reissner-Nordström 黑洞处于热平衡状态的静态气体云，其度规为：$$ ds^2 = -\\left(1 - \\frac{2M}{r} + \\frac{Q^2}{r^2}\\right) dt^2 + \\frac{1}{1 - \\frac{2M}{r} + \\frac{Q^2}{r^2}} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2 $$其中 $M$ 为黑洞质量，$Q$ 为黑洞电荷。推导气体局部温度发散的临界半径 $r_c$ 的表达式，并取电荷消失极限 $Q \\to 0$，说明此时外临界半径回到何种经典黑洞的几何边界？",
+    "answer": "临界半径表达式为 $r_c = M \\pm \\sqrt{M^2 - Q^2}$。取极限 $Q \\to 0$ 时，外临界半径 $r_c = M + \\sqrt{M^2 - 0} = 2M$。该结果对应于无电荷的 Schwarzschild 黑洞的事件视界半径，表明当电荷效应消失时，带电黑洞的视界结构平滑过渡回经典的中性黑洞视界。",
+    "solution": "1. 根据热平衡条件 $T(r) \\sqrt{-g_{00}} = T_\\inf ty$，局部温度为 $T(r) = \\frac{T_\\inf ty}{\\sqrt{1 - \\frac{2M}{r} + \\frac{Q^2}{r^2}}}$。2. 温度发散要求分母为零，即 $1 - \\frac{2M}{r} + \\frac{Q^2}{r^2} = 0$。3. 解此二次方程得 $r_c = M \\pm \\sqrt{M^2 - Q^2}$。4. 取极限 $Q \\to 0$，方程退化为 $1 - \\frac{2M}{r} = 0$，解得 $r = 2M$。这正是 Schwarzschild 黑洞度规 $g_{00} = 0$ 时的坐标半径，即其事件视界。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.reissnernordstrom_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "solution 中存在明显的 LaTeX 拼写错误：局部温度公式中的 `T_\\inf ty` 应为 `T_\\infty`，这会导致公式渲染失败或产生乱码。此外，answer 中声称 '临界半径表达式为 $r_c = M \\pm \\sqrt{M^2 - Q^2}$'，用单一变量 $r_c$ 指代二次方程的两个根（内外视界）在数学表述上不够严谨，容易引起歧义，应明确写出 $r_{c\\pm}$ 或指出临界半径包含内外两个值。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

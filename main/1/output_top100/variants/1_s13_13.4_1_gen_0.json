@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_1-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "critical_density_condition",
+      "coordinate": "FLRW_cosmological_time",
+      "scenario": "Einstein_static_universe",
+      "method": "Friedmann_equations_analysis",
+      "generalization_axis": "apply",
+      "metric": "metric_properties"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.4_1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.4_1",
+      "1_s13_13.4_1-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric_properties",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$g_{\\mu\\nu}$",
+      "$T_{\\mu\\nu}$",
+      "$\\Lambda$",
+      "$R_{\\mu\\nu}$",
+      "$\\kappa$"
+    ],
+    "target": [
+      "$\\rho_m = 2 \\rho_{\\text{vac}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在相对论量子力学中，如果不存在优先的真空参考系，真空的能动张量必须取正比于度规的形式，即 $T_{\\mu\\nu}^{\\text{vac}} = -\\rho_{\\text{vac}} g_{\\mu\\nu}$，其中 $\\rho_{\\text{vac}}$ 为真空能量密度。这一结论等效于在爱因斯坦场方程中引入了一个正的有效宇宙学常数 $\\Lambda = 8\\pi G \\rho_{\\text{vac}}$。爱因斯坦最初引入宇宙学常数的目的，正是为了抵消普通物质的引力吸引效应，从而获得一个静态的宇宙模型。假设在一个均匀各向同性的宇宙中，除了上述真空能量外，仅存在密度为 $\\rho_m$、压强 $p_m = 0$ 的尘埃物质。请利用包含宇宙学常数的 Friedmann 方程，推导使该宇宙保持静态（即尺度因子 $a$ 为常数，膨胀速率 $\\dot{a}=0$ 且加速度 $\\ddot{a}=0$）的临界条件，并证明在该临界状态下，尘埃物质密度 $\\rho_m$ 与真空能量密度 $\\rho_{\\text{vac}}$ 必须满足定量关系 $\\rho_m = 2 \\rho_{\\text{vac}}$。",
+    "answer": "$\\rho_m = 2 \\rho_{\\text{vac}}$",
+    "solution": "在均匀各向同性的宇宙中，总能量密度和总压强分别为：\\n\\n$$ \\varepsilon = \\rho_m + \\rho_{\\text{vac}} $$ \\n$$ p = p_m + p_{\\text{vac}} = 0 - \\rho_{\\text{vac}} = -\\rho_{\\text{vac}} $$ \\n\\n包含宇宙学常数的 Friedmann 加速度方程为：\\n\\n$$ \\frac{\\ddot{a}}{a} = -\\frac{4\\pi G}{3}(\\varepsilon + 3p) $$ \\n\\n将 $\\varepsilon$ 和 $p$ 代入加速度方程：\\n\\n$$ \\frac{\\ddot{a}}{a} = -\\frac{4\\pi G}{3}(\\rho_m + \\rho_{\\text{vac}} + 3(-\\rho_{\\text{vac}})) = -\\frac{4\\pi G}{3}(\\rho_m - 2\\rho_{\\text{vac}}) $$ \\n\\n静态宇宙要求尺度因子不随时间变化，即加速度为零（$\\ddot{a}=0$）：\\n\\n$$ 0 = -\\frac{4\\pi G}{3}(\\rho_m - 2\\rho_{\\text{vac}}) $$ \\n\\n由于 $G > 0$，要使上式成立，必须满足：\\n\\n$$ \\rho_m - 2\\rho_{\\text{vac}} = 0 $$ \\n\\n由此得出临界条件下的定量关系：\\n\\n$$ \\rho_m = 2 \\rho_{\\text{vac}} $$ \\n\\n（进一步验证：结合第一 Friedmann 方程 $H^2 = \\frac{8\\pi G}{3}(\\rho_m + \\rho_{\\text{vac}}) - \\frac{k}{a^2}$ 及 $H=0$，代入 $\\rho_m = 2\\rho_{\\text{vac}}$ 可得 $\\Lambda = \\frac{k}{a^2}$，说明静态宇宙要求空间曲率 $k=1$，即三维球面几何，这印证了爱因斯坦静态宇宙的几何性质。）"
+  },
+  "verification": null
+}

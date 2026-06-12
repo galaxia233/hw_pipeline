@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s7_7.3_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "coordinate",
+      "coordinate": "calculate",
+      "scenario": "geodesic",
+      "method": "first-integral"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.3_b",
+    "source_id": "1_s7_7.3_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.3_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.5,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "基础平面极坐标度规测地线第一积分推导+参数替换+步骤完整",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$r$",
+      "$\\\\theta$",
+      "$s$",
+      "$R_0$"
+    ],
+    "target": [
+      "$\\\\left(\\\\frac{dr}{d\\\\theta}\\\\right)^2 + r^2 = \\\\frac{r^4}{R_0^2}$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$r^{2}$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "r**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 7.3. Consider the familiar metric space\\n$$\\n\\\\mathrm {d s}^{2} = \\\\mathrm {d r}^{2} + \\\\mathrm {r}^{2} \\\\mathrm {d} \\\\theta^{2}.\\n$$\\n(b) Use the results in (a) to get a first-order differential equation for $\\mathbf{r}(\\theta)$ . [That is: Eliminate $s$ as a parameter and replace by $\\theta$ ].",
+    "answer": "$\\\\left(\\\\frac {\\\\mathrm {d} \\\\mathbf {r}}{\\\\mathrm {d} \\\\theta}\\\\right)^{2} + \\\\mathbf {r}^{2} = \\\\mathbf {r}^{4} / \\\\mathbf {R}_{0}^{4}.$",
+    "solution": "(b) From one of the first integrals above:\\n$$\\n\\\\left(\\\\frac {\\\\mathrm {d} \\\\mathbf {r}}{\\\\mathrm {d} \\\\theta} \\\\frac {\\\\mathrm {d} \\\\theta}{\\\\mathrm {d} \\\\mathbf {s}}\\\\right)^{2} + \\\\mathbf {r}^{2} \\\\left(\\\\frac {\\\\mathrm {d} \\\\theta}{\\\\mathrm {d} \\\\mathbf {s}}\\\\right)^{2} = 1.\\n$$\\nNow substitute $\\mathrm{d}\\\\theta /\\\\mathrm{ds} = R_0 / \\\\mathrm {r}^2$ ( $R_0 = \\\\text{some constant}$ ):\\n$$\\n\\\\left(\\\\frac {\\\\mathrm {d} \\\\mathbf {r}}{\\\\mathrm {d} \\\\theta}\\\\right)^{2} + \\\\mathbf {r}^{2} = \\\\mathbf {r}^{4} / \\\\mathbf {R}_{0}^{4}.$$"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 2,
+    "variables": [
+      "r",
+      "\\\\theta"
+    ],
+    "metric_latex": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "r^{2}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_011": "- r",
+      "Gamma_101": "\\frac{1}{r}",
+      "Gamma_110": "\\frac{1}{r}"
+    },
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

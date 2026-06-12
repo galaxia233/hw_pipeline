@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s11_11.3",
+    "type": "prove",
+    "tags": {
+      "metric": "generic_spacetime",
+      "target_object": "intrinsic_spin_four_vector",
+      "coordinate": "orthogonality_scalar",
+      "scenario": "relativistic_particle_dynamics",
+      "method": "tensor_symmetry_argument"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s11_11.3",
+    "source_id": "1_s11_11.3",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s11_11.3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.5,
+      "rationale": "基于Levi-Civita张量反对称性与四速度外积对称性的标准相对论力学张量缩并证明",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$S_{\\\\alpha}$",
+      "$u^{\\\\alpha}$",
+      "$\\\\varepsilon_{\\\\alpha \\\\beta \\\\gamma \\\\delta}$",
+      "$J^{\\\\beta \\\\gamma}$"
+    ],
+    "target": [
+      "$u^{\\\\alpha} S_{\\\\alpha}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 11.3. Show that a system's intrinsic spin 4-vector $\\mathbf{S}_{\\alpha}$ is orthogonal to its 4-velocity $\\mathbf{u}^{\\alpha}$ .",
+    "answer": "$\\\\mathbf{u}^{\\\\alpha} \\\\mathbf{S}_{\\\\alpha} = 0$",
+    "solution": "Solution 11.3. From the definition of $S_{a}$ ,\\n$$\\n\\\\mathsf {u}^{\\\\alpha} \\\\mathsf {S}_{\\\\alpha} = - \\\\frac {1}{2} \\\\varepsilon_{\\\\alpha \\\\beta \\\\gamma \\\\delta} \\\\mathsf {J}^{\\\\beta \\\\gamma} \\\\mathsf {u}^{\\\\delta} \\\\mathsf {u}^{\\\\alpha} = 0\\n$$\\nby antisymmetry of $\\\\varepsilon$ and symmetry of $\\\\mathfrak{u}^{\\\\delta}\\\\mathfrak{u}^{a}$"
+  },
+  "verification": null
+}

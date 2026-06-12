@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s14_14.8",
+    "type": "prove",
+    "tags": {
+      "metric": "weak_field_metric_approximation",
+      "target_object": "four_velocity_component_target",
+      "coordinate": "nearly_Lorentz_coordinate_gauge",
+      "scenario": "relativistic_fluid_dynamics_scenario",
+      "method": "asymptotic_expansion_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.8",
+    "source_id": "1_s14_14.8",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.7,
+      "realism": 0.8,
+      "rationale": "基于弱场慢速近似的多步泰勒展开与流体力学守恒律推导，逻辑链条完整且具天体物理应用背景",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^i$",
+      "$v$",
+      "$\\rho$",
+      "$\\rho_0$",
+      "$\\pi$",
+      "$\\phi$",
+      "$p$",
+      "$u^\\mu$"
+    ],
+    "target": [
+      "$u_0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 14.8. Show that the relativistic Bernoulli equation of Problem 14.7 reduces to the correct Newtonian limit for slow velocities and weak gravitational fields.",
+    "answer": "\\frac {1}{2} v ^ {2} + \\phi + \\pi + p / \\rho_ {0} = c o n s t a n t.",
+    "solution": "Solution 14.8. The Newtonian limit of relativistic hydrodynamics is obtained by choosing a global, nearly-Lorentz, frame in which$$\\begin{array}{l} \\rho = \\rho_{0} (1 + \\pi), \\quad \\pi \\ll 1 \\\\ \\mathbf {g}_{0 0} = - (1 + 2 \\phi), \\quad | \\phi | \\ll 1 \\\\ p / \\rho_{0} \\stackrel {\\cdot} {<} < 1, \\quad v^{2} \\ll 1. \\\\ \\end{array}$$Here $\\rho_0 = \\mathfrak{nm}_{\\mathbf{B}}$ is the rest-mass density ( $\\mathfrak{m}_{\\mathbf{B}} = \\text{mean baryon rest mass}$ ), $\\pi$ is the specific internal energy, $\\phi$ is the Newtonian potential and $\\mathbf{v}$ is 3-velocity of the fluid. Since$$\\mathbf {u}^{\\widehat {0}} = \\left(1 - \\mathbf {v}^{2}\\right)^{- \\frac {1}{2}} \\approx 1 + \\frac {1}{2} \\mathbf {v}^{2},$$and$$\\mathsf {u}_{0} = \\left(- \\mathsf {g}_{0 0}\\right)^{\\frac {1}{2}} \\mathsf {u}^{\\hat {0}} \\approx 1 + \\frac {1}{2} \\mathsf {v}^{2} + \\phi ,$$the Bernoulli equation becomes$$\\left(1 + \\frac {1}{2} v^{2} + \\phi\\right) = \\frac {\\text {c o n s t a n t} \\times n}{\\rho_{0} (1 + \\pi + p / \\rho_{0})}$$that is$$\\left(1 + \\frac {1}{2} v^{2} + \\phi\\right) \\left(1 + \\pi + p / \\rho_{0}\\right) = c o n s t a n t$$and finally$$\\frac {1}{2} v^{2} + \\phi + \\pi + p / \\rho_{0} = c o n s t a n t.$$"
+  },
+  "verification": null
+}

@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s14_14.16-3-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "r_c",
+      "coordinate": "schwarzschild",
+      "scenario": "photon_sphere_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.16",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.16",
+      "1_s14_14.16-3",
+      "1_s14_14.16-3-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "数值模拟方案设计",
+      "光子球半径验证"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，真空条件使得弯曲时空中的电磁场波动方程唯一确定，其高频极限对应光子在引力场中的零测地线运动。理论推导指出，在赤道面 ($\\theta = \\pi/2$) 运动的光子具有有效势 $V_{eff}(r) = \\frac{L^2 (r-r_s)}{r^3}$，且该有效势在临界半径 $r_c = \\frac{3}{2} r_s$ 处达到极大值，对应光子球的不稳定圆轨道。\\n\\n度规定义：\\n$ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$\\n\\n符号约定：$(-,+,+,+)$，类时条件 $g_{\\mu\\nu}\\dot{x}^\\mu\\dot{x}^\\nu=-1$，类光条件为 0。能量守恒量定义为 $E = -g_{tt}\\dot{t}$，角动量为 $L = g_{\\phi\\phi}\\dot{\\phi}$。\\n\\n请设计一个数值模拟实验方案，通过追踪光子的零测地线轨迹来验证光子球半径 $r_c$ 的存在及其数值 $\\frac{3}{2} r_s$。要求说明初始条件（如碰撞参数 $b=L/E$）的设定策略、需要计算/记录的物理量，以及如何从轨迹数据中提取并验证临界半径 $r_c$。",
+    "answer": "方案步骤：\\n1. 建立演化方程：利用守恒量 $E$ 和 $L$，将赤道面内的零测地线径向方程写为 $\\dot{r}^2 = E^2 - V_{eff}(r)$，结合角方程 $\\dot{\\phi} = L/r^2$，构建关于 $r$ 和 $\\phi$ 的常微分方程组。\\n2. 设定初始参数：取 $r_s=1$ 作为单位。引入碰撞参数 $b = L/E$，将方程参数化以消除 $E$ 和 $L$ 的绝对值依赖。设定初始位置 $r_0$ 远大于 $r_s$（如 $r_0 = 10 r_s$），初速度方向设定为朝向黑洞。\\n3. 扫描碰撞参数 $b$：通过二分法扫描碰撞参数 $b$。对于 $b < b_c$，光子轨迹将落入事件视界；对于 $b > b_c$，光子轨迹将被散射并逃逸至无穷远。\\n4. 识别临界轨迹与徘徊半径：当 $b$ 极其接近临界值 $b_c$ 时，光子在落入或逃逸前，会在某个特定半径附近绕行多圈。记录此临界轨迹徘徊的半径 $r_{hover}$。\\n5. 验证结论：提取临界轨迹的徘徊半径 $r_{hover}$，验证其是否稳定在 $1.5 r_s$ 附近。同时，可数值计算 $V_{eff}(r)$ 的导数寻找极值点，验证其是否对应 $r = 1.5 r_s$，与测地线追踪的结果互相印证。",
+    "solution": "验证光子球半径的本质是寻找不稳定圆轨道。由于该轨道对初始条件极度敏感，数值追踪测地线时通过扫描碰撞参数寻找分界点 $b_c$ 是物理上最直观的验证方式。当 $b=b_c$ 时，光子径向动能 $\\dot{r}^2 \\approx 0$，其位置将停留在有效势极大值点 $r_c$ 处，从而直接验证了理论推导的 $r_c = 1.5 r_s$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目存在术语错误和推导逻辑错误：\\n1. 术语混淆：题目将光子遵循的“类光条件（null condition）为 0”错误表述为“类空条件为 0”。在 $(-,+,+,+)$ 符号约定下，类空（spacelike）矢量的内积应为正（$>0$），类光（lightlike/null）矢量的内积才为 0。光子是类光粒子，而非类空。\\n2. 方案逻辑错误：Answer 声称“引入碰撞参数 $b=L/E$，将方程参数化以消除 $E$ 和 $L$ 的绝对值依赖”，但实际上将 $L=bE$ 代入径向方程后得到 $\\dot{r}^2 = E^2 - E^2 b^2 (r-r_s)/r^3 = E^2(1 - b^2 (r-r_s)/r^3)$，方程中仍然包含 $E$ 的绝对值，并未被消除。要消除 $E$，必须额外对仿射参数进行重新缩放（如定义 $\\lambda' = E\\lambda$），仅引入 $b$ 是不足以消除 $E$ 的依赖的。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

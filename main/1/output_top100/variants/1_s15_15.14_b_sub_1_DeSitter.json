@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s15_15.14_b-0-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "Kretschmann_scalar",
+      "coordinate": "cartesian",
+      "scenario": "metric_degeneracy_analysis",
+      "method": "limit_analysis",
+      "generalization_axis": "substitute",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.14_b",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s15_15.14_b",
+      "1_s15_15.14_b-0",
+      "1_s15_15.14_b-0-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "DeSitter",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "Kretschmann_scalar",
+      "coordinate_singularity",
+      "curvature_singularity"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "某一时空的度规为 $ds^2 = -dt^2 + e^{\\frac{2 x}{\\alpha}}(dx^2 + dy^2 + dz^2)$。在该几何中，当 $x \\to -\\inf ty$ 时，空间度规系数 $e^{\\frac{2 x}{\\alpha}}$ 趋于零，导致度规出现退化，且 Ricci 标量 $R = -\\frac{2 e^{-\\frac{2 x}{\\alpha}}}{\\alpha^2}$ 在此处发散。然而，刻画时空内在曲率强度的完全不变量是 Kretschmann 标量。已知该时空的 Kretschmann 标量为 $K = \\frac{12}{\\alpha^2}$。请利用此标量的值，分析时空在 $x \\to -\\inf ty$ 处的奇点性质，指出这是由于坐标选择造成的坐标奇点还是不可消除的物理曲率奇点，并简述理由。",
+    "answer": "$x \\to -\\inf ty$ 是坐标奇点，而非物理曲率奇点。因为 Kretschmann 标量 $K = \\frac{12}{\\alpha^2}$ 为有限常数，在 $x \\to -\\inf ty$ 处并不发散，表明时空内禀曲率并未真正发散；Ricci 标量的发散仅是由度规逆分量 $g^{xx} \\propto e^{-\\frac{2 x}{\\alpha}}$ 引入的坐标发散。",
+    "solution": "计算 $x \\to -\\inf ty$ 处的 Kretschmann 标量：由于 $K = \\frac{12}{\\alpha^2}$ 不依赖于坐标 $x$，在任何位置（包括 $x \\to -\\inf ty$）它都保持为有限常数。有限的不变量表明时空曲率在任何地方都不发散，因此 $x \\to -\\inf ty$ 处度规系数的退化和 Ricci 标量的发散均不是时空内禀几何性质的体现，而是由坐标选择引起的（如度规逆矩阵分量在该极限下趋于无穷），可以通过坐标变换消除，故为坐标奇点。"
+  },
+  "verification": null
+}

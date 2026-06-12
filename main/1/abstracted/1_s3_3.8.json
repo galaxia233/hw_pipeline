@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s3_3.8",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "coordinate_transformation",
+      "coordinate": "tensor_algebra",
+      "scenario": "proof",
+      "method": "scalar_invariance"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.8",
+    "source_id": "1_s3_3.8",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "多步链式求导与张量变换法则结合，逻辑链条完整；可平滑迁移至任意流形坐标系转换场景；题干解答齐全但属基础理论推导，缺乏具体天体或工程应用背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\mu$",
+      "$\\\\bar{x}^\\\\mu$",
+      "$\\\\eta_{\\\\alpha\\\\beta}$",
+      "$g_{\\\\bar{\\\\mu}\\\\bar{\\\\nu}}$",
+      "$U^\\\\alpha$",
+      "$V^\\\\beta$"
+    ],
+    "target": [
+      "$g_{\\\\bar{\\\\mu}\\\\bar{\\\\nu}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.8. In a coordinate system with coordinates $\\mathbf{x}^{\\mu}$ , the invariant line element is $\\mathrm{ds}^2 = \\eta_{\\alpha \\beta} \\mathrm{dx}^\\alpha \\mathrm{dx}^\\beta$ . If the coordinates are transformed $\\mathbf{x}^{\\mu}\\rightarrow \\overline{\\mathbf{x}}^{\\mu}$ , show that the line element is $\\mathrm{ds}^2 = \\mathbf{g}_{\\overline{\\mu} \\overline{\\nu}} \\mathrm{d}\\overline{\\mathbf{x}}^\\mu \\mathrm{d}\\overline{\\mathbf{x}}^\\nu$ , and express $\\mathbf{g}_{\\overline{\\mu} \\overline{\\nu}}$ in terms of the partial derivatives $\\partial \\mathbf{x}^{\\mu} / \\partial \\overline{\\mathbf{x}}^{\\nu}$ . For two arbitrary 4-vectors $\\mathbf{U}$ and $\\mathbf{V}$ , show that\\n$$\\n\\\\mathbf {U} \\\\cdot \\\\mathbf {V} = \\\\mathbf {U}^{\\\\alpha} \\\\mathbf {V}^{\\\\beta} \\\\eta_{\\\\alpha \\\\beta} = \\\\mathbf {U}^{\\\\overline {{\\\\alpha}}} \\\\mathbf {V}^{\\\\overline {{\\\\beta}}} \\\\mathbf {g}_{\\\\overline {{\\\\alpha}}} \\\\overline {{\\\\beta}}.\\n$$",
+    "answer": "$g_{\\\\bar{\\\\mu}\\\\bar{\\\\nu}} = \\\\eta_{\\\\alpha\\\\beta} \\\\frac{\\\\partial x^{\\\\alpha}}{\\\\partial \\\\bar{x}^{\\\\mu}} \\\\frac{\\\\partial x^{\\\\beta}}{\\\\partial \\\\bar{x}^{\\\\nu}}$，且向量点积满足标量不变性 $U \\\\cdot V = U^{\\\\bar{\\\\alpha}} V^{\\\\bar{\\\\beta}} g_{\\\\bar{\\\\alpha}\\\\bar{\\\\beta}}$",
+    "solution": "Solution 3.8. We express the differentials in terms of the new coordinates:\\n$$\\n\\\\begin{array}{l} \\\\mathrm {d s}^{2} = \\\\eta_{\\\\alpha \\\\beta} \\\\mathrm {d x}^{\\\\alpha} \\\\mathrm {d x}^{\\\\beta} \\\\\\\\ = \\\\eta_{\\\\alpha} \\\\beta \\\\left(\\\\partial \\\\mathbf {x}^{\\\\alpha} / \\\\partial \\\\overline {{\\\\mathbf {x}}}^{\\\\mu}\\\\right) d \\\\overline {{\\\\mathbf {x}}}^{\\\\mu} \\\\left(\\\\partial \\\\mathbf {x}^{\\\\beta} / \\\\partial \\\\overline {{\\\\mathbf {x}}}^{\\\\nu}\\\\right) d \\\\overline {{\\\\mathbf {x}}}^{\\\\nu} \\\\\\\\ = \\\\left(\\\\eta_{a} \\\\beta \\\\frac {\\\\partial \\\\mathbf {x}^{a}}{\\\\partial \\\\overline {{\\\\mathbf {x}}}^{\\\\mu}} \\\\frac {\\\\partial \\\\mathbf {x}^{\\\\beta}}{\\\\partial \\\\overline {{\\\\mathbf {x}}}^{\\\\nu}}\\\\right) d \\\\overline {{\\\\mathbf {x}}}^{\\\\mu} d \\\\overline {{\\\\mathbf {x}}}^{\\\\nu}. \\\\\\\\ \\\\end{array}\\n$$\\nIf we write the line element as $\\mathrm{ds}^2 = \\mathbf{g}_{\\\\overline{\\\\mu}\\\\overline{\\\\nu}}\\mathrm{d}\\\\overline{\\\\mathbf{x}}^\\\\mu \\mathrm{d}\\\\overline{\\\\mathbf{x}}^{\\\\nu '}$ it follows that\\n$$\\n\\\\mathbf {g}_{\\\\overline {{{\\\\mu}}} \\\\overline {{{\\\\nu}}}} \\\\equiv \\\\eta_{\\\\alpha \\\\beta} \\\\frac {\\\\partial \\\\mathbf {x}^{\\\\alpha}}{\\\\partial \\\\mathbf {x}^{\\\\mu}} \\\\frac {\\\\partial \\\\mathbf {x}^{\\\\beta}}{\\\\partial \\\\mathbf {x}^{\\\\nu}} .\\n$$\\nA vector transforms by the following rule\\n$$\\n\\\\mathbf {U}^{\\\\alpha} = \\\\frac {\\\\partial_{\\\\mathbf {x}} \\\\mathbf {\\\\Lambda}^{\\\\alpha}}{\\\\partial_{\\\\overline {{\\\\mathbf {x}}}} \\\\beta} \\\\mathbf {U}^{\\\\overline {{\\\\beta}}} ,\\n$$\\ntherefore\\n$$\\n\\\\begin{array}{l} \\\\mathbf {U} \\\\cdot \\\\mathbf {V} = \\\\mathbf {U}^{\\\\sigma} \\\\mathbf {V}^{\\\\lambda} \\\\eta_{\\\\sigma \\\\lambda} \\\\\\\\ = \\\\left(\\\\mathrm {U}^{\\\\overline {{\\\\alpha}}} \\\\frac {\\\\partial_{\\\\mathbf {X}}^{\\\\sigma}}{\\\\partial \\\\overline {{\\\\mathbf {x}}}^{\\\\alpha}}\\\\right) \\\\left(\\\\mathrm {V}^{\\\\overline {{\\\\beta}}} \\\\frac {\\\\partial_{\\\\mathbf {X}}^{\\\\lambda}}{\\\\partial \\\\overline {{\\\\mathbf {x}}}^{\\\\beta}}\\\\right) \\\\eta_{\\\\sigma \\\\lambda} = \\\\mathrm {U}^{\\\\overline {{\\\\alpha}}} \\\\mathrm {V}^{\\\\overline {{\\\\beta}}} \\\\frac {\\\\partial_{\\\\mathbf {X}}^{\\\\sigma}}{\\\\partial \\\\overline {{\\\\mathbf {x}}}^{\\\\alpha}} \\\\frac {\\\\partial_{\\\\mathbf {X}}^{\\\\lambda}}{\\\\partial \\\\overline {{\\\\mathbf {x}}}^{\\\\beta}} \\\\eta_{\\\\sigma \\\\lambda} \\\\\\\\ = \\\\mathrm {U}^{\\\\overline {{\\\\alpha}}} \\\\mathrm {V}^{\\\\overline {{\\\\beta}}} \\\\mathrm {g}_{\\\\overline {{\\\\alpha}} \\\\overline {{\\\\beta}}} . \\\\\\\\ \\\\end{array}\\n$$"
+  },
+  "verification": null
+}

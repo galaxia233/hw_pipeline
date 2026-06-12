@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s18_18.20",
+    "type": "concept",
+    "tags": {
+      "metric": "riemann_tensor_components",
+      "target_object": "newman_penrose_scalars",
+      "coordinate": "z_axis_propagation",
+      "scenario": "gravitational_wave_polarization",
+      "method": "rotation_phase_transformation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s18_18.20",
+    "source_id": "1_s18_18.20",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s18_18.20"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "通过测地偏离方程识别纵向耦合项，利用坐标旋转诱导的相位因子定量提取自旋权重，并结合GR真空场方程完成物理自由度筛选",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$\\Psi_2$",
+      "$\\Psi_3$",
+      "$\\Psi_4$",
+      "$\\bar{\\Psi}_3$",
+      "$\\overline{\\Psi}_4$",
+      "$\\Phi_{22}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s18_18.20.md]Problem 18.20. Consider the following \"gravitational wave modes\" representing a gravitational wave travelling in the $z$ direction$$\\begin{array}{l} \\Psi_{2} = - \\frac {1}{6} R_{z 0 z 0} \\quad \\Psi_{4} = R_{y 0 y 0} - R_{x 0 x 0} + 2 i R_{x 0 y 0} \\\\ \\Psi_{3} = \\frac {1}{2} (- R_{x 0 z 0} + i R_{y 0 z 0}) \\quad \\overline {{\\Psi}}_{4} = R_{y 0 y 0} - R_{x 0 x 0} - 2 i R_{x 0 y 0} \\\\ \\bar {\\Psi}_{3} = \\frac {1}{2} \\left(- R_{x 0 z 0} - i R_{y 0 z 0}\\right) \\quad \\Phi_{2 2} = - \\left(R_{x 0 x 0} + R_{y 0 y 0}\\right). \\\\ \\end{array}$$Which of these waves are transverse?The spin of a wave indicates (among other things) the relation of the orientation of polarization states. For a spin 0 (scalar) wave the manifestations of the wave are symmetric about the direction of propagation. For a spin 1 (vector) wave (e.g. an electromagnetic wave) the independent polarization states are oriented at $90^{\\circ}$ to each other; a rotation of $180^{\\circ}$ returns to the original polarization state, with only a sign change. In general for a spin s wave a rotation of $\\pi /s$ brings back the original polarization state. Which of the waves above are spin 0? Spin 1? Spin 2? Which are possible in general relativity?## SolutionSolution 18.20. In a nearly inertial coordinate system centered at the center of mass, the effect of the Riemann tensor, according to the equation of geodesic deviation, is to accelerate free particles in the following way$$\\frac {\\mathrm {d}^{2} \\mathbf {x}^{\\mathrm {j}}}{\\mathrm {d t}^{2}} = - \\mathrm {R}_{\\mathrm {j 0 k 0}} \\mathbf {x}^{\\mathrm {k}} .$$We have here ignored the velocity dependent \"magnetic\" type terms which are smaller by a factor $\\mathrm{v} / \\mathrm{c}$ . (See solution to Problem 18.14.) This equation makes it clear that the Riemann tensor has a longitudinal effect if and only if one of the spatial indices of $\\mathbf{R}_{\\mathrm{j0k0}}$ is $z$ , the direction of wave propagation. It follows that $\\Psi_{2}, \\Psi_{3}, \\overline{\\Psi}_{3}$ have longitudinal effects but that $\\Psi_{4}, \\overline{\\Psi}_{4}, \\Phi_{22}$ are purely transverse.To investigate the spin of the waves, transform from $x, y$ coordinates to new coordinates $x', y'$ rotated about the $z$ -axis in the positive sense by an angle $\\phi$ . Under such a transformation the transformation for the Riemann components is, for instance$$R_{x^{\\prime} 0^{\\prime} z^{\\prime} 0^{\\prime}} = R_{x 0 z 0} \\cos \\phi + R_{y 0 z 0} \\sin \\phi$$$$\\mathbf {R}_{\\mathbf {x}^{\\prime} \\mathbf {0}^{\\prime} \\mathbf {x}^{\\prime} \\mathbf {0}^{\\prime}} = \\mathbf {R}_{\\mathbf {x} 0 \\mathbf {x} 0} \\cos^{2} \\phi + \\mathbf {R}_{\\mathbf {y} 0 \\mathbf {y} 0} \\sin^{2} \\phi + 2 \\sin \\phi \\cos \\phi \\mathbf {R}_{\\mathbf {x} 0 \\mathbf {y} 0}.$$From the form of the transformation for the Riemann components, the transformation laws for the symbols defined in the problem are easily calculated:$$\\Psi_{2^{\\prime}} \\equiv - \\frac {1}{6} R_{z^{\\prime} 0^{\\prime} z^{\\prime} 0^{\\prime}} = - \\frac {1}{6} R_{z 0 z 0} = \\Psi_{2}$$$$\\Psi_{3^{\\prime}} = e^{i \\phi} \\Psi_{3}$$$$\\bar {\\Psi}_{3^{\\prime}} = e^{- i \\phi} \\Psi_{3}$$$$\\Psi_{4^{\\prime}} = e^{2 i \\phi} \\Psi_{4}, \\quad \\overline {{\\Psi}}_{4^{\\prime}} = e^{- 2 i \\phi} \\overline {{\\Psi}}_{4}$$$$\\Phi_{2^{\\prime} 2^{\\prime}} = \\Phi_{2 2}.$$Since $\\Psi_{2}$ and $\\Phi_{22}$ are unaffected by rotation about $z$ , the waves are scalar (spin 0) waves. For $\\Psi_{3}$ and $\\overline{\\Psi}_{3}$ , a rotation of $180^{\\circ}$ returns the wave to the same state of polarization (e.g. pure real), so these symbols must correspond to spin 1 waves. The symbols $\\Psi_{4}$ and $\\overline{\\Psi}_{4}$ need only be rotated by $90^{\\circ}$ to be in the same polarization state so they represent spin 2 waves. These symbols in fact correspond to the circular polarization states of the waves of general relativity.",
+    "answer": "Transverse: $\\Psi_4$, $\\overline{\\Psi}_4$, $\\Phi_{22}$. Spin 0: $\\Psi_2$, $\\Phi_{22}$. Spin 1: $\\Psi_3$, $\\overline{\\Psi}_3$. Spin 2: $\\Psi_4$, $\\overline{\\Psi}_4$. Only spin 2 modes ($\\Psi_4$, $\\overline{\\Psi}_4$) are physical in GR vacuum.",
+    "solution": "In a nearly inertial coordinate system centered at the center of mass, the effect of the Riemann tensor, according to the equation of geodesic deviation, is to accelerate free particles in the following way$$\\frac {\\mathrm {d}^{2} \\mathbf {x}^{\\mathrm {j}}}{\\mathrm {d t}^{2}} = - \\mathrm {R}_{\\mathrm {j 0 k 0}} \\mathbf {x}^{\\mathrm {k}} .$$We have here ignored the velocity dependent \"magnetic\" type terms which are smaller by a factor $\\mathrm{v} / \\mathrm{c}$ . (See solution to Problem 18.14.) This equation makes it clear that the Riemann tensor has a longitudinal effect if and only if one of the spatial indices of $\\mathbf{R}_{\\mathrm{j0k0}}$ is $z$ , the direction of wave propagation. It follows that $\\Psi_{2}, \\Psi_{3}, \\overline{\\Psi}_{3}$ have longitudinal effects but that $\\Psi_{4}, \\overline{\\Psi}_{4}, \\Phi_{22}$ are purely transverse.To investigate the spin of the waves, transform from $x, y$ coordinates to new coordinates $x', y'$ rotated about the $z$ -axis in the positive sense by an angle $\\phi$ . Under such a transformation the transformation for the Riemann components is, for instance$$R_{x^{\\prime} 0^{\\prime} z^{\\prime} 0^{\\prime}} = R_{x 0 z 0} \\cos \\phi + R_{y 0 z 0} \\sin \\phi$$$$\\mathbf {R}_{\\mathbf {x}^{\\prime} \\mathbf {0}^{\\prime} \\mathbf {x}^{\\prime} \\mathbf {0}^{\\prime}} = \\mathbf {R}_{\\mathbf {x} 0 \\mathbf {x} 0} \\cos^{2} \\phi + \\mathbf {R}_{\\mathbf {y} 0 \\mathbf {y} 0} \\sin^{2} \\phi + 2 \\sin \\phi \\cos \\phi \\mathbf {R}_{\\mathbf {x} 0 \\mathbf {y} 0}.$$From the form of the transformation for the Riemann components, the transformation laws for the symbols defined in the problem are easily calculated:$$\\Psi_{2^{\\prime}} \\equiv - \\frac {1}{6} R_{z^{\\prime} 0^{\\prime} z^{\\prime} 0^{\\prime}} = - \\frac {1}{6} R_{z 0 z 0} = \\Psi_{2}$$$$\\Psi_{3^{\\prime}} = e^{i \\phi} \\Psi_{3}$$$$\\bar {\\Psi}_{3^{\\prime}} = e^{- i \\phi} \\Psi_{3}$$$$\\Psi_{4^{\\prime}} = e^{2 i \\phi} \\Psi_{4}, \\quad \\overline {{\\Psi}}_{4^{\\prime}} = e^{- 2 i \\phi} \\overline {{\\Psi}}_{4}$$$$\\Phi_{2^{\\prime} 2^{\\prime}} = \\Phi_{2 2}.$$Since $\\Psi_{2}$ and $\\Phi_{22}$ are unaffected by rotation about $z$ , the waves are scalar (spin 0) waves. For $\\Psi_{3}$ and $\\overline{\\Psi}_{3}$ , a rotation of $180^{\\circ}$ returns the wave to the same state of polarization (e.g. pure real), so these symbols must correspond to spin 1 waves. The symbols $\\Psi_{4}$ and $\\overline{\\Psi}_{4}$ need only be rotated by $90^{\\circ}$ to be in the same polarization state so they represent spin 2 waves. These symbols in fact correspond to the circular polarization states of the waves of general relativity."
+  },
+  "verification": null
+}

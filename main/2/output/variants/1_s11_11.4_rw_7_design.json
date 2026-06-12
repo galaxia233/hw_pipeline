@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-6-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "Killing内积守恒验证",
+      "coordinate": "(t, x, y, z)",
+      "scenario": "cosmology_design",
+      "method": "numerical_simulation",
+      "generalization_axis": "apply",
+      "metric": "Godel"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-6",
+      "1_s11_11.4-6-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Godel",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "设计数值模拟方案验证Gödel时空自旋矢量与Killing矢量内积守恒"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "-exp(sqrt(2)*omega*x)",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "-exp(sqrt(2)*omega*x)",
+        "0",
+        "-exp(2*sqrt(2)*omega*x)/2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Gödel 旋转宇宙中，度规为 $ds^2 = -dt^2 + dx^2 - \\sqrt{2} e^{\\sqrt{2}\\omega x} dt dy - \\frac{1}{2} e^{2\\sqrt{2}\\omega x} dy^2 + dz^2$。该时空具有时间平移 Killing 矢量 $\\xi^\\mu = (1, 0, 0, 0)$。理论推导指出，对于在 $x=0$ 处沿时间轴静止的自由下落陀螺仪（四速度 $u^\\mu = (1, 0, 0, 0)$），其初始自旋矢量 $S^\\mu = (0, S^1, 0, S^3)$ 通过平行搬运沿测地线演化时，与 Killing 矢量的内积 $C = S_\\mu \\xi^\\mu$ 将保持守恒（即 $\\frac{dC}{d\\tau} = 0$）。请你设计一个数值模拟方案，从零开始构建演化算法，以验证此内积守恒结论。方案需明确：初始参数设定、演化所依据的微分方程、需要监测的计算量以及预期的输出结果。",
+    "answer": "1. **初始条件设定**：设定参数 $\\omega$ 及自旋常数 $S^1, S^3$。初始坐标 $x^\\mu(0) = (0, 0, 0, 0)$，初始四速度 $u^\\mu(0) = (1, 0, 0, 0)$，初始自旋矢量 $S^\\mu(0) = (0, S^1, 0, S^3)$。\\n2. **演化方程构建**：依据测地线方程 $\\frac{du^\\mu}{d\\tau} = -\\Gamma^\\mu_{\\alpha\\beta} u^\\alpha u^\\beta$ 演化四速度与坐标；依据平行搬运方程 $\\frac{dS^\\mu}{d\\tau} = -\\Gamma^\\mu_{\\alpha\\beta} u^\\alpha S^\\beta$ 演化自旋矢量。Christoffel 符号采用 Gödel 度规的解析表达式代入（如 $\\Gamma^0_{01} = \\sqrt{2}\\omega$ 等）。\\n3. **数值积分**：采用 Runge-Kutta 4 算法对上述耦合常微分方程组进行时间步长迭代，得到 $u^\\mu(\\tau)$ 和 $S^\\mu(\\tau)$ 的数值序列。\\n4. **监测量计算**：在每个时间步，利用度规分量计算协变自旋分量 $S_0(\\tau) = g_{00} S^0 + g_{02} S^2 = -S^0 - e^{\\sqrt{2}\\omega x} S^2$，进而得到内积 $C(\\tau) = S_0(\\tau) \\xi^0 = S_0(\\tau)$。\\n5. **预期结果**：绘制 $C(\\tau)$ 随原时 $\\tau$ 的变化曲线，并计算差分 $\\Delta C / \\Delta \\tau$。预期 $C(\\tau)$ 将保持为初始值 0 不变（在数值误差范围内），差分趋于零，从而验证内积守恒。",
+    "solution": "本方案通过直接数值求解自旋与速度的演化方程，将抽象的协变导数证明转化为具体的数值追踪。由于初始条件满足静止条件，且在 Gödel 度规下 $\\Gamma^\\mu_{00}=0$，陀螺仪将始终保持 $x=0$ 且四速度不变。此时平行搬运方程退化为关于自旋分量的线性常微分方程。解析计算可知 $\\frac{dS^0}{d\\tau} = -\\sqrt{2}\\omega S^1$ 与 $\\frac{dS^2}{d\\tau} = \\sqrt{2}\\omega S^1$ 严格抵消，使得 $\\frac{dC}{d\\tau} = 0$。数值模拟通过离散化时间重现这一抵消过程，若积分算法稳定且精度足够，数值误差积累将极小，$C(\\tau)$ 曲线应呈水平直线且恒为零，直观验证了 Killing 内积的守恒性。"
+  },
+  "verification": null
+}

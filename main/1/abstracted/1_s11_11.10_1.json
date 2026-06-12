@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s11_11.10_1",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "stationary_spacetime",
+      "coordinate": "killing_vector",
+      "scenario": "lie_derivative",
+      "method": "observer_tetrad"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s11_11.10_1",
+    "source_id": "1_s11_11.10_1",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s11_11.10_1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.7,
+      "realism": 0.7,
+      "rationale": "涉及稳态时空几何与Killing矢量场的Lie导数性质，需结合观者标架平流条件进行多步几何推理",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\\\\\theta$",
+      "$\\\\\\\\phi$",
+      "$\\\\\\\\pmb{\\\\\\\\xi}$",
+      "$\\\\\\\\mathbf{e}_{\\\\\\\\widehat{\\\\\\\\alpha}}$"
+    ],
+    "target": [
+      "$\\\\\\\\mathbf{e}_{\\\\\\\\widehat{\\\\\\\\alpha}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 11.10. Consider a family of stationary observers in a stationary spacetime, i.e. their 4-velocity is proportional to the time Killing vector $\\pmb{\\xi}$ . Each observer arranges his spatial basis vectors so that they connect to the same neighboring observers for all time $t$ , where $\\pmb{\\xi} = \\frac{\\partial}{\\partial t}$.\\n(1) Show that $\\mathcal{L}_{\\pmb{\\xi}} \\mathbf{e}_{\\widehat{\\alpha}} = 0$ , where $\\mathbf{e}_{\\alpha}$ is a basis vector of the stationary observer.",
+    "answer": "$\\\\\\\\mathcal{L}_{\\\\\\\\pmb{\\\\\\\\xi}} \\\\\\\\mathbf{e}_{\\\\\\\\widehat{\\\\\\\\alpha}} = 0$",
+    "solution": null
+  },
+  "verification": null
+}

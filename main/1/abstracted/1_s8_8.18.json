@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s8_8.18",
+    "type": "concept",
+    "tags": {
+      "metric": "metric",
+      "target_object": "affine_connection",
+      "coordinate": "transport_methods",
+      "scenario": "differential_geometry",
+      "method": "general_relativity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.18",
+    "source_id": "1_s8_8.18",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.18"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.5,
+      "rationale": "通过对比三种输运方程的协变导数结构，直接考查对度规、仿射联络及向量场全局定义的物理/几何依赖性，理论辨析清晰",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\alpha$",
+      "$u^\\alpha$",
+      "$v^\\alpha$",
+      "$\\Gamma^\\alpha_{\\beta\\gamma}$"
+    ],
+    "target": [],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s8_8.18.md]Problem 8.18. It is desired to transport a vector $\\mathbf{v}$ along a curve with tangent vector $\\mathbf{u}$ . Which of the following are necessary for parallel transport? - for Fermi-Walker transport? - for Lie transport?: metric; affine connection; $\\mathbf{u}(\\mathbf{x})$ defined off the curve.",
+    "answer": "Parallel transport: affine connection. Fermi-Walker transport: affine connection and metric. Lie transport: $\\mathbf{u}(\\mathbf{x})$ defined off the curve; neither metric nor connection is required.",
+    "solution": "Solution 8.18. The parallel transport law $\\mathfrak{u}^{\\alpha_{\\mathbf{v}}\\beta}_{;a} = 0$ requires only the affine connection $\\Gamma^{\\alpha}_{\\beta \\gamma}$ . The Fermi-Walker transport law$$\\nabla_{\\mathbf {u}} \\mathbf {v} = \\mathbf {u} (\\mathbf {a} \\cdot \\mathbf {v}) - \\mathbf {a} (\\mathbf {u} \\cdot \\mathbf {v}) \\quad \\mathbf {a} \\equiv \\nabla_{\\mathbf {u}} \\mathbf {u}$$requires, in addition, a metric for the dot products. The Lie transport equation $\\nabla_{\\mathbf{u}}\\mathbf{v} - \\nabla_{\\mathbf{v}}\\mathbf{u} = 0$ requires $\\mathbf{u}$ to be a vector field defined off the curve, not just a tangent vector along the curve, because the gradient of $\\mathbf{u}$ in the v-direction must be defined, and $\\mathbf{v}$ is not in general along the curve. Although the formula above includes $\\nabla$ 's, a connection is actually not needed, because the $\\Gamma$ 's cancel out due to the antisymmetry of the equation. Obviously no metric is required for Lie differentiation."
+  },
+  "verification": null
+}

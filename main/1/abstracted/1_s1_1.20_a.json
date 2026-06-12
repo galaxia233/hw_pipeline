@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s1_1.20_a",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "four_momentum_target",
+      "coordinate": "observer_coordinate_system",
+      "scenario": "particle_observation_scenario",
+      "method": "rest_frame_invariance_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.20_a",
+    "source_id": "1_s1_1.20_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.20_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.8,
+      "rationale": "基于四维矢量标量积的不变性证明，结合观测者静止系验证，物理动机明确且结构可推广至任意度规",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$\\mathbf{p} \\cdot \\mathbf{u}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.20. A particle of rest mass $m$ and 4-momentum $p$ is examined by an observer with 4-velocity $u$ . Show that:(a) the energy he measures is $\\mathbf{E} = -\\mathbf{p}\\cdot \\mathbf{u}$",
+    "answer": "$\\mathbf{E} = -\\mathbf{p}\\cdot \\mathbf{u}$",
+    "solution": "Solution 1.20. In the rest frame of the observer,$$\\\\mathbf {u}^{0} = 1, \\\\quad \\\\mathbf {u}^{\\\\mathbf {j}} = 0$$$$\\\\mathbf {p}^{0} = - \\\\mathbf {p}_{0} = \\\\mathbf {E}$$$$\\\\mathbf {p}^{\\\\mathrm {j}} = \\\\mathbf {p}_{\\\\mathrm {j}} = \\\\underline {{\\\\mathbf {p}}}$$so, we verify the invariant formulas in this easiest frame:(a) $\\mathbf{E} = -\\mathbf{p}_0\\mathbf{u}^0 = -\\mathbf{p}\\cdot \\mathbf{u}$(b) $\\mathbf{m}^2 = \\mathbf{E}^2 - |\\widetilde{\\mathbf{p}}|^2 = -\\mathbf{p}_0 \\mathbf{p}^0 - \\mathbf{p}_j \\mathbf{p}^j = -\\mathbf{p} \\cdot \\mathbf{p}$(c) $\\left|\\underline{\\mathbf{p}}\\right| = \\left(\\mathbf{E}^{2} - \\mathfrak{m}^{2}\\right)^{\\frac{1}{2}} = \\left[(\\mathbf{p}\\cdot \\mathbf{u})^{2} + \\mathbf{p}\\cdot \\mathbf{p}\\right]^{\\frac{1}{2}}$(d) $\\left|\\underline{\\mathbf{v}}\\right| = \\frac{\\left|\\underline{\\mathbf{p}}\\right|}{\\underline{\\mathbf{E}}} = \\left[\\frac{\\underline{\\mathbf{E}}^2 - \\underline{\\mathbf{m}}^2}{\\underline{\\mathbf{E}}^2}\\right]^{\\frac{1}{2}} = \\left[1 + \\frac{\\underline{\\mathbf{p}}\\cdot\\underline{\\mathbf{p}}}{(\\underline{\\mathbf{p}}\\cdot\\underline{\\mathbf{u}})^2}\\right]^{\\frac{1}{2}}$(e) In the rest frame,$$\\\\mathbf {v}^{0} = - \\\\mathbf {u}^{0} - \\\\frac {\\\\mathbf {p}^{0}}{(- E)} = - 1 + 1 = 0$$$$v^{j} = - u^{j} - \\\\frac {p^{j}}{(- E)} = 0 + \\\\frac {d x^{j}}{d t}.$$"
+  },
+  "verification": null
+}

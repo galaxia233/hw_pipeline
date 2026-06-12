@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-0-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "local_velocity",
+      "coordinate": "schwarzschild",
+      "scenario": "verify_free_fall_derivation",
+      "method": "energy_conservation_verify",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-0",
+      "1_s10_10.15-0-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\xi$",
+      "$\\mathbf{E}$",
+      "$\\mathbf{p}$",
+      "$\\mu$"
+    ],
+    "target": [
+      "推导过程中的错误",
+      "局部速率 $v^2$ 的正确表达式"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 时空中（度规分量已给出），时间平移 Killing 矢量 $\\boldsymbol{\\xi} = \\partial_t$ 的范数 $\\boldsymbol{\\xi}\\cdot\\boldsymbol{\\xi}$ 是空间位置的函数。一个测试粒子从渐近平直区域以初始静止状态发射，并在引力作用下自由下落。以下是某学生关于该自由下落粒子到达任意一点 $P$（位于 $\\boldsymbol{\\xi}\\cdot\\boldsymbol{\\xi}<0$ 的区域）时，其相对于局部静止观测者的局部速率 $v$ 的推导过程，其中包含若干物理或代数错误：\\n\\n[推导开始]\\n1. 根据度规，在渐近平直区域（$r \\to \\inf ty$），Killing 矢量范数趋于 $\\boldsymbol{\\xi}\\cdot\\boldsymbol{\\xi} \\to 1$。\\n2. 粒子在渐近区初始静止，局部洛伦兹因子 $\\gamma=1$。根据稳态时空的能量守恒，粒子的守恒能量公式为 $E/\\mu = \\gamma \\sqrt{\\boldsymbol{\\xi}\\cdot\\boldsymbol{\\xi}}$。\\n3. 将渐近区条件代入，得初始能量 $E/\\mu = 1 \\cdot \\sqrt{1} = 1$。\\n4. 在任意点 $P$，能量公式为 $E/\\mu = \\gamma \\sqrt{-\\boldsymbol{\\xi}_P\\cdot\\boldsymbol{\\xi}_P}$。代入 $E/\\mu=1$，得 $1 = \\frac{1}{\\sqrt{1-v^2}} \\sqrt{-\\boldsymbol{\\xi}_P\\cdot\\boldsymbol{\\xi}_P}$。\\n5. 两边平方并移项，解得 $1-v^2 = \\boldsymbol{\\xi}_P\\cdot\\boldsymbol{\\xi}_P$。\\n6. 因此，局部速率的表达式为 $v^2 = 1 - \\boldsymbol{\\xi}_P\\cdot\\boldsymbol{\\xi}_P$。\\n[推导结束]\\n\\n请根据 Schwarzschild 度规的几何属性（特别是类时矢量的范数符号）和局部速率的物理界限，找出上述推导中的所有错误，指出其错误类型，并给出正确值或正确表达式。",
+    "answer": "1. 位置：步骤1。错误类型：Sign error / 度规分量物理意义错误。正确值：渐近平直区类时 Killing 矢量范数 $\\boldsymbol{\\xi}\\cdot\\boldsymbol{\\xi} \\to -1$（度规 $g_{00} \\to -1$）。\\n2. 位置：步骤2。错误类型：Sign error / 公式遗漏负号。正确值：类时粒子的能量公式应为 $E/\\mu = \\gamma \\sqrt{-\\boldsymbol{\\xi}\\cdot\\boldsymbol{\\xi}}$，以保证能量为实数且正。\\n3. 位置：步骤5。错误类型：Sign error / 代数求解错误。正确值：由 $1 = \\frac{\\sqrt{-\\boldsymbol{\\xi}_P\\cdot\\boldsymbol{\\xi}_P}}{\\sqrt{1-v^2}}$ 平方后应得 $1-v^2 = -\\boldsymbol{\\xi}_P\\cdot\\boldsymbol{\\xi}_P$。\\n4. 位置：步骤6。错误类型：结论表达式 sign error。正确值：局部速率表达式应为 $v^2 = 1 + \\boldsymbol{\\xi}_P\\cdot\\boldsymbol{\\xi}_P$。",
+    "solution": "1. 在渐近平直区，度规趋于闵可夫斯基度规，时间分量 $g_{00} \\to -1$，因此时间 Killing 矢量范数 $\\boldsymbol{\\xi}\\cdot\\boldsymbol{\\xi} = g_{00} \\to -1$。步骤1错将类时矢量范数写为正数。\\n2. 对于类时 Killing 矢量，$\\boldsymbol{\\xi}\\cdot\\boldsymbol{\\xi} < 0$，为保证守恒能量 $E/\\mu$ 为实数且具有正确的物理量纲，能量公式应提取负号，即 $E/\\mu = \\gamma \\sqrt{-\\boldsymbol{\\xi}\\cdot\\boldsymbol{\\xi}}$。步骤2漏掉了根号内的负号。\\n3. 步骤3虽基于错误公式，但代入错误的极限值 $\\boldsymbol{\\xi}\\cdot\\boldsymbol{\\xi}=1$ 后碰巧得到 $E/\\mu=1$。正确推导应为：$E/\\mu = \\gamma \\sqrt{-\\boldsymbol{\\xi}\\cdot\\boldsymbol{\\xi}} = 1 \\cdot \\sqrt{-(-1)} = 1$。\\n4. 步骤4修正了负号，但步骤5在解方程 $1 = \\frac{\\sqrt{-\\boldsymbol{\\xi}_P\\cdot\\boldsymbol{\\xi}_P}}{\\sqrt{1-v^2}}$ 时，两边平方得 $1-v^2 = -\\boldsymbol{\\xi}_P\\cdot\\boldsymbol{\\xi}_P$，而非 $+\\boldsymbol{\\xi}_P\\cdot\\boldsymbol{\\xi}_P$。步骤5犯了代数符号错误。\\n5. 由正确的代数结果 $1-v^2 = -\\boldsymbol{\\xi}_P\\cdot\\boldsymbol{\\xi}_P$，移项得 $v^2 = 1 + \\boldsymbol{\\xi}_P\\cdot\\boldsymbol{\\xi}_P$。步骤6的负号错误是步骤5错误的延续。当接近静态极限面（$\\boldsymbol{\\xi}\\cdot\\boldsymbol{\\xi} \\to 0$）时，$v^2 \\to 1$，粒子局部速率趋于光速。"
+  },
+  "verification": null
+}

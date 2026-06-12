@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "Killing vector field",
+      "coordinate": "Schwarzschild",
+      "scenario": "black hole",
+      "method": "invert from conserved quantities",
+      "generalization_axis": "invert",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\xi_{2\\phi}",
+      "\\nabla_r \\xi_\\phi + \\nabla_\\phi \\xi_r",
+      "\\nabla_\\theta \\xi_\\phi + \\nabla_\\phi \\xi_\\theta"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，观测表明沿任何测地线自由下落的粒子，其角动量 $L = r^2 \\sin^2 \\theta \\dot{\\phi}$ 为守恒量。根据定理“若标量 $Q = \\xi_\\mu u^\\mu$ 对所有测地线守恒，则 $\\xi$ 必为 Killing 矢量场”，我们可以从守恒量反推时空的对称性条件。该度规定义为 $ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$。请从角动量守恒量 $L$ 反推生成它的矢量场 $\\boldsymbol{\\xi}_2$ 的协变分量表达式 $\\xi_{2\\mu}$，并利用 Christoffel 符号通过计算混合坐标分量 $\\nabla_r \\xi_\\phi + \\nabla_\\phi \\xi_r$ 与 $\\nabla_\\theta \\xi_\\phi + \\nabla_\\phi \\xi_\\theta$，验证 $\\boldsymbol{\\xi}_2$ 满足 Killing 方程 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$。",
+    "answer": "矢量场协变分量 $\\xi_{2\\phi} = r^2 \\sin^2 \\theta$（其余为 0）；计算得 $\\nabla_r \\xi_\\phi + \\nabla_\\phi \\xi_r = 0$ 且 $\\nabla_\\theta \\xi_\\phi + \\nabla_\\phi \\xi_\\theta = 0$，验证其满足 Killing 方程。",
+    "solution": "1. 反推协变分量：守恒量 $L = \\xi_{2\\mu} u^\\mu = \\xi_{2t} \\dot{t} + \\xi_{2r} \\dot{r} + \\xi_{2\\theta} \\dot{\\theta} + \\xi_{2\\phi} \\dot{\\phi}$。由于 $L = r^2 \\sin^2 \\theta \\dot{\\phi}$ 对任意测地线的速度分量均成立，对比可得 $\\xi_{2\\phi} = r^2 \\sin^2 \\theta$，且 $\\xi_{2t} = \\xi_{2r} = \\xi_{2\\theta} = 0$。2. 验证 Killing 方程：利用 $\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu - \\Gamma^\\alpha_{\\mu\\nu} \\xi_\\alpha$，由于 $\\xi_\\alpha$ 仅 $\\phi$ 分量非零，故 $\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu - \\Gamma^\\phi_{\\mu\\nu} \\xi_\\phi$。  - 计算 $\\nabla_r \\xi_\\phi + \\nabla_\\phi \\xi_r$：    $\\nabla_r \\xi_\\phi = \\partial_r (r^2 \\sin^2 \\theta) - \\Gamma^\\phi_{r\\phi} \\xi_\\phi = 2r \\sin^2 \\theta - \\frac{1}{r} \\cdot r^2 \\sin^2 \\theta = r \\sin^2 \\theta$。    $\\nabla_\\phi \\xi_r = \\partial_\\phi (0) - \\Gamma^\\phi_{\\phi r} \\xi_\\phi = 0 - \\frac{1}{r} \\cdot r^2 \\sin^2 \\theta = -r \\sin^2 \\theta$。    两者相加为 $r \\sin^2 \\theta - r \\sin^2 \\theta = 0$。  - 计算 $\\nabla_\\theta \\xi_\\phi + \\nabla_\\phi \\xi_\\theta$：    $\\nabla_\\theta \\xi_\\phi = \\partial_\\theta (r^2 \\sin^2 \\theta) - \\Gamma^\\phi_{\\theta\\phi} \\xi_\\phi = 2 r^2 \\sin \\theta \\cos \\theta - \\frac{1}{\\tan \\theta} \\cdot r^2 \\sin^2 \\theta = r^2 \\sin \\theta \\cos \\theta$。    $\\nabla_\\phi \\xi_\\theta = \\partial_\\phi (0) - \\Gamma^\\phi_{\\phi\\theta} \\xi_\\phi = 0 - \\frac{1}{\\tan \\theta} \\cdot r^2 \\sin^2 \\theta = -r^2 \\sin \\theta \\cos \\theta$。    两者相加为 $r^2 \\sin \\theta \\cos \\theta - r^2 \\sin \\theta \\cos \\theta = 0$。由此验证了 $\\boldsymbol{\\xi}_2$ 满足 Killing 方程的这两个混合分量，证明了角动量守恒源自度规的旋转对称性。"
+  },
+  "verification": null
+}

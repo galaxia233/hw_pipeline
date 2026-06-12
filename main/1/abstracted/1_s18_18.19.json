@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s18_18.19",
+    "type": "calculate",
+    "tags": {
+      "metric": "birkhoff_theorem",
+      "target_object": "spherical_symmetry",
+      "coordinate": "graviton_flux",
+      "scenario": "multipole_expansion",
+      "method": "stellar_core"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s18_18.19",
+    "source_id": "1_s18_18.19",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s18_18.19"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "结合Birkhoff定理与瞬时微观非对称性，通过角尺度推导多极阶数的物理估算题",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$\\ell$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 18.19. By symmetry, the thermal graviton flux from a spherically symmetric star is evidently isotropic; reconcile this fact with Birkhoff's theorem. Approximately what is the multipolarity $2^{\\ell}$ of the flux $(\\ell = 1 \\equiv$ dipole, etc.) for a typical star, such as our sun.",
+    "answer": "$2^{10^{18}}$-pole distribution",
+    "solution": "Solution 18.19. A star, and its thermal graviton flux are spherically symmetric only in the time averaged sense. Since a star's interior is composed of subatomic particles it is clear that, at a given time the star may be spherically symmetric to an astronomer, but to a mathematician, with his much more stringent requirements for symmetry, the star has a fine grain (atomic scale) graininess which makes all symmetry theorems inapplicable. It is, of course, the time dependence of these fine scaleparticle inhomogeneities which generate gravitational (and electromagnetic!) radiation.The multipolarity of the flux is related to the scale of angular asymmetries of the flux. (This should not be confused with the fact that the generation of the waves is locally quadrupole, nor with the fact that the time averaged flux is monopole - i.e. isotropic.) For a star like our Sun most of the graviton flux will be generated in the high temperature $(10^{7}\\circ \\mathrm{K})$ , dense $(50\\mathrm{gm} / \\mathrm{cm}^3)$ core. If we take as a characteristic radius of this core one quarter of the sun's radius $\\sim 2\\times 10^{10}\\mathrm{cm}$ and the interparticle distance of $10^{-8}\\mathrm{cm}$ implied by the density, we see that the angular scale of asymmetry is $\\sim 10^{-18}$ radians. The spherical harmonic expansion of graininess of $10^{-18}$ radians requires $\\ell$ values of order $10^{18}$ . In this fine-grain sense then, the flux has characteristically a $2^{10^{18}}$ -pole distribution."
+  },
+  "verification": null
+}

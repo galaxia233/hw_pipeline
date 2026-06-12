@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-7-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "Newtonian_energy_conservation",
+      "coordinate": "spherical_cosmological",
+      "scenario": "cosmology_reduce",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-7",
+      "1_s10_10.11-7-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\frac{1}{2}\\dot{R}^2 - \\frac{GM}{R} = 0"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，FLRW度规描述了均匀各向同性膨胀的宇宙：$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2}dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$$对于充满无压尘埃（$p=0$）的宇宙，其应力-能量张量时间分量为 $T_{00} = \\rho$。根据 Fact Sheet，爱因斯坦张量时间分量为 $G_{00} = \\frac{3(k + \\dot{a}^2)}{a^2}$。请对场方程 $G_{00} = 8\\pi T_{00}$ 取空间曲率 $k \\to 0$ 的平直极限，并证明所得的 Friedmann 方程可以通过引入物理距离 $R = ar$ 和球内质量 $M = \\frac{4\\pi}{3}\\rho R^3$，归约回经典牛顿力学中的何种守恒方程？",
+    "answer": "取 $k \\to 0$ 极限后，场方程变为 Friedmann 方程 $3\\frac{\\dot{a}^2}{a^2} = 8\\pi\\rho$。两边乘以 $\\frac{1}{2}r^2 a^2$ 得到 $\\frac{1}{2}(\\dot{a}r)^2 = \\frac{4\\pi}{3}\\rho (ar)^3 \\frac{1}{ar}$。代入 $R=ar$ 和 $M=\\frac{4\\pi}{3}\\rho R^3$，方程归约回经典牛顿力学中的机械能守恒方程 $\\frac{1}{2}\\dot{R}^2 - \\frac{GM}{R} = 0$，描述了均匀尘埃球表面质点的动能与引力势能之和为零。",
+    "solution": "1. 取极限：$G_{00} = 8\\pi T_{00}$ 在 $k \\to 0$ 时变为 $3\\frac{\\dot{a}^2}{a^2} = 8\\pi\\rho$。2. 整理：$\\dot{a}^2 = \\frac{8\\pi}{3}\\rho a^2$。3. 变换：乘以 $\\frac{1}{2}r^2$，得 $\\frac{1}{2}(\\dot{a}r)^2 = \\frac{4\\pi}{3}\\rho (ar)^3 \\frac{1}{ar}$。4. 代入牛顿对应：令 $R=ar$, $M=\\frac{4\\pi}{3}\\rho R^3$, 得 $\\frac{1}{2}\\dot{R}^2 - \\frac{GM}{R} = 0$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "题目推导步骤存在严重的代数因子错误（Factor Error）。题目声称对 Friedmann 方程 $3\\frac{\\dot{a}^2}{a^2} = 8\\pi\\rho$ 两边乘以 $\\frac{1}{2}r^2 a^2$，直接得到 $\\frac{1}{2}(\\dot{a}r)^2 = \\frac{4\\pi}{3}\\rho (ar)^3 \\frac{1}{ar}$。实际上，对原方程乘以 $\\frac{1}{2}r^2 a^2$，左边应为 $\\frac{3}{2}\\dot{a}^2 r^2$（题目错误地写成了 $\\frac{1}{2}\\dot{a}^2 r^2$，凭空丢失了因子 3），右边应为 $4\\pi\\rho a^2 r^2$（题目错误地写成了 $\\frac{4\\pi}{3}\\rho a^2 r^2$，凭空将 4 变成了 4/3）。这两个因子错误巧合地相互抵消，使得最终结论看似正确，但中间推导过程完全是虚假和错误的。正确的做法应如 solution 中所示，先整理方程为 $\\dot{a}^2 = \\frac{8\\pi}{3}\\rho a^2$（即先除以 3 和消去 $a^2$），再乘以 $\\frac{1}{2}r^2$，但题目文本描述的乘法操作在数学上是不成立的。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

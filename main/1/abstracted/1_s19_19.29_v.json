@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s19_19.29_v",
+    "type": "concept",
+    "tags": {
+      "metric": "cosmology",
+      "target_object": "bb_nucleosynthesis",
+      "coordinate": "varying_gravity",
+      "scenario": "freeze_out",
+      "method": "abundance_prediction"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.29_v",
+    "source_id": "1_s19_19.29_v",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.29_v"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "基于大爆炸核合成标准模型的多步因果推理，涵盖膨胀速率、弱作用冻结及氘瓶颈等核心物理机制",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$G$",
+      "$T$",
+      "$H$",
+      "$\\rho$",
+      "$n_p$"
+    ],
+    "target": [
+      "$Y_{\\\\text{He}}$",
+      "$X_D$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "19.29 Under which of the following suppositions would the hot big bang have produced less $\\mathbf{He}^4$ than predicted by the \"standard\" model? Less $\\mathbf{H}^2$ (deuterium)?\\n(v) Suppose that the gravitational constant $G$ varies with cosmological time and was slightly larger in the past.",
+    "answer": "A larger past $G$ increases $\\\\mathbf{He}^4$ production and decreases $\\\\mathbf{H}^2$ (deuterium) abundance.",
+    "solution": "In the Friedmann equation $H^2 \\\\propto G\\rho$, a larger gravitational constant $G$ in the early universe increases the Hubble expansion rate $H$. Neutron-proton weak interactions freeze out when the reaction rate $\\Gamma_{\\\\text{weak}} \\\\sim H(T)$. A higher $H$ pushes the freeze-out to a higher temperature $T_f$. Since thermal equilibrium favors neutrons at higher temperatures, a higher $T_f$ yields a larger initial neutron-to-proton ratio $n/p$. During primordial nucleosynthesis, more free neutrons are available to form helium-4, thereby increasing its mass fraction $Y_{\\\\text{He}}$. Additionally, the accelerated expansion and higher neutron abundance cause deuterium ($\\\\mathbf{H}^2$) to be processed into helium-4 more efficiently before it can survive the deuterium bottleneck. Thus, a historically larger $G$ predicts more $\\\\mathbf{He}^4$ and less deuterium than the standard constant-$G$ model."
+  },
+  "verification": null
+}

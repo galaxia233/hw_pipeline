@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s18_18.1",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric_not_specified",
+      "target_object": "energy_fraction_target",
+      "coordinate": "laboratory_coordinates",
+      "scenario": "human_motorist_scenario",
+      "method": "quadrupole_order_of_magnitude_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s18_18.1",
+    "source_id": "1_s18_18.1",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s18_18.1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.2,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "宏观尺度引力波辐射估算，直接套用四极矩公式与经典动能模型，逻辑链条短但物理图像清晰，极具日常现象与基础物理常数的对比启发性",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$M$",
+      "$L$",
+      "$t$",
+      "$c$",
+      "$G$"
+    ],
+    "target": [
+      "$\\eta = P_{\\text{GW}} / P_{\\text{mech}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 18.1. A Massachusetts motorist shakes his fist angrily at another motorist. What fraction of his expended energy goes into gravitational radiation?## SolutionSolution 18.1. To find the gravitational radiation we use the square of the third time derivative of the quadrupole moment$$\\text {Power}=\\frac{\\mathrm{G}}{5 \\mathrm{c}^{5}}\\left(\\ddagger\\right)^{2} \\sim \\frac{\\mathrm{GM}^{2} \\mathrm{L}^{4}}{5 \\mathrm{c}^{5} \\mathrm{t}^{6}}.$$The appropriate parameters for the mean Massachusetts motorist: $\\mathbf{M} =$ mass of fist and forearm $\\sim 2 \\times 10^{3} \\mathrm{~gm}$ , $\\mathbf{L} =$ length of forearm $\\sim 50 \\mathrm{~cm}$ , $\\mathbf{t} =$ period of average shake $\\sim .2$ sec. The calculation in cgs units then yields a radiative power on the order of $2 \\times 10^{-43}$ ergs/sec.To calculate his total energy expended, use the fact that muscles are almost totally nonconservative, so every shake uses up an energy roughly equal to the arms maximum kinetic energy:$$\\text {Power}=\\frac{1}{2} M \\frac{L^{2}}{t^{2}} \\cdot \\frac{1}{t} \\approx 3 \\times 10^{8} \\text {erg/sec}.$$The fractional \"efficiency\" is thus $\\sim 10^{-51}$ .",
+    "answer": "$\\sim 10^{-51}$",
+    "solution": "To find the gravitational radiation we use the square of the third time derivative of the quadrupole moment$$\\text {Power}=\\frac{\\mathrm{G}}{5 \\mathrm{c}^{5}}\\left(\\ddagger\\right)^{2} \\sim \\frac{\\mathrm{GM}^{2} \\mathrm{L}^{4}}{5 \\mathrm{c}^{5} \\mathrm{t}^{6}}.$$The appropriate parameters for the mean Massachusetts motorist: $\\mathbf{M} =$ mass of fist and forearm $\\sim 2 \\times 10^{3} \\mathrm{~gm}$ , $\\mathbf{L} =$ length of forearm $\\sim 50 \\mathrm{~cm}$ , $\\mathbf{t} =$ period of average shake $\\sim .2$ sec. The calculation in cgs units then yields a radiative power on the order of $2 \\times 10^{-43}$ ergs/sec.To calculate his total energy expended, use the fact that muscles are almost totally nonconservative, so every shake uses up an energy roughly equal to the arms maximum kinetic energy:$$\\text {Power}=\\frac{1}{2} M \\frac{L^{2}}{t^{2}} \\cdot \\frac{1}{t} \\approx 3 \\times 10^{8} \\text {erg/sec}.$$The fractional \"efficiency\" is thus $\\sim 10^{-51}$ ."
+  },
+  "verification": null
+}

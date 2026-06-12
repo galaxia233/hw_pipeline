@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "accessible_region_and_kinematic_state",
+      "coordinate": "general_stationary",
+      "scenario": "stationary_spacetime_particle_motion",
+      "method": "cauchy-schwarz_inequality_inversion",
+      "generalization_axis": "apply",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\xi$",
+      "$\\mathbf{E}$",
+      "$\\mathbf{p}$",
+      "$\\mu$"
+    ],
+    "target": [
+      "\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} \\ge -\\mathcal{E}_0^2",
+      "u^\\mu \\propto \\xi^\\mu"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In a stationary spacetime with a timelike Killing vector field $\\boldsymbol{\\xi}$, the conserved energy per unit mass of a test particle is $\\mathcal{E} = E/\\mu = -\\mathbf{u} \\cdot \\boldsymbol{\\xi}$, where $\\mathbf{u}$ is the particle's 4-velocity. It is known from the Cauchy-Schwarz inequality that the energy at any point must satisfy the lower bound $\\mathcal{E} \\ge \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$. If a particle is emitted with a fixed specific energy $\\mathcal{E}_0$, prove that the spatial region accessible to the particle must satisfy the condition $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} \\ge -\\mathcal{E}_0^2$, and prove that at the boundary of this accessible region, the particle's 4-velocity $\\mathbf{u}$ must be parallel to the Killing vector $\\boldsymbol{\\xi}$.",
+    "answer": "The accessible region satisfies $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} \\ge -\\mathcal{E}_0^2$, and at the boundary, the 4-velocity is parallel to the Killing vector ($u^\\mu \\propto \\xi^\\mu$).",
+    "solution": "Since the specific energy $\\mathcal{E}_0$ is conserved along the particle's trajectory, at any spatial point the particle visits, the energy must equal $\\mathcal{E}_0$. By the minimum energy constraint, any such point must satisfy $\\mathcal{E}_0 \\ge \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$. Squaring both sides (which is valid since both are non-negative in the region where $\\boldsymbol{\\xi}$ is timelike) yields $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} \\ge -\\mathcal{E}_0^2$. This condition restricts the particle's spatial trajectory to regions where the Killing vector's norm is sufficiently negative. At the boundary of this accessible region, the minimum energy constraint reaches its critical condition: $\\mathcal{E}_0 = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$. This implies the equality condition of the reversed Cauchy-Schwarz inequality for two future-directed timelike vectors, $(\\mathbf{u} \\cdot \\boldsymbol{\\xi})^2 \\ge (\\mathbf{u} \\cdot \\mathbf{u})(\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi})$, is satisfied. The equality holds if and only if the two vectors are linearly dependent, i.e., $\\mathbf{u} = \\alpha \\boldsymbol{\\xi}$. Since both $\\mathbf{u}$ and $\\boldsymbol{\\xi}$ are future-directed timelike vectors, the proportionality constant $\\alpha$ must be positive. Physically, this means the particle's 4-velocity has no spatial components relative to the stationary coordinate system; the particle is momentarily at rest at the turning point of its trajectory."
+  },
+  "verification": null
+}

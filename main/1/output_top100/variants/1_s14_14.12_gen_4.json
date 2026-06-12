@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "oscillation period",
+      "coordinate": "comoving",
+      "scenario": "cosmology",
+      "method": "tidal force equation",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$T$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在一个遵循 FLRW 度规的均匀各向同性宇宙中，随动观察者（Comoving observer）的四维速度为 $u^\\mu = (1, 0, 0, 0)$。可以证明，随动观察者处于自由下落状态（加速度 $\\mathbf{a}=0$），且无旋转（$\\omega=0$）。根据种子题的结论，对于这样的自由下落观察者，在其局部惯性系中释放的测试粒子的相对运动方程仅由潮汐力项决定：$$ \\frac{d^2 x^j}{dt^2} = -R^j_{0k0} x^k $$设该宇宙目前处于暗能量主导的 de Sitter 膨胀阶段，标度因子为 $a(t) = e^{H_0 t}$，其中 $H_0$ 为当前的哈勃常数。FLRW 度规为：$$ ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2 $$求测试粒子在随动观察者局部小盒子中偏离中心的微小位移振荡周期 $T$。",
+    "answer": "$T = \\frac{2\\pi}{H_0}$",
+    "solution": "1. 计算 FLRW 度规下的 $R^j_{0k0}$ 张量分量：由度规分量 $g_{11} = \\frac{a^2}{1-kr^2}$, $g_{22} = r^2 a^2$, $g_{33} = r^2 a^2 \\sin^2\\theta$，可得逆度规分量 $g^{11} = \\frac{1-kr^2}{a^2}$, $g^{22} = \\frac{1}{r^2 a^2}$, $g^{33} = \\frac{1}{r^2 a^2 \\sin^2\\theta}$。结合 Riemann 张量的下标分量：$R_{0101} = -\\frac{a \\ddot{a}}{kr^2-1} = \\frac{a \\ddot{a}}{1-kr^2}$$R_{0202} = r^2 a \\ddot{a}$$R_{0303} = r^2 a \\ddot{a} \\sin^2\\theta$可以求得混合分量：$R^1_{010} = g^{11} R_{0101} = \\frac{1-kr^2}{a^2} \\cdot \\frac{a \\ddot{a}}{1-kr^2} = \\frac{\\ddot{a}}{a}$$R^2_{020} = g^{22} R_{0202} = \\frac{1}{r^2 a^2} \\cdot r^2 a \\ddot{a} = \\frac{\\ddot{a}}{a}$$R^3_{030} = g^{33} R_{0303} = \\frac{1}{r^2 a^2 \\sin^2\\theta} \\cdot r^2 a \\ddot{a} \\sin^2\\theta = \\frac{\\ddot{a}}{a}$对于 $j \\neq k$，$R_{j0k0}=0$，故 $R^j_{0k0} = \\frac{\\ddot{a}}{a} \\delta^j_k$。2. 代入粒子的相对运动方程：$\\frac{d^2 x^j}{dt^2} = -R^j_{0k0} x^k = -\\frac{\\ddot{a}}{a} x^j$。3. 对于 de Sitter 宇宙，标度因子 $a(t) = e^{H_0 t}$，计算 $\\frac{\\ddot{a}}{a}$：$\\dot{a} = H_0 e^{H_0 t}$，$\\ddot{a} = H_0^2 e^{H_0 t}$。因此 $\\frac{\\ddot{a}}{a} = H_0^2$。4. 将 $\\frac{\\ddot{a}}{a}$ 代入运动方程，得：$\\frac{d^2 x^j}{dt^2} = -H_0^2 x^j$。这是一个标准的简谐振动方程，其角频率为 $\\omega = H_0$。5. 求出振荡周期 $T$：$T = \\frac{2\\pi}{\\omega} = \\frac{2\\pi}{H_0}$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目在计算 Riemann 张量分量时存在严重的符号错误，导致最终物理结论完全相反。1. 下标分量符号错误：正确的计算应为 $R_{0101} = -\\frac{a \\ddot{a}}{1-kr^2}$，而题目误写为 $R_{0101} = \\frac{a \\ddot{a}}{1-kr^2}$；同理 $R_{0202}$ 和 $R_{0303}$ 的正确值应为负（$-r^2 a \\ddot{a}$ 等），题目错写为正。2. 混合分量符号错误：由错误的下标分量算出 $R^j_{0k0} = \\frac{\\ddot{a}}{a} \\delta^j_k$，但实际上正确的混合分量应为 $R^j_{0k0} = -\\frac{\\ddot{a}}{a} \\delta^j_k$。3. 物理结论完全错误：由于符号反了，代入运动方程得到 $\\ddot{x}^j = -H_0^2 x^j$，从而得出测试粒子做简谐振荡的错误结论。实际上，正确的方程应为 $\\ddot{x}^j = H_0^2 x^j$，在 de Sitter 空间（$\\ddot{a}/a > 0$）中，潮汐力是排斥性的，测试粒子间的微小位移会随时间指数发散（$x^j \\propto e^{H_0 t}$），根本不会发生简谐振荡，因此周期 $T = \\frac{2\\pi}{H_0}$ 的结论荒谬。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

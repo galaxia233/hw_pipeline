@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-1-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "\\frac{d}{d\\tau}(S_\\mu u^\\mu) = 0",
+      "coordinate": "Schwarzschild",
+      "scenario": "gyroscope_fermi_walker_transport_verify",
+      "method": "covariant_derivative_product_rule",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-1",
+      "1_s11_11.4-1-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\mathbf{S}$",
+      "$\\mathbf{u}$",
+      "$\\mathbf{a}$"
+    ],
+    "target": [
+      "\\frac{d}{d\\tau}(S_\\mu u^\\mu) = 0"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 $(-,+,+,+)$ 符号约定下的 Schwarzschild 度规 $ds^2 = -\\frac{r-r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$ 中，无扭矩陀螺仪沿类时世界线运动，其4-速度为 $u^\\mu$ ($u_\\mu u^\\mu = -1$)，自旋矢量 $S^\\mu$ 的费米-沃克平移方程为：$$\\frac{DS^\\mu}{d\\tau} = u^\\mu (a_\\nu S^\\nu) - a^\\mu (u_\\nu S^\\nu)$$其中 $a^\\mu = \\frac{Du^\\mu}{d\\tau}$ 是4-加速度。为了验证正交性条件 $S_\\mu u^\\mu = 0$ 被保持，某学生给出了以下推导以证明 $\\frac{d}{d\\tau}(S_\\mu u^\\mu) = 0$，但其中包含若干错误。请找出所有错误并修正。**推导过程：**根据协变导数的乘积法则：$$\\frac{d}{d\\tau}(S_\\mu u^\\mu) = (\\nabla_u S_\\mu) u^\\mu + S_\\mu (\\nabla_u u^\\mu)$$**步骤1：降指标**对费米-沃克方程降指标得到：$$\\nabla_u S_\\mu = u_\\mu (a_\\nu S^\\nu) + a_\\mu (u_\\nu S^\\nu)$$**步骤2：计算第一项**代入上式：$$(\\nabla_u S_\\mu) u^\\mu = u_\\mu u^\\mu (a_\\nu S^\\nu) + a_\\mu u^\\mu (u_\\nu S^\\nu)$$利用4-速度的归一化条件 $u_\\mu u^\\mu = 1$。同时，对归一化条件求导得 $\\frac{d}{d\\tau}(u_\\mu u^\\mu) = a_\\mu u^\\mu = 0$，因此 $a_\\mu u^\\mu = 0$。代入后第一项变为：$$(\\nabla_u S_\\mu) u^\\mu = (1)(S_\\nu a^\\nu) + 0 = S_\\mu a^\\mu$$**步骤3：计算第二项**因为 $\\nabla_u u^\\mu = a^\\mu$，所以：$$S_\\mu (\\nabla_u u^\\mu) = S_\\mu a^\\mu$$**步骤4：合并两项**$$\\frac{d}{d\\tau}(S_\\mu u^\\mu) = S_\\mu a^\\mu + S_\\mu a^\\mu = 2 S_\\mu a^\\mu$$推导结果表明正交性不被保持，这与物理预期矛盾。请找出上述推导中的所有错误，指出其位置、错误类型和正确值，并给出正确结论。",
+    "answer": "1. **步骤1（降指标）**：错误类型为符号错误。费米-沃克方程第二项降指标后应为 $-a_\\mu(u_\\nu S^\\nu)$，而不是 $+a_\\mu(u_\\nu S^\\nu)$。2. **步骤2（归一化条件）**：错误类型为符号错误。在 $(-,+,+,+)$ 符号约定下，类时4-速度的归一化条件应为 $u_\\mu u^\\mu = -1$，而不是 $1$。3. **步骤2（求导归一化条件）**：错误类型为因子错误（系数遗漏）。对 $u_\\mu u^\\mu$ 求导应用乘积法则应得 $\\frac{d}{d\\tau}(u_\\mu u^\\mu) = 2 a_\\mu u^\\mu$，而不是 $a_\\mu u^\\mu$。修正后推导：$$(\\nabla_u S_\\mu) u^\\mu = (-1)(S_\\nu a^\\nu) - 0 = -S_\\mu a^\\mu$$$$S_\\mu (\\nabla_u u^\\mu) = S_\\mu a^\\mu$$$$\\frac{d}{d\\tau}(S_\\mu u^\\mu) = -S_\\mu a^\\mu + S_\\mu a^\\mu = 0$$",
+    "solution": "根据协变导数的乘积法则：$$\\frac{d}{d\\tau}(S_\\mu u^\\mu) = (\\nabla_u S_\\mu) u^\\mu + S_\\mu (\\nabla_u u^\\mu)$$对费米-沃克方程 $\\nabla_u S^\\mu = u^\\mu (a_\\nu S^\\nu) - a^\\mu (u_\\nu S^\\nu)$ 降指标：$$\\nabla_u S_\\mu = u_\\mu (a_\\nu S^\\nu) - a_\\mu (u_\\nu S^\\nu)$$代入 $u^\\mu$ 计算：$$(\\nabla_u S_\\mu) u^\\mu = u_\\mu u^\\mu (a_\\nu S^\\nu) - a_\\mu u^\\mu (u_\\nu S^\\nu)$$在 $(-,+,+,+)$ 符号约定下，$u_\\mu u^\\mu = -1$。对归一化条件求导得 $\\frac{d}{d\\tau}(u_\\mu u^\\mu) = 2 a_\\mu u^\\mu = 0$，因此 $a_\\mu u^\\mu = 0$。代入后：$$(\\nabla_u S_\\mu) u^\\mu = (-1)(S_\\nu a^\\nu) - 0 = -S_\\mu a^\\mu$$第二项为：$$S_\\mu (\\nabla_u u^\\mu) = S_\\mu a^\\mu$$合并两项：$$\\frac{d}{d\\tau}(S_\\mu u^\\mu) = -S_\\mu a^\\mu + S_\\mu a^\\mu = 0$$验证了正交性条件 $S_\\mu u^\\mu = 0$ 在费米-沃克平移下保持不变。"
+  },
+  "verification": null
+}

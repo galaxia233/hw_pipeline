@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s14_14.7",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.7",
+    "source_id": "1_s14_14.7",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "多步张量运算结合Killing对称性与热力学第一定律，适用于稳态度规下的流体动力学模型",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$u_0$",
+      "$n$",
+      "$\\rho$",
+      "$p$"
+    ],
+    "target": [
+      "$u_0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 14.7. If $\\mathbf{u}$ is the 4-velocity of a perfect gas undergoing adiabatic stationary flow in a stationary gravitational field, prove (the relativistic Bernoulli equation) that along the flow lines$$u_{0} = \\text {c o n s t a n t} \\times n / (\\rho + p),$$where $\\mathfrak{n} =$ baryon number density.",
+    "answer": "\\mathbf{u}_0 = \\text{constant} \\times \\frac{\\mathbf{n}}{\\rho + \\mathbf{p}}",
+    "solution": "Solution 14.7. Since the gravitational field is stationary, there is a time-Killing vector $\\pmb{\\xi} = \\partial/\\partial t$. Dot this into the Euler equation (Problem 14.3) for the flow of a perfect gas:$$(\\rho + \\mathrm{p}) \\boldsymbol{\\xi} \\cdot \\nabla_{\\mathbf{u}} \\mathbf{u} = - \\boldsymbol{\\xi} \\cdot \\nabla \\mathrm{p} - \\boldsymbol{\\xi} \\cdot \\mathbf{u} \\nabla_{\\mathbf{u}} \\mathbf{p}. \\tag{1}$$But$$\\boldsymbol{\\xi} \\cdot \\nabla_{\\mathbf{u}} \\mathbf{u} = \\nabla_{\\mathbf{u}} (\\boldsymbol{\\xi} \\cdot \\mathbf{u}) - (\\nabla_{\\mathbf{u}} \\boldsymbol{\\xi}) \\cdot \\mathbf{u} = \\nabla_{\\mathbf{u}} (\\boldsymbol{\\xi} \\cdot \\mathbf{u})$$since by Killing's equation $\\nabla \\pmb{\\xi}$ is antisymmetric. Also, $\\pmb{\\xi} \\cdot \\nabla \\mathbf{p} = \\partial \\mathbf{p} / \\partial t = 0$ for stationary flow. Putting $\\mathbf{u}_0 = \\mathbf{u} \\cdot \\pmb{\\xi}$, we find $(\\rho + \\mathfrak{p}) \\mathrm{d}\\mathbf{u}_0 / \\mathrm{d}\\tau = \\mathbf{u}_0 \\mathrm{d}\\mathbf{p} / \\mathrm{d}\\tau$ [Equation 2]. For adiabatic flow of a perfect fluid, the first law of thermodynamics (Problem 5.19) is $\\mathrm{d}\\rho = (\\rho + \\mathfrak{p}) \\mathrm{d}\\mathfrak{n} / \\mathfrak{n}$. [Equation 3]. From Equations (2) and (3)$$\\frac {d u_{0}}{u_{0}} = \\frac {d n}{n} - \\frac {d (\\rho + p)}{\\rho + p}$$and hence $\\mathbf{u}_0 = \\text{constant} \\times \\frac{\\mathbf{n}}{\\rho + \\mathbf{p}}$."
+  },
+  "verification": null
+}

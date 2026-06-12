@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "spin_vector",
+      "coordinate": "static_observer",
+      "scenario": "cosmology",
+      "method": "Fermi-Walker_transport_degeneration",
+      "generalization_axis": "verify",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$a^{\\mu} = 0$",
+      "$\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$",
+      "$S^{\\mu} = \\text{const}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，无扭矩陀螺仪的自旋矢量 $\\mathbf{S}$ 满足 Fermi-Walker 输运方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = (\\mathbf{u} \\cdot \\mathbf{S}) \\mathbf{a}$，其中 $\\mathbf{u}$ 为陀螺仪的四维速度，$\\mathbf{a}$ 为其四维加速度。请验证该结论在特定退化条件下的性质：考虑在度规 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$ 描述的时空中，一个静止于固定空间坐标 $(x, y, z)$ 处的观测者携带的陀螺仪。证明对于该观测者，Fermi-Walker 输运方程退化为平行输运方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$，并求解自旋矢量的演化，验证其空间分量在坐标基下为常数。",
+    "answer": "对于静止观测者，四维加速度为零（$a^{\\mu}=0$），Fermi-Walker 输运退化为平行输运（$\\nabla_{\\mathbf{u}}\\mathbf{S}=0$），且自旋矢量分量在坐标基下为常数（$S^{\\mu}=\\text{const}$）。",
+    "solution": "1. 静止观测者的四维速度为 $u^{\\mu} = (1, 0, 0, 0)$。由于度规分量 $g_{00} = -1$，该四维速度已满足归一化条件 $g_{\\mu\\nu}u^{\\mu} u^{\\nu} = -1$。2. 计算该观测者的四维加速度 $a^{\\mu} = u^{\\nu} \\nabla_{\\nu} u^{\\mu} = \\Gamma^{\\mu}_{00}$。根据给定的 Christoffel 符号数据，所有包含时间坐标 $t$（即指标 0）的 Christoffel 符号均为零，因此 $\\Gamma^{\\mu}_{00} = 0$，从而 $a^{\\mu} = 0$。这表明静止观测者在此时空中沿类时测地线运动。3. 将 $a^{\\mu} = 0$ 代入 Fermi-Walker 输运方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = (\\mathbf{u} \\cdot \\mathbf{S}) \\mathbf{a}$，方程右端为零，退化为平行输运方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$。4. 平行输运方程的分量形式为 $\\frac{dS^{\\mu}}{d\\tau} + \\Gamma^{\\mu}_{\\nu\\lambda} u^{\\nu} S^{\\lambda} = 0$。代入 $u^{\\nu} = (1, 0, 0, 0)$，得到 $\\frac{dS^{\\mu}}{d\\tau} + \\Gamma^{\\mu}_{0\\lambda} S^{\\lambda} = 0$。5. 由于所有 $\\Gamma^{\\mu}_{0\\lambda} = 0$，方程进一步简化为 $\\frac{dS^{\\mu}}{d\\tau} = 0$，解得 $S^{\\mu} = \\text{const}$。6. 初始时陀螺仪自旋与速度正交，满足 $u_{\\mu} S^{\\mu} = g_{00} u^{0} S^{0} = -S^{0} = 0$，故 $S^{0} = 0$。由于 $S^{\\mu}$ 为常数，$S^{0}$ 始终为零，空间分量 $S^{i}$ 在坐标基下保持恒定。这验证了在测地线退化条件下，Fermi-Walker 输运还原为平行输运，且自旋矢量不发生进动。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "度规表达式存在致命错误，导致整个题目的推导和结论均不成立。题目声称的 De Sitter 度规为 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$，但 De Sitter 空间的平面切片度规指数应依赖于时间 $t$，即 $ds^2 = -dt^2 + e^{2t/\\alpha}(dx^2 + dy^2 + dz^2)$。由于指数变量误写为空间坐标 $x$，该度规不再是最大化对称的 De Sitter 度规（其 Killing 矢量仅为1个，Ricci 标量为 $4/\\alpha^2$ 而非 De Sitter 的 $12/\\alpha^2$）。在此错误度规下，所有含时间指标的 Christoffel 符号 $\\Gamma^\\\\mu_{0\\\\lambda}=0$，从而得出四维加速度为零且自旋分量 $S^\\\\mu$ 为常数的结论。但在真实的 De Sitter 度规中，$\\Gamma^i_{0j} = \\\\frac{1}{\\\\alpha}\\\\delta_{ij} \\\\neq 0$，平行输运方程解为 $S^i = S^i(0) e^{-\\\\tau/\\\\alpha}$，自旋坐标分量并非常数。题目的推导和结论完全建立在错误的度规之上，与所声称的物理场景严重矛盾。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

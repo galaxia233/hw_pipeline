@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s14_14.16-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "wave equations of scalar and vector fields",
+      "coordinate": "Schwarzschild",
+      "scenario": "black hole vacuum spacetime",
+      "method": "comma-to-semicolon rule and covariant derivative commutation",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.16",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.16",
+      "1_s14_14.16-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\nabla_\\nu \\nabla^\\nu \\phi",
+      "\\nabla_\\nu \\nabla^\\nu A^\\mu - R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma",
+      "R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在平直时空中，无质量标量场 $\\phi$ 与无质量矢量场 $A^\\mu$（在洛伦兹规范 $\\partial_\\nu A^\\nu = 0$ 下）的波动方程均具有相同形式 $\\partial^\\nu \\partial_\\nu (\\text{场}) = 0$。当推广至弯曲时空时，标量场通过最小耦合原理（逗号变分号规则）无歧义地得到 $\\nabla_\\nu \\nabla^\\nu \\phi = 0$。然而，对矢量场直接应用逗号变分号规则会给出 $\\nabla_\\nu \\nabla^\\nu A^\\mu = 0$，而从弯曲时空麦克斯韦方程组 $\\nabla_\\nu F^{\\mu\\nu} = 0$（其中 $F^{\\mu\\nu} = \\nabla^\\mu A^\\nu - \\nabla^\\nu A^\\mu$）出发推导，并结合弯曲时空洛伦兹规范 $\\nabla_\\nu A^\\nu = 0$，则会得到包含曲率项的结果。请同时推导标量场 $\\phi$ 与矢量场 $A^\\mu$ 在弯曲时空中的波动方程张量表达式，对比两者的差异项，并解释为何在 Schwarzschild 黑洞度规 $ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2{\\theta} d\\phi^2$ 下这两个波动方程的形式最终会完全一致。",
+    "answer": "标量场波动方程为 $\\nabla_\\nu \\nabla^\\nu \\phi = 0$；矢量场波动方程为 $\\nabla_\\nu \\nabla^\\nu A^\\mu - R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma = 0$；差异项为 $-R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma$。在 Schwarzschild 真空度规下，Ricci 张量恒为零（$R^\\mu_{\\phantom{\\mu}\\sigma} = 0$），因此差异项消失，两者在形式上完全一致。",
+    "solution": "1. 标量场推导：标量场 $\\phi$ 的平直时空波动方程为 $\\partial^\\nu \\partial_\\nu \\phi = 0$。由于标量场的协变导数可交换（$\\nabla_\\mu \\nabla_\\nu \\phi = \\nabla_\\nu \\nabla_\\mu \\phi$），直接应用最小耦合原理无歧义地给出弯曲时空波动方程：$\\nabla_\\nu \\nabla^\\nu \\phi = 0$。2. 矢量场推导：从弯曲时空麦克斯韦方程 $\\nabla_\\nu F^{\\mu\\nu} = 0$ 出发，代入 $F^{\\mu\\nu} = \\nabla^\\mu A^\\nu - \\nabla^\\nu A^\\mu$，得到 $\\nabla_\\nu (\\nabla^\\mu A^\\nu - \\nabla^\\nu A^\\mu) = 0$，即 $\\nabla_\\nu \\nabla^\\mu A^\\nu - \\nabla_\\nu \\nabla^\\nu A^\\mu = 0$。利用协变导数的交换律公式 $\\nabla_\\nu \\nabla^\\mu A^\\nu = \\nabla^\\mu \\nabla_\\nu A^\\nu + R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma$，将其代入上式得到：$\\nabla^\\mu \\nabla_\\nu A^\\nu + R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma - \\nabla_\\nu \\nabla^\\nu A^\\mu = 0$。施加弯曲时空洛伦兹规范条件 $\\nabla_\\nu A^\\nu = 0$，第一项为零，从而矢量场波动方程为：$\\nabla_\\nu \\nabla^\\nu A^\\mu - R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma = 0$。3. 对比与差异：对比两者，标量场波动方程为 $\\nabla_\\nu \\nabla^\\nu \\phi = 0$，矢量场波动方程多出了一个与曲率相关的项，两者的差异项为 $-R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma$。这一差异源于矢量场协变导数的非对易性，体现了弯曲时空对矢量场传播的额外耦合效应。4. Schwarzschild 度规下的解释：Schwarzschild 度规描述的是静态黑洞外部的真空时空，满足爱因斯坦场方程的真空解条件，其 Ricci 张量处处为零（$R_{\\mu\\nu} = 0$），从而 $R^\\mu_{\\phantom{\\mu}\\sigma} = 0$。因此，差异项 $-R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma$ 在 Schwarzschild 时空中恒为零，矢量场波动方程退化为 $\\nabla_\\nu \\nabla^\\nu A^\\mu = 0$，与标量场波动方程在形式上完全一致。这说明在真空时空里，电磁波的传播在最低阶上不受 Ricci 曲率的直接耦合影响。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.2,
+      "issue": "题目存在严重的符号重名缺陷与潜在的物理误导：1. 符号冲突：题目中无质量标量场使用了符号 $\\phi$，而在给出的 Schwarzschild 度规 $ds^2 = ... + r^2 \\sin^2{\\theta} d\\phi^2$ 中，方位角坐标也使用了完全相同的符号 $\\phi$。这导致在同一道题中符号指代不明，在做题推导 $\\nabla_\\nu \\nabla^\\nu \\phi = 0$ 或涉及角坐标运算时极易混淆场量与几何坐标，破坏了题目的自洽性与 self-contained 性质。2. 措辞误导：题目结论声称在 Schwarzschild 度规下两者波动方程的'形式最终会完全一致'，虽然在张量表达式层面（$\\Box A^\\mu = 0$ 与 $\\Box \\phi = 0$）差异项 $-R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma$ 确实因真空条件消失，但在实际分量展开形式上两者并不一致（矢量场分量由于 Christoffel 符号的存在会发生耦合，而标量场分量不耦合，两者径向势垒也不同），题目的措辞极易引发物理误解。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

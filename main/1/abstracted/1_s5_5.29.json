@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s5_5.29",
+    "type": "prove",
+    "tags": {
+      "metric": "accelerating_reference_frame",
+      "target_object": "thermal_equilibrium",
+      "coordinate": "temperature_distribution",
+      "scenario": "spatial_coordinates",
+      "method": "entropy_generation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.29",
+    "source_id": "1_s5_5.29",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.29"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "结合热力学熵产方程与匀加速参考系运动学，推导温度空间分布规律，对应托尔曼-埃伦费斯特效应的宏观表述",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T$",
+      "$T_0$",
+      "$\\\\mathbf{a}$",
+      "$\\\\mathbf{x}$",
+      "$\\\\mathbf{q}$"
+    ],
+    "target": [
+      "$T$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.29. In a uniformly accelerating system, show that the condition for thermal equilibrium is not $\\mathbf{T} = \\text{constant} = \\mathbf{T}_0$ but rather is\\n$$\\n\\\\mathrm {T} = \\\\mathrm {T}_{0} \\\\exp (- \\\\underline {{\\\\mathbf {a}}} \\\\cdot \\\\underline {{\\\\mathbf {x}}})\\n$$\\nwhere $\\underline{\\mathbf{x}}$ is coordinate position in the accelerating frame.\\n\\n## Solution\\n\\nSolution 5.29. An equilibrium state obtains when there is no entropy generation, so according to the results of Problem 5.28\\n$$\\n- \\\\mathbf {q} \\\\cdot \\\\mathbf {a} = \\\\frac {\\\\nabla \\\\mathrm {T}} {\\\\mathrm {T}} \\\\cdot \\\\mathbf {q}\\n$$\\nmust hold for all heat flows $\\mathbf{q}$ . Thus we must have $\\mathbf{a} = -\\\\nabla \\\\ell \\\\mathbf {ln} \\\\mathbf {T}$ . The solution to this equation is $\\ell \\\\mathbf {ln} \\\\mathbf {T} = -\\\\underline{\\\\mathbf {a}} \\\\cdot \\\\underline{\\\\mathbf {x}} + \\\\text{constant}$ , or\\n$$\\n\\\\mathrm {T} = \\\\mathrm {T}_{0} \\\\exp (- \\\\underline {{\\\\underline {{a}}}} \\\\cdot \\\\underline {{\\\\underline {{x}}}}).\\n$$",
+    "answer": "$T = T_0 \\\\exp (- \\\\underline {{\\\\mathbf {a}}} \\\\cdot \\\\underline {{\\\\mathbf {x}}})$",
+    "solution": "Solution 5.29. An equilibrium state obtains when there is no entropy generation, so according to the results of Problem 5.28\\n$$\\n- \\\\mathbf {q} \\\\cdot \\\\mathbf {a} = \\\\frac {\\\\nabla \\\\mathrm {T}} {\\\\mathrm {T}} \\\\cdot \\\\mathbf {q}\\n$$\\nmust hold for all heat flows $\\mathbf{q}$ . Thus we must have $\\mathbf{a} = -\\\\nabla \\\\ell \\\\mathbf {ln} \\\\mathbf {T}$ . The solution to this equation is $\\ell \\\\mathbf {ln} \\\\mathbf {T} = -\\\\underline{\\\\mathbf {a}} \\\\cdot \\\\underline{\\\\mathbf {x}} + \\\\text{constant}$ , or\\n$$\\n\\\\mathrm {T} = \\\\mathrm {T}_{0} \\\\exp (- \\\\underline {{\\\\underline {{a}}}} \\\\cdot \\\\underline {{\\\\underline {{x}}}}).\\n$$"
+  },
+  "verification": null
+}

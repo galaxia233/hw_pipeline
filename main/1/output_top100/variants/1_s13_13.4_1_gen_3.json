@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_1-3",
+    "type": "calculate",
+    "tags": {
+      "target_object": "critical cosmological constant and matter transverse pressure",
+      "coordinate": "static de Sitter-like coordinates",
+      "scenario": "cosmology with vacuum and matter",
+      "method": "Einstein field equations",
+      "generalization_axis": "apply",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.4_1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.4_1",
+      "1_s13_13.4_1-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$\\Lambda_{crit}$",
+      "$p_y^{matter}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，真空的应力-能量张量必须正比于度规张量（$T_{\\mu\\nu}^{vac} = \\rho_{vac} g_{\\mu\\nu}$），从而表现为一个有效的宇宙学常数（$\\Lambda = 8\\pi \\rho_{vac}$）。现考虑一个具有特定几何的宇宙，其度规为 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$，其中 $\\alpha$ 为常数。假设该宇宙同时包含真空能量和某种额外形式的物质场（应力-能量张量为 $T_{\\mu\\nu}^{matter}$），满足爱因斯坦场方程 $G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}^{matter}$。应用真空能量充当宇宙学常数的结论，计算使得在 $x=0$ 处物质能量密度 $\\rho_{matter}$ 精确为零的临界宇宙学常数 $\\Lambda_{crit}$，并确定在该临界条件下 $x=0$ 处 y 方向的物质压力 $p_y^{matter}$。",
+    "answer": "$\\Lambda_{crit} = -\\frac{1}{\\alpha^{2}}$, $p_y^{matter} = -\\frac{1}{8\\pi \\alpha^{2}}$",
+    "solution": "1. 根据种子题的结论，真空应力-能量张量表现为宇宙学常数，场方程写为 $G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}^{matter}$。2. 提取 $x=0$ 处的几何量数据：度规分量 $g_{00} = -1$, $g_{22} = 1$；爱因斯坦张量分量 $G_{00} = -\\frac{e^{-2x/\\alpha}}{\\alpha^{2}} = -\\frac{1}{\\alpha^{2}}$, $G_{22} = 0$。3. 计算物质能量密度 $\\rho_{matter}$：   $8\\pi T_{00}^{matter} = G_{00} + \\Lambda g_{00} = -\\frac{1}{\\alpha^{2}} - \\Lambda$。   按符号约定，能量密度 $\\rho_{matter} = \\frac{T_{00}^{matter}}{-g_{00}} = \\frac{-\\frac{1}{\\alpha^{2}} - \\Lambda}{8\\pi(-1)} = \\frac{\\frac{1}{\\alpha^{2}} + \\Lambda}{8\\pi}$。4. 求临界宇宙学常数：令 $\\rho_{matter} = 0$，则 $\\frac{1}{\\alpha^{2}} + \\Lambda_{crit} = 0$，解得 $\\Lambda_{crit} = -\\frac{1}{\\alpha^{2}}$。5. 计算临界条件下的物质横向压力 $p_y^{matter}$：   $8\\pi T_{22}^{matter} = G_{22} + \\Lambda_{crit} g_{22} = 0 + \\left(-\\frac{1}{\\alpha^{2}}\\right) \\times 1 = -\\frac{1}{\\alpha^{2}}$。   压力定义为 $p_y^{matter} = \\frac{T_{22}^{matter}}{g_{22}} = \\frac{-\\frac{1}{\\alpha^{2}}}{8\\pi \\times 1} = -\\frac{1}{8\\pi \\alpha^{2}}$。6. 物理分析：在此临界条件下，物质在 y 方向的压力 $p_y^{matter} = -\\frac{1}{8\\pi \\alpha^{2}}$ 精确抵消了真空在 y 方向的压力 $p_y^{vac} = -\\rho_{vac} = \\frac{1}{8\\pi \\alpha^{2}}$，使得总横向压力为零，与几何要求的 $G_{22}=0$ 相吻合。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目的核心几何量计算存在严重错误，导致最终答案完全错误。具体缺陷如下：\\n1. 爱因斯坦张量 $G_{00}$ 符号错误：Solution 第2步声称在 $x=0$ 处 $G_{00} = -\\\\frac{1}{\\\\alpha^{2}}$，但根据给定度规 $ds^2 = -dt^2 + e^{2x/\\\\alpha}(dx^2+dy^2+dz^2)$ 的正确计算，Ricci标量 $R = -\\\\frac{2}{\\\\alpha^2}e^{-2x/\\\\alpha}$，在 $x=0$ 处 $G_{00} = R_{00} - \\\\frac{1}{2}g_{00}R = 0 - \\\\frac{1}{2}(-1)(-\\\\frac{2}{\\\\alpha^2}) = \\\\frac{1}{\\\\alpha^2}$，应为正值。\\n2. 爱因斯坦张量 $G_{22}$ 数值错误：Solution 第2步声称在 $x=0$ 处 $G_{22} = 0$，但正确计算给出 $G_{22} = R_{22} - \\\\frac{1}{2}g_{22}R = 0 - \\\\frac{1}{2}(1)(-\\\\frac{2}{\\\\alpha^2}) = \\\\frac{1}{\\\\alpha^2}$，根本不为零。\\n3. 临界宇宙学常数 $\\Lambda_{crit}$ 错误：由正确的 $G_{00}$ 推导，$8\\\\pi T_{00}^{matter} = G_{00} + \\\\Lambda g_{00} = \\\\frac{1}{\\\\alpha^2} - \\\\Lambda$，令其为零应得 $\\Lambda_{crit} = \\\\frac{1}{\\\\alpha^2}$，而非题目给出的 $-\\\\frac{1}{\\\\alpha^2}$。\\n4. 物质压力 $p_y^{matter}$ 错误：由正确的 $G_{22}$ 和 $\\Lambda_{crit}$ 推导，$8\\\\pi T_{22}^{matter} = G_{22} + \\\\Lambda_{crit} g_{22} = \\\\frac{1}{\\\\alpha^2} + \\\\frac{1}{\\\\alpha^2} = \\\\frac{2}{\\\\alpha^2}$，因此 $p_y^{matter} = \\\\frac{2}{8\\\\pi\\\\alpha^2} = \\\\frac{1}{4\\\\pi\\\\alpha^2}$，而非题目给出的 $-\\\\frac{1}{8\\\\pi\\\\alpha^2}$。\\n5. 场方程符号与定义矛盾：题目文本称 $\\\\Lambda = 8\\\\pi \\\\rho_{vac}$，按此定义场方程应为 $G_{\\\\mu\\\\nu} - \\\\Lambda g_{\\\\mu\\\\nu} = 8\\\\pi T_{\\\\mu\\\\nu}^{matter}$，但题目给出的却是 $G_{\\\\mu\\\\nu} + \\\\Lambda g_{\\\\mu\\\\nu} = 8\\\\pi T_{\\\\mu\\\\nu}^{matter}$，存在符号约定矛盾。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s2_2.10_a",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "energy_target",
+      "coordinate": "lab_frame",
+      "scenario": "particle_decay",
+      "method": "four_momentum_conservation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.10_a",
+    "source_id": "1_s2_2.10_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.10_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.6,
+      "realism": 0.8,
+      "rationale": "平直时空下两体衰变运动学推导，结合四维动量守恒与质能关系，逻辑严密且具实验物理背景",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathfrak{m}_{\\\\mathbf{A}}$",
+      "$\\\\mathfrak{m}_{\\\\mathbf{B}}$",
+      "$\\\\mathfrak{m}_{\\\\mathbf{C}}$",
+      "$E_{\\\\mathbf{B}}$"
+    ],
+    "target": [
+      "$E_{\\\\mathbf{B}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 2.10. Consider the reaction $\\mathbf{A} \\\\rightarrow \\mathbf{B} + \\mathbf{C}$ (with particle masses $\\mathfrak{m}_{\\\\mathbf{A}}, \\mathfrak{m}_{\\\\mathbf{B}}, \\mathfrak{m}_{\\\\mathbf{C}}$ ).\\n(a) If $\\mathbf{A}$ is at rest in the lab frame, show that in the lab frame particle B has energy $\\mathbf{E}_{\\\\mathbf{B}} = (\\\\mathfrak{m}_{\\\\mathbf{A}}^{2} + \\\\mathfrak{m}_{\\\\mathbf{B}}^{2} - \\\\mathfrak{m}_{\\\\mathbf{C}}^{2}) / 2\\\\mathfrak{m}_{\\\\mathbf{A}}$ .",
+    "answer": "$\\\\mathbf{E}_{\\\\mathbf{B}} = (\\\\mathfrak{m}_{\\\\mathbf{A}}^{2} + \\\\mathfrak{m}_{\\\\mathbf{B}}^{2} - \\\\mathfrak{m}_{\\\\mathbf{C}}^{2}) / 2\\\\mathfrak{m}_{\\\\mathbf{A}}$",
+    "solution": null
+  },
+  "verification": null
+}

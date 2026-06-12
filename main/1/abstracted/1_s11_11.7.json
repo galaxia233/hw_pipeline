@@ -1,0 +1,173 @@
+{
+  "metadata": {
+    "id": "1_s11_11.7",
+    "type": "calculate",
+    "tags": {
+      "metric": "flat_minkowski_metric",
+      "target_object": "spin_angular_momentum",
+      "coordinate": "laboratory_cartesian_coordinates",
+      "scenario": "electron_circular_orbit",
+      "method": "fermi_walker_transport"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s11_11.7",
+    "source_id": "1_s11_11.7",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s11_11.7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "圆轨道相对论运动结合费米-沃克输运方程推导自旋进动，逻辑链条完整且含真实原子物理背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$r$",
+      "$\\\\omega$",
+      "$\\\\gamma$",
+      "$S^x$",
+      "$S^y$",
+      "$S^z$"
+    ],
+    "target": [
+      "$S^x$",
+      "$S^y$",
+      "$S^z$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 11.7. Thomas Precession: Consider a (\"classical\") spinning electron which Fermi-Walker transports its spin angular momentum, S, as it moves in a circular orbit around an atomic nucleus. As seen in the laboratory frame, the electron moves in a circular orbit of radius r in the x-y plane with constant angular velocity, $\\omega$ . Calculate S(t), the spin as a function of laboratory time.",
+    "answer": "$$S^x = A[\\\\cos\\\\omega t \\\\cos(\\\\omega\\\\gamma t) + \\\\gamma\\\\sin\\\\omega t \\\\sin(\\\\omega\\\\gamma t)], \\\\quad S^y = A[\\\\sin\\\\omega t \\\\cos(\\\\omega\\\\gamma t) - \\\\gamma\\\\cos\\\\omega t \\\\sin(\\\\omega\\\\gamma t)], \\\\quad S^z = \\\\text{const}, \\\\quad \\\\omega_{\\\\text{Thomas}} = (\\\\gamma-1)\\\\omega \\\\approx \\\\frac{1}{2}v^2\\\\omega$$",
+    "solution": "Solution 11.7. The basic equation (see Problem 11.4) is\\n$$\\n\\\\mathrm {d} \\\\mathbf {S} / \\\\mathrm {d} \\\\tau = \\\\mathbf {u} (\\\\mathbf {a} \\\\cdot \\\\mathbf {S}).\\n$$\\nIn the lab frame, the world line of the particle is\\n$$\\n\\\\begin {array} {l} \\\\mathbf {x} = \\\\mathbf {r} \\\\cos \\\\omega t \\\\\\\\ \\\\mathbf {y} = \\\\mathbf {r} \\\\sin \\\\omega t \\\\\\\\ \\\\end {array}\\n$$\\n(where $\\omega$ and $\\mathbf{r}$ are constants) and hence\\n$$\\nu^{0} = \\\\gamma , \\\\quad u^{x} = \\\\gamma \\\\frac {d x} {d t} = - \\\\omega r \\\\gamma \\\\sin \\\\omega t, \\\\quad u^{y} = \\\\gamma \\\\omega r \\\\cos \\\\omega t, \\\\quad u^{z} = 0\\n$$\\nwhere $\\gamma \\equiv (1 - r^2\\\\omega^2)^{-\\\\frac{1}{2}}$ . Now $\\mathbf{a} = \\mathbf{du} / \\mathbf{dt}$ so\\n$$\\nsf {a}^{0} = 0 (\\\\gamma = \\\\sf {c o n s t} ), \\\\quad \\\\sf {a}^{\\\\mathbf {x}} = \\\\gamma \\\\frac {\\\\sf {d u}^{\\\\mathbf {x}}} {\\\\sf {d t}} , \\\\quad \\\\sf {a}^{\\\\mathbf {y}} = - \\\\gamma^{2} \\\\omega^{2} \\\\mathbf {r} \\\\sin \\\\omega \\\\mathsf {t} , \\\\quad \\\\sf {a}^{\\\\mathbf {z}} = 0\\n$$\\nand hence\\n$$\\n\\\\mathbf {S} \\\\cdot \\\\mathbf {a} = \\\\mathbf {S}^{\\\\mathbf {x}} \\\\mathbf {a}^{\\\\mathbf {x}} + \\\\mathbf {S}^{\\\\mathbf {y}} \\\\mathbf {a}^{\\\\mathbf {y}} = - \\\\omega^{2} \\\\mathbf {r} \\\\gamma^{2} \\\\cos \\\\omega t \\\\mathbf {S}^{\\\\mathbf {x}} - \\\\omega^{2} \\\\mathbf {r} \\\\gamma^{2} \\\\sin \\\\omega t \\\\mathbf {S}^{\\\\mathbf {y}} .\\n$$\\nWe have therefore\\n$$\\n\\\\frac {\\\\mathrm {d} \\\\mathbf {S}^{0}} {\\\\mathrm {d} \\\\tau} = \\\\gamma \\\\frac {\\\\mathrm {d} \\\\mathbf {S}^{0}} {\\\\mathrm {d} t} = \\\\mathbf {u}^{0} (\\\\mathbf {a} \\\\cdot \\\\mathbf {S}) = \\\\gamma (\\\\mathbf {a} \\\\cdot \\\\mathbf {S}) \\\\tag {1}\\n$$\\n$$\\n\\\\frac {\\\\mathrm {d} S^{\\\\mathbf {x}}} {\\\\mathrm {d} r} = \\\\gamma \\\\frac {\\\\mathrm {d} S^{\\\\mathbf {x}}} {\\\\mathrm {d} t} = u^{\\\\mathbf {x}} (\\\\mathbf {a} \\\\cdot \\\\mathbf {S}) = - \\\\omega r \\\\gamma \\\\sin \\\\omega t (\\\\mathbf {a} \\\\cdot \\\\mathbf {S}) \\\\tag {2}\\n$$\\n$$\\n\\\\frac {\\\\mathrm {d} \\\\mathbf {S}^{\\\\mathbf {y}}} {\\\\mathrm {d} \\\\tau} = \\\\gamma \\\\frac {\\\\mathrm {d} \\\\mathbf {S}^{\\\\mathbf {y}}} {\\\\mathrm {d} t} = \\\\mathbf {u}^{\\\\mathbf {y}} (\\\\mathbf {a} \\\\cdot \\\\mathbf {S}) = \\\\omega r \\\\gamma \\\\cos \\\\omega t (\\\\mathbf {a} \\\\cdot \\\\mathbf {S}) \\\\tag {3}\\n$$\\n$$\\n\\\\frac {\\\\mathrm {d} S^{z}} {\\\\mathrm {d} r} = 0 . \\\\tag {4}\\n$$\\nIntroduce radial and tangential components:\\n$$\\nS^{x} = S^{r} \\\\cos \\\\omega t - S^{\\\\theta} \\\\sin \\\\omega t\\n$$\\n$$\\n\\\\mathbf {S}^{\\\\mathbf {y}} = \\\\mathbf {S}^{\\\\mathbf {r}} \\\\sin \\\\omega t + \\\\mathbf {S}^{\\\\theta} \\\\cos \\\\omega t .\\n$$\\nEquations (2) and (3) imply:\\n$$\\n\\\\mathrm {d} \\\\mathbf {S}^{\\\\mathbf {r}} / \\\\mathrm {d} t = \\\\omega \\\\mathbf {S}^{\\\\theta} \\\\tag {5}\\n$$\\n$$\\n\\\\mathrm {d} \\\\mathbf {S}^{\\\\theta} / \\\\mathrm {dt} = - \\\\omega \\\\gamma^{2} \\\\mathbf {S}^{\\\\mathbf {r}} . \\\\tag {6}\\n$$\\nEquations (5) and (6) imply:\\n$$\\n\\\\mathrm {d}^{2} \\\\mathbf {S}^{\\\\mathrm {r}} / \\\\mathrm {d} t^{2} = - \\\\omega^{2} \\\\gamma^{2} \\\\mathbf {S}^{\\\\mathrm {r}} \\\\Longrightarrow \\\\mathbf {S}^{\\\\mathrm {r}} = \\\\mathrm {A} \\\\cos (\\\\omega \\\\gamma t + \\\\alpha ) , \\\\mathrm {A}, \\\\alpha \\\\text {c o n s t .} \\\\tag {7}\\n$$\\nand from Equation (5)\\n$$\\n\\\\mathrm {S}^{\\\\theta} = - \\\\gamma \\\\mathrm {A} \\\\sin (\\\\omega \\\\gamma t + \\\\alpha ) . \\\\tag {8}\\n$$\\nFrom Equations (4), (7), (8) we obtain\\n$$\\nS^{x} = A \\\\left[ \\\\cos \\\\omega t \\\\cos (\\\\omega y t + a ) + \\\\gamma \\\\sin \\\\omega t \\\\sin (\\\\omega y t + a ) \\\\right] \\\\tag {9 a}\\n$$\\n$$\\n\\\\mathbf {S}^{\\\\mathcal {Y}} = \\\\mathbf {A} [ \\\\sin \\\\omega t \\\\cos (\\\\omega \\\\gamma t + a ) - \\\\gamma \\\\cos \\\\omega t \\\\sin (\\\\omega \\\\gamma t + a ) ] \\\\tag {9 b}\\n$$\\n$$\\nS^{z} = \\\\text {c o n s t .} \\\\tag {9 c}\\n$$\\nConsider initial conditions $S^{\\\\mathbf{x}} = \\\\hbar ( 2 ) ^ { - \\\\frac { 1 } { 2 } } , S^{\\\\mathbf{y}} = 0 , S^{\\\\mathbf{z}} = \\\\frac { 1 } { 2 } \\\\hbar$ . (Although we are not treating the electron spin quantum mechanically, we want $S^2 = 3\\\\hbar^2 / 4$ .) These conditions imply $\\\\alpha = 0$ , $A = \\\\hbar ( 2 ) ^ { - \\\\frac { 1 } { 2 } }$ ; and Equations (9) can be written as\\n$$\\nS^{x} + i S^{y} = 2^{- \\\\frac {1} {2}} \\\\hbar [ e^{- i (\\\\gamma - 1 ) \\\\omega t} + i ( 1 - \\\\gamma ) \\\\sin (\\\\omega \\\\gamma t ) e^{i \\\\omega t} ] . \\\\tag {1 0}\\n$$\\nThe first term on the right hand side of Equation (10) and Equation (9c) indicate a precession around the $z$ -axis with angular velocity\\n$$\\n\\\\omega_{\\\\text {T h o m a s}} = ( \\\\gamma - 1 ) \\\\omega \\\\approx \\\\frac {1} {2} v^{2} \\\\omega \\\\tag {1 1}\\n$$\\nwhile the second term in Equation (10) is small $( 1 - \\\\gamma \\\\approx -\\\\frac { 1 } { 2 } v^ 2 )$ for an electron in an atom."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

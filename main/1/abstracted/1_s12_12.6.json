@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s12_12.6",
+    "type": "prove",
+    "tags": {
+      "metric": "flat_metric",
+      "target_object": "electron",
+      "coordinate": "Cartesian_coordinates",
+      "scenario": "conducting_cavity_in_uniform_gravity",
+      "method": "Laplace_equation_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s12_12.6",
+    "source_id": "1_s12_12.6",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s12_12.6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "Integrates gravitational and electrostatic potentials with conductor boundary conditions and Laplace's equation, requiring multi-step logical deduction from first principles.",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$m$",
+      "$e$",
+      "$\\\\phi^{\\\\mathbf{g}}$",
+      "$\\\\phi^{\\\\mathbf{e}}$",
+      "$\\\\Phi$",
+      "$\\\\underline{\\\\mathbf{F}}$"
+    ],
+    "target": [
+      "$\\\\underline{\\\\mathbf{F}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Show that an electron does not fall down when released in the center of an evacuated perfectly conducting closed container in a uniform gravitational field. (\"Perfect conductor\") $\\equiv$ perfectly rigid positive lattice with perfectly mobile conduction electrons.)",
+    "answer": "The electron will feel no net force.",
+    "solution": "Let $\\\\phi^{\\\\mathbf{g}}$ and $\\\\phi^{\\\\mathbf{e}}$ be respectively the gravitational and electrostatic potentials. The potential energy of an electron is then\\n$$\\n\\\\Phi = \\\\mathrm {m} \\\\phi^{\\\\mathbf {g}} + \\\\mathrm {e} \\\\phi^{\\\\mathbf {e}},\\n$$\\n$(\\\\mathbf{m}, \\\\mathbf{e} = \\\\text{electron mass, charge})$ and the force on an electron is $\\\\underline{\\\\mathbf{F}} = -\\\\nabla \\\\Phi$ . In a static situation there can be no force component tangential to the conducting surface, and hence $\\\\Phi$ must be a constant on the inside surface. Now there is neither mass $(\\\\nabla^2 \\\\phi^{\\\\mathrm{g}} = 0)$ nor charge $(\\\\nabla^2 \\\\phi^{\\\\mathrm{e}} = 0)$ inside the container so $\\\\nabla^2 \\\\Phi = 0$ . The solution to Laplace's equation $\\\\nabla^2 \\\\Phi = 0$ inside the conductor equipotential is then $\\\\Phi = \\\\text{constant}$ . If an electron is then introduced into this field, it will feel no force. [Note: Since the electron is introduced at the center of the container, image-charge forces can be ignored by symmetry.]"
+  },
+  "verification": null
+}

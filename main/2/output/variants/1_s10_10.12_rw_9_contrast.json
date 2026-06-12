@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-7-9",
+    "type": "concept",
+    "tags": {
+      "target_object": "nabla_mu_xi_nu",
+      "coordinate": "mixed",
+      "scenario": "contrast_killing_gravity",
+      "method": "tensor_calc_limit",
+      "generalization_axis": "compare",
+      "metric": "Minkowski"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-7",
+      "1_s10_10.12-7-9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Minkowski",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "协变导数分量",
+      "时空弯曲与引力场"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，时空对称性由 Killing 矢量表征，而引力场的存在会改变这些对称性的几何表现。请分别在以下两种时空中，计算时间平移 Killing 矢量 $\\xi^\\mu = (1,0,0,0)$ 的协变导数时空交叉分量 $\\nabla_1 \\xi_0$，并在弱场极限下对比两者的结果与物理含义：**背景 A：Schwarzschild 黑洞外部时空**度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$（其中 $r_s = 2M$）。时空具有时间平移对称性，Killing 矢量为 $\\xi^\\mu_A = (1,0,0,0)$。计算 $\\nabla_1 \\xi_0$，并取弱场极限 $r \\gg r_s$ 保留首阶项。**背景 B：Minkowski 平直时空**度规为 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$。时空具有时间平移对称性，Killing 矢量为 $\\xi^\\mu_B = (1,0,0,0)$。计算 $\\nabla_1 \\xi_0$。对比这两种背景下 $\\nabla_1 \\xi_0$ 的计算结果，并解释：为何在平直时空中该分量为零，而在弯曲时空中非零且在弱场极限下与牛顿引力势梯度 $\\nabla_1 \\Phi = \\partial_r \\Phi$（$\\Phi = -M/r$）相关？这一差异揭示了引力场作为时空几何弯曲的本质特征是什么？",
+    "answer": "背景 A 中，$\\nabla_1 \\xi_0 = -\\frac{r_s}{2r^2}$，在弱场极限下近似为 $-\\frac{M}{r^2} = -\\nabla_1 \\Phi$；背景 B 中，由于度规分量均为常数且 Christoffel 符号全为零，$\\nabla_1 \\xi_0 = 0$。物理含义对比：在无引力场的平直时空中，时间对称性矢量与空间方向的协变导数为零，表明时空完全平坦无势能梯度；而在存在引力源的弯曲时空中，该协变导数偏离零值，直接反映了时空弯曲导致的“引力势梯度”。弱场极限下该偏离量精确还原为牛顿引力势的负梯度，揭示了引力场并非外加力场，而是时空对称性几何结构的协变偏离（弯曲）。",
+    "solution": "背景 A：协变分量 $\\xi_0 = g_{00}\\xi^0 = -\\frac{r-r_s}{r}$。利用协变导数定义 $\\nabla_1 \\xi_0 = \\partial_1 \\xi_0 - \\Gamma^0_{10}\\xi_0 = \\partial_r\\left(-\\frac{r-r_s}{r}\\right) - \\frac{r_s}{2r(r-r_s)}\\left(-\\frac{r-r_s}{r}\\right) = -\\frac{r_s}{r^2} + \\frac{r_s}{2r^2} = -\\frac{r_s}{2r^2}$。弱场极限下 $r \\gg r_s$，代入 $r_s=2M$，得 $\\nabla_1 \\xi_0 \\approx -\\frac{M}{r^2} = -\\nabla_1 \\Phi$。背景 B：协变分量 $\\xi_0 = g_{00}\\xi^0 = -1$，偏导数 $\\partial_1 \\xi_0 = 0$，且平直时空度规常数使得 Christoffel 符号 $\\Gamma^0_{10} = 0$，故 $\\nabla_1 \\xi_0 = 0$。差异解释：平直时空中时间平移对称性在空间方向无协变变化；弯曲时空中这种协变变化直接对应引力场强度（势能梯度），说明引力场是时空几何偏离平直的表现。"
+  },
+  "verification": null
+}

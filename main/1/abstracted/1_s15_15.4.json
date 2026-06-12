@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "id": "1_s15_15.4",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "schwarzschild_spacetime",
+      "method": "radial_infall"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s15_15.4",
+    "source_id": "1_s15_15.4",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s15_15.4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.95,
+      "realism": 0.85,
+      "rationale": "基于测地线守恒量构建三类边界条件的非线性微分方程，经参数化积分得固有时与坐标时显式关系，逻辑链条完整且揭示视界处坐标时发散的真实物理图像",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\tau$",
+      "$M$",
+      "$R$",
+      "$v_\\inf ty$",
+      "$\\tilde{E}$"
+    ],
+    "target": [
+      "$u^t = dt/d\\tau$",
+      "$u^r = dr/d\\tau$"
+    ],
+    "metric": [
+      [
+        "$-(1 - 2M/r)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$\\frac{1}{1 - 2M/r}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s15_15.4.md]Problem 15.4. Derive the equations of motion (equations relating $t$ , $r$ and $\\tau$ ) for a particle falling radially in the Schwarzschild geometry. Consider the three cases (i) particle released from rest at $r = R$ (ii) particle released from rest at infinity (iii) particle projected inward from infinity with velocity $v_{\\inf ty}$ .",
+    "answer": "Case (i) ($\\tilde{E}<1$):Parametric ($\\eta=0$ at $r=R$):$r = \\frac{R}{2}(1+\\cos\\eta)$$\\tau = \\left(\\frac{R^3}{8M}\\right)^{1/2}(\\eta+\\sin\\eta)$$t = 2M\\left[\\log\\left|\\frac{\\sqrt{R/2M-1}+\\tan(\\eta/2)}{\\sqrt{R/2M-1}-\\tan(\\eta/2)}\\right| + \\sqrt{R/2M-1}\\left(\\eta + \\frac{R}{4M}(\\eta+\\sin\\eta)\\right)\\right]$Case (ii) ($\\tilde{E}=1$):$\\tau = -\\frac{2}{3}\\sqrt{\\frac{r^3}{2M}}$$t = -\\frac{2}{3}\\sqrt{\\frac{r^3}{2M}} - 4M\\sqrt{\\frac{r}{2M}} + 2M\\log\\left|\\frac{\\sqrt{r/2M}+1}{\\sqrt{r/2M}-1}\\right|$Case (iii) ($\\tilde{E}>1$):Parametric ($\\eta=0$ at $r=0$):$r = \\frac{R}{2}(\\cos h\\eta-1)$$\\tau = -\\left(\\frac{R^3}{8M}\\right)^{1/2}(\\sin h\\eta-\\eta)$$t = 2M\\left[\\log\\left|\\frac{\\sqrt{R/2M+1}+\\cot h(\\eta/2)}{\\sqrt{R/2M+1}-\\cot h(\\eta/2)}\\right| - \\sqrt{R/2M+1}\\left(\\eta + \\frac{R}{4M}(\\sin h\\eta-\\eta)\\right)\\right]",
+    "solution": "Solution 15.4. From the first integrals of the geodesic equation (see Problem 15.3)$$u_{0} = - \\tilde {\\mathbf {E}} = \\text {c o n s t a n t}$$$$\\mathrm {g}^{0 0} \\mathrm {u}_{0}^{2} + \\mathrm {g}_{\\mathrm {r r}} \\left(\\mathrm {u}^{\\mathrm {r}}\\right)^{2} = - 1$$we get$$u^{0} = \\frac {\\mathrm {d} t}{\\mathrm {d} r} = \\frac {\\tilde {E}}{1 - 2 M / r} \\tag {1}$$$$u^{r} = \\frac {d r}{d r} = - \\left(\\tilde {E}^{2} - 1 + 2 M / r\\right)^{\\frac {1}{2}}. \\tag {2}.$$The minus sign for the square root in Equation (2) corresponds to an infalling particle.Case (i). For this case $\\mathrm{dr} / \\mathrm{d}\\tau = 0$ at $\\mathbf{r} = \\mathbf{R}$ implies $2\\mathbf{M} / \\mathbf{R} = 1 - \\tilde{\\mathbf{E}}^2$ , i.e. $\\tilde{\\mathbf{E}} < 1$ . Thus Equation (2) can be rewritten$$\\mathrm {d} \\tau = \\frac {\\mathrm {d r}}{\\left(\\frac {2 \\mathrm {M}}{\\mathrm {r}} - \\frac {2 \\mathrm {M}}{\\mathrm {R}}\\right)^{\\frac {1}{2}}} \\tag {3}$$This can be integrated in closed form to give$$\\tau = \\left(\\frac {\\mathrm {R}^{3}}{8 \\mathrm {M}}\\right)^{\\frac {1}{2}} \\left[ 2 \\left(\\frac {\\mathrm {r}}{\\mathrm {R}} - \\frac {\\mathrm {r}^{2}}{\\mathrm {R}^{2}}\\right)^{\\frac {1}{2}} + \\cos^{- 1} \\left(\\frac {2 \\mathrm {r}}{\\mathrm {R}} - 1\\right)\\right] \\tag {4}$$where the constant of integration has been chosen so that $\\tau = 0$ at $r = R$ . It is convenient to rewrite Equation (4) in parametric form by introducing the \"cycloid parameter\"$$\\eta = \\cos^{- 1} \\left(\\frac {2 r}{R} - 1\\right)$$so that we have$$r = \\frac {1}{2} R (1 + \\cos \\eta) \\quad (\\eta = 0 \\text {a t} r = R) \\tag {5}$$$$\\tau = \\left(\\frac {\\mathrm {R}^{3}}{8 \\mathrm {M}}\\right)^{\\frac {1}{2}} (\\eta + \\sin \\eta). \\tag {6}.$$Equation (1) gives$$\\begin{array}{l} t = \\int \\frac {\\tilde {E} d \\tau}{\\left(1 - \\frac {2 M}{r}\\right)} = \\tilde {E} \\int \\frac {d \\tau}{d \\eta} \\frac {1}{1 - \\frac {2 M}{r}} d \\eta \\\\= \\left(1 - \\frac {2 \\mathrm {M}}{\\mathrm {R}}\\right)^{\\frac {1}{2}} \\int \\frac {\\left(\\frac {\\mathrm {R}^{3}}{8 \\mathrm {M}}\\right)^{\\frac {1}{2}} (1 + \\cos \\eta) \\mathrm {d} \\eta}{1 - 4 \\mathrm {M} [ \\mathrm {R} (1 + \\cos \\eta) ]^{- 1}}. \\\\\\end{array}$$From a table of integrals, we find$$\\frac {t}{2 \\mathrm {M}} = \\log \\left| \\frac {\\left(\\frac {\\mathrm {R}}{2 \\mathrm {M}} - 1\\right)^{\\frac {1}{2}} + \\tan \\left(\\frac {\\eta}{2}\\right)}{\\left(\\frac {\\mathrm {R}}{2 \\mathrm {M}} - 1\\right)^{\\frac {1}{2}} - \\tan \\left(\\frac {\\eta}{2}\\right)}\\right| + \\left(\\frac {\\mathrm {R}}{2 \\mathrm {M}} - 1\\right)^{\\frac {1}{2}} \\left[ \\eta + \\frac {\\mathrm {R}}{4 \\mathrm {M}} (\\eta + \\sin \\eta)\\right] \\tag {7}$$where the constant of integration has been chosen so that $t = 0$ at $\\eta = 0$ i.e. at $r = R$ . Note that $t \\to \\inf ty$ when $\\tan(\\eta/2) \\to (R/2M - 1)^{\\frac{1}{2}}$ i.e. when $r \\to 2M$ .Case (ii). Here $\\tilde{\\mathbf{E}} = 1$ and Equation (2) gives$$\\tau = - \\frac {2}{3} \\left(\\frac {\\mathrm {r}^{3}}{2 \\mathrm {M}}\\right)^{\\frac {1}{2}} + \\text {c o n s t a n t} \\tag {8}$$and since$$\\frac {\\mathrm {d} t}{\\mathrm {d} r} = \\frac {\\mathrm {d} t / \\mathrm {d} \\tau}{\\mathrm {d} r / \\mathrm {d} \\tau}$$we get$$t = - \\frac {2}{3} \\left(\\frac {r^{3}}{2 M}\\right)^{\\frac {1}{2}} - 4 M \\left(\\frac {r}{2 M}\\right)^{\\frac {1}{2}} + 2 M \\log \\left| \\frac {\\left(\\frac {r}{2 M}\\right)^{\\frac {1}{2}} + 1}{\\left(\\frac {r}{2 M}\\right)^{\\frac {1}{2}} - 1}\\right| + \\text {c o n s t a n t}. \\tag {9}$$Case (iii). By analogy with case (i), choose R such that$$\\frac {2 \\mathrm {M}}{\\mathrm {R}} = \\tilde {\\mathrm {E}}^{2} - 1 = \\left(1 - \\mathrm {v}_{\\inf ty}^{2}\\right)^{- 1} - 1 = \\frac {\\mathrm {v}_{\\inf ty}^{2}}{1 - \\mathrm {v}_{\\inf ty}^{2}} .$$Then changing the sign of $\\mathbf{R}$ in Equation (4) gives$$\\tau = - \\left(\\frac {\\mathrm {R}^{3}}{8 \\mathrm {M}}\\right)^{\\frac {1}{2}} \\left[ 2 \\left(\\frac {\\mathrm {r}}{\\mathrm {R}} + \\frac {\\mathrm {r}^{2}}{\\mathrm {R}^{2}}\\right)^{\\frac {1}{2}} - \\cos h^{- 1} \\left(\\frac {2 \\mathrm {r}}{\\mathrm {R}} + 1\\right)\\right]. \\tag {10}$$Note that $\\tau = 0$ at $\\mathbf{r} = 0$ , and $\\tau = -\\inf ty$ at $\\mathbf{r} = \\inf ty$ . Put$$\\eta = \\cos h^{- 1} \\left(\\frac {2 r}{R} + 1\\right)$$and get$$r = \\frac {R}{2} (\\cos h \\eta - 1) \\quad (r = 0 \\text {a t} \\eta = 0) \\tag {11}$$$$\\tau = - \\left(\\frac {\\mathrm {R}^{3}}{8 \\mathrm {M}}\\right)^{\\frac {1}{2}} (\\sin h \\eta - \\eta). \\tag {12}.$$The equation corresponding to Equation (7) is$$\\frac {t}{2 \\mathbb {M}} = \\log \\left| \\frac {\\left(\\frac {\\mathrm {R}}{2 \\mathbb {M}} + 1\\right)^{\\frac {1}{2}} + \\cot h \\frac {\\eta}{2}}{\\left(\\frac {\\mathrm {R}}{2 \\mathbb {M}} + 1\\right)^{\\frac {1}{2}} - \\cot h \\frac {\\eta}{2}}\\right| - \\left(\\frac {\\mathrm {R}}{2 \\mathbb {M}} + 1\\right)^{\\frac {1}{2}} \\left[ \\eta + \\frac {\\mathrm {R}}{4 \\mathbb {M}} (\\sin h \\eta - \\eta)\\right]. \\tag {13}$$Note that $t$ goes from $-\\inf ty$ to $+\\inf ty$ as $r$ goes from $\\inf ty$ to $2M$ ."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "metric_latex": [
+      [
+        "\\frac{- r + r_{s}}{r}",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "\\frac{r}{r - r_{s}}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r^{2} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_001": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_010": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_100": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{3}}",
+      "Gamma_111": "- \\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_122": "- r + r_{s}",
+      "Gamma_133": "\\left(- r + r_{s}\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_233": "- \\frac{\\sin{\\left(2 \\theta \\right)}}{2}",
+      "Gamma_313": "\\frac{1}{r}",
+      "Gamma_323": "\\frac{1}{\\tan{\\left(\\theta \\right)}}",
+      "Gamma_331": "\\frac{1}{r}",
+      "Gamma_332": "\\frac{1}{\\tan{\\left(\\theta \\right)}}"
+    },
+    "riemann": {
+      "R_0101": "\\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0110": "- \\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0202": "- \\frac{r_{s}}{2 r}",
+      "R_0220": "\\frac{r_{s}}{2 r}",
+      "R_0303": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_0330": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1001": "\\frac{r_{s} \\left(r - r_{s}\\right)}{r^{4}}",
+      "R_1010": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{r^{4}}",
+      "R_1212": "- \\frac{r_{s}}{2 r}",
+      "R_1221": "\\frac{r_{s}}{2 r}",
+      "R_1313": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1331": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_2002": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_2020": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_2112": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2121": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2323": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_2332": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_3003": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_3030": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_3113": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3131": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3223": "- \\frac{r_{s}}{r}",
+      "R_3232": "\\frac{r_{s}}{r}"
+    },
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "\\frac{48 M^{2}}{r^{6}}",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量 (∂_t)，对应能量守恒",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "rot_phi",
+        "description": "绕 φ 轴旋转 Killing 矢量 (∂_φ)，对应角动量守恒",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

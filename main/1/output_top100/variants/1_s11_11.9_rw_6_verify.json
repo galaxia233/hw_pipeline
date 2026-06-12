@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-5-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "orbit_radius",
+      "coordinate": "spherical",
+      "scenario": "geodetic_precession_verify",
+      "method": "verify_deduction",
+      "generalization_axis": "verify",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-5",
+      "1_s11_11.9-5-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "校验圆轨道半径推导过程"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞外部的赤道面 ($\\theta = \\pi / 2$) 上，一个自由下落的陀螺仪沿半径为 $r$ 的圆轨道运动。已知实验观测到该陀螺仪的测地进动周期 $T_{prec}$ 恰好是其轨道周期 $T_{orb}$ 的 4 倍。某同学试图根据此观测结论反推该圆轨道半径 $r$ 与 $r_s$ 的关系，并指出其物理意义。他的推导过程如下：\\n\\n“1. 将周期比例转化为角速度比例：已知 $T_{prec} = 4 T_{orb}$。由于角速度与周期成正比关系 $\\Omega \\propto T$，可得测地进动角速度与轨道角速度的比例为 $\\Omega_{prec} / \\Omega_{orb} = T_{prec} / T_{orb} = 4$。\\n2. 代入已知理论公式：在 Schwarzschild 度规下，该陀螺仪的测地进动坐标角速度 $\\Omega_{prec}$ 与其轨道坐标角速度 $\\Omega_{orb}$ 的比值恒为 $\\Omega_{prec} / \\Omega_{orb} = 3 r_s / 2r$。\\n3. 反推轨道半径：联立上述结果，得到 $4 = 3 r_s / 2r$，解得 $r = \\frac{3}{8} r_s$。由于 $r_s = 2M$，该半径亦可写为 $r = \\frac{3}{4} M$，这显然位于黑洞视界 $r_s$ 内部，说明推导可能存在问题。”\\n\\n已知正确的结论应为该圆轨道对应黑洞物理学中的最内稳定圆轨道 (ISCO)，即 $r = 3 r_s$。请找出上述推导过程中的所有错误，指出错误位置与类型，并给出正确的代数表达式与数值。\\n\\n度规定义（采用 $(-,+,+,+)$ 符号约定）：\\n$ds^2 = - \\frac{r - r_{s}}{r} dt^2 + \\frac{r}{r - r_{s}} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$",
+    "answer": "错误 1：位于推导第 1 步。“角速度与周期成正比关系” 以及 $\\Omega_{prec} / \\Omega_{orb} = T_{prec} / T_{orb}$ 属于比例关系错误（sign/proportion error）。由于 $\\Omega = 2\\pi / T$，角速度与周期成反比，正确的比例应为 $\\Omega_{prec} / \\Omega_{orb} = T_{orb} / T_{prec}$。代入观测数据，正确值为 $\\Omega_{prec} / \\Omega_{orb} = 1/4$。\\n错误 2：位于推导第 2 步。理论公式引用错误，系数遗漏（factor error）。正确的测地进动角速度比值公式应为 $\\Omega_{prec} / \\Omega_{orb} = 3 r_s / 4r$，而不是 $3 r_s / 2r$。\\n修正后的推导：联立 $1/4 = 3 r_s / 4r$，解得 $r = 3 r_s$（即 $r = 6M$），此半径为最内稳定圆轨道 (ISCO)。",
+    "solution": "1. 将周期比例转化为角速度比例：已知 $T_{prec} = 4 T_{orb}$。由于角速度与周期成反比关系 $\\Omega = 2\\pi / T$，可得测地进动角速度与轨道角速度的比例为 $\\Omega_{prec} / \\Omega_{orb} = T_{orb} / T_{prec} = 1/4$。\\n2. 代入已知理论公式：在 Schwarzschild 度规下，陀螺仪的测地进动坐标角速度 $\\Omega_{prec}$ 与其轨道坐标角速度 $\\Omega_{orb}$ 的比值恒为 $\\Omega_{prec} / \\Omega_{orb} = 3 r_s / 4r$。\\n3. 反推轨道半径：联立上述结果，得到 $1/4 = 3 r_s / 4r$，解得 $r = 3 r_s$。由于 $r_s = 2M$，该半径亦可写为 $r = 6M$。在 Schwarzschild 黑洞几何中，$r = 6M$ 是最内稳定圆轨道 (ISCO)。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "Answer 中将弱场近似公式 $\\Omega_{prec} / \\Omega_{orb} = 3 r_s / 4r$ 视为精确的理论公式，并据此推导出 $r = 3 r_s$ 并声称其物理意义对应最内稳定圆轨道 (ISCO)。这是严重的物理错误。\\n1. Schwarzschild 度规下赤道面圆轨道测地进动的**精确**理论公式为 $\\Omega_{prec} / \\Omega_{orb} = 1 - \\\\sqrt{1 - 3 r_s / r}$，而 $3 r_s / 4r$ 仅在 $r \\\\gg r_s$ 的弱场极限下成立，不能用于 ISCO 这种强场边界的精确推导。\\n2. 在真正的 ISCO 处 ($r = 3 r_s$)，代入精确公式得到比值 $\\Omega_{prec} / \\\\Omega_{orb} = 1 - \\\\sqrt{1 - 1} = 1$，这意味着测地进动周期与轨道周期相等（$T_{prec} = T_{orb}$），而非题目观测条件声称的 4 倍关系。\\n3. 若严格满足观测条件 $T_{prec} = 4 T_{orb}$（即角速度比值为 1/4），代入精确公式 $1/4 = 1 - \\\\sqrt{1 - 3 r_s / r}$，解得 $r = 24 r_s / 7 \\\\approx 3.43 r_s$，与 ISCO 半径 $3 r_s$ 完全无关。Answer 用弱场近似公式在强场区碰巧凑出 $3 r_s$ 并强行赋予 ISCO 物理意义，属于毫无物理根据的凑答案错误。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

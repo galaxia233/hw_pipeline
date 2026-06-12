@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "id": "1_s6_6.3_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "coordinate_transformation",
+      "coordinate": "projection",
+      "scenario": "spherical_surface",
+      "method": "stereographic_projection"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s6_6.3_b",
+    "source_id": "1_s6_6.3_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s6_6.3_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "通过立体投影坐标变换推导球面子流形度规，涉及雅可比变换与保角映射物理意义，逻辑链条清晰且具地理映射背景",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$\\lambda$",
+      "$\\phi$",
+      "$x$",
+      "$y$"
+    ],
+    "target": [
+      "$g_{xx}$",
+      "$g_{yy}$"
+    ],
+    "metric": [
+      [
+        "$a^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$a^2 \\cos^2 \\lambda$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s6_6.3_b.md]Problem 6.3. The metric for the surface of a globe of the Earth is$$\\mathrm {d s}^{2} = \\mathrm {a}^{2} (\\mathrm {d} \\lambda^{2} + \\cos^{2} \\lambda \\mathrm {d} \\phi^{2})$$where $\\lambda$ is the latitude and $\\phi$ is the longitude. The metric of a flat map of the world, with Cartesian coordinates $x$ and $y$ is $\\mathrm{ds}^2 = \\mathrm{dx}^2 + \\mathrm{dy}^2$ ; however we are not interested in this geometry, but in that of the globe it represents. What is the metric of the globe expressed in $x$ and $y$ coordinates for (b) a stereographic projection map of the world?",
+    "answer": "$$\\mathrm {d s}^{2} = \\cos^{4} \\left(\\frac {1}{2} \\theta\\right) (\\mathrm {d x}^{2} + \\mathrm {d y}^{2})$$",
+    "solution": "(b) For the stereographic projection, it is slightly easier to use the usual polar angle $\\theta = 90^{\\circ} - \\lambda$ . Let $(\\theta, \\phi)$ be the coordinates of a point on the sphere, and $(\\theta_{0}, \\phi_{0})$ the spherical polar coordinates of the projected point. Clearly $\\phi_{0} = \\phi$ . The distance of the projected point from the axis is $\\rho = 2a \\tan(\\theta / 2)$ , so we introduce coordinates![](images/7305e7542c6b95d7fc175fd2800ac570a00340526e130e9ee3658dd1784149e1.jpg)$$\\mathbf {x} = \\rho \\cos \\phi = 2 a \\tan \\left(\\frac {1}{2} \\theta\\right) \\cos \\phi$$$$y = \\rho \\sin \\phi = 2 a \\tan \\left(\\frac {1}{2} \\theta\\right) \\sin \\phi$$and it is easily verified that$$\\mathrm {d s}^{2} = \\mathrm {a}^{2} (\\mathrm {d} \\theta^{2} + \\sin^{2} \\theta \\mathrm {d} \\phi^{2}) = \\cos^{4} \\left(\\frac {1}{2} \\theta\\right) (\\mathrm {d x}^{2} + \\mathrm {d y}^{2}).$$Here the distortion is least near $\\theta = 0$ , the north pole. This projection is said to be conformal, because $(\\mathrm{ds}^2)_{\\mathrm{sphere}} = \\mathbf{g}(\\mathrm{ds}^2)_{\\mathrm{map}}$ , where $\\mathbf{g}$ is some function, in this case equal to $\\cos^4 (\\theta /2)$ . A conformal projection preserves angles (see Problem 6.7)."
+  },
+  "verification": null
+}

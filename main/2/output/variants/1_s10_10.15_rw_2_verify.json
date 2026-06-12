@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-2-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "minimum_energy_at_infinity",
+      "coordinate": "general",
+      "scenario": "weak_field_limit_verify",
+      "method": "verify_taylor_expansion",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-2",
+      "1_s10_10.15-2-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\xi$",
+      "$\\mathbf{E}$",
+      "$\\mathbf{p}$",
+      "$\\mu$"
+    ],
+    "target": [
+      "最小无限远能量的弱场极限退化推导"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，对于具有时间 Killing 矢量 $\\boldsymbol{\\xi} = \\partial_t$ 的稳态时空，质量为 $\\mu$ 的测试粒子在时空某点所能具有的最小“无限远能量”为 $\\mathbf{E}_{min}/\\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$。考虑该时空的弱场极限区域，此时度规的时间分量可近似为 $g_{tt} \\approx -(1 + 2\\Phi)$，其中 $\\Phi$ 为牛顿引力势（取无穷远处为零势能参考点，且满足弱场条件 $|\\Phi| \\ll 1$）。以下是某同学给出的推导过程，试图得出最小能量 $\\mathbf{E}_{min}$ 的弱场退化形式：“已知最小无限远能量表达式为 $\\mathbf{E}_{min}/\\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$。对于时间 Killing 矢量 $\\boldsymbol{\\xi} = \\partial_t$，其内积为逆变度规分量 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g^{tt}$，因此 $\\mathbf{E}_{min}/\\mu = \\sqrt{-g^{tt}}$。在弱场极限下，度规时间分量近似为 $g_{tt} \\approx -(1 - 2\\Phi)$，由于弱场下度规偏离闵可夫斯基度规很小，我们近似认为 $g^{tt} \\approx g_{tt}$，代入得：$\\mathbf{E}_{min}/\\mu = \\sqrt{-(-(1 - 2\\Phi))} = \\sqrt{1 - 2\\Phi}$。由于弱场条件 $|\\Phi| \\ll 1$，对上式进行泰勒展开（保留一阶近似）：$\\sqrt{1 - 2\\Phi} \\approx 1 - 2\\Phi$。因此，最小能量退化为：$\\mathbf{E}_{min} \\approx \\mu(1 - 2\\Phi)$。”已知正确的结论应当是 $\\mathbf{E}_{min} \\approx \\mu(1 + \\Phi)$。请找出上述推导过程中的所有错误，指出其位置、错误类型并给出正确值。",
+    "answer": "1. 位置：“其内积为逆变度规分量 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g^{tt}$”；错误类型：指标错误（上下标混淆）；正确值：$\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g_{tt}$（Killing 矢量的内积应使用协变度规分量）。2. 位置：“度规时间分量近似为 $g_{tt} \\approx -(1 - 2\\Phi)$”；错误类型：符号错误（Sign error）；正确值：$g_{tt} \\approx -(1 + 2\\Phi)$（弱场极限度规的牛顿势项应为正号）。3. 位置：“泰勒展开 $\\sqrt{1 - 2\\Phi} \\approx 1 - 2\\Phi$”；错误类型：系数遗漏错误（Factor error）；正确值：泰勒展开 $\\sqrt{1 + x} \\approx 1 + x/2$，此处应为 $\\sqrt{1 - 2\\Phi} \\approx 1 - \\Phi$（一阶项系数遗漏了1/2）。",
+    "solution": "1. 已知最小无限远能量表达式为 $\\mathbf{E}_{min}/\\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$。对于时间 Killing 矢量 $\\boldsymbol{\\xi} = \\partial_t$，其内积为协变度规分量 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g_{tt}$，因此 $\\mathbf{E}_{min}/\\mu = \\sqrt{-g_{tt}}$。2. 在弱场极限下，度规时间分量近似为 $g_{tt} \\approx -(1 + 2\\Phi)$，代入得：   $\\mathbf{E}_{min}/\\mu = \\sqrt{-(-(1 + 2\\Phi))} = \\sqrt{1 + 2\\Phi}$。3. 由于弱场条件 $|\\Phi| \\ll 1$，对上式进行泰勒展开（保留一阶近似）：   $\\sqrt{1 + 2\\Phi} \\approx 1 + \\Phi$。4. 因此，最小能量退化为：   $\\mathbf{E}_{min} \\approx \\mu(1 + \\Phi)$。"
+  },
+  "verification": null
+}

@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "id": "1_s14_14.18",
+    "type": "prove",
+    "tags": {
+      "metric": "electromagnetism",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "covariant_divergence",
+      "scenario": "maxwell_equations",
+      "method": "differential_geometry"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.18",
+    "source_id": "1_s14_14.18",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.18"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "完整电磁应力能张量散度推导+多步协变导数恒等式变换+麦克斯韦方程组非平凡条件证明",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mu$",
+      "$\\nu$",
+      "$\\alpha$",
+      "$\\beta$",
+      "$\\tau$",
+      "$\\mathrm{F}^{\\mu \\nu}$",
+      "$\\mathrm{T}^{\\mu \\nu}$",
+      "$\\mathrm{g}^{\\mu \\nu}$",
+      "$\\mathbf{A}$",
+      "$\\underline{\\mathbf{E}}$",
+      "$\\underline{\\mathbf{B}}$"
+    ],
+    "target": [
+      "$\\mathbf{F}^{\\mu \\nu}_{;\\nu} = 0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 14.18. Show that except in the case $\\underline{\\mathbf{E}}\\cdot \\underline{\\mathbf{B}} = 0$ , the sourceless Maxwell equations $\\mathbf{F}^{\\beta \\nu}_{;\\nu} = 0$ follow from the requirements $\\nabla \\cdot \\mathbf{T} = 0$ , where $\\mathbf{T}$ is the electromagnetic stress-energy tensor, and from the fact that $\\mathbf{F}^{\\mu \\nu}$ is derived from a vector potential.",
+    "answer": "$\\mathbf{F}^{\\mu \\nu}_{;\\nu} = 0$ (except when $\\underline{\\mathbf{E}}\\cdot\\underline{\\mathbf{B}} = 0$)",
+    "solution": "Solution 14.18. For the electromagnetic stress-energy$$4 \\pi \\mathrm {T}^{\\mu \\nu} = - \\left(\\mathrm {F}_{\\alpha}^{\\mu} \\mathrm {F}^{\\alpha \\nu} + \\frac {1}{4} \\mathrm {g}^{\\mu \\nu} \\mathrm {F}_{\\alpha} \\beta^{\\mathrm {F}^{\\alpha} \\beta}\\right) \\tag {1}$$$$4 \\pi \\mathrm {T}^{\\mu \\nu}_{; \\nu} = - \\left(\\mathrm {F}_{\\alpha ; \\nu}^{\\mu} \\mathrm {F}^{\\alpha \\nu} + \\mathrm {F}_{\\alpha}^{\\mu} \\mathrm {F}^{\\alpha \\nu}_{; \\nu} + \\frac {1}{2} \\mathrm {F}_{\\alpha} \\beta \\mathrm {F}^{\\alpha \\beta ; \\mu}\\right) = 0. \\tag {2}$$Now, the first and last terms above equal$$\\begin{array}{l} - \\mathbf {F}^{\\alpha \\beta} \\mathbf {g}^{\\mu \\tau} \\left(\\frac {1}{2} \\mathbf {F}_{\\alpha \\beta ; \\tau} + \\mathbf {F}_{\\tau \\alpha ; \\beta}\\right) = - \\frac {1}{2} \\mathbf {F}^{\\alpha \\beta} \\mathbf {g}^{\\mu \\tau} \\left(\\mathbf {F}_{\\alpha \\beta ; \\tau} + \\mathbf {F}_{\\tau \\alpha ; \\beta} - \\mathbf {F}_{\\tau \\beta ; \\alpha}\\right) \\\\ = - \\frac {1}{2} F^{\\alpha \\beta} g^{\\mu \\tau} \\left(F_{\\alpha \\beta ; r} + F_{r \\alpha ; \\beta} + F_{\\beta r; \\alpha}\\right) \\\\ \\propto \\mathrm {F}^{\\alpha \\beta} \\mathrm {g}^{\\mu r} \\mathrm {F}_{[ \\alpha \\beta ; r ]} = 0. \\\\ \\end{array}$$If $\\mathbf{F}$ is derivable from a potential $\\mathbf{A}$ in the usual way, then $\\mathbf{F}[\\alpha \\beta; \\tau] = 0$ and we are left with$$0 = 4 \\pi \\mathrm {T}_{; \\nu}^{\\mu \\nu} = - \\mathrm {F}_{a}^{\\mu} \\mathrm {F}_{; \\nu}^{a \\nu}.$$This implies that $\\mathbf{F}_{; \\nu}^{a \\nu} = 0$ except in the case that the determinant of the coefficients $\\mathbf{F}_{\\alpha}^{\\mu}$ vanishes. But $\\det (\\mathbf{F}_{\\alpha}^{\\mu}) = -(\\underline{\\mathbf{E}} \\cdot \\underline{\\mathbf{B}})^2$ ."
+  },
+  "verification": null
+}

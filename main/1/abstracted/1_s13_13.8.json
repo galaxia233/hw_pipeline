@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s13_13.8",
+    "type": "concept",
+    "tags": {
+      "metric": "metric_construction",
+      "target_object": "conceptual_existence",
+      "coordinate": "stress_energy_tensor",
+      "scenario": "theoretical_scenario",
+      "method": "inverse_einstein_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.8",
+    "source_id": "1_s13_13.8",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "概念存在性证明结合度规拼接技术与能动张量重构逻辑链条完整",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$g_{\\\\mu\\\\nu}$",
+      "$T_{\\\\mu\\\\nu}$"
+    ],
+    "target": null,
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s13_13.8.md]\\n\\nProblem 13.8. Is it possible to have a solution of the Einstein field equations in which space is empty to the past of some surface of constant time $t = 0$ , but in which there is a nonvanishing $T_{\\\\mu \\\\nu}$ to the future of this surface?\\n\\n## Solution\\n\\nSolution 13.8. Yes. Write down a metric $\\mathbf{g}_{\\\\mu \\\\nu}$ such that $\\mathbf{g}_{\\\\mu \\\\nu} = \\\\eta_{\\\\mu \\\\nu}$ for $t < 0$ (this is clearly empty space) and $\\mathbf{g}_{\\\\mu \\\\nu} =$ (arbitrary functions of your choice) for $t \\\\geq 0$ . The only constraint on the arbitrary functions is that they be twice differentiable and match smoothly to the flat-space values at the $t = 0$ surface. Now from this metric $\\mathbf{g}_{\\\\mu \\\\nu}$ we can calculate the Ricci tensor and scalar and we can define a tensor $\\mathbf{T}_{\\\\mu \\\\nu} \\\\equiv (8\\\\pi)^{-1}(\\\\mathbf{R}_{\\\\mu \\\\nu} - \\\\frac{1}{2}\\\\mathbf{g}_{\\\\mu \\\\nu}\\\\mathbf{R})$ . This tensor is obviously symmetric, and by the contracted Bianchi identities is divergenceless. If we fill spacetime with a stress-energy equal to this, then $\\mathbf{g}_{\\\\mu \\\\nu}$ is a solution of the Einstein field equations. (However, for a physically meaningful solution there must be further requirements for $\\mathbf{T}_{\\\\mu \\\\nu}$ , e.g. energy density should be everywhere nonnegative. This will not in general be true for the procedure above.)",
+    "answer": "Yes.",
+    "solution": "Solution 13.8. Yes. Write down a metric $\\mathbf{g}_{\\\\mu \\\\nu}$ such that $\\mathbf{g}_{\\\\mu \\\\nu} = \\\\eta_{\\\\mu \\\\nu}$ for $t < 0$ (this is clearly empty space) and $\\mathbf{g}_{\\\\mu \\\\nu} =$ (arbitrary functions of your choice) for $t \\\\geq 0$ . The only constraint on the arbitrary functions is that they be twice differentiable and match smoothly to the flat-space values at the $t = 0$ surface. Now from this metric $\\mathbf{g}_{\\\\mu \\\\nu}$ we can calculate the Ricci tensor and scalar and we can define a tensor $\\mathbf{T}_{\\\\mu \\\\nu} \\\\equiv (8\\\\pi)^{-1}(\\\\mathbf{R}_{\\\\mu \\\\nu} - \\\\frac{1}{2}\\\\mathbf{g}_{\\\\mu \\\\nu}\\\\mathbf{R})$ . This tensor is obviously symmetric, and by the contracted Bianchi identities is divergenceless. If we fill spacetime with a stress-energy equal to this, then $\\mathbf{g}_{\\\\mu \\\\nu}$ is a solution of the Einstein field equations. (However, for a physically meaningful solution there must be further requirements for $\\mathbf{T}_{\\\\mu \\\\nu}$ , e.g. energy density should be everywhere nonnegative. This will not in general be true for the procedure above.)"
+  },
+  "verification": null
+}

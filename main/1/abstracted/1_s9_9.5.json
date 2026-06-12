@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s9_9.5",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "christoffel_symbol",
+      "coordinate": "riemann_tensor",
+      "scenario": "uv_coordinates",
+      "method": "toy_model_spacetime"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.5",
+    "source_id": "1_s9_9.5",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.5,
+      "rationale": "标准二维度规计算题，涉及联络与曲率张量的多步推导及平坦性结论",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$v$",
+      "$u$"
+    ],
+    "target": [
+      "$\\Gamma^v_{uu}$",
+      "$\\Gamma^u_{uv}$",
+      "$\\Gamma^u_{vu}$",
+      "$R_{vvuu}$",
+      "$R_{\\alpha\\beta\\gamma\\delta}$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$-v^2$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "-v**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 9.5. Find the Christoffel symbols and Riemann curvature components for the two dimensional spacetime:$$\\mathrm {d s}^{2} = \\mathrm {d v}^{2} - \\mathrm {v}^{2} \\mathrm {d u}^{2}.$$",
+    "answer": "$\\Gamma^v_{uu} = v$, $\\Gamma^u_{uv} = \\Gamma^u_{vu} = v^{-1}$; $R_{\\alpha\\beta\\gamma\\delta} = 0$ (spacetime is flat)",
+    "solution": "Solution 9.5. The only nonvanishing Christoffel symbols are $\\Gamma_{\\mathbf{uu}}^{\\mathbf{v}} = \\mathbf{v}$ and $\\Gamma_{\\mathbf{uv}}^{\\mathbf{u}} = \\Gamma_{\\mathbf{vu}}^{\\mathbf{u}} = \\mathbf{v}^{-1}$ , so that$$\\begin{array}{l}\\mathsf {R}_{\\mathsf {v u v u}} = \\mathsf {R}_{\\mathsf {u v u}}^{\\mathsf {v}} = \\Gamma_{\\mathsf {u u}, \\mathsf {v}}^{\\mathsf {v}} - \\Gamma_{\\mathsf {v u}, \\mathsf {u}}^{\\mathsf {v}} + \\Gamma_{\\mathsf {v}\\alpha}^{\\mathsf {v}} \\Gamma_{\\mathsf {u u}}^{\\alpha} - \\Gamma_{\\mathsf {u}\\alpha}^{\\mathsf {v}} \\Gamma_{\\mathsf {u v}}^{\\alpha} \\\\= 1 - 0 + 0 - 1 = 0. \\\\\\end{array}$$Since there is only one independent Riemann component in two dimensions we conclude that $\\mathbf{R}_{\\alpha \\beta \\gamma \\delta} = 0$ , and the spacetime is flat. (This was also shown by a coordinate transformation in Problem 6.1.)"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 2,
+    "variables": [
+      "v",
+      "u"
+    ],
+    "metric_latex": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "- v^{2}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_011": "v",
+      "Gamma_101": "\\frac{1}{v}",
+      "Gamma_110": "\\frac{1}{v}"
+    },
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

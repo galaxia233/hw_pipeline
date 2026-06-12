@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s13_13.17",
+    "type": "prove",
+    "tags": {
+      "metric": "linearized_metric",
+      "target_object": "christoffel_target_object",
+      "coordinate": "cartesian_coordinate",
+      "scenario": "parallel_light_beam_scenario",
+      "method": "geodesic_integration_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.17",
+    "source_id": "1_s13_13.17",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.17"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基于线性化引力框架，串联应力能张量形式、场方程通解结构与测地线方程，严密推导出横向加速度抵消，逻辑链条完整且具明确理论动机",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$\\lambda$"
+    ],
+    "target": [
+      "$\\Gamma_{00}^{y}$",
+      "$\\Gamma_{xx}^{y}$",
+      "$\\Gamma_{0x}^{y}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 13.17. Show that in linearized theory there is no attractive gravitational force between two thin parallel beams of light.",
+    "answer": "Two thin parallel beams of light initially moving parallel will not attract each other ($\\mathrm{d}^2\\mathrm{y}/\\mathrm{d}\\lambda^2 = 0$, $\\mathrm{d}^2 z/\\mathrm{d}\\lambda^2 = 0$).",
+    "solution": "For a beam of light moving in the $x$ -direction nonzero components of the stress-energy tensor are $\\mathbf{T}_{00} = \\mathbf{T}_{xx} = -\\mathbf{T}_{0x}$ . From the form of the linearized field equations$$\\square \\bar {h}_{\\alpha \\beta} \\equiv \\bar {h}_{\\alpha \\beta , \\gamma},^{\\gamma} = - 1 6 \\pi T_{\\alpha \\beta}$$and from the fact that all components of $\\mathbf{h}_{\\alpha\\beta}$ should be retarded integrals over the source, the solutions must be related in the same way that the sources are:$$\\overline {{\\mathbf {h}}}_{0 0} = \\overline {{\\mathbf {h}}}_{\\mathbf {x x}} = - \\overline {{\\mathbf {h}}}_{0 \\mathbf {x}},$$with all other components zero. Since the trace of $\\overline{\\mathbf{h}}_{\\alpha\\beta}$ is zero, $\\overline{\\mathbf{h}}_{\\alpha\\beta} = \\mathbf{h}_{\\alpha\\beta}$ and the above relation is also true if we remove the bars on the h's.For a photon moving in the $x$ -direction with affine parameter $\\lambda$ ,$$\\frac {\\mathrm {d}^{2} \\mathbf {y}}{\\mathrm {d} \\lambda^{2}} = - \\frac {\\mathrm {d} \\mathbf {x}^{\\alpha}}{\\mathrm {d} \\lambda} \\frac {\\mathrm {d} \\mathbf {x}^{\\beta}}{\\mathrm {d} \\lambda} \\Gamma_{\\alpha \\beta}^{\\mathbf {y}} = - \\left(\\frac {\\mathrm {d} \\mathbf {t}}{\\mathrm {d} \\lambda}\\right)^{2} \\left(\\Gamma_{\\mathbf {\\Lambda}_{0 0}}^{\\mathbf {y}} + \\Gamma_{\\mathbf {\\Lambda}_{\\mathbf {x x}}}^{\\mathbf {y}} + 2 \\Gamma_{\\mathbf {\\Lambda}_{0 \\mathbf {x}}}^{\\mathbf {y}}\\right).$$But the right hand side vanishes$$2 \\Gamma^{\\mathbf {y}}_{0 \\mathbf {x}} + \\Gamma^{\\mathbf {y}}_{0 0} + \\Gamma^{\\mathbf {y}}_{\\mathbf {x x}} = - \\frac {1}{2} \\left(h_{0 0, \\mathbf {y}} + h_{\\mathbf {x x}, \\mathbf {y}} - 2 h_{0 \\mathbf {x}, \\mathbf {y}}\\right) = 0$$so that $\\mathrm{d}^2\\mathrm{y} / \\mathrm{d}\\lambda^2 = 0$ and similarly $\\mathrm{d}^2 z / \\mathrm{d}\\lambda^2 = 0$ . Thus the photon continues to move parallel to the beam of light and therefore two thin beams of light initially moving parallel will not attract each other to the lowest order in each of their mass-energies. (In fact, it turns out that there is no attraction even in higher order.)"
+  },
+  "verification": null
+}

@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-0-3",
+    "type": "prove",
+    "tags": {
+      "target_object": "metric_transverse_curvature_effects",
+      "coordinate": "spherical_static",
+      "scenario": "static_gravitational_field_weight",
+      "method": "covariant_conservation_inversion",
+      "generalization_axis": "substitute",
+      "metric": "AntiDeSitterStatic"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-0",
+      "1_s14_14.6-0-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "AntiDeSitterStatic",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\Gamma^r_{\\theta\\theta} = -\\frac{\\sin h(2r)}{2}$",
+      "$\\Gamma^r_{\\phi\\phi} = -\\frac{\\sin^2(\\theta)\\sin h(2r)}{2}$"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一个沿径向 $r$ 方向的静态引力场，其度规为对角形式：$$\\mathrm{d}s^2 = -\\cos h^{2}(r) \\mathrm{d}t^2 + \\mathrm{d}r^2 + \\sin h^{2}(r) \\mathrm{d}\\theta^2 + \\sin^{2}(\\theta) \\sin h^{2}(r) \\mathrm{d}\\phi^2$$其中采用 $(-,+,+,+)$ 符号约定。将装有不同物质的容器置于该场中，并在 $r=r_0$ 处用秤测量其重量。重量定义为容器底面（径向面）正应力的积分：$W(r) = \\int g_{rr} T^{rr} \\mathrm{d}\\theta \\mathrm{d}\\phi$。实验观测表明，即使不同物质的总积分能量密度 $\\int T^{\\hat{t}\\hat{t}} \\mathrm{d}V$ 相同，只要其内部横向角向应力 $T^{\\hat{\\theta}\\hat{\\theta}}$ 和 $T^{\\hat{\\phi}\\hat{\\phi}}$ 不同，其在 $r_0$ 处的重量 $W(r_0)$ 就不同。这意味着重量不仅依赖于积分能量密度，还显著受横向角向应力影响。请利用能动张量的协变守恒律 $T^{\\alpha\\beta}_{;\\beta} = 0$，推导 $W(r)$ 满足的演化方程，并证明重量对横向角向应力的依赖是由度规横向分量的径向导数引起的，具体给出方程中体现这种依赖的 Christoffel 符号表达式。",
+    "answer": "推导出的守恒方程在角向积分后包含 $\\Gamma^r_{\\theta\\theta} \\int T^{\\theta\\theta} \\mathrm{d}\\theta \\mathrm{d}\\phi$ 和 $\\Gamma^r_{\\phi\\phi} \\int T^{\\phi\\phi} \\mathrm{d}\\theta \\mathrm{d}\\phi$ 两项。由于度规横向分量沿径向非均匀，$\\Gamma^r_{\\theta\\theta} = -\\frac{\\sin h(2r)}{2} \\neq 0$ 且 $\\Gamma^r_{\\phi\\phi} = -\\frac{\\sin^{2}(\\theta)\\sin h(2r)}{2} \\neq 0$，这些项不为零，证明了重量必然依赖于横向角向应力。",
+    "solution": "取能动张量协变守恒律的径向分量：$$T^{r\\beta}_{;\\beta} = 0$$展开该式，利用度规对角且主要依赖 $r$ 的性质，我们有：$$|g|^{-1/2} \\left( |g|^{1/2} T^{rr}\\right)_{,r} + \\Gamma^r_{\\beta\\gamma} T^{\\beta\\gamma} = 0$$非零的带 $r$ 上指标的 Christoffel 符号为：$$\\Gamma^r_{tt} = -\\frac{1}{2} g^{rr} g_{tt,r}, \\quad \\Gamma^r_{\\theta\\theta} = -\\frac{1}{2} g^{rr} g_{\\theta\\theta,r}, \\quad \\Gamma^r_{\\phi\\phi} = -\\frac{1}{2} g^{rr} g_{\\phi\\phi,r}, \\quad \\Gamma^r_{rr} = \\frac{1}{2} g^{rr} g_{rr,r}$$代入度规分量计算可得：$$\\Gamma^r_{\\theta\\theta} = -\\frac{\\sin h(2r)}{2}, \\quad \\Gamma^r_{\\phi\\phi} = -\\frac{\\sin^{2}(\\theta)\\sin h(2r)}{2}$$将上述符号代入守恒律方程，并在横截面 $\\mathrm{d}\\theta \\mathrm{d}\\phi$ 上积分（假设容器边界无外部剪切力，边界项为零）：$$|g|^{-1/2} \\left( |g|^{1/2} \\int T^{rr} \\mathrm{d}\\theta \\mathrm{d}\\phi\\right)_{,r} + \\Gamma^r_{tt} \\int T^{tt} \\mathrm{d}\\theta \\mathrm{d}\\phi + \\Gamma^r_{\\theta\\theta} \\int T^{\\theta\\theta} \\mathrm{d}\\theta \\mathrm{d}\\phi + \\Gamma^r_{\\phi\\phi} \\int T^{\\phi\\phi} \\mathrm{d}\\theta \\mathrm{d}\\phi + \\Gamma^r_{rr} \\int T^{rr} \\mathrm{d}\\theta \\mathrm{d}\\phi = 0$$已知重量定义为 $W(r) = \\int g_{rr} T^{rr} \\mathrm{d}\\theta \\mathrm{d}\\phi = \\int T^{rr} \\mathrm{d}\\theta \\mathrm{d}\\phi$（因为 $g_{rr}=1$）。方程中横向角向应力项的系数正是 $\\Gamma^r_{\\theta\\theta}$ 和 $\\Gamma^r_{\\phi\\phi}$。由于在新度规下 $g_{\\theta\\theta,r} \\neq 0$ 且 $g_{\\phi\\phi,r} \\neq 0$，导致这两个 Christoffel 符号非零，横向应力项无法从方程中消去。因此，重量 $W(r)$ 的演化必然依赖于内部的横向角向应力，这种依赖的几何起源正是度规横向分量的径向导数。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.antidesitterstatic_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "solution 中在积分协变守恒律方程时，犯了严重的数学错误：将依赖于被积坐标 $\\theta$ 的函数 $|g|^{1/2}$ 和 $\\Gamma^r_{\\phi\\phi}$ 作为常系数提取到了对 $\\theta, \\phi$ 的积分号之外。由于 $|g|^{1/2} = \\cosh(r)\\sinh^2(r)\\sin(\\theta)$ 和 $\\Gamma^r_{\\phi\\phi} = -\\frac{\\sin^2(\\theta)\\sinh(2r)}{2}$ 都显含 $\\theta$，它们绝对不能从对 $\\theta$ 的积分中提出，这导致 solution 中的演化方程完全错误。此外，题目定义的重量 $W(r) = \\int g_{rr} T^{rr} \\mathrm{d}\\theta \\mathrm{d}\\phi$ 缺少了物理面积元的度规因子 $\\sqrt{g_{\\theta\\theta}g_{\\phi\\phi}} = \\sinh^2(r)\\sin(\\theta)$，使得该定义并非真正的正应力面积分（即物理上的力）。最后，度规的 LaTeX 代码存在拼写错误，`\\cos h` 和 `\\sin h` 应为 `\\cosh` 和 `\\sinh`。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

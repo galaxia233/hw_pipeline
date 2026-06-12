@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "id": "1_s3_3.1_b",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "timelike_interval",
+      "coordinate": "Lorentz_transformation",
+      "scenario": "inertial_frame",
+      "method": "reference_frame_existence"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.1_b",
+    "source_id": "1_s3_3.1_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.1_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.5,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "利用洛伦兹变换公式与类时间隔不等式严格证明静止参考系的存在性",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      null
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "(b) in no Lorentz frame do they occur at the same point.(II) If 2 events are separated by a timelike interval, show that(a) there exists a frame in which they happen at the same point, and",
+    "answer": "存在一个惯性系使得两事件的空间坐标重合（即 $\\Delta x'^i = 0$）。",
+    "solution": "设两事件在实验室系 $S$ 中的坐标差为 $\\Delta x^\\mu = (\\Delta t, \\Delta x, \\Delta y, \\Delta z)$。由题意知间隔为类时：$ds^2 = -c^2\\Delta t^2 + \\Delta x^2 + \\Delta y^2 + \\Delta z^2 < 0$，故有 $\\sqrt{\\Delta x^2 + \\Delta y^2 + \\Delta z^2} < c|\\Delta t|$。沿空间位移方向施加一洛伦兹boost，取相对速度 $v = \\frac{\\sqrt{\\Delta x^2 + \\Delta y^2 + \\Delta z^2}}{|\\Delta t|}$。由于类时条件保证 $v < c$，该boost物理上可实现。根据洛伦兹变换的空间部分，平行于运动方向的坐标变换为 $\\Delta x'_\\parallel = \\gamma(\\Delta x_\\parallel - v \\Delta t)$。代入 $v$ 的表达式得 $\\Delta x'_\\parallel = 0$，垂直方向不变亦为零。因此在以速度 $\\vec{v}$ 运动的参考系中，两事件发生在同一地点。"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

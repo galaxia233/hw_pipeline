@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s13_13.13",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "riemann_tensor",
+      "coordinate": "cartesian_coordinate",
+      "scenario": "linearized_gravity",
+      "method": "gauge_transformation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.13",
+    "source_id": "1_s13_13.13",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.13"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "弱场近似下黎曼张量一阶展开推导结合规范对称性验证，逻辑链条完整且具明确物理应用背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$h_{\\mu \\nu}$",
+      "$R_{\\alpha \\mu \\beta \\nu}$",
+      "$\\Gamma^{\\lambda}_{\\mu \\nu}$",
+      "$\\xi_{\\mu}$",
+      "$\\eta_{\\mu \\nu}$"
+    ],
+    "target": [
+      "$R_{\\alpha \\mu \\beta \\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 13.13. Show that in linearized theory the components of the Riemann tensor are$$\\mathsf {R}_{\\alpha \\mu \\beta \\nu} = \\frac {1}{2} \\left(\\mathsf {h}_{\\alpha \\nu , \\mu \\beta} + \\mathsf {h}_{\\mu \\beta , \\nu \\alpha} - \\mathsf {h}_{\\mu \\nu , \\alpha \\beta} - \\mathsf {h}_{\\alpha \\beta , \\mu \\nu}\\right) .$$Also show explicitly that this Riemann tensor is invariant under a gauge transformation.",
+    "answer": "$R_{\\alpha \\mu \\beta \\nu} = \\frac{1}{2} (h_{\\alpha \\nu , \\mu \\beta} + h_{\\mu \\beta , \\nu \\alpha} - h_{\\mu \\nu , \\alpha \\beta} - h_{\\alpha \\beta , \\mu \\nu})$; 规范变换下形式保持不变",
+    "solution": "Solution 13.13. Since the Christoffel symbols $\\Gamma_{a\\mu \\beta} = \\frac{1}{2} (\\mathtt{h}_{a\\beta ,\\mu} + \\mathtt{h}_{a\\mu ,\\beta} - \\mathtt{h}_{\\beta \\mu ,a})$ are of order $h$ we may ignore the terms that are products of the $\\Gamma$ 's in the formula relating the Riemann components to the $\\Gamma$ 's, thus we are left with$$\\begin{array}{l} \\mathrm {R}_{\\alpha \\mu \\beta \\nu} \\approx \\mathrm {g}_{\\alpha \\lambda} \\left(\\Gamma_{\\mu \\nu , \\beta}^{\\lambda} - \\Gamma_{\\mu \\beta , \\nu}^{\\lambda}\\right) \\approx 2 \\Gamma_{\\alpha \\mu [ \\nu , \\beta ]} \\\\ = \\left(\\mathrm {h}_{\\alpha [ \\nu , \\beta ], \\mu} - \\mathrm {h}_{\\mu [ \\nu , \\beta ], \\alpha}\\right) \\\\ \\end{array}$$and the formula is verified.Under a gauge transformation $\\mathrm{h}_{\\mu \\nu} \\rightarrow \\mathrm{h}_{\\mu \\nu} - 2\\xi_{(\\mu, \\nu)}$ and$$\\mathsf {R}_{a \\mu \\beta \\nu} \\to \\mathsf {R}_{a \\mu \\beta \\nu} - \\xi_{a [, \\nu , \\beta ], \\mu} + \\xi_{\\mu [, \\nu , \\beta ], a} - \\xi_{\\nu [, a, \\beta ], \\mu} + \\xi_{\\nu [, \\mu , \\beta ], a}.$$Since partial derivatives commute the added terms cancel and the form of the Riemann tensor is unchanged."
+  },
+  "verification": null
+}

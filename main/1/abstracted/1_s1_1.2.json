@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s1_1.2",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "Cartesian_coordinate",
+      "scenario": "Special_Relativity_Boost",
+      "method": "Matrix_Multiplication"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.2",
+    "source_id": "1_s1_1.2",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "通过矩阵乘法推导洛伦兹群非交换性，逻辑步骤完整，具有相对论速度合成与托马斯进动的物理背景",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$\\\\mathbf{v}_x$",
+      "$\\\\mathbf{v}_y$",
+      "$\\\\gamma_x$",
+      "$\\\\gamma_y$"
+    ],
+    "target": [
+      "$\\\\Lambda_{yx}$",
+      "$\\\\Lambda_{xy}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.2. Find the matrix for the Lorentz transformation consisting of a boost $\\mathbf{v}_{\\mathbf{x}}$ in the $\\mathbf{x}$ -direction followed by a boost $\\mathbf{v}_{\\mathbf{y}}$ in the $\\mathbf{y}$ -direction. Show that the boosts performed in the reverse order would give a different transformation.",
+    "answer": "$\\\\Lambda_{\\\\mathbf{x}}\\\\Lambda_{\\\\mathbf{y}} \\\\neq \\\\Lambda_{\\\\mathbf{y}}\\\\Lambda_{\\\\mathbf{x}}$",
+    "solution": "Solution 1.2. The product of the transformations is\\n$$\\n\\\\left[ \\\\begin{array}{c c c c} \\\\gamma_{\\\\mathbf {x}} & \\\\gamma_{\\\\mathbf {x}} \\\\mathbf {v}_{\\\\mathbf {x}} & 0 & \\\\underline {{0}} \\\\\\\\\\n\\\\gamma_{\\\\mathbf {x}} \\\\mathbf {v}_{\\\\mathbf {x}} & \\\\gamma_{\\\\mathbf {x}} & 0 & 0 \\\\\\\\\\n0 & 0 & 1 & 0 \\\\\\\\\\n0 & 0 & 0 & \\\\underline {{1}} \\\\end{array} \\\\right] \\\\left[ \\\\begin{array}{c c c c} \\\\gamma_{\\\\mathbf {y}} & 0 & \\\\gamma_{\\\\mathbf {y}} \\\\mathbf {v}_{\\\\mathbf {y}} & \\\\underline {{0}} \\\\\\\\\\n0 & 1 & 0 & 0 \\\\\\\\\\n\\\\gamma_{\\\\mathbf {y}} \\\\mathbf {v}_{\\\\mathbf {y}} & 0 & \\\\gamma_{\\\\mathbf {y}} & 0 \\\\\\\\\\n0 & 0 & 0 & \\\\underline {{1}} \\\\end{array} \\\\right] = \\\\left[ \\\\begin{array}{c c c c} \\\\gamma_{\\\\mathbf {x}} \\\\gamma_{\\\\mathbf {y}} & \\\\gamma_{\\\\mathbf {x}} \\\\mathbf {v}_{\\\\mathbf {x}} & \\\\gamma_{\\\\mathbf {x}} \\\\gamma_{\\\\mathbf {y}} \\\\mathbf {v}_{\\\\mathbf {y}} & \\\\underline {{0}} \\\\\\\\\\n\\\\gamma_{\\\\mathbf {x}} \\\\gamma_{\\\\mathbf {y}} \\\\mathbf {v}_{\\\\mathbf {x}} & \\\\gamma_{\\\\mathbf {x}} & \\\\gamma_{\\\\mathbf {x}} \\\\gamma_{\\\\mathbf {y}} \\\\mathbf {v}_{\\\\mathbf {x}} \\\\mathbf {v}_{\\\\mathbf {y}} & 0 \\\\\\\\\\n\\\\gamma_{\\\\mathbf {y}} \\\\mathbf {v}_{\\\\mathbf {y}} & 0 & \\\\gamma_{\\\\mathbf {y}} & 0 \\\\\\\\\\n0 & 0 & 0 & \\\\underline {{1}} \\\\end{array} \\\\right],\\n$$\\nbut\\n$$\\n\\\\left[ \\\\begin{array}{c c c c} \\\\gamma_{\\\\mathbf {y}} & 0 & \\\\gamma_{\\\\mathbf {y}} \\\\mathbf {v}_{\\\\mathbf {y}} & \\\\overline {{0}} \\\\\\\\\\n0 & 1 & 0 & 0 \\\\\\\\\\n\\\\gamma_{\\\\mathbf {y}} \\\\mathbf {v}_{\\\\mathbf {y}} & 0 & \\\\gamma_{\\\\mathbf {y}} & 0 \\\\\\\\\\n0 & 0 & 0 & \\\\underline {{1}} \\\\end{array} \\\\right] \\\\left[ \\\\begin{array}{c c c c} \\\\gamma_{\\\\mathbf {x}} & \\\\gamma_{\\\\mathbf {x}} \\\\mathbf {v}_{\\\\mathbf {x}} & 0 & \\\\overline {{0}} \\\\\\\\\\n\\\\gamma_{\\\\mathbf {x}} \\\\mathbf {v}_{\\\\mathbf {x}} & \\\\gamma_{\\\\mathbf {x}} & 0 & 0 \\\\\\\\\\n0 & 0 & 1 & 0 \\\\\\\\\\n0 & 0 & 0 & \\\\underline {{1}} \\\\end{array} \\\\right] = \\\\left[ \\\\begin{array}{c c c c} \\\\gamma_{\\\\mathbf {x}} \\\\gamma_{\\\\mathbf {y}} & \\\\gamma_{\\\\mathbf {y}} \\\\gamma_{\\\\mathbf {x}} \\\\mathbf {v}_{\\\\mathbf {x}} & \\\\gamma_{\\\\mathbf {y}} \\\\mathbf {v}_{\\\\mathbf {y}} & \\\\overline {{0}} \\\\\\\\\\n\\\\gamma_{\\\\mathbf {x}} \\\\mathbf {v}_{\\\\mathbf {x}} & \\\\gamma_{\\\\mathbf {x}} & 0 & 0 \\\\\\\\\\n\\\\gamma_{\\\\mathbf {x}} \\\\gamma_{\\\\mathbf {y}} \\\\mathbf {v}_{\\\\mathbf {y}} & \\\\gamma_{\\\\mathbf {x}} \\\\gamma_{\\\\mathbf {y}} \\\\mathbf {v}_{\\\\mathbf {x}} \\\\mathbf {v}_{\\\\mathbf {y}} & \\\\gamma_{\\\\mathbf {y}} & 0 \\\\\\\\\\n0 & 0 & 0 & \\\\underline {{1}} \\\\end{array} \\\\right]\\n$$\\nwhich is different."
+  },
+  "verification": null
+}

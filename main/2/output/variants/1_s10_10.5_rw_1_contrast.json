@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-1-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "lie_bracket_commutativity",
+      "coordinate": "t_phi_and_xyz",
+      "scenario": "spacetime_symmetry_contrast",
+      "method": "lie_bracket_computation",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-1",
+      "1_s10_10.5-1-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "Lie bracket calculation",
+      "Commutativity consequence on coordinate independence",
+      "Simultaneous conservation of quantities"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，时空的对称性由 Killing 矢量场描述，而它们之间的对易性（李括号为零）决定了能否在局部坐标系中同时体现这些对称性并导出简单的守恒量。考虑以下两种物理背景：**背景 A（平坦时空）**：闵可夫斯基时空，度规为 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$。我们关注其两个空间旋转 Killing 矢量场 $\\boldsymbol{\\xi}_A = y\\partial_z - z\\partial_y$ 和 $\\boldsymbol{\\eta}_A = z\\partial_x - x\\partial_z$。**背景 B（球对称引力场）**：史瓦西时空，度规为 $ds^2 = \\frac{-r+r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。根据其几何属性，它具有时间平移 Killing 矢量 $\\boldsymbol{\\xi}_B = \\partial_t$ 和绕 z 轴旋转 Killing 矢量 $\\boldsymbol{\\eta}_B = \\partial_\\phi$。请在两种背景下分别计算指定 Killing 矢量场的李括号 $[\\boldsymbol{\\xi}, \\boldsymbol{\\eta}]$，并对比结果：解释李括号是否为零，如何物理地决定了我们能否找到一个局部坐标系使得度规不依赖于这两个坐标，以及能否同时将这两个对称性对应的守恒量简单表示为度规分量与四维速度相应分量的乘积（如 $E = -g_{00}u^0$ 与 $L = g_{33}u^3$）。",
+    "answer": "背景 A 的李括号 $[\\boldsymbol{\\xi}_A, \\boldsymbol{\\eta}_A] = y\\partial_x - x\\partial_y \\neq 0$；背景 B 的李括号 $[\\boldsymbol{\\xi}_B, \\boldsymbol{\\eta}_B] = [\\partial_t, \\partial_\\phi] = 0$。物理含义对比：背景 B 中 Killing 矢量对易，根据 Frobenius 定理（对易矢量场坐标系化定理），必定存在局部坐标系使得它们成为坐标基矢量，因此度规分量不依赖于这两个坐标（$\\partial_t g_{\\mu\\nu} = 0, \\partial_\\phi g_{\\mu\\nu} = 0$），从而能量和角动量可以同时以 $E=-g_{00}u^0$ 和 $L=g_{33}u^3$ 的形式守恒；背景 A 中两个旋转 Killing 矢场不对易，无法找到这样的局部坐标系使得度规同时独立于它们对应的两个坐标，因此对应的两个角动量 $L_x, L_y$ 无法在同一个坐标系下同时表现为这种简单的度规-速度乘积守恒形式，这反映了旋转对称群的非阿贝尔结构特征。",
+    "solution": "1. **背景 A 李括号计算**：$[\\boldsymbol{\\xi}_A, \\boldsymbol{\\eta}_A] = [y\\partial_z - z\\partial_y, z\\partial_x - x\\partial_z]$。展开计算：第一项 $y\\partial_z(z\\partial_x) - y\\partial_z(x\\partial_z) = y\\partial_x - 0$；第二项 $-z\\partial_y(z\\partial_x) + z\\partial_y(x\\partial_z) = 0 - 0$；第三项 $-z\\partial_x(y\\partial_z) + z\\partial_x(z\\partial_y) = 0 + 0$；第四项 $x\\partial_z(y\\partial_z) - x\\partial_z(z\\partial_y) = 0 - x\\partial_y$。合并得 $[\\boldsymbol{\\xi}_A, \\boldsymbol{\\eta}_A] = y\\partial_x - x\\partial_y \\neq 0$（这恰好是绕 z 轴的旋转 Killing 矢量）。2. **背景 B 李括号计算**：由于坐标基矢量天然对易，$[\\partial_t, \\partial_\\phi] = 0$。3. **对比物理含义**：- 对易性决定了矢量场能否积分出共同的坐标系。背景 B 对易，故 $t$ 和 $\\phi$ 可作为全局坐标，且 $\\boldsymbol{\\xi}_B = \\partial_t, \\boldsymbol{\\eta}_B = \\partial_\\phi$ 表明沿这些坐标平移是等距变换，度规不含 $t$ 和 $\\phi$。因此，由 Killing 方程直接导出 $p_t = -E = g_{00}u^0$ 与 $p_\\phi = L = g_{33}u^3$ 同时守恒。- 背景 A 不对易，说明 $x$ 轴旋转和 $y$ 轴旋转无法同时作为某个坐标系的坐标基矢量。这意味着不存在坐标 $(u,v,\\cdots)$ 使得 $\\boldsymbol{\\xi}_A=\\partial_u$ 且 $\\boldsymbol{\\eta}_A=\\partial_v$ 且度规不含 $u, v$。因此，与这两个非对易 Killing 矢量对应的守恒量（角动量 $L_x, L_y$）不能在单一坐标系下同时写成 $g_{\\mu\\mu}u^\\mu$ 这种简单形式，反映了 SO(3) 群的非阿贝尔性质。"
+  },
+  "verification": null
+}

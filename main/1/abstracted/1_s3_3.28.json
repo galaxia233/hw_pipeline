@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s3_3.28",
+    "type": "prove",
+    "tags": {
+      "metric": "tensor_algebra",
+      "target_object": "levi_civita_symbol",
+      "coordinate": "generalized_kronecker_delta",
+      "scenario": "index_contraction",
+      "method": "antisymmetry_property"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.28",
+    "source_id": "1_s3_3.28",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.28"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "基于微分几何背景的张量恒等式证明，依赖全反对称符号缩并与反对称性，推导步骤完整且可推广至任意维数与秩",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\nu$",
+      "$\\\\lambda$",
+      "$\\\\kappa$",
+      "$\\\\rho$",
+      "$\\\\sigma$"
+    ],
+    "target": [
+      "$\\\\delta_{\\\\lambda \\\\kappa}^{\\\\mu \\\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.28. Show that $\\delta_{\\\\lambda \\\\kappa}^{\\\\mu \\\\nu} = -\\\\frac{1}{2}\\\\varepsilon^{\\\\mu \\\\nu \\\\rho \\\\sigma}\\\\varepsilon_{\\\\lambda \\\\kappa \\\\rho \\\\sigma},$ and generalize to $\\delta_{\\\\lambda \\\\dot s \\\\kappa}^{\\\\mu \\\\dot s \\\\nu}$ of other ranks.",
+    "answer": "$\\\\delta_{\\\\lambda \\\\kappa}^{\\\\mu \\\\nu} = -\\\\frac{1}{2}\\\\varepsilon^{\\\\mu \\\\nu \\\\rho \\\\sigma}\\\\varepsilon_{\\\\lambda \\\\kappa \\\\rho \\\\sigma}$",
+    "solution": "Solution 3.28. The indices $\\mu, \\nu, \\lambda, \\kappa$ must take on different values from $\\rho, \\sigma$ . For given $\\rho, \\sigma$ , we can have $\\mu$ equal to $\\kappa$ (with $\\nu$ then equal to $\\lambda$ ) or $\\mu$ equal to $\\lambda$ (with $\\nu$ then equal to $\\kappa$ ). All other possibilities vanish because of the antisymmetry of $\\varepsilon^{\\mu \\nu \\rho \\sigma}$ . Furthermore, because of that antisymmetry, the $\\mu = \\kappa$ , $\\nu = \\lambda$ case has a minus sign. Thus\\n$$\\n\\varepsilon^{\\\\mu \\\\nu \\\\rho \\\\sigma}_{\\\\varepsilon_{\\\\lambda \\\\kappa \\\\rho \\\\sigma}} = \\\\mathsf {C} (\\\\delta_{\\\\lambda}^{\\\\mu} \\\\delta_{\\\\kappa}^{\\\\nu} - \\\\delta_{\\\\kappa}^{\\\\mu} \\\\delta_{\\\\lambda}^{\\\\nu}) \\\\equiv \\\\mathsf {C} \\\\delta_{\\\\lambda \\\\kappa}^{\\\\mu \\\\nu}\\n$$\\nfor some C. Summing on $\\mu, \\lambda$ and $\\nu$ , k and using the results of Problem 3.22 gives $C = -2$ . Thus\\n$$\\n\\\\delta_{\\\\lambda \\\\kappa}^{\\\\mu \\\\nu} = - \\\\frac {1}{2} \\\\varepsilon^{\\\\mu \\\\nu \\\\rho \\\\sigma} \\\\varepsilon_{\\\\lambda \\\\kappa \\\\rho \\\\sigma}.\\n$$\\nIn general\\n$$\\n\\\\begin{array}{l} \\\\varepsilon^{\\\\mu \\\\nu \\\\lambda \\\\tau}_{\\\\iota \\\\kappa \\\\rho \\\\sigma} = - \\\\delta_{\\\\iota \\\\kappa \\\\rho \\\\sigma}^{\\\\mu \\\\nu \\\\lambda \\\\tau} \\\\\\\\\\n\\\\varepsilon^{\\\\mu \\\\nu \\\\lambda \\\\tau} \\\\varepsilon_{\\\\iota \\\\kappa \\\\rho \\\\tau} = - \\\\delta_{\\\\iota \\\\kappa \\\\rho}^{\\\\mu \\\\nu \\\\lambda}. \\\\\\\\\\n\\\\end{array}\\n$$"
+  },
+  "verification": null
+}

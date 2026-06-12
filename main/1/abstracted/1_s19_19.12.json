@@ -1,0 +1,204 @@
+{
+  "metadata": {
+    "id": "1_s19_19.12",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "robertson-walker",
+      "coordinate": "null-geodesic",
+      "scenario": "affine-parameter",
+      "method": "cosmology"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.12",
+    "source_id": "1_s19_19.12",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.12"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.85,
+      "rationale": "RW度规下零测地线仿射参数关系推导，结合对称性守恒量与坐标变换，具有明确宇宙学物理背景",
+      "overall": 0.84
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$",
+      "$\\\\lambda$",
+      "$k$",
+      "$R(t)$"
+    ],
+    "target": [
+      "$d r / d \\\\lambda$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$\\\\frac{R^2(t)}{1-k r^2}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$R^2(t) r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$R^2(t) r^2 \\\\sin^2 \\\\theta$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "(R**2*t)/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "R**2*(r**2*t)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "R**2*(t*(r**2*sin(theta)**2))"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 19.12. A ray of light travels along a radial line in the Robertson-Walker metric\\n$$\\n\\\\mathrm {d s}^{2} = - \\\\mathrm {d t}^{2} + \\\\mathrm {R}^{2} (\\\\mathrm {t}) \\\\left[ \\\\frac {\\\\mathrm {d r}^{2}}{1 - \\\\mathrm {k r}^{2}} + \\\\mathrm {r}^{2} \\\\mathrm {d} \\\\Omega^{2} \\\\right].\\n$$\\nHow is the coordinate $\\mathbf{r}$ related to the affine parameter $\\lambda$ along the ray, namely what is $\\mathrm{dr} / \\mathrm{d}\\lambda$ ?",
+    "answer": "$\\\\frac{d r}{d \\\\lambda} = C \\\\frac{(1 - k r^2)^{1/2}}{R^2(t)}$",
+    "solution": "Solution 19.12. Choose a new radial coordinate $\\chi$ , defined by $\\mathrm{d}\\chi^2 = \\mathrm{d}\\mathbf{r}^2 / (1 - \\mathbf{kr}^2)$ . Then for a radial photon $\\mathrm{d}\\theta = \\mathrm{d}\\phi = 0$ and the metric coefficients are independent of $\\chi$ along the ray. Therefore $\\chi$ is an ignorable coordinate, and $\\mathfrak{p}_{\\chi} =$ constant along the ray (see Problem 7.13). Raising this index with the metric gives\\n$$\\n\\\\mathbf {p}^{\\\\mathcal {X}} = \\\\mathbf {C} / \\\\mathbf {R}^{2} (t)\\n$$\\nwhere $\\mathbf{C}$ is some constant. But $p^{\\chi} = d\\chi /d\\lambda$ , so\\n$$\\n\\\\mathrm {d} \\\\lambda = \\\\mathrm {C}^{- 1} \\\\frac {\\\\mathrm {R}^{2} (\\\\mathrm {t}) \\\\mathrm {d r}}{\\\\left(1 - \\\\mathrm {k r}^{2}\\\\right)^{\\\\frac {1}{2}}}\\n$$\\nNote that since $\\mathbf{R}$ is a function of $t$ it is therefore a function of $r$ along a past null ray."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "\\\\theta",
+      "\\\\phi"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "\\frac{R^{2} t}{- k r^{2} + 1}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "R^{2} r^{2} t",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "R^{2} r^{2} t \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_011": "- \\frac{R^{2}}{2 k r^{2} - 2}",
+      "Gamma_022": "\\frac{R^{2} r^{2}}{2}",
+      "Gamma_033": "\\frac{R^{2} r^{2} \\sin^{2}{\\left(\\theta \\right)}}{2}",
+      "Gamma_101": "\\frac{1}{2 t}",
+      "Gamma_110": "\\frac{1}{2 t}",
+      "Gamma_111": "- \\frac{k r}{k r^{2} - 1}",
+      "Gamma_122": "k r^{3} - r",
+      "Gamma_133": "r \\left(k r^{2} - 1\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_202": "\\frac{1}{2 t}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_220": "\\frac{1}{2 t}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_303": "\\frac{1}{2 t}",
+      "Gamma_313": "\\frac{1}{r}",
+      "Gamma_330": "\\frac{1}{2 t}",
+      "Gamma_331": "\\frac{1}{r}"
+    },
+    "riemann": {
+      "R_0101": "\\frac{R^{2}}{4 t \\left(k r^{2} - 1\\right)}",
+      "R_0110": "- \\frac{R^{2}}{4 t \\left(k r^{2} - 1\\right)}",
+      "R_0202": "- \\frac{R^{2} r^{2}}{4 t}",
+      "R_0220": "\\frac{R^{2} r^{2}}{4 t}",
+      "R_0303": "- \\frac{R^{2} r^{2} \\sin^{2}{\\left(\\theta \\right)}}{4 t}",
+      "R_0330": "\\frac{R^{2} r^{2} \\sin^{2}{\\left(\\theta \\right)}}{4 t}",
+      "R_1001": "- \\frac{1}{4 t^{2}}",
+      "R_1010": "\\frac{1}{4 t^{2}}",
+      "R_1212": "\\frac{r^{2} \\left(\\frac{R^{2}}{4} + k t\\right)}{t}",
+      "R_1221": "\\frac{r^{2} \\left(- \\frac{R^{2}}{4} - k t\\right)}{t}",
+      "R_1313": "\\frac{r^{2} \\left(\\frac{R^{2}}{4} + k t\\right) \\sin^{2}{\\left(\\theta \\right)}}{t}",
+      "R_1331": "\\frac{r^{2} \\left(- \\frac{R^{2}}{4} - k t\\right) \\sin^{2}{\\left(\\theta \\right)}}{t}",
+      "R_2002": "- \\frac{1}{4 t^{2}}",
+      "R_2020": "\\frac{1}{4 t^{2}}",
+      "R_2112": "\\frac{\\frac{R^{2}}{4} + k t}{t \\left(k r^{2} - 1\\right)}",
+      "R_2121": "\\frac{- \\frac{R^{2}}{4} - k t}{t \\left(k r^{2} - 1\\right)}",
+      "R_2323": "\\frac{\\left(\\frac{R^{2} r^{2}}{4} + t \\left(k r^{2} - 1\\right)\\right) \\sin^{2}{\\left(\\theta \\right)}}{t}",
+      "R_2332": "\\frac{\\left(- \\frac{R^{2} r^{2}}{4} - t \\left(k r^{2} - 1\\right)\\right) \\sin^{2}{\\left(\\theta \\right)}}{t}",
+      "R_3003": "- \\frac{1}{4 t^{2}}",
+      "R_3030": "\\frac{1}{4 t^{2}}",
+      "R_3113": "\\frac{\\frac{R^{2}}{4} + k t}{t \\left(k r^{2} - 1\\right)}",
+      "R_3131": "\\frac{- \\frac{R^{2}}{4} - k t}{t \\left(k r^{2} - 1\\right)}",
+      "R_3223": "- \\frac{R^{2} r^{2}}{4 t} - k r^{2} + 1",
+      "R_3232": "\\frac{R^{2} r^{2}}{4 t} + k r^{2} - 1"
+    },
+    "ricci_tensor": {
+      "R_00": "\\frac{3}{4 t^{2}}",
+      "R_11": "\\frac{- R^{2} - 8 k t}{4 t \\left(k r^{2} - 1\\right)}",
+      "R_22": "\\frac{R^{2} r^{2}}{4 t} + 2 k r^{2} - 1",
+      "R_33": "\\frac{\\left(\\frac{R^{2} r^{2}}{4} + 2 k r^{2} t - t\\right) \\sin^{2}{\\left(\\theta \\right)}}{t}"
+    },
+    "ricci_scalar": "\\frac{2 \\left(3 k r^{2} - 1\\right)}{R^{2} r^{2} t}",
+    "kretschmann": "\\frac{R^{6} r^{6} t^{2} \\left(k r^{2} - 1\\right) \\left(\\cos^{2}{\\left(\\theta \\right)} - 2\\right) \\sin^{2}{\\left(\\theta \\right)} + R^{6} r^{4} t^{2} \\sin^{2}{\\left(\\theta \\right)} + R^{2} r^{4} \\left(k r^{2} - 1\\right)^{2} \\sin^{2}{\\left(\\theta \\right)} + R^{2} r^{2} \\left(- k r^{2} + 1\\right) \\sin^{2}{\\left(\\theta \\right)} + R^{2} r^{2} \\left(- k r^{2} + 1\\right) - r^{6} t \\left(R^{2} + 4 k t\\right)^{2} \\left(k r^{2} - 1\\right)^{2} \\left(\\sin^{4}{\\left(\\theta \\right)} + \\sin^{2}{\\left(\\theta \\right)}\\right) - r^{2} t \\left(R^{2} + 4 k t\\right)^{2} \\sin^{2}{\\left(\\theta \\right)} - r^{2} t \\left(R^{2} + 4 k t\\right)^{2} + t \\left(R^{2} r^{2} + 4 t \\left(k r^{2} - 1\\right)\\right)^{2} \\left(k r^{2} - 1\\right) \\sin^{4}{\\left(\\theta \\right)} + t \\left(R^{2} r^{2} + 4 t \\left(k r^{2} - 1\\right)\\right)^{2} \\left(k r^{2} - 1\\right)}{8 R^{4} r^{4} t^{5} \\left(k r^{2} - 1\\right) \\sin^{2}{\\left(\\theta \\right)}}",
+    "einstein_tensor": {
+      "G_00": "\\frac{3}{4 t^{2}} + \\frac{3 k}{R^{2} t} - \\frac{1}{R^{2} r^{2} t}",
+      "G_11": "\\frac{- \\frac{R^{2} r^{2}}{4} + k r^{2} t - t}{r^{2} t \\left(k r^{2} - 1\\right)}",
+      "G_22": "\\frac{r^{2} \\left(\\frac{R^{2}}{4} - k t\\right)}{t}",
+      "G_33": "\\frac{r^{2} \\left(\\frac{R^{2}}{4} - k t\\right) \\sin^{2}{\\left(\\theta \\right)}}{t}"
+    },
+    "killing_vectors": []
+  }
+}

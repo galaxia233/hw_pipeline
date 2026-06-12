@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s1_1.9",
+    "type": "calculate",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "aberration_of_light",
+      "coordinate": "star_distribution",
+      "scenario": "Lorentz_transformation",
+      "method": "solid_angle"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.9",
+    "source_id": "1_s1_1.9",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.9,
+      "rationale": "需利用光子方向洛伦兹变换求立体角雅可比，多步推导结合相对论聚束效应物理背景",
+      "overall": 0.9
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$N$",
+      "$\\\\beta$",
+      "$\\\\theta$",
+      "$\\\\phi$",
+      "$\\\\theta'$$",
+      "$\\\\phi'$$"
+    ],
+    "target": [
+      "$P(\\\\theta', \\\\phi')$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s1_1.9.md]\\n\\nProblem 1.9. Suppose that an observer at rest with respect to the fixed distant stars sees an isotropic distribution of stars. That is, in any solid angle $\\mathrm{d}\\Omega$ he sees $\\mathrm{dN} = \\mathrm{N}(\\mathrm{d}\\Omega /4\\pi)$ stars, where $\\mathbf{N}$ is the total number of stars he can see.\\nSuppose now that another observer (whose rest frame is $S'$ ) is moving at a relativistic velocity $\\beta$ in the $e_x$ direction. What is the distribution of stars seen by this observer? Specifically, what is the distribution function $P(\\theta', \\phi')$ such that the number of stars seen by this observer in his solid angle $d\\Omega'$ is $P(\\theta', \\phi') d\\Omega'$ ? Check to see that $\\int_{\\text{sphere}} P(\\theta', \\phi') d\\Omega' = N$ , and check that $P(\\theta', \\phi') \\to \\frac{N}{4\\pi}$ as $\\beta \\to 0$ . Where will the observer see the stars \"bunch up\"?",
+    "answer": "$P(\\\\theta', \\\\phi') = \\\\frac{N}{4\\\\pi} \\\\frac{1 - \\\\beta^2}{(1 - \\\\beta \\\\cos \\\\theta')^2}$；恒星向运动前方聚集（前向半锥角为 $\\\\cos^{-1}\\\\beta$）",
+    "solution": "If $\\overline{\\theta}$ is the direction of the motion of a photon from star to observer then the star is observed at angle $\\theta = \\pi - \\overline{\\theta}$ . The transformation of photon directions was derived in the previous problem. From that result we have here\\n$$\\n\\\\cos \\\\theta = \\\\frac {\\\\cos \\\\theta^{\\\\prime} - \\\\beta}{1 - \\\\beta \\\\cos \\\\theta^{\\\\prime}}.\\n$$\\nThe number of stars observed in solid angle $\\mathrm{d}\\Omega$ is then\\n$$\\n\\\\begin{array}{l} \\\\mathrm {d} \\\\mathbf {N} = \\\\mathrm {N d} \\\\Omega / 4 \\\\pi = (\\\\mathrm {N} / 4 \\\\pi) 2 \\\\pi \\\\mathrm {d} (\\\\cos \\\\theta) \\\\\\\\ = \\\\frac {1}{2} N \\\\frac {d (\\\\cos \\\\theta)}{d (\\\\cos \\\\theta^{\\\\prime})} d (\\\\cos \\\\theta^{\\\\prime}) \\\\\\\\ = \\\\frac {1}{2} N \\\\frac {\\\\left(1 - \\\\beta^{2}\\\\right)}{\\\\left(1 - \\\\beta \\\\cos \\\\theta^{\\\\prime}\\\\right)^{2}} d (\\\\cos \\\\theta^{\\\\prime}). \\\\\\\\ \\\\end{array}\\n$$\\nSince $\\mathrm{d}\\mathbf{N} = 2\\pi \\mathbf{P}(\\theta', \\phi') \\mathrm{d}(\\cos \\theta')$ the distribution in $S'$ is\\n$$\\n\\\\mathrm {P} (\\\\theta^{\\\\prime}, \\\\phi^{\\\\prime}) = \\\\frac {\\\\mathrm {N}}{4 \\\\pi} \\\\frac {(1 - \\\\beta^{2})}{(1 - \\\\beta \\\\cos \\\\theta^{\\\\prime})^{2}} .\\n$$\\nChecks: $\\beta \\rightarrow 0\\mathrm{P}(\\\\theta^{\\\\prime},\\\\phi^{\\\\prime})\\rightarrow \\\\mathbf {N} / 4\\\\pi = \\\\mathrm {P}(\\\\theta ,\\\\phi)$\\n$$\\n\\\\int_{\\\\text {s p h e r e}} \\\\mathrm {P} \\\\left(\\\\theta^{\\\\prime}, \\\\phi^{\\\\prime}\\\\right) \\\\mathrm {d} \\\\Omega = \\\\frac {\\\\mathrm {N} \\\\left(1 - \\\\beta^{2}\\\\right)}{4 \\\\pi} \\\\int_{- 1}^{+ 1} \\\\frac {2 \\\\pi \\\\mathrm {d} \\\\cos \\\\theta^{\\\\prime}}{\\\\left(1 - \\\\beta \\\\cos \\\\theta^{\\\\prime}\\\\right)^{2}} = \\\\mathrm {N}.\\n$$\\nYou can easily verify that half the stars are contained between $\\theta' = 0$ and $\\theta_{\\\\frac{1}{2}}' = \\\\cos^{-1}\\\\beta < \\\\pi/2$ . Thus the stars \"bunch up\" in the forward direction. For $\\beta \\approx 1$ , $\\theta_{\\\\frac{1}{2}}' \\approx [2(1 - \\\\beta)]^{\\\\frac{1}{2}}$ and the bunching is pronounced."
+  },
+  "verification": null
+}

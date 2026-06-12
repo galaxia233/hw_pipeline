@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s9_9.27",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_tensor",
+      "target_object": "wiltensor",
+      "coordinate": "local_coords",
+      "scenario": "conformal_geometry",
+      "method": "tensor_contraction"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.27",
+    "source_id": "1_s9_9.27",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.27"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "多步张量缩并推导结合Weyl张量定义验证+纯微分几何理论背景",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\lambda$",
+      "$\\\\mu$",
+      "$\\\\nu$",
+      "$\\\\kappa$",
+      "$K$",
+      "$g_{\\\\mu\\\\nu}$"
+    ],
+    "target": [
+      "$C_{\\\\lambda\\\\mu\\\\nu\\\\kappa}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.27. Show that a space is conformally flat if the Riemann tensor can be written as\\n$$\\n\\mathrm {R}_{\\lambda \\mu \\nu \\kappa} = \\mathrm {K} (\\mathbf {g}_{\\lambda \\nu} \\mathbf {g}_{\\mu \\kappa} - \\mathbf {g}_{\\lambda \\kappa} \\mathbf {g}_{\\mu \\nu}) .\\n$$\\n![](images/fc1d86d54c5745eaf9dbdb82e3cf2f949dc00c121b17f48296920fd93a672fc2.jpg)",
+    "answer": "$C_{\\\\lambda\\\\mu\\\\nu\\\\kappa} = 0$",
+    "solution": "Solution 9.27. By contracting we see\\n$$\\n\\\\begin{array}{l}\\nR_{\\\\mu \\\\kappa} = 3 K g_{\\\\mu \\\\kappa} \\\\\\\\\\nR = 1 2 K. \\\\\\\\\\n\\\\end{array}\\n$$\\nThe definition of the Weyl tensor is\\n$$\\n\\\\begin{array}{l}\\n\\\\mathrm {C}_{\\\\lambda \\\\mu \\\\nu \\\\kappa} = \\\\mathrm {R}_{\\\\lambda \\\\mu \\\\nu \\\\kappa} - \\\\frac {1}{2} \\\\left(\\\\mathrm {g}_{\\\\lambda \\\\nu} \\\\mathrm {R}_{\\\\mu \\\\kappa} - \\\\mathrm {g}_{\\\\lambda \\\\kappa} \\\\mathrm {R}_{\\\\mu \\\\nu} - \\\\mathrm {g}_{\\\\mu \\\\nu} \\\\mathrm {R}_{\\\\lambda \\\\kappa} + \\\\mathrm {g}_{\\\\mu \\\\kappa} \\\\mathrm {R}_{\\\\lambda \\\\nu}\\\\right) \\\\\\\\\\n+ \\\\frac {1}{6} \\\\left(\\\\mathrm {g}_{\\\\lambda \\\\nu} \\\\mathrm {g}_{\\\\mu \\\\kappa} - \\\\mathrm {g}_{\\\\lambda \\\\kappa} \\\\mathrm {g}_{\\\\mu \\\\nu}\\\\right) \\\\mathrm {R}, \\\\\\\\\\n\\\\end{array}\\n$$\\nso that\\n$$\\n\\\\begin{array}{l}\\nC _ {\\\\lambda \\\\mu \\\\nu \\\\kappa} = K (g _ {\\\\lambda \\\\nu} g _ {\\\\mu \\\\kappa} - g _ {\\\\lambda \\\\mu} g _ {\\\\nu \\\\kappa}) - \\\\frac {1}{2} \\\\cdot 3 K (2 g _ {\\\\lambda \\\\nu} g _ {\\\\mu \\\\kappa} - 2 g _ {\\\\lambda \\\\mu} g _ {\\\\nu \\\\kappa}) \\\\\\\\\\n+ \\\\frac {1}{6} \\\\cdot 1 2 K \\\\left(g _ {\\\\lambda \\\\nu} g _ {\\\\mu \\\\kappa} - g _ {\\\\lambda \\\\kappa} g _ {\\\\mu \\\\nu}\\\\right) = 0.\\n\\\\end{array}"
+  },
+  "verification": null
+}

@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s11_11.5_b",
+    "type": "prove",
+    "tags": {
+      "metric": "tensor_algebra",
+      "target_object": "spin_angular_momentum",
+      "coordinate": "levi_civita_identity",
+      "scenario": "relativistic_dynamics",
+      "method": "index_manipulation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s11_11.5_b",
+    "source_id": "1_s11_11.5_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s11_11.5_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.6,
+      "completeness": 0.7,
+      "realism": 0.7,
+      "rationale": "Requires multi-step Levi-Civita contraction and 4-velocity normalization to derive the spin-angular momentum relation from tensor definitions.",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mathsf{S}_\\gamma$",
+      "$\\mathsf{u}_\\delta$",
+      "$\\mathsf{J}^{\\alpha\\beta}$",
+      "$\\varepsilon^{\\alpha\\beta\\gamma\\delta}$",
+      "$\\delta_{\\mu\\nu\\sigma}^{\\alpha\\beta\\delta}$"
+    ],
+    "target": [
+      "$\\mathsf{S}^{\\alpha\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 11.5.(b) In this case show that the angular momentum (\"intrinsic angular momentum\") can be found from the spin vector as$$\\mathbf {J}_{\\mathbf {(C . M .)}}^{\\alpha \\beta} \\equiv \\mathsf {S}^{\\alpha \\beta} = - \\varepsilon^{\\alpha \\beta \\gamma \\delta} \\mathsf {S}_{\\gamma} \\mathsf {u}_{\\delta} \\mathrm {.}$$",
+    "answer": "$$\\mathbf {J}_{\\mathbf {(C . M .)}}^{\\alpha \\beta} \\equiv \\mathsf {S}^{\\alpha \\beta} = - \\varepsilon^{\\alpha \\beta \\gamma \\delta} \\mathsf {S}_{\\gamma} \\mathsf {u}_{\\delta} \\mathrm {.}$$",
+    "solution": "(b) From the definition of $S_{\\delta}$ :$$- \\varepsilon^{\\alpha \\beta \\gamma \\delta} \\mathbf {S}_{\\gamma} \\mathbf {u}_{\\delta} = \\frac {1}{2} \\varepsilon^{\\alpha \\beta \\gamma \\delta} \\varepsilon_{\\gamma \\mu \\nu \\sigma} \\mathbf {J}^{\\mu \\nu} \\mathbf {u}^{\\sigma} \\mathbf {u}_{\\delta}.$$Now perform the summation over $\\gamma$ [see Problems 3.27, 3.28]:$$- \\frac {1}{2} \\delta_{\\mu \\nu \\sigma}^{\\alpha \\beta \\delta} \\mathbf {J}^{\\mu \\nu} \\mathbf {u}^{\\sigma} \\mathbf {u}_{\\delta} = - \\mathbf {J}^{\\alpha \\beta} \\mathbf {u}^{\\delta} \\mathbf {u}_{\\delta} = \\mathbf {J}^{\\alpha \\beta} \\equiv \\mathsf {S}^{\\alpha \\beta}.$$[Only the $\\mathbf{J}^{\\alpha \\beta}$ terms are kept in the sum; by part (a) we cannot have a $\\delta$ index on $\\mathbf{J}$ due to the presence of $\\mathfrak{u}_{\\delta}$ .]"
+  },
+  "verification": null
+}

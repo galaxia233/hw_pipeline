@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s9_9.35",
+    "type": "prove",
+    "tags": {
+      "metric": "embedded_submanifold",
+      "target_object": "gauss_codazzi_equation",
+      "coordinate": "principal_curvature",
+      "scenario": "scalar_curvature",
+      "method": "differential_geometry"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.35",
+    "source_id": "1_s9_9.35",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.35"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于Gauss-Codazzi方程的严格几何推导，逻辑链条完整且可推广至高维嵌入流形场景",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\rho_1$",
+      "$\\\\rho_2$",
+      "$K_{ij}$",
+      "$g_{ij}$",
+      "$R^{(2)}$"
+    ],
+    "target": [
+      "$R^{(2)}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.35. Show that if $\\Sigma$ is a 2-dimensional surface in a flat 3-space, then the scalar curvature of $\\Sigma$ is\\n$$\\n{}^{( 2 )} \\mathbf {R} = \\frac {2} {\\rho_{1} \\rho_{2}}\\n$$\\nwhere $\\rho_{1}$ and $\\rho_{2}$ are the principal radii of curvature of $\\Sigma$ . What is the analogous formula for a 3-surface embedded in a flat 4-space?",
+    "answer": "$\\\\frac{2}{\\\\rho_1 \\\\rho_2}$",
+    "solution": "Solution 9.35. From the Gauss-Codazzi equation (Problem 9.32), we have\\n$$\\n{}^{( 3 )} \\\\mathrm {R}_{i j k}^{m} = {}^{( 2 )} \\\\mathrm {R}_{i j k}^{m} + \\\\varepsilon \\\\left( \\\\mathrm {K}_{i j} \\\\mathrm {K}_{k}^{m} - \\\\mathrm {K}_{i k} \\\\mathrm {K}_{j}^{m} \\\\right) .\\n$$\\nContract on $m$ and $j$ and on $i$ and $k$ , and set $(3)R_{ijk}^{m} = 0$ because the 3-space is flat. Thus find\\n$$\\n\\\\left(^{(2)} \\\\mathrm {R} = - \\\\varepsilon \\\\left(\\\\mathrm {K}_{\\\\mathrm{i}}^{\\\\mathrm{j}} \\\\mathrm {K}_{\\\\mathrm{j}}^{\\\\mathrm{i}} - \\\\mathrm {K}_{\\\\mathrm{i}}^{\\\\mathrm{i}} \\\\mathrm {K}_{\\\\mathrm{j}}^{\\\\mathrm{j}}\\\\right).\\right. \\\\tag {1}\\n$$\\nAt any point $\\\\mathbf{P}$ on $\\\\Sigma$ , choose the principal directions as axes and let the coordinates $\\\\mathbf{x}^i$ measure lengths away from $\\\\mathbf{P}$ . Then $(2)_{\\\\mathbf{g}_{ij}} = \\\\delta_{ij}$ at $\\\\mathbf{P}$ and $\\\\mathbf{K}_{ij}$ is diagonal, with the principal curvatures as the diagonal elements. Hence\\n$$\\n\\\\left(^{2}\\\\right) \\\\mathbf {R} = - \\\\varepsilon \\\\left[ \\\\frac {1}{\\\\rho_{1}^{2}} + \\\\frac {1}{\\\\rho_{2}^{2}} - \\\\left(\\\\frac {1}{\\\\rho_{1}} + \\\\frac {1}{\\\\rho_{2}}\\\\right)^{2} \\\\right] = \\\\frac {2}{\\\\rho_{1} \\\\rho_{2}},\\n$$\\nwhere we have set $\\\\varepsilon = \\\\mathbf{n} \\\\cdot \\\\mathbf{n} = +1$ .\\nFor $\\\\Sigma$ 3-dimensional in a flat 4-space, Equation (1) gives\\n$$\\n\\\\begin{array}{l} \\\\left(^{3}\\\\right) \\\\mathbf {R} = - \\\\varepsilon \\\\left[ \\\\frac {1}{\\\\rho_{1}^{2}} + \\\\frac {1}{\\\\rho_{2}^{2}} + \\\\frac {1}{\\\\rho_{3}^{2}} - \\\\left(\\\\frac {1}{\\\\rho_{1}} + \\\\frac {1}{\\\\rho_{2}} + \\\\frac {1}{\\\\rho_{3}}\\\\right)^{2} \\\\right] \\\\\\\\\\n= \\\\varepsilon \\\\left(\\\\frac {2}{\\\\rho_{1} \\\\rho_{2}} + \\\\frac {2}{\\\\rho_{2} \\\\rho_{3}} + \\\\frac {2}{\\\\rho_{1} \\\\rho_{3}}\\\\right). \\\\\\\\\\n\\\\end{array}\\n$$"
+  },
+  "verification": null
+}

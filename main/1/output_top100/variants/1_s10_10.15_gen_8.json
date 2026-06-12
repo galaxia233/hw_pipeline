@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "Newtonian_potential_and_frequency",
+      "coordinate": "static_AdS",
+      "scenario": "cosmology",
+      "method": "limit_expansion",
+      "generalization_axis": "limit",
+      "metric": "AntiDeSitterStatic"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "AntiDeSitterStatic",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\omega$"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In a spacetime with a timelike Killing vector $\\boldsymbol{\\xi}$, the minimum conserved energy per unit rest mass $\\mu$ that a massive particle can have at a given point is given by $E_{\\text{min}} / \\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$. Consider the Anti-de Sitter spacetime in static coordinates with metric $ds^2 = -\\cos h^{2}(r) dt^2 + dr^2 + \\sin h^{2}(r) d\\theta^2 + \\sin^{2}(\\theta) \\sin h^{2}(r) d\\phi^2$. The time translation Killing vector is $\\xi^{\\mu} = (1, 0, 0, 0)$. By evaluating this minimum energy per unit mass and taking the small radial coordinate limit ($r \\ll 1$), derive the effective Newtonian gravitational potential and prove that it corresponds to a 3D harmonic oscillator. Express the oscillation angular frequency $\\omega$ in terms of the spacetime's Ricci scalar $R = -12$.",
+    "answer": "$\\omega = \\sqrt{-R / 12} = 1$",
+    "solution": "1. The time translation Killing vector is $\\xi^{\\mu} = (1, 0, 0, 0)$. Its norm squared is $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g_{\\mu\\nu} \\xi^{\\mu} \\xi^{\\nu} = g_{00} (\\xi^0)^2 = -\\cos h^{2}(r)$.2. The minimum conserved energy per unit rest mass for a massive particle at radial coordinate $r$ is $E_{\\text{min}} / \\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}} = \\sqrt{\\cos h^{2}(r)} = \\cos h(r)$.3. In the local Newtonian limit near the origin ($r \\ll 1$), we expand $\\cos h(r)$ as a Taylor series: $\\cos h(r) \\approx 1 + \\frac{1}{2}r^2 + O(r^4)$.4. In Newtonian mechanics, the total energy per unit mass of a particle at rest in a gravitational potential $V(r)$ is $E / \\mu = 1 + V(r)$. Comparing this with the relativistic expansion, we identify the effective Newtonian gravitational potential as $V(r) = \\frac{1}{2}r^2$.5. A 3D harmonic oscillator potential has the form $V(r) = \\frac{1}{2}\\omega^2 r^2$, where $\\omega$ is the angular frequency. Comparing this with $V(r) = \\frac{1}{2}r^2$, we find $\\omega^2 = 1$, so $\\omega = 1$.6. The Ricci scalar for this Anti-de Sitter spacetime is given as $R = -12$. Therefore, we can express the angular frequency in terms of the Ricci scalar as $\\omega = \\sqrt{-R / 12}$."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.antidesitterstatic_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "题目和解答中存在严重的排版/符号错误，将双曲余弦函数 \\cosh 和双曲正弦函数 \\sinh 错误地写成了 \\cos h 和 \\sin h。在 question 中度规写为 $-\\cos h^{2}(r)$，在 solution 步骤2和3中写为 $\\cos h(r)$。这不仅是排版不规范，更严重改变了数学语义：\\cos h 会被理解为三角函数 \\cos 与变量 h 的组合（或作用于变量 h），而实际物理含义是双曲函数 \\cosh。Solution 步骤3中声称 $\\cos h(r) \\approx 1 + \\frac{1}{2}r^2$，但若做题者按字面将其理解为 $\\cos(r)$，其泰勒展开应为 $1 - \\frac{1}{2}r^2$，这使得做题者无法仅凭题目字面符号完成推导，严重破坏了题目的自洽性和 self-contained 性。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-7-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "energy_limit",
+      "coordinate": "schwarzschild",
+      "scenario": "black_hole",
+      "method": "taylor_expansion",
+      "generalization_axis": "verify",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-7",
+      "1_s10_10.15-7-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "最小单位能量弱场极限展开推导的校验"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s = 2M$ 为 Schwarzschild 半径。时间平移 Killing 矢量为 $\\boldsymbol{\\xi} = \\partial_t$，对应粒子的能量守恒量定义为 $E = -\\mathbf{p} \\cdot \\boldsymbol{\\xi}$。某同学在推导远距离极限下静止粒子的最小单位能量时，作了如下推导：(1) 度规时间分量 $g_{tt} = -\\frac{r-r_s}{r}$，代入 $r_s = 2M$，可得 $g_{tt} = -(1 + \\frac{2M}{r})$。(2) 对静止的类时粒子，四维速度仅有时间分量 $u^t = 1/\\sqrt{-g_{tt}}$，四维动量 $p^t = \\mu u^t$。(3) 由时间平移 Killing 矢量 $\\boldsymbol{\\xi} = \\partial_t$，对应守恒量 $E = -\\mathbf{p} \\cdot \\boldsymbol{\\xi} = -p^\\mu \\xi_\\mu$。(4) 将 $\\xi^\\mu = (1,0,0,0)$ 代入，有 $E = -p^t g_{tt} = \\mu \\sqrt{-g_{tt}}$，即 $E/\\mu = \\sqrt{1 + \\frac{2M}{r}}$。(5) 在远距离极限 $r \\gg M$ 下，将小量 $x = 2M/r$ 进行 Taylor 展开， $\\sqrt{1+x} \\approx 1 + x$，得 $E/\\mu \\approx 1 + \\frac{2M}{r}$。(6) 由此得出结论：广义相对论能量守恒量在弱场极限下还原为 Newtonian 总单位能量 $1 + \\frac{2M}{r}$，即静止质量能与正的引力势能之和。请找出上述推导中的所有错误，指出错误位置与类型，并给出正确值。",
+    "answer": "错误1：步骤(1)中，将 $g_{tt}$ 展开时发生符号错误 (sign error)。由 $g_{tt} = -\\frac{r-2M}{r}$ 应得 $g_{tt} = -(1 - \\frac{2M}{r})$，而非 $-(1 + \\frac{2M}{r})$。正确值为 $g_{tt} = -(1 - \\frac{2M}{r})$。错误2：步骤(5)中，对根式进行 Taylor 展开时发生系数遗漏错误 (factor error)。$\\sqrt{1+x}$ 的一阶展开应为 $1 + \\frac{1}{2}x$，而非 $1 + x$。正确值为 $\\sqrt{1+x} \\approx 1 + \\frac{M}{r}$（若按修正后的表达式 $\\sqrt{1-x}$，应为 $\\sqrt{1-x} \\approx 1 - \\frac{M}{r}$）。连带修正：步骤(4)的 $E/\\mu = \\sqrt{1 + \\frac{2M}{r}}$ 应修正为 $\\sqrt{1 - \\frac{2M}{r}}$；步骤(5)和(6)的最终展开结果 $1 + \\frac{2M}{r}$ 应修正为 $1 - \\frac{M}{r}$，弱场极限还原为静止质量能与负的引力势能之和。",
+    "solution": "1. 度规时间分量 $g_{tt} = -\\frac{r-r_s}{r} = -(1 - \\frac{2M}{r})$。2. 对静止的类时粒子，四维速度仅有时间分量 $u^t = 1/\\sqrt{-g_{tt}}$，四维动量 $p^t = \\mu u^t$。3. 由时间平移 Killing 矢量 $\\boldsymbol{\\xi} = \\partial_t$，对应守恒量 $E = -\\mathbf{p} \\cdot \\boldsymbol{\\xi} = -p^\\mu \\xi_\\mu$。4. 将 $\\xi^\\mu = (1,0,0,0)$ 代入，有 $E = -p^t g_{tt} = \\mu \\sqrt{-g_{tt}}$，即 $E/\\mu = \\sqrt{1 - \\frac{2M}{r}}$。5. 在远距离极限 $r \\gg M$ 下，将小量 $2M/r$ 进行 Taylor 展开， $\\sqrt{1 - \\frac{2M}{r}} \\approx 1 - \\frac{M}{r}$。6. 由此得出结论：广义相对论能量守恒量在弱场极限下还原为 Newtonian 总单位能量 $1 - \\frac{M}{r}$，即单位静止质量能与负的 Newtonian 引力势能之和。"
+  },
+  "verification": null
+}

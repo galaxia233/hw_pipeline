@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "id": "1_s19_19.24",
+    "type": "calculate",
+    "tags": {
+      "metric": "FLRW_metric",
+      "target_object": "angular_diameter_target",
+      "coordinate": "conformal_spatial_coordinate",
+      "scenario": "matter_domination_cosmology",
+      "method": "photon_geodesic_integration"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.24",
+    "source_id": "1_s19_19.24",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.24"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "多步宇宙学距离推导+FLRW度规与红移关系+完整解析过程",
+      "overall": 0.83
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$",
+      "$z$",
+      "$\\\\ell$",
+      "$\\\\delta$",
+      "$H_0$",
+      "$q_0$",
+      "$R$",
+      "$\\\\eta$",
+      "$\\\\chi$"
+    ],
+    "target": [
+      "$\\\\delta$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s19_19.24.md]\\n\\nProblem 19.24. What is the apparent angular size of an object of proper diameter $\\ell$ seen at redshift $z$ in a matter dominated Friedmann cosmology with present parameters $\\mathbf{H}_0$ and $\\mathbf{q}_0$ ? (Analogous results for apparent proper motion and apparent luminosity follow from Problem 19.9.)\\n\\n## Solution\\n\\nSolution 19.24.\\n![](images/23b04c5eb40bcdf283d55f484c6874171dae3b8408c586be8ae9fa7c7731c348.jpg)\\nFrom the figure and the Robertson-Walker line element, $\\ell = [\\mathfrak{r}_1\\mathsf{R}(\\mathfrak{t}_1)]\\delta$ . We can express $\\mathsf{R}(\\mathfrak{t}_1)$ as $\\mathsf{R}_0 / (1 + z)$ ; the hard part is now to compute $\\mathbf{r}_1$ : Use the $\\eta, \\chi$ form of the metric from Problem 19.5. Then $\\mathbf{r}_1 = \\Sigma (\\chi_1)$ . The path of a photon is $0 = \\mathbb{R}^2 (\\mathrm{d}\\chi^2 - \\mathrm{d}\\eta^2)$ , so $\\chi_1 = \\eta (\\mathfrak{t}_0) - \\eta (\\mathfrak{t}_1)$ , and using the formula for $\\sin (\\mathbf{A} - \\mathbf{B})$ , $\\sin h (\\mathbf{A} - \\mathbf{B})$ we have:\\n$$\\n\\\\mathbf {r}_{1} = \\\\boldsymbol {\\\\Sigma} \\\\left(\\\\eta_{0}\\\\right) \\\\mathbf {C} \\\\left(\\\\eta_{1}\\\\right) - \\\\boldsymbol {\\\\Sigma} \\\\left(\\\\eta_{1}\\\\right) \\\\mathbf {C} \\\\left(\\\\eta_{0}\\\\right). \\\\tag {1}\\n$$\\n[Here C means cos, 1, or cosh for $k = 1$ , 0, -1.] Now we need the formula relating $\\eta$ of an epoch to its redshift and the current value of q (Problem 19.18):\\n$$\\n1 - \\\\mathrm {C} (\\\\eta) = \\\\frac {2 \\\\mathrm {q}_{0} - 1}{\\\\mathrm {q}_{0}} \\\\frac {1}{1 + z}\\n$$\\n$$\\nC (\\\\eta) = \\\\frac {q_{0} z - q_{0} + 1}{q_{0} (1 + z)}.\\n$$\\n(This is true for all three values of k.) With this result we have\\n$$\\n\\\\Sigma (\\\\eta) = \\\\frac {\\\\left| 2 q_{0} - 1 \\\\right|^{\\\\frac {1}{2}} \\\\left(2 q_{0} z + 1\\\\right)^{\\\\frac {1}{2}}}{q_{0} (1 + z)}\\n$$\\n$$\\n\\\\mathbf {r_{1}} = \\\\frac {\\\\left| 2 \\\\mathbf {q}_{0} - 1 \\\\right|^{\\\\frac {1}{2}}}{\\\\mathbf {q}_{0}^{2} (1 + z)} \\\\left[ 1 - \\\\mathbf {q}_{0} + \\\\mathbf {q}_{0} z - (1 - \\\\mathbf {q}_{0}) (1 + 2 \\\\mathbf {q}_{0} z)^{\\\\frac {1}{2}} \\\\right].\\n$$\\nSo the apparent angle is\\n$$\\n\\\\delta = \\\\ell / r_{1} R (t_{1}) = \\\\ell (1 + z) / r_{1} R_{0},\\n$$\\nand when we use Equation (3) of Problem 9.15 to eliminate $\\mathbf{R}_0$ we get, finally,\\n$$\\n\\\\delta = \\\\frac {\\\\ell \\\\mathrm {H}_{0} (1 + z)^{2} \\\\mathrm {q}_{0}^{2}}{\\\\left[ 1 - \\\\mathrm {q}_{0} + \\\\mathrm {q}_{0} z - (1 - \\\\mathrm {q}_{0}) (1 + 2 \\\\mathrm {q}_{0} z)^{\\\\frac {1}{2}} \\\\right]}.\\n$$",
+    "answer": "$$\\\\delta = \\\\frac {\\\\ell \\\\mathrm {H}_{0} (1 + z)^{2} \\\\mathrm {q}_{0}^{2}}{\\\\left[ 1 - \\\\mathrm {q}_{0} + \\\\mathrm {q}_{0} z - (1 - \\\\mathrm {q}_{0}) (1 + 2 \\\\mathrm {q}_{0} z)^{\\\\frac {1}{2}} \\\\right]}.$$",
+    "solution": "Solution 19.24.\\n![](images/23b04c5eb40bcdf283d55f484c6874171dae3b8408c586be8ae9fa7c7731c348.jpg)\\nFrom the figure and the Robertson-Walker line element, $\\ell = [\\mathfrak{r}_1\\mathsf{R}(\\mathfrak{t}_1)]\\delta$ . We can express $\\mathsf{R}(\\mathfrak{t}_1)$ as $\\mathsf{R}_0 / (1 + z)$ ; the hard part is now to compute $\\mathbf{r}_1$ : Use the $\\eta, \\chi$ form of the metric from Problem 19.5. Then $\\mathbf{r}_1 = \\Sigma (\\chi_1)$ . The path of a photon is $0 = \\mathbb{R}^2 (\\mathrm{d}\\chi^2 - \\mathrm{d}\\eta^2)$ , so $\\chi_1 = \\eta (\\mathfrak{t}_0) - \\eta (\\mathfrak{t}_1)$ , and using the formula for $\\sin (\\mathbf{A} - \\mathbf{B})$ , $\\sin h (\\mathbf{A} - \\mathbf{B})$ we have:\\n$$\\n\\\\mathbf {r}_{1} = \\\\boldsymbol {\\\\Sigma} \\\\left(\\\\eta_{0}\\\\right) \\\\mathbf {C} \\\\left(\\\\eta_{1}\\\\right) - \\\\boldsymbol {\\\\Sigma} \\\\left(\\\\eta_{1}\\\\right) \\\\mathbf {C} \\\\left(\\\\eta_{0}\\\\right). \\\\tag {1}\\n$$\\n[Here C means cos, 1, or cosh for $k = 1$ , 0, -1.] Now we need the formula relating $\\eta$ of an epoch to its redshift and the current value of q (Problem 19.18):\\n$$\\n1 - \\\\mathrm {C} (\\\\eta) = \\\\frac {2 \\\\mathrm {q}_{0} - 1}{\\\\mathrm {q}_{0}} \\\\frac {1}{1 + z}\\n$$\\n$$\\nC (\\\\eta) = \\\\frac {q_{0} z - q_{0} + 1}{q_{0} (1 + z)}.\\n$$\\n(This is true for all three values of k.) With this result we have\\n$$\\n\\\\Sigma (\\\\eta) = \\\\frac {\\\\left| 2 q_{0} - 1 \\\\right|^{\\\\frac {1}{2}} \\\\left(2 q_{0} z + 1\\\\right)^{\\\\frac {1}{2}}}{q_{0} (1 + z)}\\n$$\\n$$\\n\\\\mathbf {r_{1}} = \\\\frac {\\\\left| 2 \\\\mathbf {q}_{0} - 1 \\\\right|^{\\\\frac {1}{2}}}{\\\\mathbf {q}_{0}^{2} (1 + z)} \\\\left[ 1 - \\\\mathbf {q}_{0} + \\\\mathbf {q}_{0} z - (1 - \\\\mathbf {q}_{0}) (1 + 2 \\\\mathbf {q}_{0} z)^{\\\\frac {1}{2}} \\\\right].\\n$$\\nSo the apparent angle is\\n$$\\n\\\\delta = \\\\ell / r_{1} R (t_{1}) = \\\\ell (1 + z) / r_{1} R_{0},\\n$$\\nand when we use Equation (3) of Problem 9.15 to eliminate $\\mathbf{R}_0$ we get, finally,\\n$$\\n\\\\delta = \\\\frac {\\\\ell \\\\mathrm {H}_{0} (1 + z)^{2} \\\\mathrm {q}_{0}^{2}}{\\\\left[ 1 - \\\\mathrm {q}_{0} + \\\\mathrm {q}_{0} z - (1 - \\\\mathrm {q}_{0}) (1 + 2 \\\\mathrm {q}_{0} z)^{\\\\frac {1}{2}} \\\\right]}.\\n$$"
+  },
+  "verification": null
+}

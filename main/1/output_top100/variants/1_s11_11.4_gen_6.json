@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-6",
+    "type": "prove",
+    "tags": {
+      "target_object": "parallel_transport_equation_and_ricci_scalar",
+      "coordinate": "static_coordinates",
+      "scenario": "free_fall_gyroscope_limit",
+      "method": "limit_analysis",
+      "generalization_axis": "verify",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "\\frac{dS^\\mu}{d\\tau}",
+      "R"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在由度规 $ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}}(dx^2 + dy^2 + dz^2)$ 描述的时空中，考虑一个无外加力矩且自由下落（沿测地线运动）的陀螺仪。根据广义相对论，其自旋矢量 $\\mathbf{S}$ 满足平行传输方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$，即 $\\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{\\nu\\rho} u^\\nu S^\\rho = 0$。请验证该方程在 $\\alpha \\to \\inf ty$ 极限下退化为平直时空的形式 $\\frac{dS^\\mu}{d\\tau} = 0$，并利用曲率标量 $R$ 的极限值说明其物理意义。",
+    "answer": "在 $\\alpha \\to \\inf ty$ 极限下，平行传输方程退化为 $\\frac{dS^\\mu}{d\\tau} = 0$，且曲率标量 $R \\to 0$，确认时空曲率消失并退化为闵可夫斯基平直时空，此时陀螺自旋矢量的坐标分量守恒。",
+    "solution": "1. 分析 Christoffel 符号的极限：根据几何属性数据，所有非零的 Christoffel 符号均含有 $\\frac{1}{\\alpha}$ 因子，例如 $\\Gamma^1_{11} = \\frac{1}{\\alpha}$，$\\Gamma^1_{22} = -\\frac{1}{\\alpha}$，$\\Gamma^2_{12} = \\frac{1}{\\alpha}$ 等。当 $\\alpha \\to \\inf ty$ 时，$\\frac{1}{\\alpha} \\to 0$，因此所有的 $\\Gamma^\\mu_{\\nu\\rho} \\to 0$。2. 代入平行传输方程：将 $\\Gamma^\\mu_{\\nu\\rho} \\to 0$ 代入 $\\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{\\nu\\rho} u^\\nu S^\\rho = 0$，直接得到 $\\frac{dS^\\mu}{d\\tau} = 0$。这正是平直时空（闵可夫斯基时空）中采用笛卡尔坐标系时的平行传输方程，意味着自旋矢量的坐标分量不再随固有时间变化，即保持守恒。3. 计算曲率标量的极限：根据数据，曲率标量 $R = -\\frac{2 e^{-\\frac{2x}{\\alpha}}}{\\alpha^{2}}$。当 $\\alpha \\to \\inf ty$ 时，指数项 $e^{-\\frac{2x}{\\alpha}} \\to 1$，而 $\\alpha^2 \\to \\inf ty$，因此 $R \\to -\\frac{2}{\\inf ty} \\to 0$。曲率标量的消失从几何上确认了该极限下时空曲率完全为零，时空度量 $ds^2$ 也退化为 $-dt^2 + dx^2 + dy^2 + dz^2$，物理上完美解释了为何自旋矢量在此极限下无需考虑引力效应导致的坐标旋转，其分量变为常数。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "1. Ricci 标量表达式存在严重根本性错误：solution 中给出的曲率标量 $R = -\\frac{2 e^{-\\frac{2x}{\\alpha}}}{\\alpha^{2}}$ 显式依赖于空间坐标 $x$。在广义相对论中，Ricci 标量是时空的内禀不变量，绝不可能在坐标变换下发生变化而显式包含坐标变量，这表明推导中发生了严重的缩并或度规逆矩阵使用错误。该度规实际描述的是 $R \\times H^3$ （平坦时间与负常曲率双曲空间）的乘积时空，其正确的 Ricci 标量应为常数 $R = -6/\\alpha^2$。\n2. 物理场景与度规性质矛盾：题目摘要声称度规为 DeSitter，但 de Sitter 时空是最大对称空间，其 Ricci 标量必须是正的常数（$R = 4/\\alpha^2$），且必定拥有 10 个 Killing 矢量。然而摘要中称仅有 1 个 Killing 量且 Ricci 标量非常数，这与 de Sitter 的基本几何常识严重矛盾。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

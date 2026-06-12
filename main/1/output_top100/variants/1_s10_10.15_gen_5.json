@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "acceleration_of_static_observer",
+      "coordinate": "schwarzschild",
+      "scenario": "black_hole",
+      "method": "covariant_derivative",
+      "generalization_axis": "extend",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$a$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞外部时空中，度规为：$$ ds^2 = \\frac{-r + r_{s}}{r} dt^2 + \\frac{r}{r - r_{s}} dr^2 + r^2 d\\theta^2 + r^2 \\sin^{2}{\\left(\\theta\\right)} d\\phi^2 $$其中 $r_{s}$ 为 Schwarzschild 半径。该时空具有时间平移 Killing 矢量 $\\boldsymbol{\\xi} = \\partial_t$（即 $\\xi^\\mu = (1, 0, 0, 0)$）。对于在该时空中静止的观察者，其世界线与 Killing 矢量平行，四维速度可以表示为 $\\boldsymbol{u} = \\boldsymbol{\\xi} / \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$。该观察者的四维加速度定义为 $a^\\mu = u^\\nu \\nabla_\\nu u^\\mu$。请推导该静止观察者四维加速度的大小 $a = \\sqrt{a_\\mu a^\\mu}$，并将结果用 $r_{s}$ 和 $r$ 表示。",
+    "answer": "$a = \\frac{r_{s}}{2 r^{2} \\sqrt{1 - \\frac{r_{s}}{r}}}$",
+    "solution": "1. 计算 Killing 矢量的协变导数缩并 $\\xi^\\nu \\nabla_\\nu \\xi^\\mu$：由于 $\\xi^\\mu = (1, 0, 0, 0)$ 且不显含时间 $t$，有：$$ \\xi^\\nu \\nabla_\\nu \\xi^\\mu = \\nabla_t \\xi^\\mu = \\partial_t \\xi^\\mu + \\Gamma^\\mu_{t \\lambda} \\xi^\\lambda = \\Gamma^\\mu_{t t} $$根据 Christoffel 符号数据，只有 $\\Gamma^r_{t t} = \\frac{r_{s} (r - r_{s})}{2 r^{3}}$ 不为零，因此：$$ \\xi^\\nu \\nabla_\\nu \\xi^r = \\frac{r_{s} (r - r_{s})}{2 r^{3}}, \\quad \\xi^\\nu \\nabla_\\nu \\xi^t = \\xi^\\nu \\nabla_\\nu \\xi^\\theta = \\xi^\\nu \\nabla_\\nu \\xi^\\phi = 0 $$2. 计算四维加速度 $a^\\mu$：静止观察者的四维速度为 $u^\\mu = \\frac{\\xi^\\mu}{\\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}}$，其中范数 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g_{t t} = \\frac{-r + r_{s}}{r}$。代入加速度定义展开：$$ a^\\mu = u^\\nu \\nabla_\\nu u^\\mu = \\frac{\\xi^\\nu}{\\sqrt{-g_{t t}}} \\nabla_\\nu \\left( \\frac{\\xi^\\mu}{\\sqrt{-g_{t t}}}\\right) $$$$ = \\frac{\\xi^\\nu}{\\sqrt{-g_{t t}}} \\left( \\frac{\\nabla_\\nu \\xi^\\mu}{\\sqrt{-g_{t t}}} + \\xi^\\mu \\nabla_\\nu \\left( \\frac{1}{\\sqrt{-g_{t t}}}\\right)\\right) $$$$ = \\frac{\\xi^\\nu \\nabla_\\nu \\xi^\\mu}{-g_{t t}} - \\frac{\\xi^\\mu}{(-g_{t t})^{3/2}} \\frac{1}{2} \\nabla_\\nu (-g_{t t}) \\xi^\\nu $$第二项中 $\\nabla_\\nu (-g_{t t}) \\xi^\\nu = \\nabla_\\nu (\\xi_\\lambda \\xi^\\lambda) \\xi^\\nu = 2 \\xi_\\lambda \\nabla_\\nu \\xi^\\lambda \\xi^\\nu$。由于 $\\xi_\\lambda \\nabla_\\nu \\xi^\\lambda = \\frac{1}{2} \\nabla_\\nu (\\xi_\\lambda \\xi^\\lambda)$ 是对称化操作，而 Killing 方程要求 $\\nabla_\\nu \\xi_\\lambda$ 是反对称的，两者的缩并 $\\xi_\\lambda \\nabla_\\nu \\xi^\\lambda = 0$。具体验证：$\\xi_t \\nabla_t \\xi^t = g_{t t} \\Gamma^t_{t t} = 0$，$\\xi_r \\nabla_t \\xi^r = g_{r t} \\Gamma^r_{t t} = 0$。因此第二项为 0。所以：$$ a^\\mu = \\frac{\\xi^\\nu \\nabla_\\nu \\xi^\\mu}{-g_{t t}} $$代入 $g_{t t} = \\frac{-r + r_{s}}{r}$ 和 $\\xi^\\nu \\nabla_\\nu \\xi^r$ 的结果：$$ a^r = \\frac{\\frac{r_{s} (r - r_{s})}{2 r^{3}}}{\\frac{r - r_{s}}{r}} = \\frac{r_{s}}{2 r^{2}} $$$$ a^t = a^\\theta = a^\\phi = 0 $$3. 计算加速度大小 $a = \\sqrt{a_\\mu a^\\mu}$：$$ a = \\sqrt{g_{r r} (a^r)^2} = \\sqrt{\\frac{r}{r - r_{s}} \\left( \\frac{r_{s}}{2 r^{2}}\\right)^2} = \\frac{r_{s}}{2 r^{2}} \\sqrt{\\frac{r}{r - r_{s}}} = \\frac{r_{s}}{2 r^{2} \\sqrt{1 - \\frac{r_{s}}{r}}} $$"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "solution 中存在严重的物理概念错误、符号错误和指标混淆：\n1. **符号错误**：在第二步推导中，等式 $\\nabla_\\nu (-g_{tt}) \\xi^\\nu = \\nabla_\\nu (\\xi_\\lambda \\xi^\\lambda) \\xi^\\nu$ 是错的。由于 $g_{tt} = \\xi_\\lambda \\xi^\\lambda$，左侧应为 $-\\nabla_\\nu (\\xi_\\lambda \\xi^\\lambda) \\xi^\\nu$，遗漏了负号。\n2. **物理概念与逻辑荒谬**：solution 解释第二项为零的理由是“$\\xi_\\lambda \\nabla_\\nu \\xi^\\lambda = \\frac{1}{2} \\nabla_\\nu (\\xi_\\lambda \\xi^\\lambda)$ 是对称化操作，而 Killing 方程要求 $\\nabla_\\nu \\xi_\\lambda$ 反对称，两者的缩并 $\\xi_\\lambda \\nabla_\\nu \\xi^\\lambda = 0$”。这包含多重严重错误：\n   - $\\xi_\\lambda \\nabla_\\nu \\xi^\\lambda$ 仅缩并了指标 $\\lambda$，留下自由指标 $\\nu$，构成一个矢量，这不是所谓的“对称化操作”；\n   - 对称和反对称张量仅缩并一个指标（如 $S_{\\nu\\lambda} A^\\lambda$）并不必然为零，只有全缩并（$S_{\\nu\\lambda} A^{\\nu\\lambda}$）才为零；\n   - $\\nabla_\\nu \\xi^\\lambda$ 本身并不是反对称张量（只有下指标的 $\\nabla_\\nu \\xi_\\lambda$ 才满足 Killing 反对称性）；\n   - 声称矢量 $\\xi_\\lambda \\nabla_\\nu \\xi^\\lambda = 0$ 是完全错误的，事实上 $\\xi_\\lambda \\nabla_r \\xi^\\lambda = \\frac{1}{2} \\partial_r g_{tt} = -\\frac{r_s}{2 r^2} \\neq 0$。\n3. **指标混淆**：前文声称 $\\xi_\\lambda \\nabla_\\nu \\xi^\\lambda = 0$（这是一个带有自由指标 $\\nu$ 的矢量方程），而后文的“具体验证”却计算了 $\\xi_t \\nabla_t \\xi^t + \\xi_r \\nabla_t \\xi^r = 0$，这实际上是在验证 $\\xi_\\lambda (\\xi^\\nu \\nabla_\\nu \\xi^\\lambda) = 0$（这是一个无自由指标的标量方程），两者根本不是同一个数学对象，属于严重的指标混淆。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

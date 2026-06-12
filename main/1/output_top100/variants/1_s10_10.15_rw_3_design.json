@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-5-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "acceleration_of_static_observer",
+      "coordinate": "schwarzschild",
+      "scenario": "black_hole_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-5",
+      "1_s10_10.15-5-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "设计数值模拟方案验证Schwarzschild时空中静止观察者四维加速度大小公式"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞外部时空中，度规为：$$ ds^2 = \\frac{-r + r_{s}}{r} dt^2 + \\frac{r}{r - r_{s}} dr^2 + r^2 d\\theta^2 + r^2 \\sin^{2}{\\left(\\theta\\right)} d\\phi^2 $$其中 $r_{s}$ 为 Schwarzschild 半径。该时空具有时间平移 Killing 矢量 $\\boldsymbol{\\xi} = \\partial_t$（即 $\\xi^\\mu = (1, 0, 0, 0)$）。对于在该时空中静止的观察者，其世界线与 Killing 矢量平行，四维速度可以表示为 $\\boldsymbol{u} = \\boldsymbol{\\xi} / \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$。该观察者的四维加速度定义为 $a^\\mu = u^\\nu \\nabla_\\nu u^\\mu$，其大小定义为 $a = \\sqrt{a_\\mu a^\\mu}$。理论推导得出，该静止观察者四维加速度的大小为 $a = \\frac{r_{s}}{2 r^{2} \\sqrt{1 - \\frac{r_{s}}{r}}}$。请设计一个数值模拟方案，从度规出发，通过数值计算验证该结论。要求说明具体的数值计算步骤、需要计算或提取的几何量，以及如何从数值结果中提取加速度大小并与理论公式比对。",
+    "answer": "1. **输入与初始化**：设定 Schwarzschild 半径 $r_s$ 为常数（如 $r_s=1$），选取一组径向坐标 $r$ 的采样点（满足 $r > r_s$，并在视界附近和远场区域分别加密采样）。输入度规分量 $g_{\\mu\\nu}$。2. **计算 Christoffel 符号**：利用度规分量及其一阶偏导数和逆度规 $g^{\\mu\\nu}$，数值计算 Christoffel 符号 $\\Gamma^\\mu_{\\nu\\lambda}$。3. **计算四维速度**：根据 Killing 矢量 $\\xi^\\mu = (1, 0, 0, 0)$ 及度规分量，计算范数 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g_{tt}$，得出静止观察者的四维速度分量 $u^\\mu = \\xi^\\mu / \\sqrt{-g_{tt}}$。4. **计算四维加速度矢量**：利用协变导数定义 $a^\\mu = u^\\nu \\nabla_\\nu u^\\mu = u^\\nu (\\partial_\\nu u^\\mu + \\Gamma^\\mu_{\\nu\\lambda} u^\\lambda)$。由于 $u^\\mu$ 仅依赖于 $r$ 且仅有 $u^t$ 不为零，数值计算简化为提取 $\\Gamma^\\mu_{t t}$ 并计算 $a^\\mu = \\Gamma^\\mu_{t t} / (-g_{tt})$。5. **计算加速度大小**：利用 $a = \\sqrt{g_{\\mu\\nu} a^\\mu a^\\nu}$（由于仅有 $a^r$ 不为零，即为 $\\sqrt{g_{rr} (a^r)^2}$）计算固有加速度大小。6. **验证与比对**：将数值计算得到的 $a$ 值与解析公式 $a = \\frac{r_{s}}{2 r^{2} \\sqrt{1 - \\frac{r_{s}}{r}}}$ 在各个采样点 $r$ 处的值进行比对，计算相对误差，并绘制 $a(r)$ 的数值与解析曲线，验证两者的一致性，特别观察在 $r \\to r_s$ 时加速度发散的特征。",
+    "solution": "该方案通过直接数值计算度规导出的几何量（Christoffel符号、协变导数）来重构物理量（四维加速度），绕过解析协变导数的繁琐推导，直接验证了Killing矢量归一化与加速度的几何关系。在计算中，由于静态观察者仅有时间分量，协变导数在数值上退化为Christoffel符号的计算，这与理论推导中 $\\xi^\\nu \\nabla_\\nu \\xi^\\mu = \\Gamma^\\mu_{tt}$ 的结论完全对应。通过在视界附近加密采样点，数值方案能有效检验公式中 $(1 - r_s/r)^{-1/2}$ 因子导致的发散行为，从而在物理和数值双重层面验证解析结论的正确性。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

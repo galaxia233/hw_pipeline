@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "id": "1_s4_4.13_c",
+    "type": "calculate",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "four_momentum_components",
+      "coordinate": "Cartesian_coordinates",
+      "scenario": "uniform_magnetic_field_scenario",
+      "method": "electromagnetic_field_transformation_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.13_c",
+    "source_id": "1_s4_4.13_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.13_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "涉及四维速度分量求导与电磁场张量洛伦兹变换，需跨惯性系应用功率公式解释表观能量变化",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$q$",
+      "$m$",
+      "$R$",
+      "$\\omega$",
+      "$\\beta$",
+      "$\\gamma$",
+      "$\\tau$",
+      "$u^y$",
+      "$u^{y'}$",
+      "$\\mathbf{B}$",
+      "$\\mathbf{E}$",
+      "$t$",
+      "$r$"
+    ],
+    "target": [
+      "$u^{0'}$",
+      "$p^{0'}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s4_4.13_c.md]4.13 (c) Problem 4.13. A particle of charge $q$ , mass $m$ , moves in a circular orbit of radius $R$ in a uniform B field $\\mathbf{B}_{\\underline{\\mathbf{e}}_z}$ . (c) Calculate $\\mathrm{du}^{0^{'}} / \\mathrm{dr}$ and thus $\\mathrm{dP}^{0^{'}} / \\mathrm{d}\\tau$ . Explain how the energy of the particle can change since the B field does no work on it.",
+    "answer": "$\\frac {\\mathrm {d} u^{0^{\\prime}}} {\\mathrm {d} r} = - \\frac {\\beta \\omega \\gamma u^{y}} {m \\sqrt {1 - \\omega^{2} R^{2}}}$, $\\frac {\\mathrm {d} P^{0^{\\prime}}} {\\mathrm {d} \\tau} = - \\frac {m \\omega \\gamma u^{y}} {\\sqrt {1 - \\omega^{2} R^{2}}}$；在运动参考系中观测到感应电场 $\\mathbf{E}^{y'} = -\\gamma \\beta \\mathbf{B}$，该电场对粒子施加洛伦兹力做功，从而改变其能量。",
+    "solution": "(c) Since $\\mathfrak{u}^{0'}$ is not constant, energy is seen to increase:$$\\frac {\\mathrm {d} \\mathrm {p}^{0^{\\prime}}} {\\mathrm {d} r} = \\mathrm {m} \\frac {\\mathrm {d} \\mathrm {u}^{0^{\\prime}}} {\\mathrm {d} r} = - \\frac {\\mathrm {m} \\beta \\omega \\gamma \\mathrm {u}^{\\mathrm {y}}} {\\left( 1 - \\omega^{2} \\mathrm {R}^{2}\\right)^{\\frac {1} {2}}}$$In the moving observer's frame he observes an $\\underline{\\mathbf{E}}$ field $\\mathbf{E}^{\\mathbf{y}'} =-\\gamma \\beta \\mathbf{B}$ . (This is easily computed by Lorentz transforming $\\mathbf{F}^{\\mu \\nu}$ .) The observer should then expect to see work being done on the particle at a rate$$\\frac {\\mathrm {d} \\mathrm {p}^{0^{\\prime}}} {\\mathrm {d} r} = \\mathrm {qE}^{\\mathrm {y}^{\\prime}} \\mathrm {u}^{\\mathrm {y}^{\\prime}} = - \\frac {\\mathrm {m} \\omega \\gamma \\mathrm {u}^{\\mathrm {y}^{\\prime}}} {\\left( 1 - \\omega^{2} \\mathrm {R}^{2}\\right)^{\\frac {1} {2}}} = - \\frac {\\mathrm {m} \\omega \\gamma \\mathrm {u}^{\\mathrm {y}}} {\\left( 1 - \\omega^{2} \\mathrm {R}^{2}\\right)^{\\frac {1} {2}}}$$This resolves the \"paradox.\""
+  },
+  "verification": null
+}

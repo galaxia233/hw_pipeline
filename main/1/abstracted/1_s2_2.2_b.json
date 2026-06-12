@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s2_2.2_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "inverse_compton_scattering",
+      "target_object": "relativistic_kinematics",
+      "coordinate": "cosmic_ray",
+      "scenario": "thermal_radiation",
+      "method": "astrophysics"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.2_b",
+    "source_id": "1_s2_2.2_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.2_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.5,
+      "realism": 0.9,
+      "rationale": "涉及相对论性粒子与热光子弹性散射的最大能量转移计算，逻辑链条完整且具有明确的天体物理观测背景，但题干未提供参考答案与求解步骤",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T$",
+      "$E_p$",
+      "$\\epsilon_0$"
+    ],
+    "target": [
+      "$\\Delta \\epsilon_{\\gamma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "# Problem 2.2.(b) If space is filled with black-body radiation of temperature $3^{0} \\mathrm{~K}$ and contains cosmic ray protons of energies up to $10^{20} \\mathrm{eV}$ , how much energy can a proton of energy $10^{20} \\mathrm{eV}$ transfer to a $3^{0} \\mathrm{~K}$ photon?",
+    "answer": null,
+    "solution": null
+  },
+  "verification": null
+}

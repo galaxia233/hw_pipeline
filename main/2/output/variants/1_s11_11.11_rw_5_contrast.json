@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-3-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "ISCO radius",
+      "coordinate": "Schwarzschild spherical and Minkowski Cartesian",
+      "scenario": "black hole orbit contrast flat space",
+      "method": "effective potential contrast",
+      "generalization_axis": "compare",
+      "metric": "Minkowski"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-3",
+      "1_s11_11.11-3-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Minkowski",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "V_eff",
+      "r_ISCO",
+      "orbit existence contrast"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在两种不同的时空背景下，分析有质量测试粒子（满足类时条件 $g_{\\mu\\nu}\\dot{x}^\\mu\\dot{x}^\\nu=-1$）的运动：背景 A (Schwarzschild)：度规为 $ds^2 = -(1-r_s/r)dt^2 + r/(r-r_s)dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。其 Killing 矢量为时间平移 $\\partial_t$ 与绕 z 轴旋转 $\\partial_\\phi$，对应守恒量 $E=-g_{tt}\\dot{t}$ 与 $L=g_{\\phi\\phi}\\dot{\\phi}$。粒子限制在赤道面 $\\theta=\\pi/2$。背景 B (Minkowski)：度规为 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$。其 Killing 矢量为时间平移 $\\partial_t$ 与空间平移 $\\partial_x, \\partial_y, \\partial_z$，对应守恒量 $E=\\dot{t}$ 与 $p_x=\\dot{x}, p_y=\\dot{y}, p_z=\\dot{z}$。请从各自的 Killing 矢量出发推导守恒量，写出粒子径向运动的有效势或等效约束方程。对比两者的数学结构，解释为何背景 A 存在最内稳定圆轨道（并求出半径 $r_{ISCO}$），而背景 B 的自由粒子不存在任何圆轨道。",
+    "answer": "背景 A (Schwarzschild)：在赤道面 $\\theta=\\pi/2$，由 Killing 矢量得到能量 $E = (1-r_s/r)\\dot{t}$，角动量 $L = r^2 \\dot{\\phi}$。代入类时条件得：\\[ \\frac{r}{r-r_s} \\dot{r}^2 = E^2 - \\left(1-\\frac{r_s}{r}\\right)\\left(1+\\frac{L^2}{r^2}\\right) \\]有效势为 $V_{eff}(r) = \\left(1-\\frac{r_s}{r}\\right)\\left(1+\\frac{L^2}{r^2}\\right) = 1 - \\frac{r_s}{r} + \\frac{L^2}{r^2} - \\frac{r_s L^2}{r^3}$。有效势中引力项 $-r_s/r$ 与离心项 $L^2/r^2$ 的竞争形成势阱，允许稳定圆轨道存在。当 $r < 3r_s$ 时，强引力项 $-r_s L^2/r^3$ 主导，势阱消失。由 $dV_{eff}/dr = 0$ 和 $d^2V_{eff}/dr^2 = 0$ 联立可得最内稳定圆轨道半径 $r_{ISCO} = 3r_s$。背景 B (Minkowski)：由平移 Killing 矢量得到守恒量 $E = \\dot{t}$， $p_x = \\dot{x}$， $p_y = \\dot{y}$， $p_z = \\dot{z}$。代入类时条件得等效约束方程：\\[ -E^2 + p_x^2 + p_y^2 + p_z^2 = -1 \\implies E^2 = 1 + p_x^2 + p_y^2 + p_z^2 \\]由于该背景的 Fact Sheet 仅提供平移 Killing 矢量，系统缺乏旋转对称性，无法定义绕某中心的角动量守恒量 $L$，因此无法将 3D 直线运动降维为具有势阱的径向有效势 $V_{eff}(r)$ 形式。粒子仅作匀速直线运动。对比差异与物理含义：Schwarzschild 时空具有非零曲率（中心质量提供引力吸引）和旋转对称性（提供角动量守恒与离心势），两者共同塑造了具有极小值的径向有效势，从而允许圆轨道并存在稳定边界 $r_{ISCO}=3r_s$。Minkowski 时空曲率为零（无引力中心）且仅具平移对称性，无法形成径向势阱，自由粒子轨迹为直线，不存在任何圆轨道。",
+    "solution": null
+  },
+  "verification": null
+}

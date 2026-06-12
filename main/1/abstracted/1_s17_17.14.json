@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s17_17.14",
+    "type": "calculate",
+    "tags": {
+      "metric": "black_hole_merger",
+      "target_object": "hawking_area_theorem",
+      "coordinate": "kerr_metric",
+      "scenario": "schwarzschild_metric",
+      "method": "energy_radiation_efficiency"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.14",
+    "source_id": "1_s17_17.14",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.14"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于霍金面积定理的不等式推导与极值分析，逻辑链完整且具天体物理启发性",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$M_1$",
+      "$M_2$",
+      "$a$",
+      "$A_{\\\\mathrm{i}}$",
+      "$A_{\\\\mathrm{f}}$"
+    ],
+    "target": [
+      "$M_2$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s17_17.14.md]\\\\n\\\\nProblem 17.14. According to Hawking's theorem (that in a collision of two black holes the total surface area must not decrease), what is the minimum mass $\\\\mathbf{M}_2$ of a Schwarzschild black hole that results from the collision of two Kerr black holes of equal mass $\\\\mathbf{M}_1$ and opposite angular\\\\nmomentum parameter, a? Suppose $|a| \\\\approx M_1$ ; what fraction of the original mass can be radiated away? Are there any other uncharged black-hole collisions that can get this much energy out?",
+    "answer": "Minimum mass: $\\\\mathbf{M}_2 = \\\\mathbf{M}_1$; Fraction radiated: $50\\\\%$; Other collisions: No, this is the maximum efficiency for uncharged black-hole collisions.",
+    "solution": "Solution 17.14. The two initial black holes have the same area, so the total initial surface area $(Q = 0$ in Problem 17.13) is\\\\n$$\\\\n$\\\\mathbf {A}_{\\\\mathbf {i}} = 1 6 \\\\pi \\\\mathbf {M}_{\\\\mathbf {1}} \\\\left[ \\\\mathbf {M}_{\\\\mathbf {1}} + \\\\left(\\\\mathbf {M}_{\\\\mathbf {1}}^{2} - a^{2}\\\\right)^{\\\\frac {1}{2}} \\\\right].\\\\n$$\\\\nThe final black hole is a Schwarzschild black hole, so\\\\n$$\\\\n$\\\\mathbf {A_{f}} = 4 \\\\pi (2 \\\\mathbf {M}_{2})^{2} = 1 6 \\\\pi \\\\mathbf {M}_{2}^{2}.\\\\n$$\\\\nThe inequality $\\mathbf{A}_{\\\\mathbf{f}} \\\\geq \\\\mathbf{A}_{\\\\mathbf{i}}$ becomes\\\\n$$\\\\n$\\\\mathbf {M}_{2}^{2} \\\\geq \\\\mathbf {M}_{1}^{2} + \\\\mathbf {M}_{1}(\\\\mathbf {M}_{1}^{2} - \\\\mathbf {a}^{2})^{\\\\frac {1}{2}}.\\\\n$$\\\\nIf $a = M_1$ , this means $M_2 \\\\geq M_1$ . The total initial mass was $2M_1$ , so the final mass must be at least half of this. According to Hawking's theorem then, up to $50\\\\%$ of the original mass can be radiated away!\\\\nThis is the most efficient of the collisions without charge. Suppose two black holes of masses $\\mathbf{M}_1$ and $\\mathbf{M}_2$ , and angular momentum parameters $\\mathbf{a}_1$ and $\\mathbf{a}_2$ coalesce to form a black hole of mass $\\mathbf{M}_3$ , and parameter $\\mathbf{a}_3$ ; then $\\mathbf{A}_{\\\\mathrm{f}} \\\\geq \\\\mathbf{A}_{\\\\mathrm{i}}$ implies that\\\\n$$\\\\n$\\\\mathsf {M}_{1} \\\\left[ \\\\mathsf {M}_{1} + (\\\\mathsf {M}_{1}^{2} - \\\\mathsf {a}_{1}^{2})^{\\\\frac {1}{2}} \\\\right] + \\\\mathsf {M}_{2} \\\\left[ \\\\mathsf {M}_{2} + (\\\\mathsf {M}_{2}^{2} - \\\\mathsf {a}_{2}^{2})^{\\\\frac {1}{2}} \\\\right] \\\\leq \\\\mathsf {M}_{3} \\\\left[ \\\\mathsf {M}_{3} + (\\\\mathsf {M}_{3}^{2} - \\\\mathsf {a}_{3}^{2})^{\\\\frac {1}{2}} \\\\right].\\\\n$$\\\\nOne gets the most energy out when the equality obtains. Moreover, for given $\\mathbb{M}_1$ , $\\mathbb{M}_2$ , $\\mathbf{a}_1$ , $\\mathbf{a}_2$ the smallest $\\mathbb{M}_3$ (hence the largest radiation of energy) will occur for $\\mathbf{a}_3 = 0$ . Similarly, for given $\\mathbb{M}_3$ (with $\\mathbf{a}_3 = 0$ ), the largest $\\mathbb{M}_1 + \\mathbb{M}_2$ (hence the largest radiation of energy) will occur for $|\\mathbf{a}_1| = |\\mathbf{a}_2| = \\mathbb{M}_1 = \\mathbb{M}_2$ . Since $\\mathbf{a}_3 = 0$ , conservation of angular momentum implies that $\\mathbf{a}_1 = -\\mathbf{a}_2$ . This is just the situation we worked in detail above. The conclusion, therefore, is that when two Kerr holes collide and coalesce, no more than $50\\\\%$ of their original mass can be radiated away!"
+  },
+  "verification": null
+}

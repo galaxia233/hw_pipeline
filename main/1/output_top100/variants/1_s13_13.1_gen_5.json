@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s13_13.1-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "R_{00}",
+      "coordinate": "spherical",
+      "scenario": "black hole",
+      "method": "Christoffel contraction",
+      "generalization_axis": "extend",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.1",
+      "1_s13_13.1-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$R_{00} = 0$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在先前的理论推导中，我们证明了 Einstein 场方程 $R_{\\mu\\nu} - a g_{\\mu\\nu} R = 8\\pi T_{\\mu\\nu}$ 中的系数 $a$ 必须为 $1/2$ 才能在 Newtonian 极限下还原出正确的泊松方程。当 $a=1/2$ 且在真空区域（$T_{\\mu\\nu}=0$）时，场方程退化为 $R_{\\mu\\nu}=0$。\\n\\n现在我们考虑 Schwarzschild 黑洞度规，其线元为：\\n$$ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$\\n其中 $r_s$ 为 Schwarzschild 半径（常数）。已知该度规下的非零 Christoffel 符号（上标为第一个指标）为：\\n$$\\Gamma^0_{01} = \\Gamma^0_{10} = \\frac{r_s}{2r(r-r_s)}$$\\n$$\\Gamma^1_{00} = \\frac{r_s(r-r_s)}{2r^3}$$\\n$$\\Gamma^1_{11} = -\\frac{r_s}{2r(r-r_s)}$$\\n$$\\Gamma^2_{12} = \\Gamma^2_{21} = \\frac{1}{r}$$\\n$$\\Gamma^3_{13} = \\Gamma^3_{31} = \\frac{1}{r}$$\\n$$\\Gamma^3_{23} = \\Gamma^3_{32} = \\frac{1}{\\tan\\theta}$$\\n\\n请利用上述 Christoffel 符号，通过张量缩并严格计算 Ricci 张量的时间分量 $R_{00}$，并证明在 $r > r_s$ 区域它严格为零，从而验证 Schwarzschild 解确实满足真空 Einstein 场方程。",
+    "answer": "$R_{00} = 0$",
+    "solution": "根据 Ricci 张量的定义：\\n$$R_{\\mu\\nu} = R^\\alpha_{\\mu\\alpha\\nu} = \\partial_\\alpha \\Gamma^\\alpha_{\\nu\\mu} - \\partial_\\nu \\Gamma^\\alpha_{\\alpha\\mu} + \\Gamma^\\alpha_{\\alpha\\sigma} \\Gamma^\\sigma_{\\nu\\mu} - \\Gamma^\\alpha_{\\nu\\sigma} \\Gamma^\\sigma_{\\alpha\\mu}$$\\n我们要计算 $R_{00} = R^\\alpha_{0\\alpha 0}$，代入 $\\mu=0, \\nu=0$：\\n$$R_{00} = \\partial_\\alpha \\Gamma^\\alpha_{00} - \\partial_0 \\Gamma^\\alpha_{\\alpha 0} + \\Gamma^\\alpha_{\\alpha\\sigma} \\Gamma^\\sigma_{00} - \\Gamma^\\alpha_{0\\sigma} \\Gamma^\\sigma_{\\alpha 0}$$\\n\\n由于度规与时间 $t$ 无关，所有对 $t$ 的偏导数为零，即 $\\partial_0 = 0$。同时，$\\Gamma^\\alpha_{00}$ 只有当 $\\alpha=1$ 时不为零，因此第一项只保留 $\\alpha=1$ 的部分：\\n1. $\\partial_\\alpha \\Gamma^\\alpha_{00} = \\partial_r \\Gamma^1_{00} = \\partial_r \\left( \\frac{r_s(r-r_s)}{2r^3} \\right) = \\frac{r_s}{2r^3} - \\frac{3r_s(r-r_s)}{2r^4} = -\\frac{r_s}{r^3} + \\frac{3r_s^2}{2r^4}$\\n\\n2. $-\\partial_0 \\Gamma^\\alpha_{\\alpha 0} = 0$\\n\\n对于第三项，$\\Gamma^\\sigma_{00}$ 只有当 $\\sigma=1$ 时不为零，因此：\\n$$\\Gamma^\\alpha_{\\alpha\\sigma} \\Gamma^\\sigma_{00} = \\Gamma^\\alpha_{\\alpha 1} \\Gamma^1_{00}$$\\n我们需要计算 $\\Gamma^\\alpha_{\\alpha 1}$：\\n$$\\Gamma^\\alpha_{\\alpha 1} = \\Gamma^0_{01} + \\Gamma^1_{11} + \\Gamma^2_{21} + \\Gamma^3_{31} = \\frac{r_s}{2r(r-r_s)} - \\frac{r_s}{2r(r-r_s)} + \\frac{1}{r} + \\frac{1}{r} = \\frac{2}{r}$$\\n所以：\\n$$\\Gamma^\\alpha_{\\alpha 1} \\Gamma^1_{00} = \\frac{2}{r} \\cdot \\frac{r_s(r-r_s)}{2r^3} = \\frac{r_s(r-r_s)}{r^4} = \\frac{r_s}{r^3} - \\frac{r_s^2}{r^4}$$\\n\\n对于第四项，$\\Gamma^\\alpha_{0\\sigma}$ 只有当 $\\alpha=0, \\sigma=1$ 或 $\\alpha=1, \\sigma=0$ 时不为零；相应地，$\\Gamma^\\sigma_{\\alpha 0}$ 也只有当 $\\sigma=1, \\alpha=0$ 或 $\\sigma=0, \\alpha=1$ 时不为零。因此求和仅有两项：\\n$$-\\Gamma^\\alpha_{0\\sigma} \\Gamma^\\sigma_{\\alpha 0} = - \\left( \\Gamma^0_{01} \\Gamma^1_{00} + \\Gamma^1_{00} \\Gamma^0_{10}\\right) = -2 \\Gamma^0_{01} \\Gamma^1_{00}$$\\n代入数值：\\n$$-2 \\left( \\frac{r_s}{2r(r-r_s)}\\right) \\left( \\frac{r_s(r-r_s)}{2r^3}\\right) = -\\frac{r_s^2}{2r^4}$$\\n\\n将所有四项相加：\\n$$R_{00} = \\left( -\\frac{r_s}{r^3} + \\frac{3r_s^2}{2r^4}\\right) + 0 + \\left( \\frac{r_s}{r^3} - \\frac{r_s^2}{r^4}\\right) - \\frac{r_s^2}{2r^4}$$\\n合并同类项：\\n$-\\frac{r_s}{r^3}$ 与 $\\frac{r_s}{r^3}$ 抵消；\\n$\\frac{3r_s^2}{2r^4} - \\frac{r_s^2}{r^4} - \\frac{r_s^2}{2r^4} = \\frac{3r_s^2 - 2r_s^2 - r_s^2}{2r^4} = 0$。\\n\\n因此，在 $r > r_s$ 区域严格证明了 $R_{00} = 0$。同理可证其他分量也为零，这验证了 Schwarzschild 度规满足真空 Einstein 场方程 $R_{\\mu\\nu} = 0$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.2,
+      "issue": "题目声称给出了'该度规下的非零 Christoffel 符号'，但实际上遗漏了至少3个非零符号：$\\Gamma^1_{22} = -(r-r_s)$, $\\Gamma^1_{33} = -(r-r_s)\\sin^2\\theta$, $\\Gamma^2_{33} = -\\sin\\theta\\cos\\theta$。这个事实陈述错误直接破坏了题目的逻辑闭环：题目结尾声称'同理可证其他分量也为零，这验证了 Schwarzschild 解确实满足真空 Einstein 场方程'，但仅凭题目给出的不完整符号列表，做题者根本无法计算 $R_{22}$ 和 $R_{33}$ 等分量（因为必须用到遗漏的 $\\Gamma^1_{22}$ 等符号），因此'同理可证'的结论在给定条件下是虚假的，题目不自洽且不 self-contained。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

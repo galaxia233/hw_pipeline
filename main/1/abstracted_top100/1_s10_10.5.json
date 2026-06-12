@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5",
+    "type": "prove",
+    "tags": {
+      "metric": "killing_vector",
+      "target_object": "axial_symmetry",
+      "coordinate": "rotating_star",
+      "scenario": "boundary_condition",
+      "method": "lie_bracket"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s10_10.5",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s10_10.5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "利用Killing向量李括号仍为Killing场的代数性质结合无穷远渐近边界条件唯一确定线性系数为零，逻辑链条清晰且具典型天体物理解释。",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$[\\xi_{(\\phi)}, \\xi_{(t)}]$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "10.5. The metric for an axially symmetric rotating star admits two Killing vectors, $\\pmb{\\xi}_{(t)}$ and $\\pmb{\\xi}_{(\\phi)}$ . Assume there are no other independent Killing vectors. Prove that $\\pmb{\\xi}_{(t)}$ and $\\pmb{\\xi}_{(\\phi)}$ commute.",
+    "answer": "$[\\xi_{(\\phi)}, \\xi_{(t)}] = 0$",
+    "solution": "Solution 10.5. The commutator must be a Killing field according to Problem 10.3. By hypothesis any Killing vector must be a sum (with constant coefficients) of $\\xi_{(t)}$ and $\\xi_{(\\phi)}$ :$$$\\left[ \\boldsymbol {\\xi}_{\\phi}, \\boldsymbol {\\xi}_{(t)}\\right] = a \\boldsymbol {\\xi}_{\\phi} + b \\boldsymbol {\\xi}_{(t)}.$$At infinity $\\xi_{(\\phi)}\\rightarrow \\partial /\\partial \\phi$ and $\\pmb{\\xi}_{(t)}\\rightarrow \\partial /\\partial t$ so the commutator $\\to 0$ . This means that a and b must be zero, i.e. that the commutator vanishes everywhere. (B. Carter, [Commun. Math. Phys. 17, 233 (1970)] has proven that $[\\pmb {\\xi}_{(\\phi)},\\pmb {\\xi}_{(t)}] = 0$ under very general conditions even when there are other Killing vectors.)"
+  },
+  "verification": null
+}

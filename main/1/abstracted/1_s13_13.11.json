@@ -1,0 +1,151 @@
+{
+  "metadata": {
+    "id": "1_s13_13.11",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "stress_energy_pseudotensor",
+      "coordinate": "cartesian_coordinates",
+      "scenario": "weak_gravity_scenario",
+      "method": "perturbation_expansion_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.11",
+    "source_id": "1_s13_13.11",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.11"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "弱场近似结合多阶张量求导与最低非零项筛选，物理图像清晰且计算方法可推广至不同引力势场景",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$t_{\\rm LL}^{00}$",
+      "$t_{\\rm LL}^{0i}$",
+      "$t_{\\rm LL}^{ij}$"
+    ],
+    "metric": [
+      [
+        "$-(1+2\\Phi)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2\\Phi)$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$(1-2\\Phi)$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$(1-2\\Phi)$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "-2*Phi - 1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1 - 2*Phi",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1 - 2*Phi",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1 - 2*Phi"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 13.11. For the \"nearly Newtonian\" metric$$\\mathrm {d s}^{2} = - (1 + 2 \\Phi) \\mathrm {d t}^{2} + (1 - 2 \\Phi) \\delta_{\\mathrm {j k}} \\mathrm {d x}^{\\mathrm {j}} \\mathrm {d x}^{\\mathrm {k}}$$calculate, to lowest nonvanishing order in $\\Phi$ , the components of the Landau-Lifschitz stress-energy pseudotensor $t_{\\mathbf{L}\\cdot \\mathbf{L}}^{\\alpha \\beta}$ (Landau and Lifschitz p. 306). Assume that the field is changing so slowly in time that time derivatives of $\\Phi$ can be neglected compared to spatial derivatives.",
+    "answer": "$t_{\\rm LL}^{00} = -\\frac{7}{8\\pi} \\delta^{ij} \\Phi_{,i} \\Phi_{,j}$, $t_{\\rm LL}^{0i} = 0$, $t_{\\rm LL}^{ij} = \\frac{1}{4\\pi} \\left( \\Phi_{,i} \\Phi_{,j} - \\frac{1}{2} \\delta_{ij} \\Phi_{,m} \\Phi^{,m}\\right)$",
+    "solution": "Solution 13.11. The components of the Landau-Lifschitz pseudotensor are given by the rather awesome expression$$\\begin{array}{l}( - \\mathrm {g})^{a \\beta}_{\\mathrm {L} - \\mathrm {L}} = (1 6 \\pi)^{- 1} \\left[ g^{a \\beta},_{\\lambda} g^{\\lambda \\mu},_{\\mu} - g^{a \\lambda},_{\\lambda} g^{\\beta \\mu},_{\\mu} + \\frac {1}{2} g^{a \\beta} g_{\\lambda \\mu}^{\\lambda \\nu},_{\\rho} g^{\\rho \\mu},_{\\nu}\\right. \\\\- \\mathrm {g}^{\\alpha \\lambda} \\mathrm {g}_{\\mu \\nu} \\mathfrak {g}^{\\beta \\nu}_{, \\rho} \\mathfrak {g}^{\\mu \\rho}_{, \\lambda} - \\mathrm {g}^{\\beta \\lambda} \\mathrm {g}_{\\mu \\nu} \\mathfrak {g}^{a \\nu}_{, \\rho} \\mathfrak {g}^{\\mu \\rho}_{, \\lambda} + \\underline {{\\mathrm {g}_{\\lambda \\mu} \\mathrm {g}^{\\nu \\rho}_{\\mathfrak {g}}}^{a \\lambda}_{, \\nu} \\mathfrak {g}^{\\beta \\mu}}_{, \\rho} \\\\\\left. + \\frac {1}{8} \\left(2 \\mathrm {g}^{\\alpha \\lambda} \\mathrm {g}^{\\beta \\mu} - \\mathrm {g}^{\\alpha \\beta} \\mathrm {g}^{\\lambda \\mu}\\right) \\left(2 \\mathrm {g}_{\\nu \\rho} \\mathrm {g}_{\\sigma \\tau} - \\mathrm {g}_{\\sigma \\rho} \\mathrm {g}_{\\nu \\tau}\\right) \\mathfrak {g}^{\\nu \\tau}_{, \\lambda} \\mathfrak {g}^{\\rho \\sigma}_{, \\mu}\\right]\\end{array}$$where$$g^{a \\beta} \\equiv ( - g)^{\\frac {1}{2}} g^{a \\beta}.$$For the metric we are considering$$g^{0 0} = - (1 - 2 \\phi)^{\\frac {3}{2}} (1 + 2 \\Phi)^{- \\frac {1}{2}}, \\quad g^{i j} = (1 - 4 \\Phi^{2})^{\\frac {1}{2}} \\delta^{i j}, \\quad g^{0 i} = 0.$$Notice that all terms in the expression for $t^{a\\beta}$ involve the product of the derivatives of two $g$ 's, so to lowest order $t^{a\\beta}$ will go as the product of the first derivative of $\\Phi$ . We need to keep therefore, only the terms proportioned to $\\Phi_{,i}$ when we calculate the derivatives of the $g$ 's:$${}^{\\mathbf {g}}_{, \\mathrm {i}}^{0 0} \\approx 4 \\phi_{, \\mathrm {i}} \\qquad \\mathrm {g}_{, \\mathrm {k}}^{\\mathrm {i j}} \\approx - 4 \\phi \\phi_{, \\mathrm {k}} \\delta^{\\mathrm {i j}} \\approx 0 .$$If we keep only the $g_{,i}^{00}$ type terms, only the underlined terms in the expression for $t_{\\mathbf{L} - \\mathbf{L}}^{\\alpha \\beta}$ survive and we find$$t_{L - L}^{\\alpha \\beta} = (1 6 \\pi)^{- 1} \\left[ - g_{, i}^{i j} g^{\\alpha 0} g^{\\beta 0} g_{, j} + \\frac {1}{8} \\left(2 g^{\\alpha 1} g^{\\beta m} - g^{\\alpha \\beta} g_{, j}^{l m}\\right) g_{, 1}^{0 0} g_{, m}^{0 0}\\right].$$From this, with $\\mathbf{g}^{\\alpha \\beta} \\approx \\eta^{\\alpha \\beta}$ and $\\mathfrak{g}_{,i}^{00} = 4\\phi_{,i}$ we easily find$$\\begin{array}{l}t_{L - L}^{0 0} = (1 6 \\pi)^{- 1} \\left[ - \\delta^{i j} g_{, i}^{0 0} g_{, j}^{0 0} + \\frac {1}{8} \\delta^{1 m} g_{, 1}^{0 0} g_{, m}^{0 0}\\right] = \\frac {- 7}{8 \\pi} \\delta^{i j} \\Phi_{, i} \\Phi_{, j} \\\\t_{\\mathbf {L} - \\mathbf {L}}^{0 \\mathrm {i}} = 0 \\\\\\end{array}$$$$t_{\\mathrm {L} - \\mathrm {L}}^{\\mathrm {i j}} = (1 6 \\pi)^{- 1} \\left[ \\frac {1}{8} \\left(2 \\delta^{\\mathrm {i l}} \\delta^{\\mathrm {j m}} - \\delta^{\\mathrm {i j}} \\delta^{\\mathrm {l m}} g_{, 1 g}^{0 0},_{\\mathrm {m}}^{0 0}\\right]\\right] . = (4 \\pi)^{- 1} \\left(\\Phi_{, \\mathrm {i}} \\Phi_{, \\mathrm {j}} - \\frac {1}{2} \\delta_{\\mathrm {i j}} \\Phi_{, \\mathrm {m}} \\Phi^{, \\mathrm {m}}\\right).$$Note that the spatial components $t_{\\mathbf{L} - \\mathbf{L}}^{\\mathbf{i j}}$ agree with the stress tensor given in Problem 12.8."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x^1",
+      "x^2",
+      "x^3"
+    ],
+    "metric_latex": [
+      [
+        "- 2 \\Phi - 1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1 - 2 \\Phi",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1 - 2 \\Phi",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1 - 2 \\Phi"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

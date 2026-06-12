@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-7-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "killing_vector_norm",
+      "coordinate": "schwarzschild",
+      "scenario": "reduce_newtonian_limit",
+      "method": "taylor_expansion",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-7",
+      "1_s10_10.15-7-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$|\\boldsymbol{\\xi}|$ Newtonian limit",
+      "$\\Phi_{\\text{Newtonian}}$ term"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规为 $ds^2 = -\\frac{r-r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s = 2M$。该时空的时间平移 Killing 矢量为 $\\boldsymbol{\\xi} = \\partial_t$，在广义相对论语境下，其模长 $|\\boldsymbol{\\xi}| = \\sqrt{1 - r_s/r}$ 对应试验粒子在该点所能具有的最小比能量 $(E/\\mu)_{\\min}$。请在远场弱场极限 $r \\to \\inf ty$ 下，将此模长的一阶展开结果归约回经典对应，验证其回到牛顿力学中的比机械能（比静能加比引力势能），并指出展开式中对应牛顿引力势能的项。",
+    "answer": "在远场极限 $r \\to \\inf ty$（即 $r_s/r \\ll 1$）下，对模长进行一阶 Taylor 展开：$|\\boldsymbol{\\xi}| = \\sqrt{1 - r_s/r} \\approx 1 - \\frac{r_s}{2r} = 1 - \\frac{M}{r}$。其中 1 代表单位质量的静能（$c=1$），$-M/r$ 代表牛顿引力势 $\\Phi$。因此，GR 中的最小比能量归约回了牛顿力学的比机械能 $1 + \\Phi$，对应牛顿引力势能的项为 $-M/r$。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "题目存在两个主要错误：1. 拼写/排版错误：题目和答案中两处将无穷大符号写成了错误的 `\\inf ty`，应为 `\\infty`，这导致题目无法正常阅读。2. 物理概念表述错误：answer 中声称‘GR中的最小比能量归约回了牛顿力学中的比机械能 $1 + \\Phi$’，并把牛顿力学中的比机械能解释为‘比静能加比引力势能’。这是严重的概念混淆：牛顿力学中没有‘静能’（$c^2=1$）的概念，牛顿力学的比机械能仅为动能加势能（$v^2/2 + \\Phi$），静止时比机械能仅为 $\\Phi$。正确的表述应为‘相对论的比能量归约回比静能加牛顿力学的比机械能’。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

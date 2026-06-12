@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "id": "1_s19_19.9",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_rw",
+      "target_object": "target_distance_relations",
+      "coordinate": "coordinate_comoving_spherical",
+      "scenario": "scenario_cosmological_observation",
+      "method": "method_photon_flux_geometric_scaling"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.9",
+    "source_id": "1_s19_19.9",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "结合RW度规几何与光子传播能量-时间守恒律的多步推导，具有明确的宇宙学观测物理背景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r_1$",
+      "$\\delta$",
+      "$V$",
+      "$t'$",
+      "$R(t_1)$",
+      "$R_0$",
+      "$L$",
+      "$\\ell$",
+      "$z$"
+    ],
+    "target": [
+      "$d_A$",
+      "$d_M$",
+      "$d_L$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.9. In a Robertson-Walker metric show that angular diameter distance $(\\mathbf{d}_{\\mathbf{A}})$ , luminosity distance $(\\mathbf{d}_{\\mathbf{L}})$ and proper motion distance $(\\mathbf{d}_{\\mathbf{M}})$ are related by$$(1 + z)^{2} \\mathrm {d}_{\\mathbf {A}} = (1 + z) \\mathrm {d}_{\\mathbf {M}} = \\mathrm {d}_{\\mathbf {L}}.$$",
+    "answer": "(1 + z)^2 d_A = (1 + z) d_M = d_L",
+    "solution": "If $D$ is the physical size of an object, and $\\delta$ is its angle subtended, $d_A \\equiv D / \\delta$ . From the figure, and the Robertson-Walker metric, we see that $D = R(t)r_1\\delta$ , so $d_A = r_1R(t_1)$ . If the object is moving transversely at a proper velocity $V$ and with an apparent angular motion![](images/7daeecf98632c84374f02e5c441af77c74ee7ffdbf8525c58ae5cd766797240f.jpg)$\\mathrm{d}\\delta /\\mathrm{d}t$ , then $\\mathbf{d}_{\\mathbf{M}}\\equiv \\mathbf{V} / (\\mathbf{d}\\delta /\\mathbf{d}t)$ . Let $t^\\prime$ denote time measured at the emission of photons. Since $\\mathrm{V} = \\mathrm{d}(\\mathrm{R}(t_1)\\mathrm{r}_1\\delta) / \\mathrm{dt}'$ , and since $\\mathrm{dt}' / \\mathrm{dt} = \\mathrm{R}(t_1) / \\mathrm{R}_0$ because of the cosmological redshift, and noting that $\\mathbb{R}(t_1)$ can be considered constant since its change induces no transverse motion, we get $\\mathbf{d}_{\\mathbf{M}} = \\mathbf{R}_{0}\\mathbf{r}_{1}$ . If the object has an intrinsic luminosity L, and we receive a flux $\\ell$ , then $\\mathtt{d_L}\\equiv (\\mathtt{L} / 4\\pi \\ell)^{\\frac{1}{2}}$ . In a time dt' it emits an energy Ldt'. This energy is redshifted to the present by a factor $\\mathbb{R}(t_1) / \\mathbb{R}_0$ , and is now distributed over a sphere of proper area $4\\pi (\\mathfrak{r}_1\\mathbb{R}_0)^2$ (see figure). Thus, $\\ell = (\\mathrm{Ldt'}\\mathrm{R} / \\mathrm{R}_0)(4\\pi \\mathrm{r}_1\\mathrm{R}_0)^{-2} / \\mathrm{dt}$ and $\\mathtt{d}_{\\mathtt{L}} = \\mathtt{R}_{0}^{2}\\mathtt{r}_{1} / \\mathtt{R}(\\mathtt{t}_{1})$ . Using $\\mathbb{R}_0 / \\mathbb{R}(\\mathfrak{t}_{1}) =$ $1 + z$ , we have now obtained $(1 + z)^2\\mathtt{d}_{\\mathtt{A}} = (1 + z)\\mathtt{d}_{\\mathtt{M}} = \\mathtt{d}_{\\mathtt{L}}$"
+  },
+  "verification": null
+}

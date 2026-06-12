@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s18_18.11",
+    "type": "prove",
+    "tags": {
+      "metric": "perturbed_metric",
+      "target_object": "gravitational_radiation",
+      "coordinate": "Cartesian_coordinates",
+      "scenario": "test_particle_motion",
+      "method": "geodesic_integration"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s18_18.11",
+    "source_id": "1_s18_18.11",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s18_18.11"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于线性近似度规的运动方程积分，结合初始与终态边界条件推导位移恢复，贴合引力波探测物理图像",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\mathbf{x}$",
+      "$\\mathbf{x}_0$",
+      "$h$",
+      "$R$"
+    ],
+    "target": [
+      "$\\mathbf{x}_{\\text{final}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 18.11. An initially static source undergoes violent motion which generates gravitational radiation and then, after a finite time, becomes again static. A distant observer detects the gravitational waves by watching the motion of two free particles which are initially at rest with respect to each other. Show that after the passage of the waves the observer sees the particles back in their original positions and at rest with respect to each other, to linear order in the wave amplitude.",
+    "answer": "After the passage of the gravitational waves, the particles return to their original positions and are at rest with respect to each other.",
+    "solution": "Solution 18.11. The motion is most easily analyzed in a nearly Newtonian coordinate system. The motion of the particles (and the observer) then has the form$$\\ddot {\\mathbf {x}} \\sim \\mathrm {R x} \\sim \\dot {\\mathbf {h x}}.$$Here $R$ denotes the magnitude of the Riemann tensor for the waves and $h$ denotes the (dimensionless) metric perturbations for the waves. Since the waves are weak and oscillatory, the positions are fairly constant so we can integrate the equation of motion to get$$\\begin{array}{l} \\mathbf {x} (t) - \\mathbf {x}_{0} = \\mathbf {x}_{0} h (t) + a t + \\beta + \\mathcal {O} \\left(h^{2}\\right) \\\\\\mathbf {x}_{0} = \\text {i n i t i a l p o s i t i o n}. \\\\\\end{array}$$If we ignore the higher order corrections, we see that $\\alpha$ and $\\beta$ must be zero since the particles were at rest in their initial positions before the wave burst arrived. After passage of the waves $h = 0$ and the particles must again be at rest in their initial positions."
+  },
+  "verification": null
+}

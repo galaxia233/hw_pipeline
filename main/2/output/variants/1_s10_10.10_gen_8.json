@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "Killing vector field and scale factor",
+      "coordinate": "spherical FLRW",
+      "scenario": "cosmology",
+      "method": "Killing equation inversion",
+      "generalization_axis": "invert",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\frac{\\dot{a}}{a} = \\text{const}",
+      "\\xi^1(r) = -H r \\text{ for } k=0"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，Killing 矢量场反映了时空的对称性，且它与测地线切矢量的内积沿测地线守恒。考虑 FLRW 宇宙度规：\\n$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$$\\n其中 $k \\in \\{-1, 0, 1\\}$ 为曲率参数。通常的 FLRW 宇宙不具有时间平移对称性，但某些特殊宇宙模型可能具有更丰富的对称性。假设该度规存在一个 Killing 矢量场 $\\boldsymbol{\\xi}$，其分量为 $\\xi^t = 1$, $\\xi^r = \\xi^1(r)$ （仅依赖于 $r$），$\\xi^\\theta = 0$, $\\xi^\\phi = 0$。请利用 Killing 方程 $\\nabla_{\\mu} \\xi_{\\nu} + \\nabla_{\\nu} \\xi_{\\mu} = 0$ 反推尺度因子 $a(t)$ 必须满足的演化条件，并进一步在空间平直（$k=0$）的情况下，求出该 Killing 矢量场的径向分量 $\\xi^1(r)$ 的具体表达式。",
+    "answer": "尺度因子 $a(t)$ 必须满足 $\\frac{\\dot{a}}{a}$ 为常数（即指数膨胀 $a(t) = a_0 e^{Ht}$）；在 $k=0$ 时，径向分量为 $\\xi^1(r) = -H r$。",
+    "solution": "已知 $\\xi^\\mu = (1, \\xi^1(r), 0, 0)$，对应的协变分量为：\\n$\\xi_t = g_{tt} \\xi^t = -1$\\n$\\xi_r = g_{rr} \\xi^1 = \\frac{a^2(t)}{1-kr^2} \\xi^1(r)$\\n\\n首先验证 Killing 方程的 $(t,r)$ 分量：\\n$\\nabla_t \\xi_r + \\nabla_r \\xi_t = \\partial_t \\xi_r - \\Gamma^0_{tr} \\xi_t - \\Gamma^1_{tr} \\xi_r + \\partial_r \\xi_t - \\Gamma^0_{rt} \\xi_t - \\Gamma^1_{rt} \\xi_r$\\n代入 Christoffel 符号 $\\Gamma^0_{01}=0$，$\\Gamma^1_{01}=\\frac{\\dot{a}}{a}$，以及 $\\partial_t \\xi_r = \\frac{2a\\dot{a} \\xi^1}{1-kr^2}$，$\\partial_r \\xi_t = 0$，可得：\\n$\\nabla_t \\xi_r = \\frac{2a\\dot{a} \\xi^1}{1-kr^2} - \\frac{\\dot{a}}{a} \\frac{a^2 \\xi^1}{1-kr^2} = \\frac{a\\dot{a} \\xi^1}{1-kr^2}$\\n$\\nabla_r \\xi_t = - \\frac{\\dot{a}}{a} \\frac{a^2 \\xi^1}{1-kr^2} = - \\frac{a\\dot{a} \\xi^1}{1-kr^2}$\\n两者相加为0，$(t,r)$ 分量的 Killing 方程自动满足。\\n\\n接下来考察 $(r,r)$ 分量的 Killing 方程：\\n$\\nabla_r \\xi_r = \\partial_r \\xi_r - \\Gamma^0_{rr} \\xi_t - \\Gamma^1_{rr} \\xi_r = 0$\\n代入 $\\Gamma^0_{11} = -\\frac{a\\dot{a}}{-1+kr^2} = \\frac{a\\dot{a}}{1-kr^2}$，$\\Gamma^1_{11} = -\\frac{kr}{-1+kr^2} = \\frac{kr}{1-kr^2}$，以及 $\\partial_r \\xi_r = \\frac{2kr a^2 \\xi^1 + a^2 (\\xi^1)'}{(1-kr^2)^2}$，计算得：\\n$\\nabla_r \\xi_r = \\frac{2kr a^2 \\xi^1 + a^2 (\\xi^1)'}{(1-kr^2)^2} + \\frac{a\\dot{a}}{1-kr^2} - \\frac{kr}{1-kr^2} \\frac{a^2 \\xi^1}{1-kr^2} = \\frac{kr a^2 \\xi^1 + a^2 (\\xi^1)'}{(1-kr^2)^2} + \\frac{a\\dot{a}}{1-kr^2}$\\n令其为0，两边乘以 $\\frac{(1-kr^2)^2}{a^2}$，整理得：\\n$kr \\xi^1 + (\\xi^1)' + \\frac{\\dot{a}}{a} (1-kr^2) = 0$\\n\\n由于 $\\xi^1$ 仅依赖于 $r$，而 $\\frac{\\dot{a}}{a}$ 仅依赖于 $t$，要使上式对所有 $r$ 和 $t$ 恒成立，必须要求 $\\frac{\\dot{a}}{a}$ 为常数。设 $\\frac{\\dot{a}}{a} = H$，这反推出了尺度因子必须满足指数膨胀条件 $a(t) = a_0 e^{Ht}$。\\n\\n在此条件下，径向分量必须满足常微分方程：\\n$kr \\xi^1 + (\\xi^1)' = -H (1-kr^2)$\\n当 $k=0$ 时，方程简化为：\\n$(\\xi^1)' = -H$\\n积分得 $\\xi^1(r) = -H r + C$。为保证矢量场在原点 $r=0$ 处无奇异且物理意义明确，取积分常数 $C=0$，故 $\\xi^1(r) = -H r$。该矢量场正是 de Sitter 宇宙的膨胀 Killing 矢量场。"
+  },
+  "verification": null
+}

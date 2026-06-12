@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "$\\frac{d}{d\\tau}(S_\\mu u^\\mu) = 0$",
+      "coordinate": "general",
+      "scenario": "gyroscope_fermi_walker_transport",
+      "method": "covariant_derivative_product_rule",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\mathbf{S}$",
+      "$\\mathbf{u}$",
+      "$\\mathbf{a}$"
+    ],
+    "target": [
+      "$\\frac{d}{d\\tau}(S_\\mu u^\\mu) = 0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "A torque-free gyroscope moving along a timelike worldline with 4-velocity $u^{\\mu}$ ($u_{\\mu} u^{\\mu} = -1$) Fermi-Walker transports its spin vector $S^{\\mu}$. The Fermi-Walker transport equation for $S^{\\mu}$ along the worldline is:$$\\frac{DS^{\\mu}}{d\\tau} = u^{\\mu} (a_{\\nu} S^{\\nu}) - a^{\\mu} (u_{\\nu} S^{\\nu})$$where $a^{\\mu} = \\frac{Du^{\\mu}}{d\\tau}$ is the 4-acceleration, and we adopt the $(-,+,+,+)$ metric signature convention.In the gyroscope's local rest frame, the spin vector must be purely spatial, meaning it satisfies the orthogonality condition $S_{\\mu} u^{\\mu} = 0$ at all proper times. Verify that the Fermi-Walker transport law is consistent with this physical requirement: prove that $\\frac{d}{d\\tau}(S_{\\mu} u^{\\mu}) = 0$, thereby confirming that the orthogonality between the spin vector and the 4-velocity is preserved throughout the gyroscope's motion.",
+    "answer": "$\\frac{d}{d\\tau}(S_{\\mu} u^{\\mu}) = 0$",
+    "solution": "We compute $\\frac{d}{d\\tau}(S_{\\mu} u^{\\mu})$ using the product rule for covariant derivatives. Since the connection is metric-compatible ($\\nabla_{\\mu} g_{\\alpha\\beta} = 0$), the covariant derivative of a scalar contraction obeys the ordinary product rule:$$\\frac{d}{d\\tau}(S_{\\mu} u^{\\mu}) = (\\nabla_{u} S_{\\mu}) u^{\\mu} + S_{\\mu} (\\nabla_{u} u^{\\mu})$$**Step 1: Lower the index on the Fermi-Walker equation.**Using $g_{\\mu\\nu}$ to lower the index on $\\nabla_{u} S^{\\mu} = u^{\\mu}(a_{\\nu} S^{\\nu}) - a^{\\mu}(u_{\\nu} S^{\\nu})$:$$\\nabla_{u} S_{\\mu} = u_{\\mu} (a_{\\nu} S^{\\nu}) - a_{\\mu} (u_{\\nu} S^{\\nu})$$**Step 2: Compute the first term $(\\nabla_{u} S_{\\mu}) u^{\\mu}$.**$$(\\nabla_{u} S_{\\mu}) u^{\\mu} = u_{\\mu} u^{\\mu} (a_{\\nu} S^{\\nu}) - a_{\\mu} u^{\\mu} (u_{\\nu} S^{\\nu})$$We now use two key identities. First, $u_{\\mu} u^{\\mu} = -1$ by the normalization condition for a timelike 4-velocity in the $(-,+,+,+)$ convention. Second, differentiating $u_{\\mu} u^{\\mu} = -1$ with respect to $\\tau$ gives $\\frac{d}{d\\tau}(u_{\\mu} u^{\\mu}) = 2 a_{\\mu} u^{\\mu} = 0$, hence $a_{\\mu} u^{\\mu} = 0$. Substituting:$$(\\nabla_{u} S_{\\mu}) u^{\\mu} = (-1)(S_{\\nu} a^{\\nu}) - 0 = -(S_{\\mu} a^{\\mu})$$**Step 3: Compute the second term $S_{\\mu} (\\nabla_{u} u^{\\mu})$.**Since $\\nabla_{u} u^{\\mu} = a^{\\mu}$:$$S_{\\mu} (\\nabla_{u} u^{\\mu}) = S_{\\mu} a^{\\mu}$$**Step 4: Combine the two terms.**$$\\frac{d}{d\\tau}(S_{\\mu} u^{\\mu}) = -(S_{\\mu} a^{\\mu}) + (S_{\\mu} a^{\\mu}) = 0$$This verifies that the orthogonality condition $S_{\\mu} u^{\\mu} = 0$ is preserved under Fermi-Walker transport. The crucial mechanism is that the term arising from the $u^{\\mu}(a_{\\nu} S^{\\nu})$ component of the transport law (which shifts $S$ along $u$) is precisely compensated by the projection of the 4-acceleration onto $S$, ensuring the spin remains confined to the gyroscope's local rest space at all times."
+  },
+  "verification": null
+}

@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "\\frac{d S^r}{d \\tau} = 0",
+      "coordinate": "spherical",
+      "scenario": "radial_free_fall",
+      "method": "orthogonality_and_algebraic_cancellation",
+      "generalization_axis": "verify",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\frac{d S^r}{d \\tau} = 0"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 时空赤道面 ($\\theta = \\pi/2$) 上，一个沿径向自由下落的无扭矩陀螺仪，其四速度为 $u^\\mu = (u^t, u^r, 0, 0)$。由于处于测地线上，其自旋矢量 $S^\\mu$ 满足平行输运方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$，且自旋矢量始终与四速度正交，即满足 $g_{\\mu\\nu} u^\\mu S^\\nu = 0$。\\n\\n已知 Schwarzschild 度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s$ 为 Schwarzschild 半径。请验证：尽管该时空的 Christoffel 符号不为零，但在上述正交条件下，自旋矢量的径向分量 $S^r$ 的平行输运方程能够**精确还原**为平直时空中的形式 $\\frac{d S^r}{d \\tau} = 0$。请在验证中明确写出 $S^r$ 分量的平行输运方程，利用正交条件消去 $S^t$，并代入度规分量与 Christoffel 符号 $\\Gamma^r_{tt}$ 和 $\\Gamma^r_{rr}$ 完成代数抵消的证明。",
+    "answer": "0",
+    "solution": "1. 写出 $S^r$ 分量的平行输运方程。由于陀螺仪在赤道面作径向自由下落，四速度仅有 $u^t$ 和 $u^r$ 非零，因此方程为：\\n$\\frac{d S^r}{d \\tau} + \\Gamma^r_{tt} u^t S^t + \\Gamma^r_{rr} u^r S^r = 0$\\n\\n2. 利用自旋矢量与四速度的正交条件 $g_{\\mu\\nu} u^\\mu S^\\nu = 0$。由于 $u^\\theta = u^\\phi = 0$，正交条件简化为：\\n$g_{tt} u^t S^t + g_{rr} u^r S^r = 0$\\n由此解出时间分量的自旋：\\n$S^t = - \\frac{g_{rr}}{g_{tt}} \\frac{u^r}{u^t} S^r$\\n\\n3. 将 $S^t$ 代入步骤1的平行输运方程中：\\n$\\frac{d S^r}{d \\tau} + \\Gamma^r_{tt} u^t \\left( - \\frac{g_{rr}}{g_{tt}} \\frac{u^r}{u^t} S^r\\right) + \\Gamma^r_{rr} u^r S^r = 0$\\n$\\frac{d S^r}{d \\tau} + \\left( - \\frac{g_{rr}}{g_{tt}} \\Gamma^r_{tt} + \\Gamma^r_{rr}\\right) u^r S^r = 0$\\n\\n4. 代入度规分量与 Christoffel 符号的具体表达式：\\n度规分量：$g_{tt} = -\\frac{r-r_s}{r}$， $g_{rr} = \\frac{r}{r-r_s}$\\n因此 $- \\frac{g_{rr}}{g_{tt}} = - \\frac{\\frac{r}{r-r_s}}{-\\frac{r-r_s}{r}} = \\frac{r^2}{(r-r_s)^2}$\\n\\nChristoffel 符号：\\n$\\Gamma^r_{tt} = \\frac{r_s (r-r_s)}{2r^3}$\\n$\\Gamma^r_{rr} = - \\frac{r_s}{2r(r-r_s)}$\\n\\n5. 计算括号内的系数：\\n$- \\frac{g_{rr}}{g_{tt}} \\Gamma^r_{tt} = \\frac{r^2}{(r-r_s)^2} \\cdot \\frac{r_s (r-r_s)}{2r^3} = \\frac{r_s}{2r(r-r_s)}$\\n\\n可以发现：\\n$- \\frac{g_{rr}}{g_{tt}} \\Gamma^r_{tt} = - \\Gamma^r_{rr}$\\n\\n6. 因此，括号内的两项完全抵消：\\n$- \\frac{g_{rr}}{g_{tt}} \\Gamma^r_{tt} + \\Gamma^r_{rr} = 0$\\n\\n最终，平行输运方程化简为：\\n$\\frac{d S^r}{d \\tau} = 0$\\n\\n这验证了在 Schwarzschild 时空的径向自由下落中，尽管时空弯曲导致 Christoffel 符号非零，但自旋径向分量的平行输运方程精确还原为平直时空的形式。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "题目的 question 明确要求“请验证...并在验证中明确写出...完成代数抵消的证明”，这是一道要求完整推导步骤的证明论述题，而非填空计算题。然而，answer 提供的值为 \"0\"，这仅仅是最终结论等式 $\\frac{d S^r}{d \\tau} = 0$ 右侧的常数，完全无法作为证明题的答案。期望的 answer 应为包含完整推导逻辑的文本或表示验证成功的标识（如 \"Verified\"），实际值 \"0\" 导致了答案与题目类型的严重不匹配，会误导模型认为只需输出数字即可而忽略题目要求的推导过程。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "critical redshift for accelerated expansion",
+      "coordinate": "comoving FLRW",
+      "scenario": "cosmology",
+      "method": "Einstein field equations and density parameters",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$z_c$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一个由零压尘埃物质（密度 $\\rho_m$，压强 $p_m=0$）和宇宙学常数 $\\Lambda$（等效为真空能量密度 $\\rho_\\Lambda=\\Lambda/(8\\pi)$，压强 $p_\\Lambda=-\\rho_\\Lambda$）主导的 FLRW 宇宙。该宇宙的度规为：\\n$$ds^2 = -dt^2 + a^2(t) \\left( \\frac{dr^2}{1-k r^2} + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2\\right)$$\\n已知该度规下的 Einstein 张量分量为 $G_{00} = \\frac{3(k + \\dot{a}^2)}{a^2}$ 和 $G_{11} = \\frac{k + 2a \\ddot{a} + \\dot{a}^2}{k r^2 - 1}$。请利用 Einstein 场方程推导标度因子加速度 $\\ddot{a}$ 的表达式，并求出宇宙从减速膨胀（$\\ddot{a}<0$）转变为加速膨胀（$\\ddot{a}>0$）的临界红移 $z_c$，将其表示为当前时刻尘埃密度参数 $\\Omega_m$ 和宇宙学常数密度参数 $\\Omega_\\Lambda$ 的函数。",
+    "answer": "$z_c = \\left( \\frac{2 \\Omega_\\Lambda}{\\Omega_m}\\right)^{1/3} - 1$",
+    "solution": "1. **提取场方程**：根据 $(-,+,+,+)$ 约定下的 Einstein 场方程 $G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$，总能动张量为尘埃与真空能量之和。\\n对于时间分量：$T_{00} = \\rho_m + \\rho_\\Lambda = \\rho_m + \\frac{\\Lambda}{8\\pi}$。\\n代入 $G_{00}$ 得到：\\n$$ \\frac{3(k + \\dot{a}^2)}{a^2} = 8\\pi \\rho_m + \\Lambda \\quad \\text{(Eq. 1)} $$\\n对于空间分量（如 $r$ 方向）：$T_{11} = p_\\Lambda g_{11} = -\\frac{\\Lambda}{8\\pi} g_{11} = -\\frac{\\Lambda a^2}{8\\pi(1-k r^2)} = \\frac{\\Lambda a^2}{8\\pi(k r^2-1)}$。\\n代入 $G_{11}$ 得到：\\n$$ \\frac{k + 2a \\ddot{a} + \\dot{a}^2}{k r^2 - 1} = 8\\pi \\left( \\frac{\\Lambda a^2}{8\\pi(k r^2-1)}\\right) = \\frac{\\Lambda a^2}{k r^2 - 1} $$\\n消去分母得到：\\n$$ k + 2a \\ddot{a} + \\dot{a}^2 = \\Lambda a^2 \\quad \\text{(Eq. 2)} $$\\n2. **推导加速度 $\\ddot{a}$**：从 Eq. 2 中解出 $2a \\ddot{a}$：\\n$$ 2a \\ddot{a} = \\Lambda a^2 - k - \\dot{a}^2 $$\\n利用 Eq. 1 替换 $k + \\dot{a}^2$：\\n$$ k + \\dot{a}^2 = \\frac{8\\pi \\rho_m a^2 + \\Lambda a^2}{3} $$\\n代入上式：\\n$$ 2a \\ddot{a} = \\Lambda a^2 - \\frac{8\\pi \\rho_m a^2 + \\Lambda a^2}{3} = \\frac{2 \\Lambda a^2}{3} - \\frac{8\\pi \\rho_m a^2}{3} $$\\n两边除以 $2a$ 得到加速度方程：\\n$$ \\ddot{a} = \\frac{\\Lambda a}{3} - \\frac{4\\pi \\rho_m a}{3} $$\\n由于尘埃密度随膨胀衰减 $\\rho_m = \\rho_{m0} (a_0/a)^3$，方程可写为：\\n$$ \\ddot{a} = \\frac{\\Lambda a}{3} - \\frac{4\\pi \\rho_{m0} a_0^3}{3 a^2} $$\\n3. **求解临界红移 $z_c$**：宇宙由减速转向加速的临界点满足 $\\ddot{a} = 0$。设此时标度因子为 $a_c$：\\n$$ \\frac{\\Lambda a_c}{3} = \\frac{4\\pi \\rho_{m0} a_0^3}{3 a_c^2} $$\\n整理得：\\n$$ a_c^3 = \\frac{4\\pi \\rho_{m0}}{\\Lambda} a_0^3 $$\\n定义当前时刻的密度参数 $\\Omega_m = \\frac{8\\pi \\rho_{m0}}{3 H_0^2}$ 和 $\\Omega_\\Lambda = \\frac{\\Lambda}{3 H_0^2}$，其中 $H_0 = \\dot{a}_0/a_0$。则有：\\n$$ \\frac{4\\pi \\rho_{m0}}{\\Lambda} = \\frac{8\\pi \\rho_{m0}/3}{2\\Lambda/3} = \\frac{\\Omega_m H_0^2}{2 \\Omega_\\Lambda H_0^2} = \\frac{\\Omega_m}{2 \\Omega_\\Lambda} $$\\n因此：\\n$$ \\frac{a_c^3}{a_0^3} = \\frac{\\Omega_m}{2 \\Omega_\\Lambda} $$\\n红移定义为 $1+z_c = a_0/a_c$，取倒数并开三次方：\\n$$ 1+z_c = \\left( \\frac{2 \\Omega_\\Lambda}{\\Omega_m}\\right)^{1/3} $$\\n最终得到临界红移为：\\n$$ z_c = \\left( \\frac{2 \\Omega_\\Lambda}{\\Omega_m}\\right)^{1/3} - 1 $$"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

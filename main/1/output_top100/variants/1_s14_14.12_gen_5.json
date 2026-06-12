@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "tidal tensor",
+      "coordinate": "spherical",
+      "scenario": "black hole",
+      "method": "orthonormal projection",
+      "generalization_axis": "extend",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "E_{\\hat{r}\\hat{r}}",
+      "E_{\\hat{\\theta}\\hat{\\theta}}",
+      "E_{\\hat{\\phi}\\hat{\\phi}}"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞外部，一位静止悬浮在固定空间坐标 $(r, \\theta, \\phi)$ （满足 $r > r_s$）的观测者并非自由下落。根据局部加速参考系中粒子的运动方程，自由下落粒子受到的潮汐力由潮汐张量 $E_{\\hat{i}\\hat{j}} = R_{\\mu\\nu\\alpha\\beta} e_{\\hat{t}}^\\mu e_{\\hat{i}}^\\nu e_{\\hat{t}}^\\alpha e_{\\hat{j}}^\\beta$ 决定，其中 $e_{\\hat{t}}$ 为观测者的 4-速度，$e_{\\hat{i}}$ 为空间正交基矢量。已知度规为 $ds^2 = -\\frac{r-r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，坐标基下的黎曼张量非零分量包括 $R_{0101} = \\frac{r_s}{r^2(r-r_s)}$, $R_{0202} = -\\frac{r_s}{2r}$, $R_{0303} = -\\frac{r_s \\sin^2\\theta}{2r}$。请推导该静止观测者所测得的潮汐张量对角分量 $E_{\\hat{r}\\hat{r}}$、$E_{\\hat{\\theta}\\hat{\\theta}}$ 和 $E_{\\hat{\\phi}\\hat{\\phi}}$ 的表达式（用 $r_s$ 和 $r$ 表示），并验证它们的总和为零。",
+    "answer": "E_{\\hat{r}\\hat{r}} = \\frac{r_s}{r^2(r-r_s)}, E_{\\hat{\\theta}\\hat{\\theta}} = -\\frac{r_s}{2r^2(r-r_s)}, E_{\\hat{\\phi}\\hat{\\phi}} = -\\frac{r_s}{2r^2(r-r_s)}, sum = 0",
+    "solution": "1. 静止观测者的4-速度为 $u^\\mu = e_{\\hat{t}}^\\mu = (\\dot{t}, 0, 0, 0)$。由类时条件 $g_{\\mu\\nu}u^\\mu u^\\nu = -1$，有 $-\\frac{r-r_s}{r}\\dot{t}^2 = -1$，得 $\\dot{t} = \\sqrt{\\frac{r}{r-r_s}}$。2. 空间正交基矢量取为度规的对角化形式：$e_{\\hat{r}}^\\mu = (0, \\sqrt{\\frac{r-r_s}{r}}, 0, 0)$$e_{\\hat{\\theta}}^\\mu = (0, 0, \\frac{1}{r}, 0)$$e_{\\hat{\\phi}}^\\mu = (0, 0, 0, \\frac{1}{r\\sin\\theta})$3. 计算潮汐张量分量 $E_{\\hat{i}\\hat{j}} = R_{\\mu\\nu\\alpha\\beta} e_{\\hat{t}}^\\mu e_{\\hat{i}}^\\nu e_{\\hat{t}}^\\alpha e_{\\hat{j}}^\\beta$。由于基矢量的非零分量互不重叠，计算仅涉及特定的坐标黎曼张量分量。4. 径向潮汐力：$E_{\\hat{r}\\hat{r}} = R_{0101} (e_{\\hat{t}}^0)^2 (e_{\\hat{r}}^1)^2 = \\frac{r_s}{r^2(r-r_s)} \\cdot \\frac{r}{r-r_s} \\cdot \\frac{r-r_s}{r} = \\frac{r_s}{r^2(r-r_s)}$。5. 极向潮汐力：$E_{\\hat{\\theta}\\hat{\\theta}} = R_{0202} (e_{\\hat{t}}^0)^2 (e_{\\hat{\\theta}}^2)^2 = -\\frac{r_s}{2r} \\cdot \\frac{r}{r-r_s} \\cdot \\frac{1}{r^2} = -\\frac{r_s}{2r^2(r-r_s)}$。6. 方位向潮汐力：$E_{\\hat{\\phi}\\hat{\\phi}} = R_{0303} (e_{\\hat{t}}^0)^2 (e_{\\hat{\\phi}}^3)^2 = -\\frac{r_s \\sin^2\\theta}{2r} \\cdot \\frac{r}{r-r_s} \\cdot \\frac{1}{r^2 \\sin^2\\theta} = -\\frac{r_s}{2r^2(r-r_s)}$。7. 验证总和：$E_{\\hat{r}\\hat{r}} + E_{\\hat{\\theta}\\hat{\\theta}} + E_{\\hat{\\phi}\\hat{\\phi}} = \\frac{r_s}{r^2(r-r_s)} - \\frac{r_s}{2r^2(r-r_s)} - \\frac{r_s}{2r^2(r-r_s)} = 0$。这与真空爱因斯坦方程 $R_{\\mu\\nu}=0$ 导致的 $R_{\\hat{t}\\hat{t}}=0$（即潮汐张量无迹）一致。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "answer中的潮汐力表达式在视界 $r=r_s$ 处发散，严重违反物理事实。根据摘要，Kretschmann 标量为 $48 M^2 / r^6$，在视界处是有限值，因此潮汐力分量在视界处必定有限。正确的潮汐力应为 $E_{\\hat{r}\\hat{r}} = \\frac{r_s}{r^3}$ 等不含 $(r-r_s)$ 分母的形式。此致命错误源于题目给出的黎曼张量坐标分量错误：题目给出的 $R_{0101} = \\frac{r_s}{r^2(r-r_s)}$ 多了发散项 $(r-r_s)$，正确期望值应为 $\\frac{r_s}{r^3}$；$R_{0202} = -\\frac{r_s}{2r}$ 漏了因子 $(r-r_s)/r$，正确期望值应为 $-\\frac{r_s(r-r_s)}{2r^3}$；$R_{0303} = -\\frac{r_s \\sin^2\\theta}{2r}$ 同样漏了因子，正确期望值应为 $-\\frac{r_s(r-r_s)\\sin^2\\theta}{2r^3}$。solution 基于这些错误的黎曼张量分量，推导出了在视界处发散的错误结论。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

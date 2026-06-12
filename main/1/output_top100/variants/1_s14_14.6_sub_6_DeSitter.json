@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-1-6",
+    "type": "prove",
+    "tags": {
+      "target_object": "metric_coefficients_constraint",
+      "coordinate": "x_dependent_cartesian",
+      "scenario": "local_force_balance",
+      "method": "verify_and_identify_constraint",
+      "generalization_axis": "substitute",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-1",
+      "1_s14_14.6-1-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$\\frac{1}{g_{yy}} \\frac{d g_{yy}}{d x} = \\frac{1}{g_{zz}} \\frac{d g_{zz}}{d x}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，静止在引力场中的物质，其局部 $x$ 方向受力平衡由能量-动量守恒方程 $\\nabla_\\mu T^{\\mu x} = 0$ 描述。已知该引力场的度规为 $ds^2 = -dt^2 + e^{2x/\\alpha} dx^2 + e^{2x/\\alpha} dy^2 + e^{2x/\\alpha} dz^2$。请证明在该度规下，横向应力 $T^{\\hat{y}\\hat{y}}$ 和 $T^{\\hat{z}\\hat{z}}$ 对局部 $x$ 方向受力平衡的贡献系数相同，并指出该物理性质是由度规分量 $g_{yy}$ 和 $g_{zz}$ 满足的何种几何约束决定的。",
+    "answer": "该性质是由度规分量 $g_{yy}$ 和 $g_{zz}$ 对 $x$ 的对数导数相等（即 $\\frac{1}{g_{yy}} \\frac{d g_{yy}}{d x} = \\frac{1}{g_{zz}} \\frac{d g_{zz}}{d x}$）这一几何约束决定的。",
+    "solution": "1. 局部受力平衡由 $\\nabla_\\mu T^{\\mu x} = 0$ 描述，展开后包含横向应力项 $\\Gamma^x_{yy} T^{yy} + \\Gamma^x_{zz} T^{zz}$。2. 将坐标分量转换为物理分量：$T^{yy} = \\frac{T^{\\hat{y}\\hat{y}}}{g_{yy}}$，$T^{zz} = \\frac{T^{\\hat{z}\\hat{z}}}{g_{zz}}$。3. 计算对应的 Christoffel 符号：对于只依赖 $x$ 的对角度规，$\\Gamma^x_{yy} = -\\frac{1}{2} g^{xx} \\frac{\\partial g_{yy}}{\\partial x}$，$\\Gamma^x_{zz} = -\\frac{1}{2} g^{xx} \\frac{\\partial g_{zz}}{\\partial x}$。4. 写出横向应力对局部受力平衡的贡献：$\\Gamma^x_{yy} T^{yy} = -\\frac{1}{2} g^{xx} \\frac{g_{yy,x}}{g_{yy}} T^{\\hat{y}\\hat{y}}$，$\\Gamma^x_{zz} T^{zz} = -\\frac{1}{2} g^{xx} \\frac{g_{zz,x}}{g_{zz}} T^{\\hat{z}\\hat{z}}$。5. 由于 $g_{yy} = e^{2x/\\alpha}$ 和 $g_{zz} = e^{2x/\\alpha}$，对 $x$ 求导得 $g_{yy,x} = \\frac{2}{\\alpha} e^{2x/\\alpha}$ 和 $g_{zz,x} = \\frac{2}{\\alpha} e^{2x/\\alpha}$。6. 因此 $\\frac{g_{yy,x}}{g_{yy}} = \\frac{2}{\\alpha}$ 且 $\\frac{g_{zz,x}}{g_{zz}} = \\frac{2}{\\alpha}$，两者相等。7. 代入贡献项表达式，可得 $T^{\\hat{y}\\hat{y}}$ 和 $T^{\\hat{z}\\hat{z}}$ 前的几何系数均为 $-\\frac{1}{\\alpha} e^{-2x/\\alpha}$，证明贡献系数相同。8. 结论：贡献系数相同，是由 $\\frac{1}{g_{yy}} \\frac{d g_{yy}}{d x} = \\frac{1}{g_{zz}} \\frac{d g_{zz}}{d x}$ 这一几何约束决定的。"
+  },
+  "verification": null
+}

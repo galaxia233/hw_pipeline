@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-3",
+    "type": "prove",
+    "tags": {
+      "target_object": "Einstein tensor and stress-energy tensor",
+      "coordinate": "spherical",
+      "scenario": "cosmic string",
+      "method": "Einstein field equation analysis",
+      "generalization_axis": "extend",
+      "metric": "BarriolaVilekin"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "BarriolaVilekin",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\\\rho + p_r = 0$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "k**2*r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "k**2*r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Barriola-Vilekin 度规常用于描述带有拓扑缺陷（如全局单极子或宇宙弦）的时空，其线元形式为：\\\\n$$ds^2 = -dt^2 + dr^2 + k^2 r^2 d\\\\theta^2 + k^2 r^2 \\\\sin^2\\\\theta d\\\\phi^2$$\\\\n其中 $k$ 是与缺陷的 deficit angle 相关的参数，当 $k=1$ 时回到平直 Minkowski 时空。在广义相对论中，拓扑缺陷的能动张量往往表现出极端的各向异性。请利用该度规的 Einstein 张量分量，证明该度规描述的物质源满足 $\\rho + p_r = 0$，其中 $\\rho$ 为能量密度，$p_r$ 为径向压力，并简要说明这一关系反映了拓扑缺陷物质的何种物理特性。",
+    "answer": "$\\\\rho + p_r = 0$",
+    "solution": "1. 根据 Barriola-Vilekin 度规的几何属性数据，其 Einstein 张量的非零分量为：\\\\n$$G_{00} = \\\\frac{1 - k^2}{k^2 r^2}$$\\\\n$$G_{11} = \\\\frac{k^2 - 1}{k^2 r^2}$$\\\\n其余分量 $G_{22}$ 和 $G_{33}$ 均为零。\\\\n\\\\n2. 计算这两个非零分量的和：\\\\n$$G_{00} + G_{11} = \\\\frac{1 - k^2}{k^2 r^2} + \\\\frac{k^2 - 1}{k^2 r^2} = 0$$\\\\n\\\\n3. 根据爱因斯坦场方程 $G_{\\\\mu\\\\nu} = 8\\\\pi T_{\\\\mu\\\\nu}$ （取 $G=c=1$），能动张量的对应分量为 $T_{00} = \\\\rho$（能量密度）和 $T_{11} = p_r$（径向压力）。因此有：\\\\n$$8\\\\pi(\\\\rho + p_r) = G_{00} + G_{11} = 0$$\\\\n由此证得：\\\\n$$\\\\rho + p_r = 0$$\\\\n\\\\n4. 物理含义：该关系表明物质源在径向方向上具有与能量密度等大反向的负压力（即张力），这种极端各向异性是宇宙弦或全局单极子等拓扑缺陷的典型特征。这意味着沿着缺陷核心的径向方向不存在有效的引力吸引，该物质表现为一种具有极大径向张力的“弦状”或“单极子状”应力状态。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.barriolavilekin_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "solution中给出的Einstein张量分量计算存在严重错误。1. 题目声称 $G_{00} = \\frac{1 - k^2}{k^2 r^2}$，但根据给定度规严格计算，Ricci标量 $R = \\frac{2-3k^2}{k^2 r^2}$，$R_{00}=0$，因此 $G_{00} = R_{00} - \\frac{1}{2}g_{00}R = \\frac{2-3k^2}{2k^2 r^2}$。2. 题目声称 $G_{11} = \\frac{k^2 - 1}{k^2 r^2}$，正确值应为 $G_{11} = -\\frac{2-3k^2}{2k^2 r^2}$。3. 题目声称其余分量 $G_{22}$ 和 $G_{33}$ 均为零，但实际上 $R_{22}=1-2k^2$ 和 $R_{33}=(1-k^2)\\sin^2\\theta$，计算可得 $G_{22} = -k^2/2 \\neq 0$，$G_{33} = -k^2/2 \\sin^2\\theta \\neq 0$。虽然 $G_{00}+G_{11}=0$ 的结论碰巧成立（因为 $R_{00}=R_{11}=0$ 且 $g_{00}+g_{11}=0$），但推导过程引用的中间量全部错误。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

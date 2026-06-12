@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-7-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "gauge_vector_condition",
+      "coordinate": "Cartesian",
+      "scenario": "linearized_gravity_gauge_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "MinkowskiCartesian"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-7",
+      "1_s13_13.12-7-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "MinkowskiCartesian",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "设计数值模拟方案验证通过求解波动方程可实现洛伦兹规范，并对照验证平直时空几何属性的简化作用"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在线性化引力理论中，时空度规分解为 $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$，其中 $\\eta_{\\mu\\nu}$ 为笛卡尔坐标下的平直闵可夫斯基背景度规。在无穷小规范变换 $x^\\mu_{\\text{new}} = x^\\mu_{\\text{old}} + \\xi^\\mu$ 下，迹反转微扰 $\\bar{h}_{\\mu\\nu} = h_{\\mu\\nu} - \\frac{1}{2}\\eta_{\\mu\\nu}h$ 的变换为 $\\bar{h}_{\\mu\\nu}^{\\text{new}} = \\bar{h}_{\\mu\\nu}^{\\text{old}} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu + \\eta_{\\mu\\nu}\\partial^\\alpha \\xi_\\alpha$。洛伦兹规范条件要求 $\\partial^\\mu \\bar{h}_{\\mu\\nu}^{\\text{new}} = 0$。核心结论指出：为使新微扰满足洛伦兹规范，规范矢量 $\\xi_\\nu$ 必须满足波动方程 $\\Box \\xi_\\nu = \\partial^\\mu \\bar{h}_{\\mu\\nu}^{\\text{old}}$；且由于闵可夫斯基背景在笛卡尔坐标下 Christoffel 符号与 Riemann 张量恒为零（协变导数退化为偏导数，且偏导数可交换无曲率耦合），此方程退化为标准平直时空波动方程，总是可解的。\\n\\n请从零设计一个数值模拟方案，验证上述核心结论。方案需包含：\\n1. 初始不满足洛伦兹规范的微扰 $\\bar{h}_{\\mu\\nu}^{\\text{old}}$ 的构造方法；\\n2. 求解规范矢量 $\\xi_\\nu$ 的数值计算步骤；\\n3. 计算新微扰 $\\bar{h}_{\\mu\\nu}^{\\text{new}}$ 及定量验证洛伦兹规范条件 $\\partial^\\mu \\bar{h}_{\\mu\\nu}^{\\text{new}} = 0$ 的判据；\\n4. 为了凸显闵可夫斯基度规几何属性（Christoffel 符号与 Riemann 张量为零）的关键简化作用，设计一个在弯曲时空（如 Schwarzschild 度规）下进行同样规范变换流程的对照实验步骤，并说明预期的差异结果。",
+    "answer": "1. **初始微扰构造**：在网格化的时空区域上，构造一组不满足洛伦兹规范 $\\partial^\\mu \\bar{h}_{\\mu\\nu}^{\\text{old}} \\neq 0$ 的随机微扰场（例如包含多项式或衰减正弦函数的任意张量场），作为模拟的输入源。\\n2. **求解规范矢量**：计算源项 $S_\\nu = \\partial^\\mu \\bar{h}_{\\mu\\nu}^{\\text{old}}$，利用有限差分法或谱方法数值求解波动方程 $\\Box \\xi_\\nu = S_\\nu$，得到规范矢量场 $\\xi_\\nu$ 的数值解。\\n3. **计算新微扰并验证**：利用求得的 $\\xi_\\nu$ 及其偏导数，通过变换公式 $\\bar{h}_{\\mu\\nu}^{\\text{new}} = \\bar{h}_{\\mu\\nu}^{\\text{old}} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu + \\eta_{\\mu\\nu}\\partial^\\alpha \\xi_\\alpha$ 计算新微扰；随后计算 $E_\\nu = \\partial^\\mu \\bar{h}_{\\mu\\nu}^{\\text{new}}$。预期结果：误差度量 $\\|E_\\nu\\|$ 在数值精度范围内趋近于零，验证了波动方程求解的有效性。\\n4. **对照实验（弯曲时空）**：选取 Schwarzschild 度规作为背景，重复步骤1-3。此时规范变换涉及协变导数 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu$，洛伦兹规范涉及 $\\nabla^\\mu$。若强行代入平直时空的波动方程 $\\Box \\xi_\\nu = \\nabla^\\mu \\bar{h}_{\\mu\\nu}^{\\text{old}}$，计算新微扰后验证 $\\nabla^\\mu \\bar{h}_{\\mu\\nu}^{\\text{new}}$。预期差异：由于 Christoffel 符号非零导致 $\\nabla_\\mu \\neq \\partial_\\mu$，且 Riemann 张量非零导致协变导数不可交换（产生 $R_{\\nu\\alpha}\\xi^\\alpha$ 项），强行使用 $\\Box$ 求解将无法消除规范源项，使得 $\\|\\nabla^\\mu \\bar{h}_{\\mu\\nu}^{\\text{new}}\\|$ 显著偏离零，从而证明平直时空 $\\Gamma=0, R=0$ 的几何属性是方程退化为简单波动方程的核心前提。",
+    "solution": "方案论证：本设计通过正反两方面验证核心结论。正面验证通过“构造源-求解波动方程-施加变换-检验规范”的完整闭环，证明 $\\Box \\xi_\\nu = \\partial^\\mu \\bar{h}_{\\mu\\nu}^{\\text{old}}$ 确实是实现洛伦兹规范的充分条件；反面对照通过将背景替换为曲率非零的 Schwarzschild 时空，揭示当 Christoffel 符号非零（协变导数不等于偏导数）和 Riemann 张量非零（导数交换产生曲率耦合）时，平直时空的波动方程不再成立。这直观地体现了度规几何属性在简化微分方程形式上的决定性作用，物理逻辑严谨且具可操作性。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.minkowskicartesian_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "1. Answer 步骤4存在严重物理概念错误：声称在 Schwarzschild 度规下进行规范变换时，由于 Riemann 张量非零导致协变导数不可交换会产生 $R_{\\\\nu\\\\alpha}\\\\xi^\\\\alpha$ 项，使得强行使用波动方程无法消除规范源项。实际上，协变导数交换差公式为 $\\\\nabla^\\\\mu \\\\nabla_\\\\nu \\\\xi_\\\\mu - \\\\nabla_\\\\nu \\\\nabla^\\\\mu \\\\xi_\\\\mu = -R_{\\\\nu\\\\alpha}\\\\xi^\\\\alpha$。由于 Schwarzschild 度规是真空解，其 Ricci 张量恒为零（$R_{\\\\nu\\\\alpha}=0$），因此交换差项为零，方程中根本不存在 $R_{\\\\nu\\\\alpha}\\\\xi^\\\\alpha$ 项！在 Schwarzschild 背景下实现洛伦兹规范所需的方程依然是 $\\\\nabla^\\\\mu \\\\nabla_\\\\mu \\\\xi_\\\\nu = \\\\nabla^\\\\mu \\\\bar{h}_{\\\\mu\\\\nu}^{\\\\text{old}}$（仅 $\\Box$ 退化为协变微分算子，无 Ricci 项）。Answer 将 Riemann 张量非零等同于产生 Ricci 项，混淆了真空度规与非真空度规的本质区别。2. 度规关键信息摘要存在常识错误：Minkowski 笛卡尔坐标下的平直时空具有 10 个 Killing 矢量（4个平移、3个旋转、3个洛伦兹 boost），而摘要错误地声称只有 4 个 Killing 矢量。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

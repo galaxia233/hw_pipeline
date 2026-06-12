@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s7_7.17_iii",
+    "type": "concept",
+    "tags": {
+      "metric": "tensor_algebra",
+      "target_object": "frame_transport",
+      "coordinate": "fermi_walker_transport",
+      "scenario": "tetrad",
+      "method": "general_relativity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.17_iii",
+    "source_id": "1_s7_7.17_iii",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.17_iii"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "需通过空间非转动条件约束联络张量，结合四速度与加速度投影导出费米-沃克输运形式，逻辑严密且具强物理背景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$u$",
+      "$e_\\\\alpha$",
+      "$A_\\\\alpha^\\\\beta$",
+      "$a$"
+    ],
+    "target": [
+      "$\\\\mathbf{A}_{\\\\alpha}^{\\\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.17. Consider an observer with 4-velocity $\\mathbf{u}$ who transports his four basis vectors $\\mathbf{e}_{\\alpha}$ along with him according to the transport law $\\nabla_{\\mathbf{u}}\\mathbf{e}_{\\alpha} = \\mathbf{A}_{\\alpha}^{\\beta}\\mathbf{e}_{\\beta}$ . What is the most general form of $\\mathbf{A}_{\\alpha}^{\\beta}$ if:\\n(iii) in addition the spatial vectors are to be nonrotating? (i.e. He sees a freely-falling particle move with no Coriolis forces.)",
+    "answer": "$\\\\mathbf{A}_{\\\\alpha}^{\\\\beta} = u^{\\\\beta} a_{\\\\alpha} - a^{\\\\beta} u_{\\\\alpha}$",
+    "solution": "1. 由正交标架内积守恒 $\\\\mathbf{e}_\\\\alpha \\\\cdot \\\\mathbf{e}_\\\\beta = \\\\eta_{\\\\alpha\\\\beta}$ 沿世界线求导，得 $A_{\\\\alpha\\\\beta} \\\\equiv \\\\eta_{\\\\beta\\\\gamma}A_\\\\alpha^\\\\gamma = -A_{\\\\beta\\\\alpha}$，即 $A_{\\\\alpha\\\\beta}$ 为反对称张量。\\n2. 将时空分解为时间轴 $\\\\mathbf{u}=\\\\mathbf{e}_0$ 与三维空间超曲面。反对称张量的独立分量可分为空间-空间块 $A_{ij}$（表征空间坐标系的角速度/转动）与时空混合块 $A_{i0}$（表征牵连加速度）。\\n3. 题设要求空间矢量“无转动”，即在观测者瞬时静止系中空间基矢不发生相对旋转，对应 $A_{ij}=0$。\\n4. 此时反对称张量仅剩余时空混合分量。根据四维加速度定义 $a^\\\\mu \\\\equiv \\\\nabla_{\\\\mathbf{u}} u^\\\\mu$，有 $A_{i0} = a_i$。利用 $A_{0i} = -A_{i0} = -a_i$ 及指标对称性可唯一重构整个反对称张量：$A_{\\\\alpha\\\\beta} = u_\\\\alpha a_\\\\beta - a_\\\\alpha u_\\\\beta$。\\n5. 将第一指标升高，得到最一般形式：$\\\\mathbf{A}_{\\\\alpha}^{\\\\beta} = u^{\\\\beta} a_{\\\\alpha} - a^{\\\\beta} u_{\\\\alpha}$。此即费米-沃克（Fermi-Walker）输运算符，它自动消除空间基矢的科里奥利旋转项，同时兼容观测者的固有加速度效应。"
+  },
+  "verification": null
+}

@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-8-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "Killing_vector",
+      "coordinate": "spherical",
+      "scenario": "cosmic_string_reduce",
+      "method": "limit_reduction",
+      "generalization_axis": "limit",
+      "metric": "BarriolaVilekin"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-8",
+      "1_s10_10.5-8-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "BarriolaVilekin",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\xi_{(\\phi)\\mu}",
+      "k"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "k**2*r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "k**2*r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在描述宇宙弦/全局单极子拓扑缺陷的 Barriola-Vilekin 度规 $ds^2 = -dt^2 + dr^2 + k^{2} r^{2} d\\theta^{2} + k^{2} r^{2} \\sin^{2}(\\theta) d\\phi^{2}$ 中，参数 $k$ ($k<1$) 表征缺陷强度。时空具有轴对称性，对应的旋转 Killing 矢量为 $\\xi_{(\\phi)} = \\partial_\\phi$。请计算该 Killing 矢量的协变分量 $\\xi_{(\\phi)\\mu}$，并通过取拓扑缺陷消失的物理极限 $k \\to 1$，证明该协变分量如何还原为经典 Minkowski 平直时空（球坐标系）下的轴旋转 Killing 矢量的协变形式。",
+    "answer": "首先通过度规降指标计算协变分量 $\\xi_{(\\phi)\\mu} = g_{\\mu\\phi} = (0, 0, 0, k^{2} r^{2} \\sin^{2}(\\theta))$。当拓扑缺陷消失时，取物理极限 $k \\to 1$，度规退化为 Minkowski 空间球坐标形式 $ds^2 = -dt^2 + dr^2 + r^{2} d\\theta^{2} + r^{2} \\sin^{2}(\\theta) d\\phi^{2}$。此时协变 Killing 矢量分量精确还原为 $\\xi_{(\\phi)\\mu} \\to (0, 0, 0, r^{2} \\sin^{2}(\\theta))$，这正是 Minkowski 时空沿 z 轴旋转的 Killing 矢量 $\\partial_\\phi$ 的协变形式，验证了缺陷时空对称性在 $k \\to 1$ 时连续过渡为平直时空的经典对称性。",
+    "solution": "1. 确定逆变 Killing 矢量分量 $\\xi_{(\\phi)}^\\mu = (0, 0, 0, 1)$。2. 利用度规降指标得到协变分量：$\\xi_{(\\phi)\\mu} = g_{\\mu\\nu} \\xi_{(\\phi)}^\\nu = g_{\\mu\\phi} = (0, 0, 0, k^{2} r^{2} \\sin^{2}(\\theta))$。3. 取极限 $k \\to 1$，协变分量变为 $(0, 0, 0, r^{2} \\sin^{2}(\\theta))$，对应 Minkowski 平直时空的轴旋转 Killing 矢量协变形式，完成归约。"
+  },
+  "verification": null
+}

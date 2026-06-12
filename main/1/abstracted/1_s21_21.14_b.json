@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s21_21.14_b",
+    "type": "prove",
+    "tags": {
+      "metric": "spinor_algebra",
+      "target_object": "symmetrization",
+      "coordinate": "tensor_decomposition",
+      "scenario": "spinor_calculus"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s21_21.14_b",
+    "source_id": "1_s21_21.14_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s21_21.14_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.5,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.3,
+      "rationale": "标准旋量代数分解证明；逻辑链条清晰完整但属纯形式推导，无直接物理观测背景",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\xi_{\\\\mathbf{AB}}$",
+      "$\\\\varepsilon_{\\\\mathbf{AB}}$",
+      "$\\\\xi_{\\\\mathbf{C}}^{\\\\mathrm{C}}$"
+    ],
+    "target": [
+      "$\\\\xi_{\\\\mathbf{AB}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s21_21.14_b.md]\\n\\nProblem 21.14. Show that\\n(b) $\\xi_{\\mathbf{AB}} = \\xi_{(\\mathbf{AB})} + \\frac{1}{2}\\varepsilon_{\\mathbf{AB}}\\xi_{\\mathbf{C}}^{\\mathrm{C}}$\\nwhere $\\xi_{\\mathbf{AB}}$ is an arbitrary 2-spinor. [Note: This problem and the two following were suggested by T. Sejnowski.]\\n\\n## Solution\\n\\n(b) Writing out the result of part (a) and using the antisymmetry of\\n$$\\n\\\\begin{array}{l} \\\\varepsilon_{\\mathbf {A B}} \\\\mathrm {g i v e s} \\\\\\\\\\n\\\\varepsilon_{\\mathbf {A B}} \\\\varepsilon_{\\mathbf {C D}} + \\\\varepsilon_{\\mathbf {A C}} \\\\varepsilon_{\\mathbf {D B}} + \\\\varepsilon_{\\mathbf {A D}} \\\\varepsilon_{\\mathbf {B C}} = 0. \\\\\\\\\\n\\\\end{array}\\n$$\\nContracting now with $\\xi^{\\mathbf{CD}}$ gives (watch out for the signs!)\\n$$\\n- \\\\varepsilon_{\\mathbf {A B}} \\\\xi_{\\\\mathbf {C}}^{\\\\mathbf {C}} + \\\\xi_{\\\\mathbf {A B}} - \\\\xi_{\\\\mathbf {B A}} = 0.\\n$$\\nHence we have\\n$$\\n\\\\xi_{\\\\mathbf {A B}} = \\\\xi_{\\\\mathbf {(A B)}} + \\\\xi_{\\\\mathbf {[ A B ]}} = \\\\xi_{\\\\mathbf {(A B)}} + \\\\frac {1}{2} \\\\varepsilon_{\\\\mathbf {A B}} \\\\xi_{\\\\mathbf {C}}^{\\\\mathbf {C}} .\\n$$",
+    "answer": "$\\\\xi_{\\\\mathbf{AB}} = \\\\xi_{(\\\\mathbf{AB})} + \\\\frac{1}{2}\\\\varepsilon_{\\\\mathbf{AB}}\\\\xi_{\\\\mathbf{C}}^{\\\\mathrm{C}}$",
+    "solution": "(b) Writing out the result of part (a) and using the antisymmetry of\\n$$\\n\\\\begin{array}{l} \\\\varepsilon_{\\mathbf {A B}} \\\\mathrm {g i v e s} \\\\\\\\\\n\\\\varepsilon_{\\mathbf {A B}} \\\\varepsilon_{\\mathbf {C D}} + \\\\varepsilon_{\\mathbf {A C}} \\\\varepsilon_{\\mathbf {D B}} + \\\\varepsilon_{\\mathbf {A D}} \\\\varepsilon_{\\mathbf {B C}} = 0. \\\\\\\\\\n\\\\end{array}\\n$$\\nContracting now with $\\xi^{\\mathbf{CD}}$ gives (watch out for the signs!)\\n$$\\n- \\\\varepsilon_{\\mathbf {A B}} \\\\xi_{\\\\mathbf {C}}^{\\\\mathbf {C}} + \\\\xi_{\\\\mathbf {A B}} - \\\\xi_{\\\\mathbf {B A}} = 0.\\n$$\\nHence we have\\n$$\\n\\\\xi_{\\\\mathbf {A B}} = \\\\xi_{\\\\mathbf {(A B)}} + \\\\xi_{\\\\mathbf {[ A B ]}} = \\\\xi_{\\\\mathbf {(A B)}} + \\\\frac {1}{2} \\\\varepsilon_{\\\\mathbf {A B}} \\\\xi_{\\\\mathbf {C}}^{\\\\mathbf {C}} .\\n$$"
+  },
+  "verification": null
+}

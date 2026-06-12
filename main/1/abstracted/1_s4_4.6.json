@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s4_4.6",
+    "type": "prove",
+    "tags": {
+      "metric": "electromagnetism",
+      "target_object": "lorentz_transformation",
+      "coordinate": "field_invariants",
+      "scenario": "special_relativity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.6",
+    "source_id": "1_s4_4.6",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基于电磁场两个洛伦兹不变量分类讨论加显式构造boost速度加处理零场极限情况",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathbf{E}$",
+      "$\\\\mathbf{B}$",
+      "$\\\\mathbf{v}$",
+      "$\\\\gamma$",
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$\\\\mathbf{E}$",
+      "$\\\\mathbf{B}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 4.6. Suppose that $\\underline{\\mathbf{E}}\\cdot \\underline{\\mathbf{B}} = 0$ . Show that there is a Lorentz transformation which makes $\\underline{\\mathbf{E}} = 0$ if $\\mathbf{B}^2 -\\mathbf{E}^2 >0$ , or one that makes $\\underline{\\mathbf{B}} = 0$ if $\\mathbf{B}^2 -\\mathbf{E}^2 < 0$ . What if $\\mathbf{B}^2 -\\mathbf{E}^2 = 0$ in addition to $\\underline{\\mathbf{E}}\\cdot \\underline{\\mathbf{B}} = 0$ ?",
+    "answer": "If $\\mathbf{B}^2 - \\mathbf{E}^2 > 0$, exists boost making $\\underline{\\mathbf{E}}' = 0$; if $< 0$, exists boost making $\\underline{\\mathbf{B}}' = 0$; if $= 0$, then $|\\mathbf{E}| = |\\mathbf{B}|$ is invariantly preserved, and both magnitudes can be made arbitrarily small but never simultaneously zero.",
+    "solution": "Solution 4.6. If $\\mathbf{E}^2 - \\mathbf{B}^2 > 0$ perform a Lorentz transformation with $\\underline{\\mathbf{v}} = \\underline{\\mathbf{E}} \\times \\underline{\\mathbf{B}} / \\mathbf{E}^2$ to get $\\underline{\\mathbf{B}}' = \\gamma (\\underline{\\mathbf{B}} - \\underline{\\mathbf{v}} \\times \\underline{\\mathbf{E}}) = 0$ . The transformation is analogous for $\\mathbf{E}^2 - \\mathbf{B}^2 < 0$ and $\\underline{\\mathbf{v}} = -\\underline{\\mathbf{B}} \\times \\underline{\\mathbf{E}} / \\mathbf{B}^2$ . If $\\mathbf{E}^2 - \\mathbf{B}^2 = 0$ then clearly $|\\mathbf{E}| = |\\mathbf{B}|$ after any transformation. A transformation of the form (see Problem 4.5) $\\underline{\\mathbf{v}} = \\alpha (\\underline{\\mathbf{E}}\\times \\underline{\\mathbf{B}})$ reduces the magnitude of $\\underline{\\mathbf{E}}$ or $\\underline{\\mathbf{B}}$ by a factor $\\gamma (1 - \\alpha \\mathrm{E}^2) = \\gamma (1 - \\mathrm{v}) = [(1 - \\mathrm{v}) / (1 + \\mathrm{v})]^{\\frac{1}{2}}$ . In the limit $\\mathbf{v}\\rightarrow 1$ the magnitude of $\\underline{\\mathbf{E}}$ and $\\underline{\\mathbf{B}}$ can be made arbitrarily small."
+  },
+  "verification": null
+}

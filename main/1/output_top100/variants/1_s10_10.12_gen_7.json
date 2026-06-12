@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "E_Newtonian_limit",
+      "coordinate": "spherical",
+      "scenario": "black_hole",
+      "method": "asymptotic_expansion",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$E_{Newtonian}$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规为 $ds^{2} = -\\frac{r - r_s}{r} dt^{2} + \\frac{r}{r - r_s} dr^{2} + r^{2} d\\theta^{2} + r^{2} \\sin^{2}{\\theta} d\\phi^{2}$（其中 $r_s = 2M$ 为 Schwarzschild 半径）。时空存在时间平移 Killing 矢量 $\\xi^{\\mu} = (1, 0, 0, 0)$。对于沿测地线运动的单位质量（$m=1$）测试粒子，该 Killing 矢量给出守恒能量 $E = -g_{tt} \\dot{t} = \\frac{r - r_s}{r} \\dot{t}$（其中 $\\dot{t} = dt/d\\tau$）。请验证：在弱场低速极限下（即 $r \\gg M$ 且空间速度 $v \\ll 1$），该相对论守恒能量 $E$ 能够还原为牛顿力学中的总机械能（含静质量能），即证明 $E \\approx 1 + \\frac{1}{2}v^{2} - \\frac{M}{r}$。",
+    "answer": "在弱场低速极限下，相对论守恒能量 $E = \\frac{r-r_s}{r}\\dot{t}$ 约化为牛顿总机械能加静质量 $E \\approx 1 + \\frac{1}{2}v^{2} - \\frac{M}{r}$",
+    "solution": "由类时测地线归一化条件 $g_{\\mu\\nu} \\dot{x}^{\\mu} \\dot{x}^{\\nu} = -1$，代入 Schwarzschild 度规可得：$$ -(1 - \\frac{r_s}{r})\\dot{t}^{2} + (1 - \\frac{r_s}{r})^{-1}\\dot{r}^{2} + r^{2}\\dot{\\theta}^{2} + r^{2}\\sin^{2}{\\theta}\\dot{\\phi}^{2} = -1 $$定义牛顿坐标速度平方 $v^{2} = \\dot{r}^{2} + r^{2}\\dot{\\theta}^{2} + r^{2}\\sin^{2}{\\theta}\\dot{\\phi}^{2}$。在低速弱场极限下，$v^{2} \\ll 1$ 且 $\\frac{r_s}{r} \\ll 1$，度规径向分量的修正项 $(1-\\frac{r_s}{r})^{-1} \\approx 1 + \\frac{r_s}{r}$ 乘以 $\\dot{r}^{2}$ 会产生二阶小量，可忽略不计。故归一化条件近似为：$$ -(1 - \\frac{r_s}{r})\\dot{t}^{2} + v^{2} \\approx -1 $$解出 $\\dot{t}^{2}$：$$ \\dot{t}^{2} \\approx \\frac{1 + v^{2}}{1 - \\frac{r_s}{r}} $$对 $\\dot{t}$ 进行泰勒展开，保留到一阶小量：$$ \\dot{t} \\approx (1 + \\frac{1}{2}v^{2})(1 + \\frac{r_s}{2r}) \\approx 1 + \\frac{1}{2}v^{2} + \\frac{r_s}{2r} $$代入守恒能量 $E = (1 - \\frac{r_s}{r})\\dot{t}$，再次展开到同阶近似：$$ E \\approx (1 - \\frac{r_s}{r})(1 + \\frac{1}{2}v^{2} + \\frac{r_s}{2r}) \\approx 1 + \\frac{1}{2}v^{2} + \\frac{r_s}{2r} - \\frac{r_s}{r} = 1 + \\frac{1}{2}v^{2} - \\frac{r_s}{2r} $$由于 $r_s = 2M$，最终得到：$$ E \\approx 1 + \\frac{1}{2}v^{2} - \\frac{M}{r} $$这恰好是牛顿力学中的动能 $\\frac{1}{2}v^{2}$、引力势能 $-\\frac{M}{r}$ 与静质量能 1（几何单位下）之和，验证了相对论守恒量在弱场低速极限下的牛顿对应。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s7_7.8",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "tensor_density",
+      "coordinate": "coordinate_transformation",
+      "scenario": "covariant_derivative",
+      "method": "Jacobian"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.8",
+    "source_id": "1_s7_7.8",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.5,
+      "rationale": "结合坐标变换雅可比行列式性质与度规相容性条件，推导标量密度协变导数的非齐次修正项，逻辑链条完整且可推广至任意权重的张量密度。",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^{\\\\mu}$",
+      "$\\\\mathbf{A}_{\\\\mu\\\\nu}$",
+      "$J$",
+      "$\\\\mathbf{A}$",
+      "$\\\\mathbf{A}_{;\\\\alpha}$",
+      "$\\\\mathbf{g}$",
+      "$\\\\Gamma^{\\\\beta}_{\\\\beta\\\\alpha}$"
+    ],
+    "target": [
+      "$\\\\mathbf{A}_{;\\\\alpha}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s7_7.8.md]\\n\\nProblem 7.8. Let $\\mathbf{A} \\equiv \\det(\\mathbf{A}_{\\mu\\nu})$ where $\\mathbf{A}_{\\mu\\nu}$ is a second rank tensor. Show that $\\mathbf{A}$ is not a scalar. (i.e., Show that its value changes under coordinate transformations.) Since $\\mathbf{A}$ is not a scalar one cannot define $\\mathbf{A}_{;a} = \\mathbf{A}_{,a}$ . How should $\\mathbf{A}_{;a}$ be defined (in terms of $\\mathbf{A}_{,a}$ and $\\mathbf{A}$ )?",
+    "answer": "$\\\\mathbf{A}_{;a} = \\\\mathbf{A}_{,a} - 2 \\\\Gamma^{\\\\beta}_{\\\\beta a} \\\\mathbf{A}$",
+    "solution": "Solution 7.8. Under a coordinate transformation,\\n$$\\n\\\\mathbf {A}_{\\overline {{\\mu}} \\overline {{\\nu}}} = \\\\frac {\\\\partial_{\\\\mathbf {x}} \\\\overline {{\\mu}}}{\\\\partial_{\\\\mathbf {x}} \\\\overline {{\\mu}}} \\\\frac {\\\\partial_{\\\\mathbf {x}} \\\\overline {{\\nu}}}{\\\\partial_{\\\\mathbf {x}} \\\\overline {{\\nu}}} \\\\mathbf {A}_{\\\\mu \\\\nu}\\n$$\\nimplies that\\n$$\\n\\\\overline {{{\\\\mathbf {A}}}} = \\\\det \\\\left(\\\\frac {\\\\partial_{\\\\mathbf {x}}^{\\\\mu}}{\\\\partial_{\\\\mathbf {x}} \\\\overline {{{\\\\boldsymbol {\\\\mu}}}}}\\\\right) \\\\det \\\\left(\\\\mathbf {A}_{\\\\mu \\\\nu}\\\\right) \\\\det \\\\left(\\\\frac {\\\\partial_{\\\\mathbf {x}}^{\\\\nu}}{\\\\partial_{\\\\mathbf {x}} \\\\overline {{{\\\\boldsymbol {\\\\nu}}}}}\\\\right)^{\\\\mathbf {T}} = \\\\mathbf {J}^{2} \\\\mathbf {A}\\n$$\\nwhere $J$ is the Jacobian, $\\\\det(\\\\partial_{\\\\mathbf{x}}^{\\\\mu} / \\\\partial_{\\\\mathbf{x}}^{\\\\overline{\\\\mu}})$ , and where the superscript $T$ denotes matrix transpose. We want $A_{;a}$ to transform according to the vector analog of the transformation law for $A$ . (A is called a \"density of weight 2\".) Since $A_{;a}$ must be linear in $A$ , set\\n$$\\n\\\\mathrm {A}_{; a} = \\\\mathrm {A}_{, a} + \\\\mathrm {K}_{a} \\\\mathrm {A}\\n$$\\nwhere $\\mathbf{K}_a$ must be determined. This can be done by demanding that $\\mathbf{g}$ , the determinant of the metric tensor, have vanishing covariant derivative:\\n$$\\n0 = \\\\mathbf {g}_{; \\\\alpha} = \\\\mathbf {g}_{, \\\\alpha} + \\\\mathbf {K}_{\\\\alpha} \\\\mathbf {g} = 2 \\\\mathbf {g} \\\\Gamma^{\\\\beta}_{\\\\beta \\\\alpha} + \\\\mathbf {K}_{\\\\alpha} \\\\mathbf {g}\\n$$\\nby Problem 7.7. Thus\\n$$\\n\\\\mathbf {K}_{\\\\alpha} = - \\\\mathbf {\\\\nabla} 2 \\\\Gamma^{\\\\beta} \\\\mathbf {\\\\nabla}_{\\\\beta \\\\alpha} \\\\mathbf {\\\\nabla}.\\n$$\\nThe generalization to densities of weight $W$ (i.e. they transform with a $J^W$ ) can be done by considering powers of $g$ . The result is that\\n$$\\n\\\\mathbf {K}_{\\\\alpha} = - \\\\mathbf {\\\\nabla} \\\\mathbf {W} \\\\Gamma^{\\\\beta} \\\\boldsymbol {\\\\beta}_{\\\\alpha} \\\\mathbf {\\\\nabla}.\\n$$"
+  },
+  "verification": null
+}

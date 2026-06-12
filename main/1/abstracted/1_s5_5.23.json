@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s5_5.23",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_null",
+      "target_object": "target_object_sound_speed",
+      "coordinate": "coordinate_comoving_rest_frame",
+      "scenario": "scenario_relativistic_fluid",
+      "method": "method_thermodynamic_derivation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.23",
+    "source_id": "1_s5_5.23",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.23"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "结合热力学第一定律与绝热指数定义，多步代数推导相对论流声速表达式",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$p$",
+      "$\\\\rho$",
+      "$n$",
+      "$s$",
+      "$\\\\mathbf{v}_{\\\\mathbf{s}}$",
+      "$\\\\Gamma_{1}$"
+    ],
+    "target": [
+      "$\\\\mathbf{v}_{\\\\mathbf{s}}^{2}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.23. The velocity of sound in a fluid is $\\left.\\mathbf{v}_{\\mathbf{s}}^{2} = \\frac{\\partial \\mathbf{p}}{\\partial \\rho}\\right|_{\\mathbf{s}} = \\text{constant}$ . Show that $\\mathbf{v}_{\\mathbf{s}}^{2} = \\Gamma_{1} \\mathbf{p} / (\\rho + \\mathbf{p})$ where $\\Gamma_{1}$ is the adiabatic index\\n$$\\n\\\\Gamma_{1} = \\\\partial \\\\log p / \\\\partial \\\\log n |_{s = c o n s t a n t}.\\n$$",
+    "answer": "$\\\\mathbf{v}_{\\\\mathbf{s}}^{2} = \\\\Gamma_{1} \\\\mathbf{p} / (\\\\rho + \\\\mathbf{p})$",
+    "solution": "Solution 5.23. From the first law of thermodynamics (see Problem 5.19)\\nwith $\\mathbf{ds} = 0$ we have\\n$$\\n\\\\mathrm {d} \\\\mathbf {n} / \\\\mathrm {d} \\\\rho = \\\\mathbf {n} / ( \\\\rho + \\\\mathbf {P} ) .\\n$$\\nNow we use the definition of $\\Gamma_{1}$ and the expression for $\\mathbf{v}_{\\\\mathbf{s}}^{2}$ from Problem 5.21:\\n$$\\n\\\\frac {{\\\\bf v}_{\\\\mathrm {s}}^{2}} {\\\\Gamma_{1}} = \\\\frac {\\\\mathrm {d P / d} \\\\rho} {( \\\\mathrm {n d P} ) / ( \\\\mathrm {P d n} )} = \\\\frac {\\\\mathrm {\\\\bf P}} {\\\\mathrm {\\\\bf n}} \\\\frac {\\\\mathrm {d n}} {\\\\mathrm {d}\\\\rho} = \\\\frac {\\\\mathrm {\\\\bf P}} {\\\\rho + \\\\mathrm {\\\\bf P}} .\\n$$"
+  },
+  "verification": null
+}

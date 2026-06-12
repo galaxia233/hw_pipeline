@@ -1,0 +1,150 @@
+{
+  "metadata": {
+    "id": "1_s2_2.6",
+    "type": "calculate",
+    "tags": {
+      "metric": "minkowski_metric",
+      "target_object": "center_of_mass_energy",
+      "coordinate": "reference_frames",
+      "scenario": "proton_scattering",
+      "method": "four_momentum_invariant"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.6",
+    "source_id": "1_s2_2.6",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于四动量不变量在实验室系与质心系间转换，结合高能近似与实际加速器物理背景，逻辑链条清晰且步骤完整。",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$E$",
+      "$m$",
+      "$W$",
+      "$\\mathbf{P}$",
+      "$\\mathbf{Q}$"
+    ],
+    "target": [
+      "$W$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$-1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$-1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$-1$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "-1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "-1"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 2.6. Evaluate the \"available energy\" of two different proton-proton scattering experiments. The first is of the conventional type, where a beam of protons is accelerated to $30\\mathrm{GeV}$ and allowed to strike a target (liquid hydrogen, for example). In the second, two separate beams of protons are accelerated to $15\\mathrm{GeV}$ each, then directed toward each other and allowed to collide. Evaluate the total energy of two colliding protons in the center of momentum frame for each experiment. To what energy would a beam in the first type of experiment have to be accelerated to match the CM energy of the $15\\mathrm{GeV}$ protons in the second experiment?",
+    "answer": "Fixed-target: $W \\approx 7.5\\mathrm{GeV}$; Collider: $W = 30\\mathrm{GeV}$; Required beam energy for fixed-target: $E \\approx 480\\mathrm{GeV}$.",
+    "solution": "Solution 2.6. Let $\\mathbf{P}$ and $\\mathbf{Q}$ be the 4-momenta of the incident protons, and $\\mathbf{W}$ the total energy in the C.M. frame. In this frame,$$\\mathbf {W}^{2} = \\left(\\mathbf {P}^{0} + \\mathbf {Q}^{0}\\right)^{2} = - \\left(\\mathbf {P} + \\mathbf {Q}\\right)^{2},$$which is an invariant expression for $\\mathbb{W}^2$ and can be evaluated in any frame. In the conventional experiment, in the lab frame$$\\mathbf {P} = (\\mathbf {E}, \\underline {{\\mathbf {P}}})$$$$\\mathbf {Q} = \\left(m, \\underline {{0}}\\right),$$so$$\\begin{array}{l} \\mathbf {W}^{2} = (\\mathbf {E} + \\mathbf {m})^{2} - \\mathbf {p}^{2} \\\\\\\\= 2 \\mathrm {E m} + 2 \\mathrm {m}^{2} \\\\\\\\\\approx 2 \\mathrm {E m} \\quad \\text {f o r} \\quad \\mathrm {E} \\gg \\mathrm {m}. \\\\\\\\ \\end{array}$$For $\\mathbf{E} = 30\\mathrm{GeV}$ , $\\mathfrak{m} = .94\\mathrm{GeV}$ , the available energy is $\\mathbf{W} \\approx 7.5\\mathrm{GeV}$ . For the colliding beam experiment, in the lab frame$$\\mathbf {P} = (\\mathbf {E}, \\underline {{\\mathbf {P}}})$$$$\\mathbf {Q} = \\left(\\mathbf {E}, - \\underline {{\\mathbf {P}}}\\right) .$$So $W^2 = 4E^2$ , i.e. $W = 2E$ . For $E = 15 \\, \\text{GeV}$ , the available energy is $W = 30 \\, \\text{GeV}$ . To achieve $W = 30 \\, \\text{GeV}$ in a conventional experiment would require $E = W^2 / 2m \\approx 480 \\, \\text{GeV}$ ."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "E",
+      "m",
+      "W",
+      "\\mathbf{P}"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

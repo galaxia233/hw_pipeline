@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s9_9.9",
+    "type": "calculate",
+    "tags": {
+      "metric": "covariant_derivative",
+      "target_object": "scalar_field",
+      "coordinate": "commutator",
+      "scenario": "Riemann_tensor",
+      "method": "local_inertial_frame"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.9",
+    "source_id": "1_s9_9.9",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.7,
+      "rationale": "基于局部平坦坐标的多步协变导数展开，清晰建立标量场高阶导数对易子与黎曼曲率张量的解析关系，理论深度适中且完全自洽。",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathbf{S}$",
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\gamma$",
+      "$\\\\sigma$"
+    ],
+    "target": [
+      "$\\\\mathbf{S}_{;\\\\alpha[\\\\beta\\\\gamma]}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s9_9.9.md]\\n\\nProblem 9.9. Show that the second derivatives of a scalar field commute (i.e. show that $\\mathbf {S}_{; a \\beta} = \\mathbf {S}_{; b \\alpha}$ ). For third derivatives $\\mathbf {S}_{; a \\beta \\gamma}$ , compute $\\mathbf {S}_{; ( a \\beta ) \\gamma}$ and $\\mathbf {S}_{; a [ \\beta \\gamma ]}$ .",
+    "answer": "$\\\\mathbf{S}_{;a\\\\beta}=\\\\mathbf{S}_{;\\\\beta a}$, $\\\\mathbf{S}_{;(a\\\\beta)\\\\gamma}=\\\\mathbf{S}_{;a\\\\beta\\\\gamma}$, $\\\\mathbf{S}_{;a[\\\\beta\\\\gamma]}=\\\\frac{1}{2}\\\\mathbf{S}_{;\\\\sigma}R^{\\\\sigma}_{a\\\\beta\\\\gamma}$",
+    "solution": "Solution 9.9. The second derivates of a scalar are\\n$$\\n\\\\mathbf {S}_{; a \\beta} = (\\\\mathbf {S}_{, a})_{; \\beta} = \\\\mathbf {S}_{, a \\beta} - \\\\mathbf {S}_{, \\sigma} \\\\Gamma_{a \\beta}^{\\sigma}.\\n$$\\nThis expression is obviously symmetric in $\\alpha$ and $\\beta$ .\\nTo investigate third derivatives use local flat coordinates as in Problem 9.8. We have then\\n$$\\n\\\\mathsf {S}_{; a \\beta \\gamma} = (\\\\mathsf {S}_{, a \\beta} - \\\\mathsf {S}_{\\\\sigma} \\\\Gamma_{a \\beta}^{\\\\sigma})_{, \\\\gamma} = \\\\mathsf {S}_{, a \\beta \\\\gamma} - \\\\mathsf {S}_{\\\\sigma} \\\\mathsf {I}_{a \\beta , \\\\gamma}^{\\\\sigma} = \\\\mathsf {S}_{; (a \\beta) \\\\gamma}.\\n$$\\nFrom this expression and from the result of Problem 9.8 we also have\\n$$\\n\\\\mathsf {S}_{; \\\\alpha [ \\\\beta \\\\gamma ]} = \\\\frac {1}{2} \\\\mathsf {S}_{; \\\\sigma} \\\\mathsf {R}_{\\\\alpha \\\\beta \\\\gamma}^{\\\\sigma}.\\n$$"
+  },
+  "verification": null
+}

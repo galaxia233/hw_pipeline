@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s19_19.13",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.13",
+    "source_id": "1_s19_19.13",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.13"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "需串联爱因斯坦场方程、应力能张量与里奇张量计算推导宇宙学动力学方程",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "\\theta$",
+      "\\phi$"
+    ],
+    "target": [
+      "$R_{\\hat{0}}^{\\hat{0}}$",
+      "$R_{\\hat{1}}^{\\hat{1}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.13. By requiring that the Robertson-Walker metric satisfy the Einstein field equations, derive the dynamical equations for a perfect fluid Friedmann cosmology:$$3 \\ddot {\\mathbf {R}} + 4 \\pi \\mathbf {G} (\\rho + 3 \\mathrm {p}) \\mathbf {R} = 0 \\tag {1}$$$$\\ddot {\\mathbf {R}} \\ddot {\\mathbf {R}} + 2 \\dot {\\mathbf {R}}^{2} + 2 \\mathbf {k} - 4 \\pi \\mathrm {G} (\\rho - \\mathrm {p}) \\mathbf {R}^{2} = 0. \\tag {2}$$",
+    "answer": "3 \\ddot {\\mathbf {R}} + 4 \\pi \\mathbf {G} (\\rho + 3 \\mathrm {p}) \\mathbf {R} = 0\\ddot {\\mathbf {R}} \\ddot {\\mathbf {R}} + 2 \\dot {\\mathbf {R}} ^ {2} + 2 \\mathbf {k} - 4 \\pi \\mathrm {G} (\\rho - \\mathrm {p}) \\mathbf {R} ^ {2} = 0",
+    "solution": "Solution 19.13. In the comoving orthonormal frame we have $\\mathbf{T}_{\\hat{\\theta}}^{\\hat{0}} = -\\rho$ , and $\\mathbf{T}_{\\hat{\\mathbf{r}}}^{\\hat{\\mathbf{r}}} = \\mathbf{T}_{\\hat{\\phi}}^{\\hat{\\phi}} = \\mathbf{T}_{\\hat{\\theta}}^{\\hat{\\theta}} = \\mathbf{p}$ . The trace-reversed stress energy tensor $\\overline{\\mathbf{T}}$ thus has components $\\overline{\\mathbf{T}}_{\\hat{\\theta}}^{\\hat{0}} = -\\frac{1}{2} (\\rho + 3\\mathbf{p})$ , and $\\overline{\\mathbf{T}}_{\\hat{\\mathbf{t}}}^{\\hat{\\mathbf{i}}} = \\frac{1}{2} (\\rho - \\mathbf{p})$ . We equate this to $1/8\\pi G$ times the Ricci tensor. The Ricci tensor can be calculated e.g. from the results of Problem 9.20 (general spherically symmetric metric). The components are:$$R_{\\hat {0}}^{\\hat {0}} = 3 \\ddot {R} / R$$$$R^{\\hat {1}}_{\\hat {1}} = \\frac {1}{R^{2}} (R \\ddot {R} + 2 \\dot {R}^{2} + 2 k).$$The equations in the problem now follow immediately. If, equivalently, the Einstein tensor $\\mathbf{G}_{\\mu \\nu}$ (trace reverse Ricci tensor) had been equated to $8\\pi \\mathbf{T}_{\\mu \\nu}$ , two linear combinations of the equations would have been obtained."
+  },
+  "verification": null
+}

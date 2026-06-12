@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s11_11.10_4",
+    "type": "prove",
+    "tags": {
+      "metric": "stationary_spacetime",
+      "target_object": "vorticity",
+      "coordinate": "Killing_vector",
+      "scenario": "static_condition",
+      "method": "geometric_proof"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s11_11.10_4",
+    "source_id": "1_s11_11.10_4",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s11_11.10_4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.7,
+      "realism": 0.3,
+      "rationale": "基于弗罗贝尼乌斯定理的纯几何推导，逻辑链条清晰但缺乏具体天体观测或工程应用背景",
+      "overall": 0.62
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$\\omega$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 11.10. Consider a family of stationary observers in a stationary spacetime, i.e. their 4-velocity is proportional to the time Killing vector $\\pmb{\\xi}$ . Each observer arranges his spatial basis vectors so that they connect to the same neighboring observers for all time $t$ , where $\\pmb{\\xi} = \\frac{\\partial}{\\partial t}$ .(4) Show that $\\omega = 0$ if the spacetime is static, and not merely stationary.",
+    "answer": "$\\omega = 0$",
+    "solution": "在静态（static）时空中，时间基灵矢量 $\\xi^\\mu$ 是超曲面正交的（hypersurface orthogonal）。根据弗罗贝尼乌斯定理（Frobenius theorem），这等价于条件：$\\xi_{[\\mu} \\nabla_\\nu \\xi_{\\rho]} = 0$。对于静止观者族，其四速度 $u^\\mu \\propto \\xi^\\mu$。该观者族的涡度（vorticity）向量 $\\omega^\\mu$ 由基灵矢量的旋度构造：$\\omega^\\mu \\propto \\epsilon^{\\mu\\nu\\rho\\sigma} \\xi_\\nu \\nabla_\\rho \\xi_\\sigma$。当且仅当 $\\xi_{[\\mu} \\nabla_\\nu \\xi_{\\rho]} = 0$ 时，上述反对称组合严格为零。因此，若时空为静态，涡度标量 $\\omega = 0$。证毕。"
+  },
+  "verification": null
+}

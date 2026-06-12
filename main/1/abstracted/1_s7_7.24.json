@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s7_7.24",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "geodesic",
+      "coordinate": "congruence",
+      "scenario": "hypersurface_orthogonal",
+      "method": "tensor_manipulation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.24",
+    "source_id": "1_s7_7.24",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.24"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.7,
+      "rationale": "纯几何证明+多步协变导数展开+无特定度规依赖+时空因果结构基础理论",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$k$",
+      "$f$",
+      "$h$",
+      "$\\\\lambda$"
+    ],
+    "target": [
+      "$k^\\\\alpha_{;\\\\beta}k^\\\\beta$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.24. Prove that any congruence of null curves that is hypersurface-orthogonal consists of null geodesics.\\n\\n## Solution\\n\\nLet $\\mathbf{k}$ be the tangent vector to the congruence of null curves. Since $\\mathbf{k}$ is hypersurface orthogonal,\\n$$\\n\\\\mathbf {k}_{\\\\alpha} = \\\\mathbf {h f}_{, \\\\alpha}\\n$$\\nfor some scalar functions $f$ and $h$ (see Problem 7.23). Because $k$ is null,\\n$$\\n\\\\mathbf {f}_{, a} \\\\mathbf {f}^{, a} = 0.\\n$$\\nFrom these two equations we have\\n$$\\n\\\\begin{array}{l} k_{\\\\alpha ; \\\\beta} k^{\\\\beta} = (h, \\\\beta^{f}, a + h f, \\\\alpha ; \\\\beta) h f^{\\\\prime} \\\\beta \\\\\\\\ f_{, \\\\alpha ; \\\\beta} f^{, \\\\beta} = f_{, \\\\beta ; \\\\alpha} f^{, \\\\beta} = \\\\frac {1}{2} (f_{, \\\\beta} f^{, \\\\beta});_{\\\\alpha} = 0 \\\\\\\\ \\\\end{array}\\n$$\\nand thus\\n$$\\n\\\\mathbf {k}_{\\\\alpha ; \\\\beta} \\\\mathbf {k}^{\\\\beta} = (\\\\mathrm {h}, \\\\beta^{\\\\mathrm {f}}, \\\\beta) \\\\mathbf {k}_{\\\\alpha}\\n$$\\nso the geodesic equation $\\nabla_{\\\\mathbf{k}}\\\\mathbf{k} \\\\propto \\\\mathbf{k}$ is satisfied. If $\\mathbf{k}^{\\\\alpha} = \\\\mathrm{d}\\\\mathbf{x}^{\\\\alpha} / \\\\mathrm{d}\\\\lambda$ , we can introduce an affine parameter $\\lambda' = \\\\lambda'(\\\\lambda)$ to write the equation in the standard form $\\nabla_{\\\\overline{\\\\mathbf{k}}} \\\\overline{\\\\mathbf{k}} = 0$ where $\\overline{\\\\mathbf{k}}^{\\\\alpha} = \\\\mathrm{d}\\\\mathbf{x}^{\\\\alpha} / \\\\mathrm{d}\\\\lambda'$ .",
+    "answer": "$\\\\nabla_{\\\\mathbf{k}}\\\\mathbf{k} \\\\propto \\\\mathbf{k}$",
+    "solution": "Let $\\mathbf{k}$ be the tangent vector to the congruence of null curves. Since $\\mathbf{k}$ is hypersurface orthogonal,\\n$$\\n\\\\mathbf {k}_{\\\\alpha} = \\\\mathbf {h f}_{, \\\\alpha}\\n$$\\nfor some scalar functions $f$ and $h$ (see Problem 7.23). Because $k$ is null,\\n$$\\n\\\\mathbf {f}_{, a} \\\\mathbf {f}^{, a} = 0.\\n$$\\nFrom these two equations we have\\n$$\\n\\\\begin{array}{l} k_{\\\\alpha ; \\\\beta} k^{\\\\beta} = (h, \\\\beta^{f}, a + h f, \\\\alpha ; \\\\beta) h f^{\\\\prime} \\\\beta \\\\\\\\ f_{, \\\\alpha ; \\\\beta} f^{, \\\\beta} = f_{, \\\\beta ; \\\\alpha} f^{, \\\\beta} = \\\\frac {1}{2} (f_{, \\\\beta} f^{, \\\\beta});_{\\\\alpha} = 0 \\\\\\\\ \\\\end{array}\\n$$\\nand thus\\n$$\\n\\\\mathbf {k}_{\\\\alpha ; \\\\beta} \\\\mathbf {k}^{\\\\beta} = (\\\\mathrm {h}, \\\\beta^{\\\\mathrm {f}}, \\\\beta) \\\\mathbf {k}_{\\\\alpha}\\n$$\\nso the geodesic equation $\\nabla_{\\\\mathbf{k}}\\\\mathbf{k} \\\\propto \\\\mathbf{k}$ is satisfied. If $\\mathbf{k}^{\\\\alpha} = \\\\mathrm{d}\\\\mathbf{x}^{\\\\alpha} / \\\\mathrm{d}\\\\lambda$ , we can introduce an affine parameter $\\lambda' = \\\\lambda'(\\\\lambda)$ to write the equation in the standard form $\\nabla_{\\\\overline{\\\\mathbf{k}}} \\\\overline{\\\\mathbf{k}} = 0$ where $\\overline{\\\\mathbf{k}}^{\\\\alpha} = \\\\mathrm{d}\\\\mathbf{x}^{\\\\alpha} / \\\\mathrm{d}\\\\lambda'$ ."
+  },
+  "verification": null
+}

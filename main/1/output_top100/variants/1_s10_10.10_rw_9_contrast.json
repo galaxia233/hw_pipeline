@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-6-9",
+    "type": "concept",
+    "tags": {
+      "target_object": "Einstein_tensor_time_component",
+      "coordinate": "comoving_vs_schwarzschild",
+      "scenario": "cosmology_vs_black_hole_vacuum_contrast",
+      "method": "tensor_calculation_and_symmetry_analysis",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-6",
+      "1_s10_10.10-6-9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "G_00_comparison"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，时空的对称性由 Killing 矢量刻画，并直接影响 Einstein 张量等几何量的结构。给定两种度规背景：背景 1 (FLRW 宇宙)：度规 $ds^2 = -dt^2 + \\frac{a^{2}(t)}{1-kr^{2}} dr^2 + r^{2} a^{2}(t) d\\theta^{2} + r^{2} a^{2}(t) \\sin^{2}(\\theta) d\\phi^{2}$，其 Killing 量仅有旋转矢量 $\\partial_\\phi$（缺乏时间平移对称性）。已知其 Ricci 张量时间分量 $R_{00} = -\\frac{3 \\ddot{a}}{a}$ 与 Ricci 标量 $R = \\frac{6(k + a \\ddot{a} + \\dot{a}^{2})}{a^{2}}$。背景 2 (Schwarzschild 真空)：度规 $ds^2 = \\frac{-r+r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^{2} d\\theta^{2} + r^{2} \\sin^{2}(\\theta) d\\phi^{2}$，其 Killing 量包含时间平移矢量 $\\partial_t$ 和旋转矢量 $\\partial_\\phi$（具有时间平移对称性）。已知该时空为外部真空解，即 Ricci 张量 $R_{\\mu\\nu} = 0$ 且 Ricci 标量 $R = 0$。请分别计算这两种度规下的 Einstein 张量时间分量 $G_{00}$，并结合各自时间平移 Killing 矢量的存在与否，对比分析 $G_{00}$ 结果差异的物理含义。",
+    "answer": "FLRW 背景下：$G_{00} = 3\\left(H^{2} + \\frac{k}{a^{2}}\\right)$，其中 $H = \\dot{a}/a$；Schwarzschild 背景下：$G_{00} = 0$。物理含义差异：Schwarzschild 度规存在时间平移 Killing 量 $\\partial_t$，时空具有时间平移对称性且为静态真空，几何结构不随时间演化且无物质分布，因此 $G_{00}=0$；FLRW 度规缺乏时间平移 Killing 量，时空随时间演化（宇宙膨胀），$G_{00}$ 显含哈勃参数 $H$，反映了时间对称性破缺所导致的时空动力学演化特征（即膨胀速率与空间曲率耦合）。",
+    "solution": "1. FLRW 背景：   - Einstein 张量定义 $G_{\\mu\\nu} = R_{\\mu\\nu} - \\frac{1}{2} R g_{\\mu\\nu}$。   - 代入已知量：$R_{00} = -\\frac{3 \\ddot{a}}{a}$，$R = \\frac{6(k + a \\ddot{a} + \\dot{a}^{2})}{a^{2}}$，$g_{00} = -1$。   - 计算 $G_{00} = -\\frac{3 \\ddot{a}}{a} - \\frac{1}{2} \\frac{6(k + a \\ddot{a} + \\dot{a}^{2})}{a^{2}} (-1) = -\\frac{3 \\ddot{a}}{a} + \\frac{3k}{a^{2}} + \\frac{3 \\ddot{a}}{a} + \\frac{3 \\dot{a}^{2}}{a^{2}} = \\frac{3k}{a^{2}} + 3 \\left(\\frac{\\dot{a}}{a}\\right)^{2}$。   - 引入哈勃参数 $H = \\dot{a}/a$，得到 $G_{00} = 3\\left(H^{2} + \\frac{k}{a^{2}}\\right)$。2. Schwarzschild 背景：   - 真空解条件给出 $R_{\\mu\\nu} = 0$，$R = 0$。   - 代入定义：$G_{00} = 0 - \\frac{1}{2} (0) g_{00} = 0$。3. 对比分析：   - Schwarzschild 存在时间平移 Killing 量 $\\partial_t$，意味着时空是静态的，几何量不含时间演化项，且作为真空解 $T_{00}=0$，故 $G_{00}=0$。   - FLRW 没有时间平移 Killing 量，时空是动态演化的，$G_{00}$ 包含了时间导数构成的哈勃参数 $H$，直接反映了宇宙膨胀的动力学；时间对称性的破缺使得几何张量获得了非零的动力学分量。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目和摘要中对 Killing 矢量的描述存在严重的物理事实错误：1. Schwarzschild 度规是静态球对称的，拥有 4 个独立的 Killing 矢量（1个时间平移 $\\partial_t$ 和 3个空间旋转），而非摘要中声称的 '2 个' 或题目中所暗示的仅有 $\\partial_t$ 和 $\\partial_\\phi$。2. FLRW 度规的空间部分具有球对称性，因此拥有 3 个旋转 Killing 矢量（生成 SO(3) 群），而题目错误地声称其 '仅有旋转矢量 $\\partial_\\phi$'。将球对称的3个旋转Killing矢量缩减为1个，严重违背了广义相对论中关于时空对称性的基本常识。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

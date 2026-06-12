@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s18_18.16",
+    "type": "calculate",
+    "tags": {
+      "metric": "gravitational_wave_emission",
+      "target_object": "quadrupole_radiation",
+      "coordinate": "scaling_argument",
+      "scenario": "order_of_magnitude_estimate",
+      "method": "astrophysical_explosion"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s18_18.16",
+    "source_id": "1_s18_18.16",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s18_18.16"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于四极矩辐射缩放律的多步量纲分析，关联宏观爆炸参数与微观引力子数，物理逻辑连贯且具备天体物理背景",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$E$",
+      "$\\tau$",
+      "$\\omega$",
+      "$N$"
+    ],
+    "target": [
+      "$N$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 18.16. Estimate the number of gravitons emitted in an asymmetric explosion of energy E.",
+    "answer": "$N \\sim \\frac {E^{2}}{\\hbar} \\sim \\left(\\frac {E}{1 0^{1 6} \\mathrm {e r g s}}\\right)^{2}$",
+    "solution": "Solution 18.16. The characteristic quadrupole gravitational-wave power of a physical process is $(\\mathrm{G} / \\mathrm{c}^{5})|\\ddot{\\mathrm{Q}}|^{2}\\sim (\\mathrm{G} / \\mathrm{c}^{5})\\mathrm{M}^{2}\\mathrm{v}^{4} / \\mathrm{T}^{2}$ where M, v, T are relevant masses, velocities and times for the process. This can be conveniently written as$$\\mathrm {P}_{\\mathrm {G W}} \\sim \\frac {\\mathrm {G}}{\\mathrm {c}^{5}} \\left(\\frac {\\mathrm {M v}^{2}}{\\mathrm {T}}\\right)^{2} \\sim \\frac {\\mathrm {P}^{2}}{3 \\times 1 0^{5 9} \\mathrm {e r g s / s e c .}}.$$Here $\\mathrm{P} \\sim \\mathrm{Mv}^2 / \\mathrm{T}$ represents the characteristic \"power\" of internal energy flows.For an explosion of energy E, characteristic time $\\pmb{\\tau}$ the \"internal power flow\" is $\\mathbf{E} / \\tau$ . If we assume that this internal power flow couples efficiently to gravitational waves, then in $c = G = 1$ units$$\\mathrm {P}_{\\mathrm {G W}} \\sim (\\mathrm {E} / \\tau)^{2}$$and$$\\mathrm {E}_{\\mathrm {G W}} \\sim \\mathrm {P}_{\\mathrm {G W}} \\tau \\sim \\mathrm {E}^{2} / \\tau .$$The typical graviton emerging from this explosion will have energy $\\hbar \\omega \\sim \\hbar / \\tau$ so the number of gravitons emerging will be of order$$N \\sim \\frac {E^{2} / \\tau}{\\hbar / \\tau} = \\frac {E^{2}}{\\hbar} \\sim \\left(\\frac {E}{1 0^{1 6} \\mathrm {e r g s}}\\right)^{2}.$$"
+  },
+  "verification": null
+}

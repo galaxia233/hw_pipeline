@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s15_15.12-0-5-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "angular_velocity_constraint",
+      "coordinate": "FLRW",
+      "scenario": "comoving_orbit_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.12",
+      "1_s15_15.12-0",
+      "1_s15_15.12-0-5",
+      "1_s15_15.12-0-5-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "FLRW",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\dot{\\phi}"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在具有空间曲率 $k$ 的 FLRW 时空中，度规为 $ds^2 = -dt^2 + \\frac{a^2(t)}{1 - k r^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$。理论推导表明：如果一个自由粒子在赤道面 ($\\theta = \\pi/2$) 上做径向坐标保持恒定 ($\\dot{r} = 0$) 的测地线运动，则其坐标角速度 $\\dot{\\phi}$ 必须为零，即该粒子只能是静止的共动观察者。请从零设计一个数值模拟方案来验证此结论（$\\dot{r}=0$ 的测地线必定满足 $\\dot{\\phi}=0$）。方案需包含：1) 如何选择具体的标度因子 $a(t)$ 与曲率 $k$ 及初始条件设定；2) 需要数值求解与记录的核心物理量；3) 如何通过对比实验得出结论；4) 阐述预期的数值结果。",
+    "answer": "方案步骤：1. 参数设定：选取标度因子 $a(t) = t^{2/3}$（物质主导宇宙）与空间曲率 $k=0$（平坦宇宙）或 $k=1$（闭合宇宙），设定初始时间 $t_0$。2. 初始条件设定：建立两组对比粒子，均位于赤道面 $\\theta = \\pi/2$ 且 $\\dot{\\theta}=0$。   - 对照组：初始 $\\dot{r}=0$ 且 $\\dot{\\phi}=0$（共动观察者）。   - 实验组：初始 $\\dot{r}=0$ 且 $\\dot{\\phi} = \\omega_0 \\neq 0$（有初始角速度）。3. 数值计算：基于 FLRW 度规写出测地线方程（或哈密顿方程），对两组粒子进行数值积分，计算并记录轨迹随时间的演化 $r(t)$ 与 $\\dot{r}(t)$。4. 对比与结论：对比两组粒子的 $r(t)$ 曲线。预期结果为：对照组的 $r(t)$ 保持恒定（$\\dot{r}=0$ 满足测地线方程）；而实验组的 $r(t)$ 将随时间变化，$\\dot{r}$ 无法保持为 0。由此验证：在 FLRW 时空中，若要求径向坐标恒定的测地线，则必须 $\\dot{\\phi}=0$。",
+    "solution": "方案合理性论证：测地线方程的径向分量为 $\\ddot{r} + \\Gamma^r_{tr} \\dot{t} \\dot{r} + \\Gamma^r_{rr} \\dot{r}^2 + \\Gamma^r_{\\phi\\phi} \\dot{\\phi}^2 = 0$。若 $\\dot{r}=0$ 且 $\\ddot{r}=0$，则方程退化为 $\\Gamma^r_{\\phi\\phi} \\dot{\\phi}^2 = 0$。由于 $\\Gamma^r_{\\phi\\phi} = r(k r^2 - 1)$，在非奇异位置 $\\Gamma^r_{\\phi\\phi} \\neq 0$，故必定有 $\\dot{\\phi}=0$。数值实验通过求解完整的二阶微分方程组演化轨迹，自然隐含了 Christoffel 符号的约束。当输入 $\\dot{r}=0, \\dot{\\phi} \\neq 0$ 作为初值时，$\\ddot{r} = -\\Gamma^r_{\\phi\\phi} \\dot{\\phi}^2 \\neq 0$，数值积分将立刻产生非零的 $\\dot{r}$，导致 $r(t)$ 发生变化，直观呈现出理论推导的结果，物理逻辑自洽且可操作。"
+  },
+  "verification": null
+}

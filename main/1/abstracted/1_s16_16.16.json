@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s16_16.16",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "isotropic_coordinates",
+      "coordinate": "spherical_shell",
+      "scenario": "surface_stress_energy",
+      "method": "redshift"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.16",
+    "source_id": "1_s16_16.16",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.16"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "需结合度规红移公式、薄壳表面应力-能量张量积分及主导能条件进行多步推导",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$z$",
+      "$M$",
+      "$R$",
+      "$\\Lambda^{\\hat{0}}_{\\hat{0}}$",
+      "$\\Lambda^{\\hat{\\theta}}_{\\hat{\\theta}}$",
+      "$g_{00}$"
+    ],
+    "target": [
+      "$z$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.16. What is the redshift to radial infinity from a thin spherical shell in static equilibrium, in terms of its proper surface density $\\Lambda_{\\hat{\\theta}}^{\\hat{0}}$ and proper surface stresses $\\Lambda_{\\hat{\\theta}}^{\\hat{\\theta}}$ ? What is the largest possible redshift if it satisfies the dominant energy condition?",
+    "answer": "z = -4 \\Lambda^{\\hat{\\theta}}_{\\hat{\\theta}} / \\Lambda^{\\hat{0}}_{\\hat{0}}; z \\leq 4",
+    "solution": "Solution 16.16. In isotropic coordinates (see Problem 16.14), the redshift to radial infinity is$$\\begin{array}{l}z = \\frac {\\lambda_{\\text {i n f i n i t y}}}{\\lambda_{\\text {s u r f a c e}}} - 1 = \\frac {\\left(- g_{0 0}\\right)_{\\inf ty}^{\\frac {1}{2}}}{\\left(- g_{0 0}\\right)_{\\mathrm {S}}^{\\frac {1}{2}}} - 1 = \\left(\\mathrm {e}^{- \\gamma / 2}\\right)_{\\mathrm {S}} - 1 \\\\= \\frac {1 + \\mathrm {M} / 2 \\mathrm {R}}{1 - \\mathrm {M} / 2 \\mathrm {R}} - 1 = \\frac {\\mathrm {M} / \\mathrm {R}}{1 - \\mathrm {M} / 2 \\mathrm {R}}.\\end{array}$$The integrated energy density and transverse pressure are respectively$$- \\Lambda_{\\hat {0}}^{\\hat {0}} = \\frac {\\mathsf {M}}{4 \\pi \\mathsf {R}^{2}} \\left(1 + \\frac {\\mathsf {M}}{2 \\mathsf {R}}\\right)^{- 3},\\Lambda^{\\widehat {\\theta}}_{\\widehat {\\theta}} = \\Lambda^{\\widehat {\\phi}}_{\\widehat {\\phi}} = \\frac {\\mathrm {M}}{8 \\pi \\mathrm {R}^{2}} \\left(\\frac {\\mathrm {M} / 2 \\mathrm {R}}{1 - \\mathrm {M} / 2 \\mathrm {R}}\\right) \\left(1 + \\frac {\\mathrm {M}}{2 \\mathrm {R}}\\right)^{- 3}.$$Hence the ratio of integrated pressure to energy is$$\\frac {\\Lambda \\hat {\\theta}_{\\widehat {\\theta}}}{- \\Lambda_{\\widehat {0}}^{\\widehat {0}}} = \\frac {\\mathrm {M} / 4 \\mathrm {R}}{1 - \\mathrm {M} / 2 \\mathrm {R}} = \\frac {1}{4} zso the redshift to radial infinity is$$z = - 4 \\Lambda \\widehat {\\theta}_{\\widehat {\\theta}} / \\Lambda \\widehat {0}_{\\widehat {0}}.$$If the dominant energy condition is satisfied, $|\\Lambda_{\\hat{\\theta}}^{\\hat{\\theta}_0}| \\leq |\\Lambda_{\\hat{0}}^0|$ , so $z \\leq 4$ ."
+  },
+  "verification": null
+}

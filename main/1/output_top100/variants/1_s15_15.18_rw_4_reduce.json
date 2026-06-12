@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s15_15.18-6-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "timelike_geodesic_effective_potential",
+      "coordinate": "static_Ads",
+      "scenario": "reduce_classical_harmonic_oscillator",
+      "method": "local_flat_limit",
+      "generalization_axis": "limit",
+      "metric": "AntiDeSitterStatic"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.18",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.18",
+      "1_s15_15.18-6",
+      "1_s15_15.18-6-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "AntiDeSitterStatic",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\left(\\frac{dr}{dt}\\right)^2 + r^2 = r_0^2$"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Anti-de Sitter (AdS) 时空中，静态坐标系下的度规定义为 $ds^2 = -\\cos h^2(r) dt^2 + dr^2 + \\sin h^2(r) d\\theta^2 + \\sin^2(\\theta)\\sin h^2(r) d\\phi^2$。对于角动量 $L=0$ 的类时测地线，由时间平移 Killing 矢量可得守恒能量参数 $E = \\cos h^2(r) \\frac{dt}{d\\tau}$，其径向坐标速度的广义相对论表达式为 $\\left(\\frac{dr}{dt}\\right)^2 = \\frac{\\cos h^2(r)}{E^2} \\left(E^2 - \\cos h^2(r)\\right)$。请通过取时空中心附近的局域平直极限 $r \\ll 1$，并考虑粒子从极小半径 $r_0 \\ll 1$ 处以零初速释放的低能近似（此时能量参数 $E \\approx \\cos h(r_0) \\approx 1 + \\frac{r_0^2}{2}$），证明该 GR 径向运动方程如何退化为经典 Newtonian 谐振子方程。",
+    "answer": "在局域平直极限 $r \\ll 1$ 下，对双曲函数作泰勒展开：$\\cos h(r) \\approx 1 + \\frac{r^2}{2}$。粒子从 $r_0 \\ll 1$ 处静止释放，初始能量 $E = \\cos h(r_0) \\approx 1 + \\frac{r_0^2}{2}$，故 $E^2 \\approx 1 + r_0^2$（保留至二阶主导项）。将上述近似代入 GR 表达式：$\\left(\\frac{dr}{dt}\\right)^2 \\approx \\frac{(1 + \\frac{r^2}{2})^2}{1 + r_0^2} \\left[ (1 + r_0^2) - (1 + \\frac{r^2}{2})^2\\right]$。由于 $r \\ll 1$ 及 $r_0 \\ll 1$，略去高于二阶的小量，得 $\\left(\\frac{dr}{dt}\\right)^2 \\approx 1 \\cdot (1 + r_0^2 - 1 - r^2) = r_0^2 - r^2$。移项即得经典谐振子方程 $\\left(\\frac{dr}{dt}\\right)^2 + r^2 = r_0^2$。此结果表明 AdS 势阱在局域极限下退化为谐振子势（线性回复力），对应 Newtonian 谐振子。",
+    "solution": "1. 写出 $r \\ll 1$ 和 $r_0 \\ll 1$ 时的近似展开：$\\cos h(r) \\approx 1 + \\frac{r^2}{2}$，$E \\approx 1 + \\frac{r_0^2}{2}$，所以 $E^2 \\approx 1 + r_0^2$；2. 代入 $\\left(\\frac{dr}{dt}\\right)^2$ 表达式：$\\left(\\frac{dr}{dt}\\right)^2 = \\frac{\\cos h^2(r)}{E^2} (E^2 - \\cos h^2(r))$；3. 展开分子和分母，略去四阶及以上的高阶小量得 $\\left(\\frac{dr}{dt}\\right)^2 \\approx r_0^2 - r^2$；4. 移项即证 $\\left(\\frac{dr}{dt}\\right)^2 + r^2 = r_0^2$。"
+  },
+  "verification": null
+}

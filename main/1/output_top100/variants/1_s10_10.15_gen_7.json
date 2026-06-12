@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "killing_vector_norm",
+      "coordinate": "schwarzschild",
+      "scenario": "newtonian_limit",
+      "method": "taylor_expansion",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$|\\boldsymbol{\\xi}|$",
+      "$E_{\\min}/\\mu$ Newtonian limit",
+      "$\\Phi_{\\text{Newtonian}}$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，静态时空的时间平移 Killing 矢量 $\\boldsymbol{\\xi}$ 与粒子的守恒能量密切相关。已知对于具有静质量 $\\mu$ 的试验粒子，其在时空某一点所能具有的最小“无限远能量”与静质量之比 $(E/\\mu)_{\\min}$ 由该点处时间平移 Killing 矢量的模长给出，即 $(E/\\mu)_{\\min} = |\\boldsymbol{\\xi}|$。考虑 Schwarzschild 黑洞时空，其度规为：$$ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$其中 $r_s = 2M$ 为 Schwarzschild 半径。该时空的时间平移 Killing 矢量为 $\\boldsymbol{\\xi} = \\partial_t$。请计算该 Killing 矢量模长 $|\\boldsymbol{\\xi}|$ 的显式表达式，并在远场弱场极限 $r \\gg r_s$ 下对其进行一级近似展开，验证粒子的最小比能量 $(E/\\mu)_{\\min}$ 在该极限下能还原为牛顿力学中的比机械能（比静能加比引力势能），并明确指出展开式中对应牛顿引力势能的项。",
+    "answer": "$|\\boldsymbol{\\xi}| = \\sqrt{1 - r_s/r} \\approx 1 - M/r$，对应牛顿引力势能的项为 $-M/r$。",
+    "solution": "1. 时间平移 Killing 矢量为 $\\boldsymbol{\\xi} = \\partial_t$，其分量为 $\\xi^\\mu = (1, 0, 0, 0)$。2. 矢量模长平方定义为 $|\\boldsymbol{\\xi}|^2 = g_{\\mu\\nu} \\xi^\\mu \\xi^\\nu = g_{tt} \\xi^t \\xi^t = g_{tt}$。3. 代入 Schwarzschild 度规的 $g_{tt}$ 分量：$|\\boldsymbol{\\xi}|^2 = -\\frac{r - r_s}{r} = -(1 - r_s/r)$。4. 在黑洞视界外部 ($r > r_s$)，Killing 矢量为类时矢量，模长平方为负，因此其模长为 $|\\boldsymbol{\\xi}| = \\sqrt{-g_{tt}} = \\sqrt{1 - r_s/r} = \\sqrt{1 - 2M/r}$。5. 取远场弱场极限 $r \\gg r_s$，即 $x = r_s/r \\ll 1$。对 $|\\boldsymbol{\\xi}|$ 进行 Taylor 展开：$$ |\\boldsymbol{\\xi}| = \\sqrt{1 - x} \\approx 1 - \\frac{x}{2} = 1 - \\frac{r_s}{2r} = 1 - \\frac{M}{r} $$6. 在单位制 $c=1, G=1$ 下，比静能（单位质量的静能）为 1，牛顿引力势能为 $\\Phi = -M/r$。展开结果 $1 - M/r = 1 + \\Phi$ 正好对应于牛顿力学中静止粒子（动能为零）的比机械能（比静能加比引力势能），其中对应牛顿引力势能的项为 $-M/r$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

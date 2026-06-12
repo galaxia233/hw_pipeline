@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "Fermi-Walker transport",
+      "coordinate": "arbitrary",
+      "scenario": "gyroscope spin",
+      "method": "verify properties (norm and orthogonality)",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\mathbf{S}$",
+      "$\\mathbf{u}$",
+      "$\\mathbf{a}$"
+    ],
+    "target": [
+      "$S^{\\mu} S_{\\mu}$",
+      "$u_{\\mu} S^{\\mu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，无外加扭矩的陀螺仪其自旋矢量 $S^{\\mu}$ 沿自身世界线进行 Fermi-Walker 输运，即满足 $\\frac{DF S^{\\mu}}{d\\tau} = 0$。Fermi-Walker 导数定义为 $\\frac{DF S^{\\mu}}{d\\tau} = \\frac{dS^{\\mu}}{d\\tau} + \\Omega^{\\mu}_{\\ \\nu} S^{\\nu}$，其中旋转矩阵 $\\Omega^{\\mu}_{\\ \\nu} = a^{\\mu} u_{\\nu} - a_{\\nu} u^{\\mu}$，$u^{\\mu}$ 为四速度（满足类时条件 $u^{\\mu} u_{\\mu} = -1$），$a^{\\mu} = \\frac{Du^{\\mu}}{d\\tau}$ 为四加速度。请验证这一输运规律作为陀螺仪自旋演化方程的物理合理性：证明满足 Fermi-Walker 输运的自旋矢量，其在演化过程中模长保持不变（$\\frac{d}{d\\tau}(S^{\\mu} S_{\\mu}) = 0$），且与四速度的正交性保持不变（$\\frac{d}{d\\tau}(u_{\\mu} S^{\\mu}) = 0$）。",
+    "answer": "证明了 $\\frac{d}{d\\tau}(u_{\\mu} S^{\\mu}) = 0$ 与 $\\frac{d}{d\\tau}(S^{\\mu} S_{\\mu}) = 0$，验证了 Fermi-Walker 输运确实维持了自旋矢量的模长守恒及与四速度的正交性。",
+    "solution": "首先验证正交性的守恒。对内积 $u_{\\mu} S^{\\mu}$ 求固有时间导数：$$ \\frac{d}{d\\tau}(u_{\\mu} S^{\\mu}) = a_{\\mu} S^{\\mu} + u_{\\mu} \\frac{dS^{\\mu}}{d\\tau} $$由 Fermi-Walker 输运方程 $\\frac{dS^{\\mu}}{d\\tau} = -\\Omega^{\\mu}_{\\ \\nu} S^{\\nu} = -(a^{\\mu} u_{\\nu} - a_{\\nu} u^{\\mu}) S^{\\nu} = -a^{\\mu} (u_{\\nu} S^{\\nu}) + u^{\\mu} (a_{\\nu} S^{\\nu})$，代入上式得：$$ \\frac{d}{d\\tau}(u_{\\mu} S^{\\mu}) = a_{\\mu} S^{\\mu} + u_{\\mu} \\left[ -a^{\\mu} (u_{\\nu} S^{\\nu}) + u^{\\mu} (a_{\\nu} S^{\\nu})\\right] $$展开并利用四速度与四加速度的正交性 $u_{\\mu} a^{\\mu} = 0$（由 $u^{\\mu} u_{\\mu} = -1$ 求导得到），以及类时条件 $u_{\\mu} u^{\\mu} = -1$，有：$$ \\frac{d}{d\\tau}(u_{\\mu} S^{\\mu}) = a_{\\mu} S^{\\mu} - (u_{\\mu} a^{\\mu})(u_{\\nu} S^{\\nu}) + (u_{\\mu} u^{\\mu})(a_{\\nu} S^{\\nu}) = a_{\\mu} S^{\\mu} - 0 - a_{\\nu} S^{\\nu} = 0 $$这证明了 $u_{\\mu} S^{\\mu}$ 在输运过程中为常数；若初始时刻陀螺仪自旋与速度正交 $u_{\\mu} S^{\\mu} = 0$，则该正交性将始终保持。接着验证模长守恒。对模方 $S^{\\mu} S_{\\mu}$ 求导：$$ \\frac{d}{d\\tau}(S^{\\mu} S_{\\mu}) = 2 S_{\\mu} \\frac{dS^{\\mu}}{d\\tau} $$代入 Fermi-Walker 输运方程：$$ \\frac{d}{d\\tau}(S^{\\mu} S_{\\mu}) = 2 S_{\\mu} \\left[ -a^{\\mu} (u_{\\nu} S^{\\nu}) + u^{\\mu} (a_{\\nu} S^{\\nu})\\right] $$由于正交性已经证明是守恒的，对于物理上的陀螺仪总有 $u_{\\nu} S^{\\nu} = 0$，因此第一项为 0；第二项为 $2 (S_{\\mu} u^{\\mu})(a_{\\nu} S^{\\nu})$，同样因为 $S_{\\mu} u^{\\mu} = 0$，第二项也为 0。故：$$ \\frac{d}{d\\tau}(S^{\\mu} S_{\\mu}) = 0 $$以上验证表明，Fermi-Walker 输运方程完好地保持了自旋矢量的大小及其与四速度的正交关系，符合无扭矩陀螺仪自旋演化的物理要求。"
+  },
+  "verification": null
+}

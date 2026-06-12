@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s10_10.16",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "coordinate",
+      "coordinate": "scenario",
+      "scenario": "method",
+      "method": "killing_vector"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s10_10.16",
+    "source_id": "1_s10_10.16",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s10_10.16"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "需串联Killing矢量性质、弯曲时空Maxwell波动方程与真空Ricci恒等式，并结合正交标架显式计算物理电磁场",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$A^\\mu$",
+      "$F_{\\mu\\nu}$",
+      "$R_{\\mu\\nu}$"
+    ],
+    "target": [
+      "$F_{\\mu\\nu}$",
+      "\\mathbf{B}"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "10.16. Show that a Killing vector is an admissible solution for the vector potential of Maxwell's equations for a test field in a vacuum spacetime. What electromagnetic field corresponds to the Killing vector $\\partial/\\partial\\phi$ in Minkowski space?",
+    "answer": "There is a uniform magnetic field parallel to the $z$ axis: $\\underline{\\mathbf{B}} = 2\\mathbf{a}\\underline{\\mathbf{e}}_{\\hat{\\mathbf{z}}}}$.",
+    "solution": "Solution 10.16. For a test electromagnetic field, all we have to check is that Maxwell's equations are satisfied in the given background metric. If $\\mathbf{A}^{\\mu}$ , the vector potential, is a Killing vector, then$$\\mathrm {A}_{; \\mu}^{\\mu} = 0$$i.e. the Lorentz condition is satisfied, and the wave equation$$\\mathrm {A}_{\\nu}^{\\mu ; \\nu} - \\mathrm {R}_{\\nu}^{\\mu} \\mathrm {A}^{\\nu} = 0$$is satisfied by Problem 10.6 and the fact that $\\mathbf{R}_{\\nu}^{\\mu} = 0$ in vacuum.If in Minkowski space in spherical polar coordinates $\\mathbf{A} \\propto \\partial/\\partial \\phi$ , i.e. only $\\mathbf{A}^{\\phi} = \\mathbf{constant}$ is nonzero, then $\\mathbf{A}^{\\hat{\\phi}} \\propto \\mathbf{r} \\sin \\theta$ , or in conventional 3-dimensional notation,$$\\underline {{\\mathbf {A}}} = \\text {a r} \\sin \\theta \\underline {{\\mathbf {e}}}_{\\hat {\\phi}} \\quad (\\mathbf {a} = \\text {c o n s t a n t}) .$$Hence $\\underline{\\mathbf{E}} = 0$ and $\\underline{\\mathbf{B}} = \\nabla \\times \\underline{\\mathbf{A}} = 2\\mathbf{a}(\\cos \\theta \\underline{\\mathbf{e}}_{\\hat{\\mathbf{r}}}} - \\sin \\theta \\mathbf{e}_{\\hat{\\theta}}) = 2\\mathbf{a}\\underline{\\mathbf{e}}_{\\hat{\\mathbf{z}}}}$ . Thus there is a uniform magnetic field parallel to the $z$ axis. (This problem is due to Robert M. Wald.)"
+  },
+  "verification": null
+}

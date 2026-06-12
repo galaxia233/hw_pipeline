@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s21_21.16",
+    "type": "calculate",
+    "tags": {
+      "metric": "spinor",
+      "target_object": "tensor_algebra",
+      "coordinate": "relativity",
+      "scenario": "index_manipulation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s21_21.16",
+    "source_id": "1_s21_21.16",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s21_21.16"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "Requires multi-step spinor-tensor index manipulation, symmetric/antisymmetric decomposition, trace extraction, and Hodge duality identification",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$a$",
+      "$b$",
+      "$A$",
+      "$B$",
+      "$A'$",
+      "$B'$",
+      "$c$",
+      "$C$",
+      "$T_{ab}$"
+    ],
+    "target": [
+      "$T_{BA'AB'}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 21.16. Let $\\mathbf{T_{ab}} = \\mathbf{T_{AA'B'B'}}$ in a spinor representation. What tensor corresponds to $\\mathbf{T_{BA'AB'}}$ ?",
+    "answer": "$T_{(ab)} - \\frac{1}{2} g_{ab} T_c^c + i *T_{ab}$",
+    "solution": "Solution 21.16. Since primed and unprimed indices commute, we have$$\\begin{array}{l} \\mathbf {T}_{\\mathrm {(a b)}} = \\frac {1}{2} \\left(\\mathbf {T}_{\\mathbf {A B A^{\\prime} B^{\\prime}}} + \\mathbf {T}_{\\mathbf {B A B^{\\prime} A^{\\prime}}}\\right) \\\\= \\frac {1}{4} \\left(\\mathrm {T_{A B A^{'} B^{'}} - T_{B A A^{'} B^{'}} + T_{B A B^{'} A^{'}} - T_{A B B^{'} A^{'}}}\\right) \\\\+ \\frac {1}{2} \\mathrm {\\Delta T_{(a b)}} + \\frac {1}{4} \\left(\\mathrm {\\Delta T_{B A A^{'} B^{'}}} + \\mathrm {\\Delta T_{A B B^{'} A^{'}}}\\right) . \\\\\\end{array}$$With the result of Problem 21.14, this can be written as$$\\begin{array}{l} \\mathrm {T}_{\\left(\\mathrm {a b}\\right)} = 2 \\mathrm {T}_{\\left[ \\mathrm {A B}\\right] \\left[ \\mathrm {A}^{\\prime} \\mathrm {B}^{\\prime}\\right]} + \\frac {1}{2} \\left(\\mathrm {T}_{\\mathrm {B A A}^{\\prime} \\mathrm {B}^{\\prime}} + \\mathrm {T}_{\\mathrm {A B B}^{\\prime} \\mathrm {A}^{\\prime}}\\right) \\\\= \\frac {1}{2} \\varepsilon_{\\mathbf {A B}} \\varepsilon_{\\mathbf {A^{\\prime} B^{\\prime}}} \\mathrm {T_{C}}_{\\mathbf {C^{\\prime}}}^{\\mathbf {C^{\\prime}}} + \\frac {1}{2} \\left(\\mathrm {T_{B A A^{\\prime} B^{\\prime}}} + \\mathrm {T_{A B B^{\\prime} A^{\\prime}}}\\right). \\\\\\end{array}$$Finally, using the result of Problem 21.15, we get$$\\begin{array}{l} \\mathrm {T}_{\\mathrm {B A A^{\\prime} B^{\\prime}}} = \\mathrm {T}_{(\\mathrm {a b})} - \\frac {1}{2} \\varepsilon_{\\mathrm {A B}} \\varepsilon_{\\mathrm {A^{\\prime} B^{\\prime}}} \\mathrm {T}_{\\mathrm {C}}^{\\mathrm {C}} \\mathrm {C}^{\\prime} + * \\mathrm {T}_{\\mathrm {a b}} \\\\\\mathbf {\\tau} = \\mathbf {\\tau}_{(\\mathbf {a b})} - \\frac {1}{2} \\mathbf {\\tau}_{\\mathbf {g}_{\\mathbf {a b}}} \\mathbf {\\tau}_{\\mathbf {c}}^{\\mathbf {c}} + \\mathbf {i} * \\mathbf {T}_{\\mathbf {a b}}. \\\\\\end{array}$$"
+  },
+  "verification": null
+}

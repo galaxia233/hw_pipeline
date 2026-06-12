@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "gauge_vector_differential_equation",
+      "coordinate": "cartesian",
+      "scenario": "linearized_gravity_gauge_fixing",
+      "method": "invert_transformation",
+      "generalization_axis": "invert",
+      "metric": "Minkowski"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Minkowski",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "\\Box \\xi_\\mu = \\partial^\\nu \\bar{h}_{\\mu\\nu}^{\\text{old}}"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在闵可夫斯基时空中，度规为 $\\eta_{\\mu\\nu} = \\text{diag}(-1, 1, 1, 1)$，坐标系为 $(t, x, y, z)$。考虑线性化引力理论中的度规微扰 $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$。已知在无穷小坐标变换 $x^\\mu \\to x^\\mu + \\xi^\\mu$ 下，度规微扰的变换规律为 $h_{\\mu\\nu}^{\\text{new}} = h_{\\mu\\nu}^{\\text{old}} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu$（其中 $\\xi_\\mu = \\eta_{\\mu\\nu}\\xi^\\nu$）。定义迹反转微扰为 $\\bar{h}_{\\mu\\nu} = h_{\\mu\\nu} - \\frac{1}{2} \\eta_{\\mu\\nu} h$，其中 $h = \\eta^{\\alpha\\beta} h_{\\alpha\\beta}$。线性化引力的 Lorenz 规范条件要求满足 $\\partial^\\nu \\bar{h}_{\\mu\\nu} = 0$。请从上述微扰的变换规律出发，推导 $\\bar{h}_{\\mu\\nu}$ 在规范变换下的形式，并由此反推：为了将任意给定的微扰 $h_{\\mu\\nu}^{\\text{old}}$ 变换到满足 Lorenz 规范的形式，规范矢量 $\\xi^\\mu$ 必须满足的微分方程是什么？",
+    "answer": "$\\Box \\xi_\\mu = \\partial^\\nu \\bar{h}_{\\mu\\nu}^{\\text{old}}$ （或等价的 $\\Box \\xi^\\mu = \\partial_\\nu \\bar{h}^{\\mu\\nu}_{\\text{old}}$，其中 $\\Box = \\eta^{\\alpha\\beta} \\partial_\\alpha \\partial_\\beta$）",
+    "solution": "1. 首先推导迹反转微扰 $\\bar{h}_{\\mu\\nu}$ 的变换规律：\\n$$ \\delta \\bar{h}_{\\mu\\nu} = \\delta h_{\\mu\\nu} - \\frac{1}{2} \\eta_{\\mu\\nu} \\delta h $$\\n已知 $\\delta h_{\\mu\\nu} = -\\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu$，计算微扰迹的变换：\\n$$ \\delta h = \\eta^{\\alpha\\beta} \\delta h_{\\alpha\\beta} = \\eta^{\\alpha\\beta} (-\\partial_\\alpha \\xi_\\beta - \\partial_\\beta \\xi_\\alpha) = -2 \\partial^\\alpha \\xi_\\alpha $$\\n代入得：\\n$$ \\delta \\bar{h}_{\\mu\\nu} = (-\\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu) - \\frac{1}{2} \\eta_{\\mu\\nu} (-2 \\partial^\\alpha \\xi_\\alpha) = -\\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu + \\eta_{\\mu\\nu} \\partial^\\alpha \\xi_\\alpha $$\\n\\n2. 反推满足 Lorenz 规范的条件：\\n我们要求新的迹反转微扰满足 Lorenz 规范，即：\\n$$ \\partial^\\nu \\bar{h}_{\\mu\\nu}^{\\text{new}} = 0 $$\\n将变换关系代入：\\n$$ \\partial^\\nu (\\bar{h}_{\\mu\\nu}^{\\text{old}} + \\delta \\bar{h}_{\\mu\\nu}) = 0 $$\\n$$ \\partial^\\nu \\bar{h}_{\\mu\\nu}^{\\text{old}} + \\partial^\\nu (-\\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu + \\eta_{\\mu\\nu} \\partial^\\alpha \\xi_\\alpha) = 0 $$\\n展开微分项：\\n$$ \\partial^\\nu \\bar{h}_{\\mu\\nu}^{\\text{old}} - \\partial_\\mu (\\partial^\\nu \\xi_\\nu) - \\partial^\\nu \\partial_\\nu \\xi_\\mu + \\partial_\\mu (\\partial^\\alpha \\xi_\\alpha) = 0 $$\\n注意前两项与第四项相消，剩下：\\n$$ \\partial^\\nu \\bar{h}_{\\mu\\nu}^{\\text{old}} - \\eta^{\\alpha\\beta} \\partial_\\alpha \\partial_\\beta \\xi_\\mu = 0 $$\\n定义闵可夫斯基时空的达朗贝尔算子 $\\Box = \\eta^{\\alpha\\beta} \\partial_\\alpha \\partial_\\beta$，则得到规范矢量必须满足的微分方程：\\n$$ \\Box \\xi_\\mu = \\partial^\\nu \\bar{h}_{\\mu\\nu}^{\\text{old}} $$"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.minkowski_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 0.9,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

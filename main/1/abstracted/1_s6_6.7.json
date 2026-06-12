@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s6_6.7",
+    "type": "prove",
+    "tags": {
+      "metric": "conformal_metric",
+      "target_object": "angle_invariance",
+      "coordinate": "null_curve_invariance",
+      "scenario": "coordinates",
+      "method": "theoretical_scenario"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s6_6.7",
+    "source_id": "1_s6_6.7",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s6_6.7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "Conformal scaling property proof covering angle preservation and null curve invariance; requires multi-step index manipulation and geometric insight rather than simple formula substitution.",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\mu$",
+      "$g_{\\\\alpha\\\\beta}",
+      "$f$",
+      "$A^\\\\alpha$",
+      "$B^\\\\beta$",
+      "$\\\\theta$",
+      "$\\\\ell^\\\\mu$"
+    ],
+    "target": [
+      "$\\\\cos \\\\theta$",
+      "$\\\\ell^\\\\mu \\\\ell_\\\\mu$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 6.7. Show that a conformal transformation of a metric, i.e. $\\mathbf{g}_{\\alpha}\\beta\\rightarrow \\mathbf{f}(\\mathbf{x}^{\\mu})\\mathbf{g}_{\\alpha}\\beta$ for an arbitrary function $f$ , preserves all angles. (Figure out how to define angles!) Show that all null curves remain null curves.",
+    "answer": "Scaling factor $f$ cancels out in the normalized inner product expression, leaving the cosine of the angle unchanged; the null condition $\\\\ell^\\\\mu \\\\ell_\\\\mu = 0$ remains invariant under rescaling, so null curves stay null.",
+    "solution": "Solution 6.7. Let $\\mathbf{A}$ and $\\mathbf{B}$ be two vectors in the metric space. Obviously we want the angle to be related to the dot product $\\mathbf{A} \\cdot \\mathbf{B}$ . We also want it to be unaffected by scaling $\\mathbf{A}$ and $\\mathbf{B}$ , so the natural choice is\\n$\\mathbf{A} \\cdot \\mathbf{B} / (|\\mathbf{A}| |\\mathbf{B}|)$ , which is $\\cos \\theta$ in the familiar Euclidean case. Now under $\\mathbf{g}_{\\alpha \\beta}\\rightarrow \\mathbf{f}(\\mathbf{x}^{\\mu}) \\mathbf{g}_{\\alpha \\beta}$ we have\\n$$\\n\\\\frac {\\\\mathbf {A} \\\\cdot \\\\mathbf {B}}{(| \\\\mathbf {A} | | \\\\mathbf {B} |)} = \\\\frac {\\\\mathbf {g}_{\\\\alpha \\\\beta} \\\\mathbf {A}^{\\\\alpha} \\\\mathbf {B}^{\\\\beta}}{\\\\left(\\\\mathbf {g}_{\\\\mu \\\\nu} \\\\mathbf {A}^{\\\\mu} \\\\mathbf {A}^{\\\\nu} \\\\mathbf {g}_{\\\\rho \\\\sigma} \\\\mathbf {B}^{\\\\rho} \\\\mathbf {B}^{\\\\sigma}\\\\right)^{\\\\frac {1}{2}}} \\\\to \\\\frac {\\\\mathbf {f} (\\\\mathbf {x}^{\\\\gamma}) \\\\mathbf {g}_{\\\\alpha \\\\beta} \\\\mathbf {A}^{\\\\alpha} \\\\mathbf {B}^{\\\\beta}}{\\\\left[ \\\\mathbf {f} (\\\\mathbf {x}^{\\\\gamma}) \\\\mathbf {g}_{\\\\mu \\\\nu} \\\\mathbf {A}^{\\\\mu} \\\\mathbf {A}^{\\\\nu} \\\\mathbf {f} (\\\\mathbf {x}^{\\\\gamma}) \\\\mathbf {g}_{\\\\rho \\\\sigma} \\\\mathbf {B}^{\\\\rho} \\\\mathbf {B}^{\\\\sigma} \\\\right]^{\\\\frac {1}{2}}}\\n$$\\nbut the f's cancel, giving the same value as before. Null curves remain null curves because the square of their tangent vector remains zero\\n$$\\n0 = \\\\boldsymbol {\\\\ell} \\\\cdot \\\\boldsymbol {\\\\ell} = \\\\mathbf {g}_{\\\\mu \\\\nu} \\\\ell^{\\\\mu} \\\\ell^{\\\\nu} \\\\rightarrow \\\\mathrm {f} (\\\\mathbf {x}^{\\\\gamma}) \\\\mathbf {g}_{\\\\mu \\\\nu} \\\\ell^{\\\\mu} \\\\ell^{\\\\nu} = 0.\\n$$"
+  },
+  "verification": null
+}

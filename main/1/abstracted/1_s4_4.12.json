@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s4_4.12",
+    "type": "calculate",
+    "tags": {
+      "metric": "flat_metric",
+      "target_object": "trajectory_y(x)",
+      "coordinate": "Cartesian_coordinates",
+      "scenario": "uniform_E_field",
+      "method": "four_vector_Lorentz_force"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.12",
+    "source_id": "1_s4_4.12",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.12"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于相对论洛伦兹力方程推导恒定电场中粒子的双曲轨迹，物理逻辑完整且具典型加速物理背景",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$\\\\tau$",
+      "$v$",
+      "$E$",
+      "$q$",
+      "$m$",
+      "$\\\\gamma$"
+    ],
+    "target": [
+      "$y(x)$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s4_4.12.md]\\n\\nProblem 4.12. A particle of charge $\\mathbf{q}$ and mass $m$ is coasting through the lab with velocity $v_{\\underline{\\mathbf{x}}}$ when it encounters a constant $\\underline{\\mathbf{E}}$ field in the $y$ -direction. Find $y(x)$ , the shape of the particle's subsequent motion.\\n\\n## Solution",
+    "answer": "$y = \\\\left(\\\\frac {m}{qE}\\\\right) \\\\gamma \\\\left[ \\\\cos h \\\\left(\\\\frac {qE}{m}\\\\right) \\\\frac {x}{v \\\\gamma} - 1 \\\\right]$",
+    "solution": "Solution 4.12. The only nonzero components of $\\mathbf{F}_{\\\\nu}^{\\\\mu}$ are $\\mathbf{F}_{\\\\mathbf{y}}^{\\\\mathbf{t}} = \\\\mathbf{F}_{\\\\mathbf{t}}^{\\\\mathbf{y}} = \\\\mathbf{E}$ . The initial 4-velocity $\\mathfrak{u}^a$ of the particle has components $(\\\\gamma, \\\\gamma \\\\mathbf{v}, 0, 0)$ , $\\\\gamma \\\\equiv (1 - \\\\mathbf{v}^2)^{-\\\\frac{1}{2}}$ ; the Lorentz force equations\\n$$\\n\\\\mathrm {d} \\\\mathbf {P}^{\\\\mu} / \\\\mathrm {d} \\\\tau = \\\\mathrm {qF}_{\\\\nu}^{\\\\mu} \\\\mathbf {u}^{\\\\nu}\\n$$\\nthen give us $\\mathrm{d}\\\\mathbf{P}^{\\\\mathbf{x}} / \\\\mathrm {d} \\\\tau = 0$ for $\\mu = 1$ and hence\\n$$\\n\\\\mathbf {u}^{\\\\mathbf {x}} = \\\\gamma \\\\mathbf {v} \\\\quad \\\\tau = \\\\mathbf {x} / \\\\gamma \\\\mathbf {v}.\\n$$\\nThe equations for $\\mu = 0,2$\\n$$\\n\\\\mathrm {d} \\\\mathbf {u}^{\\\\mathrm {t}} / \\\\mathrm {d} \\\\tau = (\\\\mathrm {q} / \\\\mathrm {m}) \\\\mathbf {E} \\\\mathbf {u}^{\\\\mathrm {y}} \\\\quad \\\\mathrm {d} \\\\mathbf {u}^{\\\\mathrm {y}} / \\\\mathrm {d} \\\\tau = (\\\\mathrm {q} / \\\\mathrm {m}) \\\\mathbf {E} \\\\mathbf {u}^{\\\\mathrm {t}}\\n$$\\ncan be combined to give the equation\\n$$\\n\\\\mathrm {d}^{2} \\\\mathbf {u}^{\\\\mathcal {Y}} / \\\\mathrm {d} \\\\tau^{2} = (\\\\mathrm {qE} / \\\\mathrm {m})^{2} \\\\mathbf {u}^{\\\\mathcal {Y}}\\n$$\\nwith the solution\\n$$\\n\\\\mathbf {u}^{\\\\mathbf {y}} = \\\\gamma \\\\sin h [ (\\\\mathrm {qE/m}) r ],\\n$$\\nwhere the initial conditions on $\\mathbf{u}^{\\\\mathbf{t}}$ and $\\mathbf{u}^{\\\\mathbf{y}}$ have been used. Integrating this result with respect to $\\tau$ , substituting $\\tau = \\\\mathbf{x} / \\\\gamma \\\\mathbf{v}$ , and using the initial condition $\\mathbf{y} = 0$ when $\\mathbf{x} = 0$ , gives\\n$$\\ny = \\\\left(\\\\frac {m}{qE}\\\\right) \\\\gamma \\\\left[ \\\\cos h \\\\left(\\\\frac {qE}{m}\\\\right) \\\\frac {x}{v \\\\gamma} - 1 \\\\right].$"
+  },
+  "verification": null
+}

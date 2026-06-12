@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s8_8.7",
+    "type": "prove",
+    "tags": {
+      "metric": "electromagnetism",
+      "target_object": "differential_forms",
+      "coordinate": "maxwell_equations",
+      "scenario": "covariant_derivatives",
+      "method": "exterior_calculus"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.7",
+    "source_id": "1_s8_8.7",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "通过微分形式与外导数严格推导真空麦克斯韦方程组，逻辑链条清晰且可直接推广至弯曲时空或一般规范场论。",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\mu$",
+      "$F_{\\\\mu\\\\nu}$",
+      "$\\\\mathbf{F}$"
+    ],
+    "target": [
+      "$F_{[\\\\mu\\\\nu;\\\\lambda]}=0$",
+      "$F^{\\\\mu\\\\nu}_{;\\\\nu}=0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 8.7. The components of the Maxwell tensor $\\mathbf{F}_{\\alpha \\beta}$ can be regarded as the components of a 2-form $\\mathbf{F}$ . Show that Maxwell's equations in vacuum can be written $\\mathrm{d}\\mathbf{F} = \\mathbf{0}$ , $\\mathrm{d}*\\mathbf{F} = \\mathbf{0}$ .",
+    "answer": "Maxwell's equations in vacuum are equivalently expressed as $\\mathrm{d}\\mathbf{F} = \\mathbf{0}$ and $\\mathrm{d}*\\mathbf{F} = \\mathbf{0}$, which correspond to the component equations $F_{[\\\\mu\\\\nu;\\\\lambda]} = 0$ and $F^{\\\\mu\\\\nu}_{;\\\\nu} = 0$.",
+    "solution": "Solution 8.7. The 2-form is $\\mathbf{F} = \\mathbf{F}_{\\\\mu \\\\nu}\\\\widetilde{\\\\mathbf{dx}}^{\\\\mu}\\\\wedge \\\\widetilde{\\\\mathbf{dx}}^{\\\\nu}$ so that\\n$$\\n\\\\mathbf {0} = \\\\mathrm {d} \\\\mathbf {F} = \\\\mathbf {F}_{\\\\mu \\\\nu , \\\\lambda} \\\\widetilde {\\\\mathrm {d x}}^{\\\\lambda} \\\\wedge \\\\widetilde {\\\\mathrm {d x}}^{\\\\mu} \\\\wedge \\\\widetilde {\\\\mathrm {d x}}^{\\\\nu}\\n$$\\ngives us the Maxwell's equations $\\mathbf{F}_{[\\\\mu \\\\nu ;\\\\lambda]} = 0$ . Similarly $\\mathbf{d}*\\\\mathbf{F} = \\\\mathbf{0}$ gives $*\\\\mathbf{F}_{[\\\\lambda \\\\sigma ;\\\\nu]} = 0$ , but this is equivalent to (see Problem 3.25)\\n$$\\n0 = \\\\varepsilon^{\\\\mu \\\\nu \\\\lambda \\\\sigma} * F_{\\\\lambda \\\\sigma ; \\\\nu} = 2 * * F^{\\\\mu \\\\nu}_{; \\\\nu} = - 2 F^{\\\\mu \\\\nu}_{; \\\\nu},\\n$$\\nand so we have the remaining Maxwell's equations $\\mathbf{F}^{\\\\mu \\\\nu}_{;\\\\nu} = 0$"
+  },
+  "verification": null
+}

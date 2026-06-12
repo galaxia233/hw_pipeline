@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "metric_coefficients_constraint",
+      "coordinate": "cartesian_static",
+      "scenario": "weighing_in_gravity",
+      "method": "invert_from_conclusion",
+      "generalization_axis": "invert",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "invert",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$\\frac{d g_{xx}}{d z} = 0$",
+      "$\\frac{d g_{yy}}{d z} = 0$"
+    ],
+    "metric": [
+      [
+        "$g_{tt}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$g_{zz}$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，一个静止在静态引力场中的容器，其底部所受的支撑力（即“重量”）可以由积分 $W(z) = \\int T^{\\hat{z}\\hat{z}} dx dy$ 给出。已知在某些特定的引力场中，两个内部总能量密度 $T^{\\hat{t}\\hat{t}}$ 相同但横向应力 $T^{\\hat{x}\\hat{x}}$、$T^{\\hat{y}\\hat{y}}$ 不同的容器，放在同一位置称重时重量完全相同（即重量仅由能量密度决定，与应力无关）。假设该引力场的度规形式为 $ds^2 = g_{tt}(z) dt^2 + g_{xx}(z) dx^2 + g_{yy}(z) dy^2 + g_{zz}(z) dz^2$，请从“重量仅由能量密度 $T^{\\hat{t}\\hat{t}}$ 决定而与横向应力无关”这一物理结论出发，反推并证明该度规必须满足的几何约束条件（指出哪些度规分量必须是与 $z$ 无关的常数）。",
+    "answer": "度规分量 $g_{xx}$ 和 $g_{yy}$ 必须是与 $z$ 无关的常数，即 $\\frac{d g_{xx}}{d z} = 0$ 且 $\\frac{d g_{yy}}{d z} = 0$。",
+    "solution": "1. 根据能量-动量守恒方程 $\\nabla_{\\mu} T^{\\mu\\nu} = 0$，取 $\\nu = z$ 展开：$|g|^{-1/2} \\partial_{\\mu} (|g|^{1/2} T^{\\mu z}) + \\Gamma^z_{\\mu\\lambda} T^{\\mu\\lambda} = 0$。2. 对 $x$ 和 $y$ 积分，利用静态和横向平移不变性（以及边界在容器外部使得 $T^{xz}, T^{yz}$ 为0），消去 $\\mu=t, x, y$ 的散度项，只留下 $\\mu=z$ 的项：$0 = |g|^{-1/2} \\partial_z (|g|^{1/2} \\int T^{zz} dx dy) + \\Gamma^z_{tt} \\int T^{tt} dx dy + \\Gamma^z_{xx} \\int T^{xx} dx dy + \\Gamma^z_{yy} \\int T^{yy} dx dy + \\Gamma^z_{zz} \\int T^{zz} dx dy$。3. 转换为正交物理分量（利用 $T^{\\hat{a}\\hat{b}} = g_{aa} T^{aa}$ 等对角化关系）：$\\int T^{\\hat{x}\\hat{x}} dx dy = \\int g_{xx} T^{xx} dx dy \\implies \\int T^{xx} dx dy = \\int \\frac{T^{\\hat{x}\\hat{x}}}{g_{xx}} dx dy$。同理 $\\int T^{yy} dx dy = \\int \\frac{T^{\\hat{y}\\hat{y}}}{g_{yy}} dx dy$。4. 计算相关 Christoffel 符号：对于对角度规且只依赖 $z$，有：$\\Gamma^z_{xx} = -\\frac{1}{2} g^{zz} g_{xx,z} = -\\frac{1}{2} \\frac{g_{xx,z}}{g_{zz}}$，$\\Gamma^z_{yy} = -\\frac{1}{2} g^{zz} g_{yy,z} = -\\frac{1}{2} \\frac{g_{yy,z}}{g_{zz}}$。5. 将应力项代入守恒方程：横向应力对 $z$ 方向受力平衡的贡献为：$\\Gamma^z_{xx} \\int T^{xx} dx dy = -\\frac{1}{2} \\frac{g_{xx,z}}{g_{zz}} \\frac{1}{g_{xx}} \\int T^{\\hat{x}\\hat{x}} dx dy$，$\\Gamma^z_{yy} \\int T^{yy} dx dy = -\\frac{1}{2} \\frac{g_{yy,z}}{g_{zz}} \\frac{1}{g_{yy}} \\int T^{\\hat{y}\\hat{y}} dx dy$。6. 物理反推：由于横向应力 $T^{\\hat{x}\\hat{x}}$ 和 $T^{\\hat{y}\\hat{y}}$ 是可以独立于能量密度 $T^{\\hat{t}\\hat{t}}$ 变化的物理量（例如不同物质的内压不同但密度可以相同），如果重量仅由能量密度决定，那么在决定重量 $W(z)$ 的微分方程中，这些应力项必须完全不出现，即它们的系数必须恒为零。7. 因此，必须有 $\\frac{g_{xx,z}}{g_{zz} g_{xx}} = 0$ 和 $\\frac{g_{yy,z}}{g_{zz} g_{yy}} = 0$。由于 $g_{zz} \\neq 0$ 且 $g_{xx}, g_{yy} \\neq 0$，这要求：$\\frac{d g_{xx}}{d z} = 0$ 且 $\\frac{d g_{yy}}{d z} = 0$。即横向度规分量 $g_{xx}$ 和 $g_{yy}$ 必须是与 $z$ 无关的常数。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.metric_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "物理场景与度规摘要严重不匹配。摘要明确指出该度规为 Minkowski（Ricci标量、Kretschmann标量均为0，代表无真实引力场的平直时空），而题目探讨的是“静止在静态引力场中的容器”的重量问题。在广义相对论中，Minkowski 时空不存在真实的引力场，将平直时空与“静态引力场”混为一谈是严重的物理概念错误。此外，如果是标准的 Minkowski 度规，所有度规分量（包括 $g_{tt}$ 和 $g_{zz}$）都必须是与 $z$ 无关的常数，而 answer 仅推导出 $g_{xx}$ 和 $g_{yy}$ 为常数，结论对 Minkowski 度规而言是不完整的。这说明题目实际考查的是类似 Rindler 度规的特定非惯性系表象，但与摘要提供的“Minkowski”度规背景根本矛盾。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s19_19.23_c",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.23_c",
+    "source_id": "1_s19_19.23_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.23_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于闭合FLRW度规的多步动力学关联与曲率空间体积积分",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$H_0$",
+      "$q_0$",
+      "$r$",
+      "$R_0$",
+      "$V$"
+    ],
+    "target": [
+      "$V$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "19.23 A closed $(\\mathbf{k} = 1)$ Friedmann universe has Hubble constant $H_0$ and deceleration parameter $q_0$ . Assume that the universe has always been matter dominated.(c) What is the total proper volume now occupied by the matter which we see, looking out into the sky?",
+    "answer": "\\frac {2 \\pi}{\\mathrm {H} _ {0} ^ {3} \\left(2 \\mathrm {q} _ {0} - 1\\right) ^ {\\frac {3}{2}}} \\left[ \\cos^ {- 1} \\left(\\frac {1 - \\mathrm {q} _ {0}}{\\mathrm {q} _ {0}}\\right) - \\frac {\\left(1 - \\mathrm {q} _ {0}\\right) \\left(2 \\mathrm {q} _ {0} - 1\\right) ^ {\\frac {1}{2}}}{\\mathrm {q} _ {0} ^ {2}} \\right]",
+    "solution": "(c) The farthest coordinate radius that we see is, according to Equation (8),$$r_{0} = \\sin (\\eta_{0}) = (2 q_{0} - 1)^{\\frac {1}{2}} / q_{0}$$where Equation (7) has been used. The volume out to this coordinate radius at the present epoch is (analogously to part (a))$$\\begin{array}{l} V = 4 \\pi \\int_{0}^{\\mathrm {r}_{0}} \\frac {R_{0}^{3} \\mathrm {r}^{2} \\mathrm {d r}}{\\left(1 - \\mathrm {r}^{2}\\right)_{-}^{\\frac {1}{2}}} = 2 \\pi R_{0}^{3} \\left[ \\sin^{- 1} \\mathrm {r}_{0} - \\mathrm {r}_{0} \\left(1 - \\mathrm {r}_{0}^{2}\\right)^{\\frac {1}{2}}\\right] \\\\= \\frac {2 \\pi}{\\mathrm {H}_{0}^{3} \\left(2 \\mathrm {q}_{0} - 1\\right)^{\\frac {3}{2}}} \\left[ \\cos^{- 1} \\left(\\frac {1 - \\mathrm {q}_{0}}{\\mathrm {q}_{0}}\\right) - \\frac {\\left(1 - \\mathrm {q}_{0}\\right) \\left(2 \\mathrm {q}_{0} - 1\\right)^{\\frac {1}{2}}}{\\mathrm {q}_{0}^{2}}\\right]. \\\\\\end{array}$$"
+  },
+  "verification": null
+}

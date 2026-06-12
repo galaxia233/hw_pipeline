@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s13_13.2-6-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "Friedmann acceleration equation",
+      "coordinate": "spherical",
+      "scenario": "cosmology_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.2",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.2",
+      "1_s13_13.2-6",
+      "1_s13_13.2-6-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "FLRW",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "验证广义相对论与Nordström理论中压力对引力吸引的相反影响"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "物理背景：FLRW度规描述了均匀且各向同性的宇宙时空，其度规为 $ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$。对于完美流体，能动张量为 $T_{00} = \\rho$ 且 $T_{ij} = p g_{ij}$。在广义相对论中，Friedmann加速方程为 $\\ddot{a}/a = -4\\pi/3(\\rho + 3p)$，表明压力 $p$ 会增强引力吸引（导致宇宙减速）。而在Nordström引力理论中，场方程为 $R = \\kappa g_{\\mu\\nu} T^{\\mu\\nu}$，有效引力源为 $\\rho - 3p$，表明压力会削弱引力吸引。核心结论：在广义相对论中压力增强引力，在Nordström理论中压力削弱引力。设计要求：请从零设计一个数值模拟方案，通过模拟辐射主导宇宙（满足状态方程 $p = \\rho/3$）的膨胀历史，来验证上述核心结论。方案需包含：1）两种理论下宇宙膨胀的动力学方程推导；2）数值积分的初始条件设定；3）预期的模拟结果及如何通过结果对比验证核心结论。",
+    "answer": "1. 动力学方程推导：- 广义相对论：对于辐射主导 $p=\\rho/3$，代入加速方程得 $\\ddot{a}/a = -8\\pi\\rho/3$。结合能量守恒方程 $\\dot{\\rho} = -3(\\rho+p)\\dot{a}/a = -4\\rho\\dot{a}/a$，积分得 $\\rho = \\rho_0 (a/a_0)^{-4}$。- Nordström理论：场方程为 $R = \\kappa(\\rho-3p)$。对于辐射 $p=\\rho/3$，右侧为0，故 $R=0$。由FLRW度规的Ricci标量 $R = \\frac{6(k + a\\ddot{a} + \\dot{a}^2)}{a^2} = 0$，得加速方程 $\\ddot{a}/a = -\\frac{\\dot{a}^2+k}{a^2}$。这相当于一个不含物质的空宇宙演化。2. 初始条件设定：为简化，取平坦宇宙 $k=0$。设定初始时刻 $t_0$ 的尺度因子 $a_0 = 1$，初始膨胀率 $\\dot{a}_0 = H_0 a_0$，初始密度 $\\rho_0 = 3H_0^2 / (8\\pi)$。对两种理论使用相同的初始条件（注意Nordström下密度不影响膨胀）。3. 数值模拟与预期结果：- 对GR的方程组进行数值积分，预期结果为 $a(t) \\propto t^{1/2}$，膨胀逐渐减速。- 对Nordström的方程进行积分，由于 $\\ddot{a}=0$，预期结果为 $a(t) \\propto t$，匀速膨胀。- 结论验证：对比两条 $a(t)$ 曲线，GR曲线减速更快（$t^{1/2}$ vs $t$），直接证明了在GR中压力 $p$ 作为有效引力源 $\\rho+3p=2\\rho$ 显著增强了减速；而在Nordström中，压力完全抵消了密度的引力效应（$\\rho-3p=0$），宇宙表现为空宇宙的匀速膨胀。",
+    "solution": "方案合理性论证：选择辐射主导宇宙（$p=\\rho/3$）是验证该结论的最佳切入点。在广义相对论中，辐射的有效密度为 $\\rho+3p = 2\\rho$，是纯物质（$p=0$）时的两倍，减速效应最强。而在Nordström理论中，辐射的有效密度为 $\\rho-3p = 0$，引力效应完全消失。这种极端的反差使得两种理论预言的膨胀历史出现根本性分歧（$t^{1/2}$减速膨胀 vs $t$匀速膨胀），因此只需简单的尺度因子数值积分即可清晰且定量化地验证压力在两种理论中对引力吸引的相反影响，物理逻辑直观且鲁棒。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目及答案存在多处致命物理与推导错误：\n1. **有效引力源计算错误**：题目声称Nordström场方程的有效引力源为$\rho-3p$。但根据题目自身对能动张量的定义$T_{00}=\rho$且$T_{ij}=pg_{ij}$，计算其迹$g_{\\mu\\nu}T^{\\mu\\nu}=g_{00}T^{00}+g_{ij}T^{ij}=(-1)(-\\rho)+3p=\\rho+3p$（即使使用标准完美流体定义，其迹也为$-\\rho+3p$），绝非$\rho-3p$。\n2. **Nordström演化方程推导自相矛盾且结果错误**：答案推导出$k=0$时的Nordström加速方程为$\\ddot{a}/a=-\\dot{a}^2/a^2$，却紧接着断言$\\ddot{a}=0$并得出匀速膨胀$a(t)\\propto t$。由$\\ddot{a}/a=-\\dot{a}^2/a^2$可得$\\ddot{a}=-\\dot{a}^2/a<0$（减速膨胀），正确的解为$a\\dot{a}=C$即$a(t)\\propto t^{1/2}$。答案中的$\\ddot{a}=0$直接与自身推导的方程矛盾。\n3. **核心验证逻辑彻底失效**：由于GR辐射主导宇宙的解为$a\\propto t^{1/2}$，而Nordström理论在$R=0$且$k=0$时的真实解也是$a\\propto t^{1/2}$，两者膨胀历史完全相同。这使得题目设计的“通过膨胀历史对比验证压力对引力相反影响”的核心目的完全无法实现。此外，答案称$R=0$相当于空宇宙演化，但空的$k=0$宇宙是Minkowski时空（$a=常数$），而非匀速膨胀。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

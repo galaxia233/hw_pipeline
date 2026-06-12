@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s13_13.5",
+    "type": "concept",
+    "tags": {
+      "metric": "metric",
+      "target_object": "ricci_scalar",
+      "coordinate": "stress_energy_tensor",
+      "scenario": "lorentz_frame",
+      "method": "energy_conditions"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.5",
+    "source_id": "1_s13_13.5",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "场方程缩并推导结合能量条件判断符号，并特例分析电磁场无迹性质",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$R$",
+      "$\\rho$",
+      "$p_x$",
+      "$p_y$",
+      "$p_z$",
+      "$T^{\\mu}_{\\nu}$"
+    ],
+    "target": [
+      "$R$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 13.5. In a local region of spacetime, an observer finds that the Ricci curvature scalar is nearly constant, $\\mathbf{R} \\approx +1 / a^2$ . Why will the sign to be “+?”? If the region of spacetime is filled only with electromagnetic energy what is R?",
+    "answer": "$R > 0$（一般物质）；若仅含电磁能则 $R = 0$",
+    "solution": "Solution 13.5. If we contract the Einstein field equations we get a relation between the trace of $\\mathbf{T}_{\\mu \\nu}$ and the Ricci scalar: $\\mathbf{R} = -8\\pi \\mathbf{T}_{\\mu}^{\\mu}$ . In the local Lorentz frame in which $\\mathbf{T}_{\\mu}^{\\nu}$ is diagonal, $\\mathbf{T}_{\\mu}^{\\mu} = -\\rho + \\mathbf{p}_{\\mathbf{x}} + \\mathbf{p}_{\\mathbf{y}} + \\mathbf{p}_{\\mathbf{z}}$ where $\\mathbf{p}_{\\mathbf{x}}, \\mathbf{p}_{\\mathbf{y}}, \\mathbf{p}_{\\mathbf{z}}$ are the (principal) pressures. For all known equations of state $\\rho \\geq 3p$ so $\\mathbf{T}_{\\mu}^{\\mu}$ should always be negative and $\\mathbf{R}$ should be positive.The electromagnetic stress-energy is traceless (see Problem 4.16) so $\\mathbf{R} = 0$ if the only stress-energy is electromagnetic."
+  },
+  "verification": null
+}

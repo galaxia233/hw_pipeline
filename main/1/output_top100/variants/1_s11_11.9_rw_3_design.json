@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-1-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "Earth_quadrupole_moment",
+      "coordinate": "Newtonian_potential",
+      "scenario": "Axial_precession_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "weak_field_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-1",
+      "1_s11_11.9-1-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "weak_field_metric",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$X$",
+      "$Y$",
+      "$Z$",
+      "$r_s$",
+      "$r_M$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\psi$",
+      "$J$",
+      "$C$",
+      "$A$",
+      "$\\omega$",
+      "$T$"
+    ],
+    "target": [
+      "设计数值模拟方案验证由岁差周期反推地球四极矩的结论"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "地球自转轴的进动（岁差）是由太阳和月球的引力潮汐力矩与地球的赤道隆起（四极矩）耦合产生的。在广义相对论弱场近似下，地球外部时空度规可表示为带有四极矩修正的形式：$ds^2 = -\\left(1 + \\frac{2\\Phi}{c^2}\\right)dt^2 + \\left(1 - \\frac{2\\Phi}{c^2}\\right)(dx^2+dy^2+dz^2)$，其中牛顿势 $\\Phi = -\\frac{GM_E}{r}\\left(1 - J_2 \\frac{R_E^2}{r^2} \\frac{3\\cos^2\\theta - 1}{2}\\right)$，无量纲四极矩 $J_2 = \\frac{C-A}{M_E R_E^2}$ 为极向与赤道转动惯量之差的相关参数。核心结论：基于岁差周期的观测值 $T \\approx 25772$ 年（即 $8.14 \\times 10^{11}$ 秒），通过理论公式 $\\Omega_p = \\frac{15}{4} \\left( \\frac{GM_S}{R_S^3} + \\frac{GM_M}{R_M^3}\\right) \\frac{J_2}{\\omega_E} \\cos \\epsilon$ 反推，可得地球的无量纲四极矩 $J_2 \\approx 1.29 \\times 10^{-3}$，且该理论值与观测高度自洽。已知参数：地球质量 $M_E = 5.97 \\times 10^{24}$ kg，半径 $R_E = 6.37 \\times 10^{6}$ m，自转角速度 $\\omega_E = 7.29 \\times 10^{-5}$ rad/s，均匀球体极向转动惯量 $C = \\frac{2}{5} M_E R_E^2$，黄赤交角 $\\epsilon = 23.44^{\\circ}$；太阳质量 $M_S = 1.99 \\times 10^{30}$ kg，日地距离 $R_S = 1.50 \\times 10^{11}$ m；月球质量 $M_M = 7.35 \\times 10^{22}$ kg，月地距离 $R_M = 3.84 \\times 10^{8}$ m；引力常数 $G = 6.67 \\times 10^{-11}$ $\\text{m}^3/(\\text{kg} \\cdot \\text{s}^2)$。请你从零设计一个数值模拟方案，通过演化带有四极矩的地球在日月引力场中的自转轴动力学，验证上述由岁差周期反推 $J_2$ 结论的可靠性。要求说明模拟的物理模型、初始条件设置、需要测量和提取的物理量，以及预期的验证结果。",
+    "answer": "1. **物理模型构建**：在弱场度规下，提取地球四极矩产生的非球形引力势，计算太阳和月球对地球赤道隆起部分的潮汐力矩。将地球视为具有极向转动惯量 $C$ 和赤道转动惯量 $A$ 的刚体，其自转角动量为 $\\vec{J} = C\\vec{\\omega}_E$，方向沿自转轴 $\\hat{n}$。2. **数值演化方程**：根据欧拉动力学方程 $\\frac{d\\vec{J}}{dt} = \\vec{\\tau}_{S} + \\vec{\\tau}_{M}$，其中 $\\vec{\\tau}_S$ 和 $\\vec{\\tau}_M$ 为太阳和月球产生的潮汐力矩。将自转轴方向用单位向量 $\\hat{n}$ 表示，写出 $\\hat{n}$ 随时间演化的微分方程。3. **初始条件设置**：设定地球初始自转轴倾角为黄赤交角 $\\epsilon = 23.44^{\\circ}$，初始角速度大小为 $\\omega_E$。设定地球的四极矩参数为理论反推值 $J_2 = 1.29 \\times 10^{-3}$。4. **测量与提取**：使用数值积分算法（如Runge-Kutta）长时间演化该动力学系统，记录自转轴方向 $\\hat{n}$ 在空间中的轨迹，测量其完成一次完整进动所需的时间，即模拟进动周期 $T_{sim}$。5. **预期结果**：提取出的模拟进动周期 $T_{sim}$ 应与观测周期 $T = 25772$ 年高度吻合。若反向操作——通过参数扫描寻找使 $T_{sim} = 25772$ 年的 $J_2$ 值，预期扫描结果应精确收敛至 $J_2 \\approx 1.29 \\times 10^{-3}$，从而验证由观测岁差周期反推四极矩结论的物理自洽性与正确性。",
+    "solution": null
+  },
+  "verification": null
+}

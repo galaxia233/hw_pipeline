@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s19_19.11_a",
+    "type": "prove",
+    "tags": {
+      "metric": "FLRW_metric",
+      "target_object": "comoving_volume_element",
+      "coordinate": "radial_comoving_coordinate",
+      "scenario": "cosmological_source_survey",
+      "method": "low_z_perturbation_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.11_a",
+    "source_id": "1_s19_19.11_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.11_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.4,
+      "realism": 0.7,
+      "rationale": "基于FLRW度规的源计数推导涉及体积元积分、距离-红移关系及小z级数展开，物理逻辑链完整但题干未附解答过程",
+      "overall": 0.65
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t_0$",
+      "$z$",
+      "$H_0$",
+      "$q_0$",
+      "$\\mathfrak{n}(t_0)$",
+      "$N(z)$"
+    ],
+    "target": [
+      "$N(z)$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "19.11 Let $\\mathfrak{n}(\\mathfrak{t}_0)$ be the number density at the present epoch of a (mythical) family of identical light or radio sources distributed uniformly throughout the universe.(a) Show that the number of such sources with redshifts less than $z$ as observed from the Earth today is$$\\mathrm {N} (z) = \\frac {4 \\pi}{3} \\frac {\\mathrm {n} (\\mathrm {t}_{0})}{\\mathrm {H}_{0}^{3}} z^{3} \\left(1 - \\frac {3}{2} z (1 + \\mathrm {q}_{0}) + \\dot s\\right).$$Ignore evolutionary effects, i.e. the number of sources in a unit comoving volume remains constant.",
+    "answer": "$\\mathrm {N} (z) = \\frac {4 \\pi}{3} \\frac {\\mathrm {n} (\\mathrm {t}_{0})}{\\mathrm {H}_{0}^{3}} z^{3} \\left(1 - \\frac {3}{2} z (1 + \\mathrm {q}_{0}) + \\dot s\\right)$",
+    "solution": null
+  },
+  "verification": null
+}

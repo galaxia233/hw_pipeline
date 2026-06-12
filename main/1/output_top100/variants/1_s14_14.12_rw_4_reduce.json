@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-8-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "Kretschmann_scalar",
+      "coordinate": "t,r,theta,phi",
+      "scenario": "Schwarzschild_reduce_to_flat",
+      "method": "limit_M_to_0",
+      "generalization_axis": "limit",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-8",
+      "1_s14_14.12-8-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "Kretschmann_scalar"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑描述球对称静态引力源的 Schwarzschild 度规：$$ds^2 = \\frac{-r+r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$其中 $r_s = 2M$ 为 Schwarzschild 半径。在该时空中，表征时空曲率强度的内在不变量 Kretschmann 标量为 $K = \\frac{48 M^2}{r^6}$。请通过取无质量极限 $M \\to 0$（即 $r_s \\to 0$），将此 GR 语境下的曲率标量归约到其经典对应，并解释该极限在物理上意味着什么时空过渡。",
+    "answer": "在 $M \\to 0$（即 $r_s \\to 0$）极限下，Kretschmann 标量 $K = \\frac{48 M^2}{r^6} \\to 0$。这表明时空曲率完全消失，度规各项退化为 $ds^2 = -dt^2 + dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。物理上，该极限意味着引力源消失，广义相对论描述的弯曲时空回到了经典的无引力平直时空（Minkowski 时空）对应。",
+    "solution": "Step 1: 对 Kretschmann 标量表达式 $K = \\frac{48 M^2}{r^6}$ 取极限 $M \\to 0$。由于该表达式是关于 $M$ 的二阶小量，当质量趋于零时，曲率标量 $K \\to 0$。Step 2: 对度规本身取极限 $r_s \\to 0$（即 $M \\to 0$），此时 $g_{00} = -1$，$g_{11} = 1$，$g_{22} = r^2$，$g_{33} = r^2 \\sin^2\\theta$，度规完全退化为平直时空的 Minkowski 度规。Step 3: 物理意义解释：当引力源质量消失时，引力场不复存在，时空曲率归零，广义相对论的弯曲时空自然过渡到经典力学中的平直时空背景。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "致命张冠李戴错误：度规摘要明确指出该度规为 FLRW（动态、各向同性、非真空的宇宙学度规），而题目、答案和解析却完全在讨论 Schwarzschild 度规（静态、球对称、真空的黑洞度规）。题目中的度规线元、参数（$r_s=2M$）、Kretschmann 标量公式（$48M^2/r^6$）均属于 Schwarzschild 度规，与 FLRW 度规摘要中的关键信息（非真空、Ricci张量非零、Kretschmann依赖宇宙学参数等）完全矛盾。此外，Answer和Solution中将 Minkowski 时空等同于'经典力学中的平直时空'也存在物理概念瑕疵，Minkowski 时空是狭义相对论的时空，经典力学对应的应为 Galilean 时空（时间与三维欧式空间绝对分离）。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

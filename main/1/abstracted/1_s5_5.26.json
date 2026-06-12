@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s5_5.26",
+    "type": "calculate",
+    "tags": {
+      "metric": "special-relativity",
+      "target_object": "stress-energy-tensor",
+      "coordinate": "fluid-rest-frame",
+      "scenario": "heat-flux",
+      "method": "covariant-generalization"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.26",
+    "source_id": "1_s5_5.26",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.26"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基于静止系定义通过四速度投影实现协变推广；结构可直接迁移至相对论耗散流体力学中的其他输运过程",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^0$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$",
+      "$u^\\\\alpha$",
+      "$q^\\\\alpha$"
+    ],
+    "target": [
+      "$T^{\\\\alpha\\\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.26. An idealized description of heat flow in a fluid uses the heat flux 4-vector $\\mathbf{q}$ with components in the fluid rest frame $\\mathbf{q}^0 = 0$ , $\\mathbf{q}^j = (\\\\text{energy per unit time crossing a unit surface perpendicular to} \\\\mathbf{e}_j, \\\\text{in the positive} j$ direction). What is the stress-energy tensor associated with the heat flow?",
+    "answer": "$T^{\\\\alpha\\\\beta} = u^{\\\\alpha} q^{\\\\beta} + u^{\\\\beta} q^{\\\\alpha}$",
+    "solution": "Solution 5.26. In the fluid rest frame $\\mathbf{T}^{0j} = \\mathbf{T}^{j0} = \\mathbf{q}^j$ are the only stress-energy components associated with $\\mathbf{q}$ . Since $\\mathbf{u}$ for the fluid is $(1,0)$ in its rest frame, then\\n$$\\n\\\\mathbf {T}^{\\\\alpha \\\\beta} = \\\\mathbf {u}^{\\\\alpha} \\\\mathbf {q}^{\\\\beta} + \\\\mathbf {u}^{\\\\beta} \\\\mathbf {q}^{\\\\alpha}\\n$$\\nis true in that frame and hence true in general."
+  },
+  "verification": null
+}

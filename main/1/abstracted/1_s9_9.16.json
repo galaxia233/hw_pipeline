@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s9_9.16",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "EinsteinTensor",
+      "coordinate": "AbstractCoordinates",
+      "scenario": "GeneralRelativity",
+      "method": "ContractedBianchiMethod"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.16",
+    "source_id": "1_s9_9.16",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.16"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.5,
+      "rationale": "二阶黎曼曲率张量连续缩并推导+协变散度守恒律证明+解答步骤完整标准",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\nu$",
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\gamma$",
+      "$\\\\delta$",
+      "$\\\\epsilon$"
+    ],
+    "target": [
+      "G^{\\\\mu}_{\\\\nu;\\\\mu} = 0"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.16. Show that Bianchi identities imply that the Einstein tensor\\n$$\\n\\\\mathsf {G}_{\\\\mu \\\\nu} \\\\equiv \\\\mathsf {R}_{\\\\mu \\\\nu} - \\\\frac {1}{2} \\\\mathsf {g}_{\\\\mu \\\\nu} \\\\mathsf {R}\\n$$\\nhas vanishing divergence (i.e. $\\mathbf{G}_{\\\\nu ;\\\\mu}^{\\\\mu} = 0$ ).",
+    "answer": "$\\\\mathbf{G}^\\\\mu_{\\\\nu;\\\\mu} = 0$",
+    "solution": "Solution 9.16. By contracting the Bianchi identities,\\n$$\\n\\\\mathsf {R}^{\\\\alpha}_{\\\\beta \\\\gamma \\\\delta ; \\\\epsilon} + \\\\mathsf {R}^{\\\\alpha}_{\\\\beta \\\\epsilon \\\\gamma ; \\\\delta} + \\\\mathsf {R}^{\\\\alpha}_{\\\\beta \\\\delta \\\\epsilon ; \\\\gamma} = 0 ,\\n$$\\nfirst on $\\alpha$ and $\\gamma$ then on $\\beta$ and $\\delta$ we get\\n$$\\n\\\\begin{array}{l}\\nR_{\\\\beta \\\\delta ; \\\\epsilon} + R_{\\\\beta \\\\epsilon ; \\\\delta} + R_{\\\\beta \\\\delta \\\\epsilon ; a}^{a} = 0 \\\\\\\\\\nR_{; \\\\epsilon} - R^{\\\\beta}_{\\\\epsilon ; \\\\beta} - R^{\\\\alpha}_{\\\\epsilon ; \\\\alpha} = 0.\\n\\\\end{array}\\n$$\\nThus the divergence of the Einstein tensor\\n$$\\n\\\\mathbf {G}_{\\\\epsilon ; \\\\nu}^{\\\\nu} = \\\\left(\\\\mathbf {R}_{\\\\epsilon}^{\\\\nu} - \\\\frac {1}{2} \\\\delta_{\\\\epsilon}^{\\\\nu} \\\\mathbf {R}\\\\right); \\\\nu = \\\\mathbf {R}_{\\\\epsilon ; \\\\nu}^{\\\\nu} - \\\\frac {1}{2} \\\\mathbf {R}_{; \\\\epsilon}\\n$$\\nmust vanish."
+  },
+  "verification": null
+}

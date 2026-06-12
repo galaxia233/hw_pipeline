@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-2-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "geodesic_deviation",
+      "coordinate": "schwarzschild",
+      "scenario": "black_hole_tidal_force",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "schwarzschild_metric"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-2",
+      "1_s15_15.11-2-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "schwarzschild_metric",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$v$",
+      "$\\sigma$"
+    ],
+    "target": [
+      "设计数值模拟方案验证测地线偏离加速度"
+    ],
+    "metric": [
+      [
+        "$-(1-\\frac{2M}{r})$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$\\frac{1}{1-\\frac{2M}{r}}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑 Schwarzschild 黑洞度规：$$ds^2 = -\\frac{r-r_{s}}{r} dt^2 + \\frac{r}{r-r_{s}} dr^2 + r^2 d\\theta^2 + r^2 \\sin^{2}\\theta d\\phi^2$$其中 $r_{s} = 2M$ 为 Schwarzschild 视界半径。广义相对论预言，被黑洞俘获的下落粒子在视界外不可避免地将受到极强的潮汐拉伸与挤压效应。对于在半径 $r$ 处径向静止的观察者（其4速度仅沿时间方向），理论推导表明其感受到的径向和横向（沿 $\\theta$ 方向）测地线偏离加速度为 $a^r = -\\frac{r_{s}}{r^2(r-r_{s})} \\xi^r$ 和 $a^\\theta = \\frac{r_{s}}{2r^2(r-r_{s})} \\xi^\\theta$，且在远场极限 $r \\gg r_{s}$ 下退化为牛顿力学潮汐力公式 $a^r_{N} = -\\frac{2M}{r^3} \\xi^r$ 与 $a^\\theta_{N} = \\frac{M}{r^3} \\xi^\\theta$。请设计一个数值模拟实验方案，通过追踪一组具有微小初始空间分离的自由下落粒子，验证上述广义相对论潮汐加速度的精确表达式及其牛顿极限退化行为。",
+    "answer": "1. 设定参数：选取黑洞质量 $M=1$（即 $r_s=2$），设定两组观测初始半径 $r_0$（例如 $r_0 = 5M$ 代表近场区，$r_0 = 100M$ 代表远场区）。2. 粒子初始化：在 $r_0$ 处构造一个由中心粒子及邻近粒子组成的微小粒子簇。中心粒子初始静止，4速度设为 $u^\\mu = (\\sqrt{r_0/(r_0-r_s)}, 0, 0, 0)$。径向邻近粒子初始位置为 $r_0 + \\Delta r$，横向邻近粒子初始位置为 $\\theta_0 + \\Delta \\theta$，并赋予同样的静止4速度条件（忽略微小位移对4速度的修正以保证初始仅有空间偏离）。3. 测地线积分：利用给定的度规计算 Christoffel 符号，通过数值积分求解每个粒子的测地线方程 $\\frac{d^2 x^\\mu}{d\\tau^2} + \\Gamma^\\mu_{\\alpha\\beta} \\frac{dx^\\alpha}{d\\tau} \\frac{dx^\\beta}{d\\tau} = 0$，得到各粒子随固有时间演化的坐标轨迹。4. 潮汐加速度提取：计算中心粒子与邻近粒子在局部静止系下的空间分离矢量 $\\xi^i(\\tau)$，通过二阶差分方法提取相对加速度 $a^i = \\frac{d^2 \\xi^i}{d\\tau^2}$。5. 结果对比验证：在近场区（$r_0=5M$），将提取的 $a^r$ 和 $a^\\theta$ 与广义相对论精确表达式对比；在远场区（$r_0=100M$），进一步验证数值结果是否吻合牛顿潮汐力公式，从而证实理论结论。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_metric_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目给出的潮汐加速度（测地线偏离加速度）表达式存在致命的物理符号错误与系数错误，完全颠倒了潮汐力的拉伸与挤压方向，且横向公式分母错误地包含了度规因子。\n\n1. 符号完全颠倒：Schwarzschild黑洞的潮汐力在径向表现为拉伸（向外），在横向表现为挤压（向内）。对于径向静止观察者，正确的坐标分量相对加速度应为径向正号、横向负号，即 $a^r = +\\frac{r_s}{r^3} \\xi^r$ 与 $a^\\theta = -\\frac{r_s}{2r^3} \\xi^\\theta$；但题目给出的实际值却是 $a^r = -\\frac{r_s}{r^2(r-r_s)} \\xi^r$ 与 $a^\\theta = +\\frac{r_s}{2r^2(r-r_s)} \\xi^\\theta$，符号全反。\n\n2. 分母结构错误：正确的坐标分量潮汐加速度分母仅为 $r^3$（横向亦然，因为 $g_{\\theta\\theta}=r^2$ 不含 $(r-r_s)$ 因子，投影到坐标分量时度规因子恰好抵消）；但题目径向分母错写为 $r^2(r-r_s)$，横向分母也错写为 $r^2(r-r_s)$。\n\n3. 牛顿极限符号同样颠倒：正确的牛顿潮汐力公式应为 $a^r_N = +\\frac{2M}{r^3} \\xi^r$（拉伸）与 $a^\\theta_N = -\\frac{M}{r^3} \\xi^\\theta$（挤压）；题目给出的实际值却错为 $a^r_N = -\\frac{2M}{r^3} \\xi^r$ 与 $a^\\theta_N = +\\frac{M}{r^3} \\xi^\\theta$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-0-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "$e_{crit}$",
+      "coordinate": "orbital_parameters",
+      "scenario": "contrast_tidal_stability",
+      "method": "extrema_analysis",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-0",
+      "1_s11_11.9-0-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$X$",
+      "$Y$",
+      "$Z$",
+      "$r_s$",
+      "$r_M$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\psi$",
+      "$J$",
+      "$C$",
+      "$A$",
+      "$\\omega$",
+      "$T$"
+    ],
+    "target": [
+      "$e_{crit}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在研究行星受中心天体潮汐力作用时，行星的结构稳定性要求其在近星点与远星点所受径向潮汐力强度的比值 $R = F_{peri} / F_{apo}$ 不能超过给定的临界阈值 $K$ ($K>1$)。已知行星轨道半长轴为 $a$，离心率为 $e$，近星点坐标距离 $r_{peri} = a(1-e)$，远星点坐标距离 $r_{apo} = a(1+e)$。请分别在以下两种物理背景下推导满足该条件时，轨道离心率的最大允许临界值 $e_{crit}$（或推导其满足的精确方程），并对比两种背景下临界离心率的大小关系及物理含义：**背景 A（牛顿弱场）**：径向潮汐力大小与距离的关系为 $F_N(r) \\propto \\frac{1}{r^3}$。**背景 B（Schwarzschild 几何）**：由中心天体产生的 Schwarzschild 度规为 $ds^2 = -(1-r_s/r)dt^2 + (1-r_s/r)^{-1}dr^2 + r^2 d\\Omega^2$。静态观测者在坐标距离 $r$ 处测得的径向潮汐力大小正比于 Riemann 曲率张量分量 $R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}}$，其与坐标距离 $r$ 的关系为 $F_S(r) \\propto \\frac{1}{r^3(1 - r_s/r)}$，其中 $r_s$ 为 Schwarzschild 半径。",
+    "answer": "背景 A：比值 $R_A = \\frac{(1+e)^3}{(1-e)^3} \\le K$，解得 $e_{crit}^{(A)} = \\frac{K^{1/3} - 1}{K^{1/3} + 1}$。背景 B：比值 $R_B = \\frac{(1+e)^3 (1 - \\frac{r_s}{a(1+e)})}{(1-e)^3 (1 - \\frac{r_s}{a(1-e)})} \\le K$，化简为精确方程 $\\frac{(1+e)^2(1+e - r_s/a)}{(1-e)^2(1-e - r_s/a)} \\le K$。令 $\\delta = r_s/a$，在 $\\delta \\ll 1$ 时展开至一阶得 $R_B \\approx R_A \\left( 1 + \\frac{2e\\delta}{1-e^2}\\right)$。对比结果：对于给定的阈值 $K$，Schwarzschild 背景下的临界离心率严格小于牛顿背景，且其一阶修正为 $e_{crit}^{(B)} \\approx e_{crit}^{(A)} - \\frac{e_{crit}^{(A)}}{3(1-e_{crit}^{(A)})^2} \\frac{r_s}{a}$。物理含义：在 Schwarzschild 几何中，度规因子 $(1-r_s/r)$ 使得径向潮汐力在近距离处（近星点）的增强效应比远距离处（远星点）更显著，放大了轨道两端的潮汐差异。因此，为了维持同样的结构稳定性阈值 $K$，行星轨道必须比牛顿预测的更接近圆形。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.0,
+      "issue": "题目存在核心物理公式错误和代数推导错误：\n1. **物理前提错误**：题目在背景 B 中声称“径向潮汐力大小正比于 Riemann 曲率张量分量 $R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}}$，其与坐标距离 $r$ 的关系为 $F_S(r) \\propto \\frac{1}{r^3(1 - r_s/r)}$”。在 Schwarzschild 度规中，静态观测者测得的径向潮汐力物理分量（正交基下）为 $R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}} = -r_s/r^3$，严格正比于 $1/r^3$，根本不包含度规因子 $(1 - r_s/r)$。题目极可能混淆了坐标分量与物理分量。由于正确的 $F_S(r)$ 与牛顿力学完全相同（均正比于 $1/r^3$），背景 B 的比值 $R_B$ 应等于 $R_A$，临界离心率不存在相对论修正，Answer 中关于“临界离心率严格小于牛顿背景”的结论及其物理含义解释均基于错误前提，完全无效。\n2. **代数推导错误**：即使退一步承认题目错误的物理前提 $F_S(r) \\propto 1/[r^3(1 - r_s/r)]$，Answer 给出的一阶修正项 $e_{crit}^{(B)} \\approx e_{crit}^{(A)} - \\frac{e_{crit}^{(A)}}{3(1-e_{crit}^{(A)})^2} \\frac{r_s}{a}$ 也是代数计算错误的。基于该错误前提的正确一阶修正推导应当为 $\\Delta e = - \\frac{e_{crit}^{(A)}}{3} \\frac{1+e_{crit}^{(A)}}{1-e_{crit}^{(A)}} \\frac{r_s}{a}$，Answer 的修正项分母多了一个 $(1-e_{crit}^{(A)})$ 因子且分子遗漏了 $(1+e_{crit}^{(A)})$ 因子。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

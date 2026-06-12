@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "id": "1_s9_9.33",
+    "type": "calculate",
+    "tags": {
+      "metric": "einstein_tensor",
+      "target_object": "gaussian_normal_coordinates",
+      "coordinate": "extrinsic_curvature",
+      "scenario": "initial_value_problem",
+      "method": "tensor_contraction"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.33",
+    "source_id": "1_s9_9.33",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.33"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "多步张量缩并与曲率推导，结合高斯法坐标与外曲率性质，导向ADM初值方程",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$n$",
+      "$i$",
+      "$j$",
+      "$k$",
+      "$m$",
+      "$s$",
+      "$\\varepsilon$",
+      "$g^{ik}$",
+      "$K_{ij}$",
+      "$K$",
+      "${}^{(4)}G^{\\alpha}_{\\beta}$",
+      "${}^{(3)}R_{j}^{i}$"
+    ],
+    "target": [
+      "${}^{(4)}G_{n}^{n}$",
+      "${}^{(4)}G_{j}^{n}$",
+      "${}^{(4)}G_{j}^{i}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.33. Using the results of Problem 9.32, derive expressions for ${}^{(4)}\\mathbf{G}_{\\beta}^{\\alpha}$ , the components of the Einstein tensor, in Gaussian normal coordinates.",
+    "answer": "$G_{n}^{n}=-\\frac{1}{2}{}^{(3)}R+\\frac{1}{2}\\varepsilon(K^{2}-K_{im}K^{im})$, $G_{j}^{n}=\\varepsilon(K_{|j}-K_{j|i}^{i})$, $G_{j}^{i}={}^{(3)}G_{j}^{i}+\\varepsilon[K_{j,n}^{i}-K_{j}^{i}K-\\frac{1}{2}\\delta_{j}^{i}(2K_{,n}-K_{im}K^{im}-K^{2})]$.",
+    "solution": "Solution 9.33. The Riemann components were found in Problem 9.32. Contraction gives$$\\begin{array}{l} {}^{( 4 )} \\mathrm {R}_{j}^{i} = g^{i k} ( {}^{( 4 )} \\mathrm {R}_{k n j}^{n} + {}^{( 4 )} \\mathrm {R}_{k m j}^{m} ) \\\\=^{(3)} \\mathrm {R}_{\\mathrm{j}}^{\\mathrm{i}} + \\varepsilon \\left(\\mathrm {g}^{\\mathrm{i k}} \\mathrm {K}_{\\mathrm{k j}, \\mathrm{n}} + 2 \\mathrm {K}_{\\mathrm{m}}^{\\mathrm{i}} \\mathrm {K}_{\\mathrm{j}}^{\\mathrm{m}} - \\mathrm {K}_{\\mathrm{j}}^{\\mathrm{i}} \\mathrm {K}\\right) \\tag {1} \\\\\\end{array}$$where $\\mathbf{K} \\equiv \\mathbf {K}_{\\mathbf {i}}^{\\mathbf {i}}$ . Now $\\mathbf {g}_{\\mathbf {\\mu},\\mathbf {n}}^{\\mathbf {ik}} = -\\mathbf {g}_{\\mathbf {\\mu},\\mathbf {n}}^{\\mathbf {im}}\\mathbf {g}_{\\mathbf {\\mu},\\mathbf {s}}^{\\mathbf {ks}}\\mathbf {g}_{\\mathbf {\\mu},\\mathbf {n}}$ (see e.g. Problem 21.1) and $-\\mathbf {g}_{\\mathbf {ms},\\mathbf {n}} = 2\\mathbf {K}_{\\mathbf {ms}}$ in Gaussian normal coordinates, so$$\\mathrm {g}_{, \\mathrm {n}}^{\\mathrm {i k}} = 2 \\mathrm {g}^{\\mathrm {i m}} \\mathrm {g}^{\\mathrm {k s}} \\mathrm {K}_{\\mathrm {m s}} = 2 \\mathrm {K}^{\\mathrm {i k}}.$$Equation (1) can now be rewritten:$$\\begin{array}{l} \\left(^{(4)} \\mathrm {R}_{\\mathrm {j}}^{\\mathrm {i}} =\\right.^{(3)} \\mathrm {R}_{\\mathrm {j}}^{\\mathrm {i}} + \\varepsilon \\left(\\mathrm {g}^{\\mathrm {i k}} \\mathrm {K}_{\\mathrm {k j}, \\mathrm {n}} + \\mathrm {g}^{\\mathrm {i k}}_{\\mathrm {, n}} \\mathrm {K}_{\\mathrm {k j}} - \\mathrm {K}_{\\mathrm {j}}^{\\mathrm {i}} \\mathrm {K}\\right) \\\\=^{(3)} \\mathrm {R}_{\\mathrm {j}}^{\\mathrm {i}} + \\varepsilon \\left(\\mathrm {K}_{\\mathrm {j}, \\mathrm {n}}^{\\mathrm {i}} - \\mathrm {K}_{\\mathrm {j}}^{\\mathrm {i}} \\mathrm {K}\\right). \\tag {2}. \\\\\\end{array}$$For the other components of the Ricci tensor we have:$$\\left(^{(4)} \\mathrm {R}_{\\mathrm {j}}^{\\mathrm {n}} = \\varepsilon^{(4)} \\mathrm {R}_{\\mathrm {n a j}}^{\\alpha}\\right) = -^{(4)} \\mathrm {R}_{\\mathrm {i j}}^{\\mathrm {n i}} = \\varepsilon \\left(\\mathrm {K}_{\\left| \\mathrm {j}\\right.} - \\mathrm {K}_{\\left. \\mathrm {j}\\right| \\mathrm {i}}^{\\mathrm {i}}\\right) \\tag {3}$$$$\\left(^{(4)} \\mathrm {R}_{\\mathrm {n}}^{\\mathrm {n}} = \\varepsilon^{(4)} \\mathrm {R}_{\\mathrm {n i n}}^{\\mathrm {i}} = \\varepsilon \\mathrm {g}^{\\mathrm {i j}} \\left(\\mathrm {K}_{\\mathrm {i j}, \\mathrm {n}} + \\mathrm {K}_{\\mathrm {i m}} \\mathrm {K}_{\\mathrm {j}}^{\\mathrm {m}}\\right) = \\varepsilon \\left(\\mathrm {K}_{\\mathrm {, n}} - \\mathrm {K}_{\\mathrm {i m}} \\mathrm {K}^{\\mathrm {m i}}\\right).\\right. \\tag {4}$$The Ricci scalar is then$$\\left(^{(4)} \\mathbf {R} =^{(4)} \\mathbf {R}_{\\mathrm {n}}^{\\mathrm {n}} +^{(4)} \\mathbf {R}_{\\mathrm {i}}^{\\mathrm {i}} =^{(3)} \\mathbf {R} + \\varepsilon \\left(2 \\mathrm {K}_{\\mathrm {, n}} - \\mathrm {K}_{\\mathrm {i m}} \\mathrm {K}^{\\mathrm {i m}} - \\mathrm {K}^{2}\\right)\\right. \\tag {5}$$and the components of the Einstein tensor are:$$G_{n}^{n} =^{(4)} R_{n}^{n} - \\frac {1}{2}^{(4)} R = - \\frac {1}{2}^{(3)} R + \\frac {1}{2} \\varepsilon \\left(K^{2} - K_{\\mathrm {i m}} K^{\\mathrm {i m}}\\right) \\tag {6}$$$$\\mathrm {G}_{\\mathrm {j}}^{\\mathrm {n}} = \\mathrm {(4)} \\mathrm {R}_{\\mathrm {j}}^{\\mathrm {n}} = \\varepsilon \\left(\\mathrm {K}_{\\left| \\mathrm {j} - \\mathrm {K}_{\\mathrm {j} \\mid \\mathrm {i}}^{\\mathrm {i}}\\right)}\\right) \\tag {7}$$$$\\begin{array}{l} \\mathbf {G}_{j}^{i} = \\mathbf {\\delta}^{(4)} \\mathbf {R}_{j}^{i} - \\frac {1}{2} \\delta_{j}^{i} \\mathbf {\\delta}^{(4)} \\mathbf {R} \\\\=^{(3)} \\mathrm {G}_{j}^{i} + \\varepsilon \\left[ \\mathrm {K}_{j, n}^{i} - \\mathrm {K}_{j}^{i} K - \\frac {1}{2} \\delta_{j}^{i} \\left(2 \\mathrm {K}_{, n} - \\mathrm {K}_{\\mathrm {i m}} \\mathrm {K}^{\\mathrm {i m}} - \\mathrm {K}^{2}\\right)\\right]. \\tag {8}. \\\\\\end{array}$$Equating (6) and (7) to the corresponding components of the stress-energy tensor gives \\\"initial value equations\\\" for the gravitational field."
+  },
+  "verification": null
+}

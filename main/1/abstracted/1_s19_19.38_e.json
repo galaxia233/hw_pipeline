@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s19_19.38_e",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "cosmology",
+      "coordinate": "shear_tensor",
+      "scenario": "comoving_coordinates",
+      "method": "kinematic_decomposition"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.38_e",
+    "source_id": "1_s19_19.38_e",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.38_e"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.7,
+      "completeness": 0.8,
+      "realism": 0.8,
+      "rationale": "Derives shear tensor from conformal spatial metric in comoving frame, standard relativistic cosmology application requiring multi-step kinematic analysis.",
+      "overall": 0.72
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\tau$",
+      "$x^i$",
+      "$g_{0i}$",
+      "$g_{ij}$",
+      "$f(\\\\tau)$",
+      "$\\\\bar{g}_{ij}$",
+      "$\\\\sigma_{ij}$"
+    ],
+    "target": [
+      "$\\\\sigma_{ij}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "19.38 In cosmology one usually uses coordinates comoving with the galaxies. Let $(r, x^i)$ be such a system, and let the metric take the general form\\n$$\\n\\\\mathrm {d s}^{2} = - \\\\mathrm {d} \\\\tau^{2} + 2 \\\\mathrm {g}_{0 \\\\mathrm {i}} \\\\mathrm {d} \\\\tau \\\\mathrm {d x}^{\\\\mathrm {i}} + \\\\mathrm {g}_{\\\\mathrm {i j}} \\\\mathrm {d x}^{\\\\mathrm {i}} \\\\mathrm {d x}^{\\\\mathrm {j}}\\n$$\\nwhere $\\mathbf{g}_{0\\mathrm{i}}$ and $\\mathbf{g}_{\\mathrm {ij}}$ can be functions of $\\pmb{\\tau}$ and $\\mathbf{x}^{\\mathrm {i}}$ . Show (e) that if $\\mathbf{g}_{0\\mathbf{i}} = 0$ and $\\mathbf{g}_{ij} = \\mathbf{f}(\\tau)\\overline{\\mathbf{g}}_{ij}(\\mathbf{x}^{\\mathbf{k}})$ , then $\\sigma_{ij} = 0$ ;",
+    "answer": "$\\\\sigma_{ij} = 0$",
+    "solution": null
+  },
+  "verification": null
+}

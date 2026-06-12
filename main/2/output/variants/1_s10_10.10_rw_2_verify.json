@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-3-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "ISCO_radius",
+      "coordinate": "Schwarzschild",
+      "scenario": "black_hole_verify",
+      "method": "effective_potential_extrema_verify",
+      "generalization_axis": "verify",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-3",
+      "1_s10_10.10-3-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "校验推导过程"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规线元为：$$ ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2 $$其中 $r_s$ 为 Schwarzschild 半径。测地线运动具有守恒的能量 $E$ 和角动量 $L$（定义为 $E = -g_{tt} \\dot{t}$，$L = g_{\\phi\\phi} \\dot{\\phi}$）。以下是一段推导赤道面上有质量粒子最小稳定圆轨道（ISCO）半径 $r_{\\text{isco}}$ 的过程：“在赤道面 $\\theta=\\pi/2$，类时测地线条件为 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$。代入守恒量，可得到径向方程 $\\dot{r}^2 = E^2 - V_{\\text{eff}}(r)$，其中有效势为：$$ V_{\\text{eff}}(r) = 1 - \\frac{r_s}{r} + \\frac{L^2}{r^2} - \\frac{r_s L^2}{r^3} $$为了寻找稳定圆轨道，对有效势求导并令其为零：$$ V_{\\text{eff}}'(r) = -\\frac{r_s}{r^2} - \\frac{2L^2}{r^3} + \\frac{3r_s L^2}{r^4} = 0 $$乘以 $r^4$ 得到：$-r_s r^2 - 2L^2 r + 3r_s L^2 = 0$，解出 $L^2$：$$ L^2 = \\frac{-r_s r^2}{2r - 3r_s} $$寻找ISCO临界稳定条件，要求 $V_{\\text{eff}}''(r) = 0$：$$ V_{\\text{eff}}''(r) = -\\frac{2r_s}{r^3} + \\frac{6L^2}{r^3} - \\frac{12 r_s L^2}{r^5} = 0 $$乘以 $r^5$ 得到：$-2r_s r^2 + 6L^2 r^2 - 12 r_s L^2 = 0$。将前面求出的 $L^2$ 代入该方程，两边除以 $-r_s r^2$（排除 $r=0$ 或 $r_s=0$ 的平凡解）：$$ 2 - \\frac{6r^2}{2r - 3r_s} + \\frac{12 r_s}{2r - 3r_s} = 0 $$合并后两项并提取公因子：$$ 2 - \\frac{6(r - 2r_s)}{2r - 3r_s} = 0 $$通分得到：$2(2r - 3r_s) - 6(r - 2r_s) = 0$。展开为：$4r - 6r_s - 6r + 12 r_s = 0$。化简为：$-2r + 6r_s = 0$。解得 $r_{\\text{isco}} = 3 r_s$。推导完毕。”已知 Schwarzschild 黑洞的 ISCO 半径正确结论确实为 $3r_s$，但上述推导过程中存在多处物理和数学错误。请仔细校验该推导，找出所有错误的位置、错误类型，并给出正确值。",
+    "answer": "1. 错误位置：极值条件方程 $V_{\\text{eff}}'(r) = 0$ 的表达式中，第一项 $-\\frac{r_s}{r^2}$。错误类型：Sign error（符号错误）。正确值：$\\frac{r_s}{r^2}$。2. 错误位置：临界稳定条件方程 $V_{\\text{eff}}''(r) = 0$ 的表达式中，第二项 $\\frac{6L^2}{r^3}$。错误类型：Exponent error / Factor error（分母指数错误，$r^3$ 应为 $r^4$）。正确值：$\\frac{6L^2}{r^4}$。3. 错误位置：合并并提取公因子的步骤中，分子 $-6(r - 2r_s)$。错误类型：Algebra error / Factor error（代数化简遗漏了 $r$ 的平方）。正确值：$-6(r^2 - 2r_s)$。",
+    "solution": "1. **写出守恒量与类时条件**：在赤道面 $\\theta = \\pi/2$ 上，$\\dot{\\theta} = 0$。守恒量定义为：$E = -g_{tt} \\dot{t} = \\frac{r-r_s}{r} \\dot{t}$，$L = g_{\\phi\\phi} \\dot{\\phi} = r^2 \\dot{\\phi}$。类时测地线条件为 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$，展开得：$g_{tt} \\dot{t}^2 + g_{rr} \\dot{r}^2 + g_{\\phi\\phi} \\dot{\\phi}^2 = -1$。2. **推导径向方程与有效势**：将 $\\dot{t} = \\frac{E r}{r-r_s}$ 和 $\\dot{\\phi} = \\frac{L}{r^2}$ 代入类时条件：$-\\frac{r-r_s}{r} \\left( \\frac{E r}{r-r_s}\\right)^2 + \\frac{r}{r-r_s} \\dot{r}^2 + r^2 \\left( \\frac{L}{r^2}\\right)^2 = -1$。化简得：$-E^2 \\frac{r}{r-r_s} + \\frac{r}{r-r_s} \\dot{r}^2 + \\frac{L^2}{r^2} = -1$。两边乘以 $\\frac{r-r_s}{r}$ 并移项：$\\dot{r}^2 = E^2 - \\frac{r-r_s}{r} \\left( 1 + \\frac{L^2}{r^2}\\right)$。因此有效势为：$V_{\\text{eff}}(r) = \\frac{r-r_s}{r} \\left( 1 + \\frac{L^2}{r^2}\\right) = 1 - \\frac{r_s}{r} + \\frac{L^2}{r^2} - \\frac{r_s L^2}{r^3}$。3. **求圆轨道条件（极值）**：圆轨道要求径向速度和加速度为零，即 $V_{\\text{eff}}' = 0$：$\\frac{dV_{\\text{eff}}}{dr} = \\frac{r_s}{r^2} - \\frac{2L^2}{r^3} + \\frac{3 r_s L^2}{r^4} = 0$。乘以 $r^4$ 得：$r_s r^2 - 2 L^2 r + 3 r_s L^2 = 0$。解出 $L^2$：$L^2 = \\frac{r_s r^2}{2r - 3r_s}$。4. **求最小稳定圆轨道（ISCO）条件**：稳定圆轨道要求 $V_{\\text{eff}}'' \\ge 0$，ISCO 是临界稳定轨道，满足 $V_{\\text{eff}}'' = 0$：$\\frac{d^2V_{\\text{eff}}}{dr^2} = -\\frac{2r_s}{r^3} + \\frac{6L^2}{r^4} - \\frac{12 r_s L^2}{r^5} = 0$。乘以 $r^5$ 得：$-2r_s r^2 + 6 L^2 r - 12 r_s L^2 = 0$。5. **求解 $r_{\\text{isco}}$**：将步骤3中求得的 $L^2$ 代入步骤4的方程：$-2r_s r^2 + 6 \\left( \\frac{r_s r^2}{2r - 3r_s}\\right) r - 12 r_s \\left( \\frac{r_s r^2}{2r - 3r_s}\\right) = 0$。方程两边除以 $r_s r^2$（排除 $r=0$ 或 $r_s=0$ 的平凡解）：$-2 + \\frac{6r}{2r - 3r_s} - \\frac{12 r_s}{2r - 3r_s} = 0$。通分并合并：$-2(2r - 3r_s) + 6r - 12 r_s = 0$。$-4r + 6r_s + 6r - 12 r_s = 0$。$2r - 6r_s = 0$。解得：$r_{\\text{isco}} = 3 r_s$。"
+  },
+  "verification": null
+}

@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-3",
+    "type": "calculate",
+    "tags": {
+      "target_object": "escape_velocity",
+      "coordinate": "schwarzschild",
+      "scenario": "black_hole",
+      "method": "killing_vector_and_local_frame",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$v_{\\min}$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 时空（线元 $ds^2 = -(1-r_s/r)dt^2 + (1-r_s/r)^{-1}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2{\\theta} d\\phi^2$）中，时间平移 Killing 矢量为 $\\boldsymbol{\\xi} = \\partial_t$，其对应的守恒量（单位质量能量）定义为 $E/\\mu = -\\boldsymbol{u} \\cdot \\boldsymbol{\\xi}$，其中 $\\boldsymbol{u}$ 为粒子的 4-速度。在半径 $r_0$ ($r_0 > r_s$) 处，局部静止观察者的 4-速度为 $\\boldsymbol{e}_0 = \\boldsymbol{\\xi} / \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$。设一个有质量粒子角动量为零，在 $r_0$ 处沿径向向外运动，其相对于该局部静止观察者的局部速度为 $v$（即 $\\boldsymbol{u} = \\gamma \\boldsymbol{e}_0 + \\gamma v \\boldsymbol{e}_1$，其中 $\\gamma = 1/\\sqrt{1-v^2}$，$\\boldsymbol{e}_1$ 为径向空间单位矢量）。为了使该粒子能够逃逸到无穷远（即到达 $r \\to \\inf ty$ 且不返回），其守恒能量必须满足 $E/\\mu \\ge 1$。请利用 Killing 矢量与守恒量的关系，推导该粒子在 $r_0$ 处逃逸到无穷远所需的最小局部径向速度 $v_{\\min}$。",
+    "answer": "$\\sqrt{r_s / r_0}$",
+    "solution": "1. 在无穷远处 ($r \\to \\inf ty$)，度规趋近于平直时空，$-g_{tt} \\to 1$。粒子的类时条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$ 要求 $(u^t)^2 \\ge 1$（由于 $(u^t)^2 = 1 + (u^r)^2 \\ge 1$），对于未来指向的粒子 $u^t > 0$，故 $u^t \\ge 1$。在无穷远处，守恒能量为 $E/\\mu = -g_{tt} u^t = u^t \\ge 1$。因此，粒子能到达无穷远且不返回的临界条件为 $E/\\mu = 1$。2. 在半径 $r_0$ 处，Killing 矢量 $\\boldsymbol{\\xi}$ 的内积为 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g_{tt} (\\xi^t)^2 = -(1-r_s/r_0)$。3. 局部静止观察者的 4-速度 $\\boldsymbol{e}_0$ 的时间分量为 $e_0^t = 1 / \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}} = 1 / \\sqrt{1 - r_s/r_0}$。4. 粒子以局部速度 $v$ 径向运动，其 4-速度的时间分量为 $u^t = \\gamma e_0^t = \\gamma / \\sqrt{1 - r_s/r_0}$。5. 计算粒子在 $r_0$ 处的守恒能量：   $E/\\mu = -\\boldsymbol{u} \\cdot \\boldsymbol{\\xi} = -g_{tt}(r_0) u^t \\xi^t = -(1 - r_s/r_0) \\frac{\\gamma}{\\sqrt{1 - r_s/r_0}} \\cdot 1 = \\gamma \\sqrt{1 - r_s/r_0} = \\frac{\\sqrt{1 - r_s/r_0}}{\\sqrt{1 - v^2}}$。6. 令逃逸临界条件 $E/\\mu = 1$，得到方程：   $\\frac{\\sqrt{1 - r_s/r_0}}{\\sqrt{1 - v_{\\min}^2}} = 1$。7. 解此方程：$1 - v_{\\min}^2 = 1 - r_s/r_0$，即 $v_{\\min}^2 = r_s/r_0$。8. 因此，最小局部径向逃逸速度为 $v_{\\min} = \\sqrt{r_s / r_0}$（注意 $r_s = 2M$，这与经典逃逸速度 $\\sqrt{2M/r_0}$ 的形式一致，但此处是由完全相对论的 Killing 矢量守恒量与局部参考系映射推导得出）。"
+  },
+  "verification": null
+}

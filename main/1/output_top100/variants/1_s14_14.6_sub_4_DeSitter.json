@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-0-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "weight_evolution_equation",
+      "coordinate": "exponential_x",
+      "scenario": "curved_space_weight_stress",
+      "method": "covariant_conservation_derivation",
+      "generalization_axis": "substitute",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-0",
+      "1_s14_14.6-0-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$\\partial_x W(x) + \\frac{2}{\\alpha} W(x) - \\frac{1}{\\alpha} \\int e^{\\frac{2x}{\\alpha}} T^{yy} \\mathrm{d}y \\mathrm{d}z - \\frac{1}{\\alpha} \\int e^{\\frac{2x}{\\alpha}} T^{zz} \\mathrm{d}y \\mathrm{d}z = 0$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一个沿 $x$ 轴方向的引力场，其度规为：$$\\mathrm{d}s^2 = - \\mathrm{d}t^2 + e^{\\frac{2x}{\\alpha}} \\left( \\mathrm{d}x^2 + \\mathrm{d}y^2 + \\mathrm{d}z^2\\right)$$其中 $\\alpha$ 为常数，采用 $(-,+,+,+)$ 符号约定。将装有不同物质的容器置于该场中，并在 $x=0$ 处用秤测量其重量。重量定义为容器底面正应力的积分：$W(x) = \\int g_{xx} T^{xx} \\mathrm{d}y \\mathrm{d}z$。实验观测表明，在该场中容器的重量 $W(x)$ 的演化严格与积分能量密度 $\\int T^{\\hat{t}\\hat{t}} \\mathrm{d}V$ 无关。请利用能动张量的协变守恒律 $T^{\\alpha\\beta}_{;\\beta} = 0$，推导 $W(x)$ 满足的演化方程，并由此证明重量演化与积分能量密度脱耦的现象是由度规分量 $g_{tt}$ 为常数所决定的。",
+    "answer": "重量 $W(x)$ 满足的演化方程为：$$\\partial_x W(x) + \\frac{2}{\\alpha} W(x) - \\frac{1}{\\alpha} \\int e^{\\frac{2x}{\\alpha}} T^{yy} \\mathrm{d}y \\mathrm{d}z - \\frac{1}{\\alpha} \\int e^{\\frac{2x}{\\alpha}} T^{zz} \\mathrm{d}y \\mathrm{d}z = 0$$该方程不含积分能量密度项 $\\int T^{tt} \\mathrm{d}y \\mathrm{d}z$，这证明了重量演化与积分能量密度脱耦的现象正是由度规分量 $g_{tt} = -1$ 为常数导致 $\\Gamma^x_{tt} = 0$ 所决定的。",
+    "solution": "要推导重量演化方程并证明其与积分能量密度脱耦，我们从能动张量的协变守恒律出发，取 $\\alpha = x$ 分量：$$T^{x\\beta}_{;\\beta} = 0$$展开该式，利用度规仅依赖于 $x$ 且对角的性质，我们有：$$|g|^{-1/2} \\left( |g|^{1/2} T^{xx}\\right)_{,x} + \\Gamma^x_{\\beta\\gamma} T^{\\beta\\gamma} = 0$$由于度规对角且仅依赖 $x$，非零的带 $x$ 上指标的 Christoffel 符号为：$$\\Gamma^x_{xx} = \\frac{1}{\\alpha}, \\quad \\Gamma^x_{yy} = -\\frac{1}{\\alpha}, \\quad \\Gamma^x_{zz} = -\\frac{1}{\\alpha}$$关键在于，由于 $g_{tt} = -1$ 为常数，$\\Gamma^x_{tt} = -\\frac{1}{2} g^{xx} g_{tt,x} = 0$。这正是重量演化与能量密度脱耦的几何根源。将上述符号代入守恒律方程，并在横截面 $\\mathrm{d}y \\mathrm{d}z$ 上积分（假设容器边界无外部剪切力，边界项为零）：$$e^{-\\frac{3x}{\\alpha}} \\left( e^{\\frac{3x}{\\alpha}} \\int T^{xx} \\mathrm{d}y \\mathrm{d}z\\right)_{,x} + \\frac{1}{\\alpha} \\int T^{xx} \\mathrm{d}y \\mathrm{d}z - \\frac{1}{\\alpha} \\int T^{yy} \\mathrm{d}y \\mathrm{d}z - \\frac{1}{\\alpha} \\int T^{zz} \\mathrm{d}y \\mathrm{d}z = 0$$已知重量定义为 $W(x) = \\int g_{xx} T^{xx} \\mathrm{d}y \\mathrm{d}z = \\int e^{\\frac{2x}{\\alpha}} T^{xx} \\mathrm{d}y \\mathrm{d}z$。计算其导数：$$\\partial_x W(x) = \\frac{2}{\\alpha} \\int e^{\\frac{2x}{\\alpha}} T^{xx} \\mathrm{d}y \\mathrm{d}z + \\int e^{\\frac{2x}{\\alpha}} \\partial_x T^{xx} \\mathrm{d}y \\mathrm{d}z$$将守恒方程乘以 $e^{\\frac{2x}{\\alpha}}$ 并积分，代入 $\\partial_x W(x)$ 的表达式整理，消去 $\\int e^{\\frac{2x}{\\alpha}} T^{xx} \\mathrm{d}y \\mathrm{d}z$ 相关项：$$\\partial_x W(x) + \\frac{2}{\\alpha} W(x) - \\frac{1}{\\alpha} \\int e^{\\frac{2x}{\\alpha}} T^{yy} \\mathrm{d}y \\mathrm{d}z - \\frac{1}{\\alpha} \\int e^{\\frac{2x}{\\alpha}} T^{zz} \\mathrm{d}y \\mathrm{d}z = 0$$由于 $\\Gamma^x_{tt} = 0$，演化方程中完全不含积分能量密度项 $\\int T^{tt} \\mathrm{d}y \\mathrm{d}z$，证明了重量演化与积分能量密度无关，而严格受横向应力调控，此脱耦现象的唯一几何根源正是 $g_{tt}$ 为常数。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目存在核心物理概念错误：1. 题目将物理重量定义为 $W(x) = \\int g_{xx} T^{xx} dy dz$，这在广义相对论中是错误的。秤测量的物理力必须是正交标架下的正应力与物理面积的积分，即 $W_{phys} = \\int T^{\\hat{x}\\hat{x}} dA = \\int T^{xx} dy dz$（因为物理面积 $dA = \\sqrt{g_{yy}g_{zz}}dydz = e^{2x/\\alpha}dydz$，物理正应力 $T^{\\hat{x}\\hat{x}} = e^{-2x/\\alpha}T^{xx}$）。题目定义的 $W(x)$ 多了一个度规因子 $g_{xx}=e^{2x/\\alpha}$，不具有物理可观测性，导致推导出的演化方程描述的是一个非物理量，真实物理重量的演化方程应为 $\\partial_x W_{phys} + \\frac{4}{\\alpha} W_{phys} - \\frac{1}{\\alpha}\\int T^{yy} dy dz - \\frac{1}{\\alpha}\\int T^{zz} dy dz = 0$。2. Answer 论述演化方程不含 $\\int T^{tt} dy dz$ 从而证明与题目条件中的 $\\int T^{\\hat{t}\\hat{t}} dV$ 脱耦，但 $\\int T^{tt} dy dz$ 缺少体积元 $dx$ 及度规因子，并非积分能量密度，存在概念混淆。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

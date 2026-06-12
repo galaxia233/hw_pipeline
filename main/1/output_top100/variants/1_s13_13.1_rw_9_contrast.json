@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s13_13.1-8-9",
+    "type": "concept",
+    "tags": {
+      "target_object": "R_{00}",
+      "coordinate": "spherical",
+      "scenario": "cosmology_vs_vacuum_contrast",
+      "method": "Ricci_tensor_analysis",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.1",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.1",
+      "1_s13_13.1-8",
+      "1_s13_13.1-8-9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$R_{00}$ 对比及物理解释",
+      "Newtonian 加速度方程还原"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "分别计算 FLRW 尘埃宇宙（$p=0$）与 Schwarzschild 真空时空的 Ricci 张量时间-时间分量 $R_{00}$，并利用迹消除 Einstein 场方程 $R_{\\mu\\nu} = 8\\pi G (T_{\\mu\\nu} - \\frac{1}{2}g_{\\mu\\nu}T)$ 对比两者的物理含义：在 FLRW 背景下推导出 Newtonian 宇宙学加速度方程 $\\frac{\\ddot{a}}{a} = - \\frac{4 \\pi G}{3} \\rho$，并解释 Schwarzschild 背景下 $R_{00}=0$ 所反映的均匀分布物质与局域点源真空在产生 Ricci 曲率上的根本差异。FLRW 度规线元为：$$ds^2 = -dt^2 + \\frac{a^2(t)}{1 - kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2(\\theta) d\\phi^2$$Schwarzschild 度规线元为（$r_s = 2GM$）：$$ds^2 = \\frac{r_s - r}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2(\\theta) d\\phi^2$$",
+    "answer": "在 FLRW 度规下，由几何属性知 $R_{00} = -\\frac{3\\ddot{a}}{a}$。代入尘埃能动张量 $T_{00}=\\rho$ 及 $T=-\\rho$，由迹消除场方程得 $R_{00} = 8\\pi G(\\rho - \\frac{1}{2}(-1)(-\\rho)) = 4\\pi G\\rho$，联立即得 Newtonian 加速度方程 $\\frac{\\ddot{a}}{a} = - \\frac{4 \\pi G}{3} \\rho$。在 Schwarzschild 度规下，$R_{00}=0$，对应真空 $T_{\\mu\\nu}=0$。两者对比表明：FLRW 时空的 $R_{00}$ 直接编码了均匀分布的物质密度，决定了宇宙膨胀的体积变化加速度（Ricci 曲率）；而 Schwarzschild 时空外围的 $R_{00}=0$ 意味着局域点源之外的真空区域不产生 Ricci 曲率，引力效应纯粹由 Weyl 曲率（潮汐力/形状变化）主导，这反映了物质均匀分布与局域真空在弯曲时空中的本质不同。",
+    "solution": "1. FLRW 背景：计算 Ricci 张量 $R_{00} = -\\frac{3\\ddot{a}}{a}$。对于尘埃 $p=0$，$T_{00}=\\rho, T=-\\rho$。代入 $R_{00} = 8\\pi G(T_{00} - \\frac{1}{2}g_{00}T)$ 得 $R_{00} = 4\\pi G\\rho$，从而 $\\frac{\\ddot{a}}{a} = -\\frac{4\\pi G}{3}\\rho$。2. Schwarzschild 背景：根据真空解属性，Ricci 张量恒为零，即 $R_{00}=0$。代入迹消除方程得 $T_{00} - \\frac{1}{2}g_{00}T = 0$，严格对应真空。3. 物理对比：FLRW 的非零 $R_{00}$ 体现了充满物质的宇宙中质量密度如何驱动宇宙整体的膨胀/收缩加速度（对应体积变化）；Schwarzschild 的零 $R_{00}$ 体现了局域质量外部的真空性质，引力效应由无质量的 Weyl 曲率维持，体现了分布物质（Ricci）与局域引力源真空（Weyl）的本质差异。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目中给出的 Schwarzschild 度规线元存在严重的符号错误。时间分量 $g_{00}$ 必须为负值以保证时间坐标类时，但题目写为 $ds^2 = \\frac{r_s - r}{r} dt^2 + ...$，这使得 $g_{00} = \\frac{r_s - r}{r} = \\frac{r_s}{r} - 1$。在 $r > r_s$ 的正常时空区域，该分量为正，导致度规符号约定变为 (++++)，时间坐标变为类空坐标。这不仅与 Schwarzschild 黑洞的物理场景严重矛盾，也与题目后续使用的迹消除场方程 $R_{\\mu\\nu} = 8\\pi G (T_{\\mu\\nu} - \\frac{1}{2}g_{\\mu\\nu}T)$ （基于 (-+++) 约定）不自洽。正确的线元应为 $ds^2 = -\\frac{r - r_s}{r} dt^2 + ...$ 或 $ds^2 = -(1-\\frac{r_s}{r}) dt^2 + ...$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

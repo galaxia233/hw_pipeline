@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-2-6-9",
+    "type": "concept",
+    "tags": {
+      "target_object": "tidal_force_trace",
+      "coordinate": "x_y_phi_and_r_theta_phi",
+      "scenario": "contrast_vacuum_vs_general",
+      "method": "riemann_calculation",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-2",
+      "1_s15_15.11-2-6",
+      "1_s15_15.11-2-6-9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "phi"
+    ],
+    "target": [
+      "潮汐加速度系数之和"
+    ],
+    "metric": [
+      [
+        "-h(y)/(x + y)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1/((x + y)**2*f(x))",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/((x + y)**2*h(y))",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "f(x)/(x + y)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑两种不同的静态时空度规：背景A (C度规)：$$ds^2 = -\\frac{h(y)}{(x+y)^2} dt^2 + \\frac{1}{(x+y)^2 f(x)} dx^2 + \\frac{1}{(x+y)^2 h(y)} dy^2 + \\frac{f(x)}{(x+y)^2} d\\phi^2$$其中 $f(x)$ 和 $h(y)$ 为任意函数。背景B (Schwarzschild度规)：$$ds^2 = \\frac{-r+r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$其中 $r_s$ 为 Schwarzschild 半径。两种度规均具有时间平移 Killing 矢量 $\\partial_t$。请分别推导在这两种背景下，沿该 Killing 矢量方向静止的观察者（其4速度仅沿时间方向）所感受到的沿各空间方向潮汐加速度系数之和（背景A为 $\\frac{a^x}{\\xi^x} + \\frac{a^y}{\\xi^y} + \\frac{a^\\phi}{\\xi^\\phi}$，背景B为 $\\frac{a^r}{\\xi^r} + \\frac{a^\\theta}{\\xi^\\theta} + \\frac{a^\\phi}{\\xi^\\phi}$），对比两者的计算结果，并基于爱因斯坦场方程解释其差异的物理含义。",
+    "answer": "背景A (C度规)：静止观察者的4速度为 $u^0 = \\frac{x+y}{\\sqrt{h(y)}}$。由测地偏离方程 $a^i = -R^i_{0j0} (u^0)^2 \\xi^j$，潮汐加速度系数之和为 $-(R^1_{010}+R^2_{020}+R^3_{030})(u^0)^2$。利用 Ricci 张量定义 $R_{00} = -(R^1_{010}+R^2_{020}+R^3_{030})$，代入得总和为 $R_{00}(u^0)^2$。由于混合分量 $R^0_{\\ 0} = g^{00}R_{00} = -\\frac{(x+y)^2}{h(y)}R_{00} = -(u^0)^2 R_{00}$，因此潮汐加速度系数之和为 $-R^0_{\\ 0}$。背景B (Schwarzschild度规)：静止观察者的4速度为 $u^0 = \\sqrt{\\frac{r}{r-r_s}}$。潮汐加速度系数之和同样推导为 $-R^0_{\\ 0}$。但由于 Schwarzschild 度规是真空解，满足 $R_{\\mu\\nu}=0$，因此 $R_{00}=0$，从而 $R^0_{\\ 0}=0$，潮汐加速度系数之和为 0。对比与物理含义：背景A的潮汐加速度系数之和一般不为零，而背景B的为零。根据爱因斯坦场方程 $R_{\\mu\\nu} - \\frac{1}{2}g_{\\mu\\nu}R = 8\\pi T_{\\mu\\nu}$，Ricci 张量直接由物质场的能量-动量张量决定。$R^0_{\\ 0}$ 反映了局部能量密度。Schwarzschild度规描述球对称真空外部区域，无物质分布（$T_{\\mu\\nu}=0$），潮汐力仅表现为无迹的形状拉伸与压缩（体积守恒）；而C度规作为更一般的时空，允许非零的场源，使得潮汐力不仅扭曲形状，还会引起局部体积的收缩或膨胀。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "1. 符号错误：题目推导中写道'利用 Ricci 张量定义 $R_{00} = -(R^1_{010}+R^2_{020}+R^3_{030})$'，这是错误的。正确的定义为 $R_{00} = R^1_{010}+R^2_{020}+R^3_{030}$（无负号）。由此导致最终潮汐加速度系数之和的推导结果错误，正确结果应为 $R^0_{\\\\ 0}$，而题目得出 $-R^0_{\\\\ 0}$，符号完全相反。2. 概念混淆：题目要求计算坐标分量的潮汐加速度系数之和 $\\sum a^i/\\xi^i$，但在解释物理含义时，将其等同于决定局部体积变化的物理潮汐力矩阵的迹。实际上，物理分量的系数之和 $\\sum a_{(i)}/\\xi_{(i)}$ 才对应体积变化，其值为 $-R^0_{\\\\ 0}$，与坐标分量的结果 $R^0_{\\\\ 0}$ 不同。3. 物理场景错误：题目将背景A称为'C度规'，却定义 $f(x)$ 和 $h(y)$ 为任意函数，并推断其潮汐加速度系数之和不为零。然而，标准的 C度规 是爱因斯坦真空解，$f(x)$ 和 $h(y)$ 为特定多项式，其 Ricci 张量为零，潮汐加速度系数之和应为零。题目的描述与 C度规的真实物理性质严重矛盾。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

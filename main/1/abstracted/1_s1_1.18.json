@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s1_1.18",
+    "type": "calculate",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "four_momentum_vector",
+      "coordinate": "lab_frame_coordinates",
+      "scenario": "moving_mirror_scenario",
+      "method": "Lorentz_transformation_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.18",
+    "source_id": "1_s1_1.18",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.18"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "多步洛伦兹变换推导四动量、结合相对论光行差与多普勒效应、解答完整清晰",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$v$",
+      "$\\theta$",
+      "$E_{\\mathrm{before}}$",
+      "$E_{\\mathrm{after}}$",
+      "$\\gamma$",
+      "$p^0$",
+      "$p^3$"
+    ],
+    "target": [
+      "$p^0_{\\mathrm{after}}$",
+      "$p^3_{\\mathrm{after}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.18. A mirror moves perpendicular to its plane with a velocity $\\mathbf{v}$ . With what angle to the normal is a ray of light reflected, if it is incident at an angle $\\theta$ ? What is the change in the frequency of the light?",
+    "answer": "$\\cos \\theta_{\\mathrm{after}} = \\frac{(1+v^2)\\cos \\theta + 2v}{1+2v\\cos \\theta+v^2}$, $E_{\\mathrm{after}} = \\left(\\frac{1+2v\\cos \\theta+v^2}{1-v^2}\\right) E_{\\mathrm{before}}$",
+    "solution": "Solution 1.18. Without loss of generality take the mirror to be in the xy plane, and take the photon to be in the yz plane. If “before” and “after” mean before and after reflection, we have for a photon in the lab frame:$$\\mathbf {p}_{\\mathrm {b e f o r e}} = (\\mathbf {E}, 0, \\mathbf {E} \\sin \\theta , \\mathbf {E} \\cos \\theta),$$Lorentz transforming to mirror frame,$$\\mathbf {p}_{\\mathrm {b e f o r e}} = \\left[ \\gamma \\mathrm {E} (1 + \\mathrm {v c o s} \\theta), 0, \\mathrm {E} \\sin \\theta , \\gamma \\mathrm {E} (\\mathrm {v} + \\cos \\theta)\\right].$$Reflecting in mirror:$$\\mathbf {p}_{\\mathrm {a f t e r}} = \\left[ \\gamma \\mathrm {E} (1 + \\mathrm {v} \\cos \\theta), 0, \\mathrm {E} \\sin \\theta , - \\gamma \\mathrm {E} (\\mathrm {v} + \\cos \\theta)\\right],$$Lorentz transforming back to lab frame:$$\\begin{array}{l} \\mathbf {p}_{\\mathrm {a f t e r}} = \\{\\gamma^{2} \\mathrm {E} [ (\\mathbf {1} + \\mathbf {v} \\cos \\theta) + \\mathbf {v} (\\mathbf {v} + \\cos \\theta) ], 0, \\\\\\left. \\operatorname {E} \\sin \\theta , \\gamma^{2} \\operatorname {E} [ - v (1 + v \\cos \\theta) - (v + \\cos \\theta) ]\\right\\}. \\\\\\end{array}$$So that, finally:$$\\cos \\theta |_{\\text {a f t e r}} = \\left| \\frac {\\mathrm {p}^{3}}{\\mathrm {p}^{0}}\\right| = + \\frac {\\left(1 + \\mathrm {v}^{2}\\right) \\cos \\theta + 2 \\mathrm {v}}{1 + 2 \\mathrm {v} \\cos \\theta + \\mathrm {v}^{2}}$$$$\\mathbf {E}_{\\mathrm {a f t e r}} = \\mathbf {p}_{\\mathrm {a f t e r}}^{0} = \\left(\\frac {1 + 2 \\mathbf {v} \\cos \\theta + \\mathbf {v}^{2}}{1 - \\mathbf {v}^{2}}\\right) \\mathbf {E}_{\\mathrm {b e f o r e}}.$$"
+  },
+  "verification": null
+}

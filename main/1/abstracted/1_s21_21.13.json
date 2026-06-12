@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s21_21.13",
+    "type": "concept",
+    "tags": {
+      "metric": "spinor_formalism",
+      "target_object": "invariant_tensor",
+      "coordinate": "lorentz_group",
+      "scenario": "index_manipulation",
+      "method": "theoretical_physics"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s21_21.13",
+    "source_id": "1_s21_21.13",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s21_21.13"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基于旋量行列式不变性推导度规类比，并严格证明洛伦兹变换的幺正性条件",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\alpha$",
+      "$\\beta$",
+      "$A$",
+      "$A'$",
+      "$B$",
+      "$B'$",
+      "$C$",
+      "$D$"
+    ],
+    "target": [
+      "$\\mathbf{L}_{\\mathbf{A}\\mathbf{A}'\\mathbf{B}\\mathbf{B}'}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 21.13. Suppose one identifies four-vectors $\\mathbf{U}^{\\alpha}$ with 2-index spinors $\\mathbf{U}^{\\mathbf{A}\\mathbf{A}'}$ by$$(\\mathrm {U}^{0}, \\mathrm {U}^{1}, \\mathrm {U}^{2}, \\mathrm {U}^{3})\\rightarrow 2^{- \\frac {1}{2}} \\left[\\begin{array}{l l}\\mathrm {U}^{0} + \\mathrm {U}^{1}&\\mathrm {U}^{2} + \\mathrm {i U}^{3}\\\\\\mathrm {U}^{2} - \\mathrm {i U}^{3}&\\mathrm {U}^{0} - \\mathrm {\\Delta U}^{1}\\end{array}\\right].$$What is the analog of the Minkowski metric in spinor language? i.e. Find an $\\mathbf{L}_{\\mathbf{A}\\mathbf{A}^{\\prime}\\mathbf{B}\\mathbf{B}^{\\prime}}$ such that $\\mathbf{U}\\cdot \\mathbf{V} = \\eta_{\\alpha \\beta}\\mathbf{U}^{\\alpha}\\mathbf{V}^{\\beta} = \\mathbf{L}_{\\mathbf{A}\\mathbf{A}^{\\prime}\\mathbf{B}\\mathbf{B}^{\\prime}}\\mathbf{U}^{\\mathbf{A}\\mathbf{A}^{\\prime}}\\mathbf{V}^{\\mathbf{B}\\mathbf{B}^{\\prime}}$ . (Hint: use the spinor $(\\varepsilon_{\\mathbf{AB}}) = (\\varepsilon^{\\mathbf{AB}}) = (-1\\frac{1}{0})$ .) What is the analog of a Lorentz transformation?[Note: The spinor notation used here and in the following problems is that of e.g. F. A. E. Pirani in A. Trautman, F. A. E. Pirani, and H. Bondi, Lectures on General Relativity, Brandeis 1964 Summer Institute on Theoretical Physics (Prentice-Hall, 1965).]",
+    "answer": "A pair of $\\varepsilon$ matrices plays the role of the Minkowski metric; the Lorentz transformation matrices must be unimodular (of unit determinant).",
+    "solution": "Solution 21.13. Begin by noticing that the square of $\\mathbf{U}^{\\alpha}$ , which is a Lorentz invariant, is just the determinant of $\\mathbf{U}^{\\mathbf{A}\\mathbf{A}'}$ . The analog of the Minkowski metric will then be a set of matrices which serve to raise and lower indices in constructing the determinant of $\\mathbf{U}^{\\mathbf{A}\\mathbf{A}'}$ :$$\\delta_{D}^{C} \\det (U^{A B}) = U^{F C} U^{E G} \\varepsilon_{F E} \\varepsilon_{D G}$$where$$\\varepsilon_{\\text bf {F E}} = \\left( \\begin{array}{c c} 0 & 1 \\\\ - 1 & 0 \\end{array}\\right) \\qquad \\delta_{\\text bf {D}}^{\\text bf {C}} = \\left( \\begin{array}{c c} 1 & 0 \\\\ 0 & 1 \\end{array}\\right).$$Evidently, a pair of $\\varepsilon$ matrices plays the role of the Minkowski metric.To find the analog of a Lorentz transformation, denote such a transformation by$$\\mathrm {U}^{\\mathrm {F}^{\\prime} \\mathrm {C}^{\\prime}} = \\mathrm {L}_{\\mathrm {F C}}^{\\mathrm {F}^{\\prime} \\mathrm {C}^{\\prime}} \\mathrm {U}^{\\mathrm {F C}}.$$Then, invariance of the dot product of two vectors $\\mathbf{U},\\mathbf{V}$ , requires$$U^{A B} V^{C D} \\varepsilon_{A C} \\varepsilon_{B D} = L_{E F}^{E^{\\prime} F^{\\prime}} U^{E F} L_{G H}^{G^{\\prime} H^{\\prime}} V^{G H} \\varepsilon_{E^{\\prime} G^{\\prime}} \\varepsilon_{F^{\\prime} H^{\\prime}}.$$Thus we must have$$\\varepsilon_{\\mathbf {E G}} \\varepsilon_{\\mathbf {F H}} = L_{\\mathbf {E F}}^{\\mathbf {E}^{\\prime} \\mathbf {F}^{\\prime}} L_{\\mathbf {G H}}^{\\mathbf {G}^{\\prime} \\mathbf {A}^{\\prime}} \\varepsilon_{\\mathbf {E}^{\\prime} \\mathbf {G}^{\\prime}} \\varepsilon_{\\mathbf {F}^{\\prime} \\mathbf {H}^{\\prime}}.$$This implies that$$\\delta_{\\mathbf {E}}^{\\mathbf {M}} \\delta_{\\mathbf {H}}^{\\mathbf {K}} = \\mathrm {L}_{\\mathbf {E F}}^{\\mathbf {E}^{\\prime} \\mathbf {F}^{\\prime}} \\mathrm {L}_{\\mathbf {G H}}^{\\mathbf {G}^{\\prime} \\mathbf {A}^{\\prime}} \\varepsilon_{\\mathbf {E}^{\\prime} \\mathbf {G}^{\\prime}} \\varepsilon_{\\mathbf {F}^{\\prime} \\mathbf {H}^{\\prime}} \\varepsilon^{\\mathbf {G M}} \\varepsilon^{\\mathbf {F K}}$$and hence that$$\\det \\left(L_{E F}^{E^{\\prime} F^{\\prime}}\\right) = 1.$$Thus the Lorentz transformation matrices must be unimodular (of unit determinant)."
+  },
+  "verification": null
+}

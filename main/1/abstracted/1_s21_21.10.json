@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s21_21.10",
+    "type": "prove",
+    "tags": {
+      "metric": "junction_conditions",
+      "target_object": "extrinsic_curvature",
+      "coordinate": "thin_shell",
+      "scenario": "stress_energy_conservation",
+      "method": "general_relativity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s21_21.10",
+    "source_id": "1_s21_21.10",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s21_21.10"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.95,
+      "realism": 0.7,
+      "rationale": "完整Israel结条件推导，多步几何与物质方程耦合，理论自洽度高",
+      "overall": 0.84
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$u^{i}$",
+      "$g_{ij}$",
+      "$K_{ij}$",
+      "$\\\\sigma$",
+      "$n$",
+      "$a^{\\\\pm}$",
+      "$\\\\tau$"
+    ],
+    "target": [
+      "$K_{ij}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 21.10. A thin shell of dust in vacuum has surface density of mass $\\sigma$ as measured by an observer comoving with the dust. If $\\mathbf{u}$ is the 4-velocity of the dust, show that\\n$$\\n\\\\begin{array}{l} \\\\left[ \\\\mathrm {K}_{\\\\mathrm {i j}} \\\\right] = 8 \\\\pi \\\\sigma \\\\left(\\\\mathrm {u}_{\\\\mathrm {i}} \\\\mathrm {u}_{\\\\mathrm {j}} + \\\\frac {1}{2}^{(3)} \\\\mathrm {g}_{\\\\mathrm {i j}}\\\\right) \\\\\\\\ \\\\frac {\\\\mathrm {d} \\\\sigma}{\\\\mathrm {d} \\\\tau} = - \\\\sigma \\\\mathbf {u}^{\\\\mathbf {i}} |_{\\\\mathbf {i}} \\\\\\\\ \\\\mathbf {a}^{+} - \\\\mathbf {a}^{-} = 4 \\\\pi \\\\sigma \\\\mathbf {n} \\\\\\\\ \\\\mathbf {a}^{+} + \\\\mathbf {a}^{-} = 0. \\\\\\\\ \\\\end{array}\\n$$\\nHere $\\mathbf{a}^{+}$ and $\\mathbf{a}^{-}$ are the 4-accelerations measured on the outside and inside of the shell, respectively.\\n\\n## Solution\\n\\nSolution 21.10. The surface stress energy of the thin shell of dust is $S^{\\alpha \\beta} = \\sigma u^{\\alpha}u^{\\beta}$ . From the solution to Problem 21.8, we have\\n$$\\n\\\\left[ \\\\mathrm {K}_{\\\\mathrm {j}}^{\\\\mathrm {i}} \\\\right] = 8 \\\\pi \\\\left\\\\{\\sigma \\\\mathrm {u}^{\\\\mathrm {i}} \\\\mathrm {u}_{\\\\mathrm {j}} - \\\\frac {1}{2} \\\\delta_{\\\\mathrm {j}}^{\\\\mathrm {i}} (- \\\\sigma) \\\\right\\\\}\\n$$\\nor\\n$$\\n\\\\left[ \\\\mathrm {K}_{\\\\mathrm {i j}} \\\\right] = 8 \\\\pi \\\\sigma \\\\left\\\\{\\mathrm {u}_{\\\\mathrm {i}} \\\\mathrm {u}_{\\\\mathrm {j}} + \\\\frac {1}{2}^{(3)} \\\\mathrm {g}_{\\\\mathrm {i j}} \\\\right\\\\}. \\\\tag {1}\\n$$\\nSince there is no stress-energy outside the shell $\\left[\\mathbf{T}_{\\\\mathbf{i}}^{\\\\mathbf{n}}\\\\right] = 0$ and the equation of motion (see Problem 21.9) gives us\\n$$\\n\\\\begin{array}{l} 0 = S_{i}^{m} \\\\left|_{m} = \\\\sigma_{, m} u^{m} u_{i} + \\\\sigma u^{m} \\\\right|_{m} u_{i} + \\\\sigma u_{i} \\\\left|_{m} u^{m} \\\\right. \\\\\\\\ = \\\\frac {\\\\mathrm {d} \\\\sigma}{\\\\mathrm {d} r} u_{i} + \\\\sigma u_{i} u^{m} |_{m} + \\\\sigma u_{i} |_{m} u^{m} \\\\tag {2} \\\\\\\\ \\\\end{array}\\n$$\\nBy contracting this with $\\mathbf{u}$ we verify the second relation\\n$$\\n\\\\frac {\\\\mathrm {d} \\\\sigma}{\\\\mathrm {d} r} + \\\\sigma \\\\left. u^{m} \\\\right|_{m} = 0. \\\\tag {3}\\n$$\\nComparison with Equation (2) shows that $\\mathbf{u}_{\\\\mathbf{i}}|_{\\\\mathbf{m}}\\\\mathbf{u}^{\\\\mathbf{m}} = 0$ . Thus\\n$$\\n\\\\mathbf {a} = \\\\nabla_{\\\\mathbf {u}} \\\\mathbf {u} = u^{i} \\\\nabla_{i} \\\\left(u^{j} e_{j}\\\\right) = u^{i} \\\\left(u^{j} \\\\mid_{i} e_{j} + u^{j} K_{i j} n\\\\right) = u^{i} u^{j} K_{i j} n. \\\\tag {4}\\n$$\\n(We have used Equation (2) of Solution 9.32 to get the second-last equality.) The third relation now follows from Equations (1) and (4):\\n$$\\n\\\\mathbf {a}^{+} - \\\\mathbf {a}^{-} = \\\\mathbf {u}^{\\\\mathrm {i}} \\\\mathbf {u}^{\\\\mathrm {j}} \\\\left[ \\\\mathbf {K}_{\\\\mathrm {i j}} \\\\right] \\\\mathbf {n} = 4 \\\\pi \\\\sigma \\\\mathbf {n}.\\n$$\\nTo verify the fourth relation we need to show\\n$$\\n\\\\left(\\\\mathrm {K}_{\\\\mathrm {i j}}^{+} + \\\\mathrm {K}_{\\\\mathrm {i j}}^{-}\\\\right) \\\\mathrm {u}^{\\\\mathrm {i}} \\\\mathrm {u}^{\\\\mathrm {j}} = 0.\\n$$\\nWe do this by using the initial value equation $\\left[\\mathbf{G}_{\\\\mathbf{n}}^{\\\\mathbf{n}}\\\\right] = 8\\\\pi \\\\left[\\mathbf{T}_{\\\\mathbf{n}}^{\\\\mathbf{n}}\\\\right] = 0$ . Since (3)R is continuous, this gives us\\n$$\\n\\\\begin{array}{l} 0 = \\\\left[ \\\\operatorname {T r} \\\\left(\\\\mathrm {K}^{2}\\\\right) - \\\\left(\\\\operatorname {T r} \\\\mathrm {K}\\\\right)^{2} \\\\right] \\\\\\\\ = K_{j}^{i +} K_{i}^{j +} - K_{j}^{i -} K_{i}^{j -} - \\\\left(K_{i}^{i +}\\\\right)^{2} + \\\\left(K_{i}^{i -}\\\\right)^{2} \\\\\\\\ = \\\\left(\\\\mathrm {K}_{\\\\mathrm {j}}^{\\\\mathrm {i} +} + \\\\mathrm {K}_{\\\\mathrm {j}}^{\\\\mathrm {i} -}\\\\right) \\\\left\\\\{\\\\mathrm {K}_{\\\\mathrm {i}}^{\\\\mathrm {j} +} - \\\\mathrm {K}_{\\\\mathrm {j}}^{\\\\mathrm {i} -} -^{(3)} \\\\mathrm {g}^{\\\\mathrm {i j}} \\\\left(\\\\mathrm {K}_{\\\\mathrm {a}}^{\\\\mathrm {a} +} - \\\\mathrm {K}_{\\\\mathrm {a}}^{\\\\mathrm {a} -}\\\\right) \\\\right\\\\} \\\\\\\\ = \\\\left(\\\\mathrm {K}_{\\\\mathrm {j}}^{\\\\mathrm {i} +} + \\\\mathrm {K}_{\\\\mathrm {j}}^{\\\\mathrm {i} -}\\\\right) \\\\left\\\\{\\\\left[ \\\\mathrm {K}_{\\\\mathrm {i}}^{\\\\mathrm {j}} \\\\right] - \\\\delta_{\\\\mathrm {i}}^{\\\\mathrm {j}} \\\\operatorname {T r} [ \\\\mathrm {K} ] \\\\right\\\\}, \\\\\\\\ \\\\end{array}\\n$$\\nwhere we have used the easily verified fact that $\\mathbf{K}_{\\\\mathbf{j}}^{\\\\mathbf{i} + }$ and $\\mathbf{K}_{\\\\mathbf{j}}^{\\\\mathbf{i} - }$ commute. Since\\n$$\\n\\\\left[ \\\\mathrm {K}_{\\\\mathrm {i}}^{\\\\mathrm {j}} \\\\right] = 8 \\\\pi \\\\sigma \\\\left(\\\\mathrm {u}^{\\\\mathrm {j}} \\\\mathrm {u}_{\\\\mathrm {i}} + \\\\frac {1}{2}^{(3)} \\\\delta_{\\\\mathrm {i}}^{\\\\mathrm {j}}\\\\right).\\n$$\\nit follows that\\n$$\\n\\\\left[ K_{i}^{i} \\\\right] = 4 \\\\pi \\\\sigma\\n$$\\nand that\\n$$\\n\\\\left[ \\\\mathrm {K}_{\\\\mathrm {i}}^{\\\\mathrm {j}} \\\\right] - \\\\delta_{\\\\mathrm {i}}^{\\\\mathrm {j}} \\\\left[ \\\\mathrm {K}_{\\\\mathrm {i}}^{\\\\mathrm {i}} \\\\right] = 8 \\\\pi \\\\sigma \\\\left(\\\\mathrm {u}^{\\\\mathrm {j}} \\\\mathrm {u}_{\\\\mathrm {i}}\\\\right)\\n$$\\nand therefore finally\\n$$\\n\\\\left(\\\\mathbf {K}_{\\\\mathbf {j}}^{\\\\mathbf {i} +} + \\\\mathbf {K}_{\\\\mathbf {j}}^{\\\\mathbf {i} -}\\\\right) \\\\mathbf {u}^{\\\\mathbf {j}} \\\\mathbf {u}_{\\\\mathbf {i}} = 0.$",
+    "answer": "\\\\left[ K_{ij} \\\\right] = 8 \\\\pi \\\\sigma \\\\left( u_{i} u_{j} + \\\\frac{1}{2} ^{(3)} g_{ij} \\\\right), \\\\quad \\\\frac{d \\\\sigma}{d \\\\tau} = - \\\\sigma u^{i}_{|i}, \\\\quad a^{+} - a^{-} = 4 \\\\pi \\\\sigma n, \\\\quad a^{+} + a^{-} = 0.",
+    "solution": "Solution 21.10. The surface stress energy of the thin shell of dust is $S^{\\alpha \\beta} = \\sigma u^{\\alpha}u^{\\beta}$ . From the solution to Problem 21.8, we have\\n$$\\n\\\\left[ \\\\mathrm {K}_{\\\\mathrm {j}}^{\\\\mathrm {i}} \\\\right] = 8 \\\\pi \\\\left\\\\{\\\\sigma \\\\mathrm {u}^{\\\\mathrm {i}} \\\\mathrm {u}_{\\\\mathrm {j}} - \\\\frac {1}{2} \\\\delta_{\\\\mathrm {j}}^{\\\\mathrm {i}} (- \\\\sigma) \\\\right\\\\}\\n$$\\nor\\n$$\\n\\\\left[ \\\\mathrm {K}_{\\\\mathrm {i j}} \\\\right] = 8 \\\\pi \\\\sigma \\\\left\\\\{\\\\mathrm {u}_{\\\\mathrm {i}} \\\\mathrm {u}_{\\\\mathrm {j}} + \\\\frac {1}{2}^{(3)} \\\\mathrm {g}_{\\\\mathrm {i j}} \\\\right\\\\}. \\\\tag {1}\\n$$\\nSince there is no stress-energy outside the shell $\\left[\\mathbf{T}_{\\\\mathbf{i}}^{\\\\mathbf{n}}\\\\right] = 0$ and the equation of motion (see Problem 21.9) gives us\\n$$\\n\\\\begin{array}{l} 0 = S_{i}^{m} \\\\left|_{m} = \\\\sigma_{, m} u^{m} u_{i} + \\\\sigma u^{m} \\\\right|_{m} u_{i} + \\\\sigma u_{i} \\\\left|_{m} u^{m} \\\\right. \\\\\\\\ = \\\\frac {\\\\mathrm {d} \\\\sigma}{\\\\mathrm {d} r} u_{i} + \\\\sigma u_{i} u^{m} |_{m} + \\\\sigma u_{i} |_{m} u^{m} \\\\tag {2} \\\\\\\\ \\\\end{array}\\n$$\\nBy contracting this with $\\mathbf{u}$ we verify the second relation\\n$$\\n\\\\frac {\\\\mathrm {d} \\\\sigma}{\\\\mathrm {d} r} + \\\\sigma \\\\left. u^{m} \\\\right|_{m} = 0. \\\\tag {3}\\n$$\\nComparison with Equation (2) shows that $\\mathbf{u}_{\\\\mathbf{i}}|_{\\\\mathbf{m}}\\\\mathbf{u}^{\\\\mathbf{m}} = 0$ . Thus\\n$$\\n\\\\mathbf {a} = \\\\nabla_{\\\\mathbf {u}} \\\\mathbf {u} = u^{i} \\\\nabla_{i} \\\\left(u^{j} e_{j}\\\\right) = u^{i} \\\\left(u^{j} \\\\mid_{i} e_{j} + u^{j} K_{i j} n\\\\right) = u^{i} u^{j} K_{i j} n. \\\\tag {4}\\n$$\\n(We have used Equation (2) of Solution 9.32 to get the second-last equality.) The third relation now follows from Equations (1) and (4):\\n$$\\n\\\\mathbf {a}^{+} - \\\\mathbf {a}^{-} = \\\\mathbf {u}^{\\\\mathrm {i}} \\\\mathbf {u}^{\\\\mathrm {j}} \\\\left[ \\\\mathbf {K}_{\\\\mathrm {i j}} \\\\right] \\\\mathbf {n} = 4 \\\\pi \\\\sigma \\\\mathbf {n}.\\n$$\\nTo verify the fourth relation we need to show\\n$$\\n\\\\left(\\\\mathrm {K}_{\\\\mathrm {i j}}^{+} + \\\\mathrm {K}_{\\\\mathrm {i j}}^{-}\\\\right) \\\\mathrm {u}^{\\\\mathrm {i}} \\\\mathrm {u}^{\\\\mathrm {j}} = 0.\\n$$\\nWe do this by using the initial value equation $\\left[\\mathbf{G}_{\\\\mathbf{n}}^{\\\\mathbf{n}}\\\\right] = 8\\\\pi \\\\left[\\mathbf{T}_{\\\\mathbf{n}}^{\\\\mathbf{n}}\\\\right] = 0$ . Since (3)R is continuous, this gives us\\n$$\\n\\\\begin{array}{l} 0 = \\\\left[ \\\\operatorname {T r} \\\\left(\\\\mathrm {K}^{2}\\\\right) - \\\\left(\\\\operatorname {T r} \\\\mathrm {K}\\\\right)^{2} \\\\right] \\\\\\\\ = K_{j}^{i +} K_{i}^{j +} - K_{j}^{i -} K_{i}^{j -} - \\\\left(K_{i}^{i +}\\\\right)^{2} + \\\\left(K_{i}^{i -}\\\\right)^{2} \\\\\\\\ = \\\\left(\\\\mathrm {K}_{\\\\mathrm {j}}^{\\\\mathrm {i} +} + \\\\mathrm {K}_{\\\\mathrm {j}}^{\\\\mathrm {i} -}\\\\right) \\\\left\\\\{\\\\mathrm {K}_{\\\\mathrm {i}}^{\\\\mathrm {j} +} - \\\\mathrm {K}_{\\\\mathrm {j}}^{\\\\mathrm {i} -} -^{(3)} \\\\mathrm {g}^{\\\\mathrm {i j}} \\\\left(\\\\mathrm {K}_{\\\\mathrm {a}}^{\\\\mathrm {a} +} - \\\\mathrm {K}_{\\\\mathrm {a}}^{\\\\mathrm {a} -}\\\\right) \\\\right\\\\} \\\\\\\\ = \\\\left(\\\\mathrm {K}_{\\\\mathrm {j}}^{\\\\mathrm {i} +} + \\\\mathrm {K}_{\\\\mathrm {j}}^{\\\\mathrm {i} -}\\\\right) \\\\left\\\\{\\\\left[ \\\\mathrm {K}_{\\\\mathrm {i}}^{\\\\mathrm {j}} \\\\right] - \\\\delta_{\\\\mathrm {i}}^{\\\\mathrm {j}} \\\\operatorname {T r} [ \\\\mathrm {K} ] \\\\right\\\\}, \\\\\\\\ \\\\end{array}\\n$$\\nwhere we have used the easily verified fact that $\\mathbf{K}_{\\\\mathbf{j}}^{\\\\mathbf{i} + }$ and $\\mathbf{K}_{\\\\mathbf{j}}^{\\\\mathbf{i} - }$ commute. Since\\n$$\\n\\\\left[ \\\\mathrm {K}_{\\\\mathrm {i}}^{\\\\mathrm {j}} \\\\right] = 8 \\\\pi \\\\sigma \\\\left(\\\\mathrm {u}^{\\\\mathrm {j}} \\\\mathrm {u}_{\\\\mathrm {i}} + \\\\frac {1}{2}^{(3)} \\\\delta_{\\\\mathrm {i}}^{\\\\mathrm {j}}\\\\right).\\n$$\\nit follows that\\n$$\\n\\\\left[ K_{i}^{i} \\\\right] = 4 \\\\pi \\\\sigma\\n$$\\nand that\\n$$\\n\\\\left[ \\\\mathrm {K}_{\\\\mathrm {i}}^{\\\\mathrm {j}} \\\\right] - \\\\delta_{\\\\mathrm {i}}^{\\\\mathrm {j}} \\\\left[ \\\\mathrm {K}_{\\\\mathrm {i}}^{\\\\mathrm {i}} \\\\right] = 8 \\\\pi \\\\sigma \\\\left(\\\\mathrm {u}^{\\\\mathrm {j}} \\\\mathrm {u}_{\\\\mathrm {i}}\\\\right)\\n$$\\nand therefore finally\\n$$\\n\\\\left(\\\\mathbf {K}_{\\\\mathbf {j}}^{\\\\mathbf {i} +} + \\\\mathbf {K}_{\\\\mathbf {j}}^{\\\\mathbf {i} -}\\\\right) \\\\mathbf {u}^{\\\\mathbf {j}} \\\\mathbf {u}_{\\\\mathbf {i}} = 0.$"
+  },
+  "verification": null
+}

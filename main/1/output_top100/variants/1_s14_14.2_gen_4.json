@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s14_14.2-4",
+    "type": "calculate",
+    "tags": {
+      "target_object": "critical radius of temperature divergence",
+      "coordinate": "spherical",
+      "scenario": "Reissner-Nordström black hole thermal equilibrium",
+      "method": "algebraic root solving",
+      "generalization_axis": "apply",
+      "metric": "ReissnerNordstrom"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.2",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.2",
+      "1_s14_14.2-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "ReissnerNordstrom",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$r_c$",
+      "$r_{extreme}$"
+    ],
+    "metric": [
+      [
+        "-Q**2/(4*pi*r**2*eps_0) + 1 - r_s/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "4*pi*r**2*eps_0/(Q**2 + 4*pi*r**2*eps_0 - 4*pi*r*r_s*eps_0)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，静态系统的热平衡条件为 $T(r) \\sqrt{-g_{00}(r)} = \\text{constant}$，其中 $T(r)$ 是局部静态观测者测量的温度。考虑一个与 Reissner-Nordström 黑洞处于热平衡状态的静态气体云，其无穷远处的温度为 $T_\\inf ty$。黑洞的度规为：$$ ds^2 = -\\left(1 - \\frac{2M}{r} + \\frac{Q^2}{r^2}\\right) dt^2 + \\frac{1}{1 - \\frac{2M}{r} + \\frac{Q^2}{r^2}} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2 $$其中 $M$ 为黑洞质量，$Q$ 为黑洞电荷。利用上述热平衡条件，推导气体局部温度 $T(r)$ 的表达式，求局部温度发散的临界半径 $r_c$ 的表达式，并计算在极端黑洞极限（$Q=M$）下该临界半径的具体数值。",
+    "answer": "临界半径表达式为 $r_c = M \\pm \\sqrt{M^2 - Q^2}$；在极端黑洞极限下，临界半径为 $r_c = M$。",
+    "solution": "1. 根据静态系统的热平衡条件 $T(r) \\sqrt{-g_{00}(r)} = \\text{constant}$，取无穷远处 $r \\to \\inf ty$ 作为参考点，此时度规分量 $g_{00} \\to -1$，局部温度为 $T_\\inf ty$，因此常数等于 $T_\\inf ty$。2. 对于 Reissner-Nordström 度规，时间分量 $g_{00} = -\\left(1 - \\frac{2M}{r} + \\frac{Q^2}{r^2}\\right)$。代入热平衡条件可得局部温度分布：$$ T(r) = \\frac{T_\\inf ty}{\\sqrt{1 - \\frac{2M}{r} + \\frac{Q^2}{r^2}}} $$3. 局部温度发散的临界条件是分母为零，即 $1 - \\frac{2M}{r} + \\frac{Q^2}{r^2} = 0$。4. 将上式整理为关于 $r$ 的二次方程 $r^2 - 2Mr + Q^2 = 0$，解此方程可得临界半径：$$ r_c = M \\pm \\sqrt{M^2 - Q^2} $$这两个临界半径分别对应于 Reissner-Nordström 黑洞的外视界和内视界，表明静态观测者在靠近视界时会观测到无限蓝移的热辐射发散。5. 在极端黑洞极限下，电荷达到最大允许值 $Q=M$，此时判别式 $\\sqrt{M^2 - Q^2} = 0$，双重根合并，临界半径的数值为 $r_c = M$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.reissnernordstrom_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.2,
+      "issue": "题目和解答中存在严重的 LaTeX 符号拼写错误，将无穷远符号 `\\infty` 错误地拼写为了 `\\inf ty`。例如，题目中的无穷远温度应为 $T_\\infty$，却写成了 `$T_\\inf ty$`；解答中的无穷远极限应为 $r \\to \\infty$，却写成了 `$r \\to \\inf ty$`，常数也应为 $T_\\infty$ 却写成了 `$T_\\inf ty$`。在 LaTeX 中，`\\inf` 是下界运算符，`\\inf ty` 会渲染为带有间距的 'inf' 后跟文本 'ty'，导致核心物理变量和边界条件符号完全不可读、含义错误，严重破坏了题目的自包含性与自洽性。此外，题目问的是单数的'临界半径 $r_c$'，但实际上 RN 黑洞存在内视界和外视界两个使温度发散的半径，answer 中给出的 $r_c = M \\pm \\sqrt{M^2 - Q^2}$ 实际上是两个半径的表达式，存在单复数指代不一致的逻辑瑕疵。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s6_6.3_a",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_tensor",
+      "coordinate": "cartesian_coordinates",
+      "scenario": "cylindrical_projection",
+      "method": "surface_of_globe"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s6_6.3_a",
+    "source_id": "1_s6_6.3_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s6_6.3_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.4,
+      "generalizability": 0.5,
+      "completeness": 0.8,
+      "realism": 0.6,
+      "rationale": "二维球面度规的坐标变换与地图投影应用",
+      "overall": 0.57
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$\\lambda$",
+      "$\\phi$",
+      "$x$",
+      "$y$"
+    ],
+    "target": [
+      "$g_{xx}$",
+      "$g_{yy}$",
+      "$g_{xy}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s6_6.3_a.md]Problem 6.3. The metric for the surface of a globe of the Earth is$$\\mathrm {d s}^{2} = \\mathrm {a}^{2} (\\mathrm {d} \\lambda^{2} + \\cos^{2} \\lambda \\mathrm {d} \\phi^{2})$$where $\\lambda$ is the latitude and $\\phi$ is the longitude. The metric of a flat map of the world, with Cartesian coordinates $x$ and $y$ is $\\mathrm{ds}^2 = \\mathrm{dx}^2 + \\mathrm{dy}^2$ ; however we are not interested in this geometry, but in that of the globe it represents. What is the metric of the globe expressed in $x$ and $y$ coordinates for (a) a cylindrical projection",
+    "answer": "$ds^2 = \\cos^2(y/a) dx^2 + dy^2$ （即 $g_{xx} = \\cos^2(y/a)$, $g_{yy} = 1$, $g_{xy} = 0$）",
+    "solution": "采用简单圆柱投影的标准映射关系：$x = a\\phi$, $y = a\\lambda$。对两式微分得 $dx = a d\\phi$, $dy = a d\\lambda$。将微分关系代入原球面线元 $ds^2 = a^2 d\\lambda^2 + a^2 \\cos^2 \\lambda d\\phi^2$，并利用 $\\lambda = y/a$ 替换三角函数内的角度变量，化简后得到 $ds^2 = dy^2 + \\cos^2(y/a) dx^2$。将其与直角坐标下的一般线元形式 $ds^2 = g_{xx}dx^2 + g_{yy}dy^2 + 2g_{xy}dx dy$ 对比，可直接读出目标度规分量。"
+  },
+  "verification": null
+}

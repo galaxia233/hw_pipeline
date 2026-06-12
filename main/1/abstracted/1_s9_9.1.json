@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "id": "1_s9_9.1",
+    "type": "prove",
+    "tags": {
+      "metric": "curvature",
+      "target_object": "coordinate_systems",
+      "coordinate": "geodesics",
+      "scenario": "sphere_geometry",
+      "method": "local_flatness"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.1",
+    "source_id": "1_s9_9.1",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "多步几何推理结合测地线角盈与经纬线度量畸变，展示曲率对局部笛卡尔近似的修正",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$a$",
+      "$\\theta$",
+      "$\\phi$",
+      "$A$"
+    ],
+    "target": [
+      "$\\text{Coordinate deviation}$"
+    ],
+    "metric": [
+      [
+        "$a^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$a^2 \\sin^2 \\theta$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "a**2",
+        "0"
+      ],
+      [
+        "0",
+        "a**2*sin(theta)**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 9.1. On a sphere of radius $a$ try to construct a local Cartesian system in two ways (a) from geodesics and (b) from the (orthogonal) lines of longitude and latitude. Either way there will be deviations from a good Cartesian system (e.g. the sum of the angles in a coordinate box will differ from $2\\pi$ , or the fractional difference in length between \"parallel\" sides of a coordinate box will not vanish). Show that such deviations are of order [Area of coordinate patch/a²].",
+    "answer": "偏离程度为 $O(\\text{Area}/a^2)$，由球面曲率 $1/a^2$ 度量。",
+    "solution": "Solution 9.1. If we construct a coordinate patch from geodesics we can then bisect that coordinate box with a geodesic diagonal, forming two geodesic triangles. The angular excess of a triangle made from great circles is $\\pi[\\text{Area}/\\text{a}^2]$ . Since the sum of the interior angles of the coordinate box will be the sum of the interior angles of the two triangles, the angular excess of the coordinate box is $\\pi[\\text{Area}/\\text{a}^2]$ .The best coordinate patch constructed of lines of longitude and latitude is that near the equator. Clearly there is no angular excess, and$$\\overline {{\\mathbf {A C}}} = \\overline {{\\mathbf {B D}}}, \\quad \\text {b u t}$$![](images/77360ee1f6a95cec792f8590c73c67190578f5932365ea1abaf9fde2dbbe7870.jpg)$$\\begin{array}{l}\\overline {{C D}} - \\overline {{A B}} = a \\Delta \\phi - a \\Delta \\phi \\sin \\left(\\frac {\\pi}{2} - \\Delta \\theta\\right) \\\\ \\approx \\mathbf {a} \\Delta \\phi \\frac {1}{2} (\\Delta \\theta)^{2}, \\\\\\end{array}$$so$$\\frac {\\overline {{\\mathrm {C D}}} - \\overline {{\\mathrm {A B}}}}{\\overline {{\\mathrm {A C}}}} \\approx \\frac {1}{2} \\Delta \\phi \\Delta \\theta \\approx \\frac {1}{2} \\frac {\\text {A r e a}}{a^{2}}$$In both these examples, the departure from flatness is measured by $1 / a^2$ , the curvature of the sphere."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 2,
+    "variables": [
+      "a",
+      "\\theta"
+    ],
+    "metric_latex": [
+      [
+        "a^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "a^{2} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_000": "\\frac{1}{a}",
+      "Gamma_011": "- \\frac{\\sin^{2}{\\left(\\theta \\right)}}{a}",
+      "Gamma_101": "\\frac{1}{a}",
+      "Gamma_110": "\\frac{1}{a}"
+    },
+    "riemann": {
+      "R_0101": "\\frac{\\sin^{2}{\\left(\\theta \\right)}}{a^{2}}",
+      "R_0110": "- \\frac{\\sin^{2}{\\left(\\theta \\right)}}{a^{2}}",
+      "R_1001": "- \\frac{1}{a^{2}}",
+      "R_1010": "\\frac{1}{a^{2}}"
+    },
+    "ricci_tensor": {
+      "R_00": "\\frac{1}{a^{2}}",
+      "R_11": "\\frac{\\sin^{2}{\\left(\\theta \\right)}}{a^{2}}"
+    },
+    "ricci_scalar": "\\frac{2}{a^{4}}",
+    "kretschmann": "\\frac{4}{a^{8}}",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "gauge_vector_condition",
+      "coordinate": "Cartesian",
+      "scenario": "linearized_gravity_gauge",
+      "method": "invert_property",
+      "generalization_axis": "invert",
+      "metric": "MinkowskiCartesian"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "MinkowskiCartesian",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$\\Box \\xi_\\nu = \\partial^\\mu \\bar{h}_{\\mu\\nu}^{\\text{old}}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In the framework of linearized gravity, the spacetime metric is decomposed as $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$, where $\\eta_{\\mu\\nu}$ is the flat Minkowski background metric in Cartesian coordinates. Under an infinitesimal gauge transformation $x^\\mu_{\\text{new}} = x^\\mu_{\\text{old}} + \\xi^\\mu$, the metric perturbation transforms as$$h_{\\mu\\nu}^{\\text{new}} = h_{\\mu\\nu}^{\\text{old}} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu.$$To simplify the linearized Einstein equations, one often imposes the Lorenz gauge condition on the trace-reversed perturbation $\\bar{h}_{\\mu\\nu} = h_{\\mu\\nu} - \\frac{1}{2}\\eta_{\\mu\\nu}h$ (where $h = \\eta^{\\alpha\\beta}h_{\\alpha\\beta}$), which reads $\\partial^\\mu \\bar{h}_{\\mu\\nu} = 0$.Starting from the requirement that the transformed perturbation $\\bar{h}_{\\mu\\nu}^{\\text{new}}$ must satisfy this Lorenz gauge condition, invert the transformation law to deduce the inhomogeneous wave equation that the gauge vector $\\xi_\\nu$ must satisfy. Furthermore, explain how the geometric properties of the Minkowski background—specifically the vanishing of the Christoffel symbols and the Riemann tensor in Cartesian coordinates—ensure that this deduced condition for $\\xi_\\nu$ takes the form of a standard wave equation rather than a more complicated differential equation.",
+    "answer": "$\\Box \\xi_\\nu = \\partial^\\mu \\bar{h}_{\\mu\\nu}^{\\text{old}}$",
+    "solution": "1. Express the transformation of the trace-reversed perturbation:$$\\bar{h}_{\\mu\\nu}^{\\text{new}} = h_{\\mu\\nu}^{\\text{new}} - \\frac{1}{2}\\eta_{\\mu\\nu}h^{\\text{new}}$$$$= (h_{\\mu\\nu}^{\\text{old}} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu) - \\frac{1}{2}\\eta_{\\mu\\nu}(h^{\\text{old}} - 2\\partial^\\alpha \\xi_\\alpha)$$$$= \\bar{h}_{\\mu\\nu}^{\\text{old}} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu + \\eta_{\\mu\\nu}\\partial^\\alpha \\xi_\\alpha.$$2. Apply the Lorenz gauge condition to the new perturbation:$$\\partial^\\mu \\bar{h}_{\\mu\\nu}^{\\text{new}} = 0.$$3. Substitute the transformation law into the condition:$$\\partial^\\mu \\bar{h}_{\\mu\\nu}^{\\text{old}} - \\partial^\\mu \\partial_\\mu \\xi_\\nu - \\partial^\\mu \\partial_\\nu \\xi_\\mu + \\partial_\\nu \\partial^\\alpha \\xi_\\alpha = 0.$$4. Since partial derivatives commute in flat spacetime, $\\partial^\\mu \\partial_\\nu \\xi_\\mu = \\partial_\\nu \\partial^\\mu \\xi_\\mu$, which perfectly cancels the last term $\\partial_\\nu \\partial^\\alpha \\xi_\\alpha$. The equation thus simplifies to the inhomogeneous wave equation:$$\\Box \\xi_\\nu = \\partial^\\mu \\bar{h}_{\\mu\\nu}^{\\text{old}}.$$5. The role of vanishing Christoffel symbols and Riemann tensor: In a general curved background, gauge transformations involve covariant derivatives ($\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu$), and the Lorenz condition involves $\\nabla^\\mu$. To invert the condition for $\\xi_\\nu$, one would need to commute covariant derivatives, which introduces terms proportional to the Riemann tensor (specifically, $[\\nabla^\\mu, \\nabla_\\nu]\\xi_\\mu = R^\\mu_{\\ \\nu\\alpha\\mu}\\xi^\\alpha = R_{\\nu\\alpha}\\xi^\\alpha$). Because the background is Minkowski spacetime in Cartesian coordinates, all Christoffel symbols vanish ($\\Gamma^\\alpha_{\\mu\\nu}=0$), meaning covariant derivatives reduce to partial derivatives ($\\nabla_\\mu = \\partial_\\mu$), and the Riemann tensor is identically zero. This guarantees the commutativity of derivatives, preventing curvature coupling terms from complicating the equation and reducing it to the standard flat-space wave equation $\\Box \\xi_\\nu = \\partial^\\mu \\bar{h}_{\\mu\\nu}^{\\text{old}}$, which is always solvable for well-behaved source terms."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.minkowskicartesian_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

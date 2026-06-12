@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s8_8.10_d",
+    "type": "prove",
+    "tags": {
+      "metric": "vector_calculus",
+      "target_object": "differential_forms",
+      "coordinate": "Cartan_calculus",
+      "scenario": "stokes_theorem",
+      "method": "integral_identity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.10_d",
+    "source_id": "1_s8_8.10_d",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.10_d"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.5,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.3,
+      "rationale": "基于外微积分与反对称张量推导经典斯托克斯定理恒等式，数学逻辑严密但缺乏具体物理系统背景",
+      "overall": 0.62
+    }
+  },
+  "physical_data": {
+    "dimension": 3,
+    "variables": [
+      "$\\mathbf{A}$",
+      "$\\theta$",
+      "$\\underline{\\mathrm{d}\\ell}$",
+      "$\\underline{\\mathrm{d}S}$",
+      "$\\nabla \\times \\mathbf{A}$",
+      "$\\Omega$"
+    ],
+    "target": [
+      "$\\nabla \\times \\mathbf{A}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 8.10. [Note: This problem assumes a familiarity with the Cartan calculus, beyond the scope of most relativity texts. Succeeding problems do not depend on it.] In the language of differential forms the generalizedStokes' theorem is$$\\int_{\\Omega} \\mathrm {d} \\boldsymbol {\\theta} = \\int_{\\partial \\Omega} \\boldsymbol {\\theta}.$$To what does this theorem reduce, in the following cases(d) Use the generalized Stokes theorem to derive the familiar relation$$\\int_{\\underset {\\sim} {\\mathbf {A}}} \\cdot \\underline {{\\mathrm {d} l}} = \\int (\\underset {\\sim} {\\nabla} \\times \\underline {{\\mathbf {A}}}) \\cdot \\underline {{\\mathrm {d} S}}.$$",
+    "answer": "$$\\int_{\\underset {\\sim} {\\mathbf {A}}} \\cdot \\underline {{\\mathrm {d} l}} = \\int (\\underset {\\sim} {\\nabla} \\times \\underline {{\\mathbf {A}}}) \\cdot \\underline {{\\mathrm {d} S}}.$$",
+    "solution": "(d) Let $\\pmb{\\theta} = \\mathbf{A}_{\\mathbf{k}} \\mathrm{d}\\mathbf{x}^{\\mathbf{k}} = \\underline{\\mathbf{A}} \\cdot \\underline{\\mathbf{d}}\\ell$ , and let $\\Omega$ be 2-dimensional; then the exterior derivative is$$\\begin{array}{l} \\mathrm {d} \\boldsymbol {\\theta} = \\mathrm {A}_{\\mathrm {k}, \\mathrm {j}} \\widetilde {\\mathrm {d x}}^{\\mathrm {j}} \\wedge \\widetilde {\\mathrm {d x}}^{\\mathrm {k}} \\\\ = A_{k, j} \\delta_{m}^{[ k} \\delta_{n}^{j ]} \\widetilde{\\mathbf {d x}}^{m} \\wedge \\widetilde{\\mathbf {d x}}^{n} \\\\ = \\frac {1}{2} A_{k, j} \\varepsilon^{r k j} \\varepsilon_{r m n} \\widetilde{\\mathbf {d x}}^{m} \\wedge \\widetilde{\\mathbf {d x}}^{n} \\\\ = (\\nabla \\times \\underline {{\\mathbf {A}}})^{\\mathrm {r}} \\mathrm {d}^{2} \\mathbf {S}_{\\mathrm {r}}, \\\\ \\end{array}$$which completes the derivation."
+  },
+  "verification": null
+}

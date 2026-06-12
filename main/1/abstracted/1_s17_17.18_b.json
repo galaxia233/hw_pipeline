@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s17_17.18_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "orthonormal_basis",
+      "coordinate": "vector_field",
+      "scenario": "kerr_geometry",
+      "method": "frame_transformation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.18_b",
+    "source_id": "1_s17_17.18_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.18_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "ZAMO正交标架变换与对偶基求解，涉及矩阵求逆与物理背景明确",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$\\mathbf{e}_{\\hat{t}}$",
+      "$\\mathbf{e}_{\\hat{\\phi}}$",
+      "$\\mathbf{e}_{\\hat{r}}$",
+      "$\\mathbf{e}_{\\hat{\\theta}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 17.18 (b) The “Zero Angular Momentum Observers” (ZAMO's) in the Kerr geometry have basis 1-forms$$\\begin{array}{l} \\tilde {\\omega}^{\\hat {t}} = \\left| g_{t t} - \\omega^{2} g_{\\phi \\phi}\\right|^{\\frac {1}{2}} \\widetilde {d t} \\\\\\tilde {\\omega}^{\\hat {\\phi}} = \\left(\\mathrm {g}_{\\phi \\phi}\\right)^{\\frac {1}{2}} \\left(\\widetilde {\\mathrm {d} \\phi} - \\omega \\widetilde {\\mathrm {d t}}\\right) \\\\\\tilde {\\boldsymbol {\\omega}}^{\\hat {\\mathbf {r}}} = \\left(\\boldsymbol {\\Sigma} / \\Delta\\right)^{\\frac {1}{2}} \\overline {{{\\mathrm {d} \\mathbf {r}}}} \\\\\\tilde {\\boldsymbol {\\omega}}^{\\hat {\\theta}} = \\Sigma^{\\frac {1}{2}} \\widetilde {\\mathbf {d} \\theta} \\\\\\end{array}$$where $\\omega \\equiv -\\mathbf{g}_{t\\phi} / \\mathbf{g}_{\\phi \\phi}$(b) Find the dual basis vectors.",
+    "answer": "$$ \\mathbf{e}_{\\hat{t}} = |g_{tt} - \\omega^2 g_{\\phi\\phi}|^{-1/2} (\\mathbf{e}_t + \\omega \\mathbf{e}_\\phi), \\quad \\mathbf{e}_{\\hat{\\phi}} = (g_{\\phi\\phi})^{-1/2} \\mathbf{e}_\\phi, \\quad \\mathbf{e}_{\\hat{r}} = (\\Delta / \\Sigma)^{1/2} \\mathbf{e}_r, \\quad \\mathbf{e}_{\\hat{\\theta}} = \\Sigma^{-1/2} \\mathbf{e}_\\theta $$",
+    "solution": "The dual basis $\\mathbf{e}_{\\hat{\\alpha}}$ is defined by $< \\tilde{\\pmb{\\omega}}^{\\hat{\\alpha}},\\mathbf{e}_{\\hat{\\beta}} > = \\delta_{\\beta}^{a}$ . If $\\tilde{\\pmb{\\omega}}^{\\hat{\\alpha}} = \\mathbf{A}_{\\beta}^{\\hat{\\alpha}}\\tilde{\\pmb{\\omega}}^{\\beta}$ and $\\mathbf{e}_{\\hat{\\beta}} = \\mathbf{B}_{\\hat{\\beta}}^{\\gamma}\\mathbf{e}_{\\gamma}$ , then the matrix $\\mathbf{B}_{\\hat{\\beta}}^{\\gamma}$ must be the transposed inverse of $\\mathbf{A}_{\\beta}^{\\alpha}$ . To find $\\mathbf{B}$ from A we can separate the t-phi piece from the (diagonal) r-0 piece:$$\\left[ \\begin{array}{c} \\tilde {\\boldsymbol {\\omega}}^{\\hat {\\mathfrak {t}}} \\\\\\tilde {\\boldsymbol {\\omega}}^{\\hat {\\phi}} \\end{array}\\right] = \\left[ \\begin{array}{c c} | \\mathrm {g}_{\\mathrm {tt}} - \\omega^{2} \\mathrm {g}_{\\phi \\phi} |^{\\frac {1}{2}} & 0 \\\\- \\omega (\\mathrm {g}_{\\phi \\phi})^{\\frac {1}{2}} & (\\mathrm {g}_{\\phi \\phi})^{\\frac {1}{2}} \\end{array}\\right] \\left[ \\begin{array}{c} \\widetilde {\\mathrm {d} t} \\\\\\widetilde {\\mathrm {d} f} \\end{array}\\right]$$implies that$$\\left[ \\begin{array}{c} \\mathbf {e}_{\\hat {\\mathbf {t}}} \\\\\\mathbf {e}_{\\hat {\\boldsymbol {\\phi}}} \\end{array}\\right] = \\left[ \\begin{array}{c c} | \\mathbf {g}_{\\mathbf {tt}} - \\omega^{2} \\mathbf {g}_{\\boldsymbol {\\phi} \\boldsymbol {\\phi}} |^{- \\frac {1}{2}} & \\omega | \\mathbf {g}_{\\mathbf {tt}} - \\omega^{2} \\mathbf {g}_{\\boldsymbol {\\phi} \\boldsymbol {\\phi}} |^{- \\frac {1}{2}} \\\\0 & (\\mathbf {g}_{\\boldsymbol {\\phi} \\boldsymbol {\\phi}})^{- \\frac {1}{2}} \\end{array}\\right] \\left[ \\begin{array}{c} \\mathbf {e}_{\\mathbf {t}} \\\\\\mathbf {e}_{\\boldsymbol {\\phi}} \\end{array}\\right].$$Since the $r-\\theta$ piece is diagonal, it is trivially inverted:$$\\mathbf {e}_{\\mathrm {\\hat {r}}} = (\\Delta / \\Sigma)^{\\frac {1}{2}} \\mathbf {e}_{\\mathrm {\\hat {r}}} \\qquad \\mathbf {e}_{\\hat {\\theta}} = \\Sigma^{- \\frac {1}{2}} \\mathbf {e}_{\\theta}.$$"
+  },
+  "verification": null
+}

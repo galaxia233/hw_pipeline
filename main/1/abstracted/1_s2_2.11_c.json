@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s2_2.11_c",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_flat_metric",
+      "target_object": "relativistic_3_momentum",
+      "coordinate": "Lab_and_CM_frames",
+      "scenario": "two_body_collision_scenario",
+      "method": "Lorentz_invariant_algebra"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.11_c",
+    "source_id": "1_s2_2.11_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.11_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于狭义相对论四矢量模方不变量与质心系定义的标准运动学推导，逻辑链条完整且可推广至任意能量质量的两体碰撞场景",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$m_1$",
+      "$m_2$",
+      "$E_1$",
+      "$E_{\\\\mathrm{total}}^{\\\\mathbf{C.M.}}$",
+      "$\\\\mathbf{P}_1$"
+    ],
+    "target": "$\\\\mathbf{P}_1^{\\\\mathbf{C.M.}} = \\\\frac{m_2 \\\\mathbf{P}_1}{E_{\\\\mathrm{total}}^{\\\\mathbf{C.M.}}}$",
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 2.11. Consider the reaction $1 + 2 \\\\rightarrow 3 + 4$ . The lab frame is defined to be the one in which $\\underline{\\\\mathbf{P}}_2 = 0$ . The C.M. frame is defined to be the one in which $\\underline{\\\\mathbf{P}}_1^{\\\\mathbf{C.M.}} + \\\\underline{\\\\mathbf{P}}_2^{\\\\mathbf{C.M.}} = 0$ . Show that:\\n(c) $\\mathbf{P}_1^{\\\\mathbf{C},\\\\mathbf{M}.} = \\\\mathfrak{m}_2\\\\mathbf{P}_1 / \\\\mathbf{E}_{\\\\mathrm{total}}^{\\\\mathbf{C},\\\\mathbf{M}.}$.",
+    "answer": "$\\\\mathbf{P}_1^{\\\\mathbf{C.M.}} = \\\\mathfrak{m}_2\\\\mathbf{P}_1 / \\\\mathbf{E}_{\\\\mathrm{total}}^{\\\\mathbf{C.M.}}.$",
+    "solution": "(c) By using the result of part (b) we have\\n$$\\n\\\\begin{array}{l} \\\\left(\\\\mathbf {P}_{1}^{\\\\mathbf {C . M .}}\\\\right)^{2} = \\\\left(\\\\mathbf {E}_{1}^{\\\\mathbf {C . M .}}\\\\right)^{2} - \\\\mathbf {m}_{1}^{2} = \\\\left(\\\\frac {\\\\mathbf {m}_{1}^{2} + \\\\mathbf {E}_{1} \\\\mathbf {m}_{2}}{\\\\mathbf {E}_{\\\\mathrm {t o t}}^{\\\\mathbf {C . M .}}}\\\\right)^{2} - \\\\mathbf {m}_{1}^{2} \\\\\\\\\\\\ = \\\\cdot \\\\frac {\\\\left(m_{1}^{2} + E_{1} m_{2}\\\\right)^{2} - m_{1}^{2} \\\\left(m_{1}^{2} + m_{2}^{2} + 2 E_{1} m_{2}\\\\right)}{\\\\left(E_{\\\\text {t o t}}^{C . M .}\\\\right)^{2}} = \\\\frac {m_{2}^{2} \\\\left(E_{1}^{2} - m_{1}^{2}\\\\right)}{\\\\left(E_{\\\\text {t o t}}^{C . M .}\\\\right)^{2}} = \\\\frac {m_{2}^{2} P_{1}^{2}}{\\\\left(E_{\\\\text {t o t}}^{C . M .}\\\\right)^{2}}, \\\\\\\\ \\\\end{array}\\n$$\\nand therefore $\\mathbf{P}_1^{\\\\mathbf{C},\\\\mathbf{M}.} = \\\\mathfrak{m}_2\\\\mathbf{P}_1 / \\\\mathbf{E}_{\\\\mathrm{total}}^{\\\\mathbf{C},\\\\mathbf{M}.}$."
+  },
+  "verification": null
+}

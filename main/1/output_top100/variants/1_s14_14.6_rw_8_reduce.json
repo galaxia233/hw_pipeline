@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-2-1-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "\\Gamma^r_{\\theta\\theta}",
+      "coordinate": "t,r,theta,phi",
+      "scenario": "static_radial_field_reduce_flat",
+      "method": "reduce_to_flat_limit",
+      "generalization_axis": "limit",
+      "metric": "AntiDeSitterStatic"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-2",
+      "1_s14_14.6-2-1",
+      "1_s14_14.6-2-1-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "AntiDeSitterStatic",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "平直时空极限下 \\Gamma^r_{\\theta\\theta} 的表达式及横向应力对重量贡献的物理对应"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在一个具有静态径向引力场的 Anti-DeSitter 时空中，坐标线元为 $ds^2 = - \\cos h^{2}{\\left(r\\right)} dt^2 + dr^2 + \\sin h^{2}{\\left(r\\right)} d\\theta^{2} + \\sin^{2}{\\left(\\theta\\right)} \\sin h^{2}{\\left(r\\right)} d\\phi^{2}$。广义相对论表明，对于放置在此场中的静态物质分布，其在秤上测得的重量不仅依赖于总能量密度，还依赖于横向应力分量，其几何贡献系数由 Christoffel 符号 $\\Gamma^r_{\\theta\\theta} = -\\frac{1}{2} \\partial_r g_{\\theta\\theta}$ 决定。请通过取平直时空极限（消除时空曲率，将双曲函数退化为其平直时空的代数对应：$\\cos h(r) \\to 1$, $\\sin h(r) \\to r$），求出极限下的 $\\Gamma^r_{\\theta\\theta}$ 表达式，并说明横向应力对真实引力重量的贡献在此经典对应下如何变化。",
+    "answer": "取平直时空极限：将度规中的双曲函数替换为其平直时空代数对应，即 $\\cos h(r) \\to 1$, $\\sin h(r) \\to r$，度规退化为 Minkowski 时空的球坐标形式 $ds^2 = -dt^2 + dr^2 + r^2 d\\theta^2 + r^2 \\sin^2(\\theta) d\\phi^2$。此时横向度规分量 $g_{\\theta\\theta} = r^2$，其径向导数 $\\partial_r g_{\\theta\\theta} = 2r$，代入得极限下的 Christoffel 符号 $\\Gamma^r_{\\theta\\theta} = -r$。在此经典对应（Minkowski极限）中，时空曲率消失，$\\Gamma^r_{\\theta\\theta} = -r$ 仅源于球坐标系的纯数学坐标效应，不再包含时空曲率带来的物理贡献，对应于 Newtonian/平直时空中不存在真实引力场，横向应力对引力重量的附加物理贡献完全消失。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.antidesitterstatic_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.2,
+      "issue": "1. 核心数学符号拼写错误：题目及 answer 中将双曲函数 $\\cosh$ 和 $\\sinh$ 错误地拼写为 $\\cos h$ 和 $\\sin h$（如线元中的 $\\cos h^{2}(r)$ 和极限条件中的 $\\cos h(r) \\to 1$）。在 LaTeX 中，$\\cos h$ 会被渲染为三角函数 cos 与变量 h 的乘积，完全改变了数学含义，导致度规表达式出现严重歧义，做题者无法仅凭题目明确其指代双曲函数，破坏了 self-contained 性质。2. 物理表述瑕疵：answer 解释称'横向应力对引力重量的附加物理贡献完全消失'，逻辑不严密。在题目所指的平直时空极限（消除时空曲率）中，根本不存在真实引力场，物体的引力重量本身即为零，而非仅仅'附加贡献'消失；横向应力在平直时空中仍对物质内部的压强梯度平衡有贡献，只是不再作为引力源产生物理效应。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

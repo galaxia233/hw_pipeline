@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s5_5.18",
+    "type": "prove",
+    "tags": {
+      "metric": "relativistic_fluid_kinematics",
+      "target_object": "tensor_projection",
+      "coordinate": "covariant_derivative",
+      "scenario": "decomposition_theorem",
+      "method": "geometric_spacetime"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.18",
+    "source_id": "1_s5_5.18",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.18"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.4,
+      "realism": 0.9,
+      "rationale": "经典相对论流体运动学分解，需多步指标运算与投影张量正交性推导；题干完整但解答文本截断。",
+      "overall": 0.73
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$u_\\\\alpha$",
+      "$u^\\\\beta$",
+      "$g_{\\\\alpha\\\\beta}$",
+      "$P_{\\\\alpha\\\\beta}$",
+      "$a_\\\\alpha$",
+      "$\\\\theta$",
+      "$\\\\omega_{\\\\alpha\\\\beta}$",
+      "$\\\\sigma_{\\\\alpha\\\\beta}$",
+      "$x^\\\\mu$"
+    ],
+    "target": [
+      "$u_{\\\\alpha ; \\\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s5_5.18.md]\\n\\nProblem 5.18. If $\\mathbf{u}$ is the 4-velocity of a fluid show that $\\nabla \\mathbf{u}$ can be decomposed as\\n$$\\n\\\\mathsf {u}_{\\alpha ; \\beta} = \\omega_{\\alpha \\beta} + \\sigma_{\\alpha \\beta} + \\frac {1}{3} \\theta \\mathsf {P}_{\\alpha \\beta} - \\mathsf {a}_{\\alpha} \\mathsf {u}_{\\beta},\\n$$\\nwhere $\\mathbf{a}$ is the \"4-acceleration\" of the fluid\\n$$\\n\\\\mathbf {a}_{\\alpha} \\equiv \\mathbf {u}_{\\alpha ; \\beta} \\mathbf {u}^{\\beta} ,\\n$$\\n$\\theta$ is the \"expansion\" of the fluid world lines\\n$$\\n\\\\theta \\equiv \\nabla \\cdot \\mathbf {u} = \\mathrm {u}_{; \\alpha}^{\\alpha},\\n$$\\n$\\omega_{\\alpha \\beta}$ is the “rotation 2-form” of the fluid, and $\\sigma_{\\alpha \\beta}$ is the “shear tensor”\\n$$\\n\\omega_{\\alpha \\beta} \\equiv \\frac {1}{2} \\left(\\mathrm {u}_{\\alpha ; \\mu} \\mathrm {P}^{\\mu}_{\\beta} - \\mathrm {u}_{\\beta ; \\mu} \\mathrm {P}^{\\mu}_{\\alpha}\\right),\\n$$\\n$$\\n\\sigma_{\\alpha} \\beta \\equiv \\frac {1}{2} \\left(\\mathrm {u}_{\\alpha ; \\mu} \\mathrm {P}^{\\mu}_{\\beta} + \\mathrm {u}_{\\beta ; \\mu} \\mathrm {P}^{\\mu}_{\\alpha}\\right) - \\frac {1}{3} \\theta \\mathrm {P}_{\\alpha} \\beta .\\n$$\\nHere $\\mathbf{P}$ is the projection tensor\\n$$\\n\\\\mathbf {P}_{\\alpha \\beta} \\equiv \\mathbf {g}_{\\alpha \\beta} + \\mathbf {u}_{\\alpha} \\mathbf {u}_{\\beta}\\n$$\\nwhich projects a vector onto the 3-surface perpendicular to $\\mathbf{u}$ .\\n\\n## Solution\\n\\nSolution 5.18. When the definitions of $\\sigma_{\\alpha \\beta}$ and $\\omega_{\\alpha \\beta}$ are used, we can see we need only verify\\n$$\\n\\\\mathsf {u}_{\\alpha ; \\beta} = \\mathsf {u}_{\\alpha ; \\mu} \\mathbf {P}^{\\mu}_{\\beta} - \\mathsf {a}_{\\alpha} \\mathsf {u}_{\\beta}.\\n$$\\nIt is straightforward to use the definition of $\\mathbf{P}^{\\mu}_{\\beta}$ to verify this. Instead we follow a more instructive approach of projecting the equation with $\\mathbf{u}$ and with $\\mathbf{P}$ . Note that请将附件中的题目抽象化为 schema JSON 格式",
+    "answer": "$u_{\\\\alpha ; \\\\beta} = \\\\omega_{\\\\alpha \\\\beta} + \\\\sigma_{\\\\alpha \\\\beta} + \\\\frac {1}{3} \\\\theta P_{\\\\alpha \\\\beta} - a_{\\\\alpha} u_{\\\\beta}$",
+    "solution": "Solution 5.18. When the definitions of $\\sigma_{\\alpha \\beta}$ and $\\omega_{\\alpha \\beta}$ are used, we can see we need only verify\\n$$\\n\\\\mathsf {u}_{\\alpha ; \\beta} = \\mathsf {u}_{\\alpha ; \\mu} \\mathbf {P}^{\\mu}_{\\beta} - \\mathsf {a}_{\\alpha} \\mathsf {u}_{\\beta}.\\n$$\\nIt is straightforward to use the definition of $\\mathbf{P}^{\\mu}_{\\beta}$ to verify this. Instead we follow a more instructive approach of projecting the equation with $\\mathbf{u}$ and with $\\mathbf{P}$ . Note that请将附件中的题目抽象化为 schema JSON 格式"
+  },
+  "verification": null
+}

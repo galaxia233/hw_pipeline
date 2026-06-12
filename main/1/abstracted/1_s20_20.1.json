@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s20_20.1",
+    "type": "calculate",
+    "tags": {
+      "metric": "weak_field_metric_approx",
+      "target_object": "deflection_angle",
+      "coordinate": "Cartesian_coordinates",
+      "scenario": "uniform_gravity_lab_scenario",
+      "method": "relativistic_aberration_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s20_20.1",
+    "source_id": "1_s20_20.1",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s20_20.1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.6,
+      "completeness": 0.8,
+      "realism": 0.7,
+      "rationale": "基于等效原理与相对论像差公式的多步推导，结合实验室尺度数值估算探讨物理可行性",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$\\\\ell$",
+      "$g$",
+      "$c$",
+      "$\\\\theta$",
+      "$\\\\beta$"
+    ],
+    "target": [
+      "$\\\\theta$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 20.1. Gravitational bending of light: An evacuated tube of length $\\ell$ is set up horizontally in a uniform gravitational field - e.g., in the field of the earth at sea level with $\\ell \\ll r_{\\text{earth}}$ so that gravitational inhomogeneities (tidal forces) are negligible. A laser beam passing through the tube is deflected from the horizontal by the uniform gravitational field. Calculate the angle of light deflection measured relative to the axis of the tube. Express the answer in terms of the length of the tube, $\\ell$ , and the acceleration of gravity, g. Discuss the feasibility of performing such an experiment in an earth-based laboratory.\\n\\n## Solution",
+    "answer": "$\\\\theta = g \\\\ell / c^2$",
+    "solution": "Note that there are no “real” (i.e. tidal) gravitational forces; the light goes in a straight line in any inertial frame, but in the accelerated frame of the tube it seems to bend.\\nConsider two inertial frames - one comoving with the tube at the instant the light enters it - the other comoving with the tube at the instant the light reaches the end. Since the length of the tube is seen in both frames as $\\ell$ and since $\\theta$ is always small, observers in either frame see it take $\\ell / c$ for the light to cross the tube. At this time their relative velocity is $\\beta = g \\ell / c^2$ . (An observer in the second frame sees the first frame moving upward with velocity $\\beta$ .) The direction angles of the photons path are related by (see Problem 1.8 and figure on p. 561):\\n$$\\n\\\\cos \\\\psi = \\\\sin \\\\theta \\\\approx \\\\theta = \\\\frac {\\\\cos \\\\psi^{\\prime} + \\\\beta}{1 + \\\\beta \\\\cos \\\\psi^{\\prime}} = \\\\beta .\\n$$\\nTherefore\\n$$\\n\\\\theta = \\\\mathrm {g} \\\\ell / \\\\mathrm {c}^{2}, \\\\quad \\\\mathrm {g} / \\\\mathrm {c}^{2} = 1 0^{- 1 6} \\\\mathrm {m}^{- 1},\\n$$\\nso, if the tube is 10 meters long $\\theta = 10^{-15}$ radians, and the total displacement $\\frac{1}{2} (\\mathrm {g / c}^2)\\ell^2\\approx 10^{-14}$ meters. This is very small compared to the wave length of light; it is difficult to imagine interferometric (or any other) techniques capable of detecting this. When lasers are used for alignment (as in the Stanford linear accelerator) they are meant to correct for the curvature of the surface of the earth - a much larger effect, obviously, since a light ray at the earth's surface is not bent so strongly as to be pulled into a circular orbit.\\n![](images/87274c657751d1a728e1412f32542d99f9a7dab6f5c3e5dd39770e5b9f380f82.jpg)\\n![](images/af085a49c10369d1638237efd3e577d7cea118957bfe5d03.jpg)"
+  },
+  "verification": null
+}

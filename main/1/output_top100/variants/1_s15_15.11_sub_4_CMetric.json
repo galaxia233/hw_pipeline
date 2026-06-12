@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-0-4",
+    "type": "calculate",
+    "tags": {
+      "target_object": "Kretschmann scalar and singularity location",
+      "coordinate": "Carter-like coordinates",
+      "scenario": "Curvature analysis on symmetric plane",
+      "method": "evaluate curvature scalar limits",
+      "generalization_axis": "substitute",
+      "metric": "CMetric"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-0",
+      "1_s15_15.11-0-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "CMetric",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "phi"
+    ],
+    "target": [
+      "内禀物理奇点位置",
+      "度规奇异处的曲率性质"
+    ],
+    "metric": [
+      [
+        "-h(y)/(x + y)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1/((x + y)**2*f(x))",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/((x + y)**2*h(y))",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "f(x)/(x + y)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在由度规 $ds^2 = -\\frac{h(y)}{(x+y)^2} dt^2 + \\frac{1}{(x+y)^2 f(x)} dx^2 + \\frac{1}{(x+y)^2 h(y)} dy^2 + \\frac{f(x)}{(x+y)^2} d\\phi^2$ 描述的四维时空中，度规分量在 $x+y=0$、$f(x)=0$ 及 $h(y)=0$ 处出现奇异。为了判断这些度规奇异的物理本质，我们考察对称面 $y = \\pi/2$ 上的 Kretschmann 标量 $K = R_{abcd}R^{abcd}$。已知在该平面上，$K$ 的表达式包含分母因子 $(x+y)^{12}$、$f(x)^2$ 与 $h(y)^2$ 等。请通过分析该 Kretschmann 标量在 $x+y \\to 0$（即 $x \\to -\\pi/2$）、$f(x) \\to 0$ 以及 $h(\\pi/2) \\to 0$ 时的极限行为，指出该时空真正的内禀物理奇点位置，并说明度规分量 $f(x)=0$ 和 $h(\\pi/2)=0$ 处的曲率性质。",
+    "answer": "当 $x+y \\to 0$ 时，Kretschmann 标量分母中的 $(x+y)^{12}$ 项使其趋于无穷，故 $x+y=0$ 为内禀物理奇点；当 $f(x) \\to 0$ 时，由于分子中包含不含 $f(x)$ 的非零项，分母中的 $f(x)^2$ 与 $f(x)$ 项导致标量趋于无穷，故 $f(x)=0$ 处亦为内禀物理奇点；同理，当 $h(\\pi/2) \\to 0$ 时，分母中的 $h(\\pi/2)^2$ 与 $h(\\pi/2)$ 项导致标量趋于无穷，故 $h(y)=0$ 处亦为内禀物理奇点。综上，这三处度规奇异均为真正的物理奇点。",
+    "solution": "1. 分析 $x+y \\to 0$（即 $x \\to -\\pi/2$）时的极限：   Kretschmann 标量的后两项分母包含 $(2x+\\pi)^{12}$，即 $(2(x+y))^{12}$。当 $x+y \\to 0$ 时，分母趋于 0，而分子趋于非零有限值，因此 $K \\to \\inf ty$。故 $x+y=0$ 处为内禀物理奇点。2. 分析 $f(x) \\to 0$ 时的极限：   观察包含 $f(x)$ 的分母项：第二项分母为 $8 f(x)$，第四项分母为 $32 f(x)^2$，第八项分母为 $8 (2x+\\pi)^{12} f(x)$。当 $f(x) \\to 0$ 时，这些项的分子分别包含 $h(\\pi/2)$、不含 $f(x)$ 的常数项组合、以及 $h(\\pi/2)$，在一般情况下（如 $h(\\pi/2) \\neq 0$）均不为零。因此，分母趋于 0 导致这些项趋于无穷，总 Kretschmann 标量发散。故 $f(x)=0$ 处亦为内禀物理奇点。3. 分析 $h(\\pi/2) \\to 0$ 时的极限：   类似地，包含 $h(\\pi/2)$ 的分母项有第一项 $8 h(\\pi/2)$、第六项 $32 h(\\pi/2)^2$ 等。当 $h(\\pi/2) \\to 0$ 时，对应的分子项包含不含 $h(\\pi/2)$ 的非零项，导致发散。故 $h(y)=0$ 处亦为内禀物理奇点。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.cmetric_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目的answer和solution存在严重的物理概念错误：将坐标奇点误判为内禀物理奇点。在C度规中，$f(x)=0$ 和 $h(y)=0$ 分别对应黑洞的事件视界和加速/宇宙视界，它们仅仅是坐标系选择导致的度规分量奇异（类似于Schwarzschild度规在 $r=2M$ 处的奇异），属于坐标奇点。在这些视界处，真实的Kretschmann标量必须是有限的，绝不会发散。题目中所谓'已知K的表达式包含分母因子 $f(x)^2$ 与 $h(y)^2$'这一前提本身就是错误的计算结果（正确的黎曼张量缩并会消除这些由坐标奇点引入的伪发散项），基于此错误前提推导出'这三处度规奇异均为真正的物理奇点'的结论完全违背了C度规的已知几何性质。真正的内禀物理奇点只有 $x+y=0$（对应 $r=0$）。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

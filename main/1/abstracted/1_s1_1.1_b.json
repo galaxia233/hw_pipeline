@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s1_1.1_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "spatial_tensor_component",
+      "coordinate": "Cartesian_coordinate_system",
+      "scenario": "inertial_reference_frame",
+      "method": "proper_time_chain_rule"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.1_b",
+    "source_id": "1_s1_1.1_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.1_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.5,
+      "realism": 0.5,
+      "rationale": "基于固有时间与洛伦兹因子的基础运动学推导，逻辑链条清晰且可推广至任意时空局部惯性系",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathfrak{u}^{j}$",
+      "$\\\\underline{\\\\mathbf{v}}^{j}$",
+      "$\\\\gamma$",
+      "$t$"
+    ],
+    "target": [
+      "$\\\\mathfrak{u}^{j}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.1. The 4-velocity $\\mathbf{u}$ corresponds to 3-velocity $\\mathbf{v}$ . Express:\\n(b) $\\mathfrak{u}^{\\mathrm{j}}(\\mathrm{j} = 1,2,3)$ in terms of $\\underline{\\mathbf{v}}$",
+    "answer": "$\\\\mathfrak{u}^{j} = \\\\gamma \\\\underline{\\\\mathbf{v}}^{j}$",
+    "solution": "由四维速度定义 $\\\\mathfrak{u}^{\\\\mu} = \\\\frac{dx^{\\\\mu}}{d\\\\tau}$，结合固有时间与坐标时间关系 $d\\\\tau = dt/\\\\gamma$（其中 $\\\\gamma = (1-\\\\mathbf{v}^2/c^2)^{-1/2}$）。对空间分量 $j=1,2,3$ 应用链式法则得 $\\\\mathfrak{u}^{j} = \\\\frac{dx^{j}}{dt}\\\\frac{dt}{d\\\\tau} = \\\\underline{\\\\mathbf{v}}^{j} \\\\cdot \\\\gamma$。故答案为 $\\\\mathfrak{u}^{j} = \\\\gamma \\\\underline{\\\\mathbf{v}}^{j}$。"
+  },
+  "verification": null
+}

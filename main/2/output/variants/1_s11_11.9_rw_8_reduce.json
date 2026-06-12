@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-4-8",
+    "type": "calculate",
+    "tags": {
+      "target_object": "static_acceleration",
+      "coordinate": "spherical",
+      "scenario": "Schwarzschild_reduce",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-4",
+      "1_s11_11.9-4-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "DeSitter",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "\\$a\\$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论的 Schwarzschild 时空（描述球对称质量 $M$ 外的真空引力场）中，度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s = 2M$ 为 Schwarzschild 半径。考虑一个在固定径向坐标 $r$ 和角坐标处保持静止的观测者，为了抵抗引力坍缩，该观测者需要施加外力。请计算该观测者所感受到的四维固有加速度的大小 $a$，并通过取远场极限 $r \\to \\inf ty$（即弱场极限），证明该广义相对论结果如何回到经典的 Newtonian 引力加速度。",
+    "answer": "1. 静态观测者的四维速度为 $u^\\mu = (1/\\sqrt{-g_{00}}, 0, 0, 0) = (\\sqrt{r/(r-r_s)}, 0, 0, 0)$。2. 四维加速度分量 $a^1 = \\Gamma^1_{00} (u^0)^2$。根据 Christoffel 符号 $\\Gamma^1_{00} = \\frac{r_s(r-r_s)}{2r^3}$，代入得 $a^1 = \\frac{r_s(r-r_s)}{2r^3} \\cdot \\frac{r}{r-r_s} = \\frac{r_s}{2r^2}$。3. 固有加速度大小 $a = \\sqrt{g_{\\mu\\nu} a^\\mu a^\\nu} = \\sqrt{g_{11} (a^1)^2} = \\sqrt{\\frac{r}{r-r_s} \\left(\\frac{r_s}{2r^2}\\right)^2} = \\frac{r_s}{2r^2 \\sqrt{1 - r_s/r}} = \\frac{M}{r^2 \\sqrt{1 - 2M/r}}$。4. 取远场极限 $r \\to \\inf ty$（弱场近似 $r \\gg r_s$），此时 $\\sqrt{1 - r_s/r} \\to 1$，固有加速度大小 $a \\to \\frac{M}{r^2}$。这正是经典 Newtonian 引力场中距中心质量 $M$ 为 $r$ 处的引力加速度大小，完成了从 GR 复杂结果向经典 Newtonian 对应的归约。",
+    "solution": null
+  },
+  "verification": null
+}

@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "id": "1_s14_14.2-5-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "T_E_relation",
+      "coordinate": "Schwarzschild",
+      "scenario": "thermal_equilibrium_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.2",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.2",
+      "1_s14_14.2-5",
+      "1_s14_14.2-5-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "验证 $T \\cdot E = T_{\\inf ty}$ 的数值模拟方案",
+      "局部温度 $T(r)$",
+      "Killing 能量 $E(r)$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞外部的静态时空中，考虑一个处于热平衡的系统。根据广义相对论的热平衡条件（Tolman-Ehrenfest 效应），局部静止观察者测得的温度 $T$ 满足 $T \\sqrt{-g_{00}} = T_{\\inf ty}$，其中 $T_{\\inf ty}$ 为无穷远处的温度。已知该时空具有时间平移 Killing 矢量 $\\xi^{\\mu} = (1, 0, 0, 0)$。对于局部静止观察者，其四维速度为 $u^{\\mu}$，其相对于该 Killing 流测得的单位质量守恒能量定义为 $E = -u_{\\mu} \\xi^{\\mu}$。核心结论为：上述热平衡条件可以等价表述为局部温度与该局部能量成反比，即 $T \\cdot E = T_{\\inf ty}$，且 $E(r) = \\sqrt{1 - \\frac{r_s}{r}}$。\\n\\nSchwarzschild 度规为（采用 $(-,+,+,+)$ 约定）：\\n$$ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$$\\n其中 $r_s$ 为 Schwarzschild 半径。\\n\\n请设计一个数值模拟方案，通过模拟黑体辐射光子在 Schwarzschild 引力场中的分布与能量变化，从统计物理的角度验证上述核心结论。方案需包括：模拟的物理设定、需要计算或测量的物理量、数据处理步骤以及预期的验证结果。",
+    "answer": "1. 模拟物理设定：设定 Schwarzschild 半径 $r_s$，在无穷远（或足够远的 $r_{max}$）处设定温度为 $T_{\\inf ty}$ 的黑体辐射源，随机生成大量光子，其初始频率服从该温度下的黑体分布，初始出射方向随机。\\n2. 光子轨迹与红移计算：模拟光子沿 Schwarzschild 时空零测地线运动，追踪其径向坐标 $r$ 的变化。根据静态时空的引力红移效应，计算光子在任意半径 $r$ 处相对于无穷远频率 $\\nu_{\\inf ty}$ 的局部频率 $\\nu(r) = \\nu_{\\inf ty} / \\sqrt{-g_{00}(r)}$。\\n3. 局部温度测量：在一系列不同半径 $r_i$ 处，设置局部静止观察者（四速度仅时间分量非零）。收集穿过 $r_i$ 的光子，统计其局部频率分布。由于黑体辐射谱在引力场中仍保持黑体形式，仅频率整体蓝移，拟合该频率分布得到局部等效温度 $T(r_i)$。\\n4. Killing 能量计算：根据 Schwarzschild 度规分量 $g_{00}(r) = -(1 - \\frac{r_s}{r})$，计算局部静止观察者的 Killing 能量理论值 $E(r_i) = \\sqrt{-g_{00}(r_i)} = \\sqrt{1 - \\frac{r_s}{r_i}}$。\\n5. 结果验证：计算各半径处的乘积 $T(r_i) \\cdot E(r_i)$，绘制其随 $r_i$ 变化的曲线。\\n预期结果：乘积 $T(r_i) \\cdot E(r_i)$ 在数值误差范围内恒等于常数 $T_{\\inf ty}$，不随 $r_i$ 变化，成功验证了核心结论 $T \\cdot E = T_{\\inf ty}$。",
+    "solution": "方案论证：黑体辐射光子在静态引力场中传播时，其频率会发生引力红移或蓝移。局部静止观察者测得的光子频率 $\\nu_{loc}$ 与无穷远发射频率 $\\nu_{\\inf ty}$ 的关系为 $\\nu_{loc} = \\nu_{\\inf ty} / \\sqrt{-g_{00}}$。由于黑体谱的函数形式在频率整体缩放变换下保持不变（仅峰值频率和整体能量密度发生缩放），整体频率的蓝移因子 $1/\\sqrt{-g_{00}}$ 直接等效于温度的缩放因子，即局部观察者测得的黑体温度 $T = T_{\\inf ty} / \\sqrt{-g_{00}}$。结合由局部静止观察者四速度 $u^{\\mu}$ 和时间 Killing 矢量 $\\xi^{\\mu}$ 计算出的 Killing 能量 $E = -u_{\\mu} \\xi^{\\mu} = \\sqrt{-g_{00}}$，自然得到 $T \\cdot E = T_{\\inf ty}$。该数值模拟方案通过微观光子轨迹追踪与统计分布拟合，在数值上重现了宏观热力学的 Tolman-Ehrenfest 效应，物理思路自洽且结论可预期。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "1. 模拟物理设定存在致命逻辑错误：仅在无穷远（或足够远的 $r_{max}$）处设定一个黑体辐射源，发射的光子仅向内运动，局部静止观察者只能接收到来自特定天球区域（如向外看向无穷远的那一半天球）的定向辐射流，而非各向同性的黑体辐射。由于缺少来自另一半天球（靠近黑洞方向）的辐射源或包围整个空间的黑体腔，局部观察者统计到的光子频率分布根本不是黑体谱，无法拟合出局部等效黑体温度 $T(r_i)$，因此该模拟方案完全无法验证核心结论 $T \\cdot E = T_\\infty$。2. 存在明显的 LaTeX 拼写错误：题目、答案和解析中多次出现的 `$T_{\\inf ty}$` 和 `$\\nu_{\\inf ty}$` 应为 `$T_{\\infty}$` 和 `$\\nu_{\\infty}$`，`\\inf ty` 不是合法的 LaTeX 宏，导致公式无法正确渲染。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

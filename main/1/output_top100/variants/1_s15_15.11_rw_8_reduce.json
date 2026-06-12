@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-1-2-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "光子圆形轨道条件",
+      "coordinate": "x-y坐标",
+      "scenario": "C-metric时空归约到平直时空",
+      "method": "极限退化与物理意义分析",
+      "generalization_axis": "limit",
+      "metric": "CMetric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-1",
+      "1_s15_15.11-1-2",
+      "1_s15_15.11-1-2-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "CMetric",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "phi"
+    ],
+    "target": [
+      "$x$",
+      "$y$"
+    ],
+    "metric": [
+      [
+        "-h(y)/(x + y)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1/((x + y)**2*f(x))",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/((x + y)**2*h(y))",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "f(x)/(x + y)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，给定 C-metric 时空的度规定义为：$$ds^2 = -\\frac{h(y)}{(x+y)^2} dt^2 + \\frac{1}{(x+y)^2 f(x)} dx^2 + \\frac{1}{(x+y)^2 h(y)} dy^2 + \\frac{f(x)}{(x+y)^2} d\\phi^2$$在该时空中，光子形成圆形轨道的必要条件是度规函数满足微分方程：$\\frac{df(x)}{dx} = 0$ 且 $\\frac{dh(y)}{dy} = 0$。当引力源消失，时空回到无引力的平直时空（Rindler 时空）时，度规函数退化为 $f(x) = x^2$ 和 $h(y) = y^2$。请通过此极限退化过程，求出平直时空下光子圆形轨道条件的坐标解，并解释该解为何说明平直时空不存在引力束缚的光子圆形轨道，从而完成从 GR 光子球到经典平直时空的归约。",
+    "answer": "极限过程：当引力源消失回到平直时空（Rindler时空）时，度规函数退化为 $f(x) = x^2$ 和 $h(y) = y^2$。代入光子圆形轨道条件 $f'(x)=0$ 和 $h'(y)=0$，得 $2x = 0$ 和 $2y = 0$，解为 $x = 0, y = 0$。经典对应结果：在 Rindler 平直时空坐标中，$x=0$ 和 $y=0$ 对应于 Rindler 视界（或坐标边界），而非物理上真实运行的束缚圆形轨道。这表明在无引力场的平直时空经典对应中，不存在引力束缚的光子圆形轨道，光子只能沿直线传播。",
+    "solution": "1. 写出 GR 语境下的光子圆形轨道条件：$\\frac{df(x)}{dx} = 0$ 且 $\\frac{dh(y)}{dy} = 0$。2. 应用平直时空极限：将度规函数退化为 $f(x) = x^2$ 和 $h(y) = y^2$。3. 代入条件求解：$\\frac{d(x^2)}{dx} = 2x = 0 \\implies x=0$；$\\frac{d(y^2)}{dy} = 2y = 0 \\implies y=0$。4. 分析物理意义：$x=0$ 和 $y=0$ 在 Rindler 时空中是坐标奇点/视界，不是物理轨道，说明平直时空无光子圆形轨道。"
+  },
+  "verification": null
+}

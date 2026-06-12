@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-7-9",
+    "type": "concept",
+    "tags": {
+      "target_object": "Killing vector norm",
+      "coordinate": "spherical",
+      "scenario": "cosmic string vs black hole contrast",
+      "method": "norm calculation",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-7",
+      "1_s10_10.5-7-9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$g(\\xi_{(t)}, \\xi_{(t)})$",
+      "Event horizon existence",
+      "Causal structure"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "k**2*r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "k**2*r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，时空的稳态对称性由 Killing 矢量 $\\xi_{(t)}$ 刻画，其范数的符号直接决定了时空的因果结构。请对比以下两种度规背景：背景 A（Barriola-Vilekin 宇宙弦度规）：$ds^2 = -dt^2 + dr^2 + k^2 r^2 d\\theta^2 + k^2 r^2 \\sin^2{\\left(\\theta\\right)} d\\phi^2$背景 B（Schwarzschild 黑洞度规）：$ds^2 = \\frac{- r + r_{s}}{r} dt^2 + \\frac{r}{r - r_{s}} dr^2 + r^{2} d\\theta^2 + r^{2} \\sin^{2}{\\left(\\theta\\right)} d\\phi^2$在这两种度规下，分别推导稳态 Killing 矢量 $\\xi_{(t)}$ 的范数，对比两者范数行为的差异，并解释该差异所揭示的关于事件视界存在性与时空因果结构的物理意义。",
+    "answer": "背景 A：稳态 Killing 矢量 $\\xi_{(t)} = \\partial_t$，其范数为 $g_A(\\xi_{(t)}, \\xi_{(t)}) = g_{tt} = -1$。背景 B：稳态 Killing 矢量 $\\xi_{(t)} = \\partial_t$，其范数为 $g_B(\\xi_{(t)}, \\xi_{(t)}) = g_{tt} = \\frac{- r + r_s}{r} = -\\left(1 - \\frac{r_s}{r}\\right)$。差异与物理含义：背景 A 中 $\\xi_{(t)}$ 的范数为常数 $-1$，表明该矢量在整个时空中处处为类时矢量。这意味着宇宙弦时空不存在事件视界，其因果结构与平直时空一致，仅仅是存在一个拓扑缺陷（ deficit angle ）。背景 B 中 $\\xi_{(t)}$ 的范数依赖于坐标 $r$：当 $r > r_s$ 时范数为负（类时），当 $r = r_s$ 时范数为零（类光），当 $r < r_s$ 时范数为正（类空）。范数在 $r=r_s$ 处的零值精确地定义了 Schwarzschild 黑洞的事件视界。视界内部 $\\xi_{(t)}$ 变为类空，意味着时间平移对称性不再对应类时方向，揭示了黑洞内部与外部截然不同的因果结构（内部径向坐标成为类时，时间坐标成为类空）。这种对比凸显了局部平直的拓扑缺陷时空与具有强引力场（视界）的黑洞时空在因果结构上的本质差异。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "题目声称背景 A 为“Barriola-Vilekin 宇宙弦度规”，但给出的度规形式 $ds^2 = -dt^2 + dr^2 + k^2 r^2 d\\theta^2 + k^2 r^2 \\sin^2\\theta d\\phi^2$ 实际上是全局单极子（Global Monopole）度规。宇宙弦是一维线缺陷，其度规应具有柱对称性，包含沿弦方向的平移不变性（$dz^2$ 项），且只有绕弦的角向坐标受 deficit angle 修正（即仅 $d\\phi^2$ 前有系数 $k^2$，而 $d\\theta^2$ 前无此修正），正确的宇宙弦度规应为 $ds^2 = -dt^2 + dz^2 + dr^2 + k^2 r^2 d\\phi^2$。题目中度规在 $d\\theta^2$ 和 $d\\phi^2$ 前均乘以了相同的系数 $k^2$，且没有 $dz^2$，这是三维球对称的点缺陷（全局单极子）的度规特征。度规与物理场景严重不匹配。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-5-9",
+    "type": "concept",
+    "tags": {
+      "target_object": "conserved_quantity_and_motion",
+      "coordinate": "cartesian",
+      "scenario": "free_fall_contrast",
+      "method": "killing_vector",
+      "generalization_axis": "compare",
+      "metric": "Minkowski"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-5",
+      "1_s10_10.15-5-9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Minkowski",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "守恒能量E",
+      "x方向运动方程",
+      "坐标速度与空间平移对称性缺失的物理联系"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "背景A (Minkowski 时空) 度规为 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$，具有时间平移 Killing 矢量 $\\boldsymbol{\\xi} = (1,0,0,0)$ 以及 x 方向平移 Killing 矢量 $\\boldsymbol{\\xi} = (0,1,0,0)$，其第二类 Christoffel 符号全为 0。背景B (弯曲时空) 度规为 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$，仅有时间平移 Killing 矢量 $\\boldsymbol{\\xi} = (1,0,0,0)$，其非零第二类 Christoffel 符号为 $\\Gamma^1_{11}=1/\\alpha$, $\\Gamma^1_{22}=-1/\\alpha$, $\\Gamma^1_{33}=-1/\\alpha$, $\\Gamma^2_{12}=1/\\alpha$, $\\Gamma^2_{21}=1/\\alpha$, $\\Gamma^3_{13}=1/\\alpha$, $\\Gamma^3_{31}=1/\\alpha$。请在两种背景下，分别利用各自的时间平移 Killing 矢量推导自由下落测试粒子沿 x 方向运动的守恒能量 E 及运动方程（保留度规因子 $g_{11} \\dot{x}^2$ 形式），对比两者结果的差异，并解释背景B中 x 方向坐标速度 $\\dot{x}$ 随位置变化与该时空缺失 x 方向平移 Killing 矢量之间的物理联系。",
+    "answer": "在两种背景下，时间平移 Killing 矢量均为 $\\boldsymbol{\\xi} = (1,0,0,0)$，对应的协变分量 $\\xi_\\mu = g_{\\mu 0} = (-1, 0, 0, 0)$。守恒能量定义为 $E = - \\xi_\\mu u^\\mu = -g_{00} \\dot{t} = \\dot{t}$。对于沿 x 方向自由下落的测试粒子（$\\dot{y}=0, \\dot{z}=0$），由类时条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$：背景A：$-1 = -\\dot{t}^2 + \\dot{x}^2 \\implies \\dot{x}^2 = E^2 - 1$。背景B：$-1 = -\\dot{t}^2 + e^{2x/\\alpha} \\dot{x}^2 \\implies e^{2x/\\alpha} \\dot{x}^2 = E^2 - 1$。对比差异：背景A中 $\\dot{x}$ 为常数，粒子做匀速直线运动；背景B中 $\\dot{x}^2 = (E^2 - 1)e^{-2x/\\alpha}$，坐标速度 $\\dot{x}$ 随 $x$ 变化。物理联系：背景A具有 x 方向平移 Killing 矢量，意味着空间在 x 方向均匀，对应的动量守恒，因此坐标速度恒定。背景B的度规因子 $e^{2x/\\alpha}$ 依赖于 $x$，打破了 x 方向的平移对称性（无 x 方向平移 Killing 矢量），空间不再均匀，使得自由粒子的坐标速度随空间位置缩放而变化，度规的空间缩放起到了类似“空间势”的作用。",
+    "solution": null
+  },
+  "verification": null
+}

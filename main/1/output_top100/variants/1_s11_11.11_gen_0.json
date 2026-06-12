@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "$r_c$",
+      "coordinate": "spherical",
+      "scenario": "gyroscope_precession_critical_radius",
+      "method": "equating_magnitudes",
+      "generalization_axis": "apply",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\phi$",
+      "$M$",
+      "$\\mathbf{v}$",
+      "$\\mathbf{S}$",
+      "$h_j$",
+      "$\\Gamma_{\\hat{j}\\hat{k}\\hat{0}}$"
+    ],
+    "target": [
+      "$r_c$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，旋转天体（如地球）周围圆形轨道上的陀螺仪自旋轴会发生两种相对论性进动：由天体质量引起的测地进动（Geodetic precession）和由天体自旋引起的 Lense-Thirring 进动。对于在半径为 $r$ 的赤道圆轨道上运行的陀螺仪，已知其测地进动角速度大小为 $\\Omega_G = \\frac{3(GM)^{3/2}}{2c^2 r^{5/2}}$，Lense-Thirring 进动角速度大小为 $\\Omega_{LT} = \\frac{2GJ}{c^2 r^3}$，其中 $M$ 为天体质量，$J$ 为天体自旋角动量，$c$ 为光速，$G$ 为引力常数。\\n\\n请推导使得这两种进动效应大小相等的临界轨道半径 $r_c$ 的表达式，并据此分析在轨道半径 $r > r_c$ 和 $r < r_c$ 的区域中，哪种进动效应在量级上占主导地位。",
+    "answer": "$r_c = \\frac{9 G M^3}{16 J^2}$。在 $r > r_c$ 区域，测地进动占主导；在 $r < r_c$ 区域，Lense-Thirring 进动占主导。",
+    "solution": "要找出测地进动与 Lense-Thirring 进动大小相等的临界条件，令两者的角速度大小相等：\\n$$ \\Omega_G = \\Omega_{LT} $$\\n代入给定的表达式：\\n$$ \\frac{3(GM)^{3/2}}{2c^2 r_c^{5/2}} = \\frac{2GJ}{c^2 r_c^3} $$\\n两边同时消去 $c^2$ 和 $G$，并将含有 $r_c$ 的项移到等式一边：\\n$$ \\frac{3 M^{3/2} G^{1/2}}{2 r_c^{5/2}} = \\frac{2 J}{r_c^3} $$\\n$$ \\frac{3 M^{3/2} G^{1/2}}{2} = \\frac{2 J}{r_c^{1/2}} $$\\n$$ r_c^{1/2} = \\frac{4 J}{3 M^{3/2} G^{1/2}} $$\\n对两边求平方，得到临界半径 $r_c$ 的表达式：\\n$$ r_c = \\frac{16 J^2}{9 G M^3} $$\\n\\n为了分析主导性，考察比值 $\\frac{\\Omega_G}{\\Omega_{LT}}$：\\n$$ \\frac{\\Omega_G}{\\Omega_{LT}} = \\frac{\\frac{3(GM)^{3/2}}{2c^2 r^{5/2}}}{\\frac{2GJ}{c^2 r^3}} = \\frac{3 M^{3/2} G^{1/2} r^{1/2}}{4 J} = \\sqrt{\\frac{r}{r_c}} $$\\n由此可知：\\n- 当 $r > r_c$ 时，$\\sqrt{r/r_c} > 1$，即 $\\Omega_G > \\Omega_{LT}$，测地进动占主导。\\n- 当 $r < r_c$ 时，$\\sqrt{r/r_c} < 1$，即 $\\Omega_G < \\Omega_{LT}$，Lense-Thirring 进动占主导。\\n\\n（注：对于像地球这样的实际天体，$r_c$ 的数值通常远小于天体自身的半径，因此在外部空间可观测的轨道范围 $r \\gg r_c$ 内，测地进动始终是主导效应。）"
+  },
+  "verification": null
+}

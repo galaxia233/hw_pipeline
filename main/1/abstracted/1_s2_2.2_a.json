@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s2_2.2_a",
+    "type": "calculate",
+    "tags": {
+      "metric": "relativistic_kinematics",
+      "target_object": "inverse_compton_scattering",
+      "coordinate": "energy_transfer",
+      "scenario": "ultra_relativistic_limit",
+      "method": "head_on_collision"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.2_a",
+    "source_id": "1_s2_2.2_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.2_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "多步四动量守恒推导结合超相对论近似，具有明确的高能天体物理应用背景",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$m$",
+      "$E$",
+      "$\\\\nu$",
+      "$E_{\\\\gamma}$",
+      "$E_{\\\\gamma}'$",
+      "$P$"
+    ],
+    "target": [
+      "$E_{\\\\gamma}'$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "# Problem 2.2.\\n(a) When a photon scatters off a charged particle which is moving with a speed very nearly that of light, the photon is said to have undergone an inverse Compton scattering. Consider an inverse Compton scattering in which a charged particle of rest mass $m$ and total mass-energy (as seen in the lab frame) $\\mathbf{E} \\gg \\mathfrak{m}$ , collides head-on with a photon of frequency $\\nu (\\mathrm{h}\\nu \\ll \\mathrm{m})$ . What is the maximum energy the particle can transfer to the photon?",
+    "answer": "$E_{\\\\gamma}' \\\\approx \\\\frac{E}{1+m^{2}/(4EE_{\\\\gamma})}$",
+    "solution": "Solution 2.2. Use $\\\\gamma$ to denote the photon, and prime to denote values after scattering. We proceed by eliminating $\\\\mathbf{P}'$ from the equation of 4-momentum conservation:\\n$$\\n\\\\begin{array}{l} \\\\left(\\\\mathbf {P}_{\\\\gamma}^{\\\\prime} + \\\\mathbf {P}^{\\\\prime} - \\\\mathbf {P}_{\\\\gamma}\\\\right)^{2} = \\\\mathbf {P}^{2} = - \\\\mathbf {m}^{2} \\\\\\\\\\n\\\\mathbf {P}_{\\\\gamma} \\\\cdot \\\\mathbf {P}_{\\\\gamma}^{\\\\prime} = \\\\mathbf {P} \\\\cdot (\\\\mathbf {P}_{\\\\gamma} - \\\\mathbf {P}_{\\\\gamma}^{\\\\prime}). \\\\\\\\\\n\\\\end{array}\\n$$\\nMaximum energy transfer obviously occurs for a $180^{\\\\circ}$ scattering angle. With this condition and $\\\\left|\\\\underline{\\\\mathbf{P}}_{\\\\gamma}\\\\right| = \\\\mathbf{E}_{\\\\gamma}$ , the above equation becomes\\n$$\\n\\\\begin{array}{l} - \\\\mathbf {E}_{\\\\gamma} \\\\mathbf {E}_{\\\\gamma}^{\\\\prime} + \\\\underline {{\\\\mathbf {P}}}_{\\\\gamma} \\\\cdot \\\\underline {{\\\\mathbf {P}}}_{\\\\gamma}^{\\\\prime} = - \\\\mathbf {E} (\\\\mathbf {E}_{\\\\gamma} - \\\\mathbf {E}_{\\\\gamma}^{\\\\prime}) + \\\\underline {{\\\\mathbf {P}}} \\\\cdot (\\\\underline {{\\\\mathbf {P}}}_{\\\\gamma} - \\\\underline {{\\\\mathbf {P}}}_{\\\\gamma}^{\\\\prime}) \\\\\\\\\\n- 2 \\\\mathbf {E}_{\\\\gamma} \\\\mathbf {E}_{\\\\gamma}^{\\\\prime} = - \\\\mathbf {E} (\\\\mathbf {E}_{\\\\gamma} - \\\\mathbf {E}_{\\\\gamma}^{\\\\prime}) + \\\\mathbf {P} (- \\\\mathbf {E}_{\\\\gamma} - \\\\mathbf {E}_{\\\\gamma}^{\\\\prime}) \\\\\\\\\\n\\\\end{array}\\n$$\\nso that\\n$$\\nE_{\\\\gamma}^{\\\\prime} = \\\\frac {E_{\\\\gamma} (E + P)}{2 E_{\\\\gamma} + E - P} \\\\approx \\\\frac {E}{1 + m^{2} / 4 E E_{\\\\gamma}}.\\n$$\\nThe second expression for $\\\\mathbf{E}_{\\\\gamma}^{\\\\prime}$ is a result of using the approximation\\n$$\\n\\\\mathbf {P} = \\\\left(\\\\mathbf {E}^{2} - \\\\mathbf {m}^{2}\\\\right)^{\\\\frac {1}{2}} \\\\approx \\\\mathbf {E} - \\\\frac {1}{2} \\\\mathbf {\\\\nabla m}^{2} / \\\\mathbf {E}\\n$$\\nappropriate to our assumed condition $\\\\mathbf{E} \\gg \\\\mathfrak{m}_{\\\\mathbf{e}}$ .\\nFor $3^{0}\\\\mathrm{K}$ , the photon energy is of order $\\\\mathrm{kT} \\\\approx 3 \\\\times 10^{-4}\\\\mathrm{eV}$ . Using this, $\\\\mathfrak{m}_{\\\\mathrm{proton}} = .938 \\\\times 10^{9}\\\\mathrm{eV}$ , and $\\\\mathbf{E} = 10^{20}\\\\mathrm{eV}$ in our equation we find $\\\\mathbf{E}_{\\\\gamma}^{\\\\prime} \\\\approx 10^{19}\\\\mathrm{eV}$ ."
+  },
+  "verification": null
+}

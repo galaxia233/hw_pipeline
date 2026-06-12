@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s9_9.3",
+    "type": "concept",
+    "tags": {
+      "metric": "tensor_symmetry",
+      "target_object": "riemann_tensor",
+      "coordinate": "computational_gr",
+      "scenario": "indexing_method",
+      "method": "spacetime_geometry"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.3",
+    "source_id": "1_s9_9.3",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.5,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.7,
+      "rationale": "利用黎曼张量固有对称性进行数据压缩，具有明确的计算物理背景与完整算法实现",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^0$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$R_{IJKL}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.3. Mathematical manipulations with the Riemann tensor are often done with computers. Rather than calculate and store the $4^4 = 256$ components of the tensor as $\\mathbf{R}(\\mathbf{I},\\mathbf{J},\\mathbf{K},\\mathbf{L})$ with $\\mathbf{I},\\mathbf{J},\\mathbf{K},\\mathbf{L} = 0,1,2,3$ , the symmetries of the Riemann tensor can be used to reduce the size of the stored array. Design a subprogram which stores or recalls all components of $\\mathbf{R}(\\mathbf{I},\\mathbf{J},\\mathbf{K},\\mathbf{L})$ in a linear array of dimensions $\\leq 21$ .## SolutionSolution 9.3. The problem requires ordering 21 independent components in some canonical way and assigning a number $\\mathbf{N} \\leq 21$ to each nonequivalent quadruple $\\mathbf{I}, \\mathbf{J}, \\mathbf{K}, \\mathbf{L}$ . The following program accomplishes this and reads the value of $\\mathbf{R}(\\mathbf{I}, \\mathbf{J}, \\mathbf{K}, \\mathbf{L})$ from $\\mathbf{R}(\\mathbf{N})$ , $\\mathbf{1} \\leq \\mathbf{N} \\leq 21$ .READ I, J, K, LSET SIGN = 1IF $\\mathbf{I} = \\mathbf{J}$ OR $\\mathbf{K} = \\mathbf{L}$ SET RIEMANN $= 0$ AND RETURNIF I > J EXCHANGE I, J AND SET SIGN = -1IF $\\mathbf{K} > \\mathbf{L}$ EXCHANGE K, L AND SET SIGN $= -$ SIGNSET $\\mathbf{N1} = (5*\\mathbf{I} - \\mathbf{I}*\\mathbf{I}) / 2 + \\mathbf{J}$SET $\\mathbf{N}2 = (5*\\mathbf{K} - \\mathbf{K}*\\mathbf{K}) / 2 + \\mathbf{L}$IF N1 > N2 EXCHANGE N1, N2SET $\\mathbf{N} = (13*\\mathrm{N1} - \\mathrm{N1}*\\mathrm{N1} - 12) / 2 + \\mathrm{N2}$SET RIEMANN = R(N)*SIGNRETURN.",
+    "answer": "RIEMANN = R(N)*SIGN",
+    "solution": "Solution 9.3. The problem requires ordering 21 independent components in some canonical way and assigning a number $\\mathbf{N} \\leq 21$ to each nonequivalent quadruple $\\mathbf{I}, \\mathbf{J}, \\mathbf{K}, \\mathbf{L}$ . The following program accomplishes this and reads the value of $\\mathbf{R}(\\mathbf{I}, \\mathbf{J}, \\mathbf{K}, \\mathbf{L})$ from $\\mathbf{R}(\\mathbf{N})$ , $\\mathbf{1} \\leq \\mathbf{N} \\leq 21$ .READ I, J, K, LSET SIGN = 1IF $\\mathbf{I} = \\mathbf{J}$ OR $\\mathbf{K} = \\mathbf{L}$ SET RIEMANN $= 0$ AND RETURNIF I > J EXCHANGE I, J AND SET SIGN = -1IF $\\mathbf{K} > \\mathbf{L}$ EXCHANGE K, L AND SET SIGN $= -$ SIGNSET $\\mathbf{N1} = (5*\\mathbf{I} - \\mathbf{I}*\\mathbf{I}) / 2 + \\mathbf{J}$SET $\\mathbf{N}2 = (5*\\mathbf{K} - \\mathbf{K}*\\mathbf{K}) / 2 + \\mathbf{L}$IF N1 > N2 EXCHANGE N1, N2SET $\\mathbf{N} = (13*\\mathrm{N1} - \\mathrm{N1}*\\mathrm{N1} - 12) / 2 + \\mathrm{N2}$SET RIEMANN = R(N)*SIGNRETURN."
+  },
+  "verification": null
+}

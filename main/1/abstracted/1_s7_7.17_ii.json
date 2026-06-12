@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s7_7.17_ii",
+    "type": "concept",
+    "tags": {
+      "metric": "metric",
+      "target_object": "tetrad_transport",
+      "coordinate": "fermi_walker",
+      "scenario": "reference_frame",
+      "method": "covariant_derivative"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.17_ii",
+    "source_id": "1_s7_7.17_ii",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.17_ii"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "需结合协变导数性质与正交标架保持条件推导张量反对称性，并结合四速度条件得出加速度耦合项，逻辑链完整且具实际参考系构建背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathbf{u}$",
+      "$\\\\mathbf{e}_{\\\\alpha}$",
+      "$\\\\mathbf{A}_{\\\\alpha}^{\\\\beta}$",
+      "$\\\\nabla_{\\\\mathbf{u}}$",
+      "$a^{\\\\alpha}$"
+    ],
+    "target": [
+      "$\\\\mathbf{A}_{\\\\alpha}^{\\\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.17. Consider an observer with 4-velocity $\\mathbf{u}$ who transports his four basis vectors $\\mathbf{e}_{\\alpha}$ along with him according to the transport law $\\nabla_{\\mathbf{u}}\\mathbf{e}_{\\alpha} = \\mathbf{A}_{\\alpha}^{\\beta}\\mathbf{e}_{\\beta}$ . What is the most general form of $\\mathbf{A}_{\\alpha}^{\\beta}$ if:\\n(ii) in addition $\\mathbf{e}_{\\hat{\\mathbf{o}}} = \\mathbf{u}$ ? (i.e. the frame is his rest-frame).",
+    "answer": "$A_{\\\\hat{\\\\alpha}}{}^{\\\\hat{\\\\beta}} = u^{\\\\hat{\\\\beta}} a_{\\\\hat{\\\\alpha}} - a^{\\\\hat{\\\\beta}} u_{\\\\hat{\\\\alpha}} + \\\\omega_{\\\\hat{\\\\alpha}}{}^{\\\\hat{\\\\beta}}$, 其中 $\\\\omega_{\\\\hat{\\\\alpha}\\\\hat{\\\\beta}} = -\\\\omega_{\\\\hat{\\\\beta}\\\\hat{\\\\alpha}}$ 且仅含空间分量",
+    "solution": null
+  },
+  "verification": null
+}

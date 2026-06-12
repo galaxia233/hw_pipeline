@@ -1,0 +1,164 @@
+{
+  "metadata": {
+    "id": "1_s1_1.3",
+    "type": "prove",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "velocity_transformation",
+      "coordinate": "four_velocity",
+      "scenario": "invariant_scalar",
+      "method": "kinematics"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.3",
+    "source_id": "1_s1_1.3",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "利用四维速度内积的洛伦兹不变性结合三维矢量代数进行多步推导，逻辑严密且步骤完整",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$v_1$",
+      "$v_2$",
+      "$v$"
+    ],
+    "target": [
+      "$v^2$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.3. If two frames move with 3-velocities $\\underline{\\mathbf{v}}_1$ and $\\underline{\\mathbf{v}}_2$ , show that their relative velocity is given by\\n$$\\nv^{2} = \\\\frac {\\\\left(v_{1} - v_{2}\\\\right)^{2} - \\\\left(v_{1} \\\\times v_{2}\\\\right)^{2}}{\\\\left(1 - v_{1} \\\\cdot v_{2}\\\\right)^{2}}.\\n$$",
+    "answer": "$v ^ {2} = \\\\frac {\\\\left(v _ {1} - v _ {2}\\\\right) ^ {2} - \\\\left(v _ {1} \\\\times v _ {2}\\\\right) ^ {2}}{\\\\left(1 - v _ {1} \\\\cdot v _ {2}\\\\right) ^ {2}}",
+    "solution": "Let $\\mathbf{u}_1$ and $\\mathbf{u}_2$ be the 4-velocities of the two frames. In frame 1, $\\mathbf{u}_1 = (1,0)$ , $\\mathbf{u}_2 = (\\gamma, \\gamma \\mathbf{v})$ where $\\gamma = (1 - v^2)^{-\\frac{1}{2}}$ . Since $\\gamma = -\\mathbf{u}_1 \\cdot \\mathbf{u}_2$ ,\\nwe just have to evaluate this scalar in a general frame where $\\mathbf{u}_1 = (\\gamma_1, \\gamma_1 \\underline{\\mathbf{v}}_1)$ , $\\mathbf{u}_2 = (\\gamma_2, \\gamma_2 \\underline{\\mathbf{v}}_2)$ :\\n$$\\n\\gamma = - \\mathbf {u}_{1} \\cdot \\mathbf {u}_{2} = \\gamma_{1} \\gamma_{2} - \\gamma_{1} \\gamma_{2} \\underset {\\sim} {\\\\mathrm {v}}_{1} \\cdot \\underset {\\sim} {\\\\mathrm {v}}_{2} = (1 - \\mathrm {v}^{2})^{- \\frac {1}{2}}\\n$$\\n$$\\n1 - v^{2} = \\\\left(y_{1} y_{2}\\\\right)^{- 2} / \\\\left(1 - \\underline {{v}}_{1} \\cdot \\underline {{v}}_{2}\\\\right)^{2}\\n$$\\n$$\\nv^{2} = \\\\frac {\\\\left(1 - \\underline {{v}}_{1} \\cdot \\underline {{v}}_{2}\\\\right)^{2} - \\\\left(1 - v_{1}^{2}\\\\right) \\\\left(1 - v_{2}^{2}\\\\right)}{\\\\left(1 - \\underline {{v}}_{1} \\cdot \\underline {{v}}_{2}\\\\right)^{2}} = \\\\frac {\\\\left(\\underline {{v}}_{1} - \\underline {{v}}_{2}\\\\right)^{2} - \\\\left(\\underline {{v}}_{1} \\\\times \\underline {{v}}_{2}\\\\right)^{2}}{\\\\left(1 - \\underline {{v}}_{1} \\\\cdot \\underline {{v}}_{2}\\\\right)^{2}}.\\n$$\\n(The solution could also be verified by a painfully tedious application of Lorentz transformations.)"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

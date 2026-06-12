@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "id": "1_s10_10.1",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "sphere_geometry",
+      "method": "pde_solving"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s10_10.1",
+    "source_id": "1_s10_10.1",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s10_10.1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "求解基林方程需解耦非线性偏微分方程组并结合积分因子法分离变量，逻辑链条完整；结构为标准黎曼几何框架，可直接迁移至任意给定度规；题干与解答齐全；属经典理论物理计算模型。",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$\\\\xi^\\\\theta$",
+      "$\\\\xi^\\\\phi$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$\\\\sin^2 \\\\theta$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "sin(theta)**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 10.1. Solve Killing's equations to find the Killing vector fields of the 2-sphere:\\n$$\\n\\\\mathrm {d s}^{2} = \\\\mathrm {d} \\\\theta^{2} + \\\\sin^{2} \\\\theta \\\\mathrm {d} \\\\phi^{2}.\\n$$",
+    "answer": "$$\\\\boldsymbol {\\\\xi} = (\\\\mathrm {d} \\\\cos \\\\phi + \\\\mathrm {e} \\\\sin \\\\phi) \\\\frac {\\\\partial}{\\\\partial \\\\theta} + [ \\\\mathrm {c} - \\\\cot \\\\theta (\\\\mathrm {d} \\\\sin \\\\phi - \\\\mathrm {e} \\\\cos \\\\phi) ] \\\\frac {\\\\partial}{\\\\partial \\\\phi}\\n$$",
+    "solution": "Solution 10.1. The metric is $\\mathrm{ds}^2 = \\mathrm{d}\\theta^2 +\\sin^2\\theta \\mathrm{d}\\phi^2$ ; the connection coefficients are $\\Gamma_{\\theta \\phi}^{\\phi} = \\Gamma_{\\phi \\theta}^{\\phi} = \\cot \\theta ;\\Gamma_{\\phi \\phi}^{\\theta} = -\\sin \\theta \\cos \\theta ;$ all others are zero. Now:\\n$$\\n\\xi_{\\alpha ; \\beta} + \\xi_{\\beta ; \\alpha} = \\xi_{\\alpha , \\beta} + \\xi_{\\beta , \\alpha} - 2 \\Gamma_{\\alpha \\beta}^{\\mu} \\xi_{\\mu} = 0.\\n$$\\n$$\\n\\alpha = \\beta = \\phi : \\xi_{\\phi , \\phi} = - \\xi_{\\theta} \\sin \\theta \\cos \\theta \\tag {1}\\n$$\\n$$\\n\\alpha = \\beta = \\theta : \\xi_{\\theta , \\theta} = 0; \\quad \\therefore \\xi_{\\theta} = \\mathrm {f} (\\phi) \\tag {2}\\n$$\\n$$\\n\\alpha = \\theta , \\beta = \\phi : \\xi_{\\theta , \\phi} + \\xi_{\\phi , \\theta} = 2 \\cot \\theta \\xi_{\\phi}. \\tag {3}\\n$$\\nSubstitution of Equation (2) in Equation (1) gives $\\xi_{\\phi, \\phi} = -\\mathrm{f}(\\phi) \\sin \\theta \\cos \\theta$ which implies\\n$$\\n\\xi_{\\phi} = - \\mathbf {F} (\\phi) \\sin \\theta \\cos \\theta + \\mathbf {g} (\\theta) \\tag {4}\\n$$\\nwhere $\\mathbf{F}(\\phi) \\equiv \\int \\mathrm{d}\\mathbf{f}\\mathrm{d}\\phi$ . Next substitute Equations (4) and (2) in Equation (3):\\n$$\\n\\frac {\\mathrm {d} \\mathbf {f}}{\\mathrm {d} \\phi} + \\frac {\\mathrm {d} \\mathbf {g}}{\\mathrm {d} \\theta} - \\mathbf {F} (\\cos^{2} \\theta - \\sin^{2} \\theta) = 2 \\cot \\theta \\mathbf {g} - 2 \\cos^{2} \\theta \\mathbf {F}\\n$$\\nor\\n$$\\n\\frac {\\mathrm {d} \\mathbf {f}}{\\mathrm {d} \\phi} + \\mathbf {F} (\\phi) = - \\left(\\frac {\\mathrm {d} \\mathbf {g}}{\\mathrm {d} \\theta} - 2 \\cot \\theta \\mathbf {g} (\\theta)\\right).\\n$$\\nSince the left side is a function only of $\\phi$ and the right side only of $\\theta$ , each side must be a constant:\\n$$\\n\\mathrm {d f} / \\mathrm {d} \\phi + \\int \\mathrm {f} \\mathrm {d} \\phi = \\mathrm {b}, \\tag {5}\\n$$\\n$$\\n\\mathrm {d} \\mathbf {g} / \\mathrm {d} \\theta - 2 \\cot \\theta \\mathbf {g} = - \\mathbf {b}. \\tag {6}\\n$$\\nEquation (6) has an integrating factor $\\exp [-2\\int \\cot \\theta \\mathrm{d}\\theta ] = \\sin^{-2}\\theta$ , giving\\n$$\\n\\frac {\\mathrm {d}}{\\mathrm {d} \\theta} \\left(\\frac {\\mathrm {g}}{\\sin^{2} \\theta}\\right) = \\frac {- \\mathrm {b}}{\\sin^{2} \\theta}\\n$$\\n$$\\n\\mathbf {g} (\\theta) = (\\mathbf {b} \\cot \\theta + \\mathbf {c}) \\sin^{2} \\theta . \\tag {7}\\n$$\\nEquation (5) is solved by differentiation:\\n$$\\n\\frac {\\mathrm {d}^{2} \\mathbf {f}}{\\mathrm {d} \\phi^{2}} + \\mathbf {f} = 0,\\n$$\\n$$\\n\\mathbf {f} = \\mathrm {d} \\cos \\phi + \\mathbf {e} \\sin \\phi\\n$$\\n$$\\n\\mathbf {F} = \\mathrm {d} \\sin \\phi - \\mathrm {e} \\cos \\phi .\\n$$\\n(The integration constant is included in $\\mathbf{g}(\\theta)$ .) Substituting this result in Equation (5)\\n$$\\n- d \\sin \\phi + e \\cos \\phi + d \\sin \\phi - e \\cos \\phi = b\\n$$\\nshows that $\\mathsf{b} = 0$ , and hence from Equations (2) and (7) that\\n$$\\n\\xi_{\\theta} = \\mathrm {d} \\cos \\phi + \\mathrm {e} \\sin \\phi = \\xi^{\\theta}\\n$$\\n$$\\n\\xi_{\\phi} = c \\sin^{2} \\theta - \\sin \\theta \\cos \\theta (d \\sin \\phi - e \\cos \\phi) = \\sin^{2} \\theta \\xi^{\\phi}.\\n$$\\nThus\\n$$\\n\\boldsymbol {\\xi} = (\\mathrm {d} \\cos \\phi + \\mathrm {e} \\sin \\phi) \\frac {\\partial}{\\partial \\theta} + [ \\mathrm {c} - \\cot \\theta (\\mathrm {d} \\sin \\phi - \\mathrm {e} \\cos \\phi) ] \\frac {\\partial}{\\partial \\phi}\\n$$\\nis the most general Killing vector. Note that it is a linear combination of the three Killing vectors\\n$$\\n\\frac {\\partial}{\\partial \\phi}\\n$$\\n$$\\n- \\left(\\cos \\phi \\frac {\\partial}{\\partial \\theta} - \\cot \\theta \\sin \\phi \\frac {\\partial}{\\partial \\phi}\\right)\\n$$\\n$$\\n\\sin \\phi \\frac {\\partial}{\\partial \\theta} + \\cot \\theta \\cos \\phi \\frac {\\partial}{\\partial \\phi}\\n$$\\nwhich are just the usual angular momentum operators $\\mathbf{L}_{\\mathbf{z}}$ , $\\mathbf{L}_{\\mathbf{x}}$ and $\\mathbf{L}_{\\mathbf{y}}$ , the generators of the rotation group."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 2,
+    "variables": [
+      "\\\\theta",
+      "\\\\phi"
+    ],
+    "metric_latex": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "\\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

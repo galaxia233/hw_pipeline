@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s17_17.16_d",
+    "type": "calculate",
+    "tags": {
+      "metric": "black_hole_physics",
+      "target_object": "wave_asymptotics",
+      "coordinate": "horizon_limit",
+      "scenario": "radial_equation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.16_d",
+    "source_id": "1_s17_17.16_d",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.16_d"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.5,
+      "generalizability": 0.6,
+      "completeness": 0.8,
+      "realism": 0.7,
+      "rationale": "利用视界近似将二阶ODE化简为常系数形式求指数解，物理背景明确但解题步骤较直接",
+      "overall": 0.65
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$r^{*}$",
+      "$\\\\omega$",
+      "$a$",
+      "$m$",
+      "$M$",
+      "$r_{+}$",
+      "$\\\\Delta$"
+    ],
+    "target": "$\\\\Phi$",
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 17.16 (d) Find the asymptotic form of $\\Phi$ for $\\mathbf{r} \\to \\mathbf{r}_{+}$ .",
+    "answer": "$\\\\mathrm {R} \\\\sim \\\\mathrm {e}^{\\\\pm \\\\mathrm {i} (\\\\omega - \\\\mathrm {m} \\\\omega_{+}) \\\\mathrm {r}^{*}}$",
+    "solution": "(d) As $\\\\Delta \\\\to 0$ , Equation (5) gives\\n$$ \\\\frac {\\\\mathrm {d}^{2} \\\\mathrm {R}}{\\\\mathrm {d r}^{* 2}} + \\\\left[ \\\\omega^{2} - \\\\frac {2 \\\\mathrm {a m} \\\\omega}{2 \\\\mathrm {M r}_{+}} + \\\\frac {\\\\mathrm {a}^{2} \\\\mathrm {m}^{2}}{(2 \\\\mathrm {M r}_{+})^{2}} \\\\right] \\\\mathrm {R} = 0 $$\\nand hence\\n$$ \\\\mathrm {R} \\\\sim \\\\mathrm {e}^{\\\\pm \\\\mathrm {i} (\\\\omega - \\\\mathrm {m} \\\\omega_{+}) \\\\mathrm {r}^{*}} $$\\nwhere\\n$$ \\\\omega_{+} \\\\equiv a / 2 M r_{+}. $$"
+  },
+  "verification": null
+}

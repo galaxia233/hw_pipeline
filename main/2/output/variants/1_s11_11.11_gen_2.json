@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "\\Omega",
+      "coordinate": "spherical",
+      "scenario": "gyroscope_orbit",
+      "method": "limit_analysis",
+      "generalization_axis": "limit",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "limit",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\phi$",
+      "$M$",
+      "$\\mathbf{v}$",
+      "$\\mathbf{S}$",
+      "$h_j$",
+      "$\\Gamma_{\\hat{j}\\hat{k}\\hat{0}}$"
+    ],
+    "target": [
+      "\\Omega"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Consider a gyroscope in a circular equatorial orbit around a rotating central body of mass $M$ and angular momentum $J$. Its total relativistic precession rate relative to distant stars is the sum of the geodetic precession $\\Omega_g = \\frac{3}{2} \\frac{v^2}{c^2} \\omega_{orbit}$ and the Lense-Thirring precession $\\Omega_{LT} = \\frac{GJ}{c^2 r^3}$, where $\\omega_{orbit} = \\sqrt{GM/r^3}$ is the orbital angular velocity and $v = \\sqrt{GM/r}$ is the orbital velocity. Prove that by taking the limit of a non-rotating body ($J \\to 0$) followed by the massless limit ($M \\to 0$), the total precession rate $\\Omega$ vanishes. Furthermore, explain how this mathematical limiting behavior physically corresponds to the sequential reduction of the spacetime geometry from a stationary rotating spacetime to a static curved spacetime, and finally to flat Minkowski spacetime, where a freely falling gyroscope undergoes parallel transport without any precession.",
+    "answer": "The total precession $\\Omega$ vanishes in the double limit $J \\to 0$, $M \\to 0$. Physically, $J \\to 0$ reduces the spacetime from a rotating (Kerr-like) geometry to a static (Schwarzschild) geometry, eliminating the frame-dragging (Lense-Thirring) effect. The subsequent $M \\to 0$ limit reduces the static curved spacetime to flat Minkowski spacetime, where parallel transport preserves the direction of the spin vector, eliminating the geodetic precession.",
+    "solution": "1. Take the limit $J \\to 0$: The Lense-Thirring term $\\Omega_{LT} = \\frac{GJ}{c^2 r^3}$ explicitly goes to zero. The total precession reduces to $\\Omega = \\Omega_g = \\frac{3}{2} \\frac{v^2}{c^2} \\omega_{orbit}$. Physically, this corresponds to reducing the spacetime metric from a stationary rotating solution (which possesses cross terms like $g_{t\\phi}$ responsible for frame-dragging) to a static spherically symmetric Schwarzschild solution.2. Take the limit $M \\to 0$: The geodetic precession can be rewritten as $\\Omega_g = \\frac{3}{2} \\frac{GM}{c^2 r} \\sqrt{\\frac{GM}{r^3}} = \\frac{3(GM)^{3/2}}{2c^2 r^{5/2}}$. As $M \\to 0$, $(GM)^{3/2} \\to 0$, so $\\Omega_g \\to 0$. Physically, the limit $M \\to 0$ corresponds to removing the source of spacetime curvature, reducing the Schwarzschild metric to the flat Minkowski metric $ds^2 = -c^2 dt^2 + dx^2 + dy^2 + dz^2$. In flat Minkowski spacetime, the Christoffel symbols $\\Gamma^\\mu_{\\nu\\rho}$ vanish identically in Cartesian coordinates. Therefore, the parallel transport equation for the spin vector $\\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{\\nu\\rho} S^\\nu \\frac{dx^\\rho}{d\\tau} = 0$ simplifies to $\\frac{dS^\\mu}{d\\tau} = 0$, meaning the spatial components of the spin vector remain constant. A freely falling gyroscope maintains its orientation relative to distant stars, yielding zero precession. Thus, the double limit sequentially removes the frame-dragging curvature and then the mass-induced curvature, restoring the flat spacetime behavior."
+  },
+  "verification": null
+}

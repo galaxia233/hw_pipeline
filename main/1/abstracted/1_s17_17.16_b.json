@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s17_17.16_b",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "coordinate",
+      "coordinate": "target_object",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.16_b",
+    "source_id": "1_s17_17.16_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.16_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "克尔时空波动方程分离变量推导，多步代数变形结合特征值条件，具明确黑洞微扰背景",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\omega$",
+      "$m$",
+      "$A$",
+      "$M$",
+      "$a$"
+    ],
+    "target": [
+      "$A$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 17.16 (b) Show that the equation can be reduced to ordinary differential equations by separation of variables.",
+    "answer": "角向方程：$\\frac {1}{\\sin \\theta} \\frac {\\mathrm {d}}{\\mathrm {d} \\theta} \\left(\\sin \\theta \\frac {\\mathrm {d} S}{\\mathrm {d} \\theta}\\right) - \\left(a^{2} \\omega^{2} \\sin^{2} \\theta + \\frac {\\mathrm {m}^{2}}{\\sin^{2} \\theta} - A\\right) S = 0$；径向方程：$\\frac {\\mathrm {d}}{\\mathrm {d} r} \\left(\\Delta \\frac {\\mathrm {d} R}{\\mathrm {d} r}\\right) + \\left[ \\frac {\\omega^{2} \\left(r^{2} + a^{2}\\right)^{2} - 4 M a r \\omega m + a^{2} m^{2}}{\\Delta} - A\\right] R = 0$。分离常数 $A$ 由 $S$ 的正则性确定。",
+    "solution": "(b) In Equation (1) we take the $t$ and $\\phi$ dependence to be$$\\Phi (t, r, \\theta , \\phi) = e^{- i \\omega t} e^{i m \\phi} R (r) S (\\theta)$$and we divide through by $\\Phi$ . This gives us$$\\begin{array}{l}\\frac {1}{R} \\frac {d}{d r} \\left(\\Delta \\frac {d R}{d r}\\right) + \\omega^{2} \\frac {\\left(r^{2} + a^{2}\\right)^{2}}{\\Delta} - \\frac {4 M a r \\omega m}{\\Delta} + \\frac {a^{2} m^{2}}{\\Delta} \\tag {2} \\\\= \\frac {- 1}{S \\sin \\theta} \\frac {d}{d \\theta} \\left(\\sin \\theta \\frac {d S}{d \\theta}\\right) + a^{2} \\omega^{2} \\sin^{2} \\theta + \\frac {m^{2}}{\\sin^{2} \\theta}. \\\\\\end{array}$$Since the left-hand side of Equation (2) is a function of $\\mathbf{r}$ alone and the right-hand side must be a function of $\\theta$ alone; each side must be a constant $A$ , thus$$\\frac {1}{\\sin \\theta} \\frac {\\mathrm {d}}{\\mathrm {d} \\theta} \\left(\\sin \\theta \\frac {\\mathrm {d} S}{\\mathrm {d} \\theta}\\right) - \\left(a^{2} \\omega^{2} \\sin^{2} \\theta + \\frac {\\mathrm {m}^{2}}{\\sin^{2} \\theta} - A\\right) S = 0 \\tag {3}$$and$$\\frac {\\mathrm {d}}{\\mathrm {d} \\mathbf {r}} \\left(\\Delta \\frac {\\mathrm {d} \\mathbf {R}}{\\mathrm {d} \\mathbf {r}}\\right) + \\left[ \\frac {\\omega^{2} \\left(\\mathrm {r}^{2} + \\mathrm {a}^{2}\\right)^{2} - 4 \\operatorname {M a r} \\omega \\mathrm {m} + \\mathrm {a}^{2} \\mathrm {m}^{2}}{\\Delta} - \\mathrm {A}\\right] \\mathbf {R} = 0. \\tag {4}$$Since S must be regular at $\\theta = 0$ and $\\pi$ , Equation (3) is an eigenvalue equation for A. The function S is in fact a \"spheroidal wave function\"; in the simplest case when $a\\omega = 0$ , we have $S = P_{\\ell_m}(\\cos \\theta)$ and $A = \\ell (\\ell +1)$"
+  },
+  "verification": null
+}

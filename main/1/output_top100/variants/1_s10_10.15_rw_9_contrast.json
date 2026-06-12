@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-8-9",
+    "type": "concept",
+    "tags": {
+      "target_object": "Newtonian_potential_and_force",
+      "coordinate": "static_spherical",
+      "scenario": "compare_AdS_Schwarzschild",
+      "method": "Killing_vector_norm_and_expansion",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-8",
+      "1_s10_10.15-8-9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "Newtonian_potential_and_force"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，静态时空的时间平移 Killing 矢量 $\\boldsymbol{\\xi}$ 可以定义静止粒子的最小守恒能量（单位质量）为 $E_{\\text{min}} / \\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$。考虑以下两种时空背景：背景1（Anti-de Sitter静态坐标）：度规为 $ds^2 = -\\cos h^{2}(r) dt^2 + dr^2 + \\sin h^{2}(r) d\\theta^2 + \\sin^{2}(\\theta) \\sin h^{2}(r) d\\phi^2$，时间平移 Killing 矢量为 $\\xi^{\\mu} = (1, 0, 0, 0)$。背景2（Schwarzschild时空）：度规为 $ds^2 = -\\left(1 - \\frac{r_s}{r}\\right) dt^2 + \\left(1 - \\frac{r_s}{r}\\right)^{-1} dr^2 + r^{2} d\\theta^2 + r^{2} \\sin^{2}(\\theta) d\\phi^2$（其中 $r_s = 2M$ 为 Schwarzschild 半径），时间平移 Killing 矢量为 $\\xi^{\\mu} = (1, 0, 0, 0)$。请在两种背景下分别计算静止粒子的 $E_{\\text{min}} / \\mu$，通过适当的近似展开（背景1取 $r \\ll 1$，背景2取 $r \\gg r_s$）提取等效 Newtonian 引力势 $V(r)$（定义 $E_{\\text{min}} / \\mu \\approx 1 + V(r)$），并对比这两种势的数学形式及其反映的物理含义（力的方向与时空曲率/质量属性的关系）。",
+    "answer": "背景1中：$E_{\\text{min}} / \\mu = \\cos h(r) \\approx 1 + r^2/2$，等效 Newtonian 势为 $V_1(r) = r^2/2$，对应力为 $F_1 = -dV_1/dr = -r$，为指向中心的回复力。背景2中：$E_{\\text{min}} / \\mu = \\sqrt{1 - r_s/r} \\approx 1 - r_s/(2r)$，等效 Newtonian 势为 $V_2(r) = -r_s/(2r) = -M/r$，对应力为 $F_2 = -dV_2/dr = -M/r^2$，为指向中心的吸引力。物理含义对比：背景1（AdS）的势呈正二次型，产生随距离线性增长的回复力，体现了负常曲率时空（$R=-12$）固有的向心聚集效应（宇宙学尺度的约束）；背景2（Schwarzschild）的势呈负 $1/r$ 型，产生随距离平方衰减的吸引力，体现了局部正质量源 $M$ 的引力拖拽效应。",
+    "solution": "1. 计算 Killing 矢量模长：$\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g_{00}$。背景1：$g_{00} = -\\cos h^2(r)$；背景2：$g_{00} = -(1-r_s/r)$。2. 计算最小静止能量：背景1：$\\sqrt{-g_{00}} = \\cos h(r)$；背景2：$\\sqrt{-g_{00}} = \\sqrt{1-r_s/r}$。3. 近似展开：背景1在 $r \\ll 1$ 时 $\\cos h(r) \\approx 1 + r^2/2$；背景2在 $r \\gg r_s$ 时 $\\sqrt{1-r_s/r} \\approx 1 - r_s/(2r)$。4. 提取势：背景1 $V_1 = r^2/2$；背景2 $V_2 = -M/r$。5. 对比物理意义：AdS势导致回复力，是谐振子势，反映了负曲率时空的聚焦性质；Schwarzschild势导致传统牛顿引力，反映了中心质量的吸引性质。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目、答案和解析中大量使用了错误的符号 `\\cos h` 和 `\\sin h` 来表示双曲函数。在数学和物理的标准写法中，双曲余弦和双曲正弦应写为 `\\cosh` 和 `\\sinh`。`\\cos h` 会被 LaTeX 渲染为 $\\cos(h)$，即普通余弦函数与变量 $h$ 的组合（或余弦函数作用于 $h$），这与双曲函数 $\\cosh(r)$ 在数学定义和物理意义上完全不同。例如，度规项应为 $-\\cosh^2(r)dt^2$ 而非 $-\\cos h^{2}(r)dt^2$。这是典型的 LLM 生成排版错误，会导致做题者对度规的数学形式产生根本性的误解。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

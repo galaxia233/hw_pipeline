@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-2-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "g_tt",
+      "coordinate": "t,x,y,z",
+      "scenario": "anisotropic_field",
+      "method": "invert_from_weight_property",
+      "generalization_axis": "substitute",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-2",
+      "1_s14_14.6-2-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "\\partial_x g_{tt} = 0"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在一个具有沿 $x$ 方向引力场的时空中，坐标线元为 $ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}} dx^2 + e^{\\frac{2x}{\\alpha}} dy^2 + e^{\\frac{2x}{\\alpha}} dz^2$，其中 $\\alpha$ 为内禀参数。采用符号约定 $(-,+,+,+)$，有质量粒子的类时条件为 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$。假设物理观察确立了一个普遍结论：对于放置在此场中的**任何**静态物质分布（容器），其在秤上测得的 $x$ 方向重量 $W(x) = \\int T^{\\hat{x}\\hat{x}} dy dz$ 严格且唯一地由其横向应力分量 $T^{\\hat{y}\\hat{y}}$ 和 $T^{\\hat{z}\\hat{z}}$ 决定，并且**完全独立于**总能量密度物理分量 $T^{\\hat{t}\\hat{t}}$。基于这一物理结论，请反推并证明时空度规分量 $g_{tt}$ 必须满足的几何约束条件。",
+    "answer": "$\\partial_x g_{tt} = 0$，即时间度规分量必须与坐标 $x$ 无关。",
+    "solution": "根据能动张量守恒方程 $T^{\\alpha\\beta}_{;\\beta} = 0$，取 $\\alpha = x$ 展开：$$0 = \\sqrt{-g}^{-1} \\partial_\\beta (\\sqrt{-g} T^{x\\beta}) + \\Gamma^x_{\\beta\\gamma} T^{\\beta\\gamma}$$对于静态物质分布，$T^{xt} = T^{xy} = T^{xz} = 0$（无动量通量），且张量与时间无关。对 $y, z$ 积分并利用边界条件（容器外部张量为零），方程中与总能量密度相关的项为：$$\\Gamma^x_{tt} \\int T^{tt} dy dz$$将坐标分量转换为物理分量（正交基分量）：$T^{\\hat{t}\\hat{t}} = |g_{tt}| T^{tt}$，该项变为：$$\\Gamma^x_{tt} \\int \\frac{T^{\\hat{t}\\hat{t}}}{|g_{tt}|} dy dz$$由于已知结论指出重量 $W(x)$ 完全独立于 $T^{\\hat{t}\\hat{t}}$，且这一性质对**任何**静态物质分布都成立（意味着 $T^{\\hat{t}\\hat{t}}$ 可取任意非零值），上述项必须恒为零。这要求 Christoffel 符号满足 $\\Gamma^x_{tt} = 0$。在给定度规下计算 Christoffel 符号：$$\\Gamma^x_{tt} = -\\frac{1}{2} g^{xx} \\partial_x g_{tt}$$由于度规非退化，$g^{xx} \\neq 0$，因此必须满足 $\\partial_x g_{tt} = 0$。即时间度规分量 $g_{tt}$ 必须与坐标 $x$ 无关。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "1. 题目逻辑荒谬：题干已经完整给出了度规线元 $ds^2 = -dt^2 + e^{2x/\\alpha} dx^2 + ...$，其中 $g_{tt} = -1$ 已经是显式常数。在此已知条件下，要求做题者基于物理结论“反推并证明” $g_{tt}$ 的几何约束条件 $\\partial_x g_{tt} = 0$ 是毫无意义的，因为结论是给定前提的直接数学推论（常数求导为0），根本不需要任何物理反推过程。若要考察物理推导能力，度规的时间分量应设为未知函数如 $-f(x)dt^2$，而非直接给定。2. 度规摘要与物理事实严重矛盾：摘要声称该度规为 DeSitter，但 De Sitter 空间是极大对称空间，必须具有 10 个 Killing 矢量且曲率标量为常数；摘要却说只有 1 个 Killing 瞬时且 Ricci 标量非常数。实际计算题干线元的 Ricci 标量为 $R = -4/\\alpha^2 e^{-2x/\\alpha}$（依赖坐标 $x$，非常数），证实该度规绝非 De Sitter 度规。3. Solution 推导逻辑跳跃：直接断言包含 $\\Gamma^x_{tt} T^{tt}$ 的项必须为零，而未写出完整的守恒积分方程（遗漏了 $\\Gamma^x_{xx} T^{xx}$ 等项），也未论证这些项不含能量密度 $T^{\\hat{t}\\hat{t}}$，推理不严密。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

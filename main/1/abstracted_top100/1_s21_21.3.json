@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s21_21.3",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "coordinate_transformation",
+      "scenario": "variational_principle",
+      "method": "energy_momentum_conservation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s21_21.3",
+    "source_id": "1_s21_21.3",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s21_21.3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.8,
+      "rationale": "基于微分同胚不变性与作用量变分的严格推导，物理逻辑严密且可推广至任意广义协变场论。",
+      "overall": 0.9
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\mu$",
+      "$g_{\\\\mu\\\\nu}$",
+      "$T^{\\\\mu\\\\nu}$",
+      "$\\\\xi^\\\\mu$"
+    ],
+    "target": [
+      "$T^{\\\\mu\\\\nu}_{;\\\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 21.3. If $\\mathbf{L}$ is a Lagrangian density as in Problem 21.2, the stress-energy tensor can be defined by a variation of $\\mathbf{g}_{\\mu \\nu}$ in $S$ :\\n$$\\n\\\\delta S = \\\\intop \\\\frac {\\\\delta (\\\\mathrm {L} (- \\\\mathrm {g})^{\\\\frac {1}{2}})}{\\\\delta \\\\mathbf {g}_{\\\\mu \\\\nu}} \\\\delta \\\\mathbf {g}_{\\\\mu \\\\nu} \\\\mathrm {d}^{4} \\\\mathbf {x} \\\\equiv \\\\frac {1}{2} \\\\intop \\\\mathrm {T}^{\\\\mu \\\\nu} \\\\delta \\\\mathbf {g}_{\\\\mu \\\\nu} (- \\\\mathbf {g})^{\\\\frac {1}{2}} \\\\mathrm {d}^{4} \\\\mathbf {x} .\\n$$\\nShow that $\\mathbf{T}^{\\\\mu \\\\nu}_{;\\\\nu} = 0$ follows from the equation of motion of the field and the fact that S is a scalar.",
+    "answer": "$T^{\\\\mu\\\\nu}_{;\\\\nu} = 0$",
+    "solution": "Solution 21.3. Since $\\mathbf{L}(-\\mathbf{g})^{\\frac{1}{2}}\\mathbf{d}^{4}\\mathbf{x}$ is a scalar, it is unchanged under the infinitesimal coordinate transformation\\n$$\\n\\\\overline {{\\\\mathbf {x}}}^{\\\\mu} = \\\\mathbf {x}^{\\\\mu} + \\\\xi^{\\\\mu}.\\n$$\\nBy renaming the dummy variable of integration, $\\\\sf{d}^4\\\\overline{\\\\mathbf{x}}$ can be changed back to $\\\\sf{d}^4\\\\mathbf{x}$ . The net change in $\\mathbf{L}(-\\mathbf{g})^{\\frac{1}{2}}$ is therefore the Lie derivative (see Problem 8.17), so that\\n$$\\n\\\\begin{array}{l} 0 = \\\\delta S = \\\\int \\\\mathcal {L}_{\\\\xi} (L (- g)^{\\\\frac {1}{2}}) d^{4} x \\\\\\\\\\n= \\\\int \\\\left[ \\\\frac {\\\\delta \\\\underline {{\\\\mathrm {L}}}}{\\\\delta \\\\Phi^{\\\\mathrm {A}}} \\\\left(\\\\mathcal {Q}_{\\\\xi} \\\\Phi^{\\\\mathrm {A}}\\\\right) (- \\\\mathrm {g})^{\\\\frac {1}{2}} + \\\\frac {\\\\delta (\\\\mathrm {L} (- \\\\mathrm {g})^{\\\\frac {1}{2}})}{\\\\delta \\\\mathrm {g}_{\\\\mu \\\\nu}} \\\\mathcal {Q}_{\\\\xi} \\\\mathrm {g}_{\\\\mu \\\\nu} \\\\right] d^{4} x. \\\\tag {1} \\\\\\\\\\n\\\\end{array}\\n$$\\nThe first term in the integrand vanishes by the equation of motion (Problem 21.2), thus\\n$$\\n0 = \\\\frac {1}{2} \\\\int \\\\mathrm {T}^{\\\\mu \\\\nu} \\\\mathcal {L}_{\\\\pmb {\\\\xi}} \\\\mathbf {g}_{\\\\mu \\\\nu} (- \\\\mathbf {g})^{\\\\frac {1}{2}} \\\\mathrm {d}^{4} \\\\mathbf {x} .\\n$$\\nSince\\n$$\\n\\\\mathcal {L}_{\\\\xi} \\\\mathrm {g}_{\\\\mu \\\\nu} = \\\\xi_{\\\\mu ; \\\\nu} + \\\\xi_{\\\\nu ; \\\\mu}\\n$$\\nwe get\\n$$\\n\\\\begin{array}{l} 0 = \\\\int \\\\mathrm {T}^{\\\\mu \\\\nu} \\\\xi_{\\\\mu ; \\\\nu} (- \\\\mathrm {g})^{\\\\frac {1}{2}} \\\\mathrm {d}^{4} \\\\mathrm {x} \\\\tag {2} \\\\\\\\\\n= \\\\int \\\\left(\\\\mathrm {T}^{\\\\mu \\\\nu} \\\\xi_{\\\\mu}\\\\right)_{; \\\\nu} (- \\\\mathrm {g})^{\\\\frac {1}{2}} \\\\mathrm {d}^{4} \\\\mathrm {x} - \\\\int \\\\mathrm {T}_{; \\\\nu}^{\\\\mu \\\\nu} \\\\xi_{\\\\mu} (- \\\\mathrm {g})^{\\\\frac {1}{2}} \\\\mathrm {d}^{4} \\\\mathrm {x}. \\\\\\\\\\n\\\\end{array}.\\n$$\\nThe first term is\\n$$\\n\\\\int \\\\left(\\\\mathrm {T}^{\\\\mu \\\\nu} \\\\xi_{\\\\mu}\\\\right)_{; \\\\nu} (- \\\\mathrm {g})^{\\\\frac {1}{2}} \\\\mathrm {d}^{4} \\\\mathrm {x} = \\\\int \\\\left((- \\\\mathrm {g})^{\\\\frac {1}{2}} \\\\mathrm {T}^{\\\\mu \\\\nu} \\\\xi_{\\\\mu}\\\\right)_{, \\\\nu} \\\\mathrm {d}^{4} \\\\mathrm {x}\\n$$\\nand gives a surface integral which vanishes. Since $\\xi_{\\mu}$ is arbitrary,\\nEquation (2) then gives\\n$$\\n\\\\mathrm {T}_{; \\\\nu}^{\\\\mu \\\\nu} = 0.\\n$$"
+  },
+  "verification": null
+}

@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s14_14.4",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "perfect_fluid",
+      "coordinate": "hydrostatic_equilibrium",
+      "scenario": "killing_vector",
+      "method": "covariant_derivative"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.4",
+    "source_id": "1_s14_14.4",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "静态度规下Killing矢量联系流体四速度，结合协变导数恒等式与能量动量守恒完成多步推导，具备恒星结构等天体物理应用背景",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\nu$",
+      "$p$",
+      "$\\\\rho$",
+      "$g_{00}$",
+      "$u^\\\\mu$",
+      "$\\\\xi^\\\\mu$"
+    ],
+    "target": [
+      "$\\\\nabla_\\\\nu p$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 14.4. Derive the general relativistic equation of hydrostatic equilibrium,\\n$$\\n\\\\frac {- \\\\partial \\\\mathbf {p}}{\\\\partial \\\\mathbf {x}^{\\\\nu}} = (\\\\rho + \\\\mathbf {p}) \\\\frac {\\\\partial}{\\\\partial \\\\mathbf {x}^{\\\\nu}} \\\\log (- \\\\mathbf {g}_{0 0})^{\\\\frac {1}{2}}\\n$$\\nand compare it to the Newtonian equation.",
+    "answer": "$\\\\frac{-\\\\partial p}{\\\\partial x^\\\\nu} = (\\\\rho + p) \\\\frac{\\\\partial}{\\\\partial x^\\\\nu} \\\\log (-g_{00})^{1/2}$；牛顿极限下为 $\\\\frac{\\\\partial p}{\\\\partial x^\\\\nu} \\\\approx -\\\\rho \\\\frac{\\\\partial \\\\Phi}{\\\\partial x^\\\\nu}$",
+    "solution": "Solution 14.4. The Euler equation for a perfect fluid is\\n$$\\n(\\\\rho + p) \\\\nabla_{\\\\mathbf {u}} \\\\mathbf {u} = - \\\\nabla p - \\\\mathbf {u} \\\\nabla_{\\\\mathbf {u}} p.\\n$$\\nHydrostatic equilibrium implies the existence of a time Killing vector $\\pmb{\\xi}$ . The fluid 4-velocity, according to Problem 13.9, must be parallel to this Killing vector, so\\n$$\\n\\\\mathbf {u} = \\\\boldsymbol {\\\\xi} / | \\\\boldsymbol {\\\\xi} |.\\n$$\\n(In components, this means that only $\\mathbf{u}^{\\mathbf{i}} = 0$ , where $\\pmb{\\xi} = \\partial/\\partial t$ .) From Problem 10.14 we know\\n$$\\n\\\\nabla_{\\\\mathbf {u}} \\\\mathbf {u} = \\\\frac {1}{2} \\\\nabla \\\\log | \\\\boldsymbol {\\\\xi} \\\\cdot \\\\boldsymbol {\\\\xi} |.\\n$$\\nWe also know that $\\partial \\mathfrak{p} / \\partial t = 0$ , or $\\nabla_{\\mathbf{u}}\\mathfrak{p}\\propto \\nabla_{\\boldsymbol{\\xi}}\\mathfrak{p} = 0$ , and therefore\\n$$\\n\\\\nabla \\\\mathfrak {p} = - (\\\\rho + \\\\mathfrak {p}) \\\\nabla \\\\log | \\\\boldsymbol {\\\\xi} \\\\cdot \\\\boldsymbol {\\\\xi} |^{\\\\frac {1}{2}}.\\n$$\\nBut $\\pmb{\\xi} \\cdot \\pmb{\\xi} = (\\partial/\\partial t) \\cdot (\\partial/\\partial t) = \\mathbf{g}_{00}$ , so $|\\pmb{\\xi} \\cdot \\pmb{\\xi}|^{\\frac{1}{2}} = (-\\mathbf{g}_{00})^{\\frac{1}{2}}$ , from which the result follows.\\nIn the Newtonian limit, $\\mathfrak{p} \\ll \\rho$ and $\\mathbf{g}_{00} \\approx -(1 + 2\\Phi)$ where the Newtonian potential $\\Phi \\ll 1$ . Thus\\n$$\\n\\\\frac {\\\\partial \\\\mathrm {p}}{\\\\partial \\\\mathbf {x}^{\\\\nu}} \\\\approx - \\\\rho \\\\frac {\\\\partial}{\\\\partial \\\\mathbf {x}^{\\\\nu}} \\\\frac {1}{2} \\\\log (1 + 2 \\\\Phi) \\\\approx - \\\\rho \\\\frac {\\\\partial \\\\Phi}{\\\\partial \\\\mathbf {x}^{\\\\nu}}..\\n$$"
+  },
+  "verification": null
+}

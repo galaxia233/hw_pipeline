@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s18_18.8",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric_perturbation",
+      "target_object": "target_component",
+      "coordinate": "coordinates_t_x1_x2_x3",
+      "scenario": "plane_gravitational_wave",
+      "method": "gauge_transformation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s18_18.8",
+    "source_id": "1_s18_18.8",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s18_18.8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.9,
+      "completeness": 0.95,
+      "realism": 0.8,
+      "rationale": "基于线性化Ricci张量约束推导规范条件，构造显式坐标变换消除非对角/时序分量，并与TT投影算子性质建立等价性",
+      "overall": 0.89
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$h_{22}$",
+      "$h_{23}$",
+      "$h_{33}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 18.8. A plane gravitational wave propagates through nearly flat empty spacetime, in the $x^1$ direction (i.e. the metric perturbations $h_{\\\\alpha \\\\beta}$ are functions only of $u = t - x$ ). Give an explicit coordinate transformation which makes all the $h_{\\\\alpha \\\\beta}$ zero except $h_{23} = h_{32}$ and $h_{22} = -h_{33}$ . Show that the same resulting components could have been obtained directly by projection into the transverse traceless gauge.",
+    "answer": "$\\\\xi_0(u) = \\\\frac{1}{2} \\\\int^u h_{00}(\\\\tilde{u}) d\\\\tilde{u}, \\\\quad \\\\xi_1(u) = -\\\\frac{1}{2} \\\\int^u h_{11}(\\\\tilde{u}) d\\\\tilde{u}, \\\\quad \\\\xi_2(u) = \\\\int^u h_{02}(\\\\tilde{u}) d\\\\tilde{u}, \\\\quad \\\\xi_3(u) = \\\\int^u h_{03}(\\\\tilde{u}) d\\\\tilde{u}$；非零扰动分量仅余 $h_{23}=h_{32}$ 与 $h_{22}=-h_{33}$，该结果与直接投影至横向无迹（TT）规范所得完全一致。",
+    "solution": "Solution 18.8. The Ricci tensor for the wave must vanish. By contracting the result in Problem 13.13, we have then\\n$$\\n0 = 2 \\\\mathrm {R}_{\\\\mu \\\\nu} = \\\\mathrm {h}_{\\\\nu , a \\\\mu}^{a} + \\\\mathrm {h}_{\\\\mu , a \\\\nu}^{a} - \\\\mathrm {h}_{\\\\mu \\\\nu}^{, a} a - \\\\mathrm {h}_{, \\\\mu \\\\nu}.\\n$$\\nSince the perturbations are functions of $\\mathbf{u} = \\mathbf{t} - \\mathbf{x}$ , the third term $\\square \\mathrm{h}_{\\\\mu \\\\nu}$ automatically vanishes and the components $\\mathbb{R}_{22}, \\mathbb{R}_{23}, \\mathbb{R}_{33}$ automatically vanish. For $\\mu, \\nu = 0,2$ we find\\n$$\\n\\\\frac {\\\\mathrm {d}^{2}}{\\\\mathrm {d u}^{2}} \\\\left(\\\\mathrm {h}_{2}^{0} - \\\\mathrm {h}_{2}^{1}\\\\right) = 0.\\n$$\\nFrom this we conclude $\\mathbf{h}_2^0 = \\mathbf{h}_2^1$ . [The integration constants are of no consequence; they are not wavelike; they carry no energy, and since they make no contribution to the Riemann tensor, they are gauge removable.]\\nSimilarly we have\\n$$\\n\\\\mathbf {h}_{3}^{0} = \\\\mathbf {h}_{3}^{1} \\\\quad \\\\text {f r o m} \\\\quad \\\\mu , \\\\nu_{\\cdot} = 0, 3\\n$$\\n$$\\n\\\\mathrm {h}_{0}^{0} - \\\\mathrm {h}_{0}^{1} = \\\\frac {1}{2} \\\\mathrm {h} \\\\quad \\\\text {f r o m} \\\\quad \\\\mu , \\\\nu = 0, 0\\n$$\\n$$\\n\\\\mathrm {h}_{2}^{2} + \\\\mathrm {h}_{3}^{3} = 0 \\\\quad \\\\text {f r o m} \\\\quad \\\\mu , \\\\nu = 1, 0.\\n$$\\nOther choices of $\\mu \\nu$ give no further, independent relations.\\nThese four constraints leave us with six independent components of $\\mathbf{h}_{\\\\alpha \\\\beta}$ . A gauge transformation of the form $\\xi_{\\\\mu}(t - x)$ leaves the $\\mathbf{h}_{\\\\alpha \\\\beta}$ as functions only of $t - x$ and hence does not invalidate our four constraints above. We choose then a gauge transformation of this type which annihilates $\\mathbf{h}_{00}, \\mathbf{h}_{11}, \\mathbf{h}_{02}, \\mathbf{h}_{03}$ and which leaves us with only the quantities $\\mathbf{h}_{23} = \\mathbf{h}_{32}$ and $\\mathbf{h}_{22} - \\mathbf{h}_{33}$ which are invariant for such a transformation. The explicit form of the gauge transformation is\\n$$\\n\\\\begin{array}{l} \\\\xi_{0} (u) = \\\\frac {1}{2} \\\\int^{u} h_{0 0} (\\\\tilde {u}) d \\\\tilde {u} \\\\quad \\\\xi_{1} (u) = - \\\\frac {1}{2} \\\\int^{u} h_{1 1} (\\\\tilde {u}) d \\\\tilde {u} \\\\\\\\ \\\\xi_{2} (u) = \\\\int^{u} h_{0 2} (\\\\tilde {u}) d \\\\tilde {u} \\\\quad \\\\xi_{3} (u) = \\\\int^{u} h_{0 3} (\\\\tilde {u}) d \\\\tilde {u}. \\\\\\\\ \\\\end{array}\\n$$\\nNow we consider whether these are the same components as we would get by projecting out the transverse traceless part of the perturbation. Since we have $\\mathbf{h} = \\mathbf{h}_0^0 + \\mathbf{h}_1^1$ projecting out the transverse part is equivalent to projecting out the TT part. But projecting out the transverse part leaves $\\mathbf{h}_{22}, \\mathbf{h}_{23}, \\mathbf{h}_{33}$ invariant, as did our gauge transformation. Thus we get the same components either way."
+  },
+  "verification": null
+}

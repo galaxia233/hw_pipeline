@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s4_4.10",
+    "type": "calculate",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "lorentz_force",
+      "coordinate": "electromagnetic_tensor",
+      "scenario": "energy_momentum",
+      "method": "covariant_formulation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.10",
+    "source_id": "1_s4_4.10",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.10"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于狭义相对论四维形式推导电磁力做功率方程，需串联场张量定义、四维速度分量及固有时与坐标时转换，逻辑链条清晰且具明确物理动机。",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$\\\\tau$",
+      "$\\\\mathbf{v}$",
+      "$\\\\mathbf{E}$"
+    ],
+    "target": [
+      "$dP^0/dt$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 4.10. Write out the $\\mu = 0$ component of the Lorentz force equation $\\mathrm{du}^{\\mu} / \\mathrm{d}\\tau = (\\mathrm{e} / \\mathrm{m})\\mathrm{F}^{\\mu \\beta}\\mathrm{u}_{\\beta}$ expressing $\\mathbf{F}^{\\mu \\nu}$ in terms of $\\mathbf{E}_i$ and $\\mathbf{B}_i$ , to obtain\\n$$\\n\\\\mathrm {d P}^{0} / \\\\mathrm {d t} = \\\\underset {\\\\sim} {\\\\mathrm {e}} \\\\underset {\\\\sim} {\\\\mathrm {v}} \\\\cdot \\\\underset {\\\\sim} {\\\\mathrm {E}}.\\n$$",
+    "answer": "$dP^0/dt = e \\\\mathbf{v} \\\\cdot \\\\mathbf{E}$",
+    "solution": "Solution 4.10. With $\\mu = 0$ the Lorentz force equation is\\n$$\\n\\\\mathrm {d} \\\\mathbf {P}^{0} / \\\\mathrm {d} \\\\tau = \\\\mathrm {eF}^{0 \\\\mathrm {i}} \\\\mathbf {u}_{\\\\mathrm {i}} = \\\\mathrm {eE}^{\\\\mathrm {i}} \\\\gamma \\\\mathbf {v}_{\\\\mathrm {i}}.\\n$$\\nSince $\\mathrm{d}\\\\tau = \\\\mathrm {d}t / \\\\gamma$ this equation can be written\\n$$\\n\\\\mathrm {d} \\\\mathbf {P}^{0} / \\\\mathrm {d} t = e E^{i} v_{i}.\\n$$\\nNote that this differs from the nonrelativistic equation only in that $\\mathbf{P}^0$ is the relativistic mass-energy."
+  },
+  "verification": null
+}

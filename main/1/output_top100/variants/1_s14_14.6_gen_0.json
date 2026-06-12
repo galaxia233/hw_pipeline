@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "metric_transverse_conditions",
+      "coordinate": "cartesian_static",
+      "scenario": "static_gravitational_field_weight",
+      "method": "covariant_conservation_inversion",
+      "generalization_axis": "invert",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "invert",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$g_{xx,z} = 0$",
+      "$g_{yy,z} = 0$"
+    ],
+    "metric": [
+      [
+        "$g_{tt}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$g_{zz}$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一个沿 $z$ 轴方向的静态引力场，其度规为对角形式且仅依赖于 $z$：$$\\mathrm{d}s^2 = g_{tt}(z) \\mathrm{d}t^2 + g_{xx}(z) \\mathrm{d}x^2 + g_{yy}(z) \\mathrm{d}y^2 + g_{zz}(z) \\mathrm{d}z^2$$其中采用 $(-,+,+,+)$ 符号约定，因此 $g_{tt} < 0$ 且空间分量 $g_{xx}, g_{yy}, g_{zz} > 0$。将装有不同物质的容器置于该场中，并在 $z=0$ 处用秤测量其重量。重量定义为容器底面正应力的积分：$W(z) = \\int g_{zz} T^{zz} \\mathrm{d}x \\mathrm{d}y$。实验观测表明，对于任何具有任意（甚至是各向异性）内部横向应力 $T^{\\hat{x}\\hat{x}}$ 和 $T^{\\hat{y}\\hat{y}}$ 的物质，只要其总积分能量密度 $\\int T^{\\hat{t}\\hat{t}} \\mathrm{d}V$ 相同，其在 $z=0$ 处的重量 $W(0)$ 就完全相同。这意味着 $W(0)$ 严格仅取决于积分能量密度，而与横向应力无关。请利用能动张量的协变守恒律 $T^{\\alpha\\beta}_{;\\beta} = 0$，反推并证明度规分量 $g_{xx}(z)$ 和 $g_{yy}(z)$ 必须满足的必要且充分条件。",
+    "answer": "度规分量 $g_{xx}(z)$ 和 $g_{yy}(z)$ 必须为常数，即满足必要且充分条件 $g_{xx,z} = 0$ 且 $g_{yy,z} = 0$。",
+    "solution": "要反推度规分量必须满足的条件，我们从能动张量的协变守恒律出发，取 $\\alpha = z$ 分量：$$T^{z\\beta}_{;\\beta} = 0$$展开该式，利用度规仅依赖于 $z$ 且对角的性质，我们有：$$|g|^{-1/2} \\left( |g|^{1/2} T^{zz}\\right)_{,z} + \\Gamma^z_{\\beta\\gamma} T^{\\beta\\gamma} = 0$$由于度规对角且仅依赖 $z$，非零的带 $z$ 上指标的 Christoffel 符号为：$$\\Gamma^z_{tt} = -\\frac{1}{2} g^{zz} g_{tt,z}, \\quad \\Gamma^z_{xx} = -\\frac{1}{2} g^{zz} g_{xx,z}, \\quad \\Gamma^z_{yy} = -\\frac{1}{2} g^{zz} g_{yy,z}, \\quad \\Gamma^z_{zz} = \\frac{1}{2} g^{zz} g_{zz,z}$$将上述符号代入守恒律方程，并在横截面 $\\mathrm{d}x \\mathrm{d}y$ 上积分（假设容器边界无外部剪切力，边界项为零）：$$|g|^{-1/2} \\left( |g|^{1/2} \\int T^{zz} \\mathrm{d}x \\mathrm{d}y\\right)_{,z} + \\Gamma^z_{tt} \\int T^{tt} \\mathrm{d}x \\mathrm{d}y + \\Gamma^z_{xx} \\int T^{xx} \\mathrm{d}x \\mathrm{d}y + \\Gamma^z_{yy} \\int T^{yy} \\mathrm{d}x \\mathrm{d}y + \\Gamma^z_{zz} \\int T^{zz} \\mathrm{d}x \\mathrm{d}y = 0$$已知重量定义为 $W(z) = \\int g_{zz} T^{zz} \\mathrm{d}x \\mathrm{d}y$。题目给出结论：$W(0)$ 严格仅取决于积分能量密度 $\\int T^{\\hat{t}\\hat{t}} \\mathrm{d}V = \\int g_{tt} T^{tt} \\mathrm{d}V$，而与横向应力 $T^{xx}, T^{yy}$ 无关。由于不同物质的横向应力 $T^{xx}$ 和 $T^{yy}$ 可以是任意的（只要能量密度相同），若 $W(z)$ 的演化方程中包含这些横向应力项，则 $W(0)$ 必然依赖于它们。要使 $W(0)$ 与横向应力完全无关，方程中 $\\int T^{xx} \\mathrm{d}x \\mathrm{d}y$ 和 $\\int T^{yy} \\mathrm{d}x \\mathrm{d}y$ 的系数必须恒为零，即：$$\\Gamma^z_{xx} = 0 \\quad \\text{且} \\quad \\Gamma^z_{yy} = 0$$代入 Christoffel 符号的表达式，由于 $g^{zz} = 1/g_{zz} > 0$，这直接要求：$$g_{xx,z} = 0 \\quad \\text{且} \\quad g_{yy,z} = 0$$这意味着度规的横向分量 $g_{xx}$ 和 $g_{yy}$ 必须是不依赖于垂直坐标 $z$ 的常数。反之，若 $g_{xx,z} = 0$ 且 $g_{yy,z} = 0$，则横向应力项从守恒方程中消失，推导过程与经典均匀引力场情形完全一致，$W(0)$ 仅依赖于 $T^{\\hat{t}\\hat{t}}$。因此，必要且充分条件是 $g_{xx}$ 和 $g_{yy}$ 为常数。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.metric_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "题目和解答中存在多处严重错误：\n1. **符号错误**：题目和solution中将总积分能量密度定义为 $\\int T^{\\hat{t}\\hat{t}} dV = \\int g_{tt} T^{tt} dV$。在 $(-,+,+,+)$ 符号约定下 $g_{tt} < 0$，而观者测得的能量密度 $T^{\\hat{t}\\hat{t}}$ 是正的物理量，正确的变换关系应为 $T^{\\hat{t}\\hat{t}} = -g_{tt} T^{tt}$，积分应为 $\\int (-g_{tt}) T^{tt} dV$。题目漏了负号，导致能量密度积分为负值。\n2. **重量定义错误**：题目定义重量 $W(z) = \\int g_{zz} T^{zz} dx dy$。在广义相对论中，底面正应力积分（重量）必须使用正交基的应力分量和正确的面积元：$W(z) = \\int T^{\\hat{z}\\hat{z}} dA = \\int (1/g_{zz}) T^{zz} \\sqrt{g_{xx} g_{yy}} dx dy$。题目不仅漏掉了面积元的度规因子 $\\sqrt{g_{xx} g_{yy}}$，还将坐标分量 $T^{zz}$ 错误地乘上了 $g_{zz}$（这得到的是混合张量分量 $T^z_z$），导致量纲和物理意义完全错误。\n3. **充分性不成立**：题目声称 $g_{xx,z}=0$ 且 $g_{yy,z}=0$ 是使 $W(0)$ 仅取决于总积分能量密度的“必要且充分条件”。然而，即使满足此条件，守恒方程化简后仍为 $\\partial_z W + W \\frac{1}{2} \\frac{g_{tt,z}}{g_{tt}} = \\frac{1}{2} g_{tt,z} I_{tt}(z)$，其解 $W(0)$ 依然依赖于能量密度在 $z$ 方向的具体分布 $I_{tt}(z)$，而不仅仅是总积分 $\\int T^{\\hat{t}\\hat{t}} dV$。因此该条件并不充分，结论存在逻辑跳跃。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

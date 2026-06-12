@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s4_4.18",
+    "type": "calculate",
+    "tags": {
+      "metric": "flat_spacetime_metric",
+      "target_object": "four_current_density_tensor",
+      "coordinate": "general_covariant_coordinate_system",
+      "scenario": "relativistic_conducting_fluid_scenario",
+      "method": "orthogonal_projection_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.18",
+    "source_id": "1_s4_4.18",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.18"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于电荷载流子静止系定义电场与电流正交投影，利用张量协变性推广至任意参考系，逻辑链条完整且为相对论磁流体动力学基础方程",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\mu$",
+      "$J^\\mu$",
+      "$F^{\\mu\\nu}$",
+      "$u^\\mu$",
+      "$\\sigma$"
+    ],
+    "target": [
+      "$J^\\mu + u^\\mu J_\\nu u^\\nu = \\sigma F^\\mu_\\nu u^\\nu$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s4_4.18.md]Problem 4.18. Write Ohm's law $\\underline{\\mathbf{J}} = \\sigma \\underline{\\mathbf{E}}$ invariantly in terms of $\\mathbf{J}^{\\mu}$ , $\\mathbf{F}^{\\mu \\nu}$ , $\\sigma$ and $\\mathfrak{u}^{\\mu}$ (the 4-velocity of the conducting element).## Solution",
+    "answer": "$\\mathbf{J}^{\\mu} + \\mathfrak{u}^{\\mu}\\mathbf{J}_{\\nu}\\mathfrak{u}^{\\nu} = \\sigma \\mathbf{F}_{\\nu}^{\\mu}\\mathfrak{u}^{\\nu}$ .",
+    "solution": "Solution 4.18. If $\\mathfrak{u}^{\\mu}$ is the 4-velocity of the conducting element, then the $\\underline{\\mathbf{E}}$ field seen by charge carriers in the conducting element is $\\mathbf{E}^{\\mu} = \\mathbf{F}_{\\nu}^{\\mu} \\mathfrak{u}^{\\nu}$ . A vector which reduces to $\\underline{\\mathbf{J}}$ in the rest frame of the charge carriers is $\\mathbf{J}^{\\mu} + \\mathfrak{u}^{\\mu} \\mathbf{J}_{\\nu} \\mathfrak{u}^{\\nu}$ . Ohm's equation can then be written as$\\mathbf{J}^{\\mu} + \\mathfrak{u}^{\\mu}\\mathbf{J}_{\\nu}\\mathfrak{u}^{\\nu} = \\sigma \\mathbf{F}_{\\nu}^{\\mu}\\mathfrak{u}^{\\nu}$ . Since this is a tensor equation and is correct in the rest frame of the conducting element, it must be correct in all frames."
+  },
+  "verification": null
+}

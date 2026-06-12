@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s8_8.26_a",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "tensor_transformation",
+      "coordinate": "christoffel_symbol",
+      "scenario": "coordinate_dependence",
+      "method": "differential_geometry"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.26_a",
+    "source_id": "1_s8_8.26_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.26_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.8,
+      "realism": 0.7,
+      "rationale": "证明联络差为张量需展开坐标变换律并消去非齐次项，逻辑严密，是线性引力微扰与时空比较的基础工具",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^0$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$\\\\mathbf{S}_{\\\\mu \\\\nu}^{\\\\lambda}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 8.26.\\n(a) If $\\mathbf{g}_{\\mu \\nu}$ and $\\overline{\\mathbf{g}}_{\\mu \\nu}$ are the components of two symmetric tensors, show that $\\mathbf{S}_{\\mu \\nu}^{\\lambda} = \\overline{\\Gamma}_{\\mu \\nu}^{\\lambda} - \\Gamma_{\\mu \\nu}^{\\lambda}$ are the components of a tensor. Here the $\\Gamma$'s and $\\overline{\\Gamma}$'s are Christoffel symbols formed from the tensors $\\mathbf{g}$ and $\\overline{\\mathbf{g}}$ in the usual way.",
+    "answer": "$\\\\mathbf{S}_{\\\\mu \\\\nu}^{\\\\lambda}$ 是一个 (1,2) 阶张量。",
+    "solution": null
+  },
+  "verification": null
+}

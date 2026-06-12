@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "cosmological continuity equation",
+      "coordinate": "comoving",
+      "scenario": "FLRW non-conservation",
+      "method": "divergence of energy current",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\dot{\\rho} + 3(\\rho+p)\\frac{\\dot{a}}{a} = 0"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，当存在 Killing 矢量 $\\xi$ 时，流 $J^\\alpha = T^\\alpha_\\beta \\xi^\\beta$ 的散度为零，从而使得全空间上的能量积分守恒。然而在 FLRW 宇宙中，度规为 $ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2(\\theta) d\\phi^2$，时间平移矢量 $\\xi = \\partial_t$ 不是 Killing 矢量，因此能量流不再严格守恒。请证明：对于与宇宙膨胀共动的理想流体（能动张量 $T^\\alpha_\\beta = (\\rho+p)u^\\alpha u_\\beta + p \\delta^\\alpha_\\beta$，且四维速度 $u^\\alpha = \\xi^\\alpha$），通过计算此非守恒流的散度 $\\nabla_\\alpha (T^\\alpha_0)$，可以推导出宇宙学能量连续性方程 $\\dot{\\rho} + 3(\\rho+p)\\frac{\\dot{a}}{a} = 0$。",
+    "answer": "\\dot{\\rho} + 3(\\rho+p)\\frac{\\dot{a}}{a} = 0",
+    "solution": "1. 对于任意矢量 $\\xi$ 和满足局部守恒的能动张量 $\\nabla_\\alpha T^\\alpha_\\beta = 0$，流的散度可分解为：   $$ \\nabla_\\alpha (T^\\alpha_\\beta \\xi^\\beta) = T^\\alpha_\\beta \\nabla_\\alpha \\xi^\\beta + \\xi_\\beta \\nabla_\\alpha T^\\alpha_\\beta = T^\\alpha_\\beta \\nabla_\\alpha \\xi^\\beta $$2. 在 FLRW 度规下，取 $\\xi = \\partial_t$，即 $\\xi^\\alpha = (1,0,0,0)$，由于度规符号约定为 $(-,+,+,+)$，有 $\\xi_\\alpha = (-1,0,0,0)$。对于共动理想流体，四维速度 $u^\\alpha = \\xi^\\alpha$。3. 计算 $T^\\alpha_\\beta \\nabla_\\alpha \\xi^\\beta$： $$ T^\\alpha_\\beta \\nabla_\\alpha \\xi^\\beta = (\\rho+p)u^\\alpha u_\\beta \\nabla_\\alpha \\xi^\\beta + p \\nabla_\\alpha \\xi^\\alpha $$ 其中 $\\nabla_\\alpha \\xi^\\alpha = \\partial_\\alpha \\xi^\\alpha + \\Gamma^\\alpha_{\\alpha \\gamma} \\xi^\\gamma = \\Gamma^\\alpha_{\\alpha 0} \\xi^0 = \\Gamma^{0}_{00} + \\Gamma^{1}_{10} + \\Gamma^{2}_{20} + \\Gamma^{3}_{30} = 0 + \\frac{\\dot{a}}{a} + \\frac{\\dot{a}}{a} + \\frac{\\dot{a}}{a} = 3\\frac{\\dot{a}}{a} $。 而 $u^\\alpha u_\\beta \\nabla_\\alpha \\xi^\\beta = u^0 u_0 \\nabla_0 \\xi^0 = (-1) \\Gamma^{0}_{00} = 0$。 因此，第一种等价计算结果为： $$ \\nabla_\\alpha (T^\\alpha_0) = 3p \\frac{\\dot{a}}{a} $$4. 另一方面，直接计算流的显式表达式： $$ J^\\alpha = T^\\alpha_0 = (\\rho+p)u^\\alpha u_0 + p \\xi^\\alpha = -(\\rho+p)u^\\alpha + p u^\\alpha = -\\rho u^\\alpha $$ $$ \\nabla_\\alpha J^\\alpha = \\nabla_\\alpha (-\\rho u^\\alpha) = -\\dot{\\rho} - \\rho \\nabla_\\alpha u^\\alpha = -\\dot{\\rho} - 3\\rho \\frac{\\dot{a}}{a} $$5. 将两种等价的散度计算结果联立： $$ -\\dot{\\rho} - 3\\rho \\frac{\\dot{a}}{a} = 3p \\frac{\\dot{a}}{a} $$ 整理即得宇宙学能量连续性方程： $$ \\dot{\\rho} + 3(\\rho+p)\\frac{\\dot{a}}{a} = 0 $$"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 0.9,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

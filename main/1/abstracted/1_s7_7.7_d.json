@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s7_7.7_d",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "determinant_derivative",
+      "coordinate": "coordinate",
+      "scenario": "theoretical_derivation",
+      "method": "index_manipulation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.7_d",
+    "source_id": "1_s7_7.7_d",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.7_d"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.3,
+      "realism": 0.4,
+      "rationale": "度规行列式求导恒等式，依赖逆矩阵微分与缩并技巧，理论结构严谨且高度泛化，但题干仅给公式未附解答，且属纯数学形式推导",
+      "overall": 0.53
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^a$",
+      "$g_{\\\\beta\\\\gamma}$",
+      "$g^{\\\\beta\\\\gamma}$",
+      "$g$"
+    ],
+    "target": [
+      "$g_{,a}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.7. Prove the following identities:\\n(d) $\\mathbf{g}_{,a} = -\\mathbf{gg}_{\\beta \\gamma}\\mathbf{g}_{,a}^{\\beta \\gamma} = \\mathbf{gg}_{\\beta \\gamma}\\mathbf{g}_{\\beta \\gamma ,a}$ .",
+    "answer": "$\\\\mathbf{g}_{,a} = -\\\\mathbf{g}g^{\\\\beta\\\\gamma}g_{\\\\beta\\\\gamma,a} = \\\\mathbf{g}g_{\\\\beta\\\\gamma}g^{\\\\beta\\\\gamma}{}_{,a}$",
+    "solution": null
+  },
+  "verification": null
+}

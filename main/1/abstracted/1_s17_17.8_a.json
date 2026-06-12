@@ -1,0 +1,227 @@
+{
+  "metadata": {
+    "id": "1_s17_17.8_a",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric_kerr",
+      "target_object": "target_four_velocity",
+      "coordinate": "coordinate_boyer_lindquist",
+      "scenario": "scenario_orbital_motion",
+      "method": "method_normalization_condition"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.8_a",
+    "source_id": "1_s17_17.8_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.8_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "需结合Kerr度规与四速度归一化条件进行多步代数求解，物理背景真实且结构可泛化至其他稳态轴对称时空",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$u^0$",
+      "$u^\\\\phi$",
+      "$u_0$",
+      "$u_\\\\phi$"
+    ],
+    "metric": [
+      [
+        "$-(1-2M/r)$",
+        "$0$",
+        "$0$",
+        "$-2Ma/r$"
+      ],
+      [
+        "$0$",
+        "$r^2/(r^2-2Mr+a^2)$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$-2Ma/r$",
+        "$0$",
+        "$0$",
+        "$r^2+a^2+2Ma^2/r$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "(2*M)/r - 1",
+        "0",
+        "0",
+        "(-2*M*a)/r"
+      ],
+      [
+        "0",
+        "r**2/(a**2 + (r**2 - 2*M*r))",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "(-2*M*a)/r",
+        "0",
+        "0",
+        "(a**2 + r**2) + (2*(M*a**2))/r"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 17.8 (a) An observer (not necessarily freely-falling) orbits a Kerr black hole in the equatorial $(\\theta = \\pi /2)$ plane.\\n(a) Let his orbit be at constant $\\mathbf{r}$ . Define $\\Omega = \\frac{\\mathrm{d}\\phi}{\\mathrm{d}t}$ to be his \"angular velocity relative to a distant stationary observer.\" In terms of $\\Omega$ , $\\mathbf{r}$ , $\\mathbf{M}$ , and $\\mathbf{a}$ , find $\\mathbf{u}^0$ , $\\mathbf{u}^\\phi$ , $\\mathbf{u}_0$ , $\\mathbf{u}_\\phi$ .",
+    "answer": "$u^0 = \\\\left[ 1 - \\\\frac{2M}{r} - \\\\frac{4Ma}{r}\\\\Omega - \\\\left(r^2+a^2+\\\\frac{2Ma^2}{r}\\\\right)\\\\Omega^2 \\\\right]^{-1/2}$\\n$u^\\\\phi = \\\\Omega u^0$\\n$u_0 = \\\\left( \\\\frac{2M}{r} - 1 - \\\\frac{2Ma}{r}\\\\Omega \\\\right) u^0$\\n$u_\\\\phi = \\\\left( \\\\frac{2Ma}{r} + \\\\left(r^2+a^2+\\\\frac{2Ma^2}{r}\\\\right)\\\\Omega \\\\right) u^0$",
+    "solution": "1. 观测者在赤道面 ($\\\\theta = \\\\pi/2$) 做定半径运动，故径向与极向速度分量为零：$u^r = 0, u^\\\\theta = 0$。四速度形式为 $u^\\\\mu = (u^0, 0, 0, u^\\\\phi)$。\\n2. 由角速度定义 $\\\\Omega = \\\\frac{d\\\\phi}{dt} = \\\\frac{u^\\\\phi}{u^0}$，直接得到关系式 $u^\\\\phi = \\\\Omega u^0$。\\n3. 应用四速度类时归一化条件 $g_{\\\\mu\\\\nu}u^\\\\mu u^\\\\nu = -1$。由于仅有 $t, \\\\phi$ 分量非零，方程简化为：\\n   $g_{tt}(u^0)^2 + 2g_{t\\\\phi}u^0 u^\\\\phi + g_{\\\\phi\\\\phi}(u^\\\\phi)^2 = -1$\\n   代入 $u^\\\\phi = \\\\Omega u^0$ 并提取公因子：\\n   $(u^0)^2 (g_{tt} + 2g_{t\\\\phi}\\\\Omega + g_{\\\\phi\\\\phi}\\\\Omega^2) = -1$\\n4. 解出逆变时间分量：\\n   $u^0 = \\\\left[ -(g_{tt} + 2g_{t\\\\phi}\\\\Omega + g_{\\\\phi\\\\phi}\\\\Omega^2) \\\\right]^{-1/2}$\\n   $u^\\\\phi = \\\\Omega u^0$\\n5. 将 Kerr 度规在 $\\\\theta=\\\\pi/2$ 处的分量代入：\\n   $g_{tt} = -(1-2M/r)$, $g_{t\\\\phi} = -2Ma/r$, $g_{\\\\phi\\\\phi} = r^2+a^2+2Ma^2/r$\\n   计算括号内表达式：\\n   $-(g_{tt} + 2g_{t\\\\phi}\\\\Omega + g_{\\\\phi\\\\phi}\\\\Omega^2) = 1 - \\\\frac{2M}{r} - \\\\frac{4Ma}{r}\\\\Omega - \\\\left(r^2+a^2+\\\\frac{2Ma^2}{r}\\\\right)\\\\Omega^2$\\n   即得 $u^0$ 的显式。\\n6. 利用度规下降指标求协变分量：\\n   $u_0 = g_{tt}u^0 + g_{t\\\\phi}u^\\\\phi = (g_{tt} + g_{t\\\\phi}\\\\Omega)u^0 = \\\\left( \\\\frac{2M}{r} - 1 - \\\\frac{2Ma}{r}\\\\Omega \\\\right) u^0$\\n   $u_\\\\phi = g_{t\\\\phi}u^0 + g_{\\\\phi\\\\phi}u^\\\\phi = (g_{t\\\\phi} + g_{\\\\phi\\\\phi}\\\\Omega)u^0 = \\\\left( \\\\frac{2Ma}{r} + \\\\left(r^2+a^2+\\\\frac{2Ma^2}{r}\\\\right)\\\\Omega \\\\right) u^0$"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "\\\\theta",
+      "\\\\phi"
+    ],
+    "metric_latex": [
+      [
+        "\\frac{2 M}{r} - 1",
+        "0",
+        "0",
+        "- \\frac{2 M a}{r}"
+      ],
+      [
+        "0",
+        "\\frac{r^{2}}{- 2 M r + a^{2} + r^{2}}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r^{2}",
+        "0"
+      ],
+      [
+        "- \\frac{2 M a}{r}",
+        "0",
+        "0",
+        "\\frac{2 M a^{2}}{r} + a^{2} + r^{2}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_001": "\\frac{M \\left(a^{2} + r^{2}\\right)}{r^{2} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "Gamma_010": "\\frac{M \\left(a^{2} + r^{2}\\right)}{r^{2} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "Gamma_013": "\\frac{M a \\left(- a^{2} - 3 r^{2}\\right)}{r^{2} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "Gamma_031": "\\frac{M a \\left(- a^{2} - 3 r^{2}\\right)}{r^{2} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "Gamma_100": "\\frac{M \\left(- 2 M r + a^{2} + r^{2}\\right)}{r^{4}}",
+      "Gamma_103": "\\frac{M a \\left(2 M r - a^{2} - r^{2}\\right)}{r^{4}}",
+      "Gamma_111": "\\frac{- M r + a^{2}}{r \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "Gamma_122": "2 M - \\frac{a^{2}}{r} - r",
+      "Gamma_130": "\\frac{M a \\left(2 M r - a^{2} - r^{2}\\right)}{r^{4}}",
+      "Gamma_133": "\\frac{\\left(M a^{2} - r^{3}\\right) \\left(- 2 M r + a^{2} + r^{2}\\right)}{r^{4}}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_301": "\\frac{M a}{r^{2} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "Gamma_310": "\\frac{M a}{r^{2} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "Gamma_313": "\\frac{- M a^{2} - 2 M r^{2} + r^{3}}{r^{2} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "Gamma_331": "\\frac{- M a^{2} - 2 M r^{2} + r^{3}}{r^{2} \\left(- 2 M r + a^{2} + r^{2}\\right)}"
+    },
+    "riemann": {
+      "R_0003": "\\frac{2 M^{2} a}{r^{4}}",
+      "R_0030": "- \\frac{2 M^{2} a}{r^{4}}",
+      "R_0101": "\\frac{M \\left(3 a^{2} + 2 r^{2}\\right)}{r^{3} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "R_0110": "- \\frac{M \\left(3 a^{2} + 2 r^{2}\\right)}{r^{3} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "R_0113": "\\frac{3 M a \\left(a^{2} + r^{2}\\right)}{r^{3} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "R_0131": "- \\frac{3 M a \\left(a^{2} + r^{2}\\right)}{r^{3} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "R_0202": "- \\frac{M \\left(a^{2} + r^{2}\\right)}{r^{3}}",
+      "R_0220": "\\frac{M \\left(a^{2} + r^{2}\\right)}{r^{3}}",
+      "R_0223": "- \\frac{M a \\left(a^{2} + 3 r^{2}\\right)}{r^{3}}",
+      "R_0232": "\\frac{M a \\left(a^{2} + 3 r^{2}\\right)}{r^{3}}",
+      "R_0303": "- \\frac{M \\left(2 M a^{2} + a^{2} r + r^{3}\\right)}{r^{4}}",
+      "R_0330": "\\frac{M \\left(2 M a^{2} + a^{2} r + r^{3}\\right)}{r^{4}}",
+      "R_1001": "\\frac{M \\left(- 4 M r + 3 a^{2} + 2 r^{2}\\right)}{r^{5}}",
+      "R_1010": "\\frac{M \\left(4 M r - 3 a^{2} - 2 r^{2}\\right)}{r^{5}}",
+      "R_1013": "\\frac{M a \\left(- 4 M r + 3 a^{2} + 3 r^{2}\\right)}{r^{5}}",
+      "R_1031": "\\frac{M a \\left(4 M r - 3 a^{2} - 3 r^{2}\\right)}{r^{5}}",
+      "R_1212": "\\frac{- M r + a^{2}}{r^{2}}",
+      "R_1221": "\\frac{M r - a^{2}}{r^{2}}",
+      "R_1301": "\\frac{M a \\left(4 M r - 3 a^{2} - 3 r^{2}\\right)}{r^{5}}",
+      "R_1310": "\\frac{M a \\left(- 4 M r + 3 a^{2} + 3 r^{2}\\right)}{r^{5}}",
+      "R_1313": "\\frac{M \\left(4 M a^{2} r - 3 a^{4} - 4 a^{2} r^{2} - r^{4}\\right)}{r^{5}}",
+      "R_1331": "\\frac{M \\left(- 4 M a^{2} r + 3 a^{4} + 4 a^{2} r^{2} + r^{4}\\right)}{r^{5}}",
+      "R_2002": "\\frac{M \\left(2 M r - a^{2} - r^{2}\\right)}{r^{5}}",
+      "R_2020": "\\frac{M \\left(- 2 M r + a^{2} + r^{2}\\right)}{r^{5}}",
+      "R_2023": "\\frac{M a \\left(2 M r - a^{2} - r^{2}\\right)}{r^{5}}",
+      "R_2032": "\\frac{M a \\left(- 2 M r + a^{2} + r^{2}\\right)}{r^{5}}",
+      "R_2112": "\\frac{M r - a^{2}}{r^{2} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "R_2121": "\\frac{- M r + a^{2}}{r^{2} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "R_2302": "\\frac{M a \\left(- 2 M r + a^{2} + r^{2}\\right)}{r^{5}}",
+      "R_2320": "\\frac{M a \\left(2 M r - a^{2} - r^{2}\\right)}{r^{5}}",
+      "R_2323": "\\frac{\\left(M a^{2} - r^{3}\\right) \\left(- 2 M r + a^{2} + r^{2}\\right)}{r^{5}}",
+      "R_2332": "- \\frac{\\left(M a^{2} - r^{3}\\right) \\left(- 2 M r + a^{2} + r^{2}\\right)}{r^{5}}",
+      "R_3003": "\\frac{M \\left(2 M - r\\right)}{r^{4}}",
+      "R_3030": "\\frac{M \\left(- 2 M + r\\right)}{r^{4}}",
+      "R_3101": "\\frac{3 M a}{r^{3} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "R_3110": "- \\frac{3 M a}{r^{3} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "R_3113": "\\frac{M \\left(3 a^{2} + r^{2}\\right)}{r^{3} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "R_3131": "- \\frac{M \\left(3 a^{2} + r^{2}\\right)}{r^{3} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "R_3202": "- \\frac{M a}{r^{3}}",
+      "R_3220": "\\frac{M a}{r^{3}}",
+      "R_3223": "- \\frac{M a^{2}}{r^{3}} - \\frac{2 M}{r} + 1",
+      "R_3232": "\\frac{M a^{2}}{r^{3}} + \\frac{2 M}{r} - 1",
+      "R_3303": "- \\frac{2 M^{2} a}{r^{4}}",
+      "R_3330": "\\frac{2 M^{2} a}{r^{4}}"
+    },
+    "ricci_tensor": {
+      "R_00": "- \\frac{2 M a^{2}}{r^{5}}",
+      "R_03": "\\frac{2 M a \\left(a^{2} + r^{2}\\right)}{r^{5}}",
+      "R_11": "\\frac{a^{2}}{r^{2} \\left(- 2 M r + a^{2} + r^{2}\\right)}",
+      "R_22": "\\frac{a^{2}}{r^{2}} - 1",
+      "R_30": "\\frac{2 M a \\left(a^{2} + r^{2}\\right)}{r^{5}}",
+      "R_33": "- \\frac{2 M a^{4}}{r^{5}} - \\frac{4 M a^{2}}{r^{3}} - \\frac{a^{2}}{r^{2}} - 1"
+    },
+    "ricci_scalar": "\\frac{2 \\left(a^{2} - r^{2}\\right)}{r^{4}}",
+    "kretschmann": "\\frac{2 \\left(- 64 M^{6} a^{2} r^{4} - 64 M^{6} r^{4} + 128 M^{5} a^{4} r^{3} + 112 M^{5} a^{2} r^{5} + 144 M^{5} a^{2} r^{3} - 16 M^{5} r^{7} + 128 M^{5} r^{5} + 16 M^{5} r^{3} + 4 M^{4} a^{8} r^{2} + 24 M^{4} a^{6} r^{4} - 76 M^{4} a^{6} r^{2} + 36 M^{4} a^{4} r^{6} - 104 M^{4} a^{4} r^{4} - 92 M^{4} a^{4} r^{2} + 28 M^{4} a^{2} r^{6} - 160 M^{4} a^{2} r^{4} - 12 M^{4} a^{2} r^{2} + 24 M^{4} r^{8} - 64 M^{4} r^{6} - 24 M^{4} r^{4} - 2 M^{3} a^{10} r - 12 M^{3} a^{8} r^{3} + 2 M^{3} a^{8} r - 16 M^{3} a^{6} r^{5} + 4 M^{3} a^{6} r^{3} - 28 M^{3} a^{6} r + 12 M^{3} a^{4} r^{7} - 54 M^{3} a^{4} r^{5} - 20 M^{3} a^{4} r^{3} - 50 M^{3} a^{4} r + 18 M^{3} a^{2} r^{9} - 72 M^{3} a^{2} r^{7} - 8 M^{3} a^{2} r^{5} - 24 M^{3} a^{2} r^{3} - 18 M^{3} a^{2} r - 8 M^{3} r^{9} - 32 M^{3} r^{7} + 8 M^{3} r^{5} - M^{2} a^{10} r^{2} - 3 M^{2} a^{10} - 8 M^{2} a^{8} r^{4} - 21 M^{2} a^{8} r^{2} - 4 M^{2} a^{8} - 22 M^{2} a^{6} r^{6} - 17 M^{2} a^{6} r^{4} - 12 M^{2} a^{6} r^{2} - M^{2} a^{6} - 24 M^{2} a^{4} r^{8} + 13 M^{2} a^{4} r^{6} + 7 M^{2} a^{4} r^{2} - 9 M^{2} a^{2} r^{10} + 12 M^{2} a^{2} r^{8} + 40 M^{2} a^{2} r^{6} + 8 M^{2} a^{2} r^{4} + 9 M^{2} a^{2} r^{2} + 40 M^{2} r^{8} - 8 M a^{8} r^{3} - 2 M a^{8} r - 18 M a^{6} r^{5} - 8 M a^{6} r^{3} - 12 M a^{4} r^{7} - 20 M a^{4} r^{5} - 4 M a^{4} r^{3} - 2 M a^{2} r^{9} - 28 M a^{2} r^{7} - 2 M a^{2} r^{5} - 16 M r^{9} + a^{10} r^{2} + 3 a^{8} r^{4} + 3 a^{6} r^{6} + a^{6} r^{4} + a^{6} r^{2} + a^{4} r^{8} + 3 a^{4} r^{6} + a^{4} r^{4} + 4 a^{2} r^{8} + 2 r^{10}\\right)}{r^{10} \\left(4 M^{2} r^{2} - 4 M a^{2} r - 4 M r^{3} + a^{4} + 2 a^{2} r^{2} + r^{4}\\right)}",
+    "einstein_tensor": {
+      "G_00": "\\frac{- 2 M a^{2} - \\left(2 M - r\\right) \\left(a^{2} - r^{2}\\right)}{r^{5}}",
+      "G_03": "\\frac{4 M a^{3}}{r^{5}}",
+      "G_11": "\\frac{1}{- 2 M r + a^{2} + r^{2}}",
+      "G_30": "\\frac{4 M a^{3}}{r^{5}}",
+      "G_33": "\\frac{a^{2} \\left(- 4 M a^{2} - 2 M r^{2} - a^{2} r - r^{3}\\right)}{r^{5}}"
+    },
+    "killing_vectors": []
+  }
+}

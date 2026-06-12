@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-2-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "\\Omega",
+      "coordinate": "spherical",
+      "scenario": "gyroscope_orbit_reduce",
+      "method": "limit_analysis",
+      "generalization_axis": "limit",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-2",
+      "1_s11_11.11-2-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\phi$",
+      "$M$",
+      "$\\mathbf{v}$",
+      "$\\mathbf{S}$",
+      "$h_j$",
+      "$\\Gamma_{\\hat{j}\\hat{k}\\hat{0}}$"
+    ],
+    "target": [
+      "\\Omega",
+      "\\Gamma^i_{jk}"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，沿测地线作平行移动的陀螺仪自旋矢量 $S^\\mu$ 的演化满足 $\\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{\\nu\\rho} S^\\nu \\frac{dx^\\rho}{d\\tau} = 0$。对于给定的 Schwarzschild 度规（球坐标 $(t, r, \\theta, \\phi)$，线元为 $ds^2 = \\frac{-(r-r_s)}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s = 2GM/c^2$ 为 Schwarzschild 半径），Christoffel 符号中的引力相关项不为零，导致陀螺仪发生测地进动（总进动率 $\\Omega \\neq 0$）。请通过取引力源质量趋于零的极限（$M \\to 0$，即 $r_s \\to 0$），写出度规和引力相关 Christoffel 符号 $\\Gamma^0_{01}$ 与 $\\Gamma^1_{00}$ 的极限值，并说明此极限如何物理上对应于从弯曲时空回到经典平直 Minkowski 时空，使得陀螺仪自旋不发生进动（$\\Omega \\to 0$）。",
+    "answer": "在 $M \\to 0$（即 $r_s \\to 0$）的极限下，Schwarzschild 度规退化为平直 Minkowski 时空的球坐标形式：$ds^2 = -dt^2 + dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。此时，所有与引力场直接相关的 Christoffel 符号均趋于零，具体为 $\\Gamma^0_{01} = \\frac{r_s}{2r(r-r_s)} \\to 0$，$\\Gamma^1_{00} = \\frac{r_s(r-r_s)}{2r^3} \\to 0$。在直角坐标系下，所有 Christoffel 符号恒为零。平行移动方程简化为 $\\frac{dS^\\mu}{d\\tau} = 0$，这意味着陀螺仪自旋矢量的空间分量随固有时间保持常数，方向相对于远处惯性参考系（恒星）保持不变，即测地进动率 $\\Omega \\to 0$。这物理上对应于从含有引力源的弯曲时空回到无源的平直时空，消除时空曲率导致的测地进动效应。",
+    "solution": null
+  },
+  "verification": null
+}

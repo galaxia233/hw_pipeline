@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-1-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "Q_ξ global conserved quantity",
+      "coordinate": "asymptotically flat spacetime",
+      "scenario": "numerical experiment design for global conservation",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-1",
+      "1_s10_10.11-1-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "killing_vector",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mu$",
+      "$\\nu$"
+    ],
+    "target": [
+      "验证全局守恒量 $Q_{\\xi}$ 与类空超曲面选择无关",
+      "探究物质场边界衰减条件的影响"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在渐近平直的广义相对论时空中，已知与 Killing 矢量 $\\xi^{\\mu}$ 相关的局部守恒流定义为 $J^{\\mu} = T^{\\mu\\nu} \\xi_{\\nu}$，且满足微分守恒律 $\\nabla_{\\mu} J^{\\mu} = 0$。核心结论指出：在满足物质场在空间无穷远处衰减足够快的边界条件下，全局守恒量 $Q_{\\xi} = \\int_{\\Sigma} J^{\\mu} n_{\\mu} d\\Sigma$ 不依赖于类空超曲面 $\\Sigma$ 的选择。为了验证此结论，我们设定数值模拟背景为平直时空，度规为 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$，选取时间平移 Killing 矢量 $\\xi^{\\mu} = (1, 0, 0, 0)$。请设计一个数值模拟实验方案，验证全局守恒量 $Q_{\\xi}$ 与类空超曲面选择无关，并探究边界条件（物质场衰减率）对守恒性的影响。方案需包含：1. 给出满足和不满足无穷远边界条件的两种物质场能动张量 $T^{\\mu\\nu}$ 的具体解析形式；2. 阐述如何在不同时刻截取类空超曲面 $\\Sigma_1$ 和 $\\Sigma_2$ 并进行数值积分；3. 说明需要计算和比较的物理量及预期结果。",
+    "answer": "参考方案步骤如下：1. **物质场设定**：设定满足边界条件的能动张量 $T^{\\mu\\nu}_A$，其中仅有 $T^{00}_A = \\rho_0 e^{-(t-t_0)^2} e^{-r^4}$ 不为零（衰减极快，确保无穷远通量消失）；设定不满足边界条件的对照组 $T^{\\mu\\nu}_B$，仅有 $T^{00}_B = \\rho_0 e^{-(t-t_0)^2} r^{-2}$（衰减慢，无穷远通量不为零）。2. **超曲面截取与积分**：在时空网格中截取 $t=0$ 的超曲面 $\\Sigma_1$ 和 $t=t_0$ 的超曲面 $\\Sigma_2$，其单位法矢量为 $n_{\\mu} = (-1, 0, 0, 0)$。计算守恒流 $J^{\\mu} n_{\\mu} = -T^{00}$。使用三维空间体积元 $d\\Sigma = dx dy dz$ 在足够大的有限边界 $[-L, L]^3$ 内进行数值积分，求得 $Q_{\\xi}(\\Sigma_1)$ 和 $Q_{\\xi}(\\Sigma_2)$。3. **预期结果**：对于物质场 A，随着积分边界 $L$ 增大，$Q_{\\xi}(\\Sigma_1)$ 和 $Q_{\\xi}(\\Sigma_2)$ 将趋于同一个常数（即守恒量不依赖超曲面选择）；对于物质场 B，两者之间的差值将随 $L$ 增大而显著偏离零，验证了边界条件缺失时守恒量依赖于超曲面选择。",
+    "solution": "方案论证：将抽象的协变斯托克斯定理转化为具体的平直时空数值积分实验，物理思路直观且可行。选取时间平移矢量使得守恒量直接对应系统能量，具有明确的物理意义。对照组通过解析构造不同的物质场衰减率（$r^{-4}$ 与 $r^{-2}$），直接触及边界条件的数学要求（无穷远通量是否趋于零），完备地验证了原命题的核心结论及其前提条件的必要性。"
+  },
+  "verification": null
+}

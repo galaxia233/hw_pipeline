@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s7_7.5",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "covariant_derivative",
+      "coordinate": "coordinate_basis",
+      "scenario": "differential_geometry",
+      "method": "direct_expansion"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.5",
+    "source_id": "1_s7_7.5",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.5,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.4,
+      "rationale": "基础微分几何恒等式推导，依赖协变导数定义与联络无挠及度规相容条件，逻辑链条清晰但属纯几何性质。",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\alpha$",
+      "$\\beta$",
+      "$\\gamma$",
+      "$\\sigma$"
+    ],
+    "target": [
+      "$g_{\\alpha \\beta; \\gamma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.5. Show that the metric tensor is covariantly constant.",
+    "answer": "0",
+    "solution": "Solution 7.5. The calculation of $\\mathbf {g}_{\\alpha \\beta ;\\gamma}$ is straightforward in a coordinate basis:\\n$$\\n\\\\begin{array}{l} $\\mathbf {g}_{\\alpha \\beta ; \\gamma} = $\\mathbf {g}_{\\alpha \\beta , \\gamma} - $\\mathbf {g}_{\\sigma \\beta} \\Gamma_{a \\gamma}^{\\sigma} - $\\mathbf {g}_{\\alpha \\sigma} \\Gamma_{\\beta \\gamma}^{\\sigma} \\\\\\\\ = $\\mathrm {g}_{\\alpha \\beta , \\gamma} - 2 \\Gamma_{(\\beta \\alpha) \\gamma} \\\\\\\\ = $\\mathrm {g}_{\\alpha \\beta , \\gamma} - $\\mathrm {g}_{\\alpha \\beta , \\gamma} = 0. \\\\\\\\ \\end {array}\\n$$"
+  },
+  "verification": null
+}

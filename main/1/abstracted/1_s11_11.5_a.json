@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s11_11.5_a",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_none",
+      "target_object": "target_angular_momentum_tensor",
+      "coordinate": "coordinate_tensor_index",
+      "scenario": "scenario_center_of_mass",
+      "method": "method_tensor_algebra"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s11_11.5_a",
+    "source_id": "1_s11_11.5_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s11_11.5_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.7,
+      "completeness": 0.4,
+      "realism": 0.5,
+      "rationale": "张量恒等式证明，结合质心系定义与四速度缩并，具备明确相对论力学背景",
+      "overall": 0.55
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\mathbf{J}^{\\\\alpha \\\\beta}$",
+      "$\\\\mathbf{u}_{\\\\beta}$"
+    ],
+    "target": [
+      "$\\\\mathbf{J}^{\\\\alpha \\\\beta}\\\\mathbf{u}_{\\\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "(a) If angular momentum is computed about the center of mass of a system show that $\\mathbf{J}^{\\alpha \\beta}\\mathbf{u}_{\\beta} = 0$",
+    "answer": "$\\\\mathbf{J}^{\\\\alpha \\\\beta}\\\\mathbf{u}_{\\\\beta} = 0$",
+    "solution": null
+  },
+  "verification": null
+}

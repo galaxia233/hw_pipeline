@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "id": "1_s17_17.17",
+    "type": "prove",
+    "tags": {
+      "metric": "Reissner-Nordström metric",
+      "target_object": "event horizon",
+      "coordinate": "Schwarzschild coordinates",
+      "scenario": "charged particle accretion",
+      "method": "effective potential analysis"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.17",
+    "source_id": "1_s17_17.17",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.17"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "结合RN度规有效势与视界边界条件推导宏观参量演化不等式，逻辑链条完整且具有检验宇宙监督假设的天体物理背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$Q$",
+      "$\\delta E$",
+      "$\\delta Q$",
+      "$r_+$",
+      "$\\tau$",
+      "$\\mu_0$",
+      "$L_z$",
+      "$\\mathcal{Q}$"
+    ],
+    "target": [],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 17.17. Charged particles are dropped radially into a Reissner-Nordström black hole with $Q^2 < M^2$ . Show that it is never possible to drop in enough charge to make $Q^2 > M^2$ (a solution which would be a naked singularity, not a black hole).",
+    "answer": "It is impossible to drop in enough charge/energy to make $Q^2 > M^2$, as $\\delta(Q^2 - M^2)$ remains bounded such that the integrated quantity never turns positive.",
+    "solution": "Suppose charge $\\delta Q$ and energy $\\delta E$ are dropped into the hole. We then have$$\\delta \\left(\\mathrm {Q}^{2} - \\mathrm {M}^{2}\\right) = 2 \\mathrm {Q} \\delta \\mathrm {Q} - 2 \\mathrm {M} \\delta \\mathrm {E}. \\tag {1}$$Not all values of $\\delta Q$ and $\\delta E$ are allowed, however. The radial \"effective potential\" equation (see e.g. MTW, Equation 33.32) for a charged particle falling in the Reissner-Nordström geometry is$$\\mathrm {r}^{2} \\frac {\\mathrm {d r}}{\\mathrm {d} \\tau} = - \\left\\{\\left(\\mathrm {r}^{2} \\delta \\mathrm {E} - Q \\delta \\mathrm {Q r}\\right)^{2} - \\Delta \\left(\\mu_{0}^{2} \\mathrm {r}^{2} + \\mathrm {L}_{z}^{2} + \\mathcal{Z}\\right)\\right\\}^{\\frac {1}{2}} \\tag {2}$$where $\\mathbf{E}, \\mathbf{L}_z$ and $\\mathcal{Q}$ are conserved quantities, and $\\mu_0$ is the particle rest mass. A particle which crosses the event horizon into the black hole has $\\mathrm{d}\\mathbf{r} / \\mathrm{d}\\tau \\leq 0$ at the event horizon $\\mathbf{r} = \\mathbf{r}_{+}$ . Since $\\Delta = 0$ at $\\mathbf{r} = \\mathbf{r}_{+}$ , (2) becomes$$r^{2} \\frac {d r}{d r} = - \\left(r_{+}^{2} \\delta E - Q \\delta Q r_{+}\\right) \\leq 0 \\tag {3}$$and hence $\\delta \\mathrm{E} > \\mathrm{Q}\\delta \\mathrm{Q} / \\mathrm{r}_{+}$ . Combining this with Equation (1) we see that$$\\delta \\left(Q^{2} - M^{2}\\right) \\leq 2 \\delta E \\left(\\mathrm {r}_{+} - M\\right) = 2 \\delta E \\left(M^{2} - Q^{2}\\right)^{\\frac {1}{2}}. \\tag {4}$$As $\\mathbf{Q}^2 \\to \\mathbf{M}^2$ the right side goes to zero as a square root, so no sequence of adding $\\delta \\mathbf{E}$ 's can make the integrated left side positive."
+  },
+  "verification": null
+}

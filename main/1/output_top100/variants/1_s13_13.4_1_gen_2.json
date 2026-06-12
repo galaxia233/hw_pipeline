@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_1-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "Newtonian_potential",
+      "coordinate": "spherical",
+      "scenario": "Newtonian_limit",
+      "method": "trace_reversed_field_equation",
+      "generalization_axis": "limit",
+      "metric": "metric_properties"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.4_1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.4_1",
+      "1_s13_13.4_1-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric_properties",
+    "soft_variant": "limit",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$g_{\\mu\\nu}$",
+      "$T_{\\mu\\nu}$",
+      "$\\Lambda$",
+      "$R_{\\mu\\nu}$",
+      "$\\kappa$"
+    ],
+    "target": [
+      "$\\nabla^2 \\Phi$",
+      "$\\Phi(r)$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，真空能动张量的唯一洛伦兹不变形式为 $T_{\\mu\\nu}^{\\text{vac}} = \\rho_{\\text{vac}} g_{\\mu\\nu}$，这在场方程中表现为有效宇宙学常数项。包含宇宙学常数的爱因斯坦场方程为 $R_{\\mu\\nu} - \\frac{1}{2}R g_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$。现在考虑弱场低速的牛顿极限（时空度规偏离平直度规极小，即 $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$，且 $|h_{\\mu\\nu}| \\ll 1$），其中时间分量满足 $g_{00} \\approx -(1+2\\Phi)$，物质源近似为静止流体 $T_{00} \\approx \\rho$，空间分量可忽略。请在此极限下，推导包含宇宙学常数 $\\Lambda$ 的修正泊松方程，并求出空间中除中心质量 $M$ 外无其他物质分布（即 $\\rho=0$）时，该牛顿势 $\\Phi(r)$ 的表达式。最后，根据所得势函数，说明正的宇宙学常数 ($\\Lambda > 0$) 在该极限下产生的是吸引力还是排斥力。",
+    "answer": "修正泊松方程为 $\\nabla^2 \\Phi = 4\\pi \\rho + \\Lambda$；当 $\\rho=0$ 时的势函数为 $\\Phi(r) = -\\frac{M}{r} + \\frac{\\Lambda r^2}{6}$；正的宇宙学常数 $\\Lambda > 0$ 在牛顿极限下产生排斥力。",
+    "solution": "为了在牛顿极限下推导场方程，我们使用迹反转的爱因斯坦场方程更为方便。含宇宙学常数项的场方程可以改写为：\\n$$R_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 8\\pi \\left(T_{\\mu\\nu} - \\frac{1}{2}T g_{\\mu\\nu}\\right)$$\\n在弱场低速牛顿极限下，度规近似为 $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$，且主要的时间分量为 $g_{00} \\approx -(1+2\\Phi)$，即 $h_{00} = -2\\Phi$。物质能动张量主要分量为 $T_{00} \\approx \\rho$，迹为 $T \\approx g^{00} T_{00} \\approx -\\rho$。\\n代入 00 分量方程：\\n$$R_{00} + \\Lambda g_{00} = 8\\pi \\left(T_{00} - \\frac{1}{2}T g_{00}\\right)$$\\n在弱场极限下，Ricci 张量的时间分量近似为 $R_{00} \\approx \\frac{1}{2} \\nabla^2 h_{00} = \\nabla^2 \\Phi$（采用 $(-,+,+,+)$ 符号约定）。度规时间分量近似为 $g_{00} \\approx -1$。\\n右侧代入物质分布：\\n$$T_{00} - \\frac{1}{2}(-\\rho)(-1) = \\rho - \\frac{1}{2}\\rho = \\frac{1}{2}\\rho$$\\n因此方程简化为：\\n$$\\nabla^2 \\Phi - \\Lambda = 4\\pi \\rho$$\\n移项即得修正泊松方程：\\n$$\\nabla^2 \\Phi = 4\\pi \\rho + \\Lambda$$\\n对于空间中除原点处存在质量 $M$ 外无其他物质分布的情形（$\\rho=0$），方程变为：\\n$$\\nabla^2 \\Phi = \\Lambda$$\\n在球坐标系下，假设势函数仅依赖于 $r$，泊松方程写为：\\n$$\\frac{1}{r^2} \\frac{d}{dr} \\left( r^2 \\frac{d\\Phi}{dr}\\right) = \\Lambda$$\\n积分一次得到：\\n$$\\frac{d\\Phi}{dr} = \\frac{\\Lambda r}{3} + \\frac{C}{r^2}$$\\n再次积分得到：\\n$$\\Phi(r) = \\frac{\\Lambda r^2}{6} - \\frac{C}{r} + \\text{const}$$\\n其中常数 $C$ 由中心质量 $M$ 决定。在 $r \\to 0$ 处，势必须还原为标准牛顿势 $-M/r$，因此 $C = M$。总的势函数为：\\n$$\\Phi(r) = -\\frac{M}{r} + \\frac{\\Lambda r^2}{6}$$\\n分析力的性质：引力势对应的径向力为 $F_r = -\\frac{d\\Phi}{dr} = -\\frac{M}{r^2} + \\frac{\\Lambda r}{3}$。对于 $\\Lambda > 0$，宇宙学常数贡献的力项 $\\frac{\\Lambda r}{3}$ 为正，即方向沿 $r$ 向外，因此正的宇宙学常数在牛顿极限下产生排斥力。"
+  },
+  "verification": null
+}

@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "local_3_momentum",
+      "coordinate": "stationary_frame",
+      "scenario": "test_particle_motion",
+      "method": "local_projection",
+      "generalization_axis": "extend",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\xi$",
+      "$\\mathbf{E}$",
+      "$\\mathbf{p}$",
+      "$\\mu$"
+    ],
+    "target": [
+      "$|\\mathbf{p}|_{obs}^2$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在稳态时空中，存在类时 Killing 矢量场 $\\boldsymbol{\\xi}$。对于质量为 $\\mu$ 的自由测试粒子，其4维动量 $\\mathbf{p}$ 满足 $\\mathbf{p} \\cdot \\mathbf{p} = -\\mu^2$，且粒子具有守恒能量 $E = -\\mathbf{p} \\cdot \\boldsymbol{\\xi}$。在该时空中某一点，存在一个相对于稳态参考系静止的观测者，其4维速度 $\\mathbf{u}$ 与该点的 Killing 矢量方向相同且已归一化（即 $\\mathbf{u} \\cdot \\mathbf{u} = -1$）。请推导该观测者测量到的粒子3维动量大小平方 $|\\mathbf{p}|_{obs}^2$ 的表达式，并证明它可以表示为守恒能量 $E$、粒子质量 $\\mu$ 以及 Killing 矢量范数 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}$ 的组合。",
+    "answer": "$|\\mathbf{p}|_{obs}^2 = \\frac{E^2}{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}} - \\mu^2$",
+    "solution": "1. 由于观测者在给定点相对于稳态参考系静止，其4维速度 $\\mathbf{u}$ 必须正比于该点的 Killing 矢量 $\\boldsymbol{\\xi}$。利用归一化条件 $\\mathbf{u} \\cdot \\mathbf{u} = -1$，可得观测者的4维速度为：$$\\mathbf{u} = \\frac{\\boldsymbol{\\xi}}{\\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}}$$2. 观测者测量到的粒子能量 $E_{obs}$ 定义为粒子4维动量与观测者4维速度的内积：$$E_{obs} = -\\mathbf{p} \\cdot \\mathbf{u} = -\\mathbf{p} \\cdot \\frac{\\boldsymbol{\\xi}}{\\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}} = \\frac{-\\mathbf{p} \\cdot \\boldsymbol{\\xi}}{\\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}} = \\frac{E}{\\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}}$$3. 对于质量为 $\\mu$ 的类时粒子，其4维动量满足不变量关系 $\\mathbf{p} \\cdot \\mathbf{p} = -\\mu^2$。在任何局部惯性系（即观测者参考系）中，能量与3维动量必须满足相对论能量-动量关系：$$E_{obs}^2 = \\mu^2 + |\\mathbf{p}|_{obs}^2$$这等价于 $-\\mathbf{p} \\cdot \\mathbf{p} = -E_{obs}^2 + |\\mathbf{p}|_{obs}^2$。4. 将局部测量能量 $E_{obs}$ 的表达式代入上述关系，解出3维动量大小平方：$$|\\mathbf{p}|_{obs}^2 = E_{obs}^2 - \\mu^2 = \\left( \\frac{E}{\\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}}\\right)^2 - \\mu^2 = \\frac{E^2}{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}} - \\mu^2$$由此证明了粒子在局部静止观测者参考系下的3维动量平方可完全由守恒能量、粒子质量及 Killing 矢量范数表示。"
+  },
+  "verification": null
+}

@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-8-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "Spin vector S^\\mu",
+      "coordinate": "static coordinates (t, x, y, z)",
+      "scenario": "cosmology DeSitter reduce",
+      "method": "limit \\alpha \\to \\inf ty",
+      "generalization_axis": "limit",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-8",
+      "1_s11_11.4-8-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "S^\\mu"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，无外加扭矩的自由下落陀螺仪，其自旋矢量 $S^\\mu$ 满足 Fermi-Walker 输运方程 $\\frac{DS^\\mu}{d\\tau} = (a^\\mu u_\\nu - u^\\mu a_\\nu) S^\\nu$，在测地线上退化为平行输运 $\\frac{DS^\\mu}{d\\tau} = 0$。考虑如下具有时间平移 Killing 矢量 $K^\\mu = (1, 0, 0, 0)$ 的度规：$ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}}(dx^2 + dy^2 + dz^2)$其中坐标为 $(t, x, y, z)$，$\\alpha$ 为与宇宙常数 $\\Lambda$ 相关的标度参数。在 GR 语境下，对于沿该 Killing 矢量积分曲线运动（空间坐标恒定）的自由下落陀螺仪，其自旋矢量的坐标分量随固有时间保持严格恒定，即满足 $\\frac{dS^\\mu}{d\\tau} = 0$。请通过取物理极限 $\\alpha \\to \\inf ty$（即宇宙常数 $\\Lambda \\to 0$），说明上述度规及自旋矢量坐标分量恒定的 GR 结论如何归约到经典平直时空中的对应物理规律。",
+    "answer": "当 $\\alpha \\to \\inf ty$ 时，度规系数 $e^{2x/\\alpha} \\to 1$，度规退化为 Minkowski 平直时空度规 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$；此时所有 Christoffel 符号 $\\Gamma^\\mu_{\\nu\\rho} \\to 0$，4-加速度 $a^\\mu \\to 0$。自旋矢量的协变导数输运方程 $\\frac{DS^\\mu}{d\\tau} = \\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{\\nu\\rho} u^\\nu S^\\rho = 0$ 退化为普通导数方程 $\\frac{dS^\\mu}{d\\tau} = 0$，这归约到经典惯性系中不受外力矩的自由质点自旋角动量守恒规律，即自旋矢量的方向和大小不随时间变化。",
+    "solution": "1. 极限下度规退化：取 $\\alpha \\to \\inf ty$，$e^{2x/\\alpha} \\to 1$，度规回到 Minkowski 度规，时空曲率消失。2. 几何与运动学量退化：平直时空下 Christoffel 符号恒为零，4加速度 $a^\\mu = 0$，4-速度沿直线匀速运动。3. 输运方程退化：Fermi-Walker 输运因 $a^\\mu=0$ 退化为平行输运，平行输运因 $\\Gamma^\\mu_{\\nu\\rho}=0$ 退化为普通时间导数为零，即 $\\frac{dS^\\mu}{d\\tau} = 0$，正是经典力学中自由刚体在惯性系的自旋守恒。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目及答案存在多处实质性错误与缺陷：\n1. **排版/拼写错误**：题目与答案中均将极限符号写为 `$\\inf ty$`，这是明显的 LaTeX 拼写错误，应为 `$\\infty$`。\n2. **物理场景不一致（度规性质矛盾）**：题目声称该度规的参数 $\\alpha$ 与宇宙常数 $\\Lambda$ 相关（暗示 De Sitter 时空），但给出的度规 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$ 并非 De Sitter 度规，也不是 Einstein 场方程（即使带常数 $\\Lambda$）的真空解。计算可知该度规的 Ricci 标量 $R = -2/\\alpha^2 e^{-2x/\\alpha}$ 依赖于空间坐标 $x$（非常数），与具有常数曲率的 De Sitter 时空（$R$ 为常数）严重矛盾。\n3. **答案推导与物理机制误导**：答案称取极限时“4-加速度 $a^\\mu \\to 0$”，实际上对于沿 Killing 矢量积分曲线（空间坐标恒定）运动的观测者，4-速度 $u^\\mu=(1,0,0,0)$ 导致 $a^\\mu = u^\\nu \\nabla_\\nu u^\\mu = \\Gamma^\\mu_{00} = 0$ 在任意 $\\alpha$ 下均**严格为零**，无需取极限。此外，答案用极限下 $\\Gamma^\\mu_{\\nu\\rho} \\to 0$ 解释平行输运退化为普通导数，掩盖了 GR 中真正的原因：该度规的 $\\Gamma^\\mu_{0\\rho}$ 均为零，且 $u^\\nu$ 只有时间分量，使得协变导数项 $\\Gamma^\\mu_{\\nu\\rho} u^\\nu S^\\rho$ 在弯曲时空中就已经完全消去。这种解释未能体现“弯曲时空效应在平直极限下消失”的归约物理本质，反而给出了误导性的物理图景。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

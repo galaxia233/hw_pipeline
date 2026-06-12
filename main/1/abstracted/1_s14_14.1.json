@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s14_14.1",
+    "type": "prove",
+    "tags": {
+      "metric": "stress_energy_tensor",
+      "target_object": "point_particle",
+      "coordinate": "geodesic_motion",
+      "scenario": "covariant_divergence",
+      "method": "energy_momentum_conservation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.1",
+    "source_id": "1_s14_14.1",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "完整张量定义推导结合协变散度守恒条件，逻辑链条清晰且物理图像明确",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$m$",
+      "$x^{\\alpha}$",
+      "$\\tau$",
+      "$u^{\\mu}$",
+      "$g$",
+      "$\\mathbf{T}^{\\mu\\nu}$"
+    ],
+    "target": [
+      "$u^\\nu \\nabla_\\nu u^\\mu$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 14.1. Write the stress-energy tensor for a single free particle, and show that the equation of geodesic motion follows from $\\mathbf{T}^{\\mu \\nu}_{,\\nu} = 0$ .",
+    "answer": "$\\mathbf{T}^{\\mu \\nu} = m \\int \\delta^4(\\mathbf{x}^\\alpha - \\mathbf{x}^\\alpha(\\tau)) \\frac{\\mathbf{u}^\\mu \\mathbf{u}^\\nu}{(-g)^{1/2}} d\\tau$, 导出测地线方程 $u^\\nu \\nabla_\\nu u^\\mu = 0$",
+    "solution": "Solution 14.1. First we determine what is the appropriate $\\mathbf{T}^{\\mu \\nu}$ for a point particle, say of mass m. In the momentarily comoving frame it should have only a $\\mathbf{T}^{00}$ component, and this should be a $\\delta$ -function of position, so$$\\mathbf {T}^{\\mu \\nu} \\propto \\int \\delta^{4} (\\mathbf {x}^{\\alpha} - \\mathbf {x}^{\\alpha} (\\tau)) \\mathbf {u}^{\\mu} \\mathbf {u}^{\\nu} d \\tau$$where $\\mathbf{x}^{\\alpha}(r)$ is the particle's trajectory in spacetime as a function of its proper time $r$ . Now we want $\\mathbf{T}^{\\mu \\nu}$ to transform like a tensor. The product $\\mathbf{u}^{\\mu}\\mathbf{u}^{\\nu}$ already transforms as a tensor, but $\\delta^{4}(\\mathbf{x}^{\\alpha} - \\mathbf{x}^{\\alpha}(r))$ is not a scalar; $\\delta^{4}(\\mathbf{x}^{\\alpha} - \\mathbf{x}^{\\alpha}(r))(-\\mathbf{g})^{-\\frac{1}{2}}$ , however, is a scalar:$$1 = \\operatorname {s c a l a r} = \\int \\delta^{4} \\left(\\mathrm {x}^{a} - \\mathrm {x}^{a} (\\tau)\\right) \\mathrm {d}^{4} \\mathrm {x} = \\int \\frac {\\delta^{4}}{(- \\mathrm {g})^{\\frac {1}{2}}} (- \\mathrm {g})^{\\frac {1}{2}} \\mathrm {d}^{4} \\mathrm {x}. \\tag {1}$$Thus, normalizing to mass $\\mathfrak{m}$ , we have$$\\mathrm {T}^{\\mu \\nu} = \\mathrm {m} \\int \\delta^{4} \\left(\\mathrm {x}^{\\alpha} - \\mathrm {x}^{\\alpha} (\\tau)\\right) \\frac {\\mathrm {u}^{\\mu} \\mathrm {u}^{\\nu}}{(- \\mathrm {g})^{\\frac {1}{2}}} \\mathrm {d} \\tau \\equiv \\int \\rho \\mathrm {u}^{\\mu} \\mathrm {u}^{\\nu} \\mathrm {d} \\tau \\tag {2}$$where $\\rho$ contains all the terms except the u's. Now$$0 = \\mathrm {T}^{\\mu \\nu}_{; \\nu} = \\int [ (\\rho \\mathrm {u}^{\\nu})_{; \\nu} \\mathrm {u}^{\\mu} + (\\rho \\mathrm {u}^{\\nu}) \\mathrm {u}_{; \\nu}^{\\mu} ] \\mathrm {d} \\tau . \\tag {3}$$Dotting with $\\mathfrak{u}^{\\mu}$ gives$$0 = \\int \\left[ - \\left(\\rho \\mathbf {u}^{\\nu}\\right)_{; \\nu} + \\rho \\left(\\nabla_{\\mathbf {u}} \\mathbf {u}\\right) \\cdot \\mathbf {u}\\right] d \\tau . \\tag {4}$$The second term vanishes because 4-acceleration $\\nabla_{\\mathbf{u}}\\mathbf{u}$ is orthogonal to 4-velocity. We conclude therefore that the first term vanishes and hence, from Equation (3)$$0 = \\int (\\rho u^{\\nu}) u_{; \\nu}^{\\mu} d \\tau .$$This implies that $\\mathfrak{u}^{\\nu}\\mathfrak{u}_{;\\nu}^{\\mu} = 0$ wherever the (delta function) $\\rho$ is nonzero, that is, wherever the particle is! But $\\mathfrak{u}^{\\nu}\\mathfrak{u}_{;\\nu}^{\\mu} = 0$ is just the geodesic equation."
+  },
+  "verification": null
+}

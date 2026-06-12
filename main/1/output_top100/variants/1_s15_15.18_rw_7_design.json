@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s15_15.18-1-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "sonic_point_condition",
+      "coordinate": "spherical",
+      "scenario": "ads_accretion_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "schwarzschild_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.18",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.18",
+      "1_s15_15.18-1",
+      "1_s15_15.18-1-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "schwarzschild_metric",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "设计数值模拟方案验证AdS时空吸积声速点条件"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，球对称吸积流的动力学深受时空曲率的影响。对于由度规 $ds^2 = - \\cos h^{2}{\\left(r\\right)} dt^2 + dr^2 + \\sin h^{2}{\\left(r\\right)} d\\theta^2 + \\sin^{2}{\\left(\\theta\\right)} \\sin h^{2}{\\left(r\\right)} d\\phi^2$ 描述的反德西特时空，时空本身提供了一个向原点 $r=0$ 的引力势阱。对于静态观察者，其固有径向加速度为 $\\tan h r$；在小 $r$ 的牛顿极限下，等效引力加速度为 $r$，对应引力势 $\\Phi(r) \\approx -r^2/2$。需要验证的核心结论是：在该时空牛顿极限下的绝热球对称吸积流，其声速点 $r_s$（流速等于局域声速处）必须满足临界条件 $a_c^2 = \\frac{r_s^2}{2}$。请从零设计一个数值模拟方案来验证此结论。你的方案需包含：1. 模拟所采用的坐标系与时空度规；2. 在该时空牛顿极限下流体动力学方程的建立（质量守恒、Euler方程、绝热状态方程）；3. 确保系统达到稳态吸积的初始条件与边界条件设置；4. 提取声速点位置 $r_s$ 和声速 $a_c$ 的数据处理方法，以及如何与理论预期 $a_c^2 = \\frac{r_s^2}{2}$ 进行比对。",
+    "answer": "1. **方程构建**：基于给定度规在小 $r$ 极限下的形式，建立稳态流体方程：质量守恒 $\\dot{M} = 4\\pi r^2 \\rho v$，Euler 方程 $v dv/dr = -a^2/\\rho d\\rho/dr - r$，以及绝热状态方程 $p = K\\rho^\\gamma$。2. **数值求解设置**：编写一维球对称有限体积法求解器，网格覆盖 $r \\in [0, R_{max}]$ 的区域。由于向原点吸积，内边界 $r=0$ 设为流出条件，外边界 $r=R_{max}$ 设为恒定密度和压强的注入条件，以产生低马赫数的亚声速流。3. **演化至稳态**：从初始均匀低密度分布开始，运行时间依赖的流体模拟，直到质量吸积率 $\\dot{M}$ 在空间各处守恒且流场参数不再随时间变化，标志着达到稳态。4. **数据提取与验证**：在稳态流场中计算马赫数 $M(r) = v(r)/a(r)$。寻找马赫数等于 1 的点，即为声速点 $r_s$。提取该点的 $r_s$ 和局域声速 $a_c$。改变外边界参数进行多次模拟，获取不同的 $r_s$ 值，拟合 $a_c$ 与 $r_s$ 的函数关系，验证是否符合 $a_c^2 = r_s^2/2$。",
+    "solution": "基于给定的度规，静态观察者的四维速度分量为 $u^0 = 1/\\cos h(r)$，$u^i = 0$。其固有加速度大小为 $a = \\sqrt{g_{rr} (\\Gamma^1_{00} (u^0)^2)^2} = \\tan h(r)$。在小 $r$ 牛顿极限下，加速度近似为 $r$，对应势能 $\\Phi = -r^2/2$。将此引力加速度代入Euler方程，并结合质量守恒 $\\dot{M} = 4\\pi r^2 \\rho v$ 和绝热条件 $dp/dr = a^2 d\\rho/dr$，推导出临界点方程 $(v - a^2/v) dv/dr = 2a^2/r - r$。在声速点 $v=a_c$，左边系数为零，为保证导数有界，右边必须为零，由此得出核心结论 $a_c^2 = r_s^2/2$。数值实验通过求解该极限下的流体方程，直接定位马赫数等于1的临界点，测量其坐标与声速，即可验证理论推导。"
+  },
+  "verification": null
+}

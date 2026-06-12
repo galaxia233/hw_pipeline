@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "S_mu",
+      "coordinate": "general",
+      "scenario": "gyroscope_spin_transport",
+      "method": "Fermi_Walker_transport_properties_verification",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\mathbf{S}$",
+      "$\\mathbf{u}$",
+      "$\\mathbf{a}$"
+    ],
+    "target": [
+      "$\\frac{D}{d\\tau}(S^{\\mu} u_{\\mu})$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，无外加力矩的陀螺仪其自旋矢量 $S^{\\mu}$ 遵循 Fermi-Walker 输运。Fermi-Walker 输运方程定义为：$$ \\frac{DS^{\\mu}}{d\\tau} = (S^{\\nu} a_{\\nu})u^{\\mu} - (S^{\\nu} u_{\\nu})a^{\\mu} $$其中 $u^{\\mu}$ 为陀螺仪的四维速度（满足类时条件 $u^{\\mu} u_{\\mu} = -1$），$a^{\\mu} = \\frac{Du^{\\mu}}{d\\tau}$ 为四维加速度。物理上，陀螺仪的自旋在瞬时静止系中始终表现为纯空间矢量，即初始满足 $S^{\\mu} u_{\\mu} = 0$，且自旋的大小在演化中不应改变。请验证 Fermi-Walker 输运方程的数学结构是否与上述物理要求自洽，即证明该方程在演化过程中保证了自旋矢量与四维速度的正交性约束（$\\frac{D}{d\\tau}(S^{\\mu} u_{\\mu}) = 0$），并基于此结果说明自旋矢量模长的守恒性。",
+    "answer": "Fermi-Walker 输运方程确实保证了自洽性：正交性 $\\frac{D}{d\\tau}(S^{\\mu} u_{\\mu}) = 0$ 成立，且自旋矢量模长守恒（$\\frac{D}{d\\tau}(S^{\\mu} S_{\\mu}) = 0$）。",
+    "solution": "1. 验证正交性守恒：计算 $S^{\\mu} u_{\\mu}$ 对固有时的协变导数：$$ \\frac{D}{d\\tau}(S^{\\mu} u_{\\mu}) = \\frac{DS^{\\mu}}{d\\tau} u_{\\mu} + S^{\\mu} \\frac{Du_{\\mu}}{d\\tau} $$将 Fermi-Walker 输运方程代入第一项，并利用四维加速度定义 $\\frac{Du_{\\mu}}{d\\tau} = a_{\\mu}$ 代入第二项：$$ = [(S^{\\nu} a_{\\nu})u^{\\mu} - (S^{\\nu} u_{\\nu})a^{\\mu}] u_{\\mu} + S^{\\mu} a_{\\mu} $$展开上式，并利用四维速度的类时条件 $u^{\\mu} u_{\\mu} = -1$，以及四维速度与四维加速度的正交性 $a^{\\mu} u_{\\mu} = 0$（该正交性由 $\\frac{D}{d\\tau}(u^{\\mu} u_{\\mu}) = 2 a^{\\mu} u_{\\mu} = \\frac{D}{d\\tau}(-1) = 0$ 得出）：$$ = (S^{\\nu} a_{\\nu})(u^{\\mu} u_{\\mu}) - (S^{\\nu} u_{\\nu})(a^{\\mu} u_{\\mu}) + S^{\\mu} a_{\\mu} $$$$ = (S^{\\nu} a_{\\nu})(-1) - (S^{\\nu} u_{\\nu})(0) + S^{\\mu} a_{\\mu} $$$$ = -S^{\\nu} a_{\\nu} + S^{\\mu} a_{\\mu} = 0 $$这证明了如果初始时刻 $S^{\\mu} u_{\\mu} = 0$，则演化过程中恒有 $S^{\\mu} u_{\\mu} = 0$，正交性守恒。2. 说明模长守恒性：计算 $S^{\\mu} S_{\\mu}$ 对固有时的协变导数：$$ \\frac{D}{d\\tau}(S^{\\mu} S_{\\mu}) = 2 S_{\\mu} \\frac{DS^{\\mu}}{d\\tau} $$代入 Fermi-Walker 输运方程：$$ = 2 S_{\\mu} [(S^{\\nu} a_{\\nu})u^{\\mu} - (S^{\\nu} u_{\\nu})a^{\\mu}] $$$$ = 2 (S^{\\nu} a_{\\nu})(S_{\\mu} u^{\\mu}) - 2 (S^{\\nu} u_{\\nu})(S_{\\mu} a^{\\mu}) $$由于物理上要求初始自旋在瞬时静止系中为纯空间矢量，即 $S^{\\mu} u_{\\mu} = 0$，且由第一步证明可知该正交性在演化中守恒，因此 $S_{\\mu} u^{\\mu} = 0$ 恒成立。代入上式得：$$ = 2 (S^{\\nu} a_{\\nu})(0) - 2 (0)(S_{\\mu} a^{\\mu}) = 0 $$这证明了自旋矢量模长在演化过程中守恒。"
+  },
+  "verification": null
+}

@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s2_2.13_c",
+    "type": "calculate",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "four_momentum_target",
+      "coordinate": "inertial_coordinates",
+      "scenario": "photon_rocket_scenario",
+      "method": "differential_energy_conservation_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.13_c",
+    "source_id": "1_s2_2.13_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.13_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.4,
+      "generalizability": 0.6,
+      "completeness": 0.2,
+      "realism": 0.8,
+      "rationale": "题干设定清晰但解答严重截断缺失结论；光子火箭属经典相对论推进模型，可迁移至任意排气速度与弯曲时空，但本题仅依赖一维变质量微分方程，逻辑链条较短。",
+      "overall": 0.5
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$M$",
+      "$m_0$"
+    ],
+    "target": [
+      "$m_{payload}/M_0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 2.13 (c) What fraction of the initial mass of the rocket can be payload in part (b)? Assume an ideal rocket that converts rest mass into radiation and ejects all of the radiation out of the back with $100\\%$ efficiency and perfect collimation.\\n\\n## Solution\\n\\n(c) Denote the rest mass of the rocket (which changes) by M. The change in energy of the rocket equals the energy radiated",
+    "answer": null,
+    "solution": "(c) Denote the rest mass of the rocket (which changes) by M. The change in energy of the rocket equals the energy radiated"
+  },
+  "verification": null
+}

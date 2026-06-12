@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-5-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "Fermi-Walker transport equation",
+      "coordinate": "Schwarzschild spherical",
+      "scenario": "numerical limit verification",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-5",
+      "1_s11_11.4-5-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "设计数值实验方案验证费米-沃克输运方程在 $r_s \\to 0$ 极限下退化为狭义相对论形式，并确认空间加速度极限值"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$（其中 $r_s = 2M$）。考虑一个通过外力悬停在固定径向坐标 $r_0$ 处的陀螺仪，其四维速度仅有时间分量 $u^\\mu = (\\sqrt{\\frac{r_0}{r_0-r_s}}, 0, 0, 0)$，自旋矢量 $S^\\mu$ 满足费米-沃克输运方程 $\\frac{D_F S^\\mu}{d\\tau} = \\nabla_{\\mathbf{u}} S^\\mu + (a^\\mu u_\\nu - u^\\mu a_\\nu) S^\\nu = 0$。理论推导表明，当取极限 $r_s \\to 0$（回到平直时空）时，该方程退化为狭义相对论中具有常空间加速度 $a^r = \\frac{r_s}{2 r_0^2}$ 的观察者所满足的标准方程 $\\frac{d S^\\mu}{d\\tau} + a^\\mu u_\\nu S^\\nu - u^\\mu a_\\nu S^\\nu = 0$。请设计一个数值模拟实验方案，通过参数扫描逐步减小 $r_s/r_0$ 的比值，验证上述费米-沃克输运方程各项的退化行为及空间加速度的极限收敛值。",
+    "answer": "1. **参数设定与扫描**：固定悬停半径 $r_0$（例如取 $r_0=1$），设定一系列递减的 $r_s$ 值（如 $r_s = 0.1, 0.01, 0.001, 0.0001$），使得比值 $r_s/r_0 \\to 0$。2. **几何与运动学量提取**：对每个 $r_s$，数值计算 Schwarzschild 度规的 Christoffel 符号（特别是 $\\Gamma^1_{00}$），计算四维速度分量 $u^0$ 及其协变分量 $u_0 = g_{00}u^0$，计算四维加速度分量 $a^1 = \\Gamma^1_{00}(u^0)^2$ 及其协变分量 $a_1 = g_{11}a^1$。3. **费米-沃克方程各项计算**：设定一组非零的自旋矢量 $S^\\mu$（例如初始取 $S^0=0, S^1=1, S^2=S^3=0$），分别数值计算方程中的协变导数项 $\\nabla_{\\mathbf{u}} S^\\mu$ 与耦合项 $(a^\\mu u_\\nu - u^\\mu a_\\nu) S^\\nu$。4. **预期结果与验证**：随着 $r_s/r_0$ 逐步减小，数值结果应显示：(1) $a^1$ 和 $a_1$ 均线性收敛于理论极限值 $\\frac{r_s}{2 r_0^2}$；(2) Christoffel 符号趋于 0，使得 $\\nabla_{\\mathbf{u}} S^\\mu$ 与普通导数 $\\frac{d S^\\mu}{d\\tau}$ 的差值趋于零；(3) 方程中 $a^\\mu u_\\nu S^\\nu$ 项收敛于 $-a^\\mu S^0$，$u^\\mu a_\\nu S^\\nu$ 项收敛于 $u^\\mu a_1 S^1$，整体方程完全退化为狭义相对论的费米-沃克输运方程形式。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目存在多处严重的物理逻辑与数学事实错误：\n1. **极限逻辑矛盾**：题目声称取极限 $r_s \\to 0$ 时，方程退化为狭义相对论中具有常空间加速度 $a^r = \\frac{r_s}{2 r_0^2}$ 的观察者。然而当 $r_s \\to 0$ 时，$a^r \\to 0$，观察者必然退化为惯性观察者（零加速度），而非“常空间加速度观察者”。狭义相对论中的常加速度是一个独立常数，不应依赖于趋于0的时空参数 $r_s$。\n2. **数学事实错误**：answer 预期结果(1)称 '$a^1$ 和 $a_1$ 均线性收敛于理论极限值 $\\frac{r_s}{2 r_0^2}$'。实际上，悬停观察者的四维加速度分量 $a^1 = (u^0)^2 \\Gamma^1_{00} = \\frac{r_s}{2r_0^2}$ 是一个精确成立的恒等式（对所有 $r_s/r_0$ 均成立），根本不存在随参数减小而'线性收敛于'该值的过程；仅有协变分量 $a_1$ 在弱场极限下收敛于该值。\n3. **预期结果虚构**：answer 预期结果(3)称各项会收敛于某些狭义相对论形式。但对于选取的特解 $S^\\mu = (0,1,0,0)$，由于 $u^1=0$ 且 $S^0=0$，$a^\\mu u_\\nu S^\\nu$ 项在任何参数下均精确为 0，$u^\\mu a_\\nu S^\\nu$ 项在任何参数下均精确等于 $u^\\mu a_1 S^1$。这些项根本不需要'收敛'，其结构也未发生任何改变，无法体现所谓的退化行为。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s7_7.7_c",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "inverse_metric",
+      "coordinate": "Christoffel_symbols",
+      "scenario": "tensor_calculus",
+      "method": "covariant_derivative"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.7_c",
+    "source_id": "1_s7_7.7_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.7_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.8,
+      "realism": 0.9,
+      "rationale": "基于度规相容性条件与协变导数定义推导偏导数关系式，逻辑清晰且构成广义相对论核心数学结构",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\alpha$",
+      "$\\beta$",
+      "$\\gamma$",
+      "$\\mu$"
+    ],
+    "target": [
+      "$\\mathbf{g}^{\\alpha \\beta}_{,\\gamma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.7. Prove the following identities:(c) $\\mathbf{g}^{\\alpha \\beta}_{,\\gamma} = -\\Gamma_{\\mu \\gamma}^{\\alpha}\\mathbf{g}^{\\mu \\beta} - \\Gamma_{\\mu \\gamma}^{\\beta}\\mathbf{g}^{\\mu \\alpha}.$",
+    "answer": "$\\mathbf{g}^{\\alpha \\beta}_{,\\gamma} = -\\Gamma_{\\mu \\gamma}^{\\alpha}\\mathbf{g}^{\\mu \\beta} - \\Gamma_{\\mu \\gamma}^{\\beta}\\mathbf{g}^{\\mu \\alpha}$",
+    "solution": null
+  },
+  "verification": null
+}

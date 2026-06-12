@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-8-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "Killing_vector",
+      "coordinate": "spherical",
+      "scenario": "cosmology_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-8",
+      "1_s10_10.10-8-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "FLRW",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "验证 Killing 矢量场 $\\xi^\\mu=(0,0,0,1)$ 与测地线切矢量的内积沿测地线守恒"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，Killing 矢量场反映了时空的对称性。一个基本定理指出：若 $\\boldsymbol{\\xi}$ 是 Killing 矢量场，$\\mathbf{u}$ 是测地线的切矢量，则它们的内积 $\\boldsymbol{\\xi} \\cdot \\mathbf{u} = g_{\\mu\\nu} \\xi^\\mu u^\\nu$ 沿测地线为常数。对于具有 FLRW 度规的宇宙学时空：\\n$$ds^2 = -dt^2 + \\frac{a^2(t)}{-kr^2 + 1} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$$\\n该时空具有绕 $\\phi$ 轴的旋转对称性，对应的 Killing 矢量场为 $\\xi^\\mu = (0, 0, 0, 1)$。\\n请你设计一个数值模拟方案，通过追踪自由粒子（测地线）在该时空中的演化，来验证上述定理的核心结论：即 Killing 矢量场 $\\boldsymbol{\\xi}$ 与测地线切矢量 $\\mathbf{u}$ 的内积沿测地线保持恒定。方案需包括：度规参数与初始条件的设定、需要求解的演化方程、需要计算与提取的物理量，以及预期的结果表现。",
+    "answer": "1. **度规参数设定**：选取具体的尺度因子演化形式（如 $a(t) = t^{2/3}$ 对应物质主导期）和空间曲率参数 $k$（如 $k=0$ 或 $k=1$）。\\n2. **初始条件设定**：选取一组初始坐标 $(t_0, r_0, \\theta_0, \\phi_0)$ 和初始4-速度分量 $(u^t_0, u^r_0, u^\\theta_0, u^\\phi_0)$，确保4-速度满足类时条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$。\\n3. **演化方程求解**：利用给出的度规计算 Christoffel 符号，代入测地线方程 $\\frac{du^\\mu}{d\\lambda} + \\Gamma^\\mu_{\\alpha\\beta} u^\\alpha u^\\beta = 0$，使用数值积分方法（如 Runge-Kutta 法）求解粒子轨迹和4-速度随仿射参量 $\\lambda$ 的演化。\\n4. **计算提取量**：在每个演化时间步，提取4-速度的 $\\phi$ 分量 $u^\\phi$，并计算内积 $Q = g_{\\phi\\phi} \\xi^\\phi u^\\phi = r^2 a^2(t) \\sin^2\\theta u^\\phi$。\\n5. **预期结果**：绘制 $Q$ 随仿射参量 $\\lambda$ 或坐标时 $t$ 的变化曲线。根据定理，该曲线应为一条水平直线（常数），验证了 Killing 矢量场与切矢量内积守恒的结论。",
+    "solution": "该方案通过数值求解测地线方程，动态获取粒子在时空中的状态。由于度规是对角的，内积 $g_{\\mu\\nu} \\xi^\\mu u^\\nu$ 退化为 $g_{\\phi\\phi} u^\\phi$，这正是粒子绕 $\\phi$ 轴的广义动量 $p_\\phi$。数值求解得到的 $p_\\phi$ 若在演化过程中保持常数，则直接验证了 Killing 矢量场对应守恒量的定理，同时间接证明了所选取的 $\\xi^\\mu=(0,0,0,1)$ 确实是度规的 Killing 矢量场。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 0.7,
+      "issue": "1. 几何术语不严谨：题目称“绕 $\\phi$ 轴的旋转对称性”，在球坐标系中方位角 $\\phi$ 是角度而非空间轴，绕其旋转的表述存在概念混淆，正确的物理表述应为“绕极轴（z轴）的旋转对称性”或“沿 $\\phi$ 方向的旋转对称性”。2. 文字错误：Solution 中“硕实是度规的 Killing 矢量场”存在错别字，“硕实”应为“确实”。3. 逻辑解释不全面：Solution 解释内积 $g_{\\mu\\nu} \\xi^\\mu u^\\nu$ 退化为 $g_{\\phi\\phi} u^\\phi$ 时仅提及“由于度规是对角的”，实际上该退化的主要原因是 Killing 矢量 $\\xi^\\mu$ 只有 $\\phi$ 分量非零，度规对角仅是避免了交叉项的贡献。4. 参数组合物理不自洽风险：Answer 举例尺度因子 $a(t)=t^{2/3}$（这隐含了 $k=0$ 的物质主导期宇宙）与空间曲率参数 $k=1$ 并列建议选取，若初学者将二者组合，将得到不满足爱因斯坦方程的度规（虽然这不影响纯几何的 Killing 守恒量验证，但作为广义相对论题目存在物理场景设定上的误导）。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

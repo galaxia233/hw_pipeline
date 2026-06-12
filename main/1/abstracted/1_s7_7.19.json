@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s7_7.19",
+    "type": "prove",
+    "tags": {
+      "metric": "generic-metric",
+      "target_object": "fermi-walker-transport",
+      "coordinate": "parallel-transport",
+      "scenario": "abstract-coordinate-system",
+      "method": "geodesic-scenario"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.19",
+    "source_id": "1_s7_7.19",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.19"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "通过测地线条件消去四维加速度项，将费米-沃克输运直接简化为平行输运，逻辑链条完整且对应非旋转参考系的物理实际",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mathbf{u}$",
+      "$\\mathbf{x}$",
+      "$\\mathbf{a}$",
+      "$\\tau$"
+    ],
+    "target": [
+      "$\\nabla_{\\mathbf{u}}\\mathbf{x} = 0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.19. Show that Fermi-Walker transport along a geodesic curve is the same as parallel transport.",
+    "answer": "Fermi-Walker transport law reduces to $\\nabla_{\\mathbf{u}} \\mathbf{x} = 0$, which is the parallel transport equation.",
+    "solution": "Fermi-Walker transport has the differential equation$$\\nabla_{\\mathbf {u}} \\mathbf {x} = (\\mathbf {u} \\otimes \\mathbf {a} - \\mathbf {a} \\otimes \\mathbf {u}) \\cdot \\mathbf {x},$$where $\\mathbf{u}$ is the tangent vector to the curve and $\\mathbf{a} = \\nabla_{\\mathbf{u}}\\mathbf{u} \\equiv \\mathrm{D}\\mathbf{u} / \\mathrm{d}\\tau$ . If the curve is a geodesic, it satisfies the geodesic equation $\\nabla_{\\mathbf{u}}\\mathbf{u} = 0$ , so the Fermi-Walker transport law becomes$$\\nabla_{\\mathbf {u}} \\mathbf {x} = 0,$$which is just the parallel transport equation."
+  },
+  "verification": null
+}

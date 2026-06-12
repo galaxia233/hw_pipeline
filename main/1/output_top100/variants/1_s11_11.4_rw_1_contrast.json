@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-2-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "自旋传输方程",
+      "coordinate": "general_vs_Schwarzschild",
+      "scenario": "contrast_geodetic_precession",
+      "method": "covariant_derivative_expand",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-2",
+      "1_s11_11.4-2-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\mathbf{S}$",
+      "$\\mathbf{u}$",
+      "$\\mathbf{a}$"
+    ],
+    "target": [
+      "$\\frac{D S^\\mu}{d \\tau}$",
+      "测地进动"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，无外加扭矩的陀螺仪自旋矢量 $S^\\mu$ 满足 Fermi-Walker 传输方程：$$ \\frac{D_F S^\\mu}{d \\tau} = \\frac{D S^\\mu}{d \\tau} - (u^\\mu a^\\nu - a^\\mu u^\\nu) S_\\nu = 0 $$其中 $u^\\mu$ 为四维速度，$a^\\mu = \\frac{D u^\\mu}{d \\tau}$ 为四加速度，$\\frac{D}{d \\tau}$ 为协变导数。请分别在以下两种背景下推导自由下落（测地线运动，$a^\\mu = 0$）陀螺仪的自旋传输方程，并对比两者的物理含义差异：**背景 A：一般弯曲时空**推导测地线极限下 Fermi-Walker 传输方程的退化形式，并解释该抽象方程代表的局部物理意义。**背景 B：Schwarzschild 时空**度规为 $ds^2 = -\\frac{r-r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2(d\\theta^2 + \\sin^2\\theta d\\phi^2)$。考虑赤道面 ($\\theta = \\pi/2$) 上的圆形测地线轨道（其四速度由时间平移和旋转 Killing 矢量对应的守恒量决定，仅有 $u^t$ 和 $u^\\phi$ 非零，$u^r = u^\\theta = 0$）。请利用 Schwarzschild 时空的 Christoffel 符号（如 $\\Gamma^\\phi_{r\\phi} = 1/r$ 等），写出自旋方程 $\\frac{D S^\\mu}{d \\tau} = 0$ 的空间分量 $\\frac{D S^\\phi}{d \\tau} = 0$ 在该轨道上的具体坐标展开式。**对比要求**：对比背景 A 的抽象结果与背景 B 的具体坐标展开式，解释为什么局部惯性系中的“无旋转”（背景 A）在 Schwarzschild 全局坐标系下却表现为自旋空间方位随固有时发生非线性耦合演化（即测地进动）？",
+    "answer": "**背景 A 结果**：在自由下落极限下，$a^\\mu = 0$，Fermi-Walker 传输方程退化为普通协变平行传输方程：$$ \\frac{D S^\\mu}{d \\tau} = 0 $$物理意义：该抽象方程表明，在陀螺仪自身携带的局部惯性系（自由落体参考系）中，自旋矢量不发生空间旋转，指向保持不变。**背景 B 结果**：在 Schwarzschild 时空赤道面圆轨道上，$u^r = u^\\theta = 0$, $\\theta = \\pi/2$。自旋 $\\phi$ 分量的协变平行传输方程展开为：$$ \\frac{D S^\\phi}{d \\tau} = \\frac{d S^\\phi}{d \\tau} + \\Gamma^\\phi_{\\alpha\\beta} u^\\alpha S^\\beta = 0 $$代入非零 Christoffel 符号 $\\Gamma^\\phi_{r\\phi} = 1/r$ 及 $u^\\phi$，得到：$$ \\frac{d S^\\phi}{d \\tau} + \\frac{1}{r} u^\\phi S^r = 0 $$同理，$S^r$ 的方程也会与 $S^\\phi$ 和 $S^t$ 耦合。这表明自旋的坐标分量在 Schwarzschild 坐标系下必须随固有时发生耦合演化。**对比与差异解释**：背景 A 的方程 $\\frac{D S^\\mu}{d \\tau} = 0$ 是协变形式，其物理意义是“局部无旋转”；而背景 B 的具体展开式揭示了这种“局部无旋转”在全局坐标系下的投影表现。差异的物理根源在于时空弯曲（由 Christoffel 符号体现）：为了在弯曲时空中维持局部惯性系内的指向不变（平行传输），自旋矢量必须相对于全局坐标系（如远处固定星体定义的 Schwarzschild 坐标系）发生连续的方位调整。这种坐标分量的耦合演化在宏观上表现为自旋轴的缓慢旋转，即测地进动。局部无旋转与全局进动是同一物理过程在局部惯性系和全局坐标系的互补描述。",
+    "solution": "1. 背景A：代入 $a^\\mu = 0$ 到 Fermi-Walker 导数定义，修正项消去，得到 $\\frac{D S^\\mu}{d \\tau} = 0$。\\n2. 背景B：根据 Schwarzschild 赤道面圆轨道条件，筛选非零 Christoffel 符号。$\\frac{D S^\\phi}{d \\tau} = \\frac{d S^\\phi}{d \\tau} + \\Gamma^\\phi_{r\\phi} u^r S^\\phi + \\Gamma^\\phi_{\\theta\\phi} u^\\theta S^\\phi + \\Gamma^\\phi_{r\\phi} u^\\phi S^r + \\Gamma^\\phi_{\\theta\\phi} u^\\phi S^\\theta$，由于 $u^r = u^\\theta = 0$ 且 $\\Gamma^\\phi_{\\theta\\phi}=\\cot(\\pi/2)=0$，仅剩 $\\frac{d S^\\phi}{d \\tau} + \\frac{1}{r} u^\\phi S^r = 0$。\\n3. 物理对比：协变导数为零意味着局部不旋转，但 Christoffel 项的存在使得坐标分量必须演化以补偿时空弯曲，这正是测地进动的机制。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "题目在对比要求中预设了一个严重的数学与物理概念错误：声称局部惯性系中的“无旋转”在 Schwarzschild 全局坐标系下表现为“自旋空间方位随固有时发生非线性耦合演化（即测地进动）”。实际上，平行传输方程 $DS^\\mu/d\\tau = 0$ 在圆轨道上的坐标展开式（如 $dS^\\phi/d\\tau + (1/r)u^\\phi S^r = 0$）是线性常微分方程组，自旋分量间的交叉项是线性耦合而非非线性耦合。在圆轨道上，$u^\\alpha$ 和 Christoffel 符号均为常数，方程解是线性的；测地进动是线性演化的结果（进动角速度为常数，进动角随固有时线性增长），根本不存在非线性演化特征。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

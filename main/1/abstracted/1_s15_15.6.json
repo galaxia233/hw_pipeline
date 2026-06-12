@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s15_15.6",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "Schwarzschild",
+      "coordinate": "target_object",
+      "scenario": "deflection_angle",
+      "method": "coordinate"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s15_15.6",
+    "source_id": "1_s15_15.6",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s15_15.6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.8,
+      "rationale": "基于零测地线守恒量的多步推导+弱场微扰求解+真实天体光学偏折物理背景",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$",
+      "$M$",
+      "$b$",
+      "$\\\\lambda$",
+      "$u$"
+    ],
+    "target": [
+      "$\\\\Delta \\\\phi$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s15_15.6.md]\\n\\nProblem 15.6. Show that the trajectory of light rays in the Schwarzschild metric obeys\\n$$\\n\\\\frac {\\mathrm {d}^{2} \\\\mathbf {u}}{\\\\mathrm {d} \\\\phi^{2}} + \\\\mathbf {u} = 3 \\\\mathbf {u}^{2}\\n$$\\nwhere $\\mathbf{u} \\equiv \\mathbf{M} / \\mathbf{r}$ , and $\\mathbf{r}$ is the Schwarzschild radial coordinate. Denote the minimum value of $\\mathbf{r}$ along the trajectory by $\\mathbf{b}$ , the \"impact parameter.\" In the case $\\mathbf{M} / \\mathbf{b} < 1$ what is the deflection of a photon as it passes a spherical gravitating body? Give a formula for the deflection angle to lowest nonvanishing order in $(\\mathbf{M} / \\mathbf{b}) .$\\n\\n## Solution",
+    "answer": "$4M/b$",
+    "solution": "Solution 15.6. Choose $\\theta = \\pi /2$ and $\\mathbf{p}^{\\theta} = 0$ . If $\\lambda$ is an affine parameter such that $\\mathbf{p}^{\\mathbf{r}} = \\mathrm{d}\\mathbf{r} / \\mathrm{d}\\lambda$ and $\\mathbf{p}^{\\phi} = \\mathrm{d}\\phi /\\mathrm{d}\\lambda = \\mathbf{r}^{-2}\\mathbf{p}_{\\phi}$ , then\\n$$\\n\\\\frac {\\mathrm {d} \\mathbf {r}}{\\mathrm {d} \\phi} = \\\\frac {\\mathbf {p}^{\\mathbf {r}}}{\\\\mathbf {p}^{\\\\phi}}.\\n$$\\nFrom $\\mathbf{p} \\cdot \\mathbf{p} = 0$ we get a relation amongst $\\mathbf{p}^{\\mathbf{r}}$ , $\\mathbf{p}^{\\phi}$ , and $\\mathbf{p}^{0}$ which can be solved for $\\mathrm{dr} / \\mathrm{d}\\phi$ :\\n$$\\n\\\\left(\\mathrm {d} \\mathbf {r} / \\\\mathrm {d} \\\\phi\\\\right)^{2} = \\\\mathrm {r}^{4} (1 - 2 \\\\mathrm {M} / \\\\mathrm {r}) [ \\\\gamma (1 - 2 \\\\mathrm {M} / \\\\mathrm {r})^{- 1} - 1 / \\\\mathrm {r}^{2} ] \\tag {1}\\n$$\\nwhere $\\gamma \\equiv p_0^2 /p_\\phi^2 = \\text{constant}$ . If we now introduce $u\\equiv M / r$ , Equation (1) becomes\\n$$\\n\\\\left(u^{\\\\prime}\\\\right)^{2} = (1 - 2 u) \\\\left[ \\\\gamma M^{2} (1 - 2 u)^{- 1} - u^{2} \\\\right] = \\\\gamma M^{2} - u^{2} + 2 u^{3} \\tag {2}\\n$$\\nwhere $\\mathbf{\\\\nabla}^{\\prime}$ denotes $\\mathrm {d} / \\\\mathrm {d}\\\\phi$ . If we differentiate this equation we get the very simple second-order equation\\n$$\\nu^{\\\\prime \\\\prime} + u = 3 u^{2}. \\tag {3}\\n$$\\nIn the limit $\\mathbf{M} / \\mathbf{b} \\ll 1$ the zeroth order solution can be taken to be the \"straight line\" solution $r \\sin \\phi = b$ or\\n$$\\n\\\\mathbf {u}_{0} = (\\\\mathbf {M} / \\\\mathbf {b}) \\\\sin \\\\phi .\\n$$\\nNow write $\\mathbf{u} = \\mathbf{u}_0 + \\mathbf{u}_1 + \\dot s$ with $\\mathbf{u}_1 \\ll 1$ so that Equation (3) is approximately\\n$$\\n\\\\mathbf {u}_{1}^{\\\\prime \\\\prime} + \\\\mathbf {u}_{1} \\\\approx 3 \\\\mathbf {u}_{0}^{2} = 3 \\\\left(\\\\frac {\\\\mathbf {M}}{\\\\mathbf {b}}\\\\right)^{2} \\\\sin^{2} \\\\phi = \\\\frac {3}{2} \\\\left(\\\\frac {\\\\mathbf {M}}{\\\\mathbf {b}}\\\\right)^{2} \\\\left(1 - \\\\cos 2 \\\\phi\\\\right).\\n$$\\nThis can be solved by inspection, and we get\\n$$\\nu \\approx \\\\left(\\\\frac {M}{b}\\\\right) \\\\sin \\\\phi + \\\\frac {1}{2} \\\\left(\\\\frac {M}{b}\\\\right)^{2} (3 + \\\\cos 2 \\\\phi).\\n$$\\nNow we can find the total deflection angle by calculating the two angles at which $r = \\inf ty (u = 0)$ . These angles must satisfy:\\n$$\\n2 \\\\sin \\\\phi \\\\approx - (\\\\mathrm {M} / \\\\mathrm {b}) (3 + \\\\cos 2 \\\\phi)\\n$$\\n$$\\n\\\\phi \\\\approx - 2 (\\\\mathrm {M} / \\\\mathrm {b}) \\quad \\\\text {a n d} \\quad \\\\phi \\\\approx \\\\pi + 2 (\\\\mathrm {M} / \\\\mathrm {b}).\\n$$\\nThus the total deflection angle is 4M/b."
+  },
+  "verification": null
+}

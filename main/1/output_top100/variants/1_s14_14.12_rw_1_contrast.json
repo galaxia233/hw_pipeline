@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-3-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "Tidal force eigenvalues",
+      "coordinate": "mixed",
+      "scenario": "black hole vs flat spacetime contrast",
+      "method": "Riemann tensor projection",
+      "generalization_axis": "compare",
+      "metric": "Minkowski"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-3",
+      "1_s14_14.12-3-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Minkowski",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\lambda_1$",
+      "$\\lambda_2$",
+      "$\\lambda_3$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，相邻自由下落测试粒子间的相对加速度由潮汐力张量决定。考虑一个通过自身加速度保持静止的观测者，其在局部正交参考系中感受到的潮汐力张量的主特征值决定了物体在各方向上受到的拉伸或挤压效果。背景一：Schwarzschild 黑洞外部时空，度规为：\\[ ds^2 = -\\frac{r-r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2 \\]其中 $r_s = 2M$ 为 Schwarzschild 半径。该时空具有时间平移 Killing 矢量 $(\\partial_t)$，允许观测者在径向坐标 $r=r_0$（$r_0 > r_s$）处保持静止。背景二：平坦的 Minkowski 时空，度规为：\\[ ds^2 = -dt^2 + dx^2 + dy^2 + dz^2 \\]该时空具有时间平移和三个空间平移 Killing 矢量，观测者可在任意空间位置保持静止。请分别计算在这两种背景下，静止观测者在局部正交参考系中感受到的潮汐力张量的三个主特征值 $\\lambda_1, \\lambda_2, \\lambda_3$，并根据特征值的结果对比解释两种时空下物体受到的物理效果（拉伸或挤压）的差异及其物理原因。",
+    "answer": "背景一（Schwarzschild）：潮汐力张量的三个主特征值为：$\\lambda_1 = \\frac{r_s}{r_0^3}$（径向方向），$\\lambda_2 = -\\frac{r_s}{2r_0^3}$（极角方向），$\\lambda_3 = -\\frac{r_s}{2r_0^3}$（方位角方向）。物理效果：$\\lambda_1 > 0$ 表示径向拉伸，$\\lambda_2, \\lambda_3 < 0$ 表示横向挤压。背景二（Minkowski）：由于 Minkowski 时空的 Riemann 张量恒为零，潮汐力张量的三个主特征值为：$\\lambda_1 = 0$, $\\lambda_2 = 0$, $\\lambda_3 = 0$。物理效果：没有任何方向的拉伸或挤压。对比与物理原因：Schwarzschild 时空存在非零潮汐力，表现为径向拉伸和横向挤压，且满足 $\\lambda_1 + \\lambda_2 + \\lambda_3 = 0$，体现了真空 Einstein 场方程的迹零约束（即质量引起的时空弯曲）。而 Minkowski 时空无潮汐力，物体不受任何相对加速度影响。两者的差异直接反映了时空曲率的存在与否：黑洞质量造成的时空曲率产生了引力梯度（潮汐效应），而平坦时空无曲率，故无潮汐效应。",
+    "solution": "对于局部正交参考系中的静止观测者，潮汐力张量的物理分量对应于 Riemann 张量在局部正交基下的投影 $R^{\\hat{j}}_{\\hat{0}\\hat{k}\\hat{0}}$。背景一（Schwarzschild）：计算 Riemann 张量的坐标分量：$R^1_{010} = g^{11}R_{0101} = \\frac{r-r_s}{r} \\cdot \\frac{r_s}{r^2(r-r_s)} = \\frac{r_s}{r^3}$；$R^2_{020} = g^{22}R_{0202} = \\frac{1}{r^2} \\cdot (-\\frac{r_s}{2r}) = -\\frac{r_s}{2r^3}$；$R^3_{030} = g^{33}R_{0303} = -\\frac{r_s}{2r^3}$。由于度规正交，归一化因子刚好抵消，在 $r=r_0$ 处这些坐标分量即为物理分量和主特征值。背景二（Minkowski）：Minkowski 度规的所有 Christoffel 符号和 Riemann 张量分量均为零，因此投影到任意局部正交基上的 $R^{\\hat{j}}_{\\hat{0}\\hat{k}\\hat{0}}$ 恒为零，特征值全为零。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.minkowski_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "Solution的推导过程存在多处严重的数学与物理错误：\\n1. 潮汐力张量定义自相矛盾：Answer中给出 $\\lambda_1 = \\frac{r_s}{r_0^3} > 0$ 表示径向拉伸，这意味着该特征值对应于张量 $-R^{\\hat{j}}_{\\hat{0}\\hat{k}\\hat{0}}$（因为真实的 $R^{\\hat{r}}_{\\hat{t}\\hat{r}\\hat{t}} < 0$），但Solution开篇却将其定义为 $R^{\\hat{j}}_{\\hat{0}\\hat{k}\\hat{0}}$，与物理效果矛盾。\\n2. Riemann张量坐标分量计算错误（符号与指标）：Solution计算 $R^1_{010} = g^{11}R_{0101}$，实际上根据张量指标升降规则应为 $R^1_{010} = g^{11}R_{1010} = -g^{11}R_{0101}$。真实的 $R^1_{010}$（即 $R^r_{trt}$）应为 $-\\\\frac{r_s}{r^3}$，而Solution凑出了错误的 $+\\\\frac{r_s}{r^3}$。\\n3. 角向分量计算错误（因子遗漏与符号）：Solution计算 $R^2_{020} = g^{22}R_{0202}$ 并声称 $R_{0202} = -\\\\frac{r_s}{2r}$。实际上真实的 $R_{0202}$（即 $R_{t\\\\theta t\\\\theta}$）为 $-\\\\frac{r_s}{2r(1-r_s/r)}$，遗漏了度规因子；真实的 $R^2_{020}$（即 $R^\\\\theta_{t\\\\theta t}$）为 $+\\\\frac{r_s}{2r^3(1-r_s/r)}$，Solution却错误地写成了 $-\\\\frac{r_s}{2r^3}$，符号完全相反。\\n4. 物理分量推导逻辑荒谬：Solution声称“由于度规正交，归一化因子刚好抵消，坐标分量即为物理分量”。对于Schwarzschild度规下的混合指标张量 $R^\\\\mu_{\\\\nu\\\\rho\\\\sigma}$，物理分量计算需要乘以对应的正交基变换因子，并不会如此简单抵消。Solution中算出的错误坐标分量恰好不包含度规因子，直接宣称它们等于物理分量是完全错误的推导逻辑。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

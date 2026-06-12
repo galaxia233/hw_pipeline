@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s16_16.2",
+    "type": "calculate",
+    "tags": {
+      "metric": "static_spherical_metric",
+      "target_object": "force_vector_components",
+      "coordinate": "Schwarzschild_coordinate",
+      "scenario": "relativistic_stellar_interior",
+      "method": "local_orthonormal_frame_transformation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.2",
+    "source_id": "1_s16_16.2",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "需经坐标基底变换与局部惯性系受力分析，结合TOV方程推导引力项，逻辑链条完整且具有中子星流体静力学平衡的真实物理背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$",
+      "$\\\\rho$",
+      "$p$",
+      "$m$",
+      "$V$"
+    ],
+    "target": [
+      "$F^{\\\\hat{r}}_{\\\\mathrm{buoy}}$",
+      "$F^{\\\\hat{r}}_{\\\\mathrm{grav}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s16_16.2.md]\\n\\nProblem 16.2. Suppose that an observer, at rest at some point inside a spherical relativistic star, measures the radial pressure-buoyant force, $\\mathbf{F}_{\\mathrm{buoy}}$ , on a small element of volume V, using the usual laboratory techniques. What value will he find for $\\mathbf{F}_{\\mathrm{buoy}}$ , in terms of $\\rho$ , p, m, V, and dp/dr? If he equates this buoyant force to an equal and opposite gravitational force, $\\mathbf{F}_{\\mathrm{grav}}$ , what will $\\mathbf{F}_{\\mathrm{grav}}$ be in terms of $\\rho$ , p, m, V, and r? How do these results differ from the corresponding Newtonian results?",
+    "answer": "$\\\\mathbf{F}_{\\\\mathrm{buoy}} = \\\\left(1 - \\\\frac{2m}{r}\\\\right)^{\\\\frac{1}{2}} p_{,r} V \\\\mathbf{e}_{\\\\hat{r}}$\\n\\n$\\\\mathbf{F}_{\\\\mathrm{grav}} = - \\\\frac{(\\\\rho + p)(m + 4\\\\pi r^3 p)V}{r^2 \\\\left(1 - \\\\frac{2m}{r}\\\\right)^{\\\\frac{1}{2}}} \\\\mathbf{e}_{\\\\hat{r}}$",
+    "solution": "## Solution\\n\\nSolution 16.2. The observer makes measurements in his local orthonormal\\nframe $\\mathbf{e}_{\\\\hat{\\\\mathfrak{t}}} = \\mathbf{e}^{-\\\\Phi}\\\\mathbf{e}_{\\\\mathfrak{t}},\\\\quad \\mathbf{e}_{\\\\hat{\\\\mathfrak{r}}} = \\mathbf{e}^{-\\\\lambda}\\\\mathbf{e}_{\\\\mathfrak{r}},\\\\quad \\mathbf{e}_{\\\\hat{\\\\boldsymbol{\\\\theta}}} = \\mathbf{r}^{-1}\\\\mathbf{e}_{\\\\boldsymbol{\\\\theta}},\\\\quad \\mathbf{e}_{\\\\hat{\\\\boldsymbol{\\\\phi}}} = (\\mathbf{r}\\\\sin \\\\theta)^{-1}\\\\mathbf{e}_{\\\\boldsymbol{\\\\phi}};$\\n$$\\n\\\\tilde {\\\\omega}^{\\\\hat {t}} = e^{\\\\Phi} \\\\widetilde {d t}, \\\\quad \\\\tilde {\\\\omega}^{\\\\hat {r}} = e^{\\\\lambda} \\\\widetilde {d r}, \\\\quad \\\\tilde {\\\\omega}^{\\\\hat {\\\\theta}} = r \\\\widetilde {d \\\\theta}, \\\\quad \\\\tilde {\\\\omega}^{\\\\hat {\\\\phi}} = r \\\\sin \\\\theta d \\\\widetilde {\\\\phi}.\\n$$\\nHere the metric is as given in the introduction, except $(1 - 2\\\\mathrm{m} / \\\\mathrm{r})^{-1}\\\\equiv \\\\mathrm{e}^{2\\\\lambda}$ . The volume of a fluid element which he measures is\\n$$\\n\\\\begin{array}{l}\\nV = \\\\tilde {\\\\omega}^{\\\\hat {r}} \\\\wedge \\\\tilde {\\\\omega}^{\\\\hat {\\\\theta}} \\\\wedge \\\\tilde {\\\\omega}^{\\\\hat {\\\\phi}} \\\\\\\\\\n= e^{\\\\lambda} r^{2} \\\\sin \\\\theta \\\\widetilde {d r} \\\\wedge \\\\widetilde {d \\\\theta} \\\\wedge \\\\widetilde {d \\\\phi} \\\\\\\\\\n= e^{\\\\lambda} r^{2} \\\\sin \\\\theta d r d \\\\theta d \\\\phi . \\\\\\\\\\n\\\\end{array}\\n$$\\nThe pressure at opposite points on the vertical walls of the fluid element are the same, but because of the radial pressure gradient, the top and bottom pressures are not:\\n$$\\n\\\\left| p_{t o p} - p_{b o t t o m} \\\\right| = \\\\left| p_{, r} \\\\tilde {\\\\omega}^{\\\\hat {r}} \\\\right| = \\\\left| p_{, r} e^{- \\\\lambda} \\\\tilde {\\\\omega}^{\\\\hat {r}} \\\\right|.\\n$$\\nThus,\\n$$\\n\\\\begin{array}{l}\\n| \\\\mathbf {F}_{\\\\text {b u o y ,}} |= | (\\\\mathrm {p}_{\\\\text {t o p}} - \\\\mathrm {p}_{\\\\text {b o t t o m}}) \\\\times \\\\text {a r e a} | \\\\\\\\\\n= | \\\\mathbf {p}_{r, r} e^{- \\\\lambda_{\\\\omega} \\\\hat {r}_{\\\\omega} \\\\hat {\\\\theta}_{\\\\omega} \\\\hat {\\\\phi}} | \\\\\\\\\\n= | p_{r} e^{- \\\\lambda} V |. \\\\\\\\\\n\\\\end{array}\\n$$\\nSince the direction of the buoyant force is radial,\\n$$\\n\\\\mathbf {F}_{\\\\text {b u o y ,}} = \\\\mathrm {e}^{- \\\\lambda} \\\\mathrm {p}_{, r} \\\\mathrm {V e}_{\\\\hat {\\\\mathrm {r}}} = \\\\left(1 - \\\\frac {2 \\\\mathrm {m}}{\\\\mathrm {r}}\\\\right)^{\\\\frac {1}{2}} \\\\mathrm {p}_{, r} \\\\mathrm {V e}_{\\\\hat {\\\\mathrm {r}}} .\\n$$\\nUsing the OV equation for $\\mathbf{p}_{\\cdot ,\\mathbf{r}}$ we find\\n$$\\n\\\\mathbf {F}_{\\\\text {g r a v .}} = - \\\\mathbf {F}_{\\\\text {b u o y .}} = - \\\\frac {(\\\\rho + p) (m + 4 \\\\pi r^{3} p) V e_{\\\\mathrm {f}}}{r^{2} \\\\left(1 - \\\\frac {2 m}{r}\\\\right)^{\\\\frac {1}{2}}}\\n$$\\nThe Newtonian result is\\n$$\\n\\\\mathrm {p}_{\\\\mathrm {r}} \\\\mathrm {V e}_{\\\\mathrm {r}} = - \\\\frac {\\\\rho \\\\mathrm {m V}}{\\\\mathrm {r}^{2}} \\\\mathrm {e}_{\\\\mathrm {r}}^{\\\\prime}.\\n$$"
+  },
+  "verification": null
+}

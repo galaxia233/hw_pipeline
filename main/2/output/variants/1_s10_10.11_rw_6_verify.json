@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-8-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "verify covariant conservation limit",
+      "coordinate": "t, x, y, z",
+      "scenario": "cosmology",
+      "method": "verify",
+      "generalization_axis": "verify",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-8",
+      "1_s10_10.11-8-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "DeSitter",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "找出推导中的所有错误并修正"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 De Sitter 时空度规 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$ 中，存在时间平移 Killing 矢量 $\\xi^\\mu = (1, 0, 0, 0)$。由能动张量 $T^{\\mu\\nu}$ 和该 Killing 矢量构成的守恒流定义为 $J^\\mu = T^{\\mu\\nu}\\xi_\\nu$，已知其满足协变守恒方程 $\\nabla_\\mu J^\\mu = 0$。以下是某同学试图证明当参数 $\\alpha \\to \\inf ty$ 时，该方程退化为 Minkowski 平直时空中的经典能量守恒律 $\\partial_\\mu T^{\\mu 0} = 0$ 的推导过程，请找出并修正推导中的所有错误：【推导过程】1. 计算 Killing 矢量的协变分量：因为 $\\xi^\\mu = (1, 0, 0, 0)$，所以 $\\xi_\\nu = (1, 0, 0, 0)$。2. 写出守恒流表达式：$J^\\mu = T^{\\mu\\nu}\\xi_\\nu = T^{\\mu 0}$。3. 展开协变守恒方程：$\\nabla_\\mu J^\\mu = \\partial_\\mu J^\\mu + \\Gamma^\\lambda_{\\mu\\lambda} J^\\mu = 0$。4. 计算 Christoffel 符号缩并项 $\\Gamma^\\lambda_{\\mu\\lambda} J^\\mu$：   由度规可得 $\\Gamma^1_{11} = -\\frac{1}{\\alpha}$，$\\Gamma^2_{12} = \\frac{1}{\\alpha}$，$\\Gamma^3_{13} = \\frac{1}{\\alpha}$。   对 $\\mu=0$：$\\Gamma^\\lambda_{0\\lambda} = 0$；   对 $\\mu=1$：$\\Gamma^\\lambda_{1\\lambda} = \\Gamma^0_{10} + \\Gamma^1_{11} = -\\frac{1}{\\alpha}$；   对 $\\mu=2$：$\\Gamma^\\lambda_{2\\lambda} = 0$；   对 $\\mu=3$：$\\Gamma^\\lambda_{3\\lambda} = 0$。   因此 $\\Gamma^\\lambda_{\\mu\\lambda} J^\\mu = -\\frac{1}{\\alpha} J^1$。5. 代入方程得：$\\partial_\\mu J^\\mu - \\frac{1}{\\alpha} J^1 = 0$，即 $\\partial_\\mu T^{\\mu 0} - \\frac{1}{\\alpha} T^{1 0} = 0$。当 $\\alpha \\to \\inf ty$ 时，退化为 $\\partial_\\mu T^{\\mu 0} = 0$。",
+    "answer": "1. 步骤1：$\\xi_\\nu$ 计算错误。类型：度规分量错误引用 / 符号错误。正确值：$\\xi_\\nu = g_{\\nu\\mu}\\xi^\\mu = (-1, 0, 0, 0)$。2. 步骤2：$J^\\mu$ 表达式错误。类型：符号错误（由步骤1引发）。正确值：$J^\\mu = T^{\\mu\\nu}\\xi_\\nu = -T^{\\mu 0}$。3. 步骤3：协变导数展开指标错误。类型：指标错误。正确值：$\\nabla_\\mu J^\\mu = \\partial_\\mu J^\\mu + \\Gamma^\\mu_{\\mu\\lambda} J^\\lambda$，而非 $\\Gamma^\\lambda_{\\mu\\lambda} J^\\mu$。4. 步骤4：$\\Gamma^1_{11}$ 符号错误。类型：符号错误。正确值：$\\Gamma^1_{11} = \\frac{1}{\\alpha}$。5. 步骤4：$\\Gamma^\\lambda_{1\\lambda}$ 计算遗漏项。类型：因子遗漏。正确值：即使是按错误的缩并方式 $\\Gamma^\\lambda_{1\\lambda}$，也应包含 $\\Gamma^2_{12}$ 和 $\\Gamma^3_{13}$，即 $\\Gamma^\\lambda_{1\\lambda} = \\frac{3}{\\alpha}$；若按正确的缩并 $\\Gamma^\\mu_{\\mu 1}$，同样为 $\\frac{3}{\\alpha}$。6. 步骤4：最终 Christoffel 缩并项错误。类型：综合错误。正确值：应为 $\\Gamma^\\mu_{\\mu\\lambda} J^\\lambda = \\frac{3}{\\alpha} J^1 = -\\frac{3}{\\alpha} T^{10}$。7. 步骤5：方程代数表达错误。类型：综合错误。正确值：代入正确的 $J^\\mu$ 和缩并项后，方程应为 $\\partial_\\mu (-T^{\\mu 0}) + \\frac{3}{\\alpha} (-T^{1 0}) = 0$，即 $\\partial_\\mu T^{\\mu 0} + \\frac{3}{\\alpha} T^{1 0} = 0$。极限下退化为 $\\partial_\\mu T^{\\mu 0} = 0$。",
+    "solution": "1. 首先计算 Killing 矢量的协变分量：$\\xi_\\nu = g_{\\nu\\mu} \\xi^\\mu = (-1, 0, 0, 0)$。2. 写出守恒流的显式表达式：$J^\\mu = T^{\\mu\\nu}\\xi_\\nu = -T^{\\mu 0}$。3. 展开协变守恒方程 $\\nabla_\\mu J^\\mu = 0$：   $$ \\nabla_\\mu J^\\mu = \\partial_\\mu J^\\mu + \\Gamma^\\mu_{\\mu\\lambda} J^\\lambda = 0 $$4. 计算 Christoffel 符号的缩并 $\\Gamma^\\mu_{\\mu\\lambda}$（对第一上标求和）： - $\\Gamma^\\mu_{\\mu 0} = \\Gamma^0_{00} + \\Gamma^1_{10} + \\Gamma^2_{20} + \\Gamma^3_{30} = 0$ - $\\Gamma^\\mu_{\\mu 1} = \\Gamma^0_{01} + \\Gamma^1_{11} + \\Gamma^2_{21} + \\Gamma^3_{31} = 0 + \\frac{1}{\\alpha} + \\frac{1}{\\alpha} + \\frac{1}{\\alpha} = \\frac{3}{\\alpha}$ - $\\Gamma^\\mu_{\\mu 2} = \\Gamma^2_{22} = 0$ - $\\Gamma^\\mu_{\\mu 3} = \\Gamma^3_{33} = 0$5. 将缩并结果代入协变守恒方程： $$ \\partial_\\mu J^\\mu + \\frac{3}{\\alpha} J^1 = 0 $$ 即 $\\partial_\\mu (-T^{\\mu 0}) + \\frac{3}{\\alpha} (-T^{1 0}) = 0$。6. 取物理极限 $\\alpha \\to \\inf ty$：此时度规指数项 $e^{2x/\\alpha} \\to 1$，度规回到平直 Minkowski 形式；同时 Christoffel 符号缩并项 $\\frac{3}{\\alpha} \\to 0$。方程变为： $$ \\partial_\\mu J^\\mu = 0 $$ 代入 $J^\\mu = -T^{\\mu 0}$，得到 $-\\partial_\\mu T^{\\mu 0} = 0$，即 $\\partial_\\mu T^{\\mu 0} = 0$。这正是 Minkowski 平直时空中的经典能量守恒律（连续性方程），证明完毕。"
+  },
+  "verification": null
+}

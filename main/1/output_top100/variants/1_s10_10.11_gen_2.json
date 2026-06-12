@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "Newtonian continuity equation",
+      "coordinate": "Cartesian",
+      "scenario": "Newtonian limit",
+      "method": "Perturbative expansion",
+      "generalization_axis": "limit",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "killing_vector",
+    "soft_variant": "limit",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mu$",
+      "$\\nu$"
+    ],
+    "target": [
+      "\\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\mathbf{v}) = 0"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In the weak-field and low-velocity (Newtonian) limit, the spacetime metric can be approximated by $g_{00} = -(1+2\\Phi)$, $g_{0i} = 0$, and $g_{ij} = \\delta_{ij}$, where $\\Phi$ is the Newtonian gravitational potential satisfying $| \\Phi | \\ll 1$. Consider a perfect fluid with stress-energy tensor $T^{\\mu\\nu} = (\\rho + p) u^{\\mu} u^{\\nu} + p g^{\\mu\\nu}$. In this limit, the pressure satisfies $p \\ll \\rho$, and the fluid 4-velocity components are $u^0 \\approx 1$ and $u^i \\approx v^i$ (where $| v^i | \\ll 1$).As established in general relativity, for a stationary spacetime with a timelike Killing vector $\\xi^{\\mu}$, the current $J^{\\mu} = T^{\\mu\\nu} \\xi_{\\nu}$ is conserved, i.e., $J^{\\mu}_{; \\mu} = 0$. In the Newtonian limit, this timelike Killing vector corresponds to $\\xi^{\\mu} = (1, 0, 0, 0)$.Prove that in the Newtonian limit, keeping only the leading order terms, the covariant conservation law $J^{\\mu}_{; \\mu} = 0$ reduces exactly to the classical Newtonian mass continuity equation:$$ \\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\mathbf{v}) = 0 $$",
+    "answer": "\\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\mathbf{v}) = 0",
+    "solution": "1. **Determine the Killing vector components**:In the Newtonian limit, the timelike Killing vector is $\\xi^{\\mu} = (1,0,0,0)$. Its covariant components are $\\xi_{\\nu} = g_{\\nu0}$. Using the Newtonian metric, we find:$$ \\xi_0 = g_{00} = -(1+2\\Phi) \\approx -1 $$$$ \\xi_i = g_{i0} = 0 $$At leading order, $\\xi_0 \\approx -1$ and $\\xi_i = 0$.2. **Express the conserved current $J^{\\mu}$ at leading order**:The current is defined as $J^{\\mu} = T^{\\mu\\nu} \\xi_{\\nu} \\approx T^{\\mu0} \\xi_0$.For a perfect fluid in the Newtonian limit ($p \\ll \\rho$, $u^0 \\approx 1$, $u^i \\approx v^i$):$$ T^{00} \\approx \\rho, \\quad T^{i0} \\approx \\rho v^i $$Thus, the components of $J^{\\mu}$ at leading order are:$$ J^0 = T^{00} \\xi_0 \\approx \\rho (-1) = -\\rho $$$$ J^i = T^{i0} \\xi_0 \\approx \\rho v^i (-1) = -\\rho v^i $$3. **Evaluate the covariant divergence $J^{\\mu}_{ ; \\mu }$**:The covariant divergence is given by:$$ J^{\\mu}_{; \\mu} = \\partial_{\\mu} J^{\\mu} + \\Gamma^{\\mu}_{\\mu \\alpha} J^{\\alpha} $$In the Newtonian limit, the determinant of the metric is $-g \\approx 1+2\\Phi \\approx 1$. Therefore, the Christoffel symbol contraction is:$$ \\Gamma^{\\mu}_{\\mu \\alpha} = \\partial_{\\alpha} \\ln \\sqrt{-g} \\approx \\partial_{\\alpha} \\Phi $$4. **Identify the leading order terms**:The partial derivative term is:$$ \\partial_{\\mu} J^{\\mu} = \\partial_t (-\\rho) + \\partial_i (-\\rho v^i) $$This yields terms of order $\\mathcal{O}(\\rho)$ and $\\mathcal{O}(\\rho v)$.The Christoffel term is:$$ \\Gamma^{\\mu}_{\\mu \\alpha} J^{\\alpha} \\approx (\\partial_{\\alpha} \\Phi) (-\\rho u^{\\alpha}) $$This yields terms of order $\\mathcal{O}(\\rho \\partial \\Phi)$ and $\\mathcal{O}(\\rho v \\partial \\Phi)$. Since $| \\Phi | \\ll 1$ and $| v | \\ll 1$, these terms are sub-leading compared to the terms in $\\partial_{\\mu} J^{\\mu}$.5. **Obtain the Newtonian continuity equation**:At leading order, the Christoffel terms drop out, and the exact conservation law $J^{\\mu}_{ ; \\mu } = 0$ reduces to $\\partial_{\\mu} J^{\\mu} = 0$:$$ \\partial_t (-\\rho) + \\partial_i (-\\rho v^i) = 0 $$Dividing by $-1$, we obtain the classical mass continuity equation:$$ \\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\mathbf{v}) = 0 $$"
+  },
+  "verification": null
+}

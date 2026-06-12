@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "id": "1_s20_20.3",
+    "type": "calculate",
+    "tags": {
+      "metric": "isotropic_metric",
+      "target_object": "null_geodesics",
+      "coordinate": "spherical_coordinates",
+      "scenario": "gravitational_lensing",
+      "method": "perturbation_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s20_20.3",
+    "source_id": "1_s20_20.3",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s20_20.3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "Combines isotropic metric approximation with null geodesic integration for realistic solar gravitational lensing, requiring multi-step coordinate transformation and limiting procedures.",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\phi$",
+      "$M$",
+      "$b$",
+      "$R$",
+      "$\\\\alpha$"
+    ],
+    "target": [
+      "$\\\\delta \\\\alpha$"
+    ],
+    "metric": [
+      [
+        "$-(1 - \\\\frac{2M}{r})$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1 + \\\\frac{2M}{r}$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$(1 + \\\\frac{2M}{r}) r^2$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s20_20.3.md]\\n\\nProblem 20.3. Derive the general expression for the angular deflection of light by the sun's gravitational field, if the light comes from a star which is at an angle $\\alpha$ from the sun as seen from earth. Take the earth-sun distance to be R. Do not assume that $\\alpha$ is small, but show that in the\\nlimit of small $\\alpha$ the answer reduces to the conventional result (Problem 15.6) $\\delta \\alpha = 4\\mathsf{M} / \\mathsf{b}$ .\\n\\n## Solution\\n\\nSolution 20.3. We may consider purely equatorial motion with no loss of generality. In the gravitational field of the sun, the metric may then be approximated by\\n$$\\nd s^{2} \\\\approx - \\\\left(1 - \\\\frac {2 M}{r}\\\\right) d t^{2} + \\\\left(1 + \\\\frac {2 M}{r}\\\\right) \\\\left(d r^{2} + r^{2} d \\\\phi^{2}\\\\right). \\\\tag {1}\\n$$\\nNull geodesics for this metric have the form\\n$$\\n\\\\frac {\\\\mathrm {b}}{\\\\mathrm {r}} = \\\\sin \\\\phi + \\\\frac {2 \\\\mathrm {M}}{\\\\mathrm {r}} (1 - \\\\cos \\\\phi) \\\\tag {2}\\n$$\\n![](images/0e1a3ed941bf65ccbb19fdc99de86879b95d10c69cbf5a6b2c0330ac4fb8b481.jpg)\\nThe angle $\\alpha$ between the sun and the star (see figure), as measured by an astronomer on earth, satisfies\\n$$\\n\\\\begin{array}{l} \\\\tan \\\\alpha = \\\\tan (\\\\pi - \\\\phi_{\\\\mathbf {E}} + \\\\delta a) \\\\approx - \\\\tan \\\\phi_{\\\\mathbf {E}} + \\\\frac {\\\\delta a}{\\\\cos^{2} \\\\phi_{\\\\mathbf {E}}} \\\\\\\\\\\\n= \\\\frac {\\\\mathrm {u} \\\\hat {\\\\phi}}{\\\\mathrm {u}^{\\\\hat {\\\\mathrm {r}}}} = \\\\left[ \\\\frac {\\\\left(1 + \\\\frac {\\\\mathrm {M}}{\\\\mathrm {r}}\\\\right) \\\\mathrm {r} \\\\mathrm {d} \\\\phi / \\\\mathrm {d} \\\\lambda}{\\\\left(1 + \\\\frac {\\\\mathrm {M}}{\\\\mathrm {r}}\\\\right) \\\\mathrm {d r} / \\\\mathrm {d} \\\\lambda} \\\\right]_{\\\\mathrm {E}} = \\\\left[ \\\\mathrm {r} \\\\frac {\\\\mathrm {d} \\\\phi}{\\\\mathrm {d r}} \\\\right]_{\\\\mathrm {E}} \\\\tag {3} \\\\\\\\\\\\n\\\\end{array}\\n$$\\nwhere $\\mathbf{u}^{\\hat{\\phi}}$ and $\\mathbf{u}^{\\hat{\\mathbf{r}}}$ are the orthonormal components of the photon's 4-velocity, and we have taken advantage of the isotropic form of the metric in Equation (1) to define angles. If Equation (2) is now used, Equation (3) becomes\\n$$\\n\\\\begin{array}{l} \\\\tan \\\\phi_{\\\\mathrm {E}} - \\\\frac {\\\\delta a}{\\\\cos^{2} \\\\phi_{\\\\mathrm {E}}} = \\\\frac {\\\\sin \\\\phi_{\\\\mathrm {E}} \\\\cdot \\\\frac {2 \\\\mathrm {M}}{\\\\mathrm {b}} (1 - \\\\cos \\\\phi_{\\\\mathrm {E}})}{\\\\cos \\\\phi_{\\\\mathrm {E}} + \\\\frac {2 \\\\mathrm {M}}{\\\\mathrm {b}} \\\\sin \\\\phi_{\\\\mathrm {E}}} \\\\\\\\\\\\n\\\\approx \\\\tan \\\\phi_{\\\\mathrm {E}} - \\\\frac {2 \\\\mathrm {M}}{\\\\mathrm {b}} \\\\frac {(1 - \\\\cos \\\\phi_{\\\\mathrm {E}})}{\\\\cos^{2} \\\\phi_{\\\\mathrm {E}}} \\\\tag {4} \\\\\\\\\\\\n\\\\end{array}\\n$$\\nand hence\\n$$\\n\\\\delta \\\\alpha \\\\cong \\\\frac {2 M}{b} (1 + \\\\cos \\\\alpha) \\\\approx \\\\frac {2 M}{R_{E}} \\\\left(\\\\frac {1 + \\\\cos \\\\alpha}{1 - \\\\cos \\\\alpha}\\\\right)^{\\\\frac {1}{2}}. \\\\tag {5}\\n$$\\nIt is $\\delta \\alpha$ which is the deflection angle measured by an astronomer at earth. [See also MTW, Section 40.3, and references given therein.]",
+    "answer": "$\\\\delta \\\\alpha \\\\cong \\\\frac{2M}{b}(1 + \\\\cos \\\\alpha) \\\\approx \\\\frac{2M}{R_E} \\\\left(\\\\frac{1 + \\\\cos \\\\alpha}{1 - \\\\cos \\\\alpha}\\\\right)^{1/2}$",
+    "solution": "We may consider purely equatorial motion with no loss of generality. In the gravitational field of the sun, the metric may then be approximated by\\n$$\\nd s^{2} \\\\approx - \\\\left(1 - \\\\frac {2 M}{r}\\\\right) d t^{2} + \\\\left(1 + \\\\frac {2 M}{r}\\\\right) \\\\left(d r^{2} + r^{2} d \\\\phi^{2}\\\\right). \\\\tag {1}\\n$$\\nNull geodesics for this metric have the form\\n$$\\n\\\\frac {\\\\mathrm {b}}{\\\\mathrm {r}} = \\\\sin \\\\phi + \\\\frac {2 \\\\mathrm {M}}{\\\\mathrm {r}} (1 - \\\\cos \\\\phi) \\\\tag {2}\\n$$\\n![](images/0e1a3ed941bf65ccbb19fdc99de86879b95d10c69cbf5a6b2c0330ac4fb8b481.jpg)\\nThe angle $\\alpha$ between the sun and the star (see figure), as measured by an astronomer on earth, satisfies\\n$$\\n\\\\begin{array}{l} \\\\tan \\\\alpha = \\\\tan (\\\\pi - \\\\phi_{\\\\mathbf {E}} + \\\\delta a) \\\\approx - \\\\tan \\\\phi_{\\\\mathbf {E}} + \\\\frac {\\\\delta a}{\\\\cos^{2} \\\\phi_{\\\\mathbf {E}}} \\\\\\\\\\\\n= \\\\frac {\\\\mathrm {u} \\\\hat {\\\\phi}}{\\\\mathrm {u}^{\\\\hat {\\\\mathrm {r}}}} = \\\\left[ \\\\frac {\\\\left(1 + \\\\frac {\\\\mathrm {M}}{\\\\mathrm {r}}\\\\right) \\\\mathrm {r} \\\\mathrm {d} \\\\phi / \\\\mathrm {d} \\\\lambda}{\\\\left(1 + \\\\frac {\\\\mathrm {M}}{\\\\mathrm {r}}\\\\right) \\\\mathrm {d r} / \\\\mathrm {d} \\\\lambda} \\\\right]_{\\\\mathrm {E}} = \\\\left[ \\\\mathrm {r} \\\\frac {\\\\mathrm {d} \\\\phi}{\\\\mathrm {d r}} \\\\right]_{\\\\mathrm {E}} \\\\tag {3} \\\\\\\\\\\\n\\\\end{array}\\n$$\\nwhere $\\mathbf{u}^{\\hat{\\phi}}$ and $\\mathbf{u}^{\\hat{\\mathbf{r}}}$ are the orthonormal components of the photon's 4-velocity, and we have taken advantage of the isotropic form of the metric in Equation (1) to define angles. If Equation (2) is now used, Equation (3) becomes\\n$$\\n\\\\begin{array}{l} \\\\tan \\\\phi_{\\\\mathrm {E}} - \\\\frac {\\\\delta a}{\\\\cos^{2} \\\\phi_{\\\\mathrm {E}}} = \\\\frac {\\\\sin \\\\phi_{\\\\mathrm {E}} \\\\cdot \\\\frac {2 \\\\mathrm {M}}{\\\\mathrm {b}} (1 - \\\\cos \\\\phi_{\\\\mathrm {E}})}{\\\\cos \\\\phi_{\\\\mathrm {E}} + \\\\frac {2 \\\\mathrm {M}}{\\\\mathrm {b}} \\\\sin \\\\phi_{\\\\mathrm {E}}} \\\\\\\\\\\\n\\\\approx \\\\tan \\\\phi_{\\\\mathrm {E}} - \\\\frac {2 \\\\mathrm {M}}{\\\\mathrm {b}} \\\\frac {(1 - \\\\cos \\\\phi_{\\\\mathrm {E}})}{\\\\cos^{2} \\\\phi_{\\\\mathrm {E}}} \\\\tag {4} \\\\\\\\\\\\n\\\\end{array}\\n$$\\nand hence\\n$$\\n\\\\delta \\\\alpha \\\\cong \\\\frac {2 M}{b} (1 + \\\\cos \\\\alpha) \\\\approx \\\\frac {2 M}{R_{E}} \\\\left(\\\\frac {1 + \\\\cos \\\\alpha}{1 - \\\\cos \\\\alpha}\\\\right)^{\\\\frac {1}{2}}. \\\\tag {5}\\n$$\\nIt is $\\delta \\alpha$ which is the deflection angle measured by an astronomer at earth. [See also MTW, Section 40.3, and references given therein.]"
+  },
+  "verification": null
+}

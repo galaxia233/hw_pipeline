@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-4",
+    "type": "calculate",
+    "tags": {
+      "target_object": "Conserved_Energy",
+      "coordinate": "static_patch",
+      "scenario": "cosmology",
+      "method": "integral_flux",
+      "generalization_axis": "apply",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$E$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，若 $\\xi$ 是一个 Killing 矢量，则 $J^{\\\\mu} \\\\equiv T^{\\\\mu\\\\nu} \\\\xi_{\\\\nu}$ 构成一个守恒流，即 $J^{\\\\mu}_{;\\\\mu} = 0$。该守恒流在类时 Killing 矢量下代表了系统的能量流，其对类空超曲面的通量即为系统总能量。\\\\n\\\\n考虑一个 De Sitter 类静态宇宙度规：\\\\n$$ds^2 = -dt^2 + e^{\\\\frac{2x}{\\\\alpha}}(dx^2 + dy^2 + dz^2)$$\\\\n其中 $\\alpha$ 为常数。该时空的 Einstein 张量为：\\\\n$$G_{00} = -\\\\frac{e^{-\\\\frac{2x}{\\\\alpha}}}{\\\\alpha^2}, \\\\quad G_{11} = \\\\frac{1}{\\\\alpha^2}$$\\\\n其余分量 $G_{\\\\mu\\\\nu}$ 均为 0。设该时空的物质场由 Einstein 张量完全决定，即能动张量取 $T_{\\\\mu\\\\nu} = \\\\frac{1}{8\\\\pi} G_{\\\\mu\\\\nu}$（忽略宇宙常数项的额外拆分）。\\\\n\\\\n已知该度规具有类时 Killing 矢量 $\\xi^{\\\\mu} = (1, 0, 0, 0)$（代表时间平移对称性）。请利用守恒流 $J^{\\\\mu}$ 的物理意义，计算在 $t = t_0$ 常数超曲面上，由坐标范围限定为 $x \\\\in [0, L], y \\\\in [0, L], z \\\\in [0, L]$ 的空间区域中所包含的总守恒能量 $E$。",
+    "answer": "$E = -\\\\frac{L^2}{8\\\\pi\\\\alpha} \\\\left( e^{\\\\frac{L}{\\\\alpha}} - 1 \\\\right)$",
+    "solution": "1. **计算 Killing 矢量的协变分量与守恒流**：\\\\n类时 Killing 矢量为 $\\xi^{\\\\mu} = (1, 0, 0, 0)$，其协变分量为 $\\xi_{\\\\nu} = g_{\\\\nu\\\\mu} \\\\xi^{\\\\mu} = (-1, 0, 0, 0)$。\\\\n能动张量由 Einstein 张量给出：$T_{00} = \\\\frac{1}{8\\\\pi} G_{00} = -\\\\frac{e^{-\\\\frac{2x}{\\\\alpha}}}{8\\\\pi\\\\alpha^2}$。\\\\n提升指标可得 $T^{00} = g^{00} g^{00} T_{00} = (-1)(-1) T_{00} = -\\\\frac{e^{-\\\\frac{2x}{\\\\alpha}}}{8\\\\pi\\\\alpha^2}$。\\\\n其余 $T^{0i} = 0$。\\\\n守恒流 $J^{\\\\mu} = T^{\\\\mu\\\\nu} \\\\xi_{\\\\nu} = T^{\\\\mu 0} \\\\xi_0 = -T^{\\\\mu 0}$。\\\\n因此 $J^0 = -T^{00} = \\\\frac{e^{-\\\\frac{2x}{\\\\alpha}}}{8\\\\pi\\\\alpha^2}$，$J^i = 0$。\\\\n\\\\n2. **确定能量密度的物理表达式**：\\\\n守恒流 $J^{\\\\mu}$ 代表能量流 4-矢量。指向未来的类空超曲面 $t=\\\\text{const}$ 的单位法协变矢量为 $n_{\\\\mu} = (-1, 0, 0, 0)$。\\\\n静态观测者的 4-速度为 $u^{\\\\mu} = \\\\xi^{\\\\mu} / |\\\\xi| = (1, 0, 0, 0)$，其测得的局部能量密度为：\\\\n$\\\\rho = T_{\\\\mu\\\\nu} u^{\\\\mu} u^{\\\\nu} = T_{00} = -\\\\frac{e^{-\\\\frac{2x}{\\\\alpha}}}{8\\\\pi\\\\alpha^2}$。\\\\n同时验证通量：$J^{\\\\mu} n_{\\\\mu} = J^0 n_0 = \\\\frac{e^{-\\\\frac{2x}{\\\\alpha}}}{8\\\\pi\\\\alpha^2} \\\\times (-1) = -\\\\frac{e^{-\\\\frac{2x}{\\\\alpha}}}{8\\\\pi\\\\alpha^2} = \\\\rho$，物理自洽。\\\\n\\\\n3. **计算总守恒能量 $E$**：\\\\n总能量为能量密度对固有空间体积元的积分：\\\\n空间度规 $g_{ij} = e^{\\\\frac{2x}{\\\\alpha}} \\\\delta_{ij}$，其行列式为 $\\\\gamma = e^{\\\\frac{6x}{\\\\alpha}}$，固有体积元 $dV_{\\\\text{proper}} = \\\\sqrt{\\\\gamma} dx dy dz = e^{\\\\frac{3x}{\\\\alpha}} dx dy dz$。\\\\n$E = \\\\int \\\\rho \\\\sqrt{\\\\gamma} d^3x = \\\\int_0^L \\\\int_0^L \\\\int_0^L \\\\left( -\\\\frac{e^{-\\\\frac{2x}{\\\\alpha}}}{8\\\\pi\\\\alpha^2} \\\\right) e^{\\\\frac{3x}{\\\\alpha}} dx dy dz$\\\\n$E = L^2 \\\\int_0^L -\\\\frac{e^{\\\\frac{x}{\\\\alpha}}}{8\\\\pi\\\\alpha^2} dx = -\\\\frac{L^2}{8\\\\pi\\\\alpha^2} \\\\left[ \\\\alpha e^{\\\\frac{x}{\\\\alpha}} \\\\right]_0^L = -\\\\frac{L^2}{8\\\\pi\\\\alpha} \\\\left( e^{\\\\frac{L}{\\\\alpha}} - 1 \\\\right)$。"
+  },
+  "verification": null
+}

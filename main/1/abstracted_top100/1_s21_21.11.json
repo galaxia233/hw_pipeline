@@ -1,0 +1,186 @@
+{
+  "metadata": {
+    "id": "1_s21_21.11",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "shell_dynamics",
+      "coordinate": "junction_condition",
+      "scenario": "collapse",
+      "method": "general_relativity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s21_21.11",
+    "source_id": "1_s21_21.11",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s21_21.11"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "结合ADM结条件与四维速度归一化推导薄壳运动方程，涉及真实引力坍缩物理模型与常微分方程积分",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\tau$",
+      "$R$"
+    ],
+    "target": [
+      "$M = \\mu [1 + (\\frac{dR}{d\\tau})^2]^{\\frac{1}{2}} - \\frac{\\mu^2}{2R}$"
+    ],
+    "metric": [
+      [
+        "$-(1-\\frac{2M}{r})$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-\\frac{2M}{r})^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2\\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s21_21.11.md]Problem 21.11. The vacuum geometries exterior to and interior to a collapsing spherical shell of dust are the Schwarzschild geometry$$\\mathrm {d s}^{2} = - \\left(1 - \\frac {2 \\mathrm {M}}{\\mathrm {r}}\\right) \\mathrm {d t}^{2} + \\left(1 - \\frac {2 \\mathrm {M}}{\\mathrm {r}}\\right)^{- 1} \\mathrm {d r}^{2} + \\mathrm {r}^{2} \\mathrm {d} \\Omega^{2}$$for the exterior, and the flat geometry$$\\mathbf {d s}^{2} = - \\mathbf {\\nabla d T}^{2} + \\mathbf {\\nabla d r}^{2} + \\mathbf {\\nabla r}^{2} \\mathbf {\\nabla d} \\Omega^{2}$$for the interior. [The radial coordinates in these metrics both, clearly, have the property that $4\\pi r^2$ is the proper surface area of the spherical surfaces $r = \\text{constant}$ , and $t$ or $T = \\text{constant}$ .]Show that for the collapsing spherical shell of dust the \"rest mass of the shell\" $\\mu \\equiv 4\\pi R^2 (\\tau)\\sigma$ is constant. Here $\\sigma$ is the surface mass density of the shell and the area of the shell as a function of proper shell time is $4\\pi R^{2}(\\tau)$ . Derive the equation of motion of the shell$$\\mathbf {M} = \\mu \\left[ 1 + \\left(\\frac {\\mathrm {d} \\mathbf {R}}{\\mathrm {d} \\tau}\\right)^{\\frac {1}{2}}\\right]^{\\frac {1}{2}} - \\frac {\\mu^{2}}{2 \\mathbf {R}}$$and integrate the equation to find (in implicit form) $\\mathbf{R}(\\tau)$ in the case $\\mathrm{d}\\mathbf {R} / \\mathrm {d}\\tau = 0$ at $\\mathbf {R} = \\inf ty$ .",
+    "answer": "$\\frac {4}{\\mu} \\tau = - \\frac {1}{3} \\left(1 + \\frac {4 \\mathrm {R}}{\\mu}\\right)^{\\frac {3}{2}} + \\left(1 + \\frac {4 \\mathrm {R}}{\\mu}\\right)^{\\frac {1}{2}} - \\frac {2}{3}$",
+    "solution": "Solution 21.11. If $\\tau$ is proper time measured by an observer at rest in the dust, then the motion of the shell is specified by $\\mathbf{r}(\\tau)$ , where $\\mathbf{r}$ is the radial coordinate of the shell in either the interior or exterior metric. The metric of the shell can be specified by$$\\mathrm {d s}^{2} = - \\mathrm {d} \\tau^{2} + \\mathrm {R}^{2} (\\tau) \\left(\\mathrm {d} \\theta^{2} + \\sin^{2} \\theta \\mathrm {d} \\phi^{2}\\right).$$Here $4\\pi \\mathbf{R}^2 =$ the surface area of the shell at $\\pmb{\\tau}$ , and thus $\\mathbb{R}(\\pmb {\\tau}) = \\mathbb{r}(\\pmb {\\tau})$From the second relation in Problem 21.10 we have that$$0 = \\frac {\\mathrm {d} \\sigma}{\\mathrm {d} \\tau} + \\sigma \\mathrm {u}^{\\mathrm {i}}_{\\mathrm {i}} = (\\sigma \\mathrm {u}^{\\mathrm {i}})_{\\mathrm {i}} = (\\sigma (^{(3)} \\mathrm {g})^{\\frac {1}{2}} \\mathrm {u}^{\\mathrm {i}})_{, i} / (^{(3)} \\mathrm {g})^{\\frac {1}{2}}.$$But $\\mathbf{u}^{\\tau} = 1$ and $^{(3)}\\mathbf{g} = \\mathbb{R}^{4}(\\tau)$ so that $(\\sigma \\mathbb{R}^2)_\\tau = 0$ . This implies that $4\\pi \\mathbb{R}^2\\sigma = \\mu$ , which we identify with the rest mass of the shell, is a constant.To find the equation of motion we use the junction condition from Problem 21.10$$\\left[ \\mathrm {K}_{\\theta \\theta}\\right] = 8 \\pi \\sigma \\left(\\mathrm {u}_{\\theta} \\mathrm {u}_{\\theta} + \\frac {1}{2}^{(3)} \\mathrm {g}_{\\theta \\theta}\\right) = 4 \\pi \\sigma^{(3)} \\mathrm {g}_{\\theta \\theta} = \\mu .$$Evaluating $\\mathbf{K}_{\\theta \\theta}$ we have$$\\mathrm {K}_{\\theta \\theta} = - \\mathrm {n}_{\\theta ; \\theta} = \\mathrm {n}_{\\alpha} \\Gamma_{\\theta \\theta}^{\\alpha} = - \\frac {1}{2} \\mathrm {n}^{\\mathrm {r}} \\mathrm {g}_{\\theta \\theta , \\mathrm {r}} = - \\mathrm {r} \\mathrm {n}^{\\mathrm {r}}$$and$$\\left[ \\mathrm {K}_{\\theta \\theta}\\right] = - \\mathrm {r} \\left(\\mathrm {n}^{\\mathrm {r} +} - \\mathrm {n}^{\\mathrm {r} -}\\right) = \\mu$$where $\\mathfrak{n}^{r+}$ and $\\mathfrak{n}^{r-}$ are the radial components of the normal evaluated in the exterior and the interior geometry.By using $\\mathbf{u} \\cdot \\mathbf{n} = 0$ and $\\mathbf{n} \\cdot \\mathbf{n} = -\\mathbf{u} \\cdot \\mathbf{u} = 1$ , we can evaluate the components of $\\mathbf{u}$ and $\\mathbf{n}$ . Exterior to the shell we have$$\\begin{array}{l}1 = \\left(1 - \\frac {2 M}{r}\\right) \\left(u^{t}\\right)^{2} - \\left(u^{r}\\right)^{2} / \\left(1 - \\frac {2 M}{r}\\right) \\\\0 = n_{r} u^{r} + n_{t} u^{t} \\\\1 = - \\left(1 - \\frac {2 \\mathrm {M}}{\\mathrm {r}}\\right)^{- 1} \\left(\\mathrm {n}_{\\mathrm {t}}\\right)^{2} + \\left(1 - \\frac {2 \\mathrm {M}}{\\mathrm {r}}\\right) \\left(\\mathrm {n}_{\\mathrm {r}}\\right)^{2}, \\\\\\end{array}$$and by eliminating $\\mathbf{u}^{\\mathrm{t}}, \\mathbf{n}_{\\mathrm{t}}$ we find$$n_{r}^{+} = \\left[ \\frac {1 + (u^{r})^{2} / \\left(1 - \\frac {2 M}{r}\\right)}{\\left(1 - \\frac {2 M}{r}\\right)}\\right]^{\\frac {1}{2}}.$$On the shell $\\mathbf{r} = \\mathbf{R}(r)$ and $\\mathbf{u}^{\\mathrm{r}} = \\mathrm{d}\\mathbf {R} / \\mathrm {d}r\\equiv \\dot{\\mathbf {R}}$ so the contravariant component of $\\mathbf{n}$ , exterior to the shell is$$\\mathbf {n}^{\\mathbf {r} +} = \\left(1 - \\frac {2 \\mathbf {M}}{\\mathbf {R}} + \\dot {\\mathbf {R}}^{2}\\right)^{\\frac {1}{2}}.$$The calculation for $\\mathfrak{n}^{\\mathbf{r} - }$ is identical, and we get the same answer as above with M set to zero. Thus we have$$\\mu = - \\mathsf {R} (\\mathsf {n}^{\\mathsf {r} +} - \\mathsf {n}^{\\mathsf {r} -}) = - \\mathsf {R} \\bigg \\{\\left[ 1 - \\frac {2 \\mathsf {M}}{\\mathsf {R}} + \\dot {\\mathsf {R}}^{2}\\right]^{\\frac {1}{2}} - \\left[ 1 + \\dot {\\mathsf {R}}^{2}\\right]^{\\frac {1}{2}} \\bigg \\}$$which can be solved for $\\mathbf{M}$ to give the equation of motion$$\\mathrm {M} = \\mu \\left(1 + \\dot {\\mathrm {R}}^{2}\\right)^{\\frac {1}{2}} - \\mu^{2} / 2 \\mathrm {R}.$$If $\\mathbf {R} = 0$ at $\\mathbf {R} = \\inf ty$ (i.e. infall from rest at $\\inf ty$ ), then $\\mathbf {M} = \\mu$ and$$\\dot {\\mathbf {R}} = - \\frac {\\mu}{2 \\mathbf {R}} \\left(1 + \\frac {4 \\mathbf {R}}{\\mu}\\right)^{\\frac {1}{2}}.$$This can easily be integrated to give$$\\frac {4}{\\mu} \\tau = - \\frac {1}{3} \\left(1 + \\frac {4 \\mathrm {R}}{\\mu}\\right)^{\\frac {3}{2}} + \\left(1 + \\frac {4 \\mathrm {R}}{\\mu}\\right)^{\\frac {1}{2}} - \\frac {2}{3},$$where we have taken $\\tau = 0$ to correspond to $\\mathbf {R} = 0$ ."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "metric_latex": [
+      [
+        "\\frac{- r + r_{s}}{r}",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "\\frac{r}{r - r_{s}}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r^{2} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_001": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_010": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_100": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{3}}",
+      "Gamma_111": "- \\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_122": "- r + r_{s}",
+      "Gamma_133": "\\left(- r + r_{s}\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_233": "- \\frac{\\sin{\\left(2 \\theta \\right)}}{2}",
+      "Gamma_313": "\\frac{1}{r}",
+      "Gamma_323": "\\frac{1}{\\tan{\\left(\\theta \\right)}}",
+      "Gamma_331": "\\frac{1}{r}",
+      "Gamma_332": "\\frac{1}{\\tan{\\left(\\theta \\right)}}"
+    },
+    "riemann": {
+      "R_0101": "\\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0110": "- \\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0202": "- \\frac{r_{s}}{2 r}",
+      "R_0220": "\\frac{r_{s}}{2 r}",
+      "R_0303": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_0330": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1001": "\\frac{r_{s} \\left(r - r_{s}\\right)}{r^{4}}",
+      "R_1010": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{r^{4}}",
+      "R_1212": "- \\frac{r_{s}}{2 r}",
+      "R_1221": "\\frac{r_{s}}{2 r}",
+      "R_1313": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1331": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_2002": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_2020": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_2112": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2121": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2323": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_2332": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_3003": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_3030": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_3113": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3131": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3223": "- \\frac{r_{s}}{r}",
+      "R_3232": "\\frac{r_{s}}{r}"
+    },
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "\\frac{48 M^{2}}{r^{6}}",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量 (∂_t)，对应能量守恒",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "rot_phi",
+        "description": "绕 φ 轴旋转 Killing 矢量 (∂_φ)，对应角动量守恒",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

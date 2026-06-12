@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "id": "1_s19_19.36",
+    "type": "prove",
+    "tags": {
+      "metric": "static_metric_form",
+      "target_object": "einstein_field_equations",
+      "coordinate": "coordinate_labels",
+      "scenario": "pressureless_fluid_scenario",
+      "method": "raychaudhuri_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.36",
+    "source_id": "1_s19_19.36",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.36"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "通过静态时空度规结构与联络计算导出Ricci张量分量矛盾，并辅以Raychaudhuri方程严格证明，逻辑链条完整且揭示宇宙动力学本质限制",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^i$",
+      "$g_{\\\\mu\\\\nu}$",
+      "$\\\\Gamma_{\\\\mu\\\\nu}^{\\\\lambda}$",
+      "$R_{\\\\mu\\\\nu}$",
+      "$T_{\\\\mu\\\\nu}$",
+      "$\\\\rho$",
+      "$p$",
+      "$u^{\\\\alpha}$",
+      "$\\\\xi^{\\\\mu}$",
+      "$\\\\theta$",
+      "$\\\\sigma^2$"
+    ],
+    "target": [
+      "$R_{00}$",
+      "$G_{\\\\mu\\\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s19_19.36.md]Problem 19.36: Prove that no solution of the Einstein equations for a pressureless fluid is static. Do not assume isotropy or homogeneity. (The difficulty of this problem depends on the definition of \"static.\") Easy case: Take static to mean time invariant and time reversible, the first definition of \"static\" in Problem 10.8. Harder case: Use the second definition in Problem 10.8.)## Solution",
+    "answer": "不存在压力为零流体的静态解。该假设导出 ρ + 3p = 0 或 Raychaudhuri 方程 0 = -2σ² - 1/3θ² - 4πρ，均与正能量条件 ρ>0, p=0 矛盾。",
+    "solution": "Solutions 19.36 and 19.37. \\\"Easy\\\" cases: Since the metric is time invariant and reversible, $\\mathbf{g}_{0\\mathbf{i}} = 0$ and it has the form$$\\mathrm {d s}^{2} = - \\mathrm {g}_{0 0} (\\mathbf {x}^{\\mathrm {i}}) \\mathrm {d t}^{2} + \\mathrm {g}_{\\mathrm {i j}} (\\mathbf {x}^{\\mathrm {k}}) \\mathrm {d x}^{\\mathrm {i}} \\mathrm {d x}^{\\mathrm {j}}.$$If it is homogeneous (Problem 19.37), clocks must tick at the same rate everywhere, so $\\mathbf{g}_{00} =$ constant; if it is inhomogeneous but pressureless (Problem 19.36), it is possible to rescale the time coordinate locally to make $\\mathbf{g}_{00} =$ constant. (This was shown in Problem 16.25.) The standard formula for $\\Gamma_{\\mu \\nu \\sigma}$ now shows by inspection that the only nonvanishing components are $\\Gamma_{ijk}$ . (Any 0 component is either a time derivative of a component $\\mathbf{g}_{0j}$ or a derivative of $\\mathbf{g}_{00}$ .) Now $\\mathbf{R}_{00}$ can be computed from the standard formula involving the $\\Gamma$ 's; since every term contains a zero index on a $\\Gamma$ , it follows that $\\mathbf{R}_{00} = 0$ and hence$$\\mathbf {T}_{\\hat {0}}^{\\hat {0}} - \\frac {1}{2} \\mathbf {T}_{\\hat {\\alpha}}^{\\hat {a}} = 0$$and hence $\\rho + 3\\mathfrak{p} = 0$ . But this is impossible for a pressureless fluid, or for a physically reasonable perfect fluid (with positive $\\mathfrak{p}$ and $\\rho$ ).\\\"Harder\\\" cases: Let $\\pmb{\\xi}$ be the time-symmetry Killing vector and $\\mathbf{u}$ be the 4-velocity of the fluid. Since $\\mathbf{u} \\propto \\pmb{\\xi}$ (Problem 13.9) and $\\pmb{\\xi}$ is hypersurface-orthogonal, $\\mathbf{u}$ is hypersurface-orthogonal and hence $\\omega_{\\alpha \\beta} = 0$ . In the Raychaudhuri equation (Problem 14.10)$$\\frac {\\mathrm {d} \\theta}{\\mathrm {d} r} \\propto \\frac {\\partial \\theta}{\\partial t} = 0$$where $\\pmb {\\xi} = \\partial /\\partial t$ . Thus the Raychaudhuri equation becomes$$0 = \\mathrm {a}_{; \\alpha}^{\\alpha} - 2 \\sigma^{2} - \\frac {1}{3} \\theta^{2} - 8 \\pi \\left(\\mathrm {T}_{\\alpha \\beta} - \\frac {1}{2} \\mathrm {g}_{\\alpha \\beta} \\mathrm {T}\\right) \\mathrm {u}^{\\alpha} \\mathrm {u}^{\\beta}. \\tag {1}$$For $p = 0$ (Problem 19.36) we have $a = 0$ from the Euler equation (Problem 14.3) and Equation (1) becomes$$0 = - 2 \\sigma^{2} - \\frac {1}{3} \\theta^{2} - 4 \\pi \\rho$$which has no solution for positive $\\rho$ .When there is pressure, then in general a is nonzero; in fact,$$\\mathbf {a} = \\nabla \\log | \\boldsymbol {\\xi} \\cdot \\boldsymbol {\\xi} |^{\\frac {1}{2}}.$$If we assume homogeneity (Problem 19.37), then $\\mathbf{a} = 0$ and$$0 = - 2 \\sigma^{2} - \\frac {1}{3} \\theta^{2} - 4 \\pi (\\rho + 3 p),$$which again has no solution for $\\rho + 3\\mathfrak{p} > 0 .$"
+  },
+  "verification": null
+}

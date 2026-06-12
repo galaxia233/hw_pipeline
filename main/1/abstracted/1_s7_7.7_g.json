@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s7_7.7_g",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_determinant",
+      "target_object": "covariant_derivative",
+      "coordinate": "coordinate_frame",
+      "scenario": "general_relativity",
+      "method": "tensor_identity_proof"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.7_g",
+    "source_id": "1_s7_7.7_g",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.7_g"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.6,
+      "realism": 0.7,
+      "rationale": "标准协变散度恒等式推导，需串联行列式对坐标偏导与联络缩并公式，属GR基础核心工具",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$a$",
+      "$\\\\alpha$",
+      "$\\\\mathbf{A}^{\\\\alpha}$",
+      "$|\\\\mathbf{g}|$"
+    ],
+    "target": [
+      "$\\\\mathbf{A}^{\\\\alpha}_{;a}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.7. Prove the following identities:\\n(g) $\\mathbf{A}_{;a}^{\\alpha} = \\frac{1}{|\\mathbf{g}|^{\\frac{1}{2}}} (|\\mathbf{g}|^{\\frac{1}{2}}\\mathbf{A}^{\\alpha})_{,a}$ in a coordinate frame.",
+    "answer": "恒等式成立",
+    "solution": null
+  },
+  "verification": null
+}

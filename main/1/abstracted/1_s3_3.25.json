@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "id": "1_s3_3.25",
+    "type": "prove",
+    "tags": {
+      "metric": "minkowski",
+      "target_object": "dual_tensor",
+      "coordinate": "index_manipulation",
+      "scenario": "tensor_algebra",
+      "method": "four_dimensional"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.25",
+    "source_id": "1_s3_3.25",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.25"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "完整双对偶推导+Levi-Civita恒等式+抽象张量代数背景",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^0$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$F^{\\\\mu\\\\nu}$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.25. Let $\\mathbf{F}$ be an antisymmetric second-rank tensor with components $\\mathbf{F}^{\\mu \\nu}$ . From $\\mathbf{F}$ construct another second-rank, anti-symmetric tensor, $*\\mathbf{F}$ , called the dual of $\\mathbf{F}$ , as follows\\n$$\\n* \\mathbf {F} = \\frac {1}{2} \\varepsilon^{\\mu \\nu \\alpha \\beta} \\mathbf {F}_{\\alpha \\beta} \\mathbf {e}_{\\mu} \\otimes \\mathbf {e}_{\\nu}.\\n$$\\nShow that $\\mathbf{\\Phi}(*\\mathbf{F}) = -\\mathbf{F}$",
+    "answer": "$*(*\\\\mathbf{F}^{\\\\mu\\\\nu}) = -\\\\mathbf{F}^{\\\\mu\\\\nu}$",
+    "solution": "Solution 3.25.\\n$$\\n* \\\\mathrm {F}^{\\\\mu \\\\nu} = \\\\frac {1}{2} \\\\varepsilon^{\\\\mu \\\\nu a \\\\beta} \\\\mathrm {F}_{a} \\\\beta \\\\tag {1}\\n$$\\n$$\\n\\\\begin{array}{l} * \\\\mathrm {F}_{\\\\mu \\\\nu} = \\\\frac {1}{2} \\\\eta_{\\\\mu \\\\sigma} \\\\eta_{\\\\nu \\\\tau} \\\\varepsilon^{\\\\sigma \\\\tau \\\\alpha \\\\beta} \\\\mathrm {F}_{\\\\alpha \\\\beta} \\\\equiv \\\\frac {1}{2} \\\\varepsilon_{\\\\mu \\\\nu}^{\\\\alpha \\\\beta} \\\\mathrm {F}_{\\\\alpha \\\\beta} \\\\\\\\ = \\\\frac {1}{2} \\\\left(\\\\varepsilon_{\\\\mu \\\\nu \\\\lambda \\\\gamma} \\\\eta^{\\\\alpha \\\\lambda} \\\\eta^{\\\\beta \\\\gamma}\\\\right) F_{\\\\alpha \\\\beta} = \\\\frac {1}{2} \\\\varepsilon_{\\\\mu \\\\nu \\\\lambda \\\\dot {\\\\gamma}} \\\\left(\\\\eta^{\\\\alpha \\\\lambda} \\\\eta^{\\\\beta \\\\gamma} F_{\\\\alpha \\\\beta}\\\\right) \\\\\\\\ = \\\\frac {1}{2} \\\\varepsilon_{\\\\mu \\\\nu \\\\alpha \\\\beta} \\\\mathbf {F}^{\\\\alpha \\\\beta} \\\\tag {2} \\\\\\\\ \\\\end{array}\\n$$\\n$$\\n* (* \\\\mathbf {F}^{\\\\mu \\\\nu}) = \\\\frac {1}{2} \\\\varepsilon^{\\\\mu \\\\nu a \\\\beta} (* \\\\mathbf {F}_{\\\\alpha \\\\beta}) = \\\\frac {1}{4} \\\\varepsilon^{\\\\mu \\\\nu a \\\\beta} \\\\varepsilon_{\\\\alpha \\\\beta \\\\lambda \\\\sigma} \\\\mathbf {F}^{\\\\lambda \\\\sigma}. \\\\tag {3}\\n$$\\nNow, $\\\\varepsilon^{\\\\mu \\\\nu \\\\alpha \\\\beta} \\\\varepsilon_{\\\\alpha \\\\beta \\\\lambda \\\\sigma} \\\\equiv -2 \\\\delta_{\\\\lambda \\\\sigma}^{\\\\mu \\\\nu}$ (this defines the symbol $\\\\delta_{\\\\lambda \\\\sigma}^{\\\\mu \\\\nu}$ ). One should convince oneself that $\\\\delta_{\\\\lambda \\\\sigma}^{\\\\mu \\\\nu}$ has the following properties:\\n$$\\n\\\\begin{array}{l} \\\\delta_{\\\\lambda}^{\\\\mu \\\\nu} = + 1 \\\\quad \\\\text {i f} \\\\lambda = \\\\mu , \\\\sigma = \\\\nu \\\\\\\\ = - 1 \\\\text {i f} \\\\lambda = \\\\nu , \\\\sigma = \\\\mu \\\\\\\\ = 0 \\\\text {o t h e r w i s e}. \\\\\\\\ \\\\end{array}\\n$$\\nThus\\n$$\\n\\\\delta_{\\\\lambda \\\\sigma}^{\\\\mu \\\\nu} = \\\\delta_{\\\\lambda}^{\\\\mu} \\\\delta_{\\\\sigma}^{\\\\nu} - \\\\delta_{\\\\sigma}^{\\\\mu} \\\\delta_{\\\\lambda}^{\\\\nu}\\n$$\\nand therefore\\n$$\\n* (\\\\mathbf {\\\\nabla} \\\\ast \\\\mathbf {F}^{\\\\mu \\\\nu}) = - \\\\frac {1}{2} \\\\delta_{\\\\lambda \\\\sigma}^{\\\\mu \\\\nu} \\\\mathbf {F}^{\\\\lambda \\\\sigma} = - \\\\frac {1}{2} \\\\left(\\\\mathbf {F}^{\\\\mu \\\\nu} - \\\\mathbf {F}^{\\\\nu \\\\mu}\\\\right) = - \\\\mathbf {F}^{\\\\mu \\\\nu}.\\n$$"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

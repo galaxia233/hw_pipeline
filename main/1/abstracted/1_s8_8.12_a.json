@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s8_8.12_a",
+    "type": "prove",
+    "tags": {
+      "metric": "differential_geometry",
+      "target_object": "christoffel_symbols",
+      "coordinate": "symmetry",
+      "scenario": "coordinate_basis",
+      "method": "tensor_properties"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.12_a",
+    "source_id": "1_s8_8.12_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.12_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.2,
+      "generalizability": 0.6,
+      "completeness": 0.4,
+      "realism": 0.3,
+      "rationale": "直接由度规联络的坐标基底定义一步代入即证，逻辑链极短；属纯微分几何抽象性质，无具体物理场景或度规背景；仅提供题干缺乏解答过程",
+      "overall": 0.38
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\gamma$"
+    ],
+    "target": [
+      "$\\\\Gamma_{\\\\alpha \\\\beta \\\\gamma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "# Problem 8.12.\\n(a) Show that, in a coordinate frame, $\\Gamma_{\\alpha \\beta \\gamma}$ is symmetric on the last two indices.",
+    "answer": "$\\\\Gamma_{\\\\alpha \\\\beta \\\\gamma} = \\\\Gamma_{\\\\alpha \\\\gamma \\\\beta}$",
+    "solution": null
+  },
+  "verification": null
+}

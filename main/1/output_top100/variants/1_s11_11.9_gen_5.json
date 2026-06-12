@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "orbit_radius",
+      "coordinate": "spherical",
+      "scenario": "geodetic_precession_invert",
+      "method": "invert_deduction",
+      "generalization_axis": "invert",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$r = 3 r_{s}$",
+      "ISCO"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞外部的赤道面 ($\\theta = \\pi / 2$) 上，一个自由下落的陀螺仪沿半径为 $r$ 的圆轨道运动。已知在此度规下，该陀螺仪的测地进动坐标角速度 $\\Omega_{prec}$ 与其轨道坐标角速度 $\\Omega_{orb}$ 的比值恒为 $\\frac{3 r_{s}}{4 r}$，其中 $r_{s} = 2M$ 为 Schwarzschild 半径。假设实验观测到该陀螺仪的测地进动周期 $T_{prec}$ 恰好是其轨道周期 $T_{orb}$ 的 4 倍。请根据此观测结论反推该圆轨道半径 $r$ 与 $r_{s}$ 的精确代数关系，并指出该半径在黑洞物理学中的特殊名称与意义。\\n\\n度规定义（采用 $(-,+,+,+)$ 符号约定）：\\n$ds^2 = - \\frac{r - r_{s}}{r} dt^2 + \\frac{r}{r - r_{s}} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$",
+    "answer": "$r = 3 r_{s}$ (或 $r = 6M$)，该半径为最内稳定圆轨道 (ISCO)",
+    "solution": "1. **将周期比例转化为角速度比例**：已知测地进动周期与轨道周期的比例为 $T_{prec} = 4 T_{orb}$。由于角速度与周期成反比（$\\Omega = 2\\pi / T$），可得测地进动角速度与轨道角速度的比例关系为 $\\Omega_{prec} / \\Omega_{orb} = T_{orb} / T_{prec} = 1 / 4$。\\n2. **代入已知理论公式**：题干给出在 Schwarzschild 时空中圆轨道的测地进动角速度比公式为 $\\frac{\\Omega_{prec}}{\\Omega_{orb}} = \\frac{3 r_{s}}{4 r}$。\\n3. **反推轨道半径**：将观测得到的比例代入理论公式，得到 $\\frac{1}{4} = \\frac{3 r_{s}}{4 r}$。解此代数方程，两边同乘 $4r$ 得 $r = 3 r_{s}$。由于 $r_{s} = 2M$，该轨道半径亦可写为 $r = 6M$。\\n4. **物理意义解释**：在 Schwarzschild 黑洞几何中，$r = 6M$ 是有质量粒子能够维持稳定圆轨道的最小半径，即最内稳定圆轨道。在此半径之内，任何微小的径向扰动都会导致粒子螺旋坠入黑洞，无法维持闭合轨道。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目事实性错误：题干声称测地进动坐标角速度与轨道坐标角速度的比值恒为 3r_s/4r，但这仅仅是弱场近似（即 1 - sqrt(1 - 3r_s/2r) ≈ 3r_s/4r），并非 Schwarzschild 度规下的精确物理规律。期望的精确比值公式为 1 - sqrt(1 - 3r_s/2r)。若使用精确公式令比值等于 1/4（即 T_prec = 4 T_orb），解得的精确半径应为 r = 24/7 r_s（即 48/7 M ≈ 6.857M），而题干及答案基于错误的近似公式得出 r = 3r_s = 6M。答案进而指出 r=6M 为最内稳定圆轨道 (ISCO)，这也是错误的物理关联：在 ISCO 处，精确的进动比值为 1 - 1/sqrt(2) ≈ 0.293，而不是 0.25。题目将近似公式作为精确前提，并导致了对 ISCO 物理意义的错误归属。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

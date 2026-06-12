@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s13_13.15",
+    "type": "prove",
+    "tags": {
+      "metric": "background_minkowski_metric",
+      "target_object": "trace_reversed_perturbation_target",
+      "coordinate": "four_spacetime_coordinates",
+      "scenario": "weak_field_gravity_scenario",
+      "method": "gauge_condition_substitution_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.15",
+    "source_id": "1_s13_13.15",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.15"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "从黎曼张量缩并至线性化爱因斯坦场方程，结合洛伦兹规范与迹反转变换完成多步推导，具有明确的引力波物理背景",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^{\\alpha}$",
+      "$h_{\\mu\\nu}$",
+      "$\\overline{h}_{\\mu\\nu}$",
+      "$T_{\\mu\\nu}$",
+      "$R_{\\mu\\nu}$"
+    ],
+    "target": [
+      "$\\overline{h}_{\\mu\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 13.15. Show that in the Lorentz gauge (see Problem 13.14) the linearized field equations reduce to$$\\square \\overline {{{\\mathrm {h}}}}_{\\mu \\nu} \\equiv \\overline {{{\\mathrm {h}}}}_{\\mu \\nu , a},^{\\alpha} = - 1 6 \\pi \\mathrm {T}_{\\mu \\nu} ,$$where $\\overline{\\mathbf{h}}_{\\mu \\nu}$ is trace-reversed $\\mathbf{h}_{\\mu \\nu}$ .",
+    "answer": "$$\\square \\bar {h}_{\\mu \\nu} = - 1 6 \\pi T_{\\mu \\nu}.$$",
+    "solution": "Solution 13.15. In Problem 13.13 we found an expression for the linearized Riemann tensor. By contracting this we can get the linearized Ricci tensor$$\\mathbf {R}_{\\mu \\nu} = \\frac {1}{2} \\left(\\mathbf {h}_{\\nu \\alpha},^{\\alpha}, \\mu + \\mathbf {h}_{\\mu \\alpha},^{\\alpha}, \\nu - \\square \\mathbf {h}_{\\mu \\nu} - \\mathbf {h}_{, \\mu \\nu}\\right)$$where $\\mathbf{h} \\equiv \\mathbf{h}_{\\sigma}^{\\sigma}$ . In the Lorentz gauge $\\overline{\\mathbf{h}}_{\\alpha \\beta}^{\\prime \\beta} = 0$ implies $\\mathbf{h}_{\\alpha \\beta}^{\\prime \\beta} = \\frac{1}{2} \\mathbf{h}_{, \\alpha}$ so that$$R_{\\mu \\nu} = \\frac {1}{2} (h_{, \\mu \\nu} - \\square h_{\\mu \\nu} - h_{, \\mu \\nu}) = - \\frac {1}{2} \\square h_{\\mu \\nu}$$and by contracting again we have $\\mathbf{R} = -\\frac{1}{2}\\square \\mathbf{h}$ . The field equations then are$$\\mathrm {R}_{\\mu \\nu} - \\frac {1}{2} \\mathrm {g}_{\\mu \\nu} \\mathrm {R} = - \\frac {1}{2} \\left(\\square \\mathrm {h}_{\\mu \\nu} - \\frac {1}{2} \\eta_{\\mu \\nu} \\square \\mathrm {h}\\right) = - \\frac {1}{2} \\square \\overline {{\\mathrm {h}}}_{\\mu \\nu}$$so that$$\\square \\bar {h}_{\\mu \\nu} = - 1 6 \\pi T_{\\mu \\nu}.$$"
+  },
+  "verification": null
+}

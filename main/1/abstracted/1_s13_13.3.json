@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s13_13.3",
+    "type": "calculate",
+    "tags": {
+      "metric": "brans-dicke-theory",
+      "target_object": "spherical-shell",
+      "coordinate": "static-spherical-coordinate",
+      "scenario": "scalar-tensor-gravity",
+      "method": "weak-field-approximation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.3",
+    "source_id": "1_s13_13.3",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "涉及标量张量理论场方程求解、球对称边界条件匹配及弱场近似展开，逻辑链条完整且具有明确的修正牛顿引力常数物理背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$",
+      "$M$",
+      "$R$",
+      "$G_{\\\\inf ty}$",
+      "$\\\\omega$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$G$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 13.3. In the Brans-Dicke theory of gravity (see MTW p. 1070 or Weinberg p. 160 for field equations), the locally measured Newtonian gravitational constant $G$ varies with position and time. Its value at infinity is $G_{\\inf ty}$ . Show that $G$ is a constant inside a self-gravitating spherical shell of mass $M$ and circumference $2\\pi R$ . If $R >> G_{\\inf ty}M / c^2$ , express $G$ inside the shell in terms of $G_{\\inf ty}$ , $M$ , and $R$ , to lowest order in $(G_{\\inf ty}M / Rc^2)$ .",
+    "answer": "$G = G_{\\\\inf ty} \\\\left[ 1 - \\\\frac{G_{\\\\inf ty} M}{R(2 + \\\\omega)} \\\\right]$",
+    "solution": "Solution 13.3. The static field equation for the Brans-Dicke scalar field is\\n$$\\n\\\\nabla^{2} \\\\phi = \\\\frac {8 \\\\pi \\\\mathrm {T}}{(3 + 2 \\\\omega)}. \\\\tag {1}\\n$$\\nNow, for a spherical shell of mass M, radius R,\\n$$\\nT = - \\\\rho = \\\\frac {M \\\\delta (r - R)}{4 \\\\pi r^{2}} \\\\tag {2}\\n$$\\nso that the $\\phi$ field inside and outside the shell is\\n$$\\n\\\\phi_{I} = \\\\phi_{1}, \\\\quad r < R \\\\tag {3a}\\n$$\\n$$\\n\\\\phi_{\\\\mathrm {I I}} = \\\\phi_{\\\\inf ty} + \\\\frac {2}{3 + 2 \\\\omega} \\\\frac {\\\\mathrm {M}}{\\\\mathrm {r}}, \\\\quad \\\\mathrm {r} > \\\\mathrm {R} \\\\tag {3b}\\n$$\\nwhere $\\phi_{\\\\mathbf{I}}$ and $\\phi_{\\\\inf ty}$ are constants. Matching $\\phi_{\\\\mathbf{I}}$ and $\\phi_{\\\\mathbf{II}}$ at $\\mathbf {r} = \\\\mathbf {R}$ gives\\n$$\\n\\\\phi_{1} = \\\\phi_{\\\\inf ty} + \\\\frac {2}{3 + 2 \\\\omega} \\\\frac {\\\\mathrm {M}}{\\\\mathrm {R}}. \\\\tag {4}\\n$$\\nNow, we also know that in the Brans-Dicke theory, the local gravitational constant, in terms of $\\phi$ , is (Weinberg, Equation 9.9.11)\\n$$\\nG = \\\\phi^{- 1} \\\\left(\\\\frac {4 + 2 \\\\omega}{3 + 2 \\\\omega}\\\\right). \\\\tag {5}\\n$$\\nThus\\n$$\\n\\\\phi_{\\\\inf ty} = \\\\frac {4 + 2 \\\\omega}{3 + 2 \\\\omega} \\\\frac {1}{G_{\\\\inf ty}}\\n$$\\n$$\\n\\\\mathrm {G}_{1} = \\\\phi_{1}^{- 1} \\\\left(\\\\frac {4 + 2 \\\\omega}{3 + 2 \\\\omega}\\\\right) \\\\approx \\\\left(\\\\frac {4 + 2 \\\\omega}{3 + 2 \\\\omega}\\\\right) \\\\phi_{\\\\inf ty}^{- 1} \\\\left[ 1 - \\\\frac {2 \\\\mathrm {M}}{\\\\phi_{\\\\inf ty} \\\\mathrm {R} (3 + 2 \\\\omega)} \\\\right]\\n$$\\nand finally\\n$$\\n\\\\mathrm {G}_{1} = \\\\mathrm {G}_{\\\\inf ty} \\\\left[ 1 - \\\\frac {\\\\mathrm {G}_{\\\\inf ty} \\\\mathrm {M}}{\\\\mathrm {R}} \\\\frac {1}{(2 + \\\\omega)} \\\\right]. \\\\tag {6}\\n$$\\nThis solution is correct only to lowest order in $\\mathbf{M} / \\mathbf{R}$ , not only because of the terms neglected here, but also because in higher order one would have to account for the changed metric $\\mathbf {g}_{\\\\mu \\\\nu}$ due to the mass and use the curved space $\\nabla$ in Equation (1) rather than the flat space one."
+  },
+  "verification": null
+}

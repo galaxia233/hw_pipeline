@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s8_8.6",
+    "type": "prove",
+    "tags": {
+      "metric": "independent_of_metric",
+      "target_object": "exact_form_construction",
+      "coordinate": "cartesian_coordinates",
+      "scenario": "abstract_star_domain",
+      "method": "integration_by_parts"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.6",
+    "source_id": "1_s8_8.6",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.3,
+      "rationale": "多步微分形式外微分计算结合分部积分法，逻辑链条清晰且具有一般性；结构直接对应Poincaré引理的构造证明，泛化性强；属纯微分几何推导，缺乏具体天体或工程物理场景。",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": null,
+    "variables": [
+      "$x^1$",
+      "$x^2$",
+      "$x^n$",
+      "$\\\\xi$"
+    ],
+    "target": [
+      "$\\\\alpha = d\\\\tilde{\\\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s8_8.6.md]\\n\\nProblem 8.6. Consider a 2-form in $n$ -dimensional space:\\n$$\\n\\\\alpha = f \\\\left(x^{1}, x^{2}, \\\\dot s , x^{n}\\\\right) \\\\widetilde {\\\\mathrm {d} x^{1}} \\\\wedge \\\\widetilde {\\\\mathrm {d} x^{2}}.\\n$$\\nSuppose for some region of space including $\\mathbf{x}^1 = 0$ , that\\n$$\\n\\\\mathrm {d} \\\\alpha = 0.\\n$$\\nConstruct the 1-form\\n$$\\n\\\\widetilde {\\\\boldsymbol {\\\\beta}} = \\\\left[ \\\\mathrm {x}^{1} \\\\int_{0}^{1} \\\\mathrm {f} (\\\\xi \\\\mathrm {x}^{1}, \\\\mathrm {x}^{2}, \\\\dot s , \\\\mathrm {x}^{\\\\mathrm {n}}) \\\\mathrm {d} \\\\xi \\\\right] \\\\widetilde {\\\\mathrm {d x}}^{2}\\n$$\\nand show that $\\alpha = \\mathrm{d}\\\\tilde{\\\\beta}$",
+    "answer": "$\\\\alpha = \\\\mathrm{d}\\\\tilde{\\\\beta}$",
+    "solution": "Solution 8.6. Define\\n$$\\n\\\\mathbf {g} \\\\equiv \\\\left[ x^{1} \\\\int_{0}^{1} f \\\\left(\\\\xi x^{1}, x^{2}, \\\\dot s x^{n}\\\\right) d \\\\xi \\\\right],\\n$$\\nso that $\\tilde{\\\\pmb{\\\\beta}} = \\\\mathbf{g}\\\\widetilde{\\\\mathbf{dx}}^2$ and\\n$$\\n\\\\mathrm {d} \\\\widetilde {\\\\boldsymbol {\\\\beta}} = \\\\mathrm {g}_{, i} \\\\widetilde {\\\\mathrm {d x}}^{i} \\\\wedge \\\\widetilde {\\\\mathrm {d x}}^{2} = \\\\mathrm {g}_{, 1} \\\\widetilde {\\\\mathrm {d x}}^{1} \\\\wedge \\\\widetilde {\\\\mathrm {d x}}^{2} + \\\\mathrm {g}_{, 3} \\\\widetilde {\\\\mathrm {d x}}^{3} \\\\wedge \\\\widetilde {\\\\mathrm {d x}}^{2} + \\\\dot s .\\n$$\\nNow\\n$$\\n\\\\mathbf {g},_{1} = \\\\left[ \\\\int_{0}^{1} f \\\\left(\\\\xi \\\\mathbf {x}^{1}, \\\\mathbf {x}^{2}, \\\\dot s \\\\mathbf {x}^{\\\\mathrm {n}}\\\\right) d \\\\xi \\\\right] + \\\\left[ \\\\mathbf {x}^{1} \\\\int_{0}^{1} \\\\xi f^{\\\\prime} \\\\left(\\\\xi \\\\mathbf {x}^{1}, \\\\mathbf {x}^{2}, \\\\dot s \\\\mathbf {x}^{\\\\mathrm {n}}\\\\right) d \\\\xi \\\\right]\\n$$\\nwhere $f'$ indicates a derivative with respect to the first argument. The second term above can be written as\\n$$\\n\\\\begin{array}{l} \\\\int_{0}^{1} \\\\mathrm {x}^{1} \\\\xi \\\\mathrm {f}^{\\\\prime} (\\\\xi \\\\mathrm {x}^{1}, \\\\mathrm {x}^{2} \\\\dot s) \\\\mathrm {d} \\\\xi = \\\\int_{0}^{1} \\\\xi \\\\frac {\\\\partial}{\\\\partial \\\\xi} \\\\mathrm {f} (\\\\xi \\\\mathrm {x}^{1}, \\\\mathrm {x}^{2}, \\\\dot s) \\\\mathrm {d} \\\\xi \\\\\\\\\\\\\\\\= \\\\left. \\\\xi \\\\mathrm {f} (\\\\xi \\\\mathrm {x}^{1}, \\\\mathrm {x}^{2}, \\\\dot s) \\\\right|_{0}^{1} - \\\\int_{0}^{1} \\\\mathrm {f} (\\\\xi \\\\mathrm {x}^{1}, \\\\mathrm {x}^{2}, \\\\dot s) \\\\mathrm {d} \\\\xi , \\\\\\\\\\\\\\\\end{array}\\n$$\\nwhere we have integrated by parts; we have then\\n$$\\ng_{, 1} = \\\\xi f (\\\\xi x^{1}, x^{2}, \\\\dot s x^{n}) |_{0}^{1} = f (x^{1}, x^{2}, \\\\dot s x^{n}).\\n$$\\nNext, $\\mathbf{d}\\\\alpha = 0$ tells us that\\n$$\\n\\\\mathbf {d} \\\\alpha = f_{, 3} \\\\mathbf {d x}^{3} \\\\wedge \\\\mathbf {d x}^{1} \\\\wedge \\\\mathbf {d x}^{2} + f_{, 4} \\\\mathbf {d x}^{4} \\\\wedge \\\\mathbf {d x}^{1} \\\\wedge \\\\mathbf {d x}^{2} + \\\\dot s = 0 ,\\n$$\\nwhich can only be true if $f_{,3} = f_{,4} = f_{,5} = \\\\dot s f_{,n} = 0$ , and hence\\n$$\\n\\\\mathbf {g}_{, 3} = \\\\left[ \\\\mathbf {x}^{1} \\\\int_{0}^{1} \\\\mathrm {f}_{, 3} \\\\left(\\\\xi \\\\mathbf {x}^{1}, \\\\mathbf {x}^{2}, \\\\dot s , \\\\mathbf {x}^{\\\\mathrm {n}}\\\\right) \\\\mathrm {d} \\\\xi \\\\right] = 0.\\n$$\\nSimilarly $\\mathbf{g}_{,4} = \\\\mathbf{g}_{,5} = \\\\dot s \\\\mathbf{g}_{,n} = 0$ , so that finally\\n$$\\n\\\\mathrm {d} \\\\widetilde {\\\\boldsymbol {\\\\beta}} = \\\\mathrm {g}, 1 \\\\widetilde {\\\\mathrm {d x}}^{1} \\\\wedge \\\\widetilde {\\\\mathrm {d x}}^{2} = \\\\mathrm {f} \\\\left(\\\\mathrm {x}^{1}, \\\\mathrm {x}^{2}, \\\\dot s \\\\mathrm {x}^{\\\\mathrm {n}}\\\\right) \\\\widetilde {\\\\mathrm {d x}}^{1} \\\\wedge \\\\widetilde {\\\\mathrm {d x}}^{2} = \\\\alpha .\\n$$"
+  },
+  "verification": null
+}

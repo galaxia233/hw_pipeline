@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s15_15.18-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "accretion_rate",
+      "coordinate": "spherical",
+      "scenario": "Bondi_accretion",
+      "method": "conservation_laws",
+      "generalization_axis": "apply",
+      "metric": "schwarzschild_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.18",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s15_15.18",
+      "1_s15_15.18-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "schwarzschild_metric",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$\\dot{M}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "A perfectly adiabatic gas with equation of state $p = K \\rho^{\\gamma}$ (where $4/3 \\leq \\gamma \\leq 5/3$, $\\rho$ is the mass density, and $K$ is a constant) accretes spherically onto a Schwarzschild black hole of mass $M$. At radial infinity, the gas density is $\\rho_\\inf ty$ and the speed of sound is $a_\\inf ty$ (with $a_\\inf ty \\ll c$). The inward flow transitions from subsonic to supersonic at a critical radius $r_s$ (the sonic point), where the fluid velocity equals the local speed of sound, i.e., $v(r_s) = a(r_s) = a_c$. From previous analysis, the critical radius to leading order in $a_\\inf ty/c$ is given by $r_s \\approx \\frac{GM}{a_\\inf ty^2}$. Assuming the Newtonian approximation applies at this radius, use the mass continuity equation $\\dot{M} = 4\\pi r^2 \\rho v$ and the Bernoulli equation $\\frac{v^2}{2} + \\frac{a^2}{\\gamma-1} - \\frac{GM}{r} = \\frac{a_\\inf ty^2}{\\gamma-1}$ (with $v_\\inf ty \\approx 0$) to derive the expression for the accretion rate $\\dot{M}$ to leading order in $a_\\inf ty/c$. Express your answer in terms of $M$, $\\rho_\\inf ty$, $a_\\inf ty$, and $\\gamma$.",
+    "answer": "$\\dot{M} = 4\\pi \\lambda \\frac{(GM)^2 \\rho_\\inf ty}{a_\\inf ty^3}$, where $\\lambda = \\left( \\frac{2\\gamma}{\\gamma+1}\\right)^{\\frac{\\gamma+1}{2(\\gamma-1)}}$",
+    "solution": "1. At the sonic point $r_s$, the fluid velocity equals the local sound speed: $v(r_s) = a(r_s) = a_c$. \\n2. Evaluate the Bernoulli equation at $r_s$, using the condition $v_\\inf ty \\approx 0$ at infinity: \\n   $\\frac{a_c^2}{2} + \\frac{a_c^2}{\\gamma-1} - \\frac{GM}{r_s} = \\frac{a_\\inf ty^2}{\\gamma-1}$. \\n3. Substitute the leading order critical radius $r_s \\approx \\frac{GM}{a_\\inf ty^2}$, which implies $\\frac{GM}{r_s} \\approx a_\\inf ty^2$: \\n   $a_c^2 \\left( \\frac{1}{2} + \\frac{1}{\\gamma-1}\\right) - a_\\inf ty^2 = \\frac{a_\\inf ty^2}{\\gamma-1}$. \\n   This simplifies to: \\n   $a_c^2 \\frac{\\gamma+1}{2(\\gamma-1)} = a_\\inf ty^2 \\frac{\\gamma}{\\gamma-1}$. \\n   Solving for $a_c^2$ gives: \\n   $a_c^2 = \\frac{2\\gamma}{\\gamma+1} a_\\inf ty^2$. \\n4. From the adiabatic equation of state $p = K \\rho^{\\gamma}$, the local sound speed is $a^2 = \\frac{dp}{d\\rho} = K \\gamma \\rho^{\\gamma-1}$. This implies the density scales with sound speed as: \\n   $\\frac{\\rho_c}{\\rho_\\inf ty} = \\left( \\frac{a_c}{a_\\inf ty}\\right)^{\\frac{2}{\\gamma-1}} = \\left( \\frac{2\\gamma}{\\gamma+1}\\right)^{\\frac{1}{\\gamma-1}}$. \\n5. Now apply the mass continuity equation at the sonic point: \\n   $\\dot{M} = 4\\pi r_s^2 \\rho_c a_c$. \\n6. Substitute $r_s \\approx \\frac{GM}{a_\\inf ty^2}$, $\\rho_c$, and $a_c = a_\\inf ty \\sqrt{\\frac{2\\gamma}{\\gamma+1}}$ into the continuity equation: \\n   $\\dot{M} = 4\\pi \\left( \\frac{GM}{a_\\inf ty^2}\\right)^2 \\rho_\\inf ty \\left( \\frac{2\\gamma}{\\gamma+1}\\right)^{\\frac{1}{\\gamma-1}} a_\\inf ty \\sqrt{\\frac{2\\gamma}{\\gamma+1}}$. \\n7. Group the terms together: \\n   $\\dot{M} = 4\\pi \\frac{(GM)^2 \\rho_\\inf ty}{a_\\inf ty^3} \\left( \\frac{2\\gamma}{\\gamma+1}\\right)^{\\frac{1}{\\gamma-1} + \\frac{1}{2}} = 4\\pi \\frac{(GM)^2 \\rho_\\inf ty}{a_\\inf ty^3} \\left( \\frac{2\\gamma}{\\gamma+1}\\right)^{\\frac{\\gamma+1}{2(\\gamma-1)}}$. \\n8. Let $\\lambda = \\left( \\frac{2\\gamma}{\\gamma+1}\\right)^{\\frac{\\gamma+1}{2(\\gamma-1)}}$, which yields the final expression for the Bondi accretion rate: $\\dot{M} = 4\\pi \\lambda \\frac{(GM)^2 \\rho_\\inf ty}{a_\\inf ty^3}$."
+  },
+  "verification": null
+}

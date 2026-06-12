@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-6-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "cosmological_constant",
+      "coordinate": "static",
+      "scenario": "cosmology_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "AntiDeSitterStatic"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-6",
+      "1_s10_10.15-6-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "AntiDeSitterStatic",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "设计数值实验方案验证 Einstein 张量与度规张量的比例关系并提取宇宙学常数"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Anti-de Sitter (AdS) 时空是一个具有负常曲率的最大化对称时空。在静态坐标系 $(t, r, \\theta, \\phi)$ 下，其度规为：$$ ds^2 = -\\cos h^2(r) dt^2 + dr^2 + \\sin h^2(r) d\\theta^2 + \\sin h^2(r) \\sin^2(\\theta) d\\phi^2 $$理论预言该时空满足带有宇宙学常数的真空 Einstein 场方程 $G_{\\mu\\nu} = -\\Lambda g_{\\mu\\nu}$。由于 AdS 是最大化对称时空，其 Einstein 张量与度规张量的比例系数应为与坐标无关的常数，且由此常数可确定宇宙学常数 $\\Lambda$ 的值。请你设计一个数值实验方案，通过计算不同空间坐标点处的 Einstein 张量与度规张量，验证它们的比例关系确实是不依赖坐标的常数，并据此确定 $\\Lambda$ 的值。方案需具体说明：坐标采样策略、需要数值计算的关键张量、数据处理与验证方法、以及预期的数值结果。",
+    "answer": "1. **坐标采样**：在径向坐标 $r$ 和角坐标 $\\theta$ 的有效范围内（如 $r \\in [0.1, 3.0]$，步长 0.1；$\\theta \\in (0, \\pi)$，步长 $\\pi/10$）生成离散网格采样点，排除奇点（$r=0, \\theta=0, \\pi$）。2. **张量计算**：对于每个采样点，代入度规表达式，数值计算度规张量 $g_{\\mu\\nu}$ 的分量，并通过数值求导计算 Christoffel 符号、Ricci 张量 $R_{\\mu\\nu}$，进而计算 Einstein 张量 $G_{\\mu\\nu} = R_{\\mu\\nu} - \\frac{1}{2} R g_{\\mu\\nu}$。3. **比例验证**：对每个采样点的非零分量，计算比例系数 $k_{\\mu\\nu} = G_{\\mu\\nu} / g_{\\mu\\nu}$。绘制 $k_{00}, k_{11}, k_{22}, k_{33}$ 随坐标变化的图表。4. **结果提取**：预期所有图表均为水平线，且比值恒为常数 $k = 3$。根据场方程 $G_{\\mu\\nu} = -\\Lambda g_{\\mu\\nu}$，得出宇宙学常数 $\\Lambda = -k = -3$。5. **辅助验证**：同时数值计算 Kretschmann 标量 $K = R_{\\mu\\nu\\rho\\sigma} R^{\\mu\\nu\\rho\\sigma}$，预期其结果在整个参数空间内处处为常数 12，以此交叉验证该时空的常曲率最大化对称属性。",
+    "solution": "方案论证：在最大化对称时空中，曲率在所有点和所有方向上均相同，这导致 Einstein 张量必然与度规张量成正比。由于度规分量（如 $g_{00}, g_{22}, g_{33}$）随坐标 $r, \\theta$ 变化，而相应的 Einstein 张量分量也呈现完全相同的坐标依赖关系，它们的比值能够消去坐标依赖，揭示出内在的几何常数。数值实验通过在参数空间离散采样并计算张量，避免了解析求导的繁琐，直接验证了该比例系数在时空各处的一致性。此外，Kretschmann 标量作为坐标无关的几何不变量，其数值结果处处为常数进一步提供了交叉验证，确保了提取出的 $\\Lambda=-3$ 是真实的几何属性而非坐标系选取带来的巧合。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.antidesitterstatic_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "度规表达式中存在严重的 LaTeX 语法错误：将双曲余弦函数 \\cosh 和双曲正弦函数 \\sinh 错误地写成了 \\cos h 和 \\sin h。当前的写法 \\cos h^2(r) 和 \\sin h^2(r) 在数学上会被解释为 cos(h^2(r)) 或引入了未定义的变量 h，导致度规定义完全错误或无法理解，做题者根本无法仅凭题目完成计算（self_contained=false）。正确的度规表达式应为 $ds^2 = -\\cosh^2(r) dt^2 + dr^2 + \\sinh^2(r) d\\theta^2 + \\sinh^2(r) \\sin^2(\\theta) d\\phi^2$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

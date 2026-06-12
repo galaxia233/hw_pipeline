@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-3",
+    "type": "prove",
+    "tags": {
+      "target_object": "ISCO radius",
+      "coordinate": "Schwarzschild",
+      "scenario": "black hole orbit",
+      "method": "effective potential",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$V_{eff}$",
+      "$r_{ISCO}$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在种子题中，我们分析了圆形轨道上陀螺仪的测地进动。然而，在 Schwarzschild 黑洞附近的强引力场中，并非所有半径都能维持稳定的圆形轨道。为了探究圆轨道稳定存在的边界条件，请利用 Schwarzschild 度规 \\[ ds^2 = -\\left(1-\\frac{r_s}{r}\\right) dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2 \\] 以及时空的 Killing 矢量（对应能量守恒量 $E=-g_{tt}\\dot{t}$ 和角动量守恒量 $L=g_{\\phi\\phi}\\dot{\\phi}$），在赤道面 ($\\theta=\\pi/2$) 内推导有质量测试粒子（满足类时条件 $g_{\\mu\\nu}\\dot{x}^\\mu\\dot{x}^\\nu=-1$）的有效势 $V_{eff}(r)$，并求出使得圆轨道从稳定转变为不稳定的临界半径，即最内稳定圆轨道 (ISCO) 半径 $r_{ISCO}$（以 Schwarzschild 半径 $r_s$ 表示）。",
+    "answer": "$r_{ISCO} = 3 r_s$",
+    "solution": "1. **守恒量与类时条件**：在赤道面 ($\\theta=\\pi/2$) 上，$\\dot{\\theta}=0$。由 Killing 矢量得到守恒量：能量 $E = -g_{tt} \\dot{t} = (1-\\frac{r_s}{r}) \\dot{t}$，角动量 $L = g_{\\phi\\phi} \\dot{\\phi} = r^2 \\dot{\\phi}$。类时测地线条件为 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$，代入度规分量得：\\n\\n \\[ -\\left(1-\\frac{r_s}{r}\\right) \\dot{t}^2 + \\frac{r}{r-r_s} \\dot{r}^2 + r^2 \\dot{\\phi}^2 = -1 \\]\\n\\n2. **推导有效势**：将 $\\dot{t} = \\frac{E}{1-r_s/r}$ 和 $\\dot{\\phi} = \\frac{L}{r^2}$ 代入上式：\\n\\n \\[ -\\frac{E^2}{1-\\frac{r_s}{r}} + \\frac{r}{r-r_s} \\dot{r}^2 + \\frac{L^2}{r^2} = -1 \\]\\n\\n 整理得到径向运动方程：\\n \\[ \\frac{r}{r-r_s} \\dot{r}^2 = E^2 - \\left(1-\\frac{r_s}{r}\\right)\\left(1+\\frac{L^2}{r^2}\\right) \\]\\n\\n 因此有效势定义为 $V_{eff}(r) = \\left(1-\\frac{r_s}{r}\\right)\\left(1+\\frac{L^2}{r^2}\\right)$。\\n\\n3. **圆轨道条件**：圆轨道要求 $\\dot{r} = 0$ 且 $\\ddot{r} = 0$，即 $E^2 = V_{eff}$ 且 $\\frac{dV_{eff}}{dr} = 0$。\\n\\n \\[ \\frac{dV_{eff}}{dr} = \\frac{r_s}{r^2}\\left(1+\\frac{L^2}{r^2}\\right) - \\left(1-\\frac{r_s}{r}\\right)\\frac{2L^2}{r^3} = 0 \\]\\n\\n 乘以 $r^4$ 整理得：$r_s r^2 + r_s L^2 - 2r L^2 + 2r_s L^2 = 0 \\implies r_s r^2 - 2r L^2 + 3r_s L^2 = 0$。\\n\\n4. **稳定边界 (ISCO) 条件**：最内稳定圆轨道要求有效势的二阶导数为零，即 $\\frac{d^2V_{eff}}{dr^2} = 0$。\\n\\n \\[ \\frac{d^2V_{eff}}{dr^2} = -\\frac{2r_s}{r^3} - \\frac{12r_s L^2}{r^5} + \\frac{6L^2}{r^4} = 0 \\]\\n\\n 乘以 $r^5$ 整理得：$-2r_s r^2 - 12r_s L^2 + 6r L^2 = 0$。\\n\\n5. **求解临界半径**：将圆轨道条件 $2r L^2 = r_s r^2 + 3r_s L^2$ 代入二阶导数方程：\\n\\n \\[ 3(r_s r^2 + 3r_s L^2) - 2r_s r^2 - 12r_s L^2 = 0 \\implies r_s r^2 - 3r_s L^2 = 0 \\implies L^2 = \\frac{r^2}{3} \\]\\n\\n 将 $L^2 = \\frac{r^2}{3}$ 代回圆轨道条件方程：\\n\\n \\[ r_s r^2 - 2r \\left(\\frac{r^2}{3}\\right) + 3r_s \\left(\\frac{r^2}{3}\\right) = 0 \\implies 2r_s r^2 - \\frac{2}{3} r^3 = 0 \\]\\n\\n 解得 $r = 3 r_s$。因此最内稳定圆轨道半径为 $r_{ISCO} = 3 r_s$。"
+  },
+  "verification": null
+}

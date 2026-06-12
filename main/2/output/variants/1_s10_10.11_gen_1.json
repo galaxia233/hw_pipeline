@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "Komar_superpotential_divergence",
+      "coordinate": "general",
+      "scenario": "Killing_vector_conservation",
+      "method": "tensor_calculus",
+      "generalization_axis": "extend",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "killing_vector",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mu$",
+      "$\\nu$"
+    ],
+    "target": [
+      "$2 R^{\\mu\\nu} \\xi_\\nu$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，Killing 矢量场 $\\xi^\\mu$ 对应于时空的对称性，满足 Killing 等式 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$。由 Killing 矢量可以构造一个反对称张量 $F^{\\mu\\nu} = \\nabla^\\mu \\xi^\\nu - \\nabla^\\nu \\xi^\\mu$，该张量被称为 Komar 超势，在 Komar 积分中用于定义时空的总守恒量（如质量与角动量）。请推导该超势张量的协变散度 $\\nabla_\\nu F^{\\mu\\nu}$，并证明它等于 $2 R^{\\mu\\nu} \\xi_\\nu$。",
+    "answer": "$2 R^{\\mu\\nu} \\xi_\\nu$",
+    "solution": "根据 Killing 等式 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$，可以得到 $\\nabla^\\mu \\xi^\\nu = -\\nabla^\\nu \\xi^\\mu$，因此 Komar 超势可简化为 $F^{\\mu\\nu} = 2 \\nabla^\\mu \\xi^\\nu$。对其求协变散度：$\\nabla_\\nu F^{\\mu\\nu} = 2 \\nabla_\\nu \\nabla^\\mu \\xi^\\nu$。利用 Ricci 恒等式（协变导数的对易关系）对 1-形式 $\\xi_\\sigma$ 作用：$\\nabla_\\nu \\nabla_\\rho \\xi_\\sigma = R_{\\sigma \\rho \\nu \\delta} \\xi^\\delta + \\nabla_\\rho \\nabla_\\nu \\xi_\\sigma$。两边同乘 $g^{\\mu\\rho} g^{\\nu\\sigma}$，左边变为 $\\nabla_\\nu \\nabla^\\mu \\xi^\\nu$；右边第一项变为 $g^{\\mu\\rho} R^{\\nu}_{\\rho \\nu \\delta} \\xi^\\delta = R^{\\mu}_{\\delta} \\xi^\\delta = R^{\\mu\\nu} \\xi_\\nu$；右边第二项变为 $\\nabla^\\mu \\nabla_\\nu \\xi^\\nu$。由于 Killing 矢量的缩并满足 $\\nabla_\\nu \\xi^\\nu = 0$（对 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$ 缩并 $\\mu, \\nu$ 即可得到），因此第二项为零。综上，$\\nabla_\\nu \\nabla^\\mu \\xi^\\nu = R^{\\mu\\nu} \\xi_\\nu$。代入超势散度公式，得到 $\\nabla_\\nu F^{\\mu\\nu} = 2 R^{\\mu\\nu} \\xi_\\nu$。"
+  },
+  "verification": null
+}

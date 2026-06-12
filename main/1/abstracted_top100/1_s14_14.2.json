@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s14_14.2",
+    "type": "prove",
+    "tags": {
+      "metric": "static_spacetime",
+      "target_object": "thermal_equilibrium",
+      "coordinate": "gravitational_redshift",
+      "scenario": "tobolehresch_law",
+      "method": "blackbody_radiation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.2",
+    "source_id": "1_s14_14.2",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "结合引力红移、光子能量变换与黑体辐射特性的多步物理推理，结论适用于任意静态引力场温度分布",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T$",
+      "$g_{00}$"
+    ],
+    "target": [
+      "$T(-g_{00})^{1/2}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 14.2. Show that the condition for thermal equilibrium of a static system in general relativity is$$\\mathrm {T} \\left(- \\mathrm {g}_{0 0}\\right)^{\\frac {1}{2}} = \\text {c o n s t a n t}$$(where $\\mathbf{T}$ is the temperature measured by a local static observer) rather than the Newtonian relation $\\mathbf{T} = \\mathbf{constant}$ .## SolutionSolution 14.2. If a system is in thermal equilibrium, then no net energy![](images/56ae6dfa1bda01950cfca030e9030893277ae15542f7781bada7001c3d67c165.jpg)will flow between two locations A and B if they are allowed to exchange energy. In particular, imagine a \"light pipe\" between the two locations which transmits a thermal flux of photons. Since the pipe and the system are static, there is no change in a photon's energy when it reflects internally in the pipe. There is a change in energy between A and B due tothe gravitational redshift: $(\\mathrm{h}\\nu)_{\\mathrm{A}} / (\\mathrm{h}\\nu)_{\\mathrm{B}} = (-\\mathrm{g}_{00}^{\\mathrm{B}})^{\\frac{1}{2}} / (-\\mathrm{g}_{00}^{\\mathrm{A}})^{\\frac{1}{2}}$ . Now use the fact that a black-body intensity $\\mathbf{B}_{\\nu}(\\mathbf{T}_{\\mathbf{A}})$ at A is changed by any kind of redshift to precisely another black-body spectrum with a temperature $\\mathbf{T}_{\\mathbf{B}} = [(\\mathrm{h}\\nu)_{\\mathbf{B}} / (\\mathrm{h}\\nu)_{\\mathrm{A}}]\\mathbf{T}_{\\mathbf{A}}$ . If thermal equilibrium holds, this must be the ambient temperature at B, so that the fluxes up the pipe and down the pipe are identical. Thus $\\mathbf{T}_{\\mathbf{B}} = [(-\\mathrm{g}_{00}^{\\mathrm{A}})^{\\frac{1}{2}} / (-\\mathrm{g}_{00}^{\\mathrm{B}})^{\\frac{1}{2}}]\\mathbf{T}_{\\mathbf{A}}$ , and$$\\mathrm {T} (- \\mathrm {g}_{0 0})^{\\frac {1}{2}} = \\text {c o n s t a n t}$$throughout the system.",
+    "answer": "$T(-g_{00})^{1/2} = \\text{constant}$",
+    "solution": "If a system is in thermal equilibrium, then no net energy![](images/56ae6dfa1bda01950cfca030e9030893277ae15542f7781bada7001c3d67c165.jpg)will flow between two locations A and B if they are allowed to exchange energy. In particular, imagine a \"light pipe\" between the two locations which transmits a thermal flux of photons. Since the pipe and the system are static, there is no change in a photon's energy when it reflects internally in the pipe. There is a change in energy between A and B due tothe gravitational redshift: $(\\mathrm{h}\\nu)_{\\mathrm{A}} / (\\mathrm{h}\\nu)_{\\mathrm{B}} = (-\\mathrm{g}_{00}^{\\mathrm{B}})^{\\frac{1}{2}} / (-\\mathrm{g}_{00}^{\\mathrm{A}})^{\\frac{1}{2}}$ . Now use the fact that a black-body intensity $\\mathbf{B}_{\\nu}(\\mathbf{T}_{\\mathbf{A}})$ at A is changed by any kind of redshift to precisely another black-body spectrum with a temperature $\\mathbf{T}_{\\mathbf{B}} = [(\\mathrm{h}\\nu)_{\\mathbf{B}} / (\\mathrm{h}\\nu)_{\\mathrm{A}}]\\mathbf{T}_{\\mathbf{A}}$ . If thermal equilibrium holds, this must be the ambient temperature at B, so that the fluxes up the pipe and down the pipe are identical. Thus $\\mathbf{T}_{\\mathbf{B}} = [(-\\mathrm{g}_{00}^{\\mathrm{A}})^{\\frac{1}{2}} / (-\\mathrm{g}_{00}^{\\mathrm{B}})^{\\frac{1}{2}}]\\mathbf{T}_{\\mathbf{A}}$ , and$$\\mathrm {T} (- \\mathrm {g}_{0 0})^{\\frac {1}{2}} = \\text {c o n s t a n t}$$throughout the system."
+  },
+  "verification": null
+}

@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-6-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "Einstein tensor current",
+      "coordinate": "spherical",
+      "scenario": "cosmology verify",
+      "method": "tensor contraction verify",
+      "generalization_axis": "verify",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-6",
+      "1_s10_10.12-6-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "FLRW",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "推导过程校验"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Friedmann-Lemaître-Robertson-Walker (FLRW) 宇宙学模型中，时空度规为：$$ds^2 = -dt^2 + \\frac{a^{2}(t)}{1-kr^{2}} dr^{2} + r^{2} a^{2}(t) d\\theta^{2} + r^{2} a^{2}(t) \\sin^{2}\\theta d\\phi^{2}$$绕 $\\phi$ 轴旋转的 Killing 矢量为 $\\xi^\\mu = (0, 0, 0, 1)$。与该矢量相关的守恒流定义为 $J^\\alpha = G^\\alpha_\\beta \\xi^\\beta$。已知守恒流正确结论为 $J^0 = 0, J^1 = 0, J^2 = 0, J^3 = \\frac{-k - 2a(t)\\ddot{a}(t) - \\dot{a}^{2}(t)}{a^{2}(t)}$。以下是某同学给出的计算推导过程，请仔细阅读并找出其中所有错误，指出错误位置、类型并给出正确表达式：**推导过程：**1. 根据定义，守恒流为 $J^\\alpha = G^\\alpha_\\beta \\xi^\\beta$。由于 $\\xi^\\mu=(0,0,0,1)$，有 $J^\\alpha = G^\\alpha_3$。2. 展开混合指标张量：$J^\\alpha = g^{\\alpha\\mu} G_{\\mu 3}$。3. 对于 $\\alpha=0$，$J^0 = g^{00} G_{03}$。由于宇宙膨胀导致时间与径向存在耦合，因此 $G_{03} = r \\dot{a}(t)$，且 $g^{00} = -1$，故 $J^0 = -r \\dot{a}(t)$。4. 对于 $\\alpha=1, 2$，由于空间均匀性，$G_{13}=0, G_{23}=0$，因此 $J^1=0, J^2=0$。5. 对于 $\\alpha=3$，$J^3 = g^{33} G_{33}$。6. 根据度规，逆变度规分量 $g^{33} = \\frac{1}{r^{2} a^{2}(t)}$。7. 协变 Einstein 张量分量 $G_{33}$ 为 $G_{33} = r^{2} \\sin^{2}\\theta (-k + 2a(t)\\ddot{a}(t) - \\dot{a}^{2}(t))$。8. 将两者相乘：$J^3 = \\frac{1}{r^{2} a^{2}(t)} \\times r^{2} \\sin^{2}\\theta (-k + 2a(t)\\ddot{a}(t) - \\dot{a}^{2}(t)) = \\frac{\\sin^{2}\\theta (-k + 2a(t)\\ddot{a}(t) - \\dot{a}^{2}(t))}{a^{2}(t)}$。",
+    "answer": "错误1：位于步骤3。$G_{03}$ 的值错误，类型为物理事实错误。在 FLRW 度规中，由于各向同性与均匀性，Einstein张量不存在时空交叉项，$G_{03}=0$，而非 $r \\dot{a}(t)$。正确值为 $J^0 = 0$。错误2：位于步骤6。$g^{33}$ 的表达式错误，类型为度规分量遗漏错误。逆变度规分量应为 $g^{33} = \\frac{1}{r^{2} a^{2}(t) \\sin^{2}\\theta}$，漏掉了 $\\sin^{2}\\theta$ 因子。这一错误也导致步骤8的结果中守恒流出现了对 $\\theta$ 的依赖，违背了宇宙空间均匀性。错误3：位于步骤7。$G_{33}$ 的表达式错误，类型为符号错误。$2a(t)\\ddot{a}(t)$ 项的符号应为负号，正确表达式为 $G_{33} = r^{2} \\sin^{2}\\theta (-k - 2a(t)\\ddot{a}(t) - \\dot{a}^{2}(t))$。",
+    "solution": "守恒流定义为 $J^\\alpha = G^\\alpha_\\beta \\xi^\\beta$。已知 Killing 矢量 $\\xi^\\mu = (0, 0, 0, 1)$，因此 $J^\\alpha = G^\\alpha_3$。混合指标的 Einstein 张量可以通过逆变度规与协变 Einstein 张量缩并得到：$J^\\alpha = g^{\\alpha\\mu} G_{\\mu 3}$。对于 $\\alpha = 0, 1, 2$，由于 FLRW 度规的各向同性和均匀性，协变 Einstein 张量分量 $G_{03}=0, G_{13}=0, G_{23}=0$，因此：$J^0 = 0, J^1 = 0, J^2 = 0$。对于 $\\alpha = 3$，$J^3 = g^{33} G_{33}$。由度规可得逆变度规分量 $g^{33} = \\frac{1}{r^{2} a^{2}(t) \\sin^{2}\\theta}$。协变 Einstein 张量分量为：$G_{33} = r^{2} \\sin^{2}\\theta \\left( -k - 2a(t)\\ddot{a}(t) - \\dot{a}^{2}(t)\\right)$。将两者相乘，消去空间坐标 $r$ 和 $\\theta$：$J^3 = \\frac{1}{r^{2} a^{2}(t) \\sin^{2}\\theta} \\times r^{2} \\sin^{2}\\theta \\left( -k - 2a(t)\\ddot{a}(t) - \\dot{a}^{2}(t)\\right) = \\frac{-k - 2a(t)\\ddot{a}(t) - \\dot{a}^{2}(t)}{a^{2}(t)}$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 0.9,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

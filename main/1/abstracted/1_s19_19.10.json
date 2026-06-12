@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s19_19.10",
+    "type": "calculate",
+    "tags": {
+      "metric": "robertson-walker-metric",
+      "target_object": "luminosity-distance",
+      "coordinate": "comoving-spacetime-coordinates",
+      "scenario": "cosmological-observations",
+      "method": "small-redshift-expansion"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.10",
+    "source_id": "1_s19_19.10",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.10"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "通过尺度因子泰勒展开与零测地线积分串联红移与光度距离，逻辑链条完整且具标准宇宙学物理背景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$d_L$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.10. Suppose astronomers are able to find a family of objects whose absolute luminosities $L$ are known. Suppose their apparent luminosities $\\ell$ (or equivalently their luminosity distance $d_{L}$ ) and their redshift $z$ are measured. Using the Robertson-Walker line element, find an expression for $\\ell$ (or $d_{L}$ ) as a function of $L$ , $z$ , $H_{0}$ and $q_{0}$ for small $z$ .",
+    "answer": "$d_{L} = \\frac{1}{H_{0}} \\left[ z + \\frac{1}{2} (1 - q_{0}) z^{2} + \\dot s\\right]$",
+    "solution": "## SolutionSolution 19.10. From the solution to Problem 19.9 we have $\\mathsf{d}_{\\mathbf{L}} = \\mathsf{R}_0^2\\mathsf{r}_1 / \\mathsf{R}(\\mathsf{t}_1)$ where $\\mathbf{r}_1$ is the radial coordinate of the object and $\\mathsf{R}(\\mathsf{t}_1)$ is the scale factor at the time $\\mathbf{t}_1$ at which the light was emitted. Since $\\mathbf{H}_0 \\equiv \\dot{\\mathbf{R}} / \\mathbf{R}$ and $\\mathbf{q}_0 \\equiv -\\ddot{\\mathbf{R}}\\mathbf{R} / \\dot{\\mathbf{R}}^2$ , the first terms in the power series expansion of $\\mathbf{R}$ are$$\\mathrm {R} (t) = \\mathrm {R}_{0} \\left(1 + \\mathrm {H}_{0} \\left(t - t_{0}\\right) - \\frac {1}{2} \\mathrm {q}_{0} \\mathrm {H}_{0}^{2} \\left(t - t_{0}\\right)^{2} + \\dot s\\right). \\tag {1}$$We can eliminate the factor $\\mathbb{R}(t_1)$ from $d_L$ using $\\mathbb{R}_0 / \\mathbb{R}(t_1) = 1 + z$ , but we still need to find expressions for $\\mathbb{R}_0$ and for $r_1$ . Setting $ds^2 = 0$ to get the path of light rays in the Robertson-Walker metric gives$$\\int_{t_{1}}^{t_{0}} \\frac {\\mathrm {d} t}{R (t)} = \\int_{0}^{r_{1}} \\frac {\\mathrm {d} r}{(1 - \\mathrm {k r}^{2})^{\\frac {1}{2}}} \\tag {2}$$Integrating Equation (2) to the lowest 2 orders in $(t_0 - t_1)$ and $r_1$ by means of Equation (1) gives$$r_{1} = \\frac {1}{R_{0}} \\left[ \\left(t_{0} - t_{1}\\right) + \\frac {1}{2} H_{0} \\left(t_{0} - t_{1}\\right)^{2} + \\dot s\\right] \\tag {3}$$and inverting Equation (1) to get $t - t_0$ in terms of $1 + z = R_0 / R(t_1)$$$\\mathrm {g i v e s} \\quad \\mathrm {R}_{0} \\mathrm {r}_{1} = \\frac {1}{\\mathrm {H}_{0}} \\left[ z - \\frac {1}{2} (1 + \\mathrm {q}_{0}) z^{2} + \\dot s\\right]$$so that$$\\mathrm {d}_{\\mathbf {L}} = (1 + z) \\mathrm {R}_{0} \\mathrm {r}_{1} = \\frac {1}{\\mathrm {H}_{0}} \\left[ z + \\frac {1}{2} \\left(1 - \\mathrm {q}_{0}\\right) z^{2} + \\dot s\\right]$$or equivalently$$\\ell = \\frac {\\mathrm {L}}{4 \\pi \\mathrm {d}_{\\mathrm {L}}^{2}} = \\frac {\\mathrm {L H}_{0}^{2}}{4 \\pi z^{2}} [ 1 + (\\mathrm {q}_{0} - 1) z + \\dot s ].$$"
+  },
+  "verification": null
+}

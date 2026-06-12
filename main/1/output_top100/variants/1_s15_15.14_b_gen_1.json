@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s15_15.14_b-1",
+    "type": "calculate",
+    "tags": {
+      "target_object": "Schwarzschild_mass",
+      "coordinate": "spherical",
+      "scenario": "tidal_force_measurement",
+      "method": "invert_from_invariant",
+      "generalization_axis": "invert",
+      "metric": "schwarzschild_geometry"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.14_b",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s15_15.14_b",
+      "1_s15_15.14_b-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "schwarzschild_geometry",
+    "soft_variant": "invert",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$M$"
+    ],
+    "metric": [
+      [
+        "$-(1-2M/r)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2M/r)^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\\\sin^2 \\\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在一个静态球对称真空中，一个沿径向自由下落的宇航员在经过径向坐标 $r_0$ 时，通过测量两个沿径向相距极小距离 $\\Delta l$ 的测试质点间的相对加速度 $\\Delta a^{\\hat{r}}$，测得径向潮汐力梯度 $\\frac{\\Delta a^{\\hat{r}}}{\\Delta l} = \\alpha$。已知该时空的度规为 Schwarzschild 度规：\\n$$ ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2 $$\\n其中 $r_s = 2M$。已知 Riemann 张量的物理分量在径向洛伦兹变换（boost）下保持不变的性质，请利用此性质与测得的潮汐力梯度 $\\alpha$，反推该中心天体的 Schwarzschild 质量 $M$ 的表达式。",
+    "answer": "$M = \\frac{1}{2} \\alpha r_0^3$",
+    "solution": "1. 潮汐加速度的几何表达式为 $\\Delta a^{\\hat{i}} = -R^{\\hat{i}}_{\\hat{t}\\hat{j}\\hat{t}} \\Delta x^{\\hat{j}}$。由于两个测试质点仅沿径向分离，相对位移仅有径向分量 $\\Delta x^{\\hat{r}} = \\Delta l$，因此径向相对加速度为：\\n   $$ \\Delta a^{\\hat{r}} = -R^{\\hat{r}}_{\\hat{t}\\hat{r}\\hat{t}} \\Delta l $$\\n 潮汐力梯度为：\\n $$ \\frac{\\Delta a^{\\hat{r}}}{\\Delta l} = -R^{\\hat{r}}_{\\hat{t}\\hat{r}\\hat{t}} = R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}} $$\\n （利用符号约定 $(-,+,+,+)$ 下 $R^{\\hat{r}}_{\\hat{t}\\hat{r}\\hat{t}} = -R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}}$）\\n\\n2. 由于 Riemann 张量的物理分量在径向洛伦兹变换下保持不变，自由下落观察者的局部惯性系（相当于对静态局部惯性系作径向 boost）中测得的 $R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}}$ 与静态局部惯性系中测得的相同。\\n\\n3. 在静态局部洛伦兹系中，物理分量与坐标分量的关系为：\\n $$ R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}} = \\frac{R_{0101}}{(-g_{00}) g_{11}} $$\\n 代入度规分量 $g_{00} = -\\frac{r-r_s}{r}$、$g_{11} = \\frac{r}{r-r_s}$ 以及几何属性数据中的 $R_{0101} = \\frac{r_s}{r^2(r-r_s)}$，得：\\n $$ R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}} = \\frac{\\frac{r_s}{r^2(r-r_s)}}{\\frac{r-r_s}{r} \\cdot \\frac{r}{r-r_s}} = \\frac{r_s}{r^3} $$\\n 由于 $r_s = 2M$，因此：\\n $$ R_{\\hat{t}\\hat{r}\\hat{t}\\hat{r}} = \\frac{2M}{r^3} $$\\n\\n4. 结合物理测量值，在位置 $r_0$ 处有：\\n $$ \\alpha = \\frac{\\Delta a^{\\hat{r}}}{\\Delta l} = \\frac{2M}{r_0^3} $$\\n\\n5. 反推中心天体的 Schwarzschild 质量 $M$：\\n $$ M = \\frac{1}{2} \\alpha r_0^3 $$"
+  },
+  "verification": null
+}

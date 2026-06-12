@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s3_3.23",
+    "type": "prove",
+    "tags": {
+      "metric": "tensor_identity",
+      "target_object": "determinant_property",
+      "coordinate": "general_coordinate",
+      "scenario": "pseudo-riemannian",
+      "method": "transformation_proof"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.23",
+    "source_id": "1_s3_3.23",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.23"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.5,
+      "rationale": "利用勒维奇维塔张量反对称性与行列式定义结合，通过坐标变换证明标量性质，逻辑链条完整且具理论深度",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\alpha$",
+      "$\\beta$",
+      "$\\gamma$",
+      "$\\delta$"
+    ],
+    "target": [
+      "$\\varepsilon_{\\alpha \\beta \\gamma \\delta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s3_3.23.md]Problem 3.23. Show that for any tensor $\\mathbf{A}^{\\alpha}\\beta$$$\\varepsilon_{\\alpha \\beta \\gamma \\delta} \\mathbf {A}_{\\mu}^{\\alpha} \\mathbf {A}_{\\nu}^{\\beta} \\mathbf {A}_{\\lambda}^{\\gamma} \\mathbf {A}_{\\sigma}^{\\delta} = \\varepsilon_{\\mu \\nu \\lambda \\sigma} \\det \\| \\mathbf {A}_{\\beta}^{\\alpha} \\|$$where $\\| \\mathbf{A}^{\\alpha}\\boldsymbol {\\beta}\\|$ is the matrix of the components $\\mathbf{A}^{\\alpha}\\boldsymbol{\\beta}$ .## Solution",
+    "answer": "$$ \\varepsilon_{\\alpha \\beta \\gamma \\delta} \\mathbf {A}_{\\mu}^{\\alpha} \\mathbf {A}_{\\nu}^{\\beta} \\mathbf {A}_{\\lambda}^{\\gamma} \\mathbf {A}_{\\sigma}^{\\delta} = \\varepsilon_{\\mu \\nu \\lambda \\sigma} \\det \\left\\| \\mathbf {A}_{\\beta}^{\\alpha}\\right\\|. $$",
+    "solution": "Solution 3.23. In an orthonormal frame (with $\\mathbf{g}_{\\alpha \\beta} = \\eta_{\\alpha \\beta}$ ) it should be evident that the antisymmetric nature of $\\varepsilon$ is precisely what is needed to perform all of the operations in finding the determinant. That is,$$\\varepsilon_{\\alpha \\beta \\gamma \\delta} \\mathbf {A}_{0}^{\\alpha} \\mathbf {A}_{1}^{\\beta} \\mathbf {A}_{2}^{\\gamma} \\mathbf {A}_{3}^{\\delta} = \\det \\left\\| \\mathbf {A}_{\\beta}^{\\alpha}\\right\\|.$$Generalizing from the $(0,1,2,3)$ to arbitrary $(\\mu, \\nu, \\lambda, \\sigma)$ requires placing $\\varepsilon_{\\mu \\nu \\lambda \\sigma}$ on the right-hand side to account for the minus signs introduced by interchange of rows.To show that the result is true in all (not just orthonormal) frames, we need to show that it is a tensor equation. This is equivalent to showing that $\\det \\left\\| A_{\\beta}^{\\alpha} \\right\\|$ is a scalar:$$\\begin{array}{l} \\det \\left\\| \\mathbf {A}_{\\beta^{\\prime}}^{\\alpha^{\\prime}}\\right\\| = \\det \\left\\| \\mathbf {A}_{\\beta}^{\\alpha} \\frac {\\partial_{\\mathbf {x}}^{\\alpha^{\\prime}}}{\\partial_{\\mathbf {x}}^{\\alpha}} \\frac {\\partial_{\\mathbf {x}}^{\\beta}}{\\partial_{\\mathbf {x}}^{\\beta^{\\prime}}}\\right\\| \\\\ = \\det \\| A_{\\beta}^{\\alpha} \\| \\det \\left\\| \\frac {\\partial_{x} a^{\\prime}}{\\partial_{x} a}\\right\\| \\det \\left\\| \\frac {\\partial_{x} \\beta}{\\partial_{x} \\beta^{\\prime}}\\right\\| = \\det \\| A_{\\beta}^{\\alpha} \\| \\\\ \\end{array}$$[The last step follows from the fact that $\\partial_{\\mathbf{x}}^{a'} / \\partial_{\\mathbf{x}}^{a}$ and $\\partial_{\\mathbf{x}}^{a} / \\partial_{\\mathbf{x}}^{a'}$ are matrix inverses.]"
+  },
+  "verification": null
+}

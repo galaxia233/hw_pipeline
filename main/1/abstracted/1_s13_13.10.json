@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s13_13.10",
+    "type": "concept",
+    "tags": {
+      "metric": "metric_tensor",
+      "target_object": "einstein_tensor_components",
+      "coordinate": "Cauchy_hypersurface",
+      "scenario": "initial_value_problem",
+      "method": "constraint_evolution_splitting"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.10",
+    "source_id": "1_s13_13.10",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.10"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.6,
+      "rationale": "基于Bianchi恒等式严格分解约束与演化方程，结合高斯法坐标规范固定进行初始数据自由度计数，物理逻辑链条完整且揭示引力场本质结构",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$G^{0\\mu}$",
+      "$G^{ij}$",
+      "$g_{ij}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 13.10. At each point on an initial Cauchy hypersurface how many numbers must be specified, to determine uniquely the evolution of the metric field above that hypersurface. [Hint: First show that only spatial components of the Einstein tensor contain second time derivatives of the metric.]",
+    "answer": "4",
+    "solution": "Solution 13.10. From the Bianchi identities \\mathbf{G}_{; \\mu}^{\\nu \\mu} \\equiv 0 we have$$\\frac {\\partial}{\\partial \\mathbf {t}} \\mathbf {G}^{\\nu 0} \\equiv - \\mathbf {G}_{, \\mathbf {i}}^{\\nu \\mathbf {i}} - \\mathbf {G}^{\\sigma \\mu} \\boldsymbol {\\Gamma}_{\\sigma \\mu}^{\\nu} - \\mathbf {G}^{\\nu \\sigma} \\boldsymbol {\\Gamma}_{\\sigma \\mu}^{\\mu}.$$Terms on the right cannot involve third derivatives of the metric with respect to time, hence \\mathbf{G}^{\\nu 0} cannot contain second time derivatives. It follows then that the four equations \\mathbf{G}^{\\nu 0} = 8\\pi \\mathbf{T}^{\\nu 0} serve as initial value equations, i.e. constraints on the data on the Cauchy hypersurface, while \\mathbf{G}^{ij} = 8\\pi \\mathbf{T}^{ij} are the dynamical equations.An examination of the constraints on initial data is obscured by the arbitrariness in the metric associated with the arbitrariness in the coordinate system. To eliminate this confusion we can choose at the outset four constraints on the metric. A convenient choice is Gaussian normal coordinates: \\mathbf{g}_{00} = -1 and \\mathbf{g}_{0\\mathrm{i}} = 0 . We now appear to have six field variables \\mathbf{g}_{\\mathrm{ij}} , six dynamical equations \\mathbf{G}^{\\mathrm{ij}} = 8\\pi \\mathbf{T}^{\\mathrm{ij}} which we can solve for \\partial^2\\mathbf{g}_{\\mathrm{ij}} / \\partial t^2 , and four initial value equations \\mathbf{G}^{\\nu 0} = 8\\pi \\mathbf{T}^{\\nu 0} giving relations among the initial data \\mathbf{g}_{\\mathrm{ij}} and \\partial \\mathbf{g}_{\\mathrm{ij}} / \\partial t on the initial hypersurface.We can now differentiate the four initial value equations with respect to time and use the dynamical equations to eliminate terms of the form \\partial^2\\mathbf{g}_{\\mathrm{ij}} / \\partial t^2 . This generates four new relations among the initial value data. [These new relations must be independent of the original four because \\partial G^{\\nu 0} / \\partial t = 8\\pi \\partial T^{\\nu 0} / \\partial t , and we can specify \\partial T^{\\nu 0} / \\partial t independently of any previously considered constraints.]We have now eight constraints on the twelve initial value functions \\mathbf{g}_{ij} and \\partial \\mathbf{g}_{ij} / \\partial t . It follows that we can independently specify four initial value functions on the hypersurface.If we think of these four initial value functions as the values of two field variables and their time derivatives on the cauchy hypersurface, then we can picture the time evolution of the gravitational field as being described by the dynamics of these two fields. For this reason we usually speak of the gravitational field as having two dynamical degrees of freedom."
+  },
+  "verification": null
+}

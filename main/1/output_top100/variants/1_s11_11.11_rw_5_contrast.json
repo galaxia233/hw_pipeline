@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-3-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "Delta_Phi",
+      "coordinate": "spherical",
+      "scenario": "precession_contrast",
+      "method": "contrast_geodesic_precession",
+      "generalization_axis": "compare",
+      "metric": "Minkowski"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-3",
+      "1_s11_11.11-3-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Minkowski",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "Delta_Phi",
+      "physical_significance"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑沿半径为 $r$ 的赤道面圆形轨道运动的陀螺仪。已知在 Schwarzschild 度规 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$ （其中 $r_s = 2M$）下，圆形轨道角速度为 $\\omega = \\sqrt{M/r^3}$，测地进动角速度为 $\\Omega = \\frac{3M}{2r} \\omega$；在 Minkowski 度规 $ds^2 = -dt^2 + dx^2 + dy^2 + dz^2$ （球坐标下为 $ds^2 = -dt^2 + dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$）下。请分别推导这两种度规下陀螺仪每运行一周的测地进动累积角度 $\\Delta \\Phi$，对比两者的差异，并指出在 Schwarzschild 背景下使得 $\\Delta \\Phi = \\pi/2$ 的轨道半径 $r$ 在类时圆形轨道稳定性中的物理意义。",
+    "answer": "在 Schwarzschild 度规下，每轨道的测地进动角为 $\\Delta \\Phi_{Sch} = 2\\pi \\frac{\\Omega}{\\omega} = \\frac{3\\pi M}{r}$；在 Minkowski 度规下，时空平直（Riemann 曲率处处为零），沿测地线（惯性直线运动）平行传输的自旋矢量不发生偏转，测地进动角 $\\Delta \\Phi_{Min} = 0$。两者差异源于时空曲率的存在：Schwarzschild 时空的引力曲率导致自由下落（测地线）陀螺仪的自旋方向相对远处固定参考系发生进动，而平直时空无此效应。令 Schwarzschild 时空中的 $\\Delta \\Phi_{Sch} = \\pi/2$，可得 $\\frac{3\\pi M}{r} = \\frac{\\pi}{2}$，解得 $r = 6M$。此半径正是 Schwarzschild 黑洞的最内稳定圆形轨道 (ISCO) 半径，是稳定与不稳定类时圆形轨道的临界分界点。",
+    "solution": "Schwarzschild 背景：每轨道进动角为轨道进动角速度与轨道角速度的比值乘以一周的角度，即 $\\Delta \\Phi_{Sch} = 2\\pi (\\Omega/\\omega) = 2\\pi (3M/2r) = 3\\pi M/r$。Minkowski 背景：度规平直，不存在引力导致的测地效应，自旋矢量平行传输不变，$\\Delta \\Phi_{Min}=0$。对比可知差异完全由时空曲率（非零 Riemann 张量）引起。令 $3\\pi M/r = \\pi/2$，解出 $r=6M$，对应最内稳定圆形轨道 (ISCO) 半径。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.minkowski_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目要求推导在 Minkowski 度规下'沿半径为 r 的赤道面圆形轨道运动的陀螺仪'每运行一周的测地进动 ΔΦ_Min，但 answer 中给出的推导前提是'沿测地线（惯性直线运动）平行传输的自旋矢量不发生偏转'，从而得出 ΔΦ_Min = 0。这是严重的物理概念错误与答非所问：在 Minkowski 平直时空中，圆形轨道不是测地线（陀螺仪必然受非引力外力加速才能做圆周运动），不存在'圆形轨道的测地进动'这一概念。如果陀螺仪被强制在平直时空沿圆形轨道运动，其自旋相对于局部参考系会发生托马斯进动（Thomas precession，每圈进动角为 2π(1-1/γ)，不为零）；若强行在圆周上做平行传输，自旋矢量相对局部费米-沃克传输参考系也会产生进动。Answer 将题设的'圆形轨道'偷换为'直线测地线'来强行得出0的结果，与题目设定的物理场景自相矛盾。另外，度规摘要中称 Minkowski 度规 Killing 瞥量只有4个，这也是事实性错误（平直时空应有10个Killing瞥量：4个平移、3个旋转、3个增广），虽未直接影响解题，但反映了底层摘要的不严谨。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

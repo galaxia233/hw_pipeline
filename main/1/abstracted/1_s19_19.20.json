@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s19_19.20",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "spatial_coordinate_chi",
+      "scenario": "cosmological_scenario",
+      "method": "conformal_time_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.20",
+    "source_id": "1_s19_19.20",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.20"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.7,
+      "rationale": "基于封闭FRW度规与共形时间变换的光子测地线推导，逻辑链条完整且具标准宇宙学物理背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\eta$",
+      "$t$",
+      "$\\mathbb{R}$",
+      "$\\chi$",
+      "$r$"
+    ],
+    "target": [
+      "$\\Delta \\chi$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.20. For a closed $(k = 1)$ Friedmann universe in which radiation dominates for only a negligibly short fraction of the life of the universe, how many times can a photon encircle the universe from the moment of the creation of the universe to the moment of its death?## SolutionSolution 19.20. Measuring time in terms of development angle $\\eta$ defined by $\\mathrm {d}\\eta = \\mathrm {d}t / \\mathbb {R}(t)$ , the Friedmann metric for a radial $(\\mathrm {d}\\theta = \\mathrm {d}\\phi = 0)$ photon becomes$$0 = \\mathrm {d} s^{2} = \\mathbb {R}^{2} (\\eta) (- \\mathrm {d} \\eta^{2} + \\mathrm {d} \\chi^{2})$$where $\\mathrm{d}\\chi^2 = \\mathrm{d}\\mathbf{r}^2 /(1 - \\mathbf{r}^2)$ is the \"trigonometric\" radial coordinate on the 3-sphere (see Problem 19.5). From Problem 19.18 we see that the universe lives an interval $\\Delta \\eta = 2\\pi$ (time between two zeros of $\\mathbb {R}$ ), so in this time a photon can propagate $\\Delta \\chi = 2\\pi$ , i.e. exactly once around the universe.",
+    "answer": "1",
+    "solution": "Measuring time in terms of development angle $\\eta$ defined by $\\mathrm {d}\\eta = \\mathrm {d}t / \\mathbb {R}(t)$ , the Friedmann metric for a radial $(\\mathrm {d}\\theta = \\mathrm {d}\\phi = 0)$ photon becomes$$0 = \\mathrm {d} s^{2} = \\mathbb {R}^{2} (\\eta) (- \\mathrm {d} \\eta^{2} + \\mathrm {d} \\chi^{2})$$where $\\mathrm{d}\\chi^2 = \\mathrm{d}\\mathbf{r}^2 /(1 - \\mathbf{r}^2)$ is the \"trigonometric\" radial coordinate on the 3-sphere (see Problem 19.5). From Problem 19.18 we see that the universe lives an interval $\\Delta \\eta = 2\\pi$ (time between two zeros of $\\mathbb {R}$ ), so in this time a photon can propagate $\\Delta \\chi = 2\\pi$ , i.e. exactly once around the universe."
+  },
+  "verification": null
+}

@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "id": "1_s6_6.8",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "velocity_space",
+      "coordinate": "rapidity",
+      "scenario": "spherical_coordinates",
+      "method": "special_relativity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s6_6.8",
+    "source_id": "1_s6_6.8",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s6_6.8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "速度空间度规推导+快度参数替换+相对论运动学背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$v$",
+      "$\\\\theta$",
+      "$\\\\phi$",
+      "$\\\\chi$"
+    ],
+    "target": [
+      "$g_{\\\\chi\\\\chi}$",
+      "$g_{\\\\theta\\\\theta}$",
+      "$g_{\\\\phi\\\\phi}$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$\\\\sin h^2\\\\chi$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$\\\\sin h^2\\\\chi\\\\sin^2\\\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 6.8. One can put a metric on the velocity space of a particle by defining the distance between two nearby velocities as their relative velocity. Show that the metric can be written in the form\\n$$\\n\\\\mathrm {d s}^{2} = \\\\mathrm {d} \\\\chi^{2} + \\\\sin h^{2} \\\\chi (\\\\mathrm {d} \\\\theta^{2} + \\\\sin^{2} \\\\theta \\\\mathrm {d} \\\\phi^{2}).\\n$$\\nwhere the magnitude of the velocity is $\\mathbf{v} = \\\\tan h \\\\chi$ .",
+    "answer": "$\\\\mathrm {d} s^{2} = \\\\mathrm {d} \\\\chi^{2} + \\\\sin h^{2} \\\\chi (\\\\mathrm {d} \\\\theta^{2} + \\\\sin^{2} \\\\theta \\\\mathrm {d} \\\\phi^{2})$",
+    "solution": "The relative velocity $\\mathrm{ds}$ between two velocities $\\underline{\\mathbf{v}}$ and $\\underline{\\mathbf{v}} + \\mathrm{dy}$ is (by Problem 1.3) given by\\n$$\\nd s^{2} = \\\\frac {(d v)^{2} - (v \\\\times d v)^{2}}{(1 - v^{2})^{2}},\\n$$\\nand\\n$$\\n\\\\left(\\underline {{v}} \\\\times d \\\\underline {{v}}\\\\right)^{2} = v^{2} \\\\left(d \\\\underline {{v}}\\\\right)^{2} - \\\\left(\\underline {{v}} \\\\cdot d \\\\underline {{v}}\\\\right)^{2}.\\n$$\\nLet $\\theta$ and $\\phi$ be polar and azimuthal angles about the direction of $\\underline{\\mathbf{v}}$ (i.e. $\\mathbf{v}_{\\mathbf{z}} = \\mathbf{v}\\cos \\theta, \\mathbf{v}_{\\mathbf{x}} = \\mathbf{v}\\sin \\theta\\cos \\phi, \\mathbf{v}_{\\mathbf{y}} = \\mathbf{v}\\sin \\theta\\sin \\phi$ ). Then\\n$$\\n\\\\begin{array}{l}\\n\\\\left(\\\\mathrm {d} \\\\underline {{v}}\\\\right)^{2} = (\\\\mathrm {d} v)^{2} + v^{2} \\\\left(\\\\mathrm {d} \\\\theta^{2} + \\\\sin^{2} \\\\theta \\\\mathrm {d} \\\\phi^{2}\\\\right) \\\\\\\\\\n\\\\underline {{\\\\mathbf {v}}} \\\\cdot d \\\\underline {\\\\mathbf {v}} = \\\\frac {1}{2} d (\\\\underline {\\\\mathbf {v}} \\\\cdot \\\\underline {\\\\mathbf {v}}) = v d \\\\mathbf {v} \\\\\\\\\\n\\\\end{array}\\n$$\\nso\\n$$\\n\\\\mathrm {d s}^{2} = \\\\frac {\\\\mathrm {d v}^{2}}{\\\\left(1 - \\\\mathrm {v}^{2}\\\\right)^{2}} + \\\\frac {\\\\mathrm {v}^{2}}{1 - \\\\mathrm {v}^{2}} \\\\left(\\\\mathrm {d} \\\\theta^{2} + \\\\sin^{2} \\\\theta \\\\mathrm {d} \\\\phi^{2}\\\\right).\\n$$\\nIntroduce the \"rapidity parameter\" $\\mathbf{v} = \\\\tan h \\\\chi$ . Then\\n$$\\n\\\\mathrm {d} \\\\mathbf {s}^{2} = \\\\mathrm {d} \\\\chi^{2} + \\\\sin h^{2} \\\\chi (\\\\mathrm {d} \\\\theta^{2} + \\\\sin^{2} \\\\theta \\\\mathrm {d} \\\\phi^{2}).\\n$$\\nNote that for small $\\mathbf{v}$ , $\\sin h \\\\chi \\\\sim \\\\chi \\\\sim \\\\mathbf{v}$ and velocity space is flat, as we expect it to be in the Newtonian limit."
+  },
+  "verification": null
+}

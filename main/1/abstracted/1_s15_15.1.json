@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s15_15.1",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "geodesic",
+      "coordinate": "symmetry",
+      "scenario": "angular_momentum",
+      "method": "conservation_law"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s15_15.1",
+    "source_id": "1_s15_15.1",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s15_15.1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "利用球对称性与Killing矢量不变量构造，逻辑链条完整且具有天体运动背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$\\mathbf{L}^2$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 15.1. Prove that the total angular momentum squared\\n$$\\n\\mathbf {L}^{2} = \\mathbf {p}_{\\theta}^{2} + \\sin^{- 2} \\theta \\mathbf {p}_{\\phi}^{2}\\n$$\\nis a constant of motion along any Schwarzschild geodesic.",
+    "answer": "Thus $\\mathbf{L}^2$ is a constant of motion in general, q.e.d.",
+    "solution": "Solution 15.1. When the particle moves in the equatorial plane, we have $L^2 = p_\\phi^2$ , which is obviously a conserved constant since $p_\\phi$ itself is. ( $\\pmb{\\xi} = \\partial/\\partial \\pmb{\\phi}$ is a Killing vector so $\\pmb{\\xi} \\cdot \\mathbf{p}$ is conserved; see Problem 10.10.) But by spherical symmetry the motion is always in the equatorial plane of some rotated coordinate system. If we could write this $p_\\phi^2$ as an invariant quantity (under rotations) and then evaluated the invariant in the original system, we would be done.\\nAt some instant when the particle is at radius $r$ the covariant 4-velocity $\\tilde{\\mathbf{p}}$ has components $(\\mathfrak{p}_t, \\mathfrak{p}_r, \\mathfrak{p}_\\theta, \\mathfrak{p}_\\phi)$ . Consider the \"reduced\" 4-velocity $\\tilde{\\mathbf{p}}_a^{\\text{red}} = (0, 0, \\mathfrak{r}\\mathfrak{p}_\\theta, \\mathfrak{r}\\mathfrak{p}_\\phi)$ whose construction from $\\tilde{\\mathbf{p}}_a$ (e.g. by projection) is independent of $\\theta$ and $\\phi$ . Now when the motion is equatorial $\\mathfrak{p}_\\theta = 0$ and $\\theta = \\pi/2$ we have\\n$$\\nL^{2} = g^{\\alpha \\beta} \\tilde {p}_{\\alpha}^{\\text {r e d}} \\tilde {p}_{\\beta}^{\\text {r e d}} = g^{\\phi \\phi} r^{2} p_{\\phi}^{2} = p_{\\phi}^{2} = \\text {c o n s e r v e d}.\\n$$\\nBut in general\\n$$\\n\\mathbf {L}^{2} = \\mathbf {g}^{\\theta \\theta} \\mathbf {r}^{2} \\mathbf {p}_{\\theta}^{2} + \\mathbf {g}^{\\phi \\phi} \\mathbf {r}^{2} \\mathbf {p}_{\\phi}^{2} = \\mathbf {p}_{\\theta}^{2} + \\frac {\\mathbf {p}_{\\phi}^{2}}{\\sin^{2} \\theta}.\\n$$\\nSo this must be conserved in general, q.e.d."
+  },
+  "verification": null
+}

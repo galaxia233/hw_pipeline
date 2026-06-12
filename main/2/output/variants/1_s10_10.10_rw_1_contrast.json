@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-2-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "Killing equation and covariant derivative",
+      "coordinate": "general vs Schwarzschild",
+      "scenario": "contrast theoretical derivation with specific computation",
+      "method": "tensor contraction vs Christoffel symbol calculation",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-2",
+      "1_s10_10.10-2-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\mathbf{x}^{\\\\mu}$",
+      "$\\\\mathbf{u}^{\\\\alpha}$",
+      "$\\\\boldsymbol{\\\\xi}_{\\\\alpha}$"
+    ],
+    "target": [
+      "一般度规下Killing方程推导",
+      "Schwarzschild度规下Christoffel符号抵消机制"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，Killing 矢量场 $\\pmb{\\xi}$ 沿测地线的切矢量 $\\mathbf{u}$ 的内积 $\\pmb{\\xi} \\cdot \\mathbf{u}$ 为常数，构成了时空守恒量的基础。请在两种背景下分别推导并对比：背景一：一般度规时空，度规为 $g_{\\mu\\nu}$，测地线切矢量满足 $u^\\nu \\nabla_\\nu u^\\mu = 0$。请从“对于任意测地线，内积 $\\xi_\\mu u^\\mu$ 沿测地线为常数”这一条件出发，反推证明 $\\pmb{\\xi}$ 必然满足 Killing 方程 $\\nabla_\\alpha \\xi_\\beta + \\nabla_\\beta \\xi_\\alpha = 0$。背景二：Schwarzschild 度规时空，线元为 $ds^2 = -(1-r_s/r)dt^2 + (1-r_s/r)^{-1}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其时间平移 Killing 矢量为 $\\xi^\\mu_{(t)} = (1,0,0,0)$，主要非零第二类 Christoffel 符号为 $\\Gamma^0_{01}=\\Gamma^0_{10}=\\frac{r_s}{2r(r-r_s)}$ 等。请通过计算协变导数的对称组合 $\\nabla_\\alpha \\xi_{(t)\\beta} + \\nabla_\\beta \\xi_{(t)\\alpha}$ 验证该矢量满足 Killing 方程。对比要求：对比一般度规下的理论推导逻辑与 Schwarzschild 度规下计算中偏导数项与 Christoffel 符号项相互抵消的过程，并解释这种抵消在物理上如何反映了静态弯曲时空中时间平移对称性的维持。",
+    "answer": "**一般度规下的推导**：设测地线切矢量为 $u^\\mu$，满足 $u^\\nu \\nabla_\\nu u^\\mu = 0$。对内积 $\\xi_\\mu u^\\mu$ 沿测地线求导：$u^\\nu \\nabla_\\nu (\\xi_\\mu u^\\mu) = u^\\nu u^\\mu \\nabla_\\nu \\xi_\\mu + \\xi_\\mu u^\\nu \\nabla_\\nu u^\\mu = u^\\nu u^\\mu \\nabla_\\nu \\xi_\\mu$。由题设内积为常数，得 $u^\\nu u^\\mu \\nabla_\\nu \\xi_\\mu = 0$。将 $\\nabla_\\nu \\xi_\\mu$ 分解为对称与反对称部分，由于反对称部分与对称张量 $u^\\nu u^\\mu$ 缩并恒为零，故对称部分缩并必为零：$u^\\nu u^\\mu (\\nabla_\\nu \\xi_\\mu + \\nabla_\\mu \\xi_\\nu) = 0$。选取任意局部类时或类空方向作为 $u^\\mu$，可得对称张量各分量均为零，即 $\\nabla_\\alpha \\xi_\\beta + \\nabla_\\beta \\xi_\\alpha = 0$。**Schwarzschild 度规下的验证**：对于 $\\xi^\\mu_{(t)} = (1,0,0,0)$，其协变分量 $\\xi_{(t)0} = -(1-r_s/r)$，$\\xi_{(t)i} = 0$。计算 $\\nabla_\\alpha \\xi_\\beta + \\nabla_\\beta \\xi_\\alpha$：非零项仅在 $\\alpha=0, \\beta=1$（及对称的 $\\alpha=1, \\beta=0$）处出现：$\\nabla_1 \\xi_0 = \\partial_1 \\xi_0 - \\Gamma^0_{10} \\xi_0 = -r_s/r^2 - \\frac{r_s}{2r(r-r_s)}(-(1-r_s/r)) = -r_s/2r^2$$\\nabla_0 \\xi_1 = \\partial_0 \\xi_1 - \\Gamma^0_{01} \\xi_0 = 0 - \\frac{r_s}{2r(r-r_s)}(-(1-r_s/r)) = r_s/2r^2$两项相加：$\\nabla_1 \\xi_0 + \\nabla_0 \\xi_1 = 0$。其余所有组合的偏导数与 Christoffel 符号均为零。故 Killing 方程成立。**对比与物理意义**：一般度规的理论推导纯粹基于张量代数的普适逻辑（对称与反对称部分的缩并性质），不涉及具体度规的曲率特征；而在 Schwarzschild 度规的具体计算中，Killing 方程的成立依赖于非零偏导数项与 Christoffel 符号项的精确抵消。偏导数项 $\\partial_r \\xi_0$ 反映了引力势随径向坐标的空间梯度（度规随 $r$ 变化），Christoffel 符号项 $-\\Gamma^0_{10} \\xi_0$ 则反映了时空基矢随径向的扭曲。两者的完美抵消在物理上表明：尽管静态球对称时空的度规随距离变化（引力场不均匀），但这种几何变化被联络结构完全补偿，使得时间平移的局部对称性在弯曲时空中依然得以维持，进而保证了全局的能量守恒。",
+    "solution": null
+  },
+  "verification": null
+}

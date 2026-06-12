@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s17_17.7",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "conserved_quantities",
+      "coordinate": "equatorial_plane",
+      "scenario": "kerr_black_hole",
+      "method": "effective_potential"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.7",
+    "source_id": "1_s17_17.7",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "有效势稳定性分析结合隐函数定理推导极值条件，具有明确的ISCO天体物理背景",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$E$",
+      "$L$"
+    ],
+    "target": [
+      "$E$",
+      "$L$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 17.7. For circular orbits in the equatorial plane of a Kerr black hole, prove that the marginally stable orbit has minimum energy E and minimum angular momentum L.",
+    "answer": "At the marginally stable orbit, $\\frac{dE}{dr} = 0$ and $\\frac{dL}{dr} = 0$, corresponding to minimum energy and minimum angular momentum.",
+    "solution": "Solution 17.7. Since we have three relations for the components of the 4-momentum $(\\mathbf{p} \\cdot \\mathbf{p} = -\\mathbf{m}^2, \\mathbf{p}_t = \\mathbf{E}, \\mathbf{p}_\\phi = \\mathbf{L})$ the orbital equations can be reduced to the form$$\\left(\\mathrm {d} \\mathbf {r} / \\mathrm {d} \\lambda\\right)^{2} = \\mathrm {V} (\\mathrm {E}, \\mathrm {L}, \\mathrm {r})$$where $\\lambda$ is an affine parameter and $V$ is some effective potential. The condition for a circular orbit is that $\\mathrm{dr} / \\mathrm{d}\\lambda$ remain zero, i.e.$$V (E, L, r) = 0 \\tag {1}$$$$\\mathrm {V}^{\\prime} (\\mathrm {E}, \\mathrm {L}, \\mathrm {r}) = 0 \\tag {2}$$where $\\mathbf{V}' \\equiv \\partial \\mathbf {V} / \\partial \\mathbf {r}$ . By the implicit function theorem, Equations (1) and (2) can be solved for$$\\mathbf {E} = \\mathbf {E} (\\mathbf {r}), \\quad \\mathbf {L} = \\mathbf {L} (\\mathbf {r})$$provided$$\\left| \\begin{array}{l l} \\frac {\\partial \\mathrm {V}}{\\partial \\mathrm {E}} & \\frac {\\partial \\mathrm {V}}{\\partial \\mathrm {L}} \\\\\\frac {\\partial \\mathrm {V}^{\\prime}}{\\partial \\mathrm {E}} & \\frac {\\partial \\mathrm {V}^{\\prime}}{\\partial \\mathrm {L}} \\end{array}\\right| \\neq 0. \\tag {3}$$(This condition is in fact satisfied.) Then $\\mathrm{dE} / \\mathrm{dr}$ and $\\mathrm{dL} / \\mathrm{dr}$ can be found by differentiating Equations (1) and (2):$$0 = \\frac {\\mathrm {d} V}{\\mathrm {d r}} = \\frac {\\partial V}{\\partial E} \\frac {\\mathrm {d} E}{\\mathrm {d r}} + \\frac {\\partial V}{\\partial L} \\frac {\\mathrm {d} L}{\\mathrm {d r}} + V^{\\prime} \\tag {4}$$$$0 = \\frac {\\mathrm {d} V^{\\prime}}{\\mathrm {d r}} = \\frac {\\partial V^{\\prime}}{\\partial \\mathrm {E}} \\frac {\\mathrm {d E}}{\\mathrm {d r}} + \\frac {\\partial V^{\\prime}}{\\partial \\mathrm {L}} \\frac {\\partial \\mathrm {L}}{\\partial \\mathrm {r}} + V^{\\prime \\prime}. \\tag {5}$$Now consider an orbit at $\\mathbf{r} = \\mathbf{r}_0$ perturbed to $\\mathbf{r} = \\mathbf{r}_0 + \\epsilon$ . The perturbed orbit equation is$$(\\mathrm {d r} / \\mathrm {d} \\lambda)^{2} = \\mathrm {V} (\\mathbf {r}_{0}) + \\epsilon \\mathrm {V}^{\\prime} (\\mathbf {r}_{0}) + \\frac {1}{2} \\epsilon^{2} \\mathrm {V}^{\\prime \\prime} (\\mathbf {r}_{0}) + \\dot s$$where $\\mathbf{V}(\\mathbf{r}_0) = 0$ and $\\mathbf{V}'(\\mathbf{r}_0) = 0$ (condition for unperturbed circular orbit). The $\\mathbf{V}''$ term then governs stability and $\\mathbf{V}''$ must be negative if the orbit is stable. For a marginally stable orbit we have $\\mathbf{V}'' = 0$ in addition to $\\mathbf{V} = 0$ and $\\mathbf{V}' = 0$ , so the only solution to Equations (4) and (5) is $\\mathrm{dE} / \\mathrm{d}\\mathbf{r} = 0$ and $\\mathrm{dL} / \\mathrm{d}\\mathbf{r} = 0$ . It is physically clear that these extrema are minima."
+  },
+  "verification": null
+}

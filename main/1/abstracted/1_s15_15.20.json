@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s15_15.20",
+    "type": "prove",
+    "tags": {
+      "metric": "general-relativity",
+      "target_object": "brans-dicke-theory",
+      "coordinate": "vacuum-solution",
+      "scenario": "alternative-gravity",
+      "method": "spherical-symmetry"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s15_15.20",
+    "source_id": "1_s15_15.20",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s15_15.20"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "BD理论真空极限推导+标量场常数解+回归爱因斯坦场方程+完整逻辑链",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\Phi$"
+    ],
+    "target": [
+      "$G^{\\mu\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "15.20. Show that the Schwarzschild metric is also a solution of the Brans-Dicke theory of gravity. (For the Brans-Dicke field equations, see e.g. MTW p. 1070.)",
+    "answer": "The Schwarzschild metric is a solution of the vacuum Brans-Dicke equations.",
+    "solution": "Solution 15.20. The Brans-Dicke field equations can be put into the form$$\\mathrm {G}^{\\mu \\nu} + \\mathrm {F}^{\\mu \\nu} \\left(\\Phi_{; \\alpha}, \\Phi_{; \\alpha} \\beta\\right) = \\mathrm {T}^{\\mu \\nu}, \\tag {1a}$$$$\\square \\Phi = T_{\\mu}^{\\mu} \\tag {1b}$$where every term of $\\mathbf{F}^{\\mu \\nu}$ is proportional to derivatives of the scalar field $\\Phi$ . In vacuum, a solution of Equation (1b) is$$\\Phi = \\text {c o n s t a n t}. \\tag {2}$$Substituting Equation (2) into (1a), one obtains$$\\mathbf {G}^{\\mu \\nu} = 0,$$which are the vacuum Einstein equation. Consequently, the Schwarzschild metric is a solution of the vacuum Brans-Dicke equations. (The most general static, spherically symmetric vacuum metric in Brans-Dicke theory has two arbitrary parameters corresponding to mass and scalar charge. A spherical black hole has zero scalar charge and is the Schwarzschild solution.)"
+  },
+  "verification": null
+}

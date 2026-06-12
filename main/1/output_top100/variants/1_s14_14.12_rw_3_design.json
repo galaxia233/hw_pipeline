@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-0-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "恢复力项的数值验证",
+      "coordinate": "局部加速参考系",
+      "scenario": "design_simulation_acceleration_restoring_force",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "local_noninertial_frame"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-0",
+      "1_s14_14.12-0-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "local_noninertial_frame",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^j$",
+      "$v^j$",
+      "$\\\\omega^m$",
+      "$a_j$",
+      "$\\\\Gamma^\\\\alpha_{\\\\beta\\\\gamma}$",
+      "$R^j_{0k0}$"
+    ],
+    "target": [
+      "设计数值模拟方案验证恢复力项 $-a^j a^k \\delta x^k$ 的存在及其对平衡稳定性的影响"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，对于处于引力场中且具有恒定平移加速度 $\\mathbf{a}$（无旋转，$\\boldsymbol{\\omega}=0$）的局部参考系，其内部低速粒子的相对运动方程为：$$ \\frac{d v^j}{d t} = - a^j (1 + \\mathbf{a} \\cdot \\mathbf{x}) - R^j_{0k0} x^k $$核心结论指出：相比于自由下落参考系（$\\mathbf{a}=0$），恒定加速度 $\\mathbf{a} \\neq 0$ 为系统引入了一个与偏移量成正比的恢复力项 $-a^j a^k \\delta x^k$，使得粒子在平衡点附近的扰动受到一个趋向平衡点的线性恢复力。请设计一个数值模拟实验方案，从零验证该恢复力项的存在及其对平衡稳定性的影响。方案需包含：1) 模拟的初始参数设定（包括对比组设置）；2) 需要数值追踪与计算的物理量；3) 如何从模拟数据中提取并验证恢复力项 $-a^j a^k \\delta x^k$；4) 预期的轨迹动力学特征对比。",
+    "answer": "1. **参数设定**：设定局部非惯性参考系，给定常数加速度 $a^1=a, a^2=a^3=0$；设定背景曲率分量（如 $R^1_{010}=-C, R^2_{020}=R^3_{030}=C$）。对比组为自由下落参考系 $a=0$，曲率分量相同。2. **初始条件**：设置粒子初始处于平衡点附近的微小偏移 $\\delta x^1 = \\Delta, \\delta x^2 = \\delta x^3 = 0$，初始相对速度 $v^j=0$。3. **数值追踪与计算**：使用ODE求解器数值求解相对运动方程。记录各时刻粒子的位置偏移 $\\delta x^k(t)$、相对速度 $v^j(t)$和相对加速度 $\\frac{d v^j}{d t}$。4. **提取与验证恢复力项**：提取 $t=0$ 时刻的相对加速度变化量 $\\delta \\left(\\frac{d v^j}{d t}\\right)$ 与偏移量 $\\delta x^k$ 的关系。对于 $\\mathbf{a} \\neq 0$ 组，计算力矩阵 $\\frac{\\delta (dv^j/dt)}{\\delta x^k}$，验证其除了包含曲率项 $-R^j_{0k0}$ 外，是否额外包含了贡献 $-a^j a^k$，从而拟合出恢复力项 $-a^j a^k \\delta x^k$。5. **预期动力学特征**：在 $\\mathbf{a} \\neq 0$ 组中，由于恢复力项的存在，粒子在 $x^1$ 方向将在平衡点附近发生束缚振荡；而在 $\\mathbf{a}=0$ 组中，仅受潮汐力作用，若曲率分量符号导致排斥，粒子可能呈指数发散，证明加速度带来的恢复力改变了系统的稳定性。",
+    "solution": "方案合理性论证：通过对比模拟 $\\mathbf{a}=0$ 与 $\\mathbf{a} \\neq 0$ 的轨迹，能够直观剥离出加速度 $\\mathbf{a}$ 对动力学的额外贡献。通过数值微分获取力矩阵 $\\partial F^j/\\partial x^k$，可以直接验证理论推导出的矩阵结构 $-a^j a^k - R^j_{0k0}$，从而将抽象的恢复力项具象化为数值矩阵的对角/非对角贡献。预期轨迹的振荡特征进一步定性验证了恢复力的稳定性作用。"
+  },
+  "verification": null
+}

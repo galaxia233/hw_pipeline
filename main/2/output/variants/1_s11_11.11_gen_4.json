@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-4",
+    "type": "prove",
+    "tags": {
+      "target_object": [
+        "$\\Lambda_c$",
+        "$a_c$"
+      ],
+      "coordinate": [
+        "t",
+        "r",
+        "\\theta",
+        "\\phi"
+      ],
+      "scenario": "cosmology",
+      "method": "field_equations",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\Lambda_c$",
+      "$a_c$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Consider a closed FLRW universe with curvature parameter $k=1$. The line element is given by:$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + a^2(t)r^2 d\\theta^2 + a^2(t)r^2\\sin^2\\theta d\\phi^2$$The universe contains pressureless dust with mass density $\\rho_m$ and a cosmological constant $\\Lambda$. The cosmological constant can be modeled as a perfect fluid with energy density $\\rho_\\Lambda = \\frac{\\Lambda}{8\\pi}$ and pressure $p_\\Lambda = -\\frac{\\Lambda}{8\\pi}$. Thus, the total energy density and pressure are $\\rho = \\rho_m + \\frac{\\Lambda}{8\\pi}$ and $p = -\\frac{\\Lambda}{8\\pi}$, respectively.Using the Einstein tensor components derived from this metric and the Einstein field equations $G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$, determine the critical value of the cosmological constant $\\Lambda_c$ and the corresponding equilibrium scale factor $a_c$ that allow the universe to exist in a static state (the Einstein static universe), where the expansion rate and acceleration are both zero ($\\dot{a}=0$ and $\\ddot{a}=0$). Express your answers in terms of $\\rho_m$.",
+    "answer": "$\\Lambda_c = 4\\pi\\rho_m$, $a_c = \\frac{1}{\\sqrt{4\\pi\\rho_m}}$",
+    "solution": "1. The relevant Einstein tensor components from the geometric data are:$$G_{00} = \\frac{3(k + \\dot{a}^2)}{a^2}$$$$G_{11} = \\frac{k + 2a\\ddot{a} + \\dot{a}^2}{kr^2 - 1}$$2. The energy-momentum tensor for the combined perfect fluid is:$$T_{00} = \\rho = \\rho_m + \\frac{\\Lambda}{8\\pi}$$$$T_{11} = p g_{11} = -\\frac{\\Lambda}{8\\pi} \\frac{a^2}{1-kr^2} = \\frac{\\Lambda a^2}{kr^2-1}$$3. Substituting into the Einstein field equations $G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$:From $G_{00} = 8\\pi T_{00}$:$$\\frac{3(k + \\dot{a}^2)}{a^2} = 8\\pi\\rho_m + \\Lambda$$From $G_{11} = 8\\pi T_{11}$:$$\\frac{k + 2a\\ddot{a} + \\dot{a}^2}{kr^2 - 1} = 8\\pi \\left( \\frac{\\Lambda a^2}{kr^2-1}\\right)$$Cancelling the common spatial factor $\\frac{1}{kr^2-1}$ yields:$$k + 2a\\ddot{a} + \\dot{a}^2 = \\Lambda a^2$$4. For a static universe, the scale factor must be constant, so $\\dot{a} = 0$ and $\\ddot{a} = 0$. Applying these conditions gives the system of equations:$$\\frac{3k}{a^2} = 8\\pi\\rho_m + \\Lambda$$$$k = \\Lambda a^2$$5. For a closed universe, $k=1$. From the second equation, we have $\\Lambda = \\frac{1}{a^2}$. Substituting this into the first equation:$$\\frac{3}{a^2} = 8\\pi\\rho_m + \\frac{1}{a^2}$$$$\\frac{2}{a^2} = 8\\pi\\rho_m$$Solving for the critical scale factor $a_c$:$$a_c^2 = \\frac{1}{4\\pi\\rho_m} \\implies a_c = \\frac{1}{\\sqrt{4\\pi\\rho_m}}$$Substituting $a_c$ back to find the critical cosmological constant $\\Lambda_c$:$$\\Lambda_c = \\frac{1}{a_c^2} = 4\\pi\\rho_m$$"
+  },
+  "verification": null
+}

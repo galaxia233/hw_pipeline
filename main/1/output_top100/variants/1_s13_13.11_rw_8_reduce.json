@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s13_13.11-0-3-8",
+    "type": "calculate",
+    "tags": {
+      "target_object": "komar_mass",
+      "coordinate": "spherical",
+      "scenario": "vacuum_black_hole_reduce",
+      "method": "weak_field_limit",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.11",
+      "1_s13_13.11-0",
+      "1_s13_13.11-0-3",
+      "1_s13_13.11-0-3-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "M"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "对于给定 Schwarzschild 度规$$ \\mathrm{d}s^2 = \\frac{-r+r_s}{r}\\mathrm{d}t^2 + \\frac{r}{r-r_s}\\mathrm{d}r^2 + r^2\\mathrm{d}\\theta^2 + r^2\\sin^2\\theta\\mathrm{d}\\phi^2 $$已知其具有时间平移对称性的 Killing 矢量为 $\\xi^\\mu = (1, 0, 0, 0)$。在广义相对论中，静态真空引力场的 Komar 质量通过积分 $M_{\\rm Komar} = -\\frac{1}{8\\pi} \\oint_S \\nabla^\\mu \\xi^\\nu dS_{\\mu\\nu}$ 计算，其精确结果为 $\\frac{r_s}{2}$。请恢复物理常数 $G$ 和 $c$，并考察弱场极限 $\\frac{r_s}{r} \\ll 1$（此时度规退化为平直时空加上 Newtonian 势扰动，即 $g_{tt} \\approx -(1+\\frac{2\\Phi}{c^2})$，其中 $\\Phi = -\\frac{GM}{r}$），证明该 Komar 积分在经典极限下退化为 Newtonian 势的高斯积分形式，从而说明 Komar 质量结果如何回到 Newtonian 引力源质量 $M$。",
+    "answer": "恢复物理常数后，Schwarzschild 半径 $r_s = \\frac{2GM}{c^2}$，度规时间分量 $g_{tt} = -(1 - \\frac{2GM}{c^2 r})$。在弱场极限 $\\frac{2GM}{c^2 r} \\ll 1$ 下，度规退化为 $g_{tt} \\approx -(1 + \\frac{2\\Phi}{c^2})$，其中 Newtonian 势 $\\Phi = -\\frac{GM}{r}$。此时 Killing 矢量的协变分量 $\\xi_t = g_{tt} \\approx -(1 + \\frac{2\\Phi}{c^2})$。Komar 积分中的核心项 $\\nabla^t \\xi^r$ 在弱场近似下退化为 Newtonian 势的梯度项：$$ \\nabla^t \\xi^r \\approx \\frac{1}{c^2} \\partial_r \\Phi $$代入 Komar 积分公式：$$ M_{\\rm Komar} = -\\frac{1}{4\\pi} \\oint_S \\nabla^t \\xi^r \\sqrt{-g} d\\theta d\\phi \\approx \\frac{1}{4\\pi c^2} \\oint_S \\nabla \\Phi \\cdot d\\vec{S} $$由 Newtonian 势的高斯定理 $\\oint_S \\nabla \\Phi \\cdot d\\vec{S} = \\int_V \\nabla^2 \\Phi dV = -4\\pi G M$，可得：$$ M_{\\rm Komar} \\approx \\frac{1}{4\\pi c^2} (-4\\pi G M) = \\frac{GM}{c^2} = \\frac{r_s}{2} $$这表明广义相对论中的 Komar 质量 $\\frac{r_s}{2}$ 在弱场极限下通过 Newtonian 势的泊松方程积分退化为经典力学中的引力源质量 $M$。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "Answer 推导中存在三个关键的符号错误以强行凑出正确结果：1. 核心项 $\\nabla^t \\xi^r$ 的符号计算错误，正确推导应为 $\\nabla^t \\xi^r = g^{tt} \\Gamma^r_{tt} = -1 \\times \\\\frac{GM}{c^2 r^2} = -\\\\frac{1}{c^2} \\\\partial_r \\\\Phi$，但 answer 中写成了 $\\\\nabla^t \\\\xi^r \\\\approx \\\\frac{1}{c^2} \\\\partial_r \\\\Phi$，漏掉了负号；2. 代入 Komar 积分公式时系数符号错误，根据前式积分应为 $-\\\\frac{1}{4\\\\pi} \\\\oint (\\\\frac{1}{c^2} \\\\partial_r \\\\Phi) \\\\sqrt{-g} d\\\\theta d\\\\phi = -\\\\frac{1}{4\\\\pi c^2} \\\\oint \\\\nabla \\\\Phi \\\\cdot d\\\\vec{S}$，但 answer 错误地写成了 $+\\\\frac{1}{4\\\\pi c^2}$；3. Newtonian 势的高斯定理结果符号错误，对于 $\\Phi = -GM/r$，其梯度向外，正确结果应为 $\\oint_S \\\\nabla \\\\Phi \\\\cdot d\\\\vec{S} = 4\\\\pi G M$，但 answer 错误地写成了 $-4\\\\pi G M$。这三个符号错误恰好负负得正，强行凑出了最终的 $\\frac{GM}{c^2}$，掩盖了推导逻辑的完全不自洽。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

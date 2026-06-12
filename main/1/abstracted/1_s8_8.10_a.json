@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s8_8.10_a",
+    "type": "concept",
+    "tags": {
+      "metric": "differential_forms",
+      "target_object": "stokes_theorem",
+      "coordinate": "integration_on_manifolds",
+      "scenario": "cartan_calculus",
+      "method": "vector_calculus_equivalents"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.10_a",
+    "source_id": "1_s8_8.10_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.10_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.5,
+      "completeness": 0.3,
+      "realism": 0.4,
+      "rationale": "涉及微分形式与广义Stokes定理的等价转换，需掌握Cartan演算基础进行多步推导，属理论数学物理题型，但原题仅含题干缺失答案与解析。",
+      "overall": 0.45
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\Omega$",
+      "$\\boldsymbol{\\theta}$",
+      "$f^k$",
+      "$\\mathrm{d}^2 S_k$"
+    ],
+    "target": [
+      "reduced_integral_identity"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 8.10. [Note: This problem assumes a familiarity with the Cartan calculus, beyond the scope of most relativity texts. Succeeding problems do not depend on it.] In the language of differential forms the generalizedStokes' theorem is$$\\int_{\\Omega} \\mathrm {d} \\boldsymbol {\\theta} = \\int_{\\partial \\Omega} \\boldsymbol {\\theta}.$$To what does this theorem reduce, in the following cases(a) $\\Omega$ is 3-dimensional, $\\pmb{\\theta} = \\mathbf{f}^{\\mathrm{k}}\\mathbf{d}^{2}\\mathbf{S}_{\\mathbf{k}}$",
+    "answer": null,
+    "solution": null
+  },
+  "verification": null
+}

@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s7_7.25",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.25",
+    "source_id": "1_s7_7.25",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.25"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "多步变分推导结合仿射参数条件+广义协变性+测地线泛函重参数化不变性",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\alpha$",
+      "$s$"
+    ],
+    "target": [
+      "$\\Gamma^\\lambda_{\\mu\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.25. Show that the variational principle$$\\delta \\int \\left(\\mathrm {g}_{\\alpha \\beta} \\dot {\\mathrm {x}}^{\\alpha} \\dot {\\mathrm {x}}^{\\beta}\\right) \\mathrm {d s} = 0$$givesthe same geodesics as the defining property for geodesics$$\\delta \\int \\left(\\mathrm {g}_{\\alpha \\beta} \\dot {\\mathrm {x}}^{\\alpha} \\dot {\\mathrm {x}}^{\\beta}\\right)^{\\frac {1}{2}} \\mathrm {d s} = 0$$when s is proper length (not an arbitrary parameterization) and $\\dot{\\mathbf{x}}\\equiv$ $\\mathrm{dx}^a /\\mathrm{ds}$ . If $\\mathbf{y}\\equiv (\\mathbf{g}_{\\alpha \\beta}\\dot{\\mathbf{x}}^{\\alpha}\\dot{\\mathbf{x}}^{\\beta})^{\\frac{1}{2}}$ , show that$$\\delta \\int F (y) d s = 0$$givesthe same geodesicsforanymonotonicfunction $\\mathbf{F}(\\mathbf{y})$",
+    "answer": "在仿射参数 $s$ 下，对作用量被积函数进行任意单调变换 $F(y)$ 不改变欧拉-拉格朗日方程的核心结构，因此恒给出相同的测地线方程。",
+    "solution": "The general case gives an Euler-Lagrange equation$$0 = \\frac {\\mathrm {d}^{2} \\mathbf {F}}{\\mathrm {d y}^{2}} \\left.\\right. \\frac {\\mathrm {d y}}{\\mathrm {d s}} \\frac {\\partial \\mathbf {y}}{\\partial \\bar {\\mathbf {x}}} + \\frac {\\mathrm {d F}}{\\mathrm {d y}} \\left[ \\frac {\\mathrm {d}}{\\mathrm {d s}} \\left(\\frac {\\partial \\mathbf {y}}{\\partial \\bar {\\mathbf {x}}} - \\frac {\\partial \\mathbf {y}}{\\partial \\bar {\\mathbf {x}}}\\right)\\right].$$Since $\\mathrm{dy} / \\mathrm{ds} = 0$ (for $s$ an affine parameter) and since $\\mathrm{dF} / \\mathrm{dy} \\neq 0$ , this is the same as the Euler-Lagrange equation obtained from $\\delta \\int y \\, \\mathrm{d}s = 0$ ."
+  },
+  "verification": null
+}

@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s5_5.27",
+    "type": "prove",
+    "tags": {
+      "metric": "relativistic_fluid_dynamics",
+      "target_object": "thermodynamics",
+      "coordinate": "four_vector",
+      "scenario": "covariance_principle",
+      "method": "rest_frame"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.27",
+    "source_id": "1_s5_5.27",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.27"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.8,
+      "rationale": "基于静止系物理量定义与四维矢量协变性原理的简洁证明，结构可直接迁移至其他守恒流推导",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$s$",
+      "$n$",
+      "$q$",
+      "$T$",
+      "$S$",
+      "$u$"
+    ],
+    "target": [
+      "$\\mathbf{S} = \\mathbf{n s u} + \\mathbf{q} / \\mathbf{T}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.27. Let $s$ , $n$ and $q$ be respectively entropy per baryon, number density of baryons, and heat flux, all measured in the proper frame of the fluid. In this proper frame $q$ is purely spatial. Let $S$ be the entropy density-flux 4-vector. Show that$$\\mathbf {S} = \\mathbf {n s u} + \\mathbf {q} / \\mathbf {T},$$where $\\mathbf{u}$ is the 4-velocity of the fluid rest frame.",
+    "answer": "$\\mathbf {S} = \\mathbf {n s u} + \\mathbf {q} / \\mathbf {T}$",
+    "solution": "Solution 5.27. In the fluid rest frame$$S^{0} = \\text {e n t r o p y d e n s i t y} = \\text {n s}$$$$S^{j} = \\text {e n t r o p y f l u x} = \\text {h e a t f l u x} / T = q^{j} / T.$$Since $\\mathbf{q}^0 = 0$ , $\\mathbf{u}^0 = \\mathbf {1 }$ in the fluid rest frame $\\mathbf{S} = \\mathbf {nsu} + \\mathbf {q} / \\mathbf {T }$ is true in the fluid rest frame, and hence in general."
+  },
+  "verification": null
+}

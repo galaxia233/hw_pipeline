@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "Lie bracket of transformed Killing vectors",
+      "coordinate": "t, phi, r, theta",
+      "scenario": "stationary axisymmetric spacetime",
+      "method": "coordinate transformation and Lie bracket bilinearity",
+      "generalization_axis": "verify",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "killing_vector",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$[\\tilde{\\xi}_{(\\tilde{t})}, \\tilde{\\xi}_{(\\tilde{\\phi})}]$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Consider a stationary axisymmetric spacetime of a rotating star, which admits two Killing vectors representing time translation and axial rotation: $\\xi_{(t)} = \\partial_t$ and $\\xi_{(\\phi)} = \\partial_\\phi$. It is a fundamental theorem in general relativity that these two Killing vectors commute, i.e., $[\\xi_{(t)}, \\xi_{(\\phi)}] = 0$. In the study of such spacetimes, we frequently introduce a co-rotating coordinate frame to analyze relative motion, defined by a constant angular velocity $\\Omega$ with the transformation: $\\tilde{t} = t$, $\\tilde{\\phi} = \\phi - \\Omega t$, while keeping the other spatial coordinates unchanged. The new metric remains stationary and axisymmetric, admitting new Killing vectors $\\tilde{\\xi}_{(\\tilde{t})} = \\partial_{\\tilde{t}}$ and $\\tilde{\\xi}_{(\\tilde{\\phi})} = \\partial_{\\tilde{\\phi}}$. Verify the invariance (symmetry) of the commutation property under this coordinate transformation by proving that the new Killing vectors also commute, i.e., $[\\tilde{\\xi}_{(\\tilde{t})}, \\tilde{\\xi}_{(\\tilde{\\phi})}] = 0$.",
+    "answer": "$0$",
+    "solution": "1. 根据坐标变换 $\\tilde{t} = t$ 和 $\\tilde{\\phi} = \\phi - \\Omega t$，求出原坐标对新坐标的偏导数：$t = \\tilde{t}$，$\\phi = \\tilde{\\phi} + \\Omega \\tilde{t}$。2. 将新坐标系下的 Killing 矢量用原坐标基表示：   $\\tilde{\\xi}_{(\\tilde{t})} = \\frac{\\partial t}{\\partial \\tilde{t}} \\frac{\\partial}{\\partial t} + \\frac{\\partial \\phi}{\\partial \\tilde{t}} \\frac{\\partial}{\\partial \\phi} = \\xi_{(t)} + \\Omega \\xi_{(\\phi)}$   $\\tilde{\\xi}_{(\\tilde{\\phi})} = \\frac{\\partial t}{\\partial \\tilde{\\phi}} \\frac{\\partial}{\\partial t} + \\frac{\\partial \\phi}{\\partial \\tilde{\\phi}} \\frac{\\partial}{\\partial \\phi} = \\xi_{(\\phi)}$3. 计算两者的李括号，利用李括号的线性性质：   $[\\tilde{\\xi}_{(\\tilde{t})}, \\tilde{\\xi}_{(\\tilde{\\phi})}] = [\\xi_{(t)} + \\Omega \\xi_{(\\phi)}, \\xi_{(\\phi)}] = [\\xi_{(t)}, \\xi_{(\\phi)}] + \\Omega [\\xi_{(\\phi)}, \\xi_{(\\phi)}]$4. 代入已知定理 $[\\xi_{(t)}, \\xi_{(\\phi)}] = 0$ 以及任何矢量场与自身的李括恒为零的性质 $[\\xi_{(\\phi)}, \\xi_{(\\phi)}] = 0$，得到：   $[\\tilde{\\xi}_{(\\tilde{t})}, \\tilde{\\xi}_{(\\tilde{\\phi})}] = 0 + \\Omega \\cdot 0 = 0$5. 这验证了 Killing 矢量的对易性质在共旋坐标变换下保持不变。物理上，这意味着时空的等距群结构（Abelian $R \\times U(1)$ 群）与观察者参考系的选择无关，共旋系下对应的新守恒量依然可以同时确定。"
+  },
+  "verification": null
+}

@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s18_18.3",
+    "type": "calculate",
+    "tags": {
+      "metric": "flat_metric",
+      "target_object": "quadrupole_tensor",
+      "coordinate": "Cartesian_coordinates",
+      "scenario": "electromagnetic_radiation",
+      "method": "constraint_counting"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s18_18.3",
+    "source_id": "1_s18_18.3",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s18_18.3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.3,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "典型的多极矩自由度计数问题，依赖线性代数约束直接求解，物理链条较短但具有明确的电磁辐射应用背景。",
+      "overall": 0.62
+    }
+  },
+  "physical_data": {
+    "dimension": 3,
+    "variables": [
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$I_{ij}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 18.3. For an electric dipole, and its radiation pattern, there are three independent orientations, corresponding to the three directions in which the dipole may point. How many independent orientations are there for a traceless quadrupole tensor?",
+    "answer": "Five",
+    "solution": "Solution 18.3. The three independent orientations of the dipole correspond to the three components of a three dimensional vector. Since the quadrupole is a second rank, three dimensional tensor (9 component) which is symmetric (3 constraints) and traceless (1 constraint) there are five independent “orientations.” An example of five independent quadrupole tensors is the five tensors with all components zero except:\\n(i) $\\mathrm{I}_{\\mathbf{zz}} = -\\frac{1}{2}\\mathrm{I}_{\\mathbf{xx}} = -\\frac{1}{2}\\mathrm{I}_{\\mathbf{yy}} = 1$\\n(ii) $\\mathrm{I_{yy} = -\\frac{1}{2}I_{xx} = -\\frac{1}{2}I_{zz} = 1}$\\n(iii) $\\mathbf{I}_{\\mathbf{xy}} = \\mathbf{I}_{\\mathbf{yx}}$\\n(iv) $\\mathbf{I}_{\\mathbf{x}z} = \\mathbf{I}_{\\mathbf{z}\\mathbf{x}}$\\n(v) $\\mathbf{I}_{\\mathbf{yz}} = \\mathbf{I}_{\\mathbf{zy}}$"
+  },
+  "verification": null
+}

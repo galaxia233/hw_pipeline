@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s5_5.14",
+    "type": "prove",
+    "tags": {
+      "metric": "compton_scattering",
+      "target_object": "electron_gas",
+      "coordinate": "low_energy_approximation",
+      "scenario": "thermal_equilibrium",
+      "method": "energy_transfer"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.14",
+    "source_id": "1_s5_5.14",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.14"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "需进行双变量小参量展开，利用零温/零能边界条件确定系数，并结合黑体辐射热平衡积分求解交叉项，物理动机明确且逻辑链条完整。",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$E$",
+      "$T$",
+      "$m_e$",
+      "$c$",
+      "$k$",
+      "$\\\\theta$"
+    ],
+    "target": [
+      "$\\\\langle \\\\Delta E \\\\rangle$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.14. In an electron gas of temperature $\\mathrm{T} < \\mathrm{m_e c^2 / k}$ a photon of energy $\\mathbf{E} < \\mathbf{m_e c^2}$ undergoes collisions and is Compton scattered. Show that, to lowest order in $\\mathbf{E}$ and $\\mathbf{T}$ the average energy lost by a photon in a collision is\\n$$\\n< \\Delta E > = (E / m_{e} c^{2}) (E - 4 k T).\\n$$\\n\\n## Solution",
+    "answer": "< \\Delta E > = (E / m _ {e} c ^ {2}) (E - 4 k T).",
+    "solution": "Solution 5.14. Let the average transfer of energy be $\\langle \\Delta E \\rangle$ . We are given that $\\mathrm{E} / \\mathrm{mc}^2 \\ll 1$ and $\\mathrm{T} / \\mathrm{mc}^2 \\ll 1$ (units with $k = 1$ ), so we want only the first nonvanishing terms in the double series expansion\\n$$\\n\\\\begin{array}{l}\\n< \\Delta E > = m c^{2} [ a_{1} + a_{2} (E / m) + a_{3} (T / m) \\\\\\\\\\n\\\\left. + \\alpha_{4} \\left(\\mathrm {E}^{2} / \\mathrm {m}^{2}\\right) + \\alpha_{5} \\left(\\mathrm {ET} / \\mathrm {m}^{2}\\right) + \\alpha_{6} \\left(\\mathrm {T}^{2} / \\mathrm {m}^{2}\\right) + \\dot s \\\\right]. \\tag {1}\\\\\\\\\\n\\\\end{array}\\n$$\\nIf $\\mathrm{T} = \\mathrm{E} = 0$ , nothing is happening, so $a_1 = 0$ . If $\\mathrm{T} = 0$ , $\\mathrm{E} \\neq 0$ , we have standard Compton scattering with a cross section $\\mathrm{d}\\sigma / \\mathrm{d}\\Omega \\propto (1 + \\cos^2\\theta)$ and an energy transfer $\\Delta \\mathrm{E} = (\\mathrm{E}^2 / \\mathrm{m})(1 - \\cos \\theta)$ . Since the cross section is forward-backward symmetric, the $\\cos \\theta$ term cancels out when we average over angles, and\\n$$\\n< \\Delta E > = (E^{2} / m), \\quad T = 0.\\n$$\\nThis implies that $a_2 = 0$ and $a_4 = 1$ . If $E = 0$ , $T \\neq 0$ , the photon has zero energy and is vacuous, so $a_3 = a_6 = 0$ .\\nFinally, we need $\\alpha_{5}$ : Take a thought experiment where there is a dilute black-body flux of photons with the same temperature as the gas so that\\n$$\\nd (\\text {n u m b e r o f p h o t o n s}) / d E = \\text {c o n s t a n t} \\times E^{2} e^{- E / T}.\\n$$\\nPlugging in Equation (1) with $a_1 = a_2 = a_3 = a_6 = 0$ , $a_4 = 1$ , and requiring thermal equilibrium, namely $\\int_{0}^{\\inf ty} < \\Delta E > E^2 e^{-E / T} dE = 0$ , gives $0 = (3T / m)(4T + a_5T)$ or $a_5 = -4$ . Expression (1) now takes the final form\\n$$\\n< \\mathbf {E} > = (\\mathrm {E}^{2} - 4 \\mathrm {TE}) / \\mathrm {mc}^{2} + \\dot s .\\n$$"
+  },
+  "verification": null
+}

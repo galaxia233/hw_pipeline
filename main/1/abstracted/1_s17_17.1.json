@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "id": "1_s17_17.1",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_kerr",
+      "target_object": "target_mass_angular_momentum",
+      "coordinate": "coordinate_boyer-lindquist",
+      "scenario": "scenario_rotating_black_hole",
+      "method": "method_asymptotic_matching"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.1",
+    "source_id": "1_s17_17.1",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于渐近平坦时空的ADM质量与角动量定义进行逐级展开匹配，逻辑链条完整且具典型天体物理背景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$M$",
+      "$a$"
+    ],
+    "target": [
+      "$M$",
+      "$a$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s17_17.1.md]\\n\\nProblem 17.1. Show that the constant M which occurs in the Kerr metric is the mass of the system, and that the constant a is the angular momentum per mass.\\n\\n## Solution\\n\\nSolution 17.1. One finds the mass and angular momentum of an asymptotically Minkowskian (flat) metric by finding a coordinate system in which it takes the form\\n$$\\n\\\\mathrm {g}_{0 0} = - \\\\left(1 - \\\\frac {2 \\\\tilde {\\\\mathrm {M}}}{\\\\mathrm {r}} + \\\\mathcal {O} (\\\\mathrm {r}^{- 2})\\\\right) \\\\tag {1}\\n$$\\n$$\\n\\\\mathbf {g}_{0 j} = - \\\\left(4 \\\\varepsilon_{j k l} \\\\tilde {\\\\mathbf {S}} \\\\frac {\\\\mathbf {k} \\\\mathbf {x}^{1}}{\\\\mathbf {r}^{3}} + \\\\mathcal {O} (\\\\mathbf {r}^{- 3})\\\\right). \\\\tag {2}\\n$$\\nThe constants $\\tilde{\\\\mathbf{M}}$ and $\\tilde{\\\\mathbf{S}}^k$ which occur in the expansion are then the mass and intrinsic angular momentum (see Weinberg, Section 9.4 or MTW, Section 19.3).\\nExpanding the Kerr metric in Boyer-Lindquist coordinates in powers of $\\mathbf{r}^{-1}$ gives the leading terms\\n$$\\n\\\\begin{array}{l} \\\\mathrm {d s}^{2} = - \\\\left(1 - \\\\frac {2 \\\\mathrm {M}}{\\\\mathrm {r}} + \\\\dot s\\\\right) \\\\mathrm {d t}^{2} - \\\\left(\\\\frac {4 \\\\mathrm {a M}}{\\\\mathrm {r}} \\\\sin^{2} \\\\theta + \\\\dot s\\\\right) \\\\mathrm {d t} \\\\mathrm {d} \\\\phi \\\\\\\\\\\\ + (1 + \\\\dot s) [ d r^{2} + r^{2} (d \\\\theta^{2} + \\\\sin^{2} \\\\theta d \\\\phi^{2}) ] \\\\\\\\\\\\ \\\\end{array}\\n$$\\nTransforming to cartesian coordinates by $\\mathbf{x} \\\\equiv \\\\mathbf{r} \\\\sin \\\\theta \\\\cos \\\\phi$ , $\\mathbf{y} \\\\equiv \\\\mathbf{r} \\\\sin \\\\theta \\\\sin \\\\phi$ , $\\mathbf{z} \\\\equiv \\\\mathbf{r} \\\\cos \\\\theta$ gives\\n$$\\n\\\\begin{array}{l} d s^{2} = - \\\\left(1 - \\\\frac {2 M}{r} + \\\\dot s\\\\right) d t^{2} - \\\\left(\\\\frac {4 a M}{r^{3}} + \\\\dot s\\\\right) (x d y - y d x) d t \\\\tag {3} \\\\\\\\\\\\ + (1 + \\\\dot s) (\\\\mathrm {d} x^{2} + \\\\mathrm {d} y^{2} + \\\\mathrm {d} z^{2}) \\\\\\\\\\\\ \\\\end{array}\\n$$\\nand comparison with Equations (1) and (2) gives at once\\n$$\\n\\\\tilde {\\\\mathbf {M}} = \\\\mathbf {M}\\n$$\\n$$\\n\\\\tilde {\\\\mathbf {S}} = \\\\mathbf {a M} \\\\mathbf {e}_{\\\\hat {\\\\mathbf {z}}}^{-}.\\n$$",
+    "answer": "Mass is identified as $M$, and angular momentum per unit mass is identified as $a$.",
+    "solution": "One finds the mass and angular momentum of an asymptotically Minkowskian (flat) metric by finding a coordinate system in which it takes the form\\n$$\\n\\\\mathrm {g}_{0 0} = - \\\\left(1 - \\\\frac {2 \\\\tilde {\\\\mathrm {M}}}{\\\\mathrm {r}} + \\\\mathcal {O} (\\\\mathrm {r}^{- 2})\\\\right) \\\\tag {1}\\n$$\\n$$\\n\\\\mathbf {g}_{0 j} = - \\\\left(4 \\\\varepsilon_{j k l} \\\\tilde {\\\\mathbf {S}} \\\\frac {\\\\mathbf {k} \\\\mathbf {x}^{1}}{\\\\mathbf {r}^{3}} + \\\\mathcal {O} (\\\\mathbf {r}^{- 3})\\\\right). \\\\tag {2}\\n$$\\nThe constants $\\tilde{\\\\mathbf{M}}$ and $\\tilde{\\\\mathbf{S}}^k$ which occur in the expansion are then the mass and intrinsic angular momentum (see Weinberg, Section 9.4 or MTW, Section 19.3).\\nExpanding the Kerr metric in Boyer-Lindquist coordinates in powers of $\\mathbf{r}^{-1}$ gives the leading terms\\n$$\\n\\\\begin{array}{l} \\\\mathrm {d s}^{2} = - \\\\left(1 - \\\\frac {2 \\\\mathrm {M}}{\\\\mathrm {r}} + \\\\dot s\\\\right) \\\\mathrm {d t}^{2} - \\\\left(\\\\frac {4 \\\\mathrm {a M}}{\\\\mathrm {r}} \\\\sin^{2} \\\\theta + \\\\dot s\\\\right) \\\\mathrm {d t} \\\\mathrm {d} \\\\phi \\\\\\\\\\\\ + (1 + \\\\dot s) [ d r^{2} + r^{2} (d \\\\theta^{2} + \\\\sin^{2} \\\\theta d \\\\phi^{2}) ] \\\\\\\\\\\\ \\\\end{array}\\n$$\\nTransforming to cartesian coordinates by $\\mathbf{x} \\\\equiv \\\\mathbf{r} \\\\sin \\\\theta \\\\cos \\\\phi$ , $\\mathbf{y} \\\\equiv \\\\mathbf{r} \\\\sin \\\\theta \\\\sin \\\\phi$ , $\\mathbf{z} \\\\equiv \\\\mathbf{r} \\\\cos \\\\theta$ gives\\n$$\\n\\\\begin{array}{l} d s^{2} = - \\\\left(1 - \\\\frac {2 M}{r} + \\\\dot s\\\\right) d t^{2} - \\\\left(\\\\frac {4 a M}{r^{3}} + \\\\dot s\\\\right) (x d y - y d x) d t \\\\tag {3} \\\\\\\\\\\\ + (1 + \\\\dot s) (\\\\mathrm {d} x^{2} + \\\\mathrm {d} y^{2} + \\\\mathrm {d} z^{2}) \\\\\\\\\\\\ \\\\end{array}\\n$$\\nand comparison with Equations (1) and (2) gives at once\\n$$\\n\\\\tilde {\\\\mathbf {M}} = \\\\mathbf {M}\\n$$\\n$$\\n\\\\tilde {\\\\mathbf {S}} = \\\\mathbf {a M} \\\\mathbf {e}_{\\\\hat {\\\\mathbf {z}}}^{-}.\\n$$"
+  },
+  "verification": null
+}

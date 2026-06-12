@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-1-8",
+    "type": "calculate",
+    "tags": {
+      "target_object": "orbital angular velocity",
+      "coordinate": "equatorial",
+      "scenario": "Lense-Thirring reduce to Newtonian",
+      "method": "J->0 limit",
+      "generalization_axis": "limit",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-1",
+      "1_s11_11.11-1-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "metric",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\phi$",
+      "$M$",
+      "$\\mathbf{v}$",
+      "$\\mathbf{S}$",
+      "$h_j$",
+      "$\\Gamma_{\\hat{j}\\hat{k}\\hat{0}}$"
+    ],
+    "target": [
+      "$\\omega$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，旋转质量（自旋角动量为 $J$）产生的引力磁效应会导致卫星轨道角速度发生 Lense-Thirring 修正。已知在赤道面上做圆形轨道运动的卫星，其包含 GR 修正的总轨道角速度为 $\\omega = \\omega_0 + \\delta\\omega_{\\pm}$，其中无自旋时的 Newtonian 轨道角速度为 $\\omega_0 = \\sqrt{GM/r^3}$，引力磁修正项为 $\\delta\\omega_{\\pm} = \\pm \\frac{2GJ}{c^2 r^3}$（顺行取+，逆行取-）。请通过取源质量自旋角动量 $J \\to 0$ 的物理极限，将此 GR 语境下的轨道角速度归约回经典对应（即 Fact Sheet 所给无自旋 Schwarzschild 度规的弱场极限），并写出归约后的经典轨道角速度表达式。",
+    "answer": "取自旋角动量 $J \\to 0$ 的极限，此时旋转质量产生的引力磁场消失，Lense-Thirring 修正项 $\\delta\\omega_{\\pm} = \\pm \\frac{2GJ}{c^2 r^3} \\to 0$。总轨道角速度退化为 $\\omega \\to \\omega_0 = \\sqrt{GM/r^3}$。这对应于从旋转质量时空回到无自旋的静态球对称 Schwarzschild 时空，轨道角速度归约回了经典 Newtonian 圆轨道角速度。",
+    "solution": null
+  },
+  "verification": null
+}

@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s3_3.29",
+    "type": "prove",
+    "tags": {
+      "metric": "tensor_algebra",
+      "target_object": "bivector_identity",
+      "coordinate": "abstract_indices",
+      "scenario": "determinant_expansion",
+      "method": "plucker_relations"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.29",
+    "source_id": "1_s3_3.29",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.29"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.5,
+      "generalizability": 0.8,
+      "completeness": 0.7,
+      "realism": 0.2,
+      "rationale": "抽象张量代数恒等式证明，依赖外代数基础但逻辑链较短，缺乏直接物理模型背景，解答过程精炼完整",
+      "overall": 0.55
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\gamma$",
+      "$\\\\delta$",
+      "$\\\\mathfrak{p}$",
+      "$\\\\mathbf{A}$",
+      "$\\\\mathbf{B}$"
+    ],
+    "target": [
+      "$\\\\mathfrak{p}^{\\\\alpha \\\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.29. Show that if the antisymmetric tensor $\\mathfrak{p}^{\\\\alpha \\\\beta}$ is a bivector (i.e. $\\mathfrak{p}^{\\\\alpha \\\\beta} = \\\\mathbf{A}^{[\\\\alpha \\\\mathbf{B}^{\\\\beta}].$ ) then\\n$$\\n\\\\mathsf {p}^{\\\\alpha \\\\beta} \\\\mathsf {p}^{\\\\gamma \\\\delta} + \\\\mathsf {p}^{\\\\alpha \\\\gamma} \\\\mathsf {p}^{\\\\delta \\\\beta} + \\\\mathsf {p}^{\\\\alpha \\\\delta} \\\\mathsf {p}^{\\\\beta \\\\gamma} = 0\\n$$\\n(the Plücker relations).",
+    "answer": "$\\\\mathsf {p}^{\\\\alpha \\\\beta} \\\\mathsf {p}^{\\\\gamma \\\\delta} + \\\\mathsf {p}^{\\\\alpha \\\\gamma} \\\\mathsf {p}^{\\\\delta \\\\beta} + \\\\mathsf {p}^{\\\\alpha \\\\delta} \\\\mathsf {p}^{\\\\beta \\\\gamma} = 0$",
+    "solution": "Solution 3.29. If $\\mathfrak{p}^{\\\\alpha \\\\beta} = \\\\mathbf{A}^{[\\\\alpha \\\\mathbf{B}^{\\\\beta}]}$ , then\\n$$\\n\\\\det {\\\\left[ \\\\begin{array}{l l l} \\\\mathsf {p}^{\\\\alpha \\\\beta} & \\\\mathsf {p}^{\\\\alpha \\\\gamma} & \\\\mathsf {p}^{\\\\alpha \\\\delta} \\\\\\\\ \\\\mathsf {A}^{\\\\beta} & \\\\mathsf {A}^{\\\\alpha} & \\\\mathsf {A}^{\\\\delta} \\\\\\\\ \\\\mathsf {B}^{\\\\beta} & \\\\mathsf {B}^{\\\\gamma} & \\\\mathsf {B}^{\\\\delta} \\\\end{array} \\\\right]} = 0\\n$$\\nsince the first row is a linear combination of the other two rows (first row $= -\\\\frac{1}{2}\\\\mathbf{A}^{\\\\alpha}\\\\times$ third row $+\\\\frac{1}{2}\\\\mathbf{B}^{\\\\alpha}\\\\times$ second row). Multiplying out the determinant gives the desired result."
+  },
+  "verification": null
+}

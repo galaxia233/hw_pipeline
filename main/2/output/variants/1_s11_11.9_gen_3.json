@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-3",
+    "type": "prove",
+    "tags": {
+      "target_object": "critical_radius_photon_sphere",
+      "coordinate": "spherical",
+      "scenario": "black_hole",
+      "method": "geodetic_precession_effective_potential",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$r_c$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "A test gyroscope orbits a Schwarzschild black hole in a circular equatorial orbit. The Schwarzschild metric is given by $ds^2 = -(1 - \\frac{r_s}{r}) dt^2 + (1 - \\frac{r_s}{r})^{-1} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$, where $r_s = 2M$ is the Schwarzschild radius and $M$ is the black hole mass. The spin axis of the gyroscope undergoes geodetic precession at a rate $\\Omega_{prec} = \\frac{3}{2} \\frac{M}{r} \\Omega_{orbit}$, where $\\Omega_{orbit} = \\sqrt{M/r^3}$ is the orbital angular velocity. Determine the critical radius $r_c$ at which the gyroscope's spin axis precesses by exactly $\\pi$ radians per single orbital revolution. Furthermore, using the metric components, derive the effective potential $V_{eff}(r)$ for equatorial null geodesics and verify that this $r_c$ is exactly the radius of the unstable circular photon orbit by showing $\\frac{dV_{eff}}{dr} = 0$ at $r_c$.",
+    "answer": "$r_c = 3M$",
+    "solution": "1. The geodetic precession angle per orbital revolution is given by the precession rate multiplied by the orbital period: \\n   $\\Delta \\phi_{prec} = \\Omega_{prec} \\cdot T_{orbit} = \\Omega_{prec} \\cdot \\frac{2\\pi}{\\Omega_{orbit}}$. \\n2. Substitute the given precession rate $\\Omega_{prec} = \\frac{3}{2} \\frac{M}{r} \\Omega_{orbit}$: \\n   $\\Delta \\phi_{prec} = \\frac{3}{2} \\frac{M}{r} \\Omega_{orbit} \\cdot \\frac{2\\pi}{\\Omega_{orbit}} = \\frac{3\\pi M}{r}$. \\n3. To find the critical radius where the spin axis precesses by exactly $\\pi$ radians per orbit, set $\\Delta \\phi_{prec} = \\pi$: \\n   $\\frac{3\\pi M}{r_c} = \\pi \\implies 3M = r_c$. \\n   Thus, the critical radius is $r_c = 3M$. \\n4. To verify that this radius corresponds to the circular photon orbit, we derive the effective potential for null geodesics. For equatorial null geodesics ($\\theta = \\pi/2$), the condition $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = 0$ gives: \\n   $-(1 - \\frac{r_s}{r}) \\dot{t}^2 + (1 - \\frac{r_s}{r})^{-1} \\dot{r}^2 + r^2 \\dot{\\phi}^2 = 0$. \\n5. Using the conserved quantities defined by the metric's Killing vectors, $E = -g_{tt} \\dot{t} = (1 - \\frac{r_s}{r}) \\dot{t}$ and $L = g_{\\phi\\phi} \\dot{\\phi} = r^2 \\dot{\\phi}$, we substitute $\\dot{t}$ and $\\dot{\\phi}$: \\n   $-\\frac{E^2}{1 - \\frac{r_s}{r}} + \\frac{\\dot{r}^2}{1 - \\frac{r_s}{r}} + \\frac{L^2}{r^2} = 0$. \\n6. Multiplying by $(1 - \\frac{r_s}{r})$ and rearranging yields the radial equation $\\dot{r}^2 = E^2 - V_{eff}$, where the effective potential is: \\n   $V_{eff}(r) = \\frac{L^2}{r^2} \\left(1 - \\frac{r_s}{r}\\right)$. Substituting $r_s = 2M$, we get $V_{eff}(r) = \\frac{L^2}{r^2} \\left(1 - \\frac{2M}{r}\\right)$. \\n7. A circular orbit requires an extremum of the effective potential, i.e., $\\frac{dV_{eff}}{dr} = 0$: \\n   $\\frac{dV_{eff}}{dr} = L^2 \\left( -\\frac{2}{r^3} + \\frac{6M}{r^4}\\right) = \\frac{L^2}{r^4} (-2r + 6M)$. \\n8. Setting the derivative to zero gives: \\n   $-2r + 6M = 0 \\implies r = 3M$. \\n9. This extremum radius is exactly $r_c = 3M$, confirming that the critical radius where the geodetic precession completes half a cycle per orbit coincides perfectly with the radius of the unstable circular photon orbit (the photon sphere) in the Schwarzschild geometry."
+  },
+  "verification": null
+}

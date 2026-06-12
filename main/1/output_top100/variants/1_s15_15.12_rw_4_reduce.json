@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s15_15.12-0-6-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "Kretschmann_scalar",
+      "coordinate": "Schwarzschild",
+      "scenario": "reduce_flat_spacetime",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "AntiDeSitterStatic"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.12",
+      "1_s15_15.12-0",
+      "1_s15_15.12-0-6",
+      "1_s15_15.12-0-6-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "AntiDeSitterStatic",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "K"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，描述球对称引力源（质量为 $M$）外部时空的 Schwarzschild 度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^{2}{\\left(\\theta\\right)} d\\phi^2$（其中 $r_s = 2M$ 为 Schwarzschild 半径）。该时空的内禀曲率由 Kretschmann 标量刻画，其表达式为 $K = \\frac{48 M^{2}}{r^{6}}$。请通过对引力源质量取 $M \\to 0$ 的物理极限，将 GR 下的曲率结果归约回到经典无引力对应的时空，并给出该极限下 $K$ 的值及其物理意义。",
+    "answer": "极限过程：取中心引力源质量 $M \\to 0$（即 Schwarzschild 半径 $r_s \\to 0$），代入 Kretschmann 标量表达式得 $K = \\lim_{M \\to 0} \\frac{48 M^{2}}{r^{6}} = 0$。经典对应结果：$K=0$ 表示时空的 Riemann 曲率张量处处为零，即回到了无引力源的经典平直 Minkowski 时空。",
+    "solution": "在 Schwarzschild 时空中，时空曲率完全由中心质量 $M$ 决定。当去掉引力源，即取 $M \\to 0$ 的物理极限时，度规中的 $r_s$ 消失，度规回到 Minkowski 形式。此时表征曲率的 Kretschmann 标量 $K$ 中的 $M^{2}$ 因子趋于 0，整个标量趋于 0，这与平直时空的零曲率经典物理结果完全一致。"
+  },
+  "verification": null
+}

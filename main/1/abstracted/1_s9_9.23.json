@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s9_9.23",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_tensor",
+      "target_object": "riemann_curvature_scalar",
+      "coordinate": "generic_coordinate_system",
+      "scenario": "surface_embedded_in_spacetime",
+      "method": "basis_transformation_invariance"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.23",
+    "source_id": "1_s9_9.23",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.23"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "考查黎曼曲率在二维切平面上的投影不变性，结合度规对称性与坐标无关性证明，逻辑完整且契合微分几何基础背景。",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$g_{\\\\alpha\\\\beta}$",
+      "$R_{\\\\alpha\\\\gamma\\\\beta\\\\delta}$",
+      "$A^{\\\\alpha}$",
+      "$B^{\\\\gamma}$",
+      "$K$"
+    ],
+    "target": [
+      "$K$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.23. Let $\\mathbf{A}$ and $\\mathbf{B}$ be two linearly independent vectors tangent at a point to a two-dimensional surface, in a space of dimension $\\geq 2$ . The Riemannian curvature of the 2-surface at that point is defined as\\n$$\\nK = \\\\frac {R_{\\\\alpha \\\\gamma \\\\beta \\\\delta} A^{\\\\alpha} A^{\\\\beta} B^{\\\\gamma} B^{\\\\delta}}{\\\\left(g_{\\\\alpha \\\\beta} g_{\\\\gamma \\\\delta} - g_{\\\\alpha \\\\delta} g_{\\\\beta \\\\gamma}\\\\right) A^{\\\\alpha} A^{\\\\beta} B^{\\\\gamma} B^{\\\\delta}}.\\n$$\\nShow that $\\mathbf{K}$ is unchanged if $\\mathbf{A}$ and $\\mathbf{B}$ are replaced by linear combinations of $\\mathbf{A}$ and $\\mathbf{B}$ .",
+    "answer": "The desired result is proved.",
+    "solution": "Solution 9.23. Choose a coordinate system geared to the surface. Let $\\mathbf{x}^1, \\mathbf{x}^2$ vary, and $\\mathbf{x}^3, \\mathbf{x}^4$ be constant on the surface. The only contravariant components of $\\mathbf{A}$ and $\\mathbf{B}$ are then the 1 and 2 components. We are interested then only in the Riemann components with indices 1 and 2, but there is only one such independent component, $\\mathbb{R}_{1212}$ . The nonvanishing Riemann components of this type are related by symmetries which can be expressed as\\n$$\\nR_{i j k 1} \\\\propto (g_{i k} g_{i 1} - g_{i 1} g_{j k}) \\\\quad i, j, k, 1 = 1, 2.\\n$$\\nIt follows immediately that in this coordinate system $\\mathbf{K}$ is independent of $\\mathbf{A}$ and $\\mathbf{B}$ . Since $\\mathbf{K}$ is clearly coordinate independent the desired result is proved."
+  },
+  "verification": null
+}

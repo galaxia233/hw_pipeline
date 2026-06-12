@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-2-5-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "tidal_force",
+      "coordinate": "spherical",
+      "scenario": "black_hole_tidal_force_reduce",
+      "method": "newtonian_limit",
+      "generalization_axis": "limit",
+      "metric": "JanisNewmanWinicour"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-2",
+      "1_s15_15.11-2-5",
+      "1_s15_15.11-2-5-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "JanisNewmanWinicour",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "Newtonian_tidal_force"
+    ],
+    "metric": [
+      [
+        "-(-2*M/(gam*r) + 1)**gam",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "(-2*M/(gam*r) + 1)**(-gam)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2*(-2*M/(gam*r) + 1)**(1 - gam)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*(-2*M/(gam*r) + 1)**(1 - gam)*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一个带参数 $\\gamma$ 的 JanisNewmanWinicour 变形 Schwarzschild 黑洞度规：$$ds^2 = -\\left(1-\\frac{2M}{\\gamma r}\\right)^{\\gamma} dt^2 + \\left(1-\\frac{2M}{\\gamma r}\\right)^{-\\gamma} dr^2 + r^2 \\left(1-\\frac{2M}{\\gamma r}\\right)^{1-\\gamma} d\\theta^2 + r^2 \\left(1-\\frac{2M}{\\gamma r}\\right)^{1-\\gamma} \\sin^2\\theta d\\phi^2$$其中 $M$ 为黑洞质量，$\\gamma$ 为无量纲常数参数。在广义相对论中，一个在此度规下半径 $r$ 处径向静止的观察者（其4速度仅沿时间方向）所感受到的径向和横向（沿 $\\theta$ 方向）测地线偏离加速度（即潮汐力）分别为：$$a^r = -\\frac{2M\\gamma(\\gamma r - M\\gamma - M)}{r^2(\\gamma r - 2M)^2} \\xi^r$$$$a^\\theta = \\frac{M\\gamma(\\gamma r - M\\gamma - M)}{r^2(\\gamma r - 2M)^2} \\xi^\\theta$$请取远场极限 $r \\gg 2M/\\gamma$，证明该广义相对论结果将退化为牛顿力学中的经典潮汐力公式 $a^r_N = -\\frac{2M}{r^3} \\xi^r$ 与 $a^\\theta_N = \\frac{M}{r^3} \\xi^\\theta$。",
+    "answer": "在远场极限 $r \\gg 2M/\\gamma$ 下，有 $\\frac{2M}{\\gamma r} \\ll 1$，此时表达式中的各项可作近似：$$\\gamma r - M\\gamma - M \\approx \\gamma r$$$$\\gamma r - 2M \\approx \\gamma r$$代入径向加速度公式：$$a^r \\approx -\\frac{2M\\gamma \\cdot \\gamma r}{r^2 \\cdot (\\gamma r)^2} \\xi^r = -\\frac{2M}{r^3} \\xi^r = a^r_N$$代入横向加速度公式：$$a^\\theta \\approx \\frac{M\\gamma \\cdot \\gamma r}{r^2 \\cdot (\\gamma r)^2} \\xi^\\theta = \\frac{M}{r^3} \\xi^\\theta = a^\\theta_N$$这正是牛顿引力势 $\\Phi = -M/r$ 产生的潮汐力结果，证毕。",
+    "solution": "1. 明确物理极限：远场极限 $r \\gg 2M/\\gamma$ 对应弱场条件，此时广义相对论效应应退化为牛顿力学。2. 对表达式中的分子和分母保留主导项：由于 $r$ 很大，相比于 $\\gamma r$，$M\\gamma$ 和 $2M$ 均为小量，可略去。因此，$\\gamma r - M\\gamma - M \\approx \\gamma r$，$\\gamma r - 2M \\approx \\gamma r$。3. 将近似代入 GR 表达式并约分：常数参数 $\\gamma$ 被约去，只剩下 $M$ 与 $r$ 的牛顿形式，证明了 GR 结果在远场极限下回到经典对应。"
+  },
+  "verification": null
+}

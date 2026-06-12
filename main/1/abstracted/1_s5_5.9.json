@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s5_5.9",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_flat_metric",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "Cartesian_Minkowski_coords",
+      "scenario": "discrete_charged_particles_EM_interaction",
+      "method": "divergence_cancellation_proof"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.9",
+    "source_id": "1_s5_5.9",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.6,
+      "rationale": "张量散度计算结合洛伦兹力与麦克斯韦源方程，逻辑链条完整，属经典场论标准证明题",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^{\\mu}$",
+      "$\\tau_{\\mathbf{i}}$",
+      "$u_{\\mathbf{i}}^{\\mu}$",
+      "$m_{\\mathbf{i}}$",
+      "$q_{\\mathbf{i}}$",
+      "$F^{\\mu}_{\\nu}$",
+      "$J^{\\mu}$",
+      "$T^{\\mu \\nu}$"
+    ],
+    "target": [
+      "$T^{\\mu \\nu}_{,\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.9. Consider a system of discrete particles of charge $\\mathbf{q}_{\\mathbf{i}}$ and mass $\\mathfrak{m}_{\\mathbf{i}}$ interacting through electromagnetic forces. From the explicit expression for $\\mathrm{T}^{\\mu \\nu}$ of the particles show that the total $\\mathrm{T}^{\\mu \\nu}$ (particles plus field) is conserved, i.e. that $\\mathrm{T}^{\\mu \\nu}_{,\\nu} = 0$ .",
+    "answer": "(\\mathbf{T}_{\\mathbf{p}}^{\\mu \\nu} + \\mathbf{T}_{\\mathbf{EM}}^{\\mu \\nu})_{,\\nu} = 0.",
+    "solution": "Solution 5.9. For simplicity assume Minkowski coordinates. The stress energy for the particles is$$\\mathrm {T}_{\\mathbf {P}}^{\\mu \\nu} (\\mathbf {x}) = \\sum_{\\mathbf {i}} \\mathsf {m}_{\\mathbf {i}} \\int \\mathsf {u}_{\\mathbf {i}}^{\\mu} (\\boldsymbol {\\tau}_{\\mathbf {i}}) \\mathsf {u}_{\\mathbf {i}}^{\\nu} (\\boldsymbol {\\tau}_{\\mathbf {i}}) \\delta^{4} [ \\mathbf {x} - \\mathbf {x}_{\\mathbf {i}} (\\boldsymbol {\\tau}_{\\mathbf {i}}) ] \\mathrm {d} \\boldsymbol {\\tau}_{\\mathbf {i}}.$$Thus$$\\mathbf {T}_{\\text bf {P}, \\nu}^{\\mu \\nu} = \\sum_{\\text bf {i}} \\mathbf {m}_{\\text bf {i}} \\int \\mathbf {u}_{\\text bf {i}}^{\\mu} \\mathbf {u}_{\\text bf {i}}^{\\nu} (\\partial / \\partial \\mathbf {x}^{\\nu}) \\delta^{4} [ \\mathbf {x} - \\mathbf {x}_{\\text bf {i}} (\\boldsymbol {\\tau}_{\\mathbf {i}}) ] \\mathrm {d} \\boldsymbol {\\tau}_{\\mathbf {i}}.$$The delta function depends only on $\\mathbf{x} - \\mathbf{x}_{\\mathbf{i}}$ so we can replace $\\partial/\\partial \\mathbf{x}^{\\nu}$ by $-\\partial/\\partial \\mathbf{x}_{\\mathbf{i}}^{\\nu}$ . Since $\\mathbf{u}_{\\mathbf{i}}^{\\nu}\\partial/\\partial \\mathbf{x}_{\\mathbf{i}}^{\\nu} = \\mathbf{d}/\\mathrm{d}\\tau_{\\mathbf{i}}$ we have then$$\\begin{array}{l} T_{P, \\nu}^{\\mu \\nu} = - \\sum_{i} m_{i} \\int u_{i}^{\\mu} (d / d r_{i}) \\delta^{4} [ x - x_{i} (r_{i}) ] d r_{i} \\\\ = \\sum_{i} m_{i} \\int \\left(\\mathrm {d} u_{i}^{\\mu} / \\mathrm {d} \\tau_{i}\\right) \\delta^{4} \\left[ x - x_{i} \\left(\\tau_{i}\\right)\\right] \\mathrm {d} \\tau_{i}, \\\\ \\end{array}$$where the second result follows from integration by parts.Now for the $i^{\\text{th}}$ particle$$\\mathrm {m_{i} d u_{i}^{\\mu} / d \\tau_{i}} = \\mathrm {q_{i} F_{\\nu}^{\\mu} (x_{i}) u_{i}^{\\nu}},$$so, with the result of Problem 4.7,$$\\begin{array}{l} \\mathrm {T}_{\\mathrm {P}, \\nu}^{\\mu \\nu} = \\sum_{\\mathrm {i}} \\mathrm {q}_{\\mathrm {i}} \\int \\mathrm {F}_{\\nu}^{\\mu} \\mathrm {u}_{\\mathrm {i}}^{\\nu} \\delta^{4} \\left[ \\mathrm {x} - \\mathrm {x}_{\\mathrm {i}} \\left(r_{i}\\right)\\right] \\mathrm {d} r_{i} \\\\ = \\mathbf {F}_{\\mu}^{\\nu} \\mathbf {J}^{\\mu}. \\\\ \\end{array}$$But, from Problem 4.15,$$\\mathrm {T}_{\\mathbf {E M}, \\nu}^{\\mu \\nu} = (4 \\pi)^{- 1} \\mathrm {F}^{\\mu \\alpha} \\mathrm {F}_{\\alpha , \\nu}^{\\nu} = - \\mathrm {F}^{\\mu \\alpha} \\mathrm {J}_{\\alpha}$$so that $(\\mathbf{T}_{\\mathbf{p}}^{\\mu \\nu} + \\mathbf{T}_{\\mathbf{EM}}^{\\mu \\nu})_{,\\nu} = 0.$"
+  },
+  "verification": null
+}

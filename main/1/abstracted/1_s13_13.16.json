@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s13_13.16",
+    "type": "calculate",
+    "tags": {
+      "metric": "minkowski_background_metric",
+      "target_object": "gauge_vector_target",
+      "coordinate": "inertial_coordinate_system",
+      "scenario": "plane_gravitational_wave_scenario",
+      "method": "gauge_transformation_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.16",
+    "source_id": "1_s13_13.16",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.16"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "多步张量推导结合规范场论方法求解平面引力波参数，物理背景清晰且逻辑链条完整。",
+      "overall": 0.83
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$k_\\\\alpha$",
+      "$x^\\\\alpha$",
+      "$A_{\\\\mu\\\\nu}$",
+      "$\\\\xi_\\\\mu$",
+      "$C_\\\\mu$"
+    ],
+    "target": [
+      "$\\\\xi_\\\\mu$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 13.16. In linearized theory a plane gravitational wave propagating in empty spacetime can be represented as the real part of a complex expression\\n$$\\n\\\\overline {{\\\\mathrm {h}}}_{\\\\mu \\\\nu} = \\\\operatorname {R e} \\\\left[ \\\\mathrm {A}_{\\\\mu \\\\nu} \\\\mathrm {e}^{\\\\mathrm {i} k_{\\\\alpha} \\\\mathrm {x}^{\\\\alpha}} \\\\right]\\n$$\\nwhere $\\mathbf{A}_{\\\\mu \\\\nu}$ is a constant tensor. Show that $\\mathbf{k}$ must be a null vector, and that $\\mathbf{A}$ is orthogonal to $\\mathbf{k}$ .\\nFor a particular observer with 4-velocity $\\mathbf{u}$ the \"transverse-traceless\" gauge (a further specialization of the Lorentz gauge) is defined in the observer's unperturbed rest frame ( $u^0 = 1$ , $u^i = 0$ ) such that\\n$$\\n\\\\overline {{{\\\\mathbf {h}}}}_{\\\\mu 0} = 0, \\\\qquad \\\\overline {{{\\\\mathbf {h}}}}_{\\\\mu}^{\\\\mu} = 0.\\n$$\\nFind the gauge transformation which accomplishes this. Does A remain orthogonal to k?",
+    "answer": "$\\\\xi_\\\\mu = -i C_\\\\mu e^{i k_\\\\alpha x^\\\\alpha}$, with $C_0 = \\\\frac{1}{2k_0}\\\\left(A^{old}_{00} + \\\\frac{1}{2} A^{old\\\\,\\\\lambda}_\\\\lambda\\\\right)$ and $C_i = \\\\frac{1}{k_0}\\\\left(A^{old}_{i0} - C_0 k_i\\\\right)$. Yes, $\\\\mathbf{A}$ remains orthogonal to $\\\\mathbf{k}$.",
+    "solution": "Solution 13.16. For $\\overline{\\mathbf{h}}_{\\mu \\nu}$ to satisfy the Lorentz gauge condition (see Problem 13.14), and the linearized field equations, we must have\\n$$\\n\\\\begin{array}{l} 0 = \\\\overline {{\\\\mathrm {h}}}_{\\\\mu \\\\nu}^{\\\\nu} = \\\\operatorname {R e} \\\\left[ \\\\mathrm {i} k^{\\\\nu} \\\\mathrm {A}_{\\\\mu \\\\nu} \\\\mathrm {e}^{\\\\mathrm {i} k_{\\\\alpha} \\\\mathrm {x}^{\\\\alpha}} \\\\right] \\\\\\\\\\\\ 0 = \\\\overline {{\\\\mathrm {h}}}_{\\\\mu \\\\nu , \\\\sigma}^{\\\\prime \\\\sigma} = \\\\operatorname {R e} \\\\left[ - \\\\mathrm {k}_{\\\\sigma} \\\\mathrm {k}^{\\\\sigma} \\\\mathrm {A}_{\\\\mu \\\\nu} \\\\mathrm {e}^{\\\\mathrm {i} k_{\\\\alpha} \\\\mathrm {x}^{\\\\alpha}} \\\\right]. \\\\\\\\\\\\ \\\\end{array}\\n$$\\nSo the 4-vector $\\mathbf{k}$ must be null and must be orthogonal to $\\mathbf{A}$ .\\nThe gauge transformation of $\\overline{\\mathfrak{h}}_{\\mu \\nu}$ is given in Problem 13.14 as\\n$$\\n\\\\overline {{\\\\mathsf {h}}}_{\\\\mu \\\\nu}^{\\\\mathsf {n e w}} = \\\\overline {{\\\\mathsf {h}}}_{\\\\mu \\\\nu}^{\\\\mathsf {o l d}} - 2 \\\\xi_{(\\\\mu , \\\\nu)} + \\\\eta_{\\\\mu \\\\nu} \\\\xi_{, \\\\sigma}^{\\\\sigma}.\\n$$\\nClearly the gauge transformation must be of a plane wave $\\mathrm{e}^{\\mathrm{i}\\\\mathbf{k}_{\\\\alpha}x^{\\\\alpha}}$ form. With $\\xi_{\\\\mu} = -\\\\mathrm{iC}_{\\\\mu}\\\\mathrm{e}^{\\\\mathrm{i}\\\\mathbf{k}_{\\\\alpha}x^{\\\\alpha}}$ we have\\n$$\\n\\\\mathbf {A}_{\\\\mu \\\\nu}^{\\\\mathrm {n e w}} = \\\\mathbf {A}_{\\\\mu \\\\nu}^{\\\\mathrm {o l d}} - (\\\\mathbf {C}_{\\\\mu} \\\\mathbf {k}_{\\\\nu} + \\\\mathbf {C}_{\\\\nu} \\\\mathbf {k}_{\\\\mu}) + \\\\eta_{\\\\mu \\\\nu} \\\\mathbf {C}^{\\\\alpha} \\\\mathbf {k}_{\\\\alpha}.\\n$$\\nIf this equation is contracted with $\\mathbf{k}^{\\\\mu}$ we see that\\n$$\\nA_{\\\\mu \\\\nu}^{n e w} k^{\\\\mu} = - k^{\\\\nu} C_{\\\\mu} k^{\\\\mu} + k^{\\\\nu} C^{a} k_{a} = 0\\n$$\\nso A remains orthogonal to k. We can now apply the transversetraceless condition, $(\\\\mathbf{A}^{\\\\mathrm{new}})_{\\\\mu}^{\\\\mu} = 0$ and $A_{\\\\mu 0}^{\\\\mathrm{new}} = 0$ , to our equation to get\\n$$\\n\\\\begin{array}{l} 0 = \\\\left(\\\\mathbf {A}^{\\\\circ 1 \\\\mathrm {d}}\\\\right)_{\\\\mu}^{\\\\mu} + 2 \\\\mathbf {C} \\\\cdot \\\\mathbf {k} \\\\\\\\\\\\ 0 = A_{\\\\mu 0}^{o l d} - \\\\left(C_{0} k_{\\\\mu} + C_{\\\\mu} k_{0}\\\\right) + \\\\eta_{\\\\mu 0} C \\\\cdot k. \\\\\\\\\\\\ \\\\end{array}\\n$$\\nThese can be combined into\\n$$\\n0 = \\\\mathbf {A}_{\\\\mu 0}^{\\\\mathrm {o l d}} - (\\\\mathbf {C}_{0} \\\\mathbf {k}_{\\\\mu} + \\\\mathbf {C}_{\\\\mu} \\\\mathbf {k}_{0}) - \\\\frac {1}{2} \\\\eta_{\\\\mu 0} \\\\mathbf {A}_{\\\\mu}^{\\\\mathrm {o l d}} \\\\mathbf {\\\\Gamma}_{\\\\mu}^{\\\\mu}.\\n$$\\nTaking $\\mu = 0$ we have $\\mathbf{C}_0 = (2\\\\mathbf{k}_0)^{-1}\\\\left(\\\\mathbf{A}_{00}^{old} + \\\\frac{1}{2} (\\\\mathbf{A}^{old})_\\\\mu^\\\\mu\\\\right)$ . The spatial components are then easily found from\\n$$\\n0 = A_{i 0}^{\\\\mathrm {o l d}} - \\\\left(C_{0} k_{i} + C_{i} k_{0}\\\\right).\\n$$"
+  },
+  "verification": null
+}

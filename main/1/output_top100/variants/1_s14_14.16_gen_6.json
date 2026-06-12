@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s14_14.16-6",
+    "type": "calculate",
+    "tags": {
+      "target_object": "R^\\mu_\\sigma A^\\sigma",
+      "coordinate": "spherical",
+      "scenario": "cosmology",
+      "method": "tensor_contraction",
+      "generalization_axis": "extend",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.16",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.16",
+      "1_s14_14.16-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$R^\\mu_\\sigma A^\\sigma$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In curved spacetime, the 'comma-goes-to-semicolon' rule applied to the flat-space vector wave equation $\\partial_\\nu \\partial^\\nu A^\\mu = 0$ (Lorenz gauge) yields $A^{\\mu;\\nu}_{\\phantom{\\mu;\\nu};\\nu} = 0$. However, the true source-free Maxwell equations are $F^{\\mu\\nu}_{\\phantom{\\mu\\nu};\\nu} = 0$, where $F^{\\mu\\nu} = A^{\\mu;\\nu} - A^{\\nu;\\mu}$. The difference between these two generalizations is given by $A^{\\mu;\\nu}_{\\phantom{\\mu;\\nu};\\nu} - F^{\\mu\\nu}_{\\phantom{\\mu\\nu};\\nu} = R^\\mu_\\sigma A^\\sigma$. Consider the Friedmann-Lemaître-Robertson-Walker (FLRW) metric:$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-k r^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^{2}\\theta d\\phi^2$$For a purely time-like, spatially homogeneous vector potential $A^\\mu = (A^0(t), 0, 0, 0)$ (which corresponds to a pure gauge configuration with zero physical electromagnetic fields in flat space), calculate the exact form of the difference vector $R^\\mu_\\sigma A^\\sigma$. Express your result in terms of the scale factor $a(t)$ and its time derivatives.",
+    "answer": "$(3\\frac{\\ddot{a}}{a}A^0, 0, 0, 0)$",
+    "solution": "1. The difference between the two generalizations of the Maxwell equations is given by the identity: $A^{\\mu;\\nu}_{\\phantom{\\mu;\\nu};\\nu} - F^{\\mu\\nu}_{\\phantom{\\mu\\nu};\\nu} = R^\\mu_\\sigma A^\\sigma$.2. For the given vector potential $A^\\mu = (A^0(t), 0, 0, 0)$, the contraction simplifies to $R^\\mu_\\sigma A^\\sigma = R^\\mu_0 A^0$.3. From the FLRW metric, the non-zero Ricci tensor components involving the time coordinate are $R_{00} = - \\frac{3 \\ddot{a}}{a}$ and $R_{0i} = 0$ for $i = 1, 2, 3$.4. We raise the first index using the inverse metric $g^{\\mu\\nu}$:   - For $\\mu = 0$: $R^0_0 = g^{00} R_{00} = (-1) \\left(- \\frac{3 \\ddot{a}}{a}\\right) = \\frac{3 \\ddot{a}}{a}$.   - For $\\mu = 1, 2, 3$: $R^i_0 = g^{ii} R_{i0} = 0$.5. Contracting with $A^0$, we get:   - $\\mu = 0$: $R^0_0 A^0 = \\frac{3 \\ddot{a}}{a} A^0$.   - $\\mu = 1, 2, 3$: 0.6. Thus, the difference vector is $R^\\mu_\\sigma A^\\sigma = (\\frac{3 \\ddot{a}}{a} A^0, 0, 0, 0)$. This result physically demonstrates that in an expanding universe, the Lorenz gauge generalization introduces a spurious effective source term proportional to the cosmic deceleration $\\ddot{a}/a$ for a pure gauge field, whereas the true Maxwell equations correctly remain source-free."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "1. 电磁场张量定义存在符号错误/指标混淆：题目中给出 $F^{\\mu\\nu} = A^{\\mu;\\nu} - A^{\\nu;\\mu}$，但根据标准定义 $F_{\\mu\\nu} = \\nabla_\\mu A_\\nu - \\nabla_\\nu A_\\mu$，提升指标后应为 $F^{\\mu\\nu} = A^{\\nu;\\mu} - A^{\\mu;\\nu}$。题目的写法机械替换了上下标而未考虑度规缩并的对称性，导致定义式实际上等于 $-F^{\\mu\\nu}$，相差一个负号。\n2. 推导逻辑跳跃/遗漏关键假设：题目直接给出结论 $A^{\\mu;\\nu}_{;\\nu} - F^{\\mu\\nu}_{;\\nu} = R^\\mu_\\sigma A^\\sigma$，但根据 Ricci 恒等式推导，$A^{\\nu;\\mu}_{;\\nu} = A^{\\nu;\\nu}_{;\\mu} + R^\\mu_\\sigma A^\\sigma$。该等式成立隐含了弯曲时空下的 Lorenz 规范条件 $\\nabla_\\nu A^\\nu = 0$（即 $A^{\\nu;\\nu}=0$），否则差值应为 $A^{\\nu;\\nu}_{;\\mu} + R^\\mu_\\sigma A^\\sigma$。题目仅在开头提及了平直时空的 Lorenz 规范，未声明该条件在弯曲时空下依然成立，导致推导不严谨且等式不必然成立。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

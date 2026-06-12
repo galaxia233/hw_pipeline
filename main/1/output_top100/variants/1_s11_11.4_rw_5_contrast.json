@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-4-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "four_acceleration_and_Fermi-Walker_degeneration",
+      "coordinate": "static_observer",
+      "scenario": "contrast_cosmology_vs_schwarzschild",
+      "method": "Fermi-Walker_transport",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-4",
+      "1_s11_11.4-4-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$a^{\\mu}$ (度规A)",
+      "$a^{\\mu}$ (度规B)",
+      "Fermi-Walker退化判断对比"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，无扭矩陀螺仪的自旋矢量 $\\mathbf{S}$ 满足 Fermi-Walker 输运方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = (\\mathbf{u} \\cdot \\mathbf{S}) \\mathbf{a}$，其中 $\\mathbf{u}$ 为陀螺仪的四维速度，$\\mathbf{a}$ 为其四维加速度。请在以下两种度规下，分别推导固定空间坐标静止观测者的四维加速度 $a^{\\mu}$，判断 Fermi-Walker 输运是否退化为平行输运 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$，并对比这两种时空中的差异与物理含义：(1) 度规 A：$ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$(2) 度规 B (Schwarzschild)：$ds^2 = -(1-r_s/r)dt^2 + (1-r_s/r)^{-1}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$",
+    "answer": "度规 A：静止观测者四维速度 $u^{\\mu} = (1,0,0,0)$，四维加速度 $a^{\\mu} = u^{\\nu} \\nabla_{\\nu} u^{\\mu} = \\Gamma^{\\mu}_{00} (u^0)^2 = 0$（因所有 $\\Gamma^{\\mu}_{00}=0$）。故 $a^{\\mu}=0$，Fermi-Walker 输运退化为平行输运，自旋矢量不发生进动。物理含义：在该度规下，固定空间坐标的静止观测者实际沿测地线自由运动（无外力支撑）。度规 B：静止观测者四维速度 $u^{\\mu} = ((1-r_s/r)^{-1/2}, 0, 0, 0)$，四维加速度 $a^1 = \\Gamma^1_{00} (u^0)^2 = \\frac{r_s(r-r_s)}{2r^3} \\cdot \\frac{r}{r-r_s} = \\frac{r_s}{2r^2} \\neq 0$。故 $a^{\\mu} \\neq 0$，Fermi-Walker 输运不退化为平行输运，自旋矢量发生进动。物理含义：在 Schwarzschild 时空中，固定空间坐标需要外力抵抗引力，观测者偏离测地线，导致自旋进动。对比差异：度规 A 中静止观测者处于测地线，而度规 B 中静止观测者处于非测地线，两者的四维加速度是否为零直接决定了自旋输运方程的退化与否及自旋是否进动。",
+    "solution": "1. 分别求出两种度规下静止观测者的四维速度 $u^{\\mu}$（注意度规 B 的归一化因子）。2. 利用 Christoffel 符号计算四维加速度 $a^{\\mu} = \\frac{du^{\\mu}}{d\\tau} + \\Gamma^{\\mu}_{\\nu\\lambda} u^{\\nu} u^{\\lambda} = \\Gamma^{\\mu}_{00} (u^0)^2$。3. 判断 $a^{\\mu}$ 是否为零，代入 Fermi-Walker 输运方程判断其是否退化为 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$。4. 从测地线运动与外力支撑的角度解释两种时空的物理差异。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目存在两个严重错误：1. Fermi-Walker 输运方程定义错误：正确的无扭矩陀螺仪自旋矢量 Fermi-Walker 输运方程应为 $\\nabla_{\\mathbf{u}} \\mathbf{S} = (\\mathbf{a} \\cdot \\mathbf{S}) \\mathbf{u} - (\\mathbf{u} \\cdot \\mathbf{S}) \\mathbf{a}$。题目中给出的方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = (\\mathbf{u} \\cdot \\mathbf{S}) \\mathbf{a}$ 丢失了关键的 $(\\mathbf{a} \\cdot \\mathbf{S}) \\mathbf{u}$ 项。对于陀螺仪自旋矢量，通常有 $\\mathbf{u} \\cdot \\mathbf{S} = 0$，此时正确的方程应退化为 $\\nabla_{\\mathbf{u}} \\mathbf{S} = (\\mathbf{a} \\cdot \\mathbf{S}) \\mathbf{u}$，而非零或题目给出的形式。2. 度规 A 的设定存在明显的组件错位错误：度规 A 为 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$，由于 $g_{00} = -1$ 为常数，导致静止观测者的四维加速度 $a^\\mu = \\Gamma^\\mu_{00} = 0$（沿测地线自由运动），这完全破坏了题目原本意图进行的物理对比（将 Schwarzschild 时空中的非测地线静止观测者与另一种典型引力场中的观测者对比）。作者几乎肯定是想使用代表均匀引力场的度规 $ds^2 = -e^{2x/\\alpha}dt^2 + dx^2 + dy^2 + dz^2$（此时 $a^\\mu \\neq 0$ 且为常数），却错误地将指数因子放在了空间分量上，导致物理场景退化且对比失去意义。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

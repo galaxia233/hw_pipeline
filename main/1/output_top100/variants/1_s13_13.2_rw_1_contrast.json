@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s13_13.2-4-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "angular_momentum",
+      "coordinate": "spherical_contrast",
+      "scenario": "geodesic_conservation_contrast",
+      "method": "Killing_vector",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.2",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.2",
+      "1_s13_13.2-4",
+      "1_s13_13.2-4-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "L_F",
+      "L_S"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，时空的对称性由 Killing 矢量刻画，并直接决定沿测地线运动的自由粒子的守恒量。考虑以下两种时空背景：背景一：FLRW 宇宙度规为 $$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2}dr^2 + r^2 a^2(t)d\\theta^2 + r^2 a^2(t)\\sin^2\\theta d\\phi^2$$其中 $a(t)$ 为标度因子，该度规具有绕 $\\phi$ 轴旋转的 Killing 矢量 $\\xi^\\mu_{(1)} = (0,0,0,1)$。背景二：Schwarzschild 时空度规为 $$ds^2 = \\frac{r_s - r}{r}dt^2 + \\frac{r}{r - r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$其中 $r_s$ 为 Schwarzschild 半径，该度规具有绕 $\\phi$ 轴旋转的 Killing 矢量 $\\xi^\\mu_{(2)} = (0,0,0,1)$。请分别利用两种度规的旋转 Killing 矢量 $\\xi^\\mu = (0,0,0,1)$，推导自由粒子沿类时测地线运动的守恒角动量 $L$ 的表达式，并对比两者表达式的差异，解释 FLRW 守恒量中标度因子 $a(t)$ 的物理含义及其对粒子横向运动的影响。",
+    "answer": "在 Schwarzschild 时空中，利用旋转 Killing 矢量，守恒角动量为 $L_S = g_{\\phi\\phi} u^\\phi = r^2 \\sin^2\\theta \\frac{d\\phi}{d\\tau}$。在 FLRW 时空中，利用旋转 Killing 矢量，守恒角动量为 $L_F = g_{\\phi\\phi} u^\\phi = a^2(t) r^2 \\sin^2\\theta \\frac{d\\phi}{d\\tau}$。差异在于 FLRW 守恒量中显含标度因子 $a^2(t)$。物理含义上，由于 $L_F$ 沿测地线为常数，随着宇宙膨胀 $a(t)$ 增大，粒子的坐标角速度 $\\frac{d\\phi}{d\\tau}$ 必须相应减小以保持守恒量不变。这反映了膨胀宇宙对自由粒子横向运动产生的“宇宙学摩擦”或拉伸效应；而 Schwarzschild 静态时空的角动量不含时间演化因子，表明静态时空的整体几何不改变粒子的横向运动尺度。",
+    "solution": "1. 对于一般度规，Killing 矢量 $\\xi^\\mu$ 对应的守恒量为 $Q = g_{\\mu\\nu} \\xi^\\mu u^\\nu$。2. 两种度规下绕 $\\phi$ 轴的 Killing 矢量均为 $\\xi^\\mu = (0,0,0,1)$，因此守恒量 $Q = g_{\\phi\\phi} u^\\phi$。3. Schwarzschild 度规的 $g_{\\phi\\phi} = r^2 \\sin^2\\theta$，代入得 $L_S = r^2 \\sin^2\\theta \\frac{d\\phi}{d\\tau}$。4. FLRW 度规的 $g_{\\phi\\phi} = a^2(t) r^2 \\sin^2\\theta$，代入得 $L_F = a^2(t) r^2 \\sin^2\\theta \\frac{d\\phi}{d\\tau}$。5. 对比两者，分析 $a(t)$ 导致的物理效应差异。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "1. Schwarzschild度规的时间项系数存在严重的符号表达错误：题目写为 $\\frac{r_s - r}{r}dt^2$，将负号藏在分子中而不显式写出。在广义相对论中，洛伦兹度规的时间项必须显式带有负号（如 $-(1-r_s/r)dt^2$ 或 $-\\frac{r-r_s}{r}dt^2$），这种反常规的写法极易导致做题者在计算 $g_{tt}$ 时误认为其值为正，从而引发后续所有涉及时间分量推导（如能量守恒、固有时间计算）的符号错误。2. Answer中对FLRW守恒量的物理解释存在概念混淆：将粒子动量衰减（宇宙学摩擦/红移）导致的角速度减小解释为“拉伸效应”。拉伸效应是指宇宙膨胀导致物理距离 $ar$ 增加，而角动量守恒导致的 $\\frac{d\\phi}{d\\tau}$ 减小是 peculiar momentum 衰减（$p \\propto 1/a$）的结果，两者虽同时发生但因果关系和物理机制不同，不能将动量衰减称为拉伸效应。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

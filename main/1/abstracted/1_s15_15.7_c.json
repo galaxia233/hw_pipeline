@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s15_15.7_c",
+    "type": "calculate",
+    "tags": {
+      "metric": "schwarzschild_metric_approximation",
+      "target_object": "perihelion_advance",
+      "coordinate": "orbital_radius",
+      "scenario": "planetary_orbits",
+      "method": "scaling_law_derivation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s15_15.7_c",
+    "source_id": "1_s15_15.7_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s15_15.7_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "Derives scaling relations for two distinct physical mechanisms and computes values using real astronomical data.",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$r$",
+      "$T$",
+      "$\\delta\\phi$"
+    ],
+    "target": [
+      "$\\delta\\phi$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "# Problem 15.7.(c) Assume that the oblateness of the sun is so large that the rate of advance of the perihelion due to oblateness and the rate of advance due to general relativity are equal for the orbit of Mercury. Compute the rate of advance of the perihelion (in seconds of arc per century) for the four planets closest to the sun, due to each of the effects. Note: to simplifythe calculations assume, throughout the problem, that the orbits are nearly circular - i.e. they all have negligible eccentricity.",
+    "answer": "Mercury: GR=42, Ob=42 | Venus: GR=8.8, Ob=4.7 | Earth: GR=3.9, Ob=1.51 | Mars: GR=1.25, Ob=0.3 (units: sec/century)",
+    "solution": "(c) In $\\mathbf{c} = \\mathbf{G} = 1$ units $\\mathbf{M}_{\\odot} = 1.5 \\, \\mathrm{km}$ . For Mercury $\\mathbf{r}_0 = .58 \\times 10^8 \\, \\mathrm{km}$ . So the relativistic advance is$$\\begin{array}{l} \\delta \\phi = . 1 0 5 \\text {s e c o n d s o f a r c p e r o r i b t} \\\\= 4 2 \\text {s e c o n d s o f a r c p e r c e n t u r y} \\\\ \\end{array}$$since the orbital period is .241 years. If this advance were due to the oblateness of the sun, then for the other planets we would have,$$\\begin{array}{l} \\delta \\phi = (4 2 \\sec / c e n t u r y) \\left(r_{M e r c.} / r\\right)^{2} (\\text {P e r i o d o f M e r c . / P e r i o d}) \\\\= (4 2 \\sec / c e n t u r y) \\left(r_{M e r c.} / r\\right)^{\\frac {7}{2}}. \\\\\\end{array}$$Numerical answers:<table><tr><td></td><td>rMerc</td><td>general relativity</td><td>oblateness</td></tr><tr><td></td><td>r</td><td>sec/century</td><td>sec/century</td></tr><tr><td>Mercury</td><td>1</td><td>42</td><td>42</td></tr><tr><td>Venus</td><td>.536</td><td>8.8</td><td>4.7</td></tr><tr><td>Earth</td><td>.386</td><td>3.9</td><td>1.51</td></tr><tr><td>Mars</td><td>.245</td><td>1.25</td><td>.3</td></tr></table>"
+  },
+  "verification": null
+}

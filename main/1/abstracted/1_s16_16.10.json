@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s16_16.10",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "spherical_symmetry",
+      "coordinate": "coordinate_invariant",
+      "scenario": "mass_function",
+      "method": "geometric_quantities"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.10",
+    "source_id": "1_s16_16.10",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.10"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "球对称度规下质量函数与不变几何量（面积、梯度模长）的等价推导，物理背景明确且解答完整。",
+      "overall": 0.83
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$\\\\mathfrak{m}(\\\\mathbf{r})$"
+    ],
+    "metric": [
+      [
+        "$-e^{2\\\\Phi}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "($1 - 2m(r)/r)^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\\\sin^2 \\\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.10. The mass $\\mathfrak{m}(\\mathfrak{r})$ inside radius $\\mathbf{r}$ for a spherical star appears in the $\\mathbf{g}_{\\mathbf{rr}}$ term of the line element\\n$$\\n\\\\mathrm {d s}^{2} = - \\\\mathrm {e}^{2 \\\\Phi} \\\\mathrm {d t}^{2} + (1 - 2 \\\\mathrm {m} (\\\\mathrm {r}) / \\\\mathrm {r})^{- 1} \\\\mathrm {d r}^{2} + \\\\mathrm {r}^{2} \\\\mathrm {d} \\\\Omega^{2}.\\n$$\\nExpress $\\mathfrak{m}(\\\\mathbf{r})$ in a coordinate-independent manner in terms of the surface area and radial separation of spherical surfaces.",
+    "answer": "$\\\\mathrm {m} (\\\\mathrm {r}) = \\\\frac {\\\\left(\\\\mathrm {A} / \\\\pi\\\\right)^{\\\\frac {1}{2}}}{4} \\\\left(1 - \\\\frac {\\\\widetilde {\\\\mathrm {d A}} \\\\cdot \\\\widetilde {\\\\mathrm {d A}}}{1 6 \\\\pi \\\\mathrm {A}}\\\\right).$",
+    "solution": "Solution 16.10. At a particular point $\\mathbf{P}$ let an observer construct a sphere $S$ passing through $\\mathbf{P}$ and defined such that the geometry is the same at all points on $S$ . Then, from the line element, the measured area of this sphere will be\\n$$\\n\\\\mathbf {A} (\\\\mathbf {r}) = 4 \\\\pi \\\\mathbf {r}^{2}. \\\\tag {1}\\n$$\\nThe gradient of the scalar function $\\mathbf{A}(\\\\mathbf{r})$ is a 1-form, i.e.\\n$$\\n\\\\nabla \\\\mathbf {A} (\\\\mathbf {r}) \\\\equiv \\\\widetilde {\\\\mathrm {d A}} = 8 \\\\pi \\\\mathrm {r} \\\\widetilde {\\\\mathrm {d r}}. \\\\tag {2}\\n$$\\nThus,\\n$$\\n\\\\widetilde {\\\\mathrm {d A}} \\\\cdot \\\\widetilde {\\\\mathrm {d A}} = 1 6 \\\\pi^{2} \\\\mathrm {r}^{2} \\\\widetilde {\\\\mathrm {d r}} \\\\cdot \\\\widetilde {\\\\mathrm {d r}} = 1 6 \\\\pi^{2} \\\\mathrm {r}^{2} (1 - 2 \\\\mathrm {m} / \\\\mathrm {r}) \\\\tag {3}\\n$$\\nand\\n$$\\n\\\\mathrm {m} (\\\\mathrm {r}) = \\\\frac {\\\\left(\\\\mathrm {A} / \\\\pi\\\\right)^{\\\\frac {1}{2}}}{4} \\\\left(1 - \\\\frac {\\\\widetilde {\\\\mathrm {d A}} \\\\cdot \\\\widetilde {\\\\mathrm {d A}}}{1 6 \\\\pi \\\\mathrm {A}}\\\\right). \\\\tag {4}\\n$$"
+  },
+  "verification": null
+}

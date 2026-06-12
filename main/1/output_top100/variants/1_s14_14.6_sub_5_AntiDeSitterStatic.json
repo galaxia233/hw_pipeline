@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-1-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "coordinate_constraint",
+      "coordinate": "spherical",
+      "scenario": "weighing_in_gravity",
+      "method": "invert_from_conclusion",
+      "generalization_axis": "substitute",
+      "metric": "AntiDeSitterStatic"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-1",
+      "1_s14_14.6-1-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "AntiDeSitterStatic",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\theta = \\frac{\\pi}{2}$"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，一个静止在引力场中的容器，其沿某一方向所受的支撑力可以由物理分量的积分给出。考虑度规为 $ds^2 = -\\cos h^2(r) dt^2 + dr^2 + \\sin h^2(r) d\\theta^2 + \\sin^2(\\theta) \\sin h^2(r) d\\phi^2$ 的引力场。已知在该引力场的某些特定位置，静止容器沿 $\\theta$ 方向（即垂直于赤道面的方向）的支撑力与 $\\phi$ 方向的横向应力 $T^{\\hat{\\phi}\\hat{\\phi}}$ 完全无关（即 $\\phi$ 方向应力不参与 $\\theta$ 方向的受力平衡）。请从“沿 $\\theta$ 方向的支撑力与 $\\phi$ 方向应力无关”这一物理结论出发，反推并证明容器必须静止在哪个特定的几何位置（指出哪个坐标必须取何特定值）。",
+    "answer": "容器必须静止在 $\\theta = \\frac{\\pi}{2}$ 处，即赤道面上。",
+    "solution": "1. 根据能量-动量守恒方程 $\\nabla_{\\mu} T^{\\mu\\theta} = 0$ 展开。对于静止容器，只有对角分量 $T^{tt}, T^{rr}, T^{\\theta\\theta}, T^{\\phi\\phi}$ 非零。2. 方程中的应力耦合项包含 $\\Gamma^{\\theta}_{rr} T^{rr}$ 和 $\\Gamma^{\\theta}_{\\phi\\phi} T^{\\phi\\phi}$。3. 转换为物理分量：$\\Gamma^{\\theta}_{rr} \\frac{T^{\\hat{r}\\hat{r}}}{g_{rr}} + \\Gamma^{\\theta}_{\\phi\\phi} \\frac{T^{\\hat{\\phi}\\hat{\\phi}}}{g_{\\phi\\phi}}$。4. 物理反推：由于 $\\phi$ 方向应力 $T^{\\hat{\\phi}\\hat{\\phi}}$ 是可以独立变化的物理量，如果支撑力与 $T^{\\hat{\\phi}\\hat{\\phi}}$ 无关，则其系数必须为零，即 $\\frac{\\Gamma^{\\theta}_{\\phi\\phi}}{g_{\\phi\\phi}} = 0$。5. 计算该比值：$\\Gamma^{\\theta}_{\\phi\\phi} = -\\frac{\\sin(2\\theta)}{2} = -\\sin(\\theta)\\cos(\\theta)$，$g_{\\phi\\phi} = \\sin^2(\\theta) \\sin h^2(r)$。比值 $-\\frac{\\cos(\\theta)}{\\sin(\\theta) \\sin h^2(r)}$ 为零要求 $\\cos(\\theta) = 0$，即 $\\theta = \\frac{\\pi}{2}$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.antidesitterstatic_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "1. 题目中度规排版错误：$\\cos h^2(r)$ 和 $\\sin h^2(r)$ 是不规范的数学符号，应为 $\\cosh^2(r)$ 和 $\\sinh^2(r)$。2. Solution 步骤2声称应力耦合项包含 $\\Gamma^\\theta_{rr} T^{rr}$，但根据给定度规计算，$\\Gamma^\\theta_{rr}=0$，这是一个明显的计算错误。3. Solution 展开能量-动量守恒方程 $\\nabla_\\mu T^{\\mu\\theta}=0$ 时，严重遗漏了 $\\Gamma^\\mu_{\\mu\\theta} T^{\\theta\\theta}$ 项。对于对角应力张量，该项为 $\\frac{\\cos\\theta}{\\sin\\theta} T^{\\theta\\theta}$，转换到物理分量下其系数同样为 $\\frac{\\cos\\theta}{\\sin\\theta \\sinh^2(r)}$。解法仅凭 $\\Gamma^\\theta_{\\phi\\phi}$ 的系数得出结论，忽略了 $T^{\\theta\\theta}$ 项的影响，导致推导逻辑不完整且存在跳跃。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

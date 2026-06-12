@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s7_7.20_c",
+    "type": "concept",
+    "tags": {
+      "metric": "tensor_algebra",
+      "target_object": "covariant_derivative",
+      "coordinate": "index_free_notation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.20_c",
+    "source_id": "1_s7_7.20_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.20_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.4,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.3,
+      "rationale": "抽象张量缩并与协变导数的符号转换题，逻辑链条短且为纯数学形式操作，但结构可轻松迁移至任意阶张量。",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\gamma$",
+      "$T$",
+      "$V$",
+      "$W$",
+      "$U$"
+    ],
+    "target": [
+      "$\\\\mathrm{T}_{\\\\alpha \\\\beta ; \\\\gamma}\\\\mathrm{V}^{\\\\alpha}\\\\mathbb{W}^{\\\\beta}\\\\mathrm{U}^{\\\\gamma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.20. Write the following expressions in index-free notation:\\n(c) $\\mathrm{T}_{\\alpha \\beta ;\\gamma}\\mathrm{V}^{\\alpha}\\mathbb{W}^{\\beta}\\mathrm{U}^{\\gamma}$",
+    "answer": "$\\\\mathbf {V} \\\\cdot (\\\\nabla_{\\\\mathbf {U}} \\\\mathbf {T}) \\\\cdot \\\\mathbf {W}$",
+    "solution": "$$\\\\mathrm {T}_{\\\\alpha \\\\beta ; \\\\gamma} \\\\mathbf {V}^{\\\\alpha} \\\\mathbf {W}^{\\\\beta} \\\\mathbf {U}^{\\\\gamma} = \\\\mathbf {V} \\\\cdot (\\\\nabla_{\\\\mathbf {U}} \\\\mathbf {T}) \\\\cdot \\\\mathbf {W} \\\\tag {c}$$"
+  },
+  "verification": null
+}

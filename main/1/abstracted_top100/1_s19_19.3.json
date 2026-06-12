@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s19_19.3",
+    "type": "calculate",
+    "tags": {
+      "metric": "observational_cosmology",
+      "target_object": "blackbody_radiation",
+      "coordinate": "redshift",
+      "scenario": "liouville_theorem",
+      "method": "flux_calculation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.3",
+    "source_id": "1_s19_19.3",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.8,
+      "rationale": "结合刘维尔定理与相空间不变性推导红移下的黑体辐射流量，逻辑链条完整，具有明确的观测天体物理背景且结论不依赖红移具体成因",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T$",
+      "$z$",
+      "$\\Omega$",
+      "$\\nu$",
+      "$\\sigma$"
+    ],
+    "target": [
+      "$F_{\\text{obs}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.3. An object emits black body radiation of temperature $T$ in its own rest frame; we see it at a redshift $z$ and subtending a solid angle $\\Omega$ . What flux do we measure? What if the redshift is due to doppler motion of a local object instead of a cosmological redshift?",
+    "answer": "$\\frac{\\Omega}{(1 + z)^4} \\frac{1}{\\pi} \\sigma T^4$",
+    "solution": "Solution 19.3. By Liouville's theorem the number density of photons in phase space $\\mathbf{I}_{\\nu} / \\nu^3$ is a constant along a light ray, and (see Problem 5.10)it is also a Lorentz invariant. Using $(\\nu_{\\text{emitted}} / \\nu_{\\text{observed}}) = 1 + z$ , We have then$$\\begin{array}{l} \\text {F l u x o b s e r v e d} = \\Omega \\int I_{\\nu}^{\\mathrm {o b s}} \\mathrm {d} \\nu_{\\mathrm {o b s}} = \\Omega \\int \\left(\\frac {I_{\\nu}^{\\mathrm {o b s}}}{\\nu_{\\mathrm {o b s}}^{3}}\\right) \\nu_{\\mathrm {o b s}}^{3} \\mathrm {d} \\nu_{\\mathrm {o b s}} \\\\\\\\= \\Omega \\int \\frac {\\mathrm {I}_{\\nu}^{\\mathrm {e m i t}}}{\\nu_{\\mathrm {e m i t}}^{3}} \\frac {\\nu_{\\mathrm {e m i t}}^{3} \\mathrm {d} \\nu_{\\mathrm {e m i t}}}{(1 + z)^{4}} = \\frac {\\Omega}{(1 + z)^{4}} \\int \\mathrm {I}_{\\nu}^{\\mathrm {e m i t}} \\mathrm {d} \\nu_{\\mathrm {e m i t}} \\\\\\\\= \\frac {\\Omega}{(1 + z)^{4}} \\frac {1}{\\pi} \\sigma \\mathrm {T}^{4} \\\\\\\\\\\\\\\\ \\end{array}$$where $\\sigma$ is the Stefan-Boltzmann constant. Note that since a redshifted black body spectrum is also a black body spectrum, the flux and spectrum observed is just that which would come from a nearby stationary object of solid angle $\\Omega$ and temperature $T / (1 + z)$ .In all the above it doesn't matter whether the redshift is due to doppler motion, gravitational redshift, or cosmological redshift, because Liouville's theorem holds in general."
+  },
+  "verification": null
+}

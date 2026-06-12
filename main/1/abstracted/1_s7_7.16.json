@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "id": "1_s7_7.16",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "parallel_transport",
+      "coordinate": "coordinate_system",
+      "scenario": "differential_geometry",
+      "method": "christoffel_symbols"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.16",
+    "source_id": "1_s7_7.16",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.16"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于标准球面度规的平行输运问题，涉及测地线方程简化、Christoffel符号计算与一阶线性微分方程组求解，逻辑链条完整且具有明显的曲率几何背景。",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$A^{\\theta}$",
+      "$A^{\\phi}$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$\\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "sin(theta)**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "[文件 1: 1_s7_7.16.md]Problem 7.16. On the surface of a two-sphere, $\\mathrm{ds}^2 = \\mathrm{d}\\theta^2 + \\sin^2\\theta \\mathrm{d}\\phi^2$ , the vector $\\mathbf{A}$ is equal to $\\mathbf{e}_{\\theta}$ at $\\theta = \\theta_0$ , $\\phi = 0$ . What is $\\mathbf{A}$ after it is parallel transported around the circle $\\theta = \\theta_0$ ? What is the magnitude of $\\mathbf{A}$ ?",
+    "answer": "$\\mathbf{A}(2\\pi) = \\cos(2\\pi \\cos \\theta_0) \\mathbf{e}_\\theta - \\frac{\\sin(2\\pi \\cos \\theta_0)}{\\sin \\theta_0} \\mathbf{e}_\\phi$，其模长保持不变为 $1$。",
+    "solution": "Solution 7.16. A is parallel transported along the $\\phi$ -coordinate line (i.e., $\\theta = \\text{constant}$ ), so$$0 = \\mathrm {A}_{; \\phi}^{\\alpha} = \\mathrm {A}_{, \\phi}^{\\alpha} + \\Gamma_{\\beta \\phi}^{\\alpha} \\mathrm {A}^{\\beta}. \\tag {1}$$The only nonzero Christoffel symbols are $\\Gamma_{\\phi \\phi}^{\\theta} = -\\sin \\theta \\cos \\theta$ and $\\Gamma_{\\theta \\phi}^{\\phi} = \\cot \\theta$ , so Equation (1) gives$$\\mathbf {A}^{\\theta}, \\phi - \\sin \\theta \\cos \\theta \\mathbf {A}^{\\phi} = 0 \\tag {2}$$$$\\mathbf {A}_{, \\phi}^{\\phi} + \\cot \\theta \\mathbf {A}^{\\theta} = 0. \\tag {3}$$Throughout this problem, $\\theta$ is kept constant at $\\theta_0$ . Equations (2) and (3) are easily solved, e.g., by differentiating Equation (2) with respect to $\\phi$ :$$\\mathbf {A}_{, \\phi \\phi}^{\\theta} = \\sin \\theta \\cos \\theta \\mathbf {A}_{, \\phi}^{\\phi} = - \\cos^{2} \\theta \\mathbf {A}^{\\theta}.$$The solution then is$$\\mathbf {A}^{\\theta} = a \\cos (\\phi \\cos \\theta) + \\beta \\sin (\\phi \\cos \\theta)$$where $\\alpha, \\beta$ are constants. Equation (2) now gives$$\\mathbf {A}^{\\phi} = - a \\sin (\\phi \\cos \\theta) / \\sin \\theta + \\beta \\cos (\\phi \\cos \\theta) / \\sin \\theta .$$At $\\phi = 0$ , $\\mathbf{A} = \\mathbf{e}_{\\theta}$ , i.e. $\\mathbf{A}^{\\theta} = \\mathbf{1}$ , $\\mathbf{A}^{\\phi} = 0$ . Thus $a = 1$ , $\\beta = 0$ , and$$\\mathbf {A}^{\\theta} = \\cos (\\phi \\cos \\theta)$$$$\\mathbf {A}^{\\phi} = - \\sin (\\phi \\cos \\theta) / \\sin \\theta .$$At $\\phi = 2\\pi$ , after transport around the circle, the vector is$$\\mathbf {A} = \\cos (2 \\pi \\cos \\theta) \\mathbf {e}_{\\theta} - \\sin (2 \\pi \\cos \\theta) / \\sin \\theta \\mathbf {e}_{\\phi} \\neq \\mathbf {e}_{\\theta},$$but the magnitude is unchanged$$(\\mathbf {A} \\cdot \\mathbf {A})_{2 \\pi} = \\cos^{2} (2 \\pi \\cos \\theta) \\mathbf {e}_{\\theta} \\cdot \\mathbf {e}_{\\theta} + \\sin^{2} (2 \\pi \\cos \\theta) / \\sin^{2} \\theta \\mathbf {e}_{\\phi} \\cdot \\mathbf {e}_{\\phi} = 1 = (\\mathbf {A} \\cdot \\mathbf {A})_{0}.$$"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 2,
+    "variables": [
+      "\\theta",
+      "\\phi"
+    ],
+    "metric_latex": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "\\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

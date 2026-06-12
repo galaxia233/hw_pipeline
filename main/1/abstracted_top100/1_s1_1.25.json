@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "id": "1_s1_1.25",
+    "type": "prove",
+    "tags": {
+      "metric": "lorentz_algebra",
+      "target_object": "commutation_relations",
+      "coordinate": "pauli_representation",
+      "scenario": "infinitesimal_generators",
+      "method": "minkowski_spacetime"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.25",
+    "source_id": "1_s1_1.25",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.25"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "完整洛伦兹生成元微分算符推导+对易关系严格证明与泡利矩阵映射+有限变换指数化构造",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$\\theta$",
+      "$v$",
+      "$J_x$",
+      "$J_y$",
+      "$J_z$",
+      "$K_x$",
+      "$K_y$",
+      "$K_z$",
+      "$\\sigma_x$",
+      "$\\sigma_y$",
+      "$\\sigma_z$"
+    ],
+    "target": [
+      "$J_x$",
+      "$J_y$",
+      "$J_z$",
+      "$K_x$",
+      "$K_y$",
+      "$K_z$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.25. Let $\\mathbf{J}_{\\mathbf{x}}, \\mathbf{J}_{\\mathbf{y}}, \\mathbf{J}_{\\mathbf{z}}$ be infinitesimal rotation operators defined so that $1 + \\mathrm{i}\\mathbf{J}_{\\mathbf{j}}\\theta / 2$ is a rotation by a small angle $\\theta$ around the j-axis. Let $\\mathbf{K}_{\\mathbf{x}}, \\mathbf{K}_{\\mathbf{y}}, \\mathbf{K}_{\\mathbf{z}}$ be infinitesimal boost operators defined so that $1 + \\mathrm{i}\\mathbf{K}_{\\mathbf{j}}\\mathbf{v} / 2$ is a boost by a small velocity $\\mathbf{v}$ in the j-direction. Show that the following relationships, and all their cyclic permutations, are true:$$\\begin{array}{l}[ J_{x}, J_{y} ] = 2 i J_{z} \\\\[ J_{x}, K_{y} ] = 2 i K_{z} \\\\\\left[ \\mathrm {K}_{\\mathbf {x}}, \\mathrm {K}_{\\mathbf {y}}\\right] = - 2 \\mathrm {i} \\mathrm {J}_{z}. \\\\\\end{array}$$Find a representation of the Lorentz group in terms of Pauli spin matrices $\\sigma_{\\mathbf{x}}$ , $\\sigma_{\\mathbf{y}}$ , $\\sigma_{\\mathbf{z}}$ , and the unit matrix.",
+    "answer": "$\\mathbf{J} \\to \\underline{\\sigma}$, $\\mathbf{K} \\to i\\underline{\\sigma}$, finite transformation $L(\\underline{\\theta}, \\underline{v}) = \\cos h q + (\\underline{q} \\cdot \\underline{\\sigma} / q) \\sin h q$ with $\\underline{q} = (i\\underline{\\theta}^* - \\underline{v}^*)/2$.",
+    "solution": "Solution 1.25. Let us first derive the forms of the infinitesimal operators by considering their action on a spacetime function $f(x, y, z, t)$ :(i) Rotations about $\\mathbf{z}$ axis:$$\\begin{array}{l}\\mathbf {x}^{\\prime} \\approx \\mathbf {x} - \\mathbf {y} \\theta \\\\\\mathbf {y}^{\\prime} \\approx \\mathbf {y} + \\mathbf {x} \\theta \\\\z^{\\prime} = z \\\\t^{\\prime} = t, \\\\\\end{array}$$$$f \\left(x^{\\prime}, y^{\\prime}, z^{\\prime}\\right) - f (x, y, z) = \\theta \\left[ - y \\partial_{x} + x \\partial_{y}\\right] f , $$thus$$J_{z} = - 2 \\mathrm {i} \\left(\\mathrm {x} \\partial_{\\mathrm {y}} - \\mathrm {y} \\partial_{\\mathrm {x}}\\right), $$since$$\\mathbf {f} (\\mathbf {x}^{\\prime}, \\mathbf {y}^{\\prime}, z^{\\prime}) = (1 + \\mathrm {i} \\mathbf {J}_{z} \\theta / 2) \\mathbf {f} (\\mathbf {x}, \\mathbf {y}, z).$$$\\mathbf{J}_{\\mathbf{y}}$ $\\mathbf{J}_{\\mathbf{x}}$ are obtained by cyclical permutations of Equation (3).(ii) Boosts in $\\mathbf{z}$ direction:$$\\begin{array}{l}z^{\\prime} \\approx z - v t \\\\t^{\\prime} \\approx t - v x \\\\\\mathbf {y}^{\\prime} = \\mathbf {y} \\\\z^{\\prime} = z \\\\\\end{array}$$$$f (x^{\\prime}, y^{\\prime}, z^{\\prime}, t^{\\prime}) - f (x, y, z, t) = \\left[ - t \\partial_{z} - z \\partial_{t}\\right] v f (x, y, z, t)$$thus$$\\mathrm {K}_{z} = 2 \\mathrm {i} \\left(\\mathrm {t} \\frac {\\partial}{\\partial z} + z \\frac {\\partial}{\\partial t}\\right), \\text {e t c .}$$(iii) Now, commutation relations may be worked out from Equations (3) and (4) by the usual procedure, for example:$$\\left[ J_{x}, J_{y}\\right] = - 4 \\left[ y \\partial_{z} - z \\partial_{y}, z \\partial_{x} - x \\partial_{z}\\right] = 4 \\left(x \\partial_{y} - y \\partial_{x}\\right) = 2 i J_{z}, $$and similarly for all other commutators.(iv) A representation of the Lorentz group is specified by giving explicit matrices for the generators. We can associate the operators with the Pauli spin matrices$$\\sigma_{\\mathbf {x}} = \\left[ \\begin{array}{c c}0 & 1 \\\\\\mathbf {1} & 0\\end{array}\\right] \\quad \\text {e t c .}$$according to$$\\begin{array}{l}\\underline {{\\mathbf {J}}}\\rightarrow \\underline {{\\sigma}} \\\\\\underline {{\\mathbf {K}}}\\rightarrow \\underline {{\\mathrm {i} \\sigma}}. \\\\\\end{array}$$The commutation relations for $\\underline{\\mathbf{J}}$ and $\\underline{\\mathbf{K}}$ are satisfied since $[\\sigma_{\\mathbf{x}},\\sigma_{\\mathbf{y}}] = 2\\mathrm{i}\\sigma_{z}$ etc. To find the matrices corresponding to finite transformations $\\mathbf{L}$ , note that for example $\\mathbf{J}_{z}$ is defined by$$\\left. \\frac {\\mathrm {d} \\mathbf {L}}{\\mathrm {d} \\theta}\\right|_{\\theta = 0} = \\frac {\\mathrm {i} \\mathbf {J}_{z}}{2} ,$$so that$$\\mathrm {L} (\\theta) = \\exp \\left(\\mathrm {i} \\theta \\mathrm {J}_{z} / 2\\right).$$An arbitrary finite transformation $\\mathbf{L}$ will have six parameters; in the general case the rotation parameters $\\underline{\\theta}^{*}$ (here treated as a 3-vector) will be different from the physical rotation angle $\\underline{\\theta}$ and the parameters representing boosts, $\\underline{\\mathbf{v}}^{*}$ , will differ from the physical relative velocity $\\underline{\\mathbf{v}}$ . These are details; the Lorentz group is defined completely by its generators $\\underline{\\mathbf{J}}, \\underline{\\mathbf{K}}$ ; its parametrization is largely arbitrary. The infinitesimal version of an arbitrary transformation $\\mathbf{L}$ is$$\\delta \\mathrm {L} = \\mathrm {i} \\left(\\theta_{\\mathrm {x}}^{*} \\mathrm {J}_{\\mathrm {x}} + \\theta_{\\mathrm {y}}^{*} \\mathrm {J}_{\\mathrm {y}} + \\theta_{\\mathrm {z}}^{*} \\mathrm {J}_{\\mathrm {z}} + \\mathrm {v}_{\\mathrm {x}}^{*} \\mathrm {K}_{\\mathrm {x}} + \\mathrm {v}_{\\mathrm {y}}^{*} \\mathrm {K}_{\\mathrm {y}} + \\mathrm {v}_{\\mathrm {z}}^{*} \\mathrm {K}_{\\mathrm {z}}\\right) / 2 = (\\mathrm {i} \\underline {{\\theta}}^{*} - \\underline {{\\mathrm {v}}}^{*}) \\cdot \\underline {{\\sigma}} / 2.$$Let us define$$\\underline {{\\mathbf {q}}} \\equiv (\\underline {{\\mathbf {i} \\theta}}^{*} - \\underline {\\mathbf {v}}^{*}) / 2$$$$q^{2} \\equiv \\underset {\\sim} {q} \\cdot \\underset {\\sim} {q} = \\frac {1}{4} \\left(- \\theta^{* 2} - 2 i \\underset {\\sim} {\\theta}^{*} \\cdot v^{*} + v^{2}\\right).$$(Note that pure boosts and pure rotations correspond respectively to pure real and pure imaginary $\\underline{\\mathbf{q}}$ .) We have then, for the general finite transformation:$$\\begin{array}{l}L (\\underline {{\\theta}}, \\underline {v}) = \\exp (\\underline {{q}} \\cdot \\underline {{\\sigma}}) = \\sum_{n = 0}^{\\inf ty} (\\underline {{q}} \\cdot \\underline {{\\sigma}})^{n} / n! \\\\= \\sum_{n = 0, 2, 4 \\dot s}^{\\inf ty} q^{n} / n! + \\sum_{n = 1, 3, 5 \\dot s}^{\\inf ty} (\\underline {{q}} \\cdot \\underline {{\\sigma}}) q^{n - 1} / n! \\\\= \\cos h q + (\\underline {{q}} \\cdot \\underline {{\\sigma}} / q) \\sin h q. \\\\\\end{array}$$Here we have used$$(\\underset {\\sim} {q} \\cdot \\underset {\\sim} {\\sigma}) (\\underset {\\sim} {q} \\cdot \\underset {\\sim} {\\sigma}) = q_{i} q_{j} (\\sigma_{i}, \\sigma_{j}) = q_{i} q_{j} \\delta^{i j} = q^{2}.$$"
+  },
+  "verification": null
+}

@@ -1,0 +1,170 @@
+{
+  "metadata": {
+    "id": "1_s19_19.15",
+    "type": "prove",
+    "tags": {
+      "metric": "FLRW",
+      "target_object": "Einstein_Tensor_G_00_and_G_ii",
+      "coordinate": "comoving_cosmological_coords",
+      "scenario": "matter_and_radiation_dominated_universe",
+      "method": "differentiation_and_equation_of_state_substitution"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.15",
+    "source_id": "1_s19_19.15",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.15"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "从一阶弗里德曼方程出发经微分与物态方程代入完成多步推导，紧密贴合实际宇宙演化模型",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$R(t)$",
+      "$H$",
+      "$q$",
+      "$k$",
+      "$\\rho$",
+      "$p$",
+      "$G$"
+    ],
+    "target": [
+      "$G_{00}$",
+      "$G_{ii}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.15. For a Friedmann cosmology derive the relations$$\\frac {8 \\pi G \\rho}{3} = \\left(\\frac {\\mathrm {k}}{\\mathrm {R}^{2}} + \\mathrm {H}^{2}\\right) \\tag {1}$$$$- 8 \\pi G p = \\frac {k}{R^{2}} + H^{2} (1 - 2 q). \\tag {2}$$If the cosmology is matter-dominated $(\\rho >> p)$ show that$$\\frac {\\mathrm {k}}{\\mathrm {R}^{2}} = (2 \\mathrm {q} - 1) \\mathrm {H}^{2} \\tag {3}$$$$\\frac {8 \\pi G \\rho}{3} = 2 q H^{2}. \\tag {4}$$If it is radiation dominated $(\\mathfrak{p} \\approx 1/3 \\rho)$ show that$$\\frac {k}{R^{2}} = (q - 1) H^{2} \\tag {5}$$$$\\frac {8 \\pi G \\rho}{3} = q H^{2}. \\tag {6}$$",
+    "answer": "对于物质主导 $(\\rho \\gg p)$：$\\frac{k}{R^2} = (2q-1)H^2$，$\\frac{8\\pi G \\rho}{3} = 2qH^2$；对于辐射主导 $(p \\approx \\rho/3)$：$\\frac{k}{R^2} = (q-1)H^2$，$\\frac{8\\pi G \\rho}{3} = qH^2$。",
+    "solution": "Solution 19.15. Equation (1) follows immediately from the definition $\\mathbf{H} \\equiv \\dot{\\mathbf{R}} / \\mathbf{R}$ and the first-order Friedmann equation (Problem 19.14)$$\\dot {\\mathbf {R}}^{2} + \\mathbf {k} = \\frac {8 \\pi \\mathbf {G}}{3} \\rho \\mathbf {R}^{2}.$$If we now take $\\mathrm{d} / \\mathrm{d}\\mathbf{R}$ on this equation, use the identity $\\frac{1}{2}\\mathrm{d}[(\\dot{\\mathbf{R}})^2] / \\mathrm{d}\\mathbf{R} = \\ddot{\\mathbf{R}}$ , the other first order equation $\\mathrm{d}(\\rho \\mathbf{R}^3) / \\mathrm{d}\\mathbf{R} = -3\\mathbf{p}\\mathbf{R}^2$ and the definition $\\mathbf{q} \\equiv -\\ddot{\\mathbf{R}}\\mathbf{R} / \\dot{\\mathbf{R}}^{2}$ , we get Equation (2). If $\\rho >> \\mathfrak{p}$ then the left side of Equation (2) is negligible compared with the right side, and Equation (3) results. Equation (4) is immediate upon substituting Equation (3) into Equation (1). If $\\mathfrak{p} = 1 / 3\\rho$ , then eliminating $\\rho$ from Equations (1) and (2) gives Equation (5), while eliminating the $\\mathbf{k} / \\mathbf{R}^2$ term gives Equation (6)."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "\\frac{a^{2}{\\left(t \\right)}}{- k r^{2} + 1}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r^{2} a^{2}{\\left(t \\right)}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r^{2} a^{2}{\\left(t \\right)} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_011": "- \\frac{a{\\left(t \\right)} \\frac{d}{d t} a{\\left(t \\right)}}{k r^{2} - 1}",
+      "Gamma_022": "r^{2} a{\\left(t \\right)} \\frac{d}{d t} a{\\left(t \\right)}",
+      "Gamma_033": "r^{2} a{\\left(t \\right)} \\sin^{2}{\\left(\\theta \\right)} \\frac{d}{d t} a{\\left(t \\right)}",
+      "Gamma_101": "\\frac{\\frac{d}{d t} a{\\left(t \\right)}}{a{\\left(t \\right)}}",
+      "Gamma_110": "\\frac{\\frac{d}{d t} a{\\left(t \\right)}}{a{\\left(t \\right)}}",
+      "Gamma_111": "- \\frac{k r}{k r^{2} - 1}",
+      "Gamma_122": "k r^{3} - r",
+      "Gamma_133": "r \\left(k r^{2} - 1\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_202": "\\frac{\\frac{d}{d t} a{\\left(t \\right)}}{a{\\left(t \\right)}}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_220": "\\frac{\\frac{d}{d t} a{\\left(t \\right)}}{a{\\left(t \\right)}}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_233": "- \\frac{\\sin{\\left(2 \\theta \\right)}}{2}",
+      "Gamma_303": "\\frac{\\frac{d}{d t} a{\\left(t \\right)}}{a{\\left(t \\right)}}",
+      "Gamma_313": "\\frac{1}{r}",
+      "Gamma_323": "\\frac{1}{\\tan{\\left(\\theta \\right)}}",
+      "Gamma_330": "\\frac{\\frac{d}{d t} a{\\left(t \\right)}}{a{\\left(t \\right)}}",
+      "Gamma_331": "\\frac{1}{r}",
+      "Gamma_332": "\\frac{1}{\\tan{\\left(\\theta \\right)}}"
+    },
+    "riemann": {
+      "R_0101": "- \\frac{a{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}}{k r^{2} - 1}",
+      "R_0110": "\\frac{a{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}}{k r^{2} - 1}",
+      "R_0202": "r^{2} a{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}",
+      "R_0220": "- r^{2} a{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}",
+      "R_0303": "r^{2} a{\\left(t \\right)} \\sin^{2}{\\left(\\theta \\right)} \\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}",
+      "R_0330": "- r^{2} a{\\left(t \\right)} \\sin^{2}{\\left(\\theta \\right)} \\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}",
+      "R_1001": "\\frac{\\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}}{a{\\left(t \\right)}}",
+      "R_1010": "- \\frac{\\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}}{a{\\left(t \\right)}}",
+      "R_1212": "r^{2} \\left(k + \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right)",
+      "R_1221": "r^{2} \\left(- k - \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right)",
+      "R_1313": "r^{2} \\left(k + \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "R_1331": "r^{2} \\left(- k - \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "R_2002": "\\frac{\\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}}{a{\\left(t \\right)}}",
+      "R_2020": "- \\frac{\\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}}{a{\\left(t \\right)}}",
+      "R_2112": "\\frac{k + \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}}{k r^{2} - 1}",
+      "R_2121": "\\frac{- k - \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}}{k r^{2} - 1}",
+      "R_2323": "r^{2} \\left(k + \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "R_2332": "r^{2} \\left(- k - \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "R_3003": "\\frac{\\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}}{a{\\left(t \\right)}}",
+      "R_3030": "- \\frac{\\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}}{a{\\left(t \\right)}}",
+      "R_3113": "\\frac{k + \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}}{k r^{2} - 1}",
+      "R_3131": "\\frac{- k - \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}}{k r^{2} - 1}",
+      "R_3223": "r^{2} \\left(- k - \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right)",
+      "R_3232": "r^{2} \\left(k + \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right)"
+    },
+    "ricci_tensor": {
+      "R_00": "- \\frac{3 \\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}}{a{\\left(t \\right)}}",
+      "R_11": "\\frac{- 2 k - a{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} a{\\left(t \\right)} - 2 \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}}{k r^{2} - 1}",
+      "R_22": "r^{2} \\left(2 k + a{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} a{\\left(t \\right)} + 2 \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right)",
+      "R_33": "r^{2} \\left(2 k + a{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} a{\\left(t \\right)} + 2 \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right) \\sin^{2}{\\left(\\theta \\right)}"
+    },
+    "ricci_scalar": "\\frac{6 \\left(k + a{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} a{\\left(t \\right)} + \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right)}{a^{2}{\\left(t \\right)}}",
+    "kretschmann": "\\frac{2 \\left(2 r^{4} \\left(- k r^{2} + 1\\right) a^{4}{\\left(t \\right)} \\left(\\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}\\right)^{2} + r^{2} \\left(k + \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right)^{2} \\left(k r^{2} - 1\\right) + r^{2} \\left(k r^{2} - 1\\right) \\left(2 r^{2} \\left(k + \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right)^{2} \\left(- k r^{2} + 1\\right) + \\left(k + \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right)^{2} + \\left(k r^{2} - 1\\right) \\left(\\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}\\right)^{2}\\right) + r^{2} a^{4}{\\left(t \\right)} \\left(\\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}\\right)^{2} - 2 \\left(k + \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right)^{2} + 2 \\left(- k r^{2} + 1\\right) \\left(\\frac{d^{2}}{d t^{2}} a{\\left(t \\right)}\\right)^{2}\\right)}{r^{2} \\left(k r^{2} - 1\\right) a^{4}{\\left(t \\right)}}",
+    "einstein_tensor": {
+      "G_00": "\\frac{3 \\left(k + \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right)}{a^{2}{\\left(t \\right)}}",
+      "G_11": "\\frac{k + 2 a{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} a{\\left(t \\right)} + \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}}{k r^{2} - 1}",
+      "G_22": "r^{2} \\left(- k - 2 a{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} a{\\left(t \\right)} - \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right)",
+      "G_33": "r^{2} \\left(- k - 2 a{\\left(t \\right)} \\frac{d^{2}}{d t^{2}} a{\\left(t \\right)} - \\left(\\frac{d}{d t} a{\\left(t \\right)}\\right)^{2}\\right) \\sin^{2}{\\left(\\theta \\right)}"
+    },
+    "killing_vectors": [
+      {
+        "name": "rot_phi",
+        "description": "绕 φ 轴旋转 Killing 矢量（空间部分球对称）",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

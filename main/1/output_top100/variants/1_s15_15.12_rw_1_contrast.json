@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "id": "1_s15_15.12-1-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "radial_geodesic_maximum_radius",
+      "coordinate": "mixed",
+      "scenario": "contrast_launch_turning_point",
+      "method": "killing_vector_energy",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.12",
+      "1_s15_15.12-1",
+      "1_s15_15.12-1-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$\\tau$"
+    ],
+    "target": [
+      "$r_{max}$",
+      "$x_{max}$",
+      "物理差异解释"
+    ],
+    "metric": [
+      [
+        "$-1+2M/r$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2M/r)^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\sin^2 \\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在两种不同的引力背景下，Peter 从初始坐标位置处沿径向向外被发射。位于初始位置的局部静态观察者测量到 Peter 的初始局部速度为 $v_0$（$0 < v_0 < 1$）。Peter 沿径向类时测地线飞行，到达最大坐标位置（此时径向速度为零）后开始折返。请分别在两种背景下推导最大坐标位置的表达式，并对比两者的差异与物理含义。**背景 A：Schwarzschild 时空（真引力场）**度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s$ 为 Schwarzschild 半径。初始径向坐标为 $r_0$（$r_0 > r_s$）。时空具有时间平移 Killing 矢量 $\\xi^\\mu_{(t)} = (1, 0, 0, 0)$。**背景 B：Rindler 时空（均匀引力场）**度规为 $ds^2 = -x^2 dt^2 + dx^2$（仅考虑 $t, x$ 两维，且 $x>0$）。初始径向坐标为 $x_0$。时空具有时间平移 Killing 矢量 $\\xi^\\mu_{(t)} = (1, 0)$。",
+    "answer": "背景 A 最大半径：$r_{max} = \\frac{r_s r_0 (1-v_0^2)}{r_s - r_0 v_0^2}$；背景 B 最大坐标：$x_{max} = \\frac{x_0}{\\sqrt{1-v_0^2}}$。差异与物理含义：1. **逃逸条件不同**：在背景 A 中，当 $v_0 = \\sqrt{r_s/r_0}$ 时 $r_{max} \\to \\inf ty$，此即局部逃逸速度；若 $v_0 > \\sqrt{r_s/r_0}$，粒子将逃逸至无穷远而无最大半径。而在背景 B 中，仅当 $v_0 \\to 1$（光速）时 $x_{max}$ 才趋于无穷，任何低于光速的粒子均会折返。2. **物理本质**：背景 A 具有真实的时空曲率（潮汐力），引力随距离减弱（$\\sim 1/r$），因此存在有限的逃逸速度。背景 B 实为平坦时空的匀加速参考系，无时空曲率，其“引力”为均匀场（不随 $x$ 减弱），故粒子需达到光速才能“逃逸”此均匀场。对比揭示了真实引力场与均匀加速场在全局性质上的根本差异。",
+    "solution": "1. **背景 A 推导**：局部静态观察者四速 $u_{stat}^\\mu = (\\sqrt{\\frac{r_0}{r_0-r_s}}, 0,0,0)$，空间单位矢 $e_r^\\mu = (0, \\sqrt{1-\\frac{r_s}{r_0}}, 0, 0)$。粒子四速 $u^\\mu = \\gamma_0 (u_{stat}^\\mu + v_0 e_r^\\mu)$，故 $\\dot{t}_0 = \\gamma_0 \\sqrt{\\frac{r_0}{r_0-r_s}}$。由 Killing 矢量守恒量 $E = -g_{tt} \\dot{t} = \\gamma_0 \\sqrt{1-\\frac{r_s}{r_0}}$。在 $r_{max}$ 处 $\\dot{r}=0$，类时条件给出 $\\dot{t}_{max} = \\sqrt{\\frac{r_{max}}{r_{max}-r_s}}$，故 $E = \\sqrt{1-\\frac{r_s}{r_{max}}}$。联立解得 $r_{max} = \\frac{r_s r_0 (1-v_0^2)}{r_s - r_0 v_0^2}$。2. **背景 B 推导**：局部静态观察者四速 $u_{stat}^\\mu = (1/x_0, 0)$，空间单位矢 $e_x^\\mu = (0, 1)$。粒子四速 $u^\\mu = \\gamma_0 (u_{stat}^\\mu + v_0 e_x^\\mu)$，故 $\\dot{t}_0 = \\gamma_0 / x_0$。守恒量 $E = -g_{tt} \\dot{t} = x_0 \\gamma_0$。在 $x_{max}$ 处 $\\dot{x}=0$，类时条件给出 $\\dot{t}_{max} = 1/x_{max}$，故 $E = x_{max}$。联立解得 $x_{max} = \\frac{x_0}{\\sqrt{1-v_0^2}}$。3. **物理对比**：略（见答案）。"
+  },
+  "verification": null
+}

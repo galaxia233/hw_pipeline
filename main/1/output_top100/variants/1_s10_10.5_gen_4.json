@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "Killing_vectors_and_conserved_quantities",
+      "coordinate": "cylindrical",
+      "scenario": "cosmology",
+      "method": "covariant_derivative",
+      "generalization_axis": "extend",
+      "metric": "Davidson"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Davidson",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "z",
+      "phi"
+    ],
+    "target": [
+      "0",
+      "$p_z$",
+      "$L$"
+    ],
+    "metric": [
+      [
+        "-(r**2 + 1)**(6/5)",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "t**(4/3)*(r**2 + 1)**(2/5)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/(t**(2/3)*(r**2 + 1)**(2/5))",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*t**(4/3)/(r**2 + 1)**(2/5)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In the Davidson cosmological model, the spacetime metric is given by $ds^2 = -(r^2+1)^{6/5} dt^2 + t^{4/3}(r^2+1)^{2/5} dr^2 + \\frac{1}{t^{2/3}(r^2+1)^{2/5}} dz^2 + \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}} d\\phi^2$. Unlike the stationary rotating star in the seed problem, this metric is dynamic but still retains spatial symmetries. Verify the translational and rotational symmetries of this spacetime by showing that the vector fields $\\pmb{\\xi}_{(z)} = \\partial_z$ and $\\pmb{\\xi}_{(\\phi)} = \\partial_\\phi$ satisfy the Killing equation $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$ for the mixed time-space components $(\\mu, \\nu) = (0, 2)$ and $(0, 3)$, and provide the expressions for the conserved linear momentum $p_z$ and angular momentum $L$ along geodesics.",
+    "answer": "The mixed time-space components of the Killing equation for both vectors vanish. The conserved quantities are $p_z = \\frac{1}{t^{2/3}(r^2+1)^{2/5}} \\dot{z}$ and $L = \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}} \\dot{\\phi}$.",
+    "solution": "1. **Covariant components of the Killing vectors:**\\nFor $\\pmb{\\xi}_{(z)} = \\partial_z$, the contravariant components are $\\xi_{(z)}^\\mu = (0,0,1,0)$. The covariant components are $\\xi_{(z)\\mu} = g_{\\mu 2}$. Since the metric is diagonal, $\\xi_{(z)0} = 0$ and $\\xi_{(z)2} = g_{22} = \\frac{1}{t^{2/3}(r^2+1)^{2/5}}$.\\nFor $\\pmb{\\xi}_{(\\phi)} = \\partial_\\phi$, $\\xi_{(\\phi)}^\\mu = (0,0,0,1)$. The covariant components are $\\xi_{(\\phi)\\mu} = g_{\\mu 3}$, so $\\xi_{(\\phi)0} = 0$ and $\\xi_{(\\phi)3} = g_{33} = \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}}$.\\n\\n2. **Verify Killing equation for $\\pmb{\\xi}_{(z)}$ at $(0,2)$:**\\n$\\nabla_0 \\xi_{(z)2} + \\nabla_2 \\xi_{(z)0} = \\partial_0 \\xi_{(z)2} + \\partial_2 \\xi_{(z)0} - 2 \\Gamma^2_{02} \\xi_{(z)2}$\\nSince $\\xi_{(z)0}=0$ and $\\xi_{(z)2}=g_{22}$ does not depend on $z$, $\\partial_2 \\xi_{(z)0} = 0$. Thus:\\n$\\partial_0 g_{22} - 2 \\Gamma^2_{02} g_{22} = \\left( -\\frac{2}{3} t^{-5/3} (r^2+1)^{-2/5}\\right) - 2 \\left( -\\frac{1}{3t}\\right) \\left( \\frac{1}{t^{2/3}(r^2+1)^{2/5}}\\right)$\\n$= -\\frac{2}{3 t^{5/3} (r^2+1)^{2/5}} + \\frac{2}{3 t^{5/3} (r^2+1)^{2/5}} = 0$\\n\\n3. **Verify Killing equation for $\\pmb{\\xi}_{(\\phi)}$ at $(0,3)$:**\\n$\\nabla_0 \\xi_{(\\phi)3} + \\nabla_3 \\xi_{(\\phi)0} = \\partial_0 \\xi_{(\\phi)3} + \\partial_3 \\xi_{(\\phi)0} - 2 \\Gamma^3_{03} \\xi_{(\\phi)3}$\\nSince $\\xi_{(\\phi)0}=0$ and $\\xi_{(\\phi)3}=g_{33}$ does not depend on $\\phi$, $\\partial_3 \\xi_{(\\phi)0} = 0$. Thus:\\n$\\partial_0 g_{33} - 2 \\Gamma^3_{03} g_{33} = \\left( \\frac{4}{3} r^2 t^{1/3} (r^2+1)^{-2/5}\\right) - 2 \\left( \\frac{2}{3t}\\right) \\left( \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}}\\right)$\\n$= \\frac{4 r^2 t^{1/3}}{3 (r^2+1)^{2/5}} - \\frac{4 r^2 t^{1/3}}{3 (r^2+1)^{2/5}} = 0$\\n\\n4. **Derive conserved quantities:**\\nFor a geodesic with 4-velocity $\\dot{x}^\\mu$, the inner product $g_{\\mu\\nu} \\xi^\\mu \\dot{x}^\\nu$ is conserved.\\nFor $\\pmb{\\xi}_{(z)}$, the conserved linear momentum is:\\n$p_z = g_{22} \\dot{z} = \\frac{1}{t^{2/3}(r^2+1)^{2/5}} \\dot{z}$\\nFor $\\pmb{\\xi}_{(\\phi)}$, the conserved angular momentum is:\\n$L = g_{33} \\dot{\\phi} = \\frac{r^2 t^{4/3}}{(r^2+1)^{2/5}} \\dot{\\phi}$"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.davidson_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 0.9,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s17_17.20",
+    "type": "calculate",
+    "tags": {
+      "metric": "black_hole",
+      "target_object": "angular_momentum_loss",
+      "coordinate": "spontaneous_emission",
+      "scenario": "astrophysical_timescale",
+      "method": "hawking_radiation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.20",
+    "source_id": "1_s17_17.20",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.20"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "通过细致平衡原理建立经典放大因子与自发辐射率的联系，进行量纲分析与黑洞参数缩放以估算角动量损失比例",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$M$",
+      "$t$",
+      "$J$",
+      "$\\omega$",
+      "$\\hbar$"
+    ],
+    "target": [
+      "$\\Delta J / J$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 17.20. Show that a primordial, rotating, black hole $(\\sim 10^{10}$ years old), of mass $\\lesssim 10^{15}\\mathrm{gm}$ . will have already lost most of its angular momentum to spontaneous quantum emission of photons or gravitons. What fraction of the angular momentum of a $1\\mathbf{M}_{\\odot}(\\sim 10^{33}\\mathrm{gm})$ rotating hole would be lost in the same time?",
+    "answer": "For $\\mathbf{M} \\lesssim 10^{15} \\mathbf{g}\\mathbf{m}$, $\\mathbf{J}$ will already have become essentially zero by this process. For $\\mathbf{M} \\sim 10^{33} \\mathbf{g}\\mathbf{m}$, the fraction lost will be $\\sim 10^{-54}$ in $10^{10}$ years.",
+    "solution": "Solution 17.20. The energy amplification described in Problems 17.15 and 17.16 corresponds to stimulated emission in quantum-mechanical language. If we know the rate for stimulated emission, we can find the rate for spontaneous emission as follows:Let $\\mathfrak{p}$ be the probability per unit of phase space of the spontaneous emission of a quantum. If we send $\\mathbf{N}$ quanta in, the probability of getting $\\mathbf{N} + 1$ out by stimulated emission is $(\\mathbf{N} + 1)\\mathfrak{p}$ , since the quanta (gravitons, photons) are bosons. To simplify the argument, assume $\\mathfrak{p} \\ll 1$ so we do not have to consider the emission of more than one extra quantum; dimensionally the answer would not be changed if we were to include this refinement. The expectation value of the excess number of quanta emitted is$$\\begin{array}{l}< \\Delta N > = (\\text {e x c e s s n u m b e r}) \\times (\\text {p r o b a b i l i t y o f t h a t n u m b e r}) \\\\\\ = 1 \\times (N + 1) p. \\\\\\ \\end{array}$$The amplification is$$\\mathrm {A} \\equiv \\frac {< \\Delta \\mathrm {N} >}{\\mathrm {N}} = \\left(1 + \\frac {1}{\\mathrm {N}}\\right) \\mathrm {p} \\approx \\mathrm {p} \\tag {1}$$in the classical limit $(\\mathbf{N}\\rightarrow \\inf ty)$ . Fermi's Golden Rule says that the rate of spontaneous emission is$$\\frac {\\mathrm {d} N}{\\mathrm {d} t} \\sim \\int p. \\tag {2}$$phase spaceIn Equation (2) replace $p$ by $A$ and recall that the classical effect is described in terms of modes with “quantum numbers” $\\ell$ and $m$ and afrequency $\\omega$ . Thus$$\\frac {\\mathrm {d} \\mathrm {N}}{\\mathrm {d} t} \\sim \\sum_{\\ell , \\mathrm {m}} \\int \\mathrm {A} \\mathrm {d} \\omega . \\tag {3}$$Now A goes rapidly to zero for large $\\ell$ and m, as in all barrier-penetration problems. Also from Problems 17.15 and 17.16, A is nonzero for $\\omega \\sim 1 / \\mathbb{M}$ over a range $\\Delta \\omega \\sim 1 / \\mathbb{M}$ , where M is the mass of the black hole. Since A is a number of order unity for low $\\ell$ and m, replace A by 1 in Equation (3) and drop the summation. Then$$\\frac {\\mathrm {d} \\mathbf {N}}{\\mathrm {d} t} \\sim \\Delta \\omega \\sim \\frac {1}{\\mathbf {M}}.$$The hole loses energy at a rate$$\\frac {\\mathrm {d} \\mathbf {E}}{\\mathrm {d} t} \\sim \\hbar \\omega \\frac {\\mathrm {d} \\mathbf {N}}{\\mathrm {d} t} \\sim \\frac {\\hbar}{M^{2}}.$$This implies a loss of angular momentum at a rate$$\\frac {d J}{d t} \\sim \\frac {m}{\\omega} \\frac {d E}{d t} \\sim \\frac {\\hbar}{M}.$$Thus the time-scale for angular momentum loss is$$\\tau \\sim J / (d J / d t) \\sim M^{2} (\\pi / M) \\sim M^{3} / \\pi \\sim (M / 1 0^{1 5} g m)^{3} 1 0^{1 0} \\text {y e a r s}.$$Thus for $\\mathbf{M} \\lesssim 10^{15} \\mathbf{g}\\mathbf{m}$ , $\\mathbf{J}$ will already have become essentially zero by this process. For $\\mathbf{M} \\sim 10^{33} \\mathbf{g}\\mathbf{m}$ , the fraction lost will be $\\sim 10^{-54}$ in $10^{10}$ years."
+  },
+  "verification": null
+}

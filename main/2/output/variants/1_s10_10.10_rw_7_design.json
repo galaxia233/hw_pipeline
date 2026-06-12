@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-8-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "Killing vector and scale factor",
+      "coordinate": "spherical FLRW",
+      "scenario": "cosmology_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-8",
+      "1_s10_10.10-8-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "FLRW",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "验证向量场 \\xi^\\mu=(1, -Hr, 0, 0) 仅在平直指数膨胀宇宙中满足 Killing 方程"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，Killing 矢量场反映了时空的对称性，满足 Killing 方程 \\nabla_{\\mu} \\xi_{\\nu} + \\nabla_{\\nu} \\xi_{\\mu} = 0。考虑 FLRW 宇宙度规：$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$$理论推导表明，若该时空存在形式为 \\xi^\\mu = (1, -Hr, 0, 0) 的 Killing 矢量场，则尺度因子必须满足指数膨胀条件 \\frac{\\dot{a}}{a} = H 为常数，且空间必须平直（k=0），这正是 de Sitter 宇宙的特征。请设计一个数值实验方案，通过计算并分析 Killing 方程的残差，来验证上述结论：即该矢量场仅在 a(t)=e^{Ht} 且 k=0 的度规下才真正成为 Killing 矢量场，而在其他演化或曲率条件下不满足 Killing 方程。",
+    "answer": "1. **变量与模型参数化**：设定时间参数 t 和径向参数 r 的采样网格。选取三种尺度因子模型：指数膨胀 a_1(t) = e^{Ht}（H设为常数）、物质主导 a_2(t) = t^{2/3}、辐射主导 a_3(t) = t^{1/2}。选取两种曲率：k=0（平直）和 k=1（正曲率）。选取两种径向矢量分量：\\xi^1_1(r) = -Hr 和 \\xi^1_2(r) = -r^2。2. **度规与联络计算**：对上述参数组合分别生成度规张量 g_{\\mu\\nu}，利用自动微分或符号计算库计算对应的 Christoffel 符号 Gamma^i_{jk}。3. **Killing 方程残差构造**：对于给定的 \\xi^\\mu = (1, \\xi^1(r), 0, 0)，计算其协变分量 \\xi_\\mu = g_{\\mu\\nu} \\xi^\\nu，随后计算协变导数 \\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu - Gamma^\\rho_{\\mu\\nu} \\xi_\\rho，并构造 Killing 张量残差 K_{\\mu\\nu} = \\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu。4. **结果验证与对比**：在采样网格上计算残差张量的范数 ||K_{\\mu\\nu}||。预期结果：只有当 a(t) = e^{Ht}、k=0 且 \\xi^1(r) = -Hr 时，||K_{\\mu\\nu}|| 在所有网格点上才恒为零；在其他任何参数组合下，残差范数均不为零（特别是在非指数膨胀或非平直空间下，残差将随 t 或 r 显著偏离零），从而验证理论推导的唯一性结论。",
+    "solution": "该设计利用了 Killing 方程的刚性特征。由于 K_{\\mu\\nu} = 0 是一组严格的偏微分方程约束，任何偏离理论所要求的 a(t) 或 \\xi^1(r) 的形式，都会破坏方程中时空变量 (t, r) 的可分离性或导致非零项无法相消。数值实验通过枚举不同的宇宙学模型（尺度因子与曲率）和试探矢量场，计算具体的张量残差，将解析的“恒等式成立”转化为数值的“残差为零”。对比不同参数组合下的残差分布，能够直观且严谨地反证出：不存在其他形式的 a(t) 或 k 能够使得 \\xi^\\mu = (1, -Hr, 0, 0) 满足 Killing 方程，确认了该对称性唯一对应于 de Sitter 宇宙。"
+  },
+  "verification": null
+}

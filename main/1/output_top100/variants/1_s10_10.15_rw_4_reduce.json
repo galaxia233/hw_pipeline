@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-3-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "gravitational redshift factor",
+      "coordinate": "spherical",
+      "scenario": "black hole weak field",
+      "method": "weak field expansion",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-3",
+      "1_s10_10.15-3-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\frac{\\nu_B}{\\nu_A}$",
+      "$1 + \\frac{r_s}{2} \\left( \\frac{1}{r_B} - \\frac{1}{r_A}\\right)$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 时空中，度规为：$$ds^2 = -\\left(1 - \\frac{r_s}{r}\\right) dt^2 + \\left(1 - \\frac{r_s}{r}\\right)^{-1} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$对于位于径向坐标 $r_A$ 的静止观察者 A 向位于 $r_B$ 的静止观察者 B 发射光子，广义相对论给出的引力红移因子精确表达式为 $\\frac{\\nu_B}{\\nu_A} = \\frac{\\sqrt{1 - \\frac{r_s}{r_A}}}{\\sqrt{1 - \\frac{r_s}{r_B}}}$，其中 $r_s = 2GM/c^2$ 为 Schwarzschild 半径。请取弱场极限 $r_s/r \\ll 1$（即保留至 $r_s/r$ 的一阶项），将此 GR 精确结果归约到经典 Newtonian 引力势对应的红移近似公式，并给出 $\\nu_B / \\nu_A$ 的一阶近似表达式。",
+    "answer": "$\\frac{\\nu_B}{\\nu_A} \\approx 1 + \\frac{r_s}{2} \\left( \\frac{1}{r_B} - \\frac{1}{r_A}\\right) = 1 + \\frac{\\Phi_A - \\Phi_B}{c^2}$，其中 $\\Phi = -GM/r$ 为 Newtonian 引力势。",
+    "solution": "1. 在弱场极限 $r_s/r \\ll 1$ 下，对平方根项进行 Taylor 展开至一阶：$\\sqrt{1 - \\frac{r_s}{r}} \\approx 1 - \\frac{r_s}{2r}$。2. 将展开式代入 GR 红移因子：$\\frac{\\nu_B}{\\nu_A} = \\frac{1 - \\frac{r_s}{2r_A}}{1 - \\frac{r_s}{2r_B}} \\approx \\left(1 - \\frac{r_s}{2r_A}\\right)\\left(1 + \\frac{r_s}{2r_B}\\right) \\approx 1 - \\frac{r_s}{2r_A} + \\frac{r_s}{2r_B}$。3. 整理得到一阶近似结果：$\\frac{\\nu_B}{\\nu_A} \\approx 1 + \\frac{r_s}{2} \\left( \\frac{1}{r_B} - \\frac{1}{r_A}\\right)$。4. 代入 $r_s = 2GM/c^2$ 和 Newtonian 引力势 $\\Phi = -GM/r$，可得经典对应：$\\frac{\\nu_B}{\\nu_A} \\approx 1 + \\frac{\\Phi_A - \\Phi_B}{c^2}$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "Solution 步骤 2 中存在符号错误与逻辑跳跃：1. 符号错误：题目已明确定义 $\\frac{\\nu_B}{\\nu_A}$ 为 GR 精确红移因子（等于两个平方根之比），但 Solution 步骤 2 将该精确量与代入 Taylor 展开后的近似表达式 $\\frac{1 - \\frac{r_s}{2r_A}}{1 - \\frac{r_s}{2r_B}}$ 用严格等号 `=` 连接。精确量与近似量之间必须使用近似号 `\\approx`，即应写为 $\\frac{\\nu_B}{\\nu_A} \\approx \\frac{1 - \\frac{r_s}{2r_A}}{1 - \\frac{r_s}{2r_B}}$；2. 逻辑跳跃：步骤 2 从分数式 $\\frac{1-x}{1-y}$ 直接到乘积式 $(1-x)(1+y)$ 的转化，隐含了对分母 $(1-y)^{-1}$ 的一阶 Taylor 展开 $1/(1-y) \\approx 1+y$，但推导中未明确指出此展开步骤，直接跳过了关键近似环节。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

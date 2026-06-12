@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-8-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "orthogonality_of_spin_and_velocity",
+      "coordinate": "t_x_y_z",
+      "scenario": "cosmology_Godel_verify",
+      "method": "verify_derivation",
+      "generalization_axis": "verify",
+      "metric": "Godel"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-8",
+      "1_s11_11.4-8-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Godel",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "正交条件 S^\\mu u_\\mu 守恒性校验"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "-exp(sqrt(2)*omega*x)",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "-exp(sqrt(2)*omega*x)",
+        "0",
+        "-exp(2*sqrt(2)*omega*x)/2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，无外加力矩的陀螺仪其自旋矢量 $S^\\mu$ 遵从 Fermi-Walker 输运。对于沿测地线运动的陀螺仪，Fermi-Walker 输运退化为平行输运，即 $\\frac{DS^\\mu}{d\\tau} = 0$。自旋矢量的一个重要性质是它始终与陀螺仪的四速度 $u^\\mu$ 保持正交，即 $S^\\mu u_\\mu = 0$ 应在输运过程中守恒。Gödel 宇宙学度规描述了一个旋转的时空，其线元为：$ds^2 = -dt^2 + dx^2 - \\frac{1}{2} e^{2\\sqrt{2}\\omega x} dy^2 - 2 e^{\\sqrt{2}\\omega x} dt dy + dz^2$考虑一个在此度规下静止于固定空间坐标 $(x_0, y_0, z_0)$ 的观察者，其四速度为 $u^\\mu = (1, 0, 0, 0)$。某同学试图验证正交条件 $S^\\mu u_\\mu = 0$ 在平行输运过程中保持为常数，其推导过程如下：1. 计算四速度的协变分量 $u_\\mu = g_{\\mu\\nu} u^\\nu$：   $u_0 = g_{00} u^0 = -1$，   $u_1 = g_{11} u^1 = 0$，   $u_2 = g_{22} u^0 = -\\frac{1}{2} e^{2\\sqrt{2}\\omega x}$，   $u_3 = g_{33} u^3 = 0$。   因此，正交条件具体化为 $S^\\mu u_\\mu = -S^0 - \\frac{1}{2} e^{2\\sqrt{2}\\omega x} S^2 = 0$。2. 静态观察者沿测地线运动，自旋矢量作平行输运。平行输运方程展开为：   $\\frac{dS^\\mu}{d\\tau} - \\Gamma^\\mu_{\\alpha\\beta} u^\\alpha S^\\beta = 0$。   由于 $u^\\alpha = (1, 0, 0, 0)$，方程退化为 $\\frac{dS^\\mu}{d\\tau} - \\Gamma^\\mu_{0\\beta} S^\\beta = 0$。3. 提取相关的 Christoffel 符号（利用对称性 $\\Gamma^\\mu_{0\\beta} = \\Gamma^\\mu_{\\beta 0}$）：   $\\Gamma^0_{01} = \\sqrt{2}\\omega$，   $\\Gamma^2_{01} = \\sqrt{2}\\omega e^{-\\sqrt{2}\\omega x}$。4. 写出 $S^0$ 和 $S^2$ 的平行输运方程：   $\\frac{dS^0}{d\\tau} = \\Gamma^0_{01} S^1 = \\sqrt{2}\\omega S^1$   $\\frac{dS^2}{d\\tau} = \\Gamma^2_{01} S^1 = \\sqrt{2}\\omega e^{-\\sqrt{2}\\omega x} S^1$5. 验证正交性的时间导数（注意 $x$ 为常数）：   $\\frac{d}{d\\tau}(S^\\mu u_\\mu) = \\frac{d}{d\\tau}(-S^0 - \\frac{1}{2} e^{2\\sqrt{2}\\omega x} S^2) = -\\frac{dS^0}{d\\tau} - \\frac{1}{2} e^{2\\sqrt{2}\\omega x} \\frac{dS^2}{d\\tau}$   代入第4步的结果：   $= -(\\sqrt{2}\\omega S^1) - \\frac{1}{2} e^{2\\sqrt{2}\\omega x} (\\sqrt{2}\\omega e^{-\\sqrt{2}\\omega x} S^1) = -\\sqrt{2}\\omega S^1 - \\frac{\\sqrt{2}}{2} e^{\\sqrt{2}\\omega x} S^1$。   结果不为零，似乎正交性不守恒。请找出上述推导中的所有错误，指出其位置、错误类型，并给出正确值，以证明 $\\frac{d}{d\\tau}(S^\\mu u_\\mu) = 0$ 确实成立。",
+    "answer": "1. **步骤1错误**：计算 $u_2$ 时指标匹配与度规分量引用错误。错将 $u^0$ 与 $g_{22}$ 相乘，正确计算应为 $u_2 = g_{20} u^0 + g_{22} u^2$。由于 $u^2=0$ 且 $g_{20} = -e^{\\sqrt{2}\\omega x}$，正确值为 $u_2 = -e^{\\sqrt{2}\\omega x}$。正交条件应修正为 $S^\\mu u_\\mu = -S^0 - e^{\\sqrt{2}\\omega x} S^2 = 0$。2. **步骤2错误**：平行输运方程符号错误（sign error）。方程应为 $\\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{\\alpha\\beta} u^\\alpha S^\\beta = 0$，正确形式为 $\\frac{dS^\\mu}{d\\tau} = -\\Gamma^\\mu_{\\alpha\\beta} u^\\alpha S^\\beta$，退化为 $\\frac{dS^\\mu}{d\\tau} = -\\Gamma^\\mu_{0\\beta} S^\\beta$。3. **步骤3错误**：Christoffel 符号 $\\Gamma^2_{01}$ 符号错误（sign error）。正确值为 $\\Gamma^2_{01} = -\\sqrt{2}\\omega e^{-\\sqrt{2}\\omega x}$。修正后的推导结果：由 $\\frac{dS^\\mu}{d\\tau} = -\\Gamma^\\mu_{0\\beta} S^\\beta$，得 $\\frac{dS^0}{d\\tau} = -\\sqrt{2}\\omega S^1$，$\\frac{dS^2}{d\\tau} = \\sqrt{2}\\omega e^{-\\sqrt{2}\\omega x} S^1$。代入修正后的步骤5：$\\frac{d}{d\\tau}(-S^0 - e^{\\sqrt{2}\\omega x} S^2) = -(-\\sqrt{2}\\omega S^1) - e^{\\sqrt{2}\\omega x}(\\sqrt{2}\\omega e^{-\\sqrt{2}\\omega x} S^1) = \\sqrt{2}\\omega S^1 - \\sqrt{2}\\omega S^1 = 0$。正交性守恒。",
+    "solution": "1. 首先，计算静态观察者的四速度协变分量 $u_\\mu = g_{\\mu\\nu} u^\\nu$：   $u_0 = g_{00} u^0 + g_{02} u^2 = -1$，   $u_1 = g_{11} u^1 = 0$，   $u_2 = g_{20} u^0 + g_{22} u^2 = -e^{\\sqrt{2}\\omega x}$，   $u_3 = g_{33} u^3 = 0$。   因此，正交条件具体化为 $S^\\mu u_\\mu = S^0 u_0 + S^2 u_2 = -S^0 - e^{\\sqrt{2}\\omega x} S^2 = 0$，即初始时 $S^0 = - e^{\\sqrt{2}\\omega x} S^2$。2. 因为观察者坐标恒定（仅有 $t$ 变化），且度规 Christoffel 符号中不含 $\\Gamma^\\mu_{00}$，这意味着 $a^\\mu = \\frac{du^\\mu}{d\\tau} + \\Gamma^\\mu_{\\alpha\\beta} u^\\alpha u^\\beta = \\Gamma^\\mu_{00} = 0$，该静态观察者实际上沿测地线运动，其自旋矢量作平行输运 $\\frac{DS^\\mu}{d\\tau} = 0$。3. 平行输运方程展开为 $\\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{\\alpha\\beta} u^\\alpha S^\\beta = 0$。由于 $u^\\alpha = (1, 0, 0, 0)$，方程退化为 $\\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{0\\beta} S^\\beta = 0$。4. 根据 Fact Sheet 中的非零 Christoffel 符号（利用对称性 $\\Gamma^\\mu_{0\\beta} = \\Gamma^\\mu_{\\beta 0}$），提取相关项：   $\\Gamma^0_{01} = \\sqrt{2}\\omega$，   $\\Gamma^2_{01} = -\\sqrt{2}\\omega e^{-\\sqrt{2}\\omega x}$。5. 写出 $S^0$ 和 $S^2$ 的平行输运方程：   $\\frac{dS^0}{d\\tau} = -\\Gamma^0_{01} S^1 = -\\sqrt{2}\\omega S^1$   $\\frac{dS^2}{d\\tau} = -\\Gamma^2_{01} S^1 = \\sqrt{2}\\omega e^{-\\sqrt{2}\\omega x} S^1$6. 验证正交性的时间导数：   由于观察者静止，空间坐标 $x$ 为常数，$\\frac{d}{d\\tau} e^{\\sqrt{2}\\omega x} = 0$。   计算导数：   $\\frac{d}{d\\tau}(S^0 + e^{\\sqrt{2}\\omega x} S^2) = \\frac{dS^0}{d\\tau} + e^{\\sqrt{2}\\omega x} \\frac{dS^2}{d\\tau}$   代入第5步的结果：   $= (-\\sqrt{2}\\omega S^1) + e^{\\sqrt{2}\\omega x} (\\sqrt{2}\\omega e^{-\\sqrt{2}\\omega x} S^1)$   $= -\\sqrt{2}\\omega S^1 + \\sqrt{2}\\omega S^1 = 0$。7. 结论：$\\frac{d}{d\\tau}(S^\\mu u_\\mu) = 0$，正交性在平行输运过程中守恒。"
+  },
+  "verification": null
+}

@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "id": "1_s14_14.11",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_related",
+      "target_object": "target_killing_equation",
+      "coordinate": "coordinate_free",
+      "scenario": "relativistic_fluid_dynamics",
+      "method": "kinematic_tensor_decomposition"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.11",
+    "source_id": "1_s14_14.11",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.11"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.7,
+      "rationale": "基于相对论流体力学剪切与膨胀为零的运动学条件，结合速度场正交分解直接导出基灵方程，物理图像清晰且逻辑链条完整",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$u^{\\\\beta}$",
+      "$u_{\\\\alpha}$",
+      "$a_{\\\\alpha}$",
+      "$\\\\sigma_{\\\\alpha \\\\beta}$",
+      "$\\\\theta$",
+      "$\\\\omega_{\\\\alpha \\\\beta}$",
+      "$\\\\mathbf{u}$",
+      "$\\\\mathbf{a}$",
+      "$\\\\nabla$"
+    ],
+    "target": [
+      "$u_{(\\\\alpha;\\\\beta)} = 0$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 14.11. In a certain spacetime fluid flows along geodesics with zero shear and expansion. (See Problem 5.18 for the definitions of shear $\\sigma_{\\alpha \\beta}$ and expansion $\\theta$ .) Show that the spacetime has a timelike Killing vector.",
+    "answer": "Hence $\\mathbf{u}$ satisfies Killing's equation.",
+    "solution": "Solution 14.11. Since the fluid flows on geodesics $\\mathsf{a}_{\\alpha} \\equiv \\mathsf{u}^{\\beta} \\mathsf{u}_{\\alpha; \\beta} = 0$ and since the flow is shear and expansion free $\\sigma_{\\alpha \\beta} = \\theta = 0$ . The decomposition of $\\nabla \\mathbf{u}$ in Problem 5.18 then gives\\n$$\\n\\\\mathrm {u}_{\\\\alpha}; \\\\beta = \\\\omega_{\\\\alpha} \\\\beta .\\n$$\\nBut $\\omega$ is antisymmetric, so $\\mathbf{u}_{(\\\\alpha ;\\\\beta)} = 0$ and hence $\\mathbf{u}$ satisfies Killing's equation."
+  },
+  "verification": null
+}

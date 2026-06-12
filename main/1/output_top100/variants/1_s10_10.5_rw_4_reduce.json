@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-2-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "Ricci_scalar",
+      "coordinate": "spherical",
+      "scenario": "conical_deficit_reduce_to_flat",
+      "method": "limit_k_to_1",
+      "generalization_axis": "limit",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-2",
+      "1_s10_10.5-2-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "killing_vector",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "Ricci_scalar"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Consider the spacetime metric $ds^2 = -dt^2 + dr^2 + k^2 r^2 d\\theta^2 + k^2 r^2 \\sin^2(\\theta) d\\phi^2$, where the parameter $k < 1$ represents a conical deficit angle (such as the exterior of a cosmic string). This spacetime exhibits a topological curvature singularity and a reduced symmetry group $\\mathbb{R} \\times U(1)$ compared to Minkowski space. Evaluate the Ricci scalar for this metric, and demonstrate the reduction to the classical flat spacetime counterpart by taking the physical limit $k \\to 1$ (which eliminates the deficit angle and restores the global SO(3) spatial symmetry). What is the resulting Ricci scalar in this limit?",
+    "answer": "The Ricci scalar for the given metric is $R = \\frac{2(1-k^2)}{k^2 r^2}$. By taking the physical limit $k \\to 1$ (removing the conical deficit), the term $1-k^2 \\to 0$, which yields $R \\to 0$. This reduces to the Ricci scalar of classical flat Minkowski spacetime, confirming the restoration of a curvature-free spacetime.",
+    "solution": "1. The Ricci scalar is computed from the given metric components. The non-zero Ricci tensor components are $R_{22} = 1-k^2$ and $R_{33} = (1-k^2)\\sin^2(\\theta)$. Contracting with the inverse metric yields $R = \\frac{2(1-k^2)}{k^2 r^2}$. 2. The parameter $k$ determines the deficit angle $\\Delta = 2\\pi(1-k)$. The limit $k \\to 1$ physically corresponds to $\\Delta \\to 0$, meaning the topological defect vanishes and the spatial geometry transitions from a cone to a standard flat plane, restoring full spherical symmetry. 3. In the limit $k \\to 1$, the numerator $1-k^2 \\to 0$, causing the Ricci scalar $R \\to 0$, which reduces to the vanishing Ricci scalar of the classical flat Minkowski spacetime."
+  },
+  "verification": null
+}

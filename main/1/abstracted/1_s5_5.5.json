@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s5_5.5",
+    "type": "calculate",
+    "tags": {
+      "metric": "stress_energy_tensor",
+      "target_object": "flat_spacetime",
+      "coordinate": "cartesian_coordinates",
+      "scenario": "relativistic_continuum",
+      "method": "component_derivation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.5",
+    "source_id": "1_s5_5.5",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "需结合应力能张量物理定义、坐标系选取与对称性进行多步推导，结构可自然迁移至相对论弦或流体模型",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$\\\\mu$",
+      "$F$",
+      "$A$"
+    ],
+    "target": [
+      "$T^{00}$",
+      "$T^{zz}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.5. A rod has cross sectional area A and mass per unit length $\\mu$ . Write down the stress-energy tensor inside the rod when the rod is under a tension F. (Assume that the tension is uniformly distributed over the cross section.)",
+    "answer": "$T^{\\\\mu\\\\nu} = \\\\mathrm{diag}(\\\\mu/A, 0, 0, -F/A)$",
+    "solution": "Solution 5.5. We are given the linear mass density as $\\mu$ , so $\\mathbf{T}^{00} = \\mu / \\mathbf{A}$ . In the rest frame of the rod there is no energy flow so $\\mathbf{T}^{0i} = 0$ . Choose the $z$ direction to be along the rod axis. By symmetry [see the argument in Problem 5.4] the off-diagonal stresses $\\mathbf{T}^{\\mathbf{xy}}$ , $\\mathbf{T}^{\\mathbf{xz}}$ , $\\mathbf{T}^{\\mathbf{yz}}$ , must be zero. Since the tension is in the $z$ -direction, $\\mathbf{T}^{zz} = -\\mathbf{F} / \\mathbf{A}$ . Since there is no applied stress in the $x$ or $y$ directions (therefore no transport of $x$ or $y$ momentum) $\\mathbf{T}^{\\mathbf{xx}} = \\mathbf{T}^{\\mathbf{yy}} = 0$ ."
+  },
+  "verification": null
+}

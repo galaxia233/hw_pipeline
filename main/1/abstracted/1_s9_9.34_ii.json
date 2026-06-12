@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s9_9.34_ii",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "extrinsic_curvature",
+      "coordinate": "surface_embedding",
+      "scenario": "cylindrical_coordinates",
+      "method": "eigenvalue_analysis"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.34_ii",
+    "source_id": "1_s9_9.34_ii",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.34_ii"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "表面嵌入几何设定+外曲率张量对角化求解+清晰坐标投影过程",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 3,
+    "variables": [
+      "$r$",
+      "$\\\\phi$",
+      "$z$",
+      "$a$"
+    ],
+    "target": [
+      "$K_{\\\\hat{\\\\phi}\\\\hat{\\\\phi}}$",
+      "$K_{\\\\hat{z}\\\\hat{z}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.34. The eigenvalues and eigenvectors of the extrinsic curvature tensor are called the principal curvatures and principal directions. Find the principal curvatures and directions for the following surfaces embedded in a 3-dimensional Euclidean space.\\n(ii) cylinder: $x^2 + y^2 = a^2$ .",
+    "answer": "Principal curvatures: $0$ and $-1/a$; Principal directions: axial direction ($z$) and circumferential direction ($\\\\phi$).",
+    "solution": "(ii) Again we can argue intuitively: The “special” directions must be the axial and circumferential directions. From the definition of $\\mathbf{K}$ the values of the curvature (rate of change of $\\mathbf{n}$ ) in these directions should be 0 and $-1/a$ .\\nMathematically: Again the usual coordinates are Gaussian normal and the 2-geometry is\\n$$\\n\\\\mathrm {d} \\\\mathbf {s}^{2} = \\\\mathbf {r}^{2} \\\\mathrm {d} \\\\phi^{2} + \\\\mathrm {d} z^{2}.\\n$$\\nThe orthonormal components of $\\mathbf{K}$ are then\\n$$\\n\\\\mathrm {K}_{\\\\hat {\\\\phi} \\\\hat {\\\\phi}} = \\\\frac {1}{\\\\mathrm {g}_{\\\\phi \\\\phi}} \\\\left(- \\\\frac {1}{2} \\\\mathrm {g}_{\\\\phi \\\\phi , \\\\mathrm {r}}\\\\right) = - 1 / \\\\mathrm {a}\\n$$\\n$$\\n\\\\mathrm {K}_{\\\\widehat {z} \\\\widehat {z}} = \\\\frac {1}{\\\\mathrm {g}_{z z}} \\\\left(- \\\\frac {1}{2} \\\\mathrm {g}_{z z, \\\\mathrm {r}}\\\\right) = 0 \\\\tag {2}\\n$$\\nand our intuitive answers are correct."
+  },
+  "verification": null
+}

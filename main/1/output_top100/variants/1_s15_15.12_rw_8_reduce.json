@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s15_15.12-2-3-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "tidal_acceleration",
+      "coordinate": "flrw_comoving",
+      "scenario": "newtonian_cosmology_reduce",
+      "method": "limit_k_to_0",
+      "generalization_axis": "limit",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.12",
+      "1_s15_15.12-2",
+      "1_s15_15.12-2-3",
+      "1_s15_15.12-2-3-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$K$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论的 FLRW 宇宙时空中，随动观测者测得的径向潮汐加速度比例系数为 $K = \\frac{(1-kr^2)\\ddot{a}(t)}{a^3(t)}$，其中 $k$ 为空间曲率参数。请通过取空间平直极限（$k \\to 0$），将该 GR 结果归约为 Newtonian 宇宙学适用的平直宇宙模型中的经典对应形式，并写出归约后的比例系数 $K$ 的表达式。度规定义：$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$",
+    "answer": "取空间平直极限 $k \\to 0$，此时度规中的空间曲率项 $1-kr^2 \\to 1$，比例系数归约为 $K = \\frac{\\ddot{a}(t)}{a^3(t)}$。该极限表明在无空间曲率的平直宇宙中，随动观测者感受到的径向坐标潮汐加速度比例系数仅依赖于宇宙的膨胀动力学，与 Newtonian 宇宙学预期的物理偏离加速度完全自洽。",
+    "solution": "1. 明确归约方向：空间平直极限 $k \\to 0$，对应于空间曲率消失的平直宇宙模型，这是 Newtonian 宇宙学严格适用的前提。2. 对广义相对论结果取极限：原式 $K = \\frac{(1-kr^2)\\ddot{a}(t)}{a^3(t)}$，当 $k \\to 0$ 时，空间曲率修正项 $1-kr^2$ 退化为 $1$。3. 得到经典对应结果：$K \\to \\frac{\\ddot{a}(t)}{a^3(t)}$。4. 物理自洽性分析：在 Newtonian 宇宙学中，物理偏离 $\\xi_{phys} = a(t) \\xi^r$ 的潮汐加速度为 $\\frac{d^2 \\xi_{phys}}{dt^2} = \\frac{\\ddot{a}}{a} \\xi_{phys}$，代入 $\\xi_{phys} = a \\xi^r$ 即得随动坐标加速度 $\\ddot{\\xi^r} = \\frac{\\ddot{a}}{a^3} \\xi^r$，与归约后的 $K$ 完全一致。"
+  },
+  "verification": null
+}

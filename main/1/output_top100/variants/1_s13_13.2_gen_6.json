@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s13_13.2-6",
+    "type": "prove",
+    "tags": {
+      "target_object": "Einstein tensor and Friedmann equations",
+      "coordinate": "spherical",
+      "scenario": "cosmology",
+      "method": "tensor projection and field equation comparison",
+      "generalization_axis": "extend",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.2",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.2",
+      "1_s13_13.2-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$G_{00}$",
+      "$G_{ij}$",
+      "Friedmann equations"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "The Nordström theory of gravity (1913) stipulates that spacetime must be conformally flat ($C_{\\mu\\nu\\rho\\sigma}=0$) and relates geometry to matter via the Ricci scalar: $R = \\kappa g_{\\mu\\nu} T^{\\mu\\nu}$. The FLRW metric, which describes a homogeneous and isotropic cosmological spacetime, is also conformally flat and is defined by $ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$. In General Relativity, the field equations are given by the Einstein tensor $G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$. For a perfect fluid in the comoving frame, the stress-energy tensor components are $T_{00} = \\rho$ and $T_{ij} = p g_{ij}$. Using the provided components of the Einstein tensor $G_{\\mu\\nu}$ for the FLRW metric, derive the two Friedmann equations governing the expansion of the universe, and from the resulting acceleration equation $\\ddot{a}/a$, explain how the gravitational effect of pressure differs between General Relativity and Nordström's theory.",
+    "answer": "The first Friedmann equation is $(\\dot{a}/a)^2 + k/a^2 = 8\\pi\\rho/3$, and the second is $\\ddot{a}/a = -4\\pi/3(\\rho+3p)$. In GR, pressure $p$ enhances gravitational attraction (adds to the deceleration source $\\rho+3p$), whereas in Nordström's theory, the source is $\\rho-3p$, meaning pressure opposes gravitational attraction.",
+    "solution": "1. From the provided data, the time-time component of the Einstein tensor is $G_{00} = \\frac{3(k + (\\frac{d}{dt}a)^2)}{a^2}$. Using the shorthand $\\dot{a}$ for the time derivative, we have $G_{00} = \\frac{3(\\dot{a}^2 + k)}{a^2}$. The GR field equation $G_{00} = 8\\pi T_{00} = 8\\pi \\rho$ yields the first Friedmann equation: $\\frac{\\dot{a}^2 + k}{a^2} = \\frac{8\\pi \\rho}{3}$.\\n2. The spatial components of the Einstein tensor are $G_{11} = \\frac{k + 2a\\ddot{a} + \\dot{a}^2}{kr^2 - 1}$, $G_{22} = r^2(-k - 2a\\ddot{a} - \\dot{a}^2)$, and $G_{33} = r^2(-k - 2a\\ddot{a} - \\dot{a}^2)\\sin^2\\theta$. Comparing these with the spatial metric components $g_{11} = \\frac{a^2}{1-kr^2}$, $g_{22} = r^2 a^2$, and $g_{33} = r^2 a^2 \\sin^2\\theta$, we can factor out the metric to find $G_{ij} = -\\frac{k + 2a\\ddot{a} + \\dot{a}^2}{a^2} g_{ij}$.\\n3. The GR field equation for the spatial components is $G_{ij} = 8\\pi T_{ij} = 8\\pi p g_{ij}$. This yields the second Friedmann equation: $-\\frac{k + 2a\\ddot{a} + \\dot{a}^2}{a^2} = 8\\pi p$.\\n4. Rearranging the second equation gives $2\\frac{\\ddot{a}}{a} + \\frac{\\dot{a}^2 + k}{a^2} = -8\\pi p$. Substituting the first Friedmann equation $\\frac{\\dot{a}^2 + k}{a^2} = \\frac{8\\pi\\rho}{3}$ into this yields: $2\\frac{\\ddot{a}}{a} + \\frac{8\\pi\\rho}{3} = -8\\pi p$. Solving for the acceleration gives the Friedmann acceleration equation: $\\frac{\\ddot{a}}{a} = -\\frac{4\\pi}{3}(\\rho + 3p)$.\\n5. In General Relativity, the effective source for gravitational attraction (causing deceleration) is $\\rho + 3p$. Pressure contributes positively to this source, enhancing gravitational attraction.\\n6. In Nordström's theory, the field equation is $R = \\kappa g_{\\mu\\nu} T^{\\mu\\nu}$. For a perfect fluid, the trace is $g_{\\mu\\nu} T^{\\mu\\nu} = g_{00}T^{00} + g_{ij}T^{ij} = -\\rho + 3p$. The effective gravitational source proportional to curvature is therefore $\\rho - 3p$, meaning positive pressure reduces the effective source and opposes gravitational attraction."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "1. 缺失必要条件（Self-contained 错误）：题目要求“使用所提供的分量”，但在题目文本中并未实际提供爱因斯坦张量分量 $G_{\\mu\\nu}$，它们仅出现在 solution 中。做题者无法仅凭题目文本完成推导。\n2. 符号错误：Solution 步骤 6 正确计算了应力-能量张量的迹 $g_{\\mu\\nu} T^{\\mu\\nu} = -\\rho + 3p$，但随后立即得出结论“有效引力源是 $\\rho - 3p$”，answer 也陈述为 $\\rho-3p$。这直接翻转了密度和压力的符号，与题目定义的场方程 $R = \\kappa g_{\\mu\\nu} T^{\\mu\\nu}$ 及其计算结果相矛盾。\n3. 物理概念错误：题目要求“从所得的加速度方程 $\\ddot{a}/a$”比较压力的引力效应差异。然而，Nordström 理论只有一个标量场方程 $R = \\kappa T$，它决定了 Ricci 标量 $R = 6(\\ddot{a}/a + \\dot{a}^2/a^2 + k/a^2)$，而非单独的加速度方程 $\\ddot{a}/a$。由于无法消去 $\\dot{a}^2/a^2 + k/a^2$ 项，Nordström 理论并没有一个仅由物质源决定的加速度方程。题目和 answer 错误地将迹直接等同于加速度方程的源，这是物理上的误解。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

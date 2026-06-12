@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-5-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "effective_potential",
+      "coordinate": "schwarzschild",
+      "scenario": "black_hole_orbit_verify",
+      "method": "killing_vector_conservation",
+      "generalization_axis": "verify",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-5",
+      "1_s10_10.10-5-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$V_{eff}(r)$",
+      "推导过程校验"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Schwarzschild 黑洞度规线元为 $ds^2 = -\\frac{r-r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$。该时空具有时间平移 Killing 矢量场 $\\xi_t^\\mu = (1, 0, 0, 0)$ 和绕 $\\phi$ 轴旋转的 Killing 矢量场 $\\xi_\\phi^\\mu = (0, 0, 0, 1)$，分别对应能量守恒量 $E$ 和角动量守恒量 $L$。\\n\\n某同学在推导赤道面类时测地线的有效势 $V_{eff}(r)$ 时，作了如下推导：\\n1. 类时测地线四速度的归一化条件为 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = 1$。\\n2. 根据守恒量定义 $E = g_{\\mu\\nu} \\xi_t^\\mu \\dot{x}^\\nu$ 和 $L = g_{\\mu\\nu} \\xi_\\phi^\\mu \\dot{x}^\\nu$，结合度规分量 $g_{tt} = -(1-r_s/r)$ 和 $g_{\\phi\\phi} = r \\sin^2 \\theta$，在赤道面 $\\theta = \\pi/2$ 上得到 $E = -(1-r_s/r)\\dot{t}$ 和 $L = r \\dot{\\phi}$。\\n3. 由此解出 $\\dot{t} = -E/(1-r_s/r)$ 和 $\\dot{\\phi} = L/r$。\\n4. 将 $\\dot{t}$, $\\dot{\\phi}$ 及 $\\dot{\\theta}=0$ 代入归一化条件：\\n   $-(1-r_s/r)\\left(-\\frac{E}{1-r_s/r}\\right)^2 + \\frac{1}{1-r_s/r}\\dot{r}^2 + r\\left(\\frac{L}{r}\\right)^2 = 1$\\n5. 化简得到：$-\\frac{E^2}{1-r_s/r} + \\frac{1}{1-r_s/r}\\dot{r}^2 + \\frac{L^2}{r} = 1$\\n6. 两边乘以 $(1-r_s/r)$ 并整理 $\\dot{r}^2$ 项：\\n   $-E^2 + \\dot{r}^2 + \\frac{L^2}{r}(1-r_s/r) = 1 - r_s/r$\\n   $\\dot{r}^2 = E^2 + (1-r_s/r) - \\frac{L^2}{r}(1-r_s/r) = E^2 - \\left[ -(1-r_s/r) + \\frac{L^2}{r}(1-r_s/r)\\right]$\\n7. 最终写成 $\\dot{r}^2 = E^2 - V_{eff}(r)$ 的形式，得出有效势 $V_{eff}(r) = -(1-r_s/r) + \\frac{L^2}{r}(1-r_s/r)$。\\n\\n请找出上述推导过程中的所有错误，指出错误位置与类型，并给出正确的有效势表达式 $V_{eff}(r)$。",
+    "answer": "推导中存在3处错误：\\n1. 步骤1：归一化条件符号错误。类时测地线应满足 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$，而非 $+1$。\\n2. 步骤2：能量守恒量定义符号错误。应为 $E = -g_{\\mu\\nu} \\xi_t^\\mu \\dot{x}^\\nu$（以保证沿时间正向运动的粒子能量为正），而非 $+g_{\\mu\\nu}$。\\n3. 步骤2：方位角度规分量因子错误。应为 $g_{\\phi\\phi} = r^2 \\sin^2 \\theta$，导致角动量 $L = r^2 \\dot{\\phi}$，进而 $\\dot{\\phi} = L/r^2$，而非 $\\dot{\\phi} = L/r$。\\n\\n正确的有效势表达式为：$V_{eff}(r) = \\left(1 - \\frac{r_s}{r}\\right)\\left(1 + \\frac{L^2}{r^2}\\right) = 1 - \\frac{r_s}{r} + \\frac{L^2}{r^2} - \\frac{r_s L^2}{r^3}$。",
+    "solution": "1. 类时测地线归一化条件：$g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$。\\n2. 守恒量定义：$E = -g_{\\mu\\nu} \\xi_t^\\mu \\dot{x}^\\nu = -g_{tt} \\dot{t} = \\frac{r-r_s}{r} \\dot{t}$，$L = g_{\\phi\\phi} \\dot{\\phi} = r^2 \\dot{\\phi}$。\\n3. 在赤道面 $\\theta=\\pi/2$，代入得：$-(1-r_s/r)\\dot{t}^2 + \\frac{r}{r-r_s}\\dot{r}^2 + r^2\\dot{\\phi}^2 = -1$。\\n4. 将 $\\dot{t} = E/(1-r_s/r)$ 和 $\\dot{\\phi} = L/r^2$ 代入：$-\\frac{E^2}{1-r_s/r} + \\frac{1}{1-r_s/r}\\dot{r}^2 + \\frac{L^2}{r^2} = -1$。\\n5. 两边乘以 $(1-r_s/r)$ 并移项：$-E^2 + \\dot{r}^2 + \\frac{L^2}{r^2}(1-r_s/r) = -(1-r_s/r)$。\\n6. 解得：$\\dot{r}^2 = E^2 - (1-r_s/r) - \\frac{L^2}{r^2}(1-r_s/r) = E^2 - (1-r_s/r)(1 + L^2/r^2)$。\\n7. 有效势：$V_{eff}(r) = (1 - r_s/r)(1 + L^2/r^2) = 1 - r_s/r + L^2/r^2 - r_s L^2/r^3$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

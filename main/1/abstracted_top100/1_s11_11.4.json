@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "spin_vector",
+      "coordinate": "fermi-walker_transport",
+      "scenario": "covariant_derivative",
+      "method": "gyroscope_precession"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s11_11.4",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s11_11.4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "从局部惯性系零力矩条件出发结合正交性推导FW方程，逻辑严密且直接对应卫星重力探测与自旋进动实验背景",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\mathbf{S}$",
+      "$\\mathbf{u}$",
+      "$\\mathbf{a}$"
+    ],
+    "target": [
+      "$\\nabla_{\\mathbf{u}} \\mathbf{S}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 11.4. Show that a gyroscope with no applied torques Fermi-Walker transports its spin vector.",
+    "answer": "$\\nabla_{\\mathbf{u}} \\mathbf{S} = (\\mathbf{S} \\cdot \\mathbf{a}) \\mathbf{u}$ (满足费米-沃克输运方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = (\\mathbf{S} \\cdot \\mathbf{a}) \\mathbf{u} - (\\mathbf{S} \\cdot \\mathbf{u}) \\mathbf{a}$，其中 $\\mathbf{S} \\cdot \\mathbf{u} = 0$)",
+    "solution": "Consider an observer in the local inertial frame comoving with the center of mass of the gyroscope. Because there are no torques,he sees no precession of the spin axis, so $\\underline{\\mathrm{dS}}/\\mathrm{dt} = 0$ . But in this frame the 4-velocity of the gyroscope is $\\mathbf{u} = (1,0)$ , so we can write the condition of zero torque as$$\\nabla_{\\mathbf {u}} \\mathbf {S} = \\mathbf{g} \\mathbf{u}$$where $\\mathbf{g}$ is some constant of proportionality. We find $\\mathbf{g}$ from the fact that $\\mathbf{S} \\cdot \\mathbf{u} = 0$ :$$\\begin{array}{l} 0 = \\nabla_{\\mathbf {u}} (\\mathbf {S} \\cdot \\mathbf {u}) = (\\nabla_{\\mathbf {u}} \\mathbf {S}) \\cdot \\mathbf{u} + \\mathbf{S} \\cdot (\\nabla_{\\mathbf {u}} \\mathbf {u}) \\\\= \\mathbf {g} \\mathbf{u} \\cdot \\mathbf{u} + \\mathbf{S} \\cdot \\mathbf{a} \\\\= - \\mathbf {g} + \\mathbf{S} \\cdot \\mathbf{a}. \\\\\\end{array}$$Thus$$\\nabla_{\\mathbf {u}} \\mathbf {S} = (\\mathbf{S} \\cdot \\mathbf{a}) \\mathbf{u}$$which is the equation for Fermi-Walker transport$$\\nabla_{\\mathbf {u}} \\mathbf {S} = (\\mathbf{S} \\cdot \\mathbf{a}) \\mathbf{u} - (\\mathbf{S} \\cdot \\mathbf{u}) \\mathbf{a}$$with $\\mathbf{S} \\cdot \\mathbf{u} = 0$ ."
+  },
+  "verification": null
+}

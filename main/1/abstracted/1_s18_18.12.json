@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s18_18.12",
+    "type": "calculate",
+    "tags": {
+      "metric": "Minkowski_background",
+      "target_object": "displacement_field",
+      "coordinate": "Cartesian_coordinates",
+      "scenario": "weber_bar_detector",
+      "method": "harmonic_resonance_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s18_18.12",
+    "source_id": "1_s18_18.12",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s18_18.12"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.7,
+      "completeness": 0.3,
+      "realism": 0.8,
+      "rationale": "经典引力波条形探测器模态分析，具备实际物理背景与阻尼谐振机制，但解答文本截断严重缺失关键步骤",
+      "overall": 0.6
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$\\xi$",
+      "$\\omega$",
+      "$\\tau$",
+      "$a$",
+      "$n$"
+    ],
+    "target": null,
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 18.12. An elastic rod can be used to detect gravitational waves not only at its lowest normal mode frequency $\\omega_0$ , but also at harmonics$\\omega_{n} \\equiv n \\omega_{0}$ . What is the sensitivity of the $n^{\\text{th}}$ mode relative to the zeroth, i.e. how does the ratio of maximum squared amplitude of the displacement to energy flux of wave vary with $n$ ? (Assume the rod has the same mechanical damping time for all modes.)",
+    "answer": null,
+    "solution": "Solution 18.12. The normal modes of the rod (taken to be oriented along the $x$ -axis) are found from the equation$$\\frac {\\partial^{2} \\xi}{\\partial t^{2}} + \\frac {1}{r} \\frac {\\partial \\xi}{\\partial t} - a^{2} \\frac {\\partial^{2} \\xi}{\\partial x^{2}} = 0. \\tag {1}$$Here $\\xi(\\mathbf{x}, t)$ is the displacement of an element of the rod, $\\tau$ is the damping time and $a$ is the speed of sound. The modes are of the form$$\\xi = e^{- i \\omega t} e^{- t / 2 \\tau} u (x) \\tag {2}$$where$$a^{2} \\frac {d^{2} u}{d x^{2}} + \\left(\\omega^{2} + \\frac {1}{4 r^{2}}\\right) u = 0. \\tag {3}$$"
+  },
+  "verification": null
+}

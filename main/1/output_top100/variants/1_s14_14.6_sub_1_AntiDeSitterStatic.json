@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-2-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "g_theta_theta, g_phi_phi",
+      "coordinate": "t,r,theta,phi",
+      "scenario": "static_radial_field",
+      "method": "derive_from_weight_property",
+      "generalization_axis": "substitute",
+      "metric": "AntiDeSitterStatic"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:metric_substitute",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-2",
+      "1_s14_14.6-2-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "AntiDeSitterStatic",
+    "soft_variant": "substitute",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\Gamma^r_{\\theta\\theta} = -\\frac{1}{2} \\partial_r g_{\\theta\\theta}$ 且 $\\Gamma^r_{\\phi\\phi} = -\\frac{1}{2} \\partial_r g_{\\phi\\phi}$"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在一个具有静态径向引力场的时空中，坐标线元为 $ds^2 = - \\cos h^{2}{\\left(r\\right)} dt^2 + dr^2 + \\sin h^{2}{\\left(r\\right)} d\\theta^{2} + \\sin^{2}{\\left(\\theta\\right)} \\sin h^{2}{\\left(r\\right)} d\\phi^{2}$。采用符号约定 $(-,+,+,+)$，有质量粒子的类时条件为 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$。物理观察表明，对于放置在此场中的**任何**静态物质分布（容器），其在秤上测得的重量 $W(r) = \\int T^{\\hat{r}\\hat{r}} \\sqrt{g_{\\theta\\theta} g_{\\phi\\phi}} d\\theta d\\phi$ 不仅依赖于总能量密度物理分量 $T^{\\hat{t}\\hat{t}}$，还依赖于横向应力分量 $T^{\\hat{\\theta}\\hat{\\theta}}$ 和 $T^{\\hat{\\phi}\\hat{\\phi}}$。请基于这一物理事实，利用能动张量守恒方程推导并证明横向应力对重量贡献的几何起源，即证明该贡献系数直接由横向度规分量 $g_{\\theta\\theta}$ 和 $g_{\\phi\\phi}$ 对径向坐标 $r$ 的导数决定。",
+    "answer": "$\\Gamma^r_{\\theta\\theta} = -\\frac{1}{2} \\partial_r g_{\\theta\\theta}$ 且 $\\Gamma^r_{\\phi\\phi} = -\\frac{1}{2} \\partial_r g_{\\phi\\phi}$，即横向应力对重量的贡献系数直接由横向度规分量对径向坐标的导数决定。",
+    "solution": "根据能动张量守恒方程 $\\nabla_\\beta T^{r\\beta} = 0$ 展开：$$0 = |g|^{-1/2} \\partial_\\beta (|g|^{1/2} T^{r\\beta}) + \\Gamma^r_{\\beta\\gamma} T^{\\beta\\gamma}$$对于静态物质分布，$T^{rt} = T^{r\\theta} = T^{r\\phi} = 0$（无动量通量）。对 $\\theta, \\phi$ 积分并利用边界条件（容器外部张量为零），方程中与横向应力相关的项为：$$\\Gamma^r_{\\theta\\theta} \\int \\frac{T^{\\hat{\\theta}\\hat{\\theta}}}{g_{\\theta\\theta}} d\\theta d\\phi + \\Gamma^r_{\\phi\\phi} \\int \\frac{T^{\\hat{\\phi}\\hat{\\phi}}}{g_{\\phi\\phi}} d\\theta d\\phi$$由于物理事实指出重量依赖于横向应力分量 $T^{\\hat{\\theta}\\hat{\\theta}}$ 和 $T^{\\hat{\\phi}\\hat{\\phi}}$，这两项不为零，其贡献系数由 Christoffel 符号 $\\Gamma^r_{\\theta\\theta}$ 和 $\\Gamma^r_{\\phi\\phi}$ 决定。在给定度规下计算 Christoffel 符号：$$\\Gamma^r_{\\theta\\theta} = -\\frac{1}{2} g^{rr} \\partial_r g_{\\theta\\theta} = -\\frac{1}{2} \\partial_r g_{\\theta\\theta}$$$$\\Gamma^r_{\\phi\\phi} = -\\frac{1}{2} g^{rr} \\partial_r g_{\\phi\\phi} = -\\frac{1}{2} \\partial_r g_{\\phi\\phi}$$因此，横向应力对重量的贡献系数直接正比于横向度规分量对径向坐标的导数 $\\partial_r g_{\\theta\\theta}$ 和 $\\partial_r g_{\\phi\\phi}$。由于 $\\partial_r g_{\\theta\\theta} = \\sin h(2r) \\neq 0$ 且 $\\partial_r g_{\\phi\\phi} = \\sin^{2}(\\theta) \\sin h(2r) \\neq 0$，这从几何上解释了重量为何依赖于横向应力分量。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.antidesitterstatic_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "题目存在多处严重错误：1. **排版/符号错误**：度规线元中的 `\\cos h^{2}(r)` 和 `\\sin h^{2}(r)` 以及解答中的 `\\sin h(2r)` 是严重的 LaTeX 排版错误，会被解析为 $\\cos(h^2(r))$ 等毫无意义的表达式，正确的双曲函数应为 `\\cosh^2(r)` 和 `\\sinh^2(r)`。这导致度规定义存在根本性歧义。2. **数学推导错误**：Solution 在从 $\\nabla_\\beta T^{r\\beta}=0$ 提取横向应力积分项时，严重漏掉了不可或缺的面积元/体积元因子 $\\sqrt{g_{\\theta\\theta} g_{\\phi\\phi}}$。正确的积分项应为 $\\int \\sqrt{g_{\\theta\\theta} g_{\\phi\\phi}} \\Gamma^r_{\\theta\\theta} T^{\\theta\\theta} d\\theta d\\phi = \\Gamma^r_{\\theta\\theta} \\int \\sqrt{\\frac{g_{\\phi\\phi}}{g_{\\theta\\theta}}} T^{\\hat{\\theta}\\hat{\\theta}} d\\theta d\\phi$，而 solution 却错误地写成了 $\\Gamma^r_{\\theta\\theta} \\int \\frac{T^{\\hat{\\theta}\\hat{\\theta}}}{g_{\\theta\\theta}} d\\theta d\\phi$，缺失了度规因子使得积分表达式在数学上不成立且量纲错误。3. **逻辑错误**：题目与 answer 将 Christoffel 符号 $\\Gamma^r_{\\theta\\theta}$ 直接等同于“横向应力对重量的贡献系数”，但能动张量守恒方程给出的是径向压力梯度 $\\partial_r W(r)$ 的方程，横向应力对总重量 $W(r)$ 的贡献需经过积分，不能简单由局部导数系数直接代表。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

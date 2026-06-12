@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-0-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "Kretschmann scalar derivation",
+      "coordinate": "Schwarzschild coordinates",
+      "scenario": "Schwarzschild black hole curvature analysis verify",
+      "method": "verify metric inverse and Riemann tensor symmetry",
+      "generalization_axis": "verify",
+      "metric": "schwarzschild_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-0",
+      "1_s15_15.11-0-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "schwarzschild_metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$v$",
+      "$\\sigma$"
+    ],
+    "target": [
+      "校验 Kretschmann 标量推导过程中的度规逆分量与对称性系数错误"
+    ],
+    "metric": [
+      [
+        "$-(1-\\frac{2M}{r})$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$\\frac{1}{1-\\frac{2M}{r}}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s = 2M$。已知该时空的 Kretschmann 标量正确结果应为 $K = \\frac{48 M^2}{r^6}$。以下是一段计算 Kretschmann 标量 $K = R_{abcd} R^{abcd}$ 的推导过程，其中包含若干错误。请仔细阅读，找出所有错误，指出其位置、错误类型，并给出正确值。推导过程：[1] 协变度规分量为 $g_{00} = -\\frac{r-r_s}{r}$, $g_{11} = \\frac{r}{r-r_s}$, $g_{22} = r^2$, $g_{33} = r^2 \\sin^2\\theta$。由此写出逆变度规分量：$g^{00} = -\\frac{r}{r-r_s}$, $g^{11} = -\\frac{r-r_s}{r}$, $g^{22} = r^2$, $g^{33} = \\frac{1}{r^2 \\sin^2\\theta}$。[2] 利用对角度规性质，通过 $R^{abcd} = g^{aa} g^{bb} g^{cc} g^{dd} R_{abcd}$ 对独立协变分量进行升降：$R^{0202} = g^{00} g^{22} g^{00} g^{22} R_{0202} = \\left(-\\frac{r}{r-r_s}\\right)^2 (r^2)^2 \\left(-\\frac{r_s}{2r}\\right) = -\\frac{r^5 r_s}{2(r-r_s)^2}$$R^{1212} = g^{11} g^{22} g^{11} g^{22} R_{1212} = \\left(-\\frac{r-r_s}{r}\\right)^2 (r^2)^2 \\left(-\\frac{r_s}{2r}\\right) = -\\frac{(r-r_s)^2 r^3 r_s}{2}$$R^{2323} = g^{22} g^{33} g^{22} g^{33} R_{2323} = (r^2)^2 \\left(\\frac{1}{r^2 \\sin^2\\theta}\\right)^2 \\left(\\frac{r_s \\sin^2\\theta}{r}\\right) = \\frac{r_s}{r \\sin^2\\theta}$[3] 根据对称性，Kretschmann 标量由代数独立分量的乘积构成，考虑指标置换后有：$K = 2 \\left( R_{0101}R^{0101} + R_{0202}R^{0202} + R_{1212}R^{1212} + R_{0303}R^{0303} + R_{1313}R^{1313} + R_{2323}R^{2323}\\right)$",
+    "answer": "1. 位置 [1]：$g^{11}$ 的定义存在 **Sign error**（符号错误）。对角度规的逆变分量应与协变分量同号（对于空间分量），错误值为 $-\\frac{r-r_s}{r}$，正确值应为 $\\frac{r-r_s}{r}$。2. 位置 [1]：$g^{22}$ 的定义存在 **Index confusion**（上下标混淆，误将协变分量当作逆变分量）。错误值为 $r^2$，正确值应为 $\\frac{1}{r^2}$。3. 位置 [3]：Kretschmann 标量求和前的系数存在 **Factor error**（系数遗漏）。由于 Riemann 张量对前两个指标和后两个指标分别反对称，且对前后两组指标对称，置换独立分量会产生 4 倍贡献，错误值为 2，正确值应为 4。*(注：由于步骤 [1] 中度规逆分量定义错误，步骤 [2] 中基于这些错误分量计算出的 $R^{0202}, R^{1212}, R^{2323}$ 的表达式均属衍生错误，需用正确的 $g^{11}$ 和 $g^{22}$ 重新计算。)*",
+    "solution": null
+  },
+  "verification": null
+}

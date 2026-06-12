@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s2_2.8",
+    "type": "calculate",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "threshold_energy",
+      "coordinate": "lab_and_CM_coordinates",
+      "scenario": "cosmic_ray_photoproduction",
+      "method": "invariant_mass_conservation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.8",
+    "source_id": "1_s2_2.8",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "多步相对论运动学推导结合不变质量守恒，具有真实的宇宙射线能谱截断物理背景",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$E_N$",
+      "$E_\\gamma$",
+      "$m_N$",
+      "$m_\\pi$",
+      "$\\mathbf{P}_N$",
+      "$\\mathbf{P}_\\gamma$"
+    ],
+    "target": [
+      "$E_N$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 2.8. Calculate the threshold energy of a nucleon $\\mathbf{N}$ for it to undergo the reaction$$\\gamma + \\mathbf {N}\\rightarrow \\mathbf {N} + \\pi$$where $\\gamma$ represents a photon of temperature $3^0\\mathrm{K}$ . Assume the collision is head-on; take the photon energy to be $\\sim \\mathrm{kT}$ ; $\\mathfrak{m}_{\\mathbf{N}} = 940\\mathrm{MeV}$ ; $\\mathfrak{m}_{\\pi} = 140\\mathrm{MeV}$ . (This effect probably produces a cut-off in the cosmic-ray spectrum at this threshold energy.)",
+    "answer": "$E_N \\approx 3 \\times 10^{14} \\mathrm{MeV}$",
+    "solution": "Solution 2.8. Conservation of 4-momentum gives us$$\\begin{array}{l} \\mathbf {P}_{\\gamma} + \\mathbf {P}_{\\mathbf {N}} = \\mathbf {P}_{\\mathbf {N}^{\\prime}} + \\mathbf {P}_{\\pi} \\quad \\left(\\mathbf {N}^{\\prime} = \\text {n u c l e o n c o m i n g o u t o f r e a c t i o n}\\right) \\\\(\\mathbf {P}_{\\gamma} + \\mathbf {P}_{\\mathbf {N}})^{2} = (\\mathbf {P}_{\\mathbf {N}^{\\prime}} + \\mathbf {P}_{\\pi})^{2}. \\\\\\end{array}$$In the lab frame (where $\\mathbf{E}_{\\gamma} \\sim 3^{0}\\mathbf{K} \\sim 2.5 \\times 10^{-10}\\mathrm{MeV}$ ),$$\\mathbf {P}_{\\gamma} = (\\mathbf {E}_{\\gamma}, \\underline {{\\mathbf {P}}}_{\\gamma}), \\quad \\mathbf {P}_{\\mathbf {N}} = (\\mathbf {E}_{\\mathbf {N}}, \\underline {{\\mathbf {P}}}_{\\mathbf {N}}) .$$In the C.M. frame at threshold,$$\\mathbf {P}_{\\mathbf {N}^{\\prime}} + \\mathbf {P}_{\\pi} = \\left(\\mathrm {m}_{\\mathbf {N}} + \\mathrm {m}_{\\pi}, 0\\right)$$so that$$\\begin{array}{l} 2 \\mathbf {P}_{\\gamma} \\cdot \\mathbf {P}_{\\mathrm {N}} - \\mathbf {m}_{\\mathrm {N}}^{2} = - (\\mathbf {m}_{\\mathrm {N}} + \\mathbf {m}_{\\pi})^{2} \\\\- 2 \\mathrm {E}_{\\gamma} \\mathrm {E}_{\\mathrm {N}} + 2 \\underset {\\sim \\gamma} {\\mathrm {P}} \\cdot \\underset {\\sim} {\\mathrm {P}}_{\\mathrm {N}} = - 2 \\mathrm {m}_{\\mathrm {N}} \\mathrm {m}_{\\pi} - \\mathrm {m}_{\\pi}^{2}. \\\\\\end{array}$$Now $\\mathbf{P}_{\\gamma} = \\mathbf{E}_{\\gamma}$ since $\\mathfrak{m}_{\\gamma} = 0$ and, for a head-on collision $\\mathbf{\\underline{P}}_{\\gamma} \\cdot \\mathbf{\\underline{P}}_{\\mathbf{N}} = -\\mathbf{P}_{\\gamma} \\mathbf{P}_{\\mathbf{N}}$ , so that$$\\begin{array}{l} E_{N} + \\left(E_{N}^{2} - m_{N}^{2}\\right)^{\\frac {1}{2}} = \\frac {2 m_{N} m_{\\pi} + m_{\\pi}^{2}}{2 E_{\\gamma}} \\\\= \\frac {2 \\cdot 9 4 0 \\cdot 1 4 0 + 1 4 0^{2}}{2 \\cdot (2 . 5 \\times 1 0^{- 1 0})} \\mathrm {M e V} = 6 \\times 1 0^{1 4} \\mathrm {M e V}. \\\\\\end{array}$$Since $\\mathbf{E}_{\\mathbf{N}} >> \\mathfrak{m}_{\\mathbf{N}}$ , we can replace $(\\mathbf{E}_{\\mathbf{N}}^{2} - \\mathfrak{m}_{\\mathbf{N}}^{2})^{\\frac{1}{2}}$ by $\\mathbf{E}_{\\mathbf{N}}$ . Thus $\\mathbf{E}_{\\mathbf{N}} \\approx 3 \\times 10^{14} \\mathrm{MeV}$ ."
+  },
+  "verification": null
+}

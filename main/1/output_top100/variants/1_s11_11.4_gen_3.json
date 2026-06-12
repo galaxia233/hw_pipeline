@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-3",
+    "type": "prove",
+    "tags": {
+      "target_object": "Fermi-Walker transport limit behavior",
+      "coordinate": "Schwarzschild spherical",
+      "scenario": "static observer gyroscope precession",
+      "method": "limit verification and physical interpretation",
+      "generalization_axis": "verify",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规为：$$ ds^2 = -\\left(1-\\frac{r_s}{r}\\right)dt^2 + \\left(1-\\frac{r_s}{r}\\right)^{-1}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2 $$其中 $r_s = 2M$ 为 Schwarzschild 半径。考虑一个通过火箭推进始终保持空间坐标恒定（$r, \\theta, \\phi$ 为常数）的静态观察者。根据费米-Walker 输运理论，无外加扭矩的陀螺仪自旋矢量 $S^\\mu$ 满足输运方程：$$ \\frac{DS^\\mu}{d\\tau} = (u^\\mu a^\\nu - a^\\mu u^\\nu) S_\\nu $$其中 $u^\\mu$ 和 $a^\\mu$ 分别为观察者的四维速度和四维加速度，$\\tau$ 为固有时。请验证：当黑洞质量趋于零（$M \\to 0$ 或 $r_s \\to 0$）时，上述费米-Walker 输运方程右侧完全趋于零，从而方程退化为平行输运方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$；并从坐标系与物理加速度的对应关系，解释这一退化结果背后的物理原因。",
+    "answer": "当 $M \\to 0$ 时，静态观察者的四维加速度 $a^\\mu \\to 0$，费米-Walker 输运方程右侧趋于零，方程退化为平行输运方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$。物理原因在于：当 $r_s \\to 0$ 时，Schwarzschild 度规退化为球坐标系下的闵可夫斯基度规，而在该平直时空中保持球坐标 $(r, \\theta, \\phi)$ 恒定的观察者实际上对应笛卡尔坐标下的静止观察者，属于测地线运动，无物理加速度，因此其陀螺仪自旋矢量自然满足平行输运。",
+    "solution": "1. **计算静态观察者的四维速度**：由于观察者空间坐标恒定，$u^r=u^\\theta=u^\\phi=0$。由类时条件 $g_{\\mu\\nu}u^\\mu u^\\nu = -1$，得 $g_{tt}(u^t)^2 = -1$，故$$ u^t = \\frac{1}{\\sqrt{-g_{tt}}} = \\frac{1}{\\sqrt{1-\\frac{r_s}{r}}} $$四维速度为 $u^\\mu = \\left( \\frac{1}{\\sqrt{1-\\frac{r_s}{r}}}, 0, 0, 0 \\right)$。2. **计算四维加速度**：加速度定义为 $a^\\mu = u^\\nu \\nabla_\\nu u^\\mu = \\frac{du^\\mu}{d\\tau} + \\Gamma^\\mu_{\\alpha\\beta} u^\\alpha u^\\beta$。因 $u^\\mu$ 分量均为常数，$\\frac{du^\\mu}{d\\tau}=0$。仅有 $\\Gamma^\\mu_{tt} (u^t)^2$ 项非零。由几何属性数据知，$\\Gamma^r_{tt} = \\frac{r_s(r-r_s)}{2r^3}$，其余 $\\Gamma^\\mu_{tt}=0$。故 $a^r = \\Gamma^r_{tt} (u^t)^2 = \\frac{r_s(r-r_s)}{2r^3} \\cdot \\frac{1}{1-\\frac{r_s}{r}} = \\frac{r_s}{2r^2} = \\frac{M}{r^2}$，且 $a^t=a^\\theta=a^\\phi=0$。3. **展开费米-Walker 输运方程右侧**：降指标计算 $a_\\nu$ 和 $u_\\nu$：$$ a_r = g_{rr} a^r = \\frac{r}{r-r_s} \\cdot \\frac{r_s}{2r^2} = \\frac{r_s}{2r(r-r_s)} $$$$ u_t = g_{tt} u^t = -\\left(1-\\frac{r_s}{r}\\right) \\cdot \\frac{1}{\\sqrt{1-\\frac{r_s}{r}}} = -\\sqrt{1-\\frac{r_s}{r}} $$其余 $a_t, a_\\theta, a_\\phi=0$，$u_r, u_\\theta, u_\\phi=0$。代入方程右侧 $(u^\\mu a_\\nu S^\\nu - a^\\mu u_\\nu S^\\nu)$：- 对 $\\mu=r$：$u^r a_r S^r - a^r u_t S^t = 0 - \\frac{r_s}{2r^2} \\left(-\\sqrt{1-\\frac{r_s}{r}}\\right) S^t = \\frac{r_s}{2r^2} \\sqrt{1-\\frac{r_s}{r}} S^t$- 对 $\\mu=t$：$u^t a_r S^r - a^t u_t S^t = \\frac{1}{\\sqrt{1-\\frac{r_s}{r}}} \\cdot \\frac{r_s}{2r(r-r_s)} S^r - 0$- 对 $\\mu=\\theta, \\phi$：04. **取极限 $r_s \\to 0$ 验证退化**：当 $r_s \\to 0$ 时，$a^r \\to 0$ 且 $a_r \\to 0$。因此，上述右侧表达式的所有分量均趋于零。费米-Walker 输运方程退化为 $\\frac{DS^\\mu}{d\\tau} = 0$，即平行输运方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$。5. **物理原因解释**：当 $M \\to 0$ ($r_s \\to 0$) 时，Schwarzschild 度规退化为 $ds^2 = -dt^2 + dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，这正是闵可夫斯基平直时空的球坐标形式。在平直时空的球坐标系中，保持坐标 $(r, \\theta, \\phi)$ 恒定的观察者，对应于笛卡尔坐标系中的静止粒子，其运动必然是自由下落（测地线）。测地线观察者的四维加速度 $a^\\mu$ 严格为零。既然无加速度，费米-Walker 输运方程中反映非惯性系旋转效应的项 $(u^\\mu a^\\nu - a^\\mu u^\\nu)S_\\nu$ 自然消失，陀螺仪自旋退化为满足平直时空的平行输运。这一验证逻辑自洽地揭示了 Schwarzschild 坐标在无引力极限下的几何对应关系。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "Solution 在展开费米- Walker 输运方程右侧时存在严重的张量指标书写和推导错误。原方程右侧为 $(u^\\mu a^\\nu - a^\\mu u^\\nu) S_\\nu$，其中 $\\nu$ 为缩并指标，展开后应为矢量形式如 $u^\\mu (a^\\nu S_\\nu) - a^\\mu (u^\\nu S_\\nu)$。但 Solution 将其错误地展开为 $(u^\\mu a_\\nu S^\\nu - a^\\mu u_\\nu S^\\nu)$，该表达式未正确表达缩并关系，导致出现多余的自由指标 $\\nu$，违反张量指标平衡原则。在后续的具体分量计算中，Solution 进一步沿用了这种错误的指标升降组合，例如对 $\\mu=r$ 项计算出 $-a^r u_t S^t$，而根据原方程正确的展开应为 $-a^r u^t S_t$。虽然由于 Schwarzschild 度规的对角性质使得 $u_t S^t = u^t S_t$ 导致数值结果碰巧相等，但这种随意升降指标、混合上下标进行缩并的推导过程属于典型的张量指标混淆错误，违背了广义相对论中张量运算的严谨性。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

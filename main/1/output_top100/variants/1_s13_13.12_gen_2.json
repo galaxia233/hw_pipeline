@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "wave equation for gauge vector",
+      "coordinate": "Minkowski",
+      "scenario": "linearized gravity gauge transformation",
+      "method": "invert from gauge condition",
+      "generalization_axis": "invert",
+      "metric": "metric_tensor"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric_tensor",
+    "soft_variant": "invert",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\mu$",
+      "$\\\\xi^\\\\mu$",
+      "$h_{\\\\mu\\\\nu}$",
+      "$g_{\\\\mu\\\\nu}$",
+      "$\\\\eta_{\\\\mu\\\\nu}$"
+    ],
+    "target": [
+      "\\partial^\\mu \\partial_\\mu \\xi_\\nu = \\partial^\\mu \\bar{h}_{\\mu\\nu}"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In linearized gravity, the spacetime metric is given by $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$, where $\\eta_{\\mu\\nu}$ is the Minkowski metric with signature $(-,+,+,+)$ and $|h_{\\mu\\nu}| \\ll 1$. An infinitesimal coordinate transformation (gauge transformation) $x'^\\mu = x^\\mu + \\xi^\\mu(x)$ induces a change in the functional form of the metric perturbation, resulting in $h'_{\\mu\\nu}(x) = h_{\\mu\\nu}(x) - \\partial_\\mu \\xi_\\nu(x) - \\partial_\\nu \\xi_\\mu(x)$. We define the trace-reversed perturbation as $\\bar{h}_{\\mu\\nu} = h_{\\mu\\nu} - \\frac{1}{2} \\eta_{\\mu\\nu} h$, where $h = \\eta^{\\alpha\\beta} h_{\\alpha\\beta}$, and the Lorenz gauge condition as $\\partial^\\mu \\bar{h}_{\\mu\\nu} = 0$. Suppose we require the transformed trace-reversed perturbation $\\bar{h}'_{\\mu\\nu}$ to satisfy the Lorenz gauge condition. Deduce the differential equation that the gauge vector $\\xi_\\nu$ must satisfy to enforce this condition, expressed in terms of the original trace-reversed perturbation $\\bar{h}_{\\mu\\nu}$.",
+    "answer": "$$ \\partial^\\mu \\partial_\\mu \\xi_\\nu = \\partial^\\mu \\bar{h}_{\\mu\\nu} $$",
+    "solution": "1. Calculate the transformation of the trace $h$ under the gauge transformation:$$ h' = \\eta^{\\mu\\nu} h'_{\\mu\\nu} = \\eta^{\\mu\\nu} (h_{\\mu\\nu} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu) = h - 2 \\partial_\\mu \\xi^\\mu $$2. Calculate the transformation of the trace-reversed perturbation $\\bar{h}_{\\mu\\nu}$:$$ \\bar{h}'_{\\mu\\nu} = h'_{\\mu\\nu} - \\frac{1}{2} \\eta_{\\mu\\nu} h' = (h_{\\mu\\nu} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu) - \\frac{1}{2} \\eta_{\\mu\\nu} (h - 2 \\partial_\\alpha \\xi^\\alpha) = \\bar{h}_{\\mu\\nu} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu + \\eta_{\\mu\\nu} \\partial_\\alpha \\xi^\\alpha $$3. Apply the Lorenz gauge condition to the transformed perturbation, requiring $\\partial^\\mu \\bar{h}'_{\\mu\\nu} = 0$. Take the divergence of the expression from step 2:$$ \\partial^\\mu \\bar{h}'_{\\mu\\nu} = \\partial^\\mu \\bar{h}_{\\mu\\nu} - \\partial^\\mu \\partial_\\mu \\xi_\\nu - \\partial^\\mu \\partial_\\nu \\xi_\\mu + \\partial_\\nu \\partial_\\alpha \\xi^\\alpha $$4. Since partial derivatives commute in flat spacetime, $\\partial^\\mu \\partial_\\nu \\xi_\\mu = \\partial_\\nu \\partial^\\mu \\xi_\\mu = \\partial_\\nu \\partial_\\alpha \\xi^\\alpha$. Thus, the last two terms cancel out:$$ \\partial^\\mu \\bar{h}'_{\\mu\\nu} = \\partial^\\mu \\bar{h}_{\\mu\\nu} - \\partial^\\mu \\partial_\\mu \\xi_\\nu $$5. Setting this to zero gives the required differential equation for the gauge vector to enforce the Lorenz gauge condition on the transformed field:$$ \\partial^\\mu \\partial_\\mu \\xi_\\nu = \\partial^\\mu \\bar{h}_{\\mu\\nu} $$"
+  },
+  "verification": null
+}

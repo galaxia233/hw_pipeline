@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "1_s19_19.32",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "volume_calculation",
+      "coordinate": "hyperspherical_coordinates",
+      "scenario": "Einstein_static_universe",
+      "method": "definite_integration"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.32",
+    "source_id": "1_s19_19.32",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.32"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "结合爱因斯坦静态宇宙度规与物质密度求尺度因子，进而通过积分计算全空间体积，物理逻辑清晰且具经典背景。",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 3,
+    "variables": [
+      "$\\\\chi$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$V$"
+    ],
+    "metric": [
+      [
+        "$R^2$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$R^2 \\\\sin^2 \\\\chi$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$R^2 \\\\sin^2 \\\\chi \\\\sin^2 \\\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.32. What is the proper volume of the \"Einstein universe\" of Problem 19.31, in terms of $\\\\rho_0$ , the density of its dust.",
+    "answer": "V = 2 \\\\pi^ {2} \\\\left(\\\\frac {c ^ {2}}{4 \\\\pi G \\\\rho_ {0}}\\\\right) ^ {\\\\frac {3}{2}}",
+    "solution": "Solution 19.32. The line element of the \"Einstein universe\" $(\\\\mathbf{k} = +1)$ is (see Problem 19.5)\\n$$\\n\\\\mathrm {d s}^{2} = \\\\mathbf {R}^{2} \\\\left[ \\\\mathrm {d} \\\\chi^{2} + \\\\sin^{2} \\\\chi (\\\\mathrm {d} \\\\theta^{2} + \\\\sin^{2} \\\\theta \\\\mathrm {d} \\\\phi^{2}) \\\\right] \\\\tag {1}\\n$$\\nwith\\n$$\\n0 \\\\leq \\\\chi \\\\leq \\\\pi , \\\\quad 0 \\\\leq \\\\theta \\\\leq \\\\pi , \\\\quad 0 \\\\leq \\\\phi \\\\leq 2 \\\\pi .\\n$$\\nThe volume V is therefore\\n$$\\nV = \\\\int_{0}^{\\\\pi} 4 \\\\pi R^{3} \\\\sin^{2} \\\\chi d \\\\chi = 2 \\\\pi^{2} R^{3}. \\\\tag {2}\\n$$\\nFrom Problem 19.31, we have the result, for this universe, that\\n$$\\nR = \\\\left(4 \\\\pi \\\\rho_{0}\\\\right)^{- \\\\frac {1}{2}} \\\\tag {3}\\n$$\\nwhere $\\rho_0$ is the matter (dust) energy density. Substitution of Equation (3) into Equation (2) yields\\n$$\\nV = 2 \\\\pi^{2} \\\\left(\\\\frac {c^{2}}{4 \\\\pi G \\\\rho_{0}}\\\\right)^{\\\\frac {3}{2}} \\\\tag {4}\\n$$\\n(where we have put in the factors of c and G)."
+  },
+  "verification": null
+}

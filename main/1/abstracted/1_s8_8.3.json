@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "id": "1_s8_8.3",
+    "type": "concept",
+    "tags": {
+      "metric": "euclidean_space",
+      "target_object": "differential_forms",
+      "coordinate": "exact_form",
+      "scenario": "curl",
+      "method": "cartesian_coordinates"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.3",
+    "source_id": "1_s8_8.3",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.3,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.2,
+      "rationale": "基础微分几何闭形式与恰当形式的等价性判定，逻辑链条直接但缺乏具体物理应用场景",
+      "overall": 0.5
+    }
+  },
+  "physical_data": {
+    "dimension": 3,
+    "variables": [
+      "$\\\\tilde{\\\\sigma}$",
+      "$f$",
+      "$x^{i}$"
+    ],
+    "target": [
+      "$\\\\sigma_{i,j}$"
+    ],
+    "metric": [
+      [
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 8.3. In 3-dimensional Euclidean space, what is a necessary and sufficient condition on a field of one-forms $\\tilde{\\sigma}$ for there to exist a function $f$ such that $\\tilde{\\sigma} = \\widetilde{\\mathrm{df}}$ ?",
+    "answer": "$\\\\sigma_{i,j} = \\\\sigma_{j,i}$ (或等价表述为向量场 $\\\\pmb{\\\\sigma}$ 的旋量为零)",
+    "solution": "In a cartesian coordinate basis the condition is that $\\sigma_{i,j} = \\sigma_{j,i}$ . This is equivalent to the basis-free requirement that the curl of $\\pmb{\\sigma}$ (the vector equivalent of $\\tilde{\\pmb{\\sigma}}$ ) vanish."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 3,
+    "variables": [
+      "\\\\tilde{\\\\sigma}",
+      "f",
+      "x^{i}"
+    ],
+    "metric_latex": [
+      [
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

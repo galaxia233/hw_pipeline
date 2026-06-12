@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s5_5.8",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_flat_spacetime",
+      "target_object": "target_object_total_energy_and_stress_tensor",
+      "coordinate": "coordinate_cartesian_lab_frame",
+      "scenario": "scenario_electromagnetic_capacitor_with_gas",
+      "method": "method_lorentz_transformation_and_length_contraction"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.8",
+    "source_id": "1_s5_5.8",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "结合电磁场能量密度、相对论长度收缩与理想气体应力张量洛伦兹变换，完整推导复合系统总能量服从γM标度律",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$A$",
+      "$d$",
+      "$E$",
+      "$\\rho_0$",
+      "$v$",
+      "$\\gamma$",
+      "$\\beta$",
+      "$T^{\\mu\\nu}$"
+    ],
+    "target": [
+      "$E_{\\text{total}}$",
+      "$T^{00}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.8. A parallel plate capacitor consists of two large plates of area A, perpendicular to the x-direction, separated by a small distance d. The capacitor is charged so that a uniform electric field of magnitude E is present between the plates; fringe effects at the edge of the plate can be neglected. The \"electrostatic mass\" of this capacitor is $\\mathrm{E}^2\\mathrm{Ad} / 8\\pi$ in the rest frame of the capacitor. Show that the electrostatic energy is smaller if the capacitor is moving in the x-direction! Consider now that the plates must be held apart. Let the plates be held apart by an ideal gas of proper density $\\rho_0$ . Show that the total energy (electrostatic + gas) of the capacitor increases with velocity in the x-direction in precisely the same manner that the energy of a point mass does.",
+    "answer": "$\\mathcal{E} = \\gamma M = \\gamma \\left(\\rho_0 + \\frac{E^2}{8\\pi}\\right) A d$",
+    "solution": "Solution 5.8. The electrostatic field for the moving capacitor remains E, since electric fields parallel to the direction of motion do not change. The moving capacitor, due to Lorentz contraction, has thickness $\\frac{d}{\\gamma}$ , where $\\gamma \\equiv (1 - v^2)^{-\\frac{1}{2}}$ . The moving capacitor then has electrostatic energy $\\mathrm{E}^2\\mathrm{Ad} / 8\\pi \\gamma < \\mathrm{E}^2\\mathrm{Ad} / 8\\pi$ .The pressure of the gas must be equal in magnitude to the (negative) pressure of the E field, so $p = E^2 / 8\\pi$ . The nonvanishing components of the stress-energy of the gas in the capacitor rest frame are$$\\mathbf {T}^{0 0} = \\rho_{0}, \\quad \\mathbf {T}^{\\mathbf {x x}} = \\mathbf {T}^{\\mathbf {y y}} = \\mathbf {T}^{\\mathbf {z z}} = \\mathbf {E}^{2} / 8 \\pi .$$The total rest mass of the capacitor is$$\\mathbf {M} = \\mathbf {E}^{2} \\mathbf {A d} / 8 \\pi + \\rho_{0} \\mathbf {A d} .$$If the capacitor is moving we can calculate the energy density of gas by using a Lorentz transformation:$$\\mathbf {T}^{\\mathbf {0}^{\\prime} \\mathbf {0}^{\\prime}} = \\gamma^{2} (\\mathbf {T}^{0 0} + \\beta^{2} \\mathbf {T}^{\\mathbf {x x}}) = \\gamma^{2} (\\rho_{0} + \\beta^{2} \\mathrm {E}^{2} / 8 \\pi) .$$If the capacitor is moving, then its total energy is$$\\begin{array}{l} \\mathcal {E} = \\mathrm {E}^{2} \\mathrm {A d} / 8 \\pi \\gamma + \\gamma^{2} \\left(\\rho_{0} + \\beta^{2} \\mathrm {E}^{2} / 8 \\pi\\right) \\mathrm {A d} / \\gamma \\\\ = \\left(\\gamma \\rho_{0} + \\gamma \\mathrm {E}^{2} / 8 \\pi \\left[ 1 / \\gamma^{2} + \\beta^{2}\\right]\\right) \\mathrm {A d} = \\gamma \\left(\\rho_{0} + \\mathrm {E}^{2} / 8 \\pi\\right) \\mathrm {A d} = \\gamma \\mathrm {M}. \\\\ \\end{array}$$"
+  },
+  "verification": null
+}

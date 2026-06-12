@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-3",
+    "type": "calculate",
+    "tags": {
+      "target_object": "static observer acceleration",
+      "coordinate": "Schwarzschild",
+      "scenario": "black hole",
+      "method": "covariant derivative",
+      "generalization_axis": "extend",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$a^\\mu$",
+      "$a$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规为 \\( ds^2 = -\\left(1-\\frac{r_s}{r}\\right)dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2 \\)，其中 \\( r_s = 2M \\) 为 Schwarzschild 半径。该时空具有时间平移 Killing 矢量 \\( \\xi_{(t)}^\\mu = (1, 0, 0, 0) \\)。一个静态观测者的世界线与该 Killing 矢量场平行，其四维速度可表示为 \\( u^\\mu = \\frac{\\xi_{(t)}^\\mu}{\\sqrt{-\\xi_{(t)\\nu}\\xi_{(t)}^\\nu}} \\)。请计算该静态观测者的四维加速度矢量 \\( a^\\mu = u^\\nu \\nabla_\\nu u^\\mu \\) 及其固有加速度大小 \\( a = \\sqrt{g_{\\mu\\nu} a^\\mu a^\\nu} \\)，并说明在远场极限 \\( r \\to \\inf ty \\) 下该固有加速度退化为牛顿引力加速度的物理意义。",
+    "answer": "\\( a^\\mu = \\left(0, \\frac{r_s}{2r^2}, 0, 0\\right) \\)；固有加速度大小 \\( a = \\frac{M}{r^2 \\sqrt{1-\\frac{2M}{r}}} \\)。在远场极限 \\( r \\to \\inf ty \\) 下，\\( a \\to \\frac{M}{r^2} \\)，退化为经典 Newton 引力加速度。",
+    "solution": "1. **计算归一化四维速度**：时间平移 Killing 矢量为 \\( \\xi_{(t)}^\\mu = (1, 0, 0, 0) \\)，其内积为 \\( \\xi_{(t)\\nu}\\xi_{(t)}^\\nu = g_{00} \\cdot 1 = -\\left(1-\\frac{r_s}{r}\\right) \\)。静态观测者的四维速度为：\\[ u^\\mu = \\frac{\\xi_{(t)}^\\mu}{\\sqrt{-\\xi_{(t)\\nu}\\xi_{(t)}^\\nu}} = \\frac{1}{\\sqrt{1-\\frac{r_s}{r}}} (1, 0, 0, 0) \\]2. **计算四维加速度矢量**：加速度定义为 \\( a^\\mu = u^\\nu \\nabla_\\nu u^\\mu \\)。展开协变导数：\\[ a^\\mu = u^\\nu (\\partial_\\nu u^\\mu + \\Gamma^\\mu_{\\nu\\sigma} u^\\sigma) \\] 由于 \\( u^\\mu \\) 仅依赖于 \\( r \\) 且只有 \\( u^0 \\) 不为零，所以 \\( \\partial_0 u^\\mu = 0 \\)，且求和指标 \\( \\sigma \\) 只能取 0：\\[ a^\\mu = u^0 \\Gamma^\\mu_{00} u^0 = \\frac{1}{1-\\frac{r_s}{r}} \\Gamma^\\mu_{00} \\] 根据 Christoffel 符号数据，\\( \\Gamma^1_{00} = \\frac{r_s(r-r_s)}{2r^3} \\)，其余 \\( \\Gamma^\\mu_{00} \\) 为 0。代入得：\\[ a^1 = \\frac{1}{1-\\frac{r_s}{r}} \\cdot \\frac{r_s(r-r_s)}{2r^3} = \\frac{r_s}{2r^2} \\] 因此 \\( a^\\mu = \\left(0, \\frac{r_s}{2r^2}, 0, 0\\right) \\)。3. **计算固有加速度大小**：\\[ a = \\sqrt{g_{\\mu\\nu} a^\\mu a^\\nu} = \\sqrt{g_{11} (a^1)^2} = \\sqrt{\\frac{r}{r-r_s} \\left(\\frac{r_s}{2r^2}\\right)^2} = \\frac{r_s}{2r^2} \\sqrt{\\frac{r}{r-r_s}} \\] 代入 \\( r_s = 2M \\) 并整理：\\[ a = \\frac{M}{r^2 \\sqrt{1-\\frac{2M}{r}}} \\]4. **远场极限分析**：当 \\( r \\to \\inf ty \\) 时，\\( \\frac{2M}{r} \\to 0 \\)，分母趋近于 1，固有加速度 \\( a \\to \\frac{M}{r^2} \\)。这精确还原了 Newton 引力中质量为 \\( M \\) 的质点在距离 \\( r \\) 处产生的引力加速度，体现了广义相对论对经典引力理论的兼容性。"
+  },
+  "verification": null
+}

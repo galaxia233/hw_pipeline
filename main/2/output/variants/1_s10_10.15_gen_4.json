@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "geodesic trajectory",
+      "coordinate": "t, x, y, z",
+      "scenario": "cosmology",
+      "method": "conserved quantity integration",
+      "generalization_axis": "apply",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "DeSitter",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$x(\\tau) = \\alpha \\ln(1 + \\frac{v_0}{\\alpha} \\tau)$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 De Sitter 时空的平面切片坐标下，度规为 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$。该度规具有时间平移 Killing 矢量 $\\boldsymbol{\\xi} = \\partial_t$，为自由粒子提供了守恒的能量 $E = -g_{tt} \\dot{t} = \\dot{t}$。根据此 Killing 矢量的范数 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = -1$，一个有质量粒子（质量为 $\\mu$）所能拥有的最小能量为 $E_{min}/\\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}} = 1$，此时粒子在局部参考系中静止。\\n\\n现在考虑一个沿 $x$ 轴方向运动的有质量粒子，其守恒能量 $E/\\mu > 1$（因此具有非零的空间速度）。假设在固有时 $\\tau = 0$ 时，粒子位于 $x = 0$ 且具有初始空间速度 $\\dot{x}(0) = v_0 > 0$。请利用守恒能量 $E$ 与类时测地线条件 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$，推导粒子的空间坐标 $x(\\tau)$ 作为固有时 $\\tau$ 的显式函数。",
+    "answer": "$x(\\tau) = \\alpha \\ln(1 + \\frac{v_0}{\\alpha} \\tau)$",
+    "solution": "1. 写出类时测地线条件：$g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$。代入度规分量得：\\n$-\\dot{t}^2 + e^{2x/\\alpha} \\dot{x}^2 = -1$\\n\\n2. 利用时间平移 Killing 矢量给出的守恒能量 $E = -g_{tt} \\dot{t} = \\dot{t}$（因为 $g_{tt} = -1$），代入上式消去 $\\dot{t}$：\\n$-E^2 + e^{2x/\\alpha} \\dot{x}^2 = -1$\\n$e^{2x/\\alpha} \\dot{x}^2 = E^2 - 1$\\n\\n3. 应用初始条件：在 $\\tau = 0$ 时 $x = 0$ 且 $\\dot{x} = v_0$，代入得：\\n$e^{0} v_0^2 = E^2 - 1 \\implies E^2 - 1 = v_0^2$\\n因此守恒方程可写为：\\n$e^{2x/\\alpha} \\dot{x}^2 = v_0^2$\\n\\n4. 由于 $v_0 > 0$，我们取正根：\\n$e^{x/\\alpha} \\dot{x} = v_0$\\n\\n5. 为了求解此微分方程，作变量代换令 $u = e^{x/\\alpha}$。对其求导：\\n$\\dot{u} = \\frac{1}{\\alpha} e^{x/\\alpha} \\dot{x} = \\frac{v_0}{\\alpha}$\\n\\n6. 这是一个简单的线性微分方程，直接积分并代入初始条件 $u(0) = e^{0} = 1$：\\n$u(\\tau) = u(0) + \\frac{v_0}{\\alpha} \\tau = 1 + \\frac{v_0}{\\alpha} \\tau$\\n\\n7. 将 $u$ 还原为 $x$，得到最终轨道解：\\n$e^{x/\\alpha} = 1 + \\frac{v_0}{\\alpha} \\tau$\\n$x(\\tau) = \\alpha \\ln(1 + \\frac{v_0}{\\alpha} \\tau)$"
+  },
+  "verification": null
+}

@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s7_7.7_a",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "connection_coefficients",
+      "coordinate": "covariant_derivative",
+      "scenario": "tensor_algebra",
+      "method": "coordinate_basis"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.7_a",
+    "source_id": "1_s7_7.7_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.7_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基于协变导数乘积法则与联络定义的多步张量恒等式推导，适用于任意伪黎曼流形结构",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\gamma$",
+      "$\\\\mu$",
+      "$\\\\nu$",
+      "$\\\\lambda$"
+    ],
+    "target": [
+      "$\\\\Gamma_{\\\\alpha \\\\beta \\\\gamma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s7_7.7_a.md]\\n\\nProblem 7.7. Prove the following identities:\\n(a) $\\mathbf{g}_{\\alpha \\beta ,\\gamma} = \\Gamma_{\\alpha}\\beta \\gamma +\\Gamma_{\\beta \\alpha \\gamma}$\\n\\n## Solution\\n\\nSolution 7.7.\\n$$\\n\\\\begin{array}{l} \\\\mathbf {g}_{\\alpha \\beta , \\gamma} = \\nabla_{\\gamma} \\left(\\mathbf {e}_{\\alpha} \\cdot \\mathbf {e}_{\\beta}\\right) = \\left(\\nabla_{\\gamma} \\mathbf {e}_{\\alpha}\\right) \\cdot \\mathbf {e}_{\\beta} + \\mathbf {e}_{\\alpha} \\cdot \\left(\\nabla_{\\gamma} \\mathbf {e}_{\\beta}\\right) \\\\\\\\\\n= \\Gamma_{\\alpha \\gamma}^{\\mu} \\mathbf {e}_{\\mu} \\cdot \\mathbf {e}_{\\beta} + \\Gamma_{\\beta \\gamma}^{\\mu} \\mathbf {e}_{\\mu} \\cdot \\mathbf {e}_{\\alpha} \\\\\\\\\\n= \\Gamma_{\\beta a \\gamma} + \\Gamma_{a \\beta \\gamma}. \\\\\\\\\\n\\\\end {array}\\n$$\\n$$\\n\\\\begin{array}{l} \\\\mathbf {g}_{\\alpha \\mu} \\\\mathbf {g}^{\\mu \\beta} = \\delta_{\\alpha}^{\\beta} \\\\tag {b} \\\\\\\\\\n\\\\mathbf {g}_{\\alpha \\mu , \\gamma} \\\\mathbf {g}^{\\mu \\beta} + \\\\mathbf {g}_{\\alpha \\mu} \\\\mathbf {g}^{\\mu \\beta},_{\\gamma} = 0 \\\\\\\\\\n\\\\mathbf {g}_{\\alpha \\mu} \\\\mathbf {g}^{\\mu \\beta}_{, \\gamma} = - \\\\mathbf {g}_{\\alpha \\mu , \\gamma} \\\\mathbf {g}^{\\mu \\beta}. \\\\\\\\\\n\\\\end {array}\\n$$\\n$$\\n\\\\begin{array}{l} \\\\mathrm {(c)} \\\\quad \\\\mathrm {g}^{\\\\alpha \\beta}_{, \\gamma} = - \\\\mathrm {g}_{\\\\lambda \\mu , \\gamma} \\\\mathrm {g}^{\\\\mu \\beta} \\\\mathrm {g}^{\\\\lambda \\alpha} = - (\\\\Gamma_{\\\\lambda \\mu \\gamma} + \\\\Gamma_{\\\\mu \\lambda \\gamma}) \\\\mathrm {g}^{\\\\mu \\beta} \\\\mathrm {g}^{\\\\lambda \\alpha} \\\\\\\\\\n= - \\\\Gamma_{\\\\mu \\gamma}^{\\\\alpha} \\\\mathsf {g}^{\\\\mu \\beta} - \\\\Gamma_{\\\\lambda \\gamma}^{\\\\beta} \\\\mathsf {g}^{\\\\lambda a} . \\\\\\\\\\n\\\\end {array}\\n$$\\n(Here we have used the result in (a).)\\n(d) For any matrix $\\\\| \\\\mathbf{g}_{\\\\alpha \\\\beta}\\\\|$ \\n$$\\n\\\\left(\\\\log \\\\det \\\\left\\\\| \\\\mathbf {g}_{\\\\alpha \\\\beta} \\\\right\\\\|\\\\right)_{, a} = \\\\operatorname {T r} \\\\left\\\\| \\\\mathbf {g}_{\\\\alpha \\\\beta} \\\\right\\\\|^{- 1} \\\\left\\\\| \\\\mathbf {g}_{\\\\mu \\nu , a} \\\\right\\\\|,\\n$$\\ntherefore \\n$$\\n(\\\\log \\\\mathrm {g}), a = \\\\mathrm {g}^{\\\\mu \\nu} \\\\mathrm {g}_{\\\\mu \\nu}, a\\n$$\\nand \\n$$\\n\\\\frac {\\\\mathrm {g}_{, a}}{\\\\mathrm {g}} = \\\\mathrm {g}^{\\\\mu \\nu} \\\\mathrm {g}_{\\\\mu \\nu , a}.\\n$$\\nAnd so, by (b) \\n$$\\n\\\\mathrm {g}_{, a} = \\\\mathrm {g} \\\\mathrm {g}^{\\\\mu \\nu} \\\\mathrm {g}_{\\\\mu \\nu , a} = - \\\\mathrm {g} \\\\mathrm {g}_{\\\\mu \\nu} \\\\mathrm {g}^{\\\\mu \\nu}, a\\n$$\\n(e) In a coordinate frame, $\\\\Gamma_{\\\\alpha \\\\beta}^{\\\\mu} = \\\\frac{1}{2}\\\\mathbf{g}^{\\\\mu \\nu}(\\\\mathbf{g}_{\\\\nu \\\\alpha ,\\\\beta} + \\\\mathbf{g}_{\\\\nu \\\\beta ,\\\\alpha} - \\\\mathbf{g}_{\\\\alpha \\\\beta ,\\\\nu})$ and since the last two terms cancel $\\\\Gamma_{\\\\alpha \\\\beta}^{\\\\alpha} = \\\\frac{1}{2}\\\\mathbf{g}^{\\\\alpha \\\\nu}\\\\mathbf{g}_{\\\\nu \\\\alpha ,\\\\beta}$ . Thus, by (d) \\n$$\\n\\\\Gamma_{a \\\\beta}^{a} = \\\\frac {1}{2} g, \\\\beta / g = \\\\frac {1}{2} (\\\\log | g |), \\\\beta = (\\\\log | g |^{\\\\frac {1}{2}}), \\\\beta .\\n$$\\n(f) $\\\\mathbf{g}^{\\\\mu \\nu}\\\\Gamma_{\\\\mu \\nu}^{\\\\alpha} = -\\\\mathbf{g}^{\\\\alpha \\\\beta},\\\\beta -\\\\Gamma^{\\\\beta}_{\\\\lambda \\\\beta}\\\\mathbf{g}^{\\\\lambda \\\\alpha}$ (putting $\\\\beta = \\\\gamma$ in (c) and summing) \\n$$\\n\\\\begin{array}{l} = - \\\\mathrm {g}^{\\\\alpha \\\\beta}, \\\\beta - (\\\\log | \\\\mathrm {g} |^{\\\\frac {1}{2}}), \\\\lambda \\\\mathrm {g}^{\\\\lambda \\\\alpha} \\\\quad \\\\text {b y (e)} \\\\\\\\\\n= - \\\\mathrm {g}_{, \\\\nu}^{a \\\\nu} - \\\\left(\\\\log \\\\left| \\\\mathrm {g} \\\\right|^{\\\\frac {1}{2}}\\\\right)_{, \\\\nu} \\\\mathrm {g}^{a \\\\nu} \\\\quad \\\\text {c h a n g i n g d u m m y i n d i c e s} \\\\\\\\\\n= - \\\\mathrm {g}^{a \\\\nu}_{, \\\\nu} - | \\\\mathrm {g} |^{\\\\frac {1}{2}}_{, \\\\nu} \\\\mathrm {g}^{a \\\\nu} | \\\\mathrm {g} |^{- \\\\frac {1}{2}} \\\\\\\\\\n= - \\\\frac {1}{| \\\\mathrm {g} |^{\\\\frac {1}{2}}} \\\\left(\\\\mathrm {g}^{\\\\alpha \\\\nu} | \\\\mathrm {g} |^{\\\\frac {1}{2}}\\\\right)_{, \\\\nu}. \\\\\\\\\\n\\\\end {array}\\n$$\\n(g) $\\\\mathbf{A}_{;a}^{\\\\alpha} = \\\\mathbf{A}_{,a}^{\\\\alpha} + \\\\Gamma_{\\\\beta a}^{\\\\alpha}\\\\mathbf{A}^{\\\\beta} = \\\\mathbf{A}_{,a}^{\\\\alpha} + \\\\frac{1}{|\\\\mathbf{g}|^{\\\\frac{1}{2}}}(|\\\\mathbf{g}|^{\\\\frac{1}{2}}),\\\\beta \\\\mathbf{A}^{\\\\beta}$ by (e) \\n$$\\n= \\\\frac {1}{| g |^{\\\\frac {1}{2}}} \\\\left(| g |^{\\\\frac {1}{2}} A^{a}\\\\right), a\\n$$\\n$$\\n\\\\begin{array}{l} \\\\mathrm {(h)} \\\\quad \\\\mathrm {A}_{\\\\alpha}^{\\\\beta}; \\\\beta = \\\\mathrm {A}_{\\\\alpha}^{\\\\beta}, \\\\beta + \\\\Gamma_{\\\\mu \\\\beta}^{\\\\beta} \\\\mathrm {A}_{\\\\alpha}^{\\\\mu} - \\\\Gamma_{\\\\alpha \\\\beta}^{\\\\lambda} \\\\mathrm {A}_{\\\\lambda}^{\\\\beta} \\\\\\\\\\n= \\\\mathrm {A}_{\\\\alpha}^{\\\\beta}, \\\\beta + \\\\frac {1}{| \\\\mathrm {g} |^{\\\\frac {1}{2}}} (| \\\\mathrm {g} |^{\\\\frac {1}{2}}), \\\\mu \\\\mathrm {A}_{\\\\alpha}^{\\\\mu} - \\\\Gamma_{\\\\alpha \\\\mu}^{\\\\lambda} \\\\mathrm {A}_{\\\\lambda}^{\\\\mu} \\\\\\\\\\n= \\\\frac {1}{| \\\\mathbf {g} |^{\\\\frac {1}{2}}} \\\\left(| \\\\mathbf {g} |^{\\\\frac {1}{2}} \\\\mathbf {A}_{\\\\alpha}^{\\\\beta}\\\\right), \\\\beta - \\\\Gamma_{\\\\alpha \\\\mu}^{\\\\lambda} \\\\mathbf {A}_{\\\\lambda}^{\\\\mu} \\\\\\\\\\n\\\\end {array}\\n$$\\n$$\\n\\\\begin{array}{l} \\\\mathbf {A}^{\\\\alpha \\\\beta}; \\\\beta = \\\\mathbf {A}^{\\\\alpha \\\\beta}, \\\\beta + \\\\Gamma_{\\\\mu \\\\beta}^{\\\\alpha} \\\\mathbf {A}^{\\\\mu \\\\beta} + \\\\Gamma_{\\\\mu \\\\beta}^{\\\\beta} \\\\mathbf {A}^{\\\\alpha \\\\mu} \\\\tag {i} \\\\\\\\\\n= \\\\mathrm {A}^{\\\\alpha \\\\beta}, \\\\beta + \\\\Gamma_{\\\\mu \\\\beta}^{\\\\alpha} \\\\mathrm {A}^{\\\\mu \\\\beta} + \\\\frac {1}{| \\\\mathrm {g} |^{\\\\frac {1}{2}}} (| \\\\mathrm {g} |^{\\\\frac {1}{2}}), \\\\mu \\\\mathrm {A}^{\\\\alpha \\\\mu} \\\\\\\\\\n= \\\\frac {1}{| \\\\mathrm {g} |^{\\\\frac {1}{2}}} \\\\left(\\\\mathrm {A}^{\\\\alpha \\\\beta} | \\\\mathrm {g} |^{\\\\frac {1}{2}}\\\\right), \\\\beta + \\\\Gamma_{\\\\mu \\\\beta}^{\\\\alpha} \\\\mathrm {A}^{\\\\mu \\\\beta}. \\\\\\\\\\n\\\\end {array}\\n$$\\nBut $\\\\Gamma_{\\\\mu \\\\beta}^{\\\\alpha} = \\\\Gamma_{(\\\\mu \\\\beta)}^{\\\\alpha}$ in a coordinate frame, so if $\\\\mathbf{A}^{\\\\mu \\\\beta} = \\\\mathbf{A}^{[\\\\mu \\\\beta]}$ , the last term vanishes, and \\n$$\\n\\\\mathbf {A}^{\\\\alpha \\\\beta}; \\\\beta = \\\\frac {1}{| \\\\mathbf {g} |^{\\\\frac {1}{2}}} (| \\\\mathbf {g} |^{\\\\frac {1}{2}} \\\\mathbf {A}^{\\\\alpha \\\\beta}), \\\\beta .\\n$$\\n$$\\n\\\\square S = \\\\left(S,_{\\\\alpha} g^{\\\\alpha \\\\beta}\\\\right); \\\\beta = \\\\frac {1}{\\\\left| g \\\\right|^{\\\\frac {1}{2}}} \\\\left(\\\\left| g \\\\right|^{\\\\frac {1}{2}} S,_{\\\\alpha} g^{\\\\alpha \\\\beta}\\\\right), \\\\beta . \\\\tag {j}\\n$$\\n(Here (g) has been used.)",
+    "answer": "$\\\\mathbf{g}_{\\\\alpha \\\\beta ,\\\\gamma} = \\\\Gamma_{\\\\alpha \\\\beta \\\\gamma} + \\\\Gamma_{\\\\beta \\\\alpha \\\\gamma}$",
+    "solution": null
+  },
+  "verification": null
+}

@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-0-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "inner_product_of_Killing_vectors",
+      "coordinate": "general",
+      "scenario": "axially_symmetric_rotating_star",
+      "method": "Lie_derivative",
+      "generalization_axis": "verify",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-0",
+      "1_s10_10.5-0-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "killing_vector",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "校验推导过程：Killing矢量内积Lie导数展开及协变导数计算"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在某稳态轴对称时空中，度规为 $ds^2 = \\frac{-r+r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。存在对应于时间平移和轴向旋转的两个独立 Killing 矢量 $\\xi_{(t)}^\\mu = (1,0,0,0)$ 和 $\\xi_{(\\phi)}^\\mu = (0,0,0,1)$，且它们对合 $[\\xi_{(t)}, \\xi_{(\\phi)}]=0$。以下是一段试图证明这两个 Killing 矢量内积 $I = g_{\\mu\\nu} \\xi_{(t)}^\\mu \\xi_{(\\phi)}^\\nu$ 在沿这两个 Killing 矢量流的 Lie 导数下保持不变（即 $\\mathcal{L}_{\\xi_{(t)}} I = 0$ 与 $\\mathcal{L}_{\\xi_{(\\phi)}} I = 0$）的推导，但其中包含若干错误。请找出所有错误，指出其位置、类型并给出正确值。推导段落：首先，验证 $\\xi_{(t)}$ 满足 Killing 方程 $\\nabla_\\mu \\xi_{(t)\\nu} + \\nabla_\\nu \\xi_{(t)\\mu} = 0$。降指标得到 $\\xi_{(t)0} = g_{00} = \\frac{r-r_s}{r}$，其余分量为零。计算分量 $\\nabla_1 \\xi_{(t)0}$：$$ \\nabla_1 \\xi_{(t)0} = \\partial_1 \\xi_{(t)0} + \\Gamma^\\lambda_{10} \\xi_{(t)\\lambda} = \\partial_r \\left(\\frac{r-r_s}{r}\\right) + \\Gamma^0_{10} \\xi_{(t)0} $$代入 Christoffel 符号 $\\Gamma^0_{10} = \\frac{r_s}{2r(r-r_s)}$，得到 $\\nabla_1 \\xi_{(t)0} = \\frac{3r_s}{2r^2}$。接着，我们利用 Lie 导数的 Leibniz 法则证明 $\\mathcal{L}_{\\xi_{(\\phi)}} I = 0$：$$ \\mathcal{L}_{\\xi_{(\\phi)}} (g(\\xi_{(t)}, \\xi_{(\\phi)})) = (\\mathcal{L}_{\\xi_{(\\phi)}} g)(\\xi_{(t)}, \\xi_{(\\phi)}) + g(\\mathcal{L}_{\\xi_{(\\phi)}} \\xi_{(t)}, \\xi_{(\\phi)}) - g(\\xi_{(t)}, \\mathcal{L}_{\\xi_{(\\phi)}} \\xi_{(\\phi)}) $$由于 $\\xi_{(\\phi)}$ 是 Killing 矢量，第一项 $(\\mathcal{L}_{\\xi_{(\\phi)}} g)(\\xi_{(t)}, \\xi_{(\\phi)}) = 0$。第三项中，$\\mathcal{L}_{\\xi_{(\\phi)}} \\xi_{(\\phi)} = [\\xi_{(\\phi)}, \\xi_{(\\phi)}] = 0$，故该项为零。第二项中，$\\mathcal{L}_{\\xi_{(\\phi)}} \\xi_{(t)} = [\\xi_{(\\phi)}, \\xi_{(t)}]$。根据 Lie 括号的对称性，$[\\xi_{(\\phi)}, \\xi_{(t)}] = [\\xi_{(t)}, \\xi_{(\\phi)}]$。由于已知两者对合，该括号为零，故第二项为零。因此 $\\mathcal{L}_{\\xi_{(\\phi)}} I = 0$。同理可证 $\\mathcal{L}_{\\xi_{(t)}} I = 0$。",
+    "answer": "1. 位置：推导第一段“降指标得到 $\\xi_{(t)0} = g_{00} = \\frac{r-r_s}{r}$”。错误类型：度规分量引用错误 / sign error。正确值：$\\xi_{(t)0} = g_{00} = \\frac{-r+r_s}{r}$。2. 位置：推导第一段协变导数计算公式“$\\nabla_1 \\xi_{(t)0} = \\partial_1 \\xi_{(t)0} + \\Gamma^\\lambda_{10} \\xi_{(t)\\lambda}$”。错误类型：协变导数公式符号错误 / sign error。正确值：$\\nabla_1 \\xi_{(t)0} = \\partial_1 \\xi_{(t)0} - \\Gamma^\\lambda_{10} \\xi_{(t)\\lambda}$。3. 位置：推导第二段 Lie 导数 Leibniz 法则展开“$... - g(\\xi_{(t)}, \\mathcal{L}_{\\xi_{(\\phi)}} \\xi_{(\\phi)})$”。错误类型：Leibniz法则符号错误 / sign error。正确值：应为 $+ g(\\xi_{(t)}, \\mathcal{L}_{\\xi_{(\\phi)}} \\xi_{(\\phi)})$。4. 位置：推导第二段 Lie 括号性质“$[\\xi_{(\\phi)}, \\xi_{(t)}] = [\\xi_{(t)}, \\xi_{(\\phi)}]$”。错误类型：Lie括号反对易性错误 / sign error。正确值：$[\\xi_{(\\phi)}, \\xi_{(t)}] = -[\\xi_{(t)}, \\xi_{(\\phi)}]$。",
+    "solution": "正确推导：首先，验证 $\\xi_{(t)}$ 满足 Killing 方程。降指标得到 $\\xi_{(t)0} = g_{00} = \\frac{-r+r_s}{r}$，其余分量为零。计算分量 $\\nabla_1 \\xi_{(t)0}$：$$ \\nabla_1 \\xi_{(t)0} = \\partial_1 \\xi_{(t)0} - \\Gamma^\\lambda_{10} \\xi_{(t)\\lambda} = \\partial_r \\left(\\frac{-r+r_s}{r}\\right) - \\Gamma^0_{10} \\xi_{(t)0} $$代入 Christoffel 符号 $\\Gamma^0_{10} = \\frac{r_s}{2r(r-r_s)}$，得到 $\\nabla_1 \\xi_{(t)0} = -\\frac{r_s}{r^2} - \\frac{r_s}{2r(r-r_s)} \\cdot \\frac{-r+r_s}{r} = -\\frac{r_s}{r^2} + \\frac{r_s}{2r^2} = -\\frac{r_s}{2r^2}$。同样计算 $\\nabla_0 \\xi_{(t)1} = 0 - \\Gamma^\\lambda_{01} \\xi_{(t)\\lambda} = -\\frac{r_s}{2r(r-r_s)} \\cdot \\frac{-r+r_s}{r} = \\frac{r_s}{2r^2}$。因此 $\\nabla_1 \\xi_{(t)0} + \\nabla_0 \\xi_{(t)1} = 0$，Killing 方程验证成立。接着，利用 Lie 导数的 Leibniz 法则证明 $\\mathcal{L}_{\\xi_{(\\phi)}} I = 0$：$$ \\mathcal{L}_{\\xi_{(\\phi)}} (g(\\xi_{(t)}, \\xi_{(\\phi)})) = (\\mathcal{L}_{\\xi_{(\\phi)}} g)(\\xi_{(t)}, \\xi_{(\\phi)}) + g(\\mathcal{L}_{\\xi_{(\\phi)}} \\xi_{(t)}, \\xi_{(\\phi)}) + g(\\xi_{(t)}, \\mathcal{L}_{\\xi_{(\\phi)}} \\xi_{(\\phi)}) $$由于 $\\xi_{(\\phi)}$ 是 Killing 矢量，第一项为 0。第三项中，$\\mathcal{L}_{\\xi_{(\\phi)}} \\xi_{(\\phi)} = [\\xi_{(\\phi)}, \\xi_{(\\phi)}] = 0$，故该项为零。第二项中，$\\mathcal{L}_{\\xi_{(\\phi)}} \\xi_{(t)} = [\\xi_{(\\phi)}, \\xi_{(t)}]$。根据 Lie 括号的反对易性，$[\\xi_{(\\phi)}, \\xi_{(t)}] = -[\\xi_{(t)}, \\xi_{(\\phi)}]$。由于已知两者对合，该括号为零，故第二项为零。因此 $\\mathcal{L}_{\\xi_{(\\phi)}} I = 0$。同理可证 $\\mathcal{L}_{\\xi_{(t)}} I = 0$。"
+  },
+  "verification": null
+}

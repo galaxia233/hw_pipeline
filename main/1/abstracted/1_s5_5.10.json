@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "id": "1_s5_5.10",
+    "type": "prove",
+    "tags": {
+      "metric": "Lorentz_invariance",
+      "target_object": "specific_intensity",
+      "coordinate": "phase_space_density",
+      "scenario": "special_relativity",
+      "method": "radiative_transfer"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.10",
+    "source_id": "1_s5_5.10",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.10"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.8,
+      "rationale": "Bridges microscopic phase-space invariance with macroscopic radiation transport; requires explicit differential substitution; standard astrophysical observable",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$\\nu$",
+      "$I_{\\nu}$",
+      "$E$",
+      "$p^{x}$",
+      "$p^{y}$",
+      "$p^{z}$",
+      "$h$"
+    ],
+    "target": [
+      "$I_{\\nu}/\\nu^{3}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.10. The specific intensity $\\mathbf{I}_{\\nu}$ of radiation measures the intensity of radiation at a particular frequency $\\nu$ in a particular direction. It is defined as the flux per unit frequency interval, per unit solid angle. Show that $\\mathbf{I}_{\\nu} / \\nu^{3}$ is a Lorentz invariant.",
+    "answer": "Therefore, $\\mathbf{I}_{\\nu} / \\nu^{3}$ is a Lorentz invariant.",
+    "solution": "Solution 5.10. Consider a small number, $\\mathbf{dN}$ , of photons with a small spread in frequency and position, moving in a narrow cone, and impinging on a small area in a short time. By definition$$I_{\\nu} = \\frac {d (\\text {e n e r g y})}{d (\\text {f r e q u e n c y}) d (t i m e)} \\frac {d [ \\text {s o l i d a n g l e}]}{d [ \\text {c o n e}]} \\frac {d [ \\text {c r o s s - s e c t i o n a l}]}{d [ \\text {a r e a}]}.$$With no loss of generality take the narrow cone of the motion, whose size is $d$ (solid angle), to be along the $z$ -direction, then$$\\begin{array}{l} \\mathrm {d} (\\text {e n e r g y}) = \\mathrm {h} \\nu \\mathrm {dN} \\\\ d (\\text {s o l i d a n g l e}) = d v^{x} d v^{y} = d (p^{x} / E) d (p^{y} / E) = d p^{x} d p^{y} / h^{2} \\nu^{2} \\\\ d (t i m e) = d z / c = d z \\\\ d (\\text {c r o s s s e c t i o n a l a r e a}) = d x d y \\\\ d (f r e q u e n c y) = d (h \\nu) / h = d p^{z} / h \\\\ \\end{array}$$so that$$I_{\\nu} = \\frac {d N}{d x d y d z} \\frac {h^{4} \\nu^{3}}{d p^{x} d p^{y} d p^{z}}.$$Number density in phase space, $\\mathrm{dN} / \\mathrm{d}^3\\mathbf{x}\\mathrm{d}^3\\mathbf{p}$ , is a Lorentz invariant (see Problem 3.34) so $\\mathrm{I}_{\\nu} / \\nu^{3}$ is invariant."
+  },
+  "verification": null
+}

@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-6",
+    "type": "prove",
+    "tags": {
+      "target_object": "cosmological_constant",
+      "coordinate": "static",
+      "scenario": "cosmology",
+      "method": "einstein_tensor",
+      "generalization_axis": "extend",
+      "metric": "AntiDeSitterStatic"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "AntiDeSitterStatic",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\Lambda$"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Anti-de Sitter (AdS) 时空是一个具有负常曲率的最大化对称时空。在静态坐标系 $(t, r, \\theta, \\phi)$ 下，其度规为：$$ ds^2 = -\\cos h^2(r) dt^2 + dr^2 + \\sin h^2(r) d\\theta^2 + \\sin h^2(r) \\sin^2(\\theta) d\\phi^2 $$在该时空中，时间平移 Killing 矢量范数 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = -\\cos h^2(r)$ 随径向坐标 $r$ 变化，这决定了粒子能量的极值行为。这种范数的变化本质上是由时空的负曲率几何决定的。请通过推导该度规的 Einstein 张量与度规张量之间的比例关系，确定对应真空 Einstein 场方程 $G_{\\mu\\nu} = -\\Lambda g_{\\mu\\nu}$ 中的宇宙学常数 $\\Lambda$ 的值。",
+    "answer": "$\\Lambda = -3$",
+    "solution": "要确定宇宙学常数 $\\Lambda$，我们需要验证 Einstein 张量 $G_{\\mu\\nu}$ 是否与度规张量 $g_{\\mu\\nu}$ 成比例，并求出该比例常数。首先，写出度规张量 $g_{\\mu\\nu}$ 的非零分量：$$ g_{00} = -\\cos h^2(r) $$$$ g_{11} = 1 $$$$ g_{22} = \\sin h^2(r) $$$$ g_{33} = \\sin^2(\\theta) \\sin h^2(r) $$然后，写出 Einstein 张量 $G_{\\mu\\nu}$ 的对应非零分量：$$ G_{00} = -3 \\cos h^2(r) $$$$ G_{11} = 3 $$$$ G_{22} = 3 \\sin h^2(r) $$$$ G_{33} = 3 \\sin^2(\\theta) \\sin h^2(r) $$对比两者的比例关系：$$ \\frac{G_{00}}{g_{00}} = \\frac{-3 \\cos h^2(r)}{-\\cos h^2(r)} = 3 $$$$ \\frac{G_{11}}{g_{11}} = \\frac{3}{1} = 3 $$$$ \\frac{G_{22}}{g_{22}} = \\frac{3 \\sin h^2(r)}{\\sin h^2(r)} = 3 $$$$ \\frac{G_{33}}{g_{33}} = \\frac{3 \\sin^2(\\theta) \\sin h^2(r)}{\\sin^2(\\theta) \\sin h^2(r)} = 3 $$可见，所有非零分量均满足 $G_{\\mu\\nu} = 3 g_{\\mu\\nu}$。带有宇宙学常数的真空 Einstein 场方程为 $G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = 0$，即 $G_{\\mu\\nu} = -\\Lambda g_{\\mu\\nu}$。将推导出的比例关系代入，得到：$$ 3 g_{\\mu\\nu} = -\\Lambda g_{\\mu\\nu} $$由此解得宇宙学常数为：$$ \\Lambda = -3 $$（注：此结果与该时空的 Ricci 标量 $R = -12$ 自洽，因为对于4维最大化对称时空，有 $R = 4\\Lambda$，代入 $\\Lambda = -3$ 正好得到 $R = -12$。）"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.antidesitterstatic_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "题目和解答中存在严重的数学公式排版错误：双曲函数 \\cosh 和 \\sinh 被错误地拆分为 \\cos h 和 \\sin h，写成了 \\cos h^2(r) 和 \\sin h^2(r)。这不仅是排版瑕疵，更实质性地改变了数学含义：\\cosh^2(r) 表示双曲余弦函数的平方 (\\cosh(r))^2，而 \\cos h^2(r) 会被解读为普通余弦函数作用变量 h^2(r) 或无法解析的表达式，导致度规和 Einstein 张量的表达式在数学上变得歧义或错误。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s16_16.18",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_tensor",
+      "target_object": "pressure_and_density_surfaces",
+      "coordinate": "stationary_coordinates",
+      "scenario": "rotating_star_model",
+      "method": "exterior_calculus_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.18",
+    "source_id": "1_s16_16.18",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.18"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.6,
+      "completeness": 1.0,
+      "realism": 0.7,
+      "rationale": "静力平衡方程结合外微分性质证明等压面与等密度面重合",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathfrak{p}$",
+      "$\\\\rho$",
+      "$\\\\mathfrak{u}^\\\\mathfrak{t}$"
+    ],
+    "target": [
+      "$\\\\mathfrak{p}$",
+      "$\\\\rho$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.18. Show that in a rigidly rotating, self-gravitating, perfect fluid star, the surfaces of constant $\\mathfrak{p}$ and $\\rho$ coincide.",
+    "answer": "the surfaces of constant $\\mathfrak{p}$ and $\\rho$ coincide.",
+    "solution": "Solution 16.18. First, note that $\\mathbf{dp} = (\\rho + \\mathfrak{p})\\mathbf{d}\\log \\mathfrak{u}^{\\mathfrak{t}}$ (hydrostatic equilibrium; see Problem 16.17). Next take the exterior derivative of this equation, and use $\\mathbf{ddp} = 0$ to get\\n$$\\n\\\\begin{array}{l} 0 = \\\\mathrm {d} (\\\\rho + \\\\mathrm {p}) \\\\wedge \\\\mathrm {d} \\\\log \\\\mathrm {u}^{\\\\mathrm {t}} \\\\\\\\ = \\\\mathbf {d} (\\\\rho + \\\\mathfrak {p}) \\\\wedge (\\\\rho + \\\\mathfrak {p})^{- 1} \\\\mathbf {d} \\\\rho \\\\\\\\ \\\\end{array}\\n$$\\nwhich implies that\\n$$\\n\\\\mathrm {d} \\\\rho \\\\wedge \\\\mathrm {d p} = 0,\\n$$\\nand therefore that the surface $\\rho =$ constant coincides with the surface $\\mathbf{p} =$ constant."
+  },
+  "verification": null
+}

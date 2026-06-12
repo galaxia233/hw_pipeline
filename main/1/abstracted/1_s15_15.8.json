@@ -1,0 +1,187 @@
+{
+  "metadata": {
+    "id": "1_s15_15.8",
+    "type": "calculate",
+    "tags": {
+      "metric": "schwarzschild_metric",
+      "target_object": "frequency_target",
+      "coordinate": "spherical_coordinates",
+      "scenario": "rocket_orbit_scenario",
+      "method": "doppler_gravitational_redshift_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s15_15.8",
+    "source_id": "1_s15_15.8",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s15_15.8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "SR多普勒与GR引力红移串联+轨道运动学推导+典型相对论性天体物理场景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$\\alpha$",
+      "$\\nu_0$"
+    ],
+    "target": [
+      "$\\nu_{\\mathrm{SOI}}$"
+    ],
+    "metric": [
+      [
+        "$-(1 - 2M/r)$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1 - 2M/r)^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s15_15.8.md]Problem 15.8. A rocket ship in a circular orbit of circumference $2\\pi r$ around a star of mass M fires a laser gun (rest frequency $\\nu_0$ ). The gun is aimed in the orbital plane, and at an angle $\\alpha$ (in the ship's frame) outward from the tangential direction of motion. What is the frequency of the laser as seen by a stationary observer at infinity?## Solution",
+    "answer": "\\nu_ {\\mathrm {S O I}} = \\gamma \\nu_ {0} (1 + \\mathrm {v} \\cos \\alpha) (1 - 2 \\mathrm {M} / \\mathrm {r}) ^ {\\frac {1}{2}}where $\\mathbf{v}$ is given by Equation (4).",
+    "solution": "Solution 15.8. We solve the problem in two stages: First, compute the laser frequency as measured by a static observer at $\\mathbf{r}$ (\"SOR\"). Second, compute the redshift between this observer and a static observer at infinity (SOI).Let $\\mathbf{u}_{\\mathbb {R}}$ be the 4-velocity of the rocket and $\\mathbf{p}_{\\mathbb {R}}$ the photon momentum at $\\mathbf{r}$ .$$\\frac {\\nu_{\\mathrm {S O R}}}{\\nu_{0}} = \\frac {\\mathbf {u}_{\\mathrm {S O R}} \\cdot \\mathbf {p}_{\\mathrm {R}}}{\\mathbf {u}_{\\mathrm {R}} \\cdot \\mathbf {p}_{\\mathrm {R}}} \\tag {1}$$If $\\mathbf{v}$ is the proper relative velocity between the rocket (R) and SOR observer, then in the rocket frame Equation (1) gives us$$\\frac {\\nu_{\\mathrm {S O R}}}{\\nu_{0}} = \\frac {\\gamma \\nu_{0} (1 + \\mathrm {v} \\cos a)}{\\nu_{0}}$$or$$\\nu_{\\mathbf {S O R}} = \\gamma \\nu_{0} (1 + v \\cos a) \\tag {2}$$where $\\gamma \\equiv (1 - v^2)^{-\\frac{1}{2}}$ . To compute $v$ , recall that circular orbits have an angular velocity$$\\Omega \\equiv \\frac {\\mathrm {d} \\phi}{\\mathrm {d} t}$$exactly the same as Kepler's Third Law in Newtonian gravity:$$\\Omega = \\left(\\frac {\\mathrm {M}}{\\mathrm {r}^{3}}\\right)^{\\frac {1}{2}}. \\tag {3}$$(See Problem 17.4.) Thus$$v = \\frac {d \\widehat {\\phi}}{d \\widehat {t}} = \\frac {r d \\phi}{\\left(1 - 2 M / r\\right)^{\\frac {1}{2}} d t} = \\left[ \\frac {M}{r (1 - 2 M / r)}\\right]^{\\frac {1}{2}}. \\tag {4}$$The observer at infinity then measures a frequency$$\\nu_{\\mathrm {S O I}} = \\frac {\\nu_{\\mathrm {S O R}}}{\\mathrm {u}_{\\mathrm {S O R}}^{0}} = \\nu_{\\mathrm {S O R}} (1 - 2 \\mathrm {M} / \\mathrm {r})^{\\frac {1}{2}}$$$$\\nu_{\\mathrm {S O I}} = \\gamma \\nu_{0} (1 + \\mathrm {v} \\cos \\alpha) (1 - 2 \\mathrm {M} / \\mathrm {r})^{\\frac {1}{2}}$$where $\\mathbf{v}$ is given by Equation (4)."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "metric_latex": [
+      [
+        "\\frac{- r + r_{s}}{r}",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "\\frac{r}{r - r_{s}}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r^{2} \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_001": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_010": "\\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_100": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{3}}",
+      "Gamma_111": "- \\frac{r_{s}}{2 r \\left(r - r_{s}\\right)}",
+      "Gamma_122": "- r + r_{s}",
+      "Gamma_133": "\\left(- r + r_{s}\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_233": "- \\frac{\\sin{\\left(2 \\theta \\right)}}{2}",
+      "Gamma_313": "\\frac{1}{r}",
+      "Gamma_323": "\\frac{1}{\\tan{\\left(\\theta \\right)}}",
+      "Gamma_331": "\\frac{1}{r}",
+      "Gamma_332": "\\frac{1}{\\tan{\\left(\\theta \\right)}}"
+    },
+    "riemann": {
+      "R_0101": "\\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0110": "- \\frac{r_{s}}{r^{2} \\left(r - r_{s}\\right)}",
+      "R_0202": "- \\frac{r_{s}}{2 r}",
+      "R_0220": "\\frac{r_{s}}{2 r}",
+      "R_0303": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_0330": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1001": "\\frac{r_{s} \\left(r - r_{s}\\right)}{r^{4}}",
+      "R_1010": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{r^{4}}",
+      "R_1212": "- \\frac{r_{s}}{2 r}",
+      "R_1221": "\\frac{r_{s}}{2 r}",
+      "R_1313": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_1331": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{2 r}",
+      "R_2002": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_2020": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_2112": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2121": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_2323": "\\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_2332": "- \\frac{r_{s} \\sin^{2}{\\left(\\theta \\right)}}{r}",
+      "R_3003": "\\frac{r_{s} \\left(- r + r_{s}\\right)}{2 r^{4}}",
+      "R_3030": "\\frac{r_{s} \\left(r - r_{s}\\right)}{2 r^{4}}",
+      "R_3113": "\\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3131": "- \\frac{r_{s}}{2 r^{2} \\left(r - r_{s}\\right)}",
+      "R_3223": "- \\frac{r_{s}}{r}",
+      "R_3232": "\\frac{r_{s}}{r}"
+    },
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "\\frac{48 M^{2}}{r^{6}}",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量 (∂_t)，对应能量守恒",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "rot_phi",
+        "description": "绕 φ 轴旋转 Killing 矢量 (∂_φ)，对应角动量守恒",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

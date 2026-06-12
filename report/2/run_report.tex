@@ -1,0 +1,380 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\title{\textbf{Run Report} \\ \large GR泛化流水线}
+\author{邓毅成}
+\date{2026年6月12日}
+
+\begin{document}
+\maketitle
+
+% ============================================================
+\section{工作模式}
+\begin{itemize}[nosep]
+  \item \textbf{mode}: B\,/\,textbook
+  \item \textbf{sources count}: 21章 $\times$ 604道原题 → 精选100道种子 → pipeline泛化
+  \item \textbf{来源教材}: 广义相对论教材习题集（覆盖第1--21章，共604道原题）
+  \item \textbf{种子筛选}: 从604道中选取100道作为 pipeline 输入（覆盖全部21章，每章取代表性题目）
+\end{itemize}
+
+% ============================================================
+\section{Funnel}
+
+\begin{table}[h]\centering
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{stage} & \textbf{total} & \textbf{kept} & \textbf{skipped} & \textbf{failed} \\
+\midrule
+教材原题（21章） & 604 & — & — & — \\
+Stage 0: 抽象化+结构化 & 604 & 604 & 0 & 0 \\
+精选种子（覆盖21章） & 100 & 100 & 504（保留后续扩展） & 0 \\
+cognitive variants（Phase 1: fanout $\times$9） & 900 & 81 & — & $\sim$819\,(pipeline进行中) \\
+metric variants（Phase 2: substitute） & 0 & 0 & — & 0\,(暂未启用) \\
+soft\_rewrite variants（Phase 3: $\times$9） & 900 & 60 & — & $\sim$840\,(pipeline进行中) \\
+batch\_validate（Phase 3.5） & — & — & — & —\,(尚未执行) \\
+ngram\_dedup（Phase 4） & — & — & — & — \\
+\midrule
+\textbf{final dataset（当前中间态）} & \textbf{141} & — & — & — \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\small\noindent
+\textbf{注}: pipeline仍在运行（100种子串行处理，每种子约20 min），当前已完成$\sim$22个种子。最终预计产出 $100\times18=1800$ 道（pre-validate），经 validate+dedup 后入库量待确认。604道剩余原题可作为后续扩展的种子池，放大比潜力为 $604\times18\approx10800$ 道。
+
+% ============================================================
+\section{Diversity coverage}
+
+\begin{itemize}[nosep]
+  \item \textbf{cognitive\_form}: 3 distinct — derivation\,(72), numerical\,(15), conceptual\,(54)
+  \item \textbf{physics\_env}: 9 distinct — Schwarzschild, FLRW, DeSitter, BarriolaVilekin, G\"odel, Minkowski, killing\_vector, weak\_field\_metric, metric
+  \item \textbf{soft\_variant}: 9 distinct — cross\_metric\,(47), contrast\,(23), verify\,(19), design\,(16), reduce\,(16), extend\,(6), apply\,(7), limit\,(4), invert\,(3)
+\end{itemize}
+
+\small\noindent
+\textbf{注}: cognitive\_form 仅3种取值，未达"三轴各$\ge$5"的推荐标准。原因是当前 pipeline 的 \texttt{cognitive\_fanout} 仅生成 derivation/numerical/conceptual 三类，未包含 code/multiple\_choice/open 等题型。form\_change 阶段已暂时禁用（\texttt{FORM\_CHANGE\_TARGETS=[]}），后续可通过启用 form\_change 补足多样性。
+
+% ============================================================
+\section{Failed sources (skip / partial)}
+
+\begin{table}[h]\centering
+\begin{tabular}{llll}
+\toprule
+\textbf{source\_id} & \textbf{type} & \textbf{status} & \textbf{reason} \\
+\midrule
+— & — & — & pipeline仍在运行，暂无失败记录 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\small\noindent
+pipeline完成后会补充此表。预期少数种子因 API 错误\,(504) 或 LLM 输出格式异常而部分失败。
+
+% ============================================================
+\section{What worked / didn't}
+
+\subsection{已经做好}
+
+\begin{enumerate}[nosep]
+  \item \textbf{Fact Sheet 缓存机制}: 度规库14个度规的 Fact Sheet（Christoffel、Riemann、Ricci 等）预计算一次并缓存到 JSON，后续步骤直接读取。避免了每次验证都重新计算（heavy 度规如 Kerr 需 $>$30\,s），端到端效率大幅提升。
+
+  \item \textbf{Christoffel 符号约定明确化}: 将 Fact Sheet 中的 Christoffel key 从歧义的 \texttt{Gamma\_ijk} 改为明确的 $\Gamma^i_{jk}$（第二类 Christoffel 符号），并在 system prompt 中加入约定声明。抽样15题中87\%的物理推导完全正确，无符号混淆。
+
+  \item \textbf{Judge prompt 注入 Christoffel 对照表}: \texttt{\_build\_metric\_summary()} 从 Fact Sheet 中提取 Christoffel 符号表注入 judge/red\_team prompt，使判官能对照精确值而非自己手算。此前15.5\%通过率的一个根因是 judge 手算 Christoffel 符号得出错误正负号。
+
+  \item \textbf{软改写四类题型（对照/校验/设计/归约）}: 对照题（两种背景对比）和校验题（找推导中的错误）设计精妙，pedagogical 价值高。校验题尤其有效——学生需识别一段有误推导中的3--7处错误，判官也有明确的参照数据。
+
+  \item \textbf{SymPy 符号约定自动检测}: EinsteinPy 度规原生使用 $(+,-,-,-)$ 约定，\texttt{\_normalize\_sign\_convention\_sympy()} 用 SymPy 矩阵属性自动检测并翻转为 $(-,+,+,+)$，解决了此前字符串检测的脆弱性问题。
+
+  \item \textbf{断点续跑机制}: pipeline 通过检查 \texttt{\_gen\_} 文件是否存在来跳过已处理的种子，重启后无需从头开始。
+\end{enumerate}
+
+\subsection{没工作好但尝试过的事}
+
+\begin{enumerate}[nosep]
+  \item \textbf{batch\_validate 未在 pipeline 内自动执行}: 6个已完成种子的18个文件全部 \texttt{validated=false}、\texttt{verification=null}。原因尚不明确——按代码逻辑 \texttt{fan\_through()} 在每个种子的生成阶段后应立即执行 \texttt{phase\_batch\_validate}，但实际文件未被验证覆盖写入。当前解决方案：新增 \texttt{python main.py validate --dir <path>} 批量并行验证命令，对已完成文件单独跑验证。
+
+  \item \textbf{无度规题目验证失败}: 抽象 Killing 矢量证明题（\texttt{metric=null}）在原始代码中会被 \texttt{validate\_and\_fix\_loop} 立即标记 \texttt{degraded=True}（Fact Sheet 计算失败导致整个验证链中断），不经过任何 judge/red\_team 评估。已修复为：无度规题跳过 metric\_check，仅执行 judge+red\_team。
+
+  \item \textbf{504 网关超时}: DashScope 代理转发 Anthropic API 时，长输出请求（编题生成 solution 可达16384 tokens）偶发504超时。客户端已设600\,s 超时，504是代理层行为。重试机制生效，但增加了 wall-clock。并发3线程请求时504概率更高。
+\end{enumerate}
+
+\subsection{计划做的事}
+
+\begin{enumerate}[nosep]
+  \item \textbf{度规替换阶段（Phase 2: metric\_substitute）}: 当前 \texttt{num\_subs=0}，不生成度规替换变体。原因是种子题中62\%无度规数据（抽象证明/解答题），度规替换对无度规题不适用。改用 \texttt{cross\_metric}（Phase 1内的跨度规泛化）来补偿：无度规种子自动开启跨度规模式。后续会考虑怎么把这个泛化思路用上
+
+  \item \textbf{form\_change 阶段}: \texttt{FORM\_CHANGE\_TARGETS=[]}，暂不将 derivation/numerical 题变换为 multiple\_choice/code 等题型。原因是 form\_change 产出的题经常丢失物理细节，且 validate 阶段需额外调用。
+
+  \item \textbf{论文输入模式（Mode A）}: 本流水线专注于 Mode B（教材/习题集输入）。论文 tex/PDF 解析、种子提取等 Stage 0 逻辑未实现。原因：不知道怎么从论文提取题目比较合理，所以采用熟悉的从书本中找题目的模式。
+\end{enumerate}
+
+% ============================================================
+\section{遇到的困难}
+
+\subsection{Claude Code 使用能力不足导致代码臃肿}
+
+本项目开发过程中大量依赖 Claude Code（CLI Agent）辅助编码，但其在以下几个方面表现不足，直接导致了代码的臃肿：
+
+当提出一个具体问题时，cc有时只针对这个问题用正则/字符串操作来修改。但这个问题往往是一个更大问题的表象，真正的解决方案需要重构代码逻辑或数据结构。
+
+\subsection{其他工程困难}
+
+\begin{enumerate}
+  \item \textbf{API 代理层不可控}: DashScope 代理转发 Anthropic API 的超时阈值不可配置，504超时只能靠客户端重试兜底，无法从根本上解决。
+
+  \item \textbf{pipeline 验证流程的不确定性}: judge和red\_team的结果不一定可靠，这造成额外api调用和误杀。
+\end{enumerate}
+
+% ============================================================
+\section{Token / wall-clock estimate}
+
+\begin{itemize}[nosep]
+  \item 总 LLM 调用: $\sim$700次（7种子 $\times$ 18题 $\times$ $\sim$5调用/题含 compose+soft\_rewrite+validate），100种子完成后预计 $\sim$5000次
+  \item 估计 output token: $\sim$7\,M（7种子阶段），100种子完成后预计 $\sim$50\,M
+  \item 端到端 wall-clock: $\sim$2.5\,h（当前7种子进度），100种子完成后预计 $\sim$30\,h
+  \item 单题验证耗时: $\sim$100\,s（judge+red\_team 并行），6线程批量约336\,s/18题
+\end{itemize}
+
+% ============================================================
+\section{Architecture summary}
+
+\begin{center}
+\begin{tikzpicture}[
+  node distance=1.2cm,
+  box/.style={draw, rounded corners, minimum width=5cm, minimum height=0.7cm, align=center, font=\small},
+  arrow/.style={-{Stealth[length=3mm]}, thick},
+]
+\node[box] (input) {输入: 教材章节习题 (604道 $\to$ Markdown/PDF $\to$ JSON)};
+\node[box, below=of input] (s0) {Stage 0: 抽象化 (OCR+清洗+结构化) \\ \footnotesize MODEL\_ABSTRACT=qwen3.6-flash};
+\node[box, below=of s0] (seed) {精选种子 $\times$ 100 (从604道中选取)};
+\node[box, below=of seed] (p1) {Phase 1: cognitive\_fanout \\ \footnotesize $\to$ 9道基础题 (3 derivation $\times$ 3泛化轴)};
+\node[box, below=of p1] (p3) {Phase 3: soft\_rewrite ($\times$9) \\ \footnotesize 对照/校验/设计/归约};
+\node[box, below=of p3] (v) {Phase 3.5: batch\_validate \\ \footnotesize judge+red\_team+metric\_check};
+\node[box, below=of v] (dedup) {Phase 4: ngram\_dedup};
+\node[box, below=of dedup] (out) {dataset.jsonl + run\_report.md};
+
+\draw[arrow] (input) -- (s0);
+\draw[arrow] (s0) -- (seed);
+\draw[arrow] (seed) -- (p1);
+\draw[arrow] (p1) -- (p3);
+\draw[arrow] (p3) -- (v);
+\draw[arrow] (v) -- (dedup);
+\draw[arrow] (dedup) -- (out);
+
+% Note for Phase 2
+\node[right=2cm of p1, font=\small\itshape, text=gray] (p2note) {Phase 2: metric\_substitute (当前跳过)};
+\end{tikzpicture}
+\end{center}
+
+% ============================================================
+\section{Pipeline 结构与用法}
+
+\subsection{代码模块组织}
+
+项目代码按功能分为四个子包，结构如下：
+
+\begin{center}
+\begin{tikzpicture}[
+  node distance=0.6cm,
+  pkg/.style={draw, rounded corners, fill=blue!8, minimum width=3.8cm, minimum height=0.55cm, align=center, font=\small},
+  mod/.style={draw, rounded corners, fill=gray!10, minimum width=3.8cm, minimum height=0.45cm, align=center, font=\footnotesize},
+  arrow/.style={-{Stealth[length=2mm]}, thin, gray},
+]
+% Packages
+\node[pkg] (seed) {core/seed};
+\node[mod, below=0.25cm of seed] (s1) {extractor.py — 整书切分提取};
+\node[mod, below=0.15cm of s1] (s2) {formatter.py — 题目抽象化};
+\node[mod, below=0.15cm of s2] (s3) {prompts.py — 抽象化 system prompt};
+
+\node[pkg, right=2cm of seed] (scale) {core/scale};
+\node[mod, below=0.25cm of scale] (sc1) {pipeline.py — 泛化生成主逻辑};
+\node[mod, below=0.15cm of sc1] (sc2) {prompts.py — 编题/改写 prompt};
+
+\node[pkg, below=2.5cm of seed] (verify) {core/verify};
+\node[mod, below=0.25cm of verify] (v1) {validator.py — 验证与修正循环};
+\node[mod, below=0.15cm of v1] (v2) {prompts.py — judge/red\_team prompt};
+
+\node[pkg, right=2cm of verify] (common) {core/common};
+\node[mod, below=0.25cm of common] (c1) {api\_client.py — LLM API 调用};
+\node[mod, below=0.15cm of c1] (c2) {config.py — 模型与环境配置};
+\node[mod, below=0.15cm of c2] (c3) {sympy\_engine.py — SymPy 计算};
+\node[mod, below=0.15cm of c3] (c4) {fact\_sheet\_cache.py — 缓存};
+\node[mod, below=0.15cm of c4] (c5) {metric\_library.py — 度规库};
+\node[mod, below=0.15cm of c5] (c6) {cleaner.py — JSON 清洗};
+
+% top-level
+\node[pkg, above=0.8cm of $(seed)!0.5!(scale)$, minimum width=8cm] (main) {main.py + book\_pipeline.py};
+\node[pkg, left=1.5cm of main, minimum width=2.2cm] (schema) {schema/};
+
+\draw[arrow] (main) -- (seed);
+\draw[arrow] (main) -- (scale);
+\draw[arrow] (main) -- (verify);
+\draw[arrow] (main) -- (common);
+\draw[arrow] (main) -- (schema);
+\end{tikzpicture}
+\end{center}
+
+\small\noindent
+\textbf{核心依赖关系}: main.py 调用 \texttt{seed.formatter}（抽象化）→ \texttt{scale.pipeline}（泛化）→ \texttt{verify.validator}（验证）；所有阶段共享 \texttt{common} 子包的 API 调用、配置和度规库；\texttt{schema} 定义 Problem 数据结构。\texttt{book\_pipeline.py} 提供从整书 Markdown 批量处理的独立入口。
+
+\subsection{命令行接口}
+
+通过 \texttt{python main.py <subcommand>} 调用，支持以下子命令：
+
+\begin{table}[h]\centering\small
+\begin{tabular}{llp{6.5cm}}
+\toprule
+\textbf{子命令} & \textbf{核心参数} & \textbf{功能} \\
+\midrule
+abstract & files, --source, -o & 将 Markdown/PDF 题目抽象化为结构化 seed JSON \\
+generate & seed\_json, --num, --subs, --cross-metric & 从种子题泛化生成新题目 \\
+run & input, --num, --subs, --soft, --cross-metric & 一键完成 abstract → generate \\
+batch & input\_dir, --parallel & 批量处理文件夹中所有种子 JSON \\
+validate & files/--dir, --workers & 用 SymPy + judge/red\_team 验证题目 \\
+clean & files, -o & 清洗 JSON 排版符号 \\
+precompute & --force, --include-heavy & 预计算度规 Fact Sheet 缓存 \\
+aggregate & input\_dir, --format, --skip-degraded & 汇总 JSON 为 dataset.jsonl/parquet \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\small\noindent
+\textbf{典型用法（Mode B 教材输入）}:
+\begin{itemize}[nosep]
+  \item 单文件模式: \texttt{python main.py run problem.md --num 3 --soft 1 --cross-metric -o output/}
+  \item 批量模式: \texttt{python main.py run books/ --num 3 --soft 1 --cross-metric -o output/ --report report.md}
+  \item 批量验证: \texttt{python main.py validate --dir output/variants --workers 6}
+  \item 汇总数据集: \texttt{python main.py aggregate output/variants --format jsonl --skip-degraded}
+\end{itemize}
+
+\subsection{Pipeline 各阶段详解}
+
+Pipeline 的核心编排函数 \texttt{fan\_through()} 串联以下阶段，每阶段独立可调用也可一键运行：
+
+\begin{description}[nosep, style=nextline]
+  \item[Stage 0: 抽象化] (\texttt{seed.formatter})
+    将 Markdown/PDF 原题通过 LLM 转为结构化 Problem JSON（包含 metadata、physical\_data、origin 三大块）。支持 PDF/图片输入（通过 OCR 或多模态模型），输出文件名与原题同名（.json）。当前配置使用 \texttt{MODEL\_ABSTRACT=qwen3.6-flash}。
+
+  \item[Phase 1: cognitive\_fanout] (\texttt{scale.pipeline})
+    从种子题扇出多道基础题。每种认知形式（derivation / numerical / conceptual）× 每种泛化轴（apply / extend / limit / compare / invert / verify）独立编题。泛化轴由 \texttt{\_discover\_available\_axes()} 根据种子题内容和 Fact Sheet 自动发现。开启 \texttt{--cross-metric} 时，为每种认知形式在不同目标度规下额外生成题目（跨度规泛化），目标度规由 LLM 从度规库中挑选。无度规种子题自动启用跨度规以补偿缺少的度规替换阶段。
+
+  \item[Phase 2: metric\_substitute] (\texttt{scale.pipeline})
+    对每道基础题做度规替换：LLM 挑选最适配的替换度规（\texttt{MODEL\_PICK\_METRIC=qwen3.6-flash}），再将原题适配到新度规上（\texttt{MODEL\_SUBSTITUTE=glm-5.1}）。当前配置 \texttt{num\_subs=0}（跳过），62\%种子题无度规数据时不适用。
+
+  \item[Phase 2.5: form\_change] (\texttt{scale.pipeline})
+    将 derivation/numerical 题变换为 multiple\_choice/code/conceptual 等题型。当前 \texttt{FORM\_CHANGE\_TARGETS=[]}（暂时关闭），原因是变换后题目常丢失物理细节。
+
+  \item[Phase 3: soft\_rewrite] (\texttt{scale.pipeline})
+    对基础题做四种软改写：\textbf{contrast}（对照题：两种度规背景对比）、\textbf{verify}（校验题：找推导中的错误）、\textbf{design}（设计题：给定目标构造方案）、\textbf{reduce}（归约题：取极限/简化条件）。每道基础题轮换分配改写类型，产出 $\times$9 道变体题。
+
+  \item[Phase 3.5: batch\_validate] (\texttt{verify.validator})
+    批量并行验证所有题目，执行三层验证网（结构网 + 符号网 + 模型网），详见§\ref{sec:verification}。验证失败题目标记 \texttt{degraded=True}。
+
+  \item[Phase 4: ngram\_dedup] (\texttt{scale.pipeline})
+    n-gram Jaccard 相似度去重（阈值 0.7），剔除语义重复题目。
+\end{description}
+
+\subsection{数据 Schema}
+
+Pipeline 内部使用嵌套结构 \texttt{Problem}，输出到 dataset.jsonl 时转为 flat 格式（id / statement / answer / solution / meta / verification）：
+
+\begin{table}[h]\centering\small
+\begin{tabular}{llp{6cm}}
+\toprule
+\textbf{字段} & \textbf{子字段} & \textbf{含义} \\
+\midrule
+\texttt{metadata} & id, source\_id, stage, cognitive\_form, physics\_env, lineage, tags, validated, soft\_variant & 元信息与追踪 \\
+\texttt{physical\_data} & dimension, variables, metric, metric\_sympy & 度规数据 \\
+\texttt{origin} & question, answer, solution & 题目原文与解答 \\
+\texttt{verification} & structural, metric\_check, judge, red\_team, training\_value & 验证结果 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{模型配置}
+
+所有模型通过 \texttt{.env} 文件或环境变量配置，API 经 DashScope 代理转发 Anthropic/Claude 请求：
+
+\begin{table}[h]\centering\small
+\begin{tabular}{lll}
+\toprule
+\textbf{环境变量} & \textbf{默认值} & \textbf{用途} \\
+\midrule
+MODEL\_ABSTRACT & qwen3.6-flash & Stage 0 抽象化（轻量快速） \\
+MODEL\_COMPOSE & glm-5.1 & Phase 1/3 编题与软改写 \\
+MODEL\_SUBSTITUTE & glm-5.1 & Phase 2 度规替换 \\
+MODEL\_PICK\_METRIC & qwen3.6-flash & 度规挑选（轻量分类任务） \\
+MODEL\_VALIDATE & glm-5.1 & Phase 3.5 验证 \\
+MODEL\_JUDGE & glm-5.1 & 验证 judge 评估 \\
+MODEL\_RED\_TEAM & glm-5.1 & 验证 adversarial 评估 \\
+MODEL\_FIX & glm-5.1 & 验证修正 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ============================================================
+\section{度规库}
+
+\begin{table}[h]\centering\small
+\begin{tabular}{llcc}
+\toprule
+\textbf{度规} & \textbf{类型} & \textbf{Fact Sheet} & \textbf{缓存} \\
+\midrule
+Schwarzschild           & 核心   & $\checkmark$ & $\checkmark$ \\
+Minkowski               & 核心   & $\checkmark$ & $\checkmark$ \\
+DeSitter                & 核心   & $\checkmark$ & $\checkmark$ \\
+AntiDeSitter            & 核心   & $\checkmark$ & $\checkmark$ \\
+AntiDeSitterStatic      & 核心   & $\checkmark$ & $\checkmark$ \\
+MinkowskiCartesian      & 核心   & $\checkmark$ & $\checkmark$ \\
+MinkowskiPolar          & 核心   & $\checkmark$ & $\checkmark$ \\
+BarriolaVilekin         & 核心   & $\checkmark$ & $\checkmark$ \\
+BertottiKasner          & 核心   & $\checkmark$ & $\checkmark$ \\
+CMetric                 & 核心   & $\checkmark$ & $\checkmark$ \\
+Davidson                & 核心   & $\checkmark$ & $\checkmark$ \\
+JanisNewmanWinicour     & 核心   & $\checkmark$ & $\checkmark$ \\
+G\"odel                 & 核心   & $\checkmark$ & $\checkmark$ \\
+FLRW                    & 自定义 & $\checkmark$ & $\checkmark$ \\
+\midrule
+Kerr                    & heavy & — & — \\
+Ernst                   & heavy & — & — \\
+KerrNewman              & heavy & — & — \\
+ReissnerNordstrom       & heavy & — & — \\
+AlcubierreWarp          & heavy & — & — \\
+BesselGravitationalWave & heavy & — & — \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ============================================================
+\section{Verification layers}
+\label{sec:verification}
+
+\begin{table}[h]\centering
+\begin{tabular}{llp{7cm}}
+\toprule
+\textbf{网} & \textbf{模块} & \textbf{性质/覆盖} \\
+\midrule
+结构网     & \texttt{structural\_check()} & 确定性闸门：字段齐全、answer非空、度规完整性 \\
+独立符号网 & \texttt{metric\_check()} + SymPy Fact Sheet & Christoffel/Riemann/Ricci 等精确对照，与生成模型完全独立 \\
+模型网     & \texttt{judge\_problem()} + \texttt{red\_team\_problem()} & 独立 LLM 调用（adversarial prompt），不同模型+温度 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\small\noindent
+\textbf{注}: metric\_check 仅对有度规数据的题目执行；无度规题（抽象证明题）仅经过结构网+模型网，verification 中如实记录 \texttt{metric\_check: \{status: "skip"\}}。
+
+\end{document}

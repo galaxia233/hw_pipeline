@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "Conserved current divergence",
+      "coordinate": "comoving",
+      "scenario": "cosmology",
+      "method": "limit_analysis",
+      "generalization_axis": "limit",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\nabla_\\mu J^\\mu$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，如果存在 Killing 矢量场 $\\xi^\\mu$，则可以构造守恒流 $J^\\mu = T^{\\mu\\nu}\\xi_\\nu$。对于描述膨胀宇宙的 FLRW 度规：$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2}dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$$宇宙的演化使得一般情况下不存在时间 Killing 矢量，因此能量不严格守恒。考虑时间平移矢量 $\\xi^\\mu = (1, 0, 0, 0)$ 以及共动完美流体的能动张量 $T^{\\mu\\nu} = (\\rho+p)u^\\mu u^\\nu + p g^{\\mu\\nu}$，其中共动四维速度 $u^\\mu = (1, 0, 0, 0)$， $\\rho$ 为能量密度， $p$ 为压强。请推导流 $J^\\mu = T^{\\mu\\nu}\\xi_\\nu$ 的协变散度 $\\nabla_\\mu J^\\mu$ 的表达式，并证明在静态宇宙极限下（即尺度因子趋于常数 $a(t) \\to a_0$，从而 $\\dot{a}(t) \\to 0$），该散度消失，恢复了能量守恒定律。",
+    "answer": "$\\nabla_\\mu J^\\mu = 3p \\frac{\\dot{a}(t)}{a(t)}$；在静态极限 $\\dot{a}(t) \\to 0$ 下，散度趋于 0。",
+    "solution": "由种子题结论可知，对于任意矢量场 $\\xi^\\mu$ 和满足 $\\nabla_\\mu T^{\\mu\\nu} = 0$ 的能动张量，流 $J^\\mu = T^{\\mu\\nu}\\xi_\\nu$ 的协变散度为：$$\\nabla_\\mu J^\\mu = (\\nabla_\\mu T^{\\mu\\nu})\\xi_\\nu + T^{\\mu\\nu}\\nabla_\\mu\\xi_\\nu = T^{\\mu\\nu}\\nabla_\\mu\\xi_\\nu$$首先计算 $\\xi_\\nu$ 及其协变导数。时间平移矢量 $\\xi^\\mu = (1,0,0,0)$ 的协变分量为 $\\xi_\\nu = g_{\\nu\\mu}\\xi^\\mu = g_{\\nu 0} = (-1, 0, 0, 0)$。由于 $\\xi_\\nu$ 在此坐标系下分量仅为常数 $-1$ 和 $0$，其偏导数为零，故协变导数为：$$\\nabla_\\mu\\xi_\\nu = \\partial_\\mu\\xi_\\nu - \\Gamma^\\alpha_{\\mu\\nu}\\xi_\\alpha = -\\Gamma^0_{\\mu\\nu}\\xi_0 = \\Gamma^0_{\\mu\\nu}$$接下来计算完美流体能动张量的逆变分量。由 $u^\\mu = (1,0,0,0)$ 和度规逆变分量 $g^{00}=-1$，可得 $T^{00} = \\rho$ 以及空间分量 $T^{ij} = p g^{ij}$，具体为：$$T^{11} = p \\frac{1-kr^2}{a^2(t)}, \\quad T^{22} = p \\frac{1}{r^2 a^2(t)}, \\quad T^{33} = p \\frac{1}{r^2 a^2(t) \\sin^2\\theta}$$将 $T^{\\mu\\nu}$ 和 $\\nabla_\\mu\\xi_\\nu$ 代入散度公式，注意到 $\\Gamma^0_{00}=0$ 和 $\\Gamma^0_{0i}=0$，仅有空间项贡献：$$\\nabla_\\mu J^\\mu = T^{ij}\\Gamma^0_{ij} = T^{11}\\Gamma^0_{11} + T^{22}\\Gamma^0_{22} + T^{33}\\Gamma^0_{33}$$代入 Christoffel 符号：$$\\Gamma^0_{11} = \\frac{a(t)\\dot{a}(t)}{1-kr^2}, \\quad \\Gamma^0_{22} = r^2 a(t)\\dot{a}(t), \\quad \\Gamma^0_{33} = r^2 a(t)\\dot{a}(t)\\sin^2\\theta$$计算各项乘积：$$T^{11}\\Gamma^0_{11} = p \\frac{1-kr^2}{a^2(t)} \\frac{a(t)\\dot{a}(t)}{1-kr^2} = p \\frac{\\dot{a}(t)}{a(t)}$$$$T^{22}\\Gamma^0_{22} = p \\frac{1}{r^2 a^2(t)} r^2 a(t)\\dot{a}(t) = p \\frac{\\dot{a}(t)}{a(t)}$$$$T^{33}\\Gamma^0_{33} = p \\frac{1}{r^2 a^2(t)\\sin^2\\theta} r^2 a(t)\\dot{a}(t)\\sin^2\\theta = p \\frac{\\dot{a}(t)}{a(t)}$$求和得到：$$\\nabla_\\mu J^\\mu = 3p \\frac{\\dot{a}(t)}{a(t)}$$在静态宇宙极限下，尺度因子趋于常数 $a(t) \\to a_0$，即 $\\dot{a}(t) \\to 0$。此时：$$\\nabla_\\mu J^\\mu = 3p \\frac{0}{a_0} = 0$$同时，在该极限下 $\\nabla_\\mu\\xi_\\nu = \\Gamma^0_{\\mu\\nu} \\to 0$，$\\xi^\\mu$ 成为真正的 Killing 矢量，能量守恒定律 $\\nabla_\\mu J^\\mu = 0$ 得以恢复。"
+  },
+  "verification": null
+}

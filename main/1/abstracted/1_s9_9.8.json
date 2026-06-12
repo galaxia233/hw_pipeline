@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s9_9.8",
+    "type": "prove",
+    "tags": {
+      "metric": "tensor_calculus",
+      "target_object": "commutator_covariant_derivative",
+      "coordinate": "riemann_curvature_tensor",
+      "scenario": "local_inertial_frame",
+      "method": "covariance_argument"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.8",
+    "source_id": "1_s9_9.8",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.85,
+      "completeness": 1.0,
+      "realism": 0.7,
+      "rationale": "需结合局部惯性系展开、莱布尼茨法则与协变性原理推导张量协变导数交换子，物理逻辑严密且结构可平移至任意联络几何",
+      "overall": 0.86
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$a$",
+      "$\\\\nu$",
+      "$\\\\kappa$",
+      "$\\\\sigma$",
+      "$\\\\alpha$",
+      "$\\\\beta$"
+    ],
+    "target": [
+      "$V_{a;\\\\nu\\\\kappa} - V_{a;\\\\kappa\\\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s9_9.8.md]\\n\\nProblem 9.8. Prove the relation\\n$$\\n2 \\\\mathrm {V}_{a; [ \\\\nu \\\\kappa ]} \\\\equiv \\\\mathrm {V}_{a; \\\\nu \\\\kappa} - \\\\mathrm {V}_{a; \\\\kappa \\\\nu} = \\\\mathrm {V}_{\\\\sigma} \\\\mathrm {R}_{a \\\\nu \\\\kappa}^{\\\\sigma}\\n$$\\nand find its generalization to the commutator of second derivatives for a tensor of arbitrary rank $\\mathbf{T}_{\\\\alpha \\\\ldots}^{\\\\beta \\\\ldots}$ .\\n\\n## Solution",
+    "answer": "$2 (\\\\mathrm {T}_{\\\\alpha \\\\dot s}^{\\\\beta \\\\dot s})_{;[\\\\nu\\\\kappa]} = - \\\\mathrm {T}_{\\\\alpha \\\\dot s}^{\\\\sigma \\\\dot s} \\\\mathrm {R}_{\\\\sigma \\\\nu \\\\kappa}^{\\\\beta} - \\\\dot s + \\\\mathrm {T}_{\\\\sigma \\\\dot s}^{\\\\beta \\\\dot s} \\\\mathrm {R}_{\\\\alpha \\\\nu \\\\kappa}^{\\\\sigma} + \\\\dot s .$",
+    "solution": "Solution 9.8. We give the proof for a tensor of arbitrary rank. Choose locally flat coordinates so that all Christoffel symbols (but not their derivatives!) vanish at a point. At that point\\n$$\\n\\\\mathsf {R}_{\\\\gamma \\\\nu \\\\kappa}^{\\\\lambda} = \\\\Gamma_{\\\\gamma \\\\kappa , \\\\nu}^{\\\\lambda} - \\\\Gamma_{\\\\gamma \\\\nu , \\\\kappa}^{\\\\lambda} = - 2 \\\\Gamma_{\\\\gamma [ \\\\nu , \\\\kappa ]}^{\\\\lambda}\\n$$\\nand\\n$$\\n\\\\begin{array}{l} \\\\left(\\\\mathrm {T}_{a \\\\dot s}^{\\\\beta \\\\dot s}\\\\right)_{, \\\\nu \\\\kappa} = \\\\left(\\\\mathrm {T}_{a \\\\dot s}^{\\\\beta \\\\dot s}_{, \\\\nu} + \\\\mathrm {T}_{a \\\\dot s}^{\\\\sigma \\\\dot s} \\\\Gamma_{\\\\sigma \\\\nu}^{\\\\beta} + \\\\dot s - \\\\mathrm {T}_{\\\\sigma \\\\dot s}^{\\\\beta \\\\dot s} \\\\Gamma_{a \\\\nu}^{\\\\sigma} - \\\\dot s\\\\right)_{, \\\\kappa} \\\\\\\\ = \\\\mathrm {T}_{\\\\alpha \\\\dot s}^{\\\\beta \\\\dot s}_{, \\\\nu \\\\kappa} + \\\\mathrm {T}_{\\\\alpha \\\\dot s}^{\\\\sigma \\\\dot s} \\\\Gamma_{\\\\sigma \\\\nu , \\\\kappa}^{\\\\beta} + \\\\dot s - \\\\mathrm {T}_{\\\\sigma \\\\dot s}^{\\\\beta \\\\dot s} \\\\Gamma_{\\\\alpha \\\\nu , \\\\kappa}^{\\\\sigma} - \\\\dot s . \\\\\\\\ \\\\end{array}\\n$$\\nIt follows that\\n$$\\n2 (\\\\mathrm {T}_{a} \\\\dot s^{\\\\beta \\\\dot s});_{[\\\\nu\\\\kappa]} = - \\\\mathrm {T}_{a} \\\\dot s^{\\\\sigma \\\\dot s} \\\\mathrm {R}_{\\\\sigma \\\\nu \\\\kappa}^{\\\\beta} - \\\\dot s + \\\\mathrm {T}_{\\\\sigma \\\\dot s}^{\\\\beta \\\\dot s} \\\\mathrm {R}_{a \\\\nu \\\\kappa}^{\\\\sigma} + \\\\dot s .\\n$$\\nSince this relation is covariant it is true in any coordinate system."
+  },
+  "verification": null
+}

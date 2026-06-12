@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "id": "1_s6_6.4_c",
+    "type": "prove",
+    "tags": {
+      "metric": "Riemannian_geometry",
+      "target_object": "geodesic_trajectory",
+      "coordinate": "Mercator_projection",
+      "scenario": "navigation_application",
+      "method": "first_integrals_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s6_6.4_c",
+    "source_id": "1_s6_6.4_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s6_6.4_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "利用球面度规的循环坐标守恒量降阶求解测地线微分方程，逻辑链条完整且具航海导航物理背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$x$",
+      "$y$",
+      "$s$"
+    ],
+    "target": [
+      "$\\\\sin h y = a\\\\sin(x + \\\\beta)$"
+    ],
+    "metric": [
+      [
+        "$\\\\operatorname{sech}^2 y$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$\\\\operatorname{sech}^2 y$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "(c) Show that the great circles are given by $\\sin h y = a\\sin (x + \\beta)$ (except for the special cases $y = 0$ or $x =$ constant).",
+    "answer": "$\\\\sin h y = a\\\\sin(x + \\\\beta)$",
+    "solution": "(c) The great circles are the geodesics of the 2-sphere. The geodesic equations are easy to solve, since we have two first integrals. Let a dot denote $\\mathrm{d} / \\mathrm{ds}$ ; then Equation (8) gives\\n$$\\n\\\\operatorname {s e c h}^{2} \\\\mathcal {Y} (\\\\dot {\\\\mathbf {x}}^{2} + \\\\dot {\\\\mathbf {y}}^{2}) = 1. \\tag {9}\\n$$\\nSince $\\mathbf{x}$ is an ignorable coordinate in the metric (8), $\\mathbf{g}_{\\\\mathbf{x}\\\\mathbf{x}}\\\\dot{\\\\mathbf{x}}$ is constant (see Solution 7.13), i.e.\\n$$\\n\\\\left(\\\\operatorname {s e c h}^{2} \\\\mathrm {y}\\\\right) \\\\dot {\\\\mathrm {x}} = \\\\gamma . \\tag {10}\\n$$\\nWhen neither $\\dot{\\\\mathbf{x}}$ nor $\\dot{\\\\mathbf{y}}$ vanishes, we can eliminate $s$ from Equations (9) and (10):\\n$$\\n\\\\left(\\frac {\\\\mathrm {d} \\\\mathcal {Y}}{\\\\mathrm {d} x}\\\\right)^{2} = \\\\frac {\\\\dot {\\\\mathcal {Y}}^{2}}{\\\\dot {x}^{2}} = \\\\frac {\\\\lambda^{2} - \\\\cos h^{2} \\\\mathcal {Y}}{\\\\cos h^{2} \\\\mathcal {Y}} \\tag {11}\\n$$\\nwhere $\\lambda = 1 / \\gamma$ . Equation (11) is easily integrated by putting $z = \\sin h y$ . The result is\\n$$\\n\\\\sin h y = \\\\alpha \\sin (x + \\\\beta)\\n$$\\nwhere $\\alpha = (\\lambda^2 - 1)^{\\\\frac{1}{2}}$ and $\\beta$ is another constant of integration."
+  },
+  "verification": null
+}

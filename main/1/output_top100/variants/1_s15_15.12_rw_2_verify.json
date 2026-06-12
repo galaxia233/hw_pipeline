@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s15_15.12-2-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "tidal_acceleration",
+      "coordinate": "schwarzschild",
+      "scenario": "circular_orbit_geodesic_deviation_verify",
+      "method": "riemann_tensor_calculation",
+      "generalization_axis": "verify",
+      "metric": "schwarzschild_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.12",
+      "1_s15_15.12-2",
+      "1_s15_15.12-2-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "schwarzschild_metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$\\tau$"
+    ],
+    "target": [
+      "K"
+    ],
+    "metric": [
+      [
+        "$-1+2M/r$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2M/r)^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\sin^2 \\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 时空的赤道面 ($\\theta = \\pi/2$) 上，Paul 以径向坐标 $r = 4M$ 做圆轨道运动。已知 Paul 的四维速度为 $u^\\mu = \\left(2, 0, 0, \\frac{1}{4M}\\right)$，相邻自由质点与 Paul 之间仅存在极微小的径向间距 $\\xi^r$。以下是某同学推导该相邻质点相对于 Paul 的径向潮汐加速度 $a^r = K \\xi^r$ 的过程，请找出其中所有的物理或数学错误，指出错误位置与类型，并给出正确的推导与结论。度规定义：$ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$ （$r_s = 2M$）**【推导过程】**根据测地偏离方程，相对加速度公式为：$a^r = R^r_{\\ \\nu\\rho\\sigma} u^\\nu \\xi^\\rho u^\\sigma$由于分离矢量仅含径向分量，且 $u^\\mu$ 仅含 $t$ 和 $\\phi$ 分量，方程可展开为：$a^r = \\left( R^r_{\\ trt} u^t u^t + R^r_{\\ \\phi r \\phi} u^\\phi u^\\phi\\right) \\xi^r$接下来计算所需的 Riemann 张量分量。利用度规将下标升为上标：$R^r_{\\ trt} = g_{rr} R_{1010}$已知 $R_{1010} = \\frac{r_s(-r+r_s)}{r^4}$，代入 $r_s = 2M$ 和 $r = 4M$，得 $R_{1010} = -\\frac{1}{64M^2}$。度规分量 $g_{rr} = \\frac{r}{r-r_s} = 2$，故：$R^r_{\\ trt} = 2 \\times \\left(-\\frac{1}{64M^2}\\right) = -\\frac{1}{32M^2}$。同理计算第二项：$R^r_{\\ \\phi r \\phi} = g_{rr} R_{1313}$查表可知 $R_{1313} = -\\frac{r_s \\sin^2\\theta}{r}$，代入 $r_s = 2M, r = 4M, \\theta = \\pi/2$，得：$R_{1313} = -\\frac{2M \\cdot 1}{4M} = -\\frac{1}{2}$。故：$R^r_{\\ \\phi r \\phi} = 2 \\times \\left(-\\frac{1}{2}\\right) = -1$。最后计算潮汐加速度比例系数 $K$：$K = R^r_{\\ trt} (u^t)^2 + R^r_{\\ \\phi r \\phi} (u^\\phi)^2$$= \\left(-\\frac{1}{32M^2}\\right) \\times 2^2 + (-1) \\times \\left(\\frac{1}{4M}\\right)^2$$= -\\frac{4}{32M^2} - \\frac{1}{16M^2} = -\\frac{1}{8M^2} - \\frac{1}{16M^2} = -\\frac{3}{16M^2}$。因此，径向潮汐加速度为 $a^r = -\\frac{3}{16M^2} \\xi^r$，即 $K = -\\frac{3}{16M^2}$。",
+    "answer": "1. **位置**：测地偏离方程公式。**错误类型**：sign error（漏掉负号）。**正确值**：$a^r = - R^r_{\\ \\nu\\rho\\sigma} u^\\nu \\xi^\\rho u^\\sigma$。2. **位置**：$R^r_{\\ trt}$ 升指标公式。**错误类型**：metric index error（使用度规下标分量升指标）。**正确值**：应使用上标分量 $R^r_{\\ trt} = g^{rr} R_{1010}$，因 $g^{rr} = \\frac{r-r_s}{r} = \\frac{1}{2}$，故正确计算为 $R^r_{\\ trt} = \\frac{1}{2} \\times \\left(-\\frac{1}{64M^2}\\right) = -\\frac{1}{128M^2}$。3. **位置**：$R_{1313}$ 的表达式。**错误类型**：factor error（漏掉了分母的系数 2）。**正确值**：$R_{1313} = -\\frac{r_s \\sin^2\\theta}{2r}$，代入数据得 $R_{1313} = -\\frac{1}{4}$。结合度规修正，$R^r_{\\ \\phi r \\phi} = g^{rr} R_{1313} = \\frac{1}{2} \\times \\left(-\\frac{1}{4}\\right) = -\\frac{1}{8}$。4. 综合以上修正，正确的 $K$ 值为：$K = - \\left( -\\frac{1}{128M^2} \\times 2^2 + (-\\frac{1}{8}) \\times \\left(\\frac{1}{4M}\\right)^2\\right) = - \\left( -\\frac{4}{128M^2} - \\frac{1}{128M^2}\\right) = \\frac{5}{128M^2}$。",
+    "solution": "1. 测地偏离方程的正确形式为 $a^\\alpha = - R^\\alpha_{\\ \\beta\\gamma\\delta} u^\\beta \\xi^\\gamma u^\\delta$，展开为 $a^r = - \\left( R^r_{\\ trt} u^t u^t + R^r_{\\ \\phi r \\phi} u^\\phi u^\\phi\\right) \\xi^r$。2. 升指标应使用度规的逆分量 $g^{rr}$。由度规 $g_{rr} = \\frac{r}{r-r_s}$，可得 $g^{rr} = \\frac{r-r_s}{r} = \\frac{1}{2}$（在 $r=4M$ 时）。   $R^r_{\\ trt} = g^{rr} R_{1010} = \\frac{1}{2} \\times \\left(-\\frac{1}{64M^2}\\right) = -\\frac{1}{128M^2}$。3. 查表可知正确的 $R_{1313}$ 为 $-\\frac{r_s \\sin^2\\theta}{2r}$，代入 $r_s = 2M, r = 4M, \\theta = \\pi/2$，得 $R_{1313} = -\\frac{2M \\cdot 1}{2 \\cdot 4M} = -\\frac{1}{4}$。   $R^r_{\\ \\phi r \\phi} = g^{rr} R_{1313} = \\frac{1}{2} \\times \\left(-\\frac{1}{4}\\right) = -\\frac{1}{8}$。4. 计算比例系数 $K$：   $K = - \\left( R^r_{\\ trt} (u^t)^2 + R^r_{\\ \\phi r \\phi} (u^\\phi)^2\\right)$   $= - \\left( \\left(-\\frac{1}{128M^2}\\right) \\times 2^2 + \\left(-\\frac{1}{8}\\right) \\times \\left(\\frac{1}{4M}\\right)^2\\right)$   $= - \\left( -\\frac{4}{128M^2} - \\frac{1}{128M^2}\\right) = \\frac{5}{128M^2}$。"
+  },
+  "verification": null
+}

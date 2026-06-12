@@ -1,0 +1,167 @@
+{
+  "metadata": {
+    "id": "1_s7_7.12",
+    "type": "prove",
+    "tags": {
+      "metric": "metric_signature",
+      "target_object": "target_object_covariant_derivative",
+      "coordinate": "coordinate_Minkowski",
+      "scenario": "scenario_free_particle",
+      "method": "method_tensor_transformation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.12",
+    "source_id": "1_s7_7.12",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.12"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "从平坦时空全局坐标系选取至协变导数张量形式，结合四维动量内积判定曲线因果类型，物理逻辑清晰且结论可推广至任意背景度规。",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathbf{p}$",
+      "$\\\\mathbf{u}$",
+      "$\\\\tau$",
+      "$\\\\Gamma^{\\\\beta}_{\\\\sigma\\\\alpha}$",
+      "$\\\\mathfrak{m}$",
+      "$x^{\\\\mu}$"
+    ],
+    "target": [
+      "$\\\\nabla_{\\\\mathbf{p}} \\\\mathbf{p}$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$1$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s7_7.12.md]\\n\\nProblem 7.12. Show that in flat spacetime, the conservation law for the 4-momentum of a freely moving particle can be written $\\nabla_{\\mathbf{p}} \\mathbf{p} = 0$ . Show that particles with nonzero rest mass move along timelike geodesics.\\n\\n## Solution\\n\\nSolution 7.12. The components of $\\nabla_{\\mathbf{p}}\\mathbf{p}$ are\\n$$\\n(\\\\nabla_{\\\\mathbf {p}} \\\\mathbf {p})^{\\\\beta} = \\\\operatorname {m u}^{\\\\alpha} \\\\left(\\\\mathbf {p}^{\\\\beta}_{, a} + \\\\Gamma^{\\\\beta}_{\\\\sigma a} \\\\mathbf {p}^{\\\\sigma}\\\\right) = \\\\operatorname {m} \\\\left(\\\\frac {\\\\mathrm {d p}^{\\\\beta}}{\\\\mathrm {d} \\\\tau} + \\\\mathrm {u}^{\\\\alpha} \\\\mathbf {p}^{\\\\sigma} \\\\Gamma^{\\\\beta}_{\\\\sigma a}\\\\right). \\\\tag {1}\\n$$\\nIn flat space time, one can always find a global coordinate system (Minkowski coordinates) in which all of the Christoffel symbols vanish. In that coordinate system, conservation of 4-momentum, $\\\\frac{\\\\mathrm{d}\\\\mathbf{p}}{\\\\mathrm{d}\\\\tau} = 0$ , can be written as\\n$$\\n\\\\nabla_{\\\\mathbf {p}} \\\\mathbf {p} = 0 \\\\tag {2}\\n$$\\nby Equation (1), but Equation (2) is a tensor equation so it must be the correct expression for momentum conservation in any frame. The momentum vector is proportional to the 4-velocity of particles with mass; for these particles $\\\\mathbf{p} \\\\cdot \\\\mathbf{p} = -\\\\mathfrak{m}^2$ , so the geodesics are timelike.",
+    "answer": "$\\\\nabla_{\\\\mathbf{p}} \\\\mathbf{p} = 0$；粒子沿类时测地线运动",
+    "solution": "The components of $\\nabla_{\\mathbf{p}}\\mathbf{p}$ are\\n$$\\n(\\\\nabla_{\\\\mathbf {p}} \\\\mathbf {p})^{\\\\beta} = \\\\operatorname {m u}^{\\\\alpha} \\\\left(\\\\mathbf {p}^{\\\\beta}_{, a} + \\\\Gamma^{\\\\beta}_{\\\\sigma a} \\\\mathbf {p}^{\\\\sigma}\\\\right) = \\\\operatorname {m} \\\\left(\\\\frac {\\\\mathrm {d p}^{\\\\beta}}{\\\\mathrm {d} \\\\tau} + \\\\mathrm {u}^{\\\\alpha} \\\\mathbf {p}^{\\\\sigma} \\\\Gamma^{\\\\beta}_{\\\\sigma a}\\\\right). \\\\tag {1}\\n$$\\nIn flat space time, one can always find a global coordinate system (Minkowski coordinates) in which all of the Christoffel symbols vanish. In that coordinate system, conservation of 4-momentum, $\\\\frac{\\\\mathrm{d}\\\\mathbf{p}}{\\\\mathrm{d}\\\\tau} = 0$ , can be written as\\n$$\\n\\\\nabla_{\\\\mathbf {p}} \\\\mathbf {p} = 0 \\\\tag {2}\\n$$\\nby Equation (1), but Equation (2) is a tensor equation so it must be the correct expression for momentum conservation in any frame. The momentum vector is proportional to the 4-velocity of particles with mass; for these particles $\\\\mathbf{p} \\\\cdot \\\\mathbf{p} = -\\\\mathfrak{m}^2$ , so the geodesics are timelike."
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": [
+      {
+        "name": "time_translation",
+        "description": "时间平移 Killing 矢量",
+        "components_latex": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "x_translation",
+        "description": "x 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "name": "y_translation",
+        "description": "y 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "z_translation",
+        "description": "z 方向平移 Killing 矢量",
+        "components_latex": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  }
+}

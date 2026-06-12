@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s1_1.24",
+    "type": "concept",
+    "tags": {
+      "metric": "minkowski_metric",
+      "target_object": "inertial_frame_velocity",
+      "coordinate": "spacetime_coordinates",
+      "scenario": "falling_cylinder_scenario",
+      "method": "causality_analysis"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.24",
+    "source_id": "1_s1_1.24",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.24"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于同时性相对性的刚体悖论，结合因果律与有限信号传播速度完成逻辑闭环",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$\\beta$",
+      "$c$"
+    ],
+    "target": null,
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.24. Two giant frogs are captured, imprisoned in a large metal cylinder, and placed on an airplane. While in flight, the storage doors accidentally open and the cylinder containing the frogs falls out. Sensing something amiss, the frogs decide to try to break out. Centering themselves in the cylinder, they push off from each other and slam simultaneously into the ends of the cylinder. They instantly push off from the ends and shoot across the cylinder past each other into the opposite ends. This continues until the cylinder hits the ground. Consider how this looks from some other inertial frame, falling at another speed. In this frame, the frogs do not hit the ends of the cylinder simultaneously, so the cylinder jerks back and forth about its mean speed $\\beta$ . The cylinder, however, was at rest in one inertial frame. Does this mean that one inertial frame can jerk back and forth with respect to another?",
+    "answer": "It is not possible for one inertial frame to jerk back and forth with respect to another.",
+    "solution": "**Solution**Solution 1.24. It is not possible for one inertial frame to jerk back and forth with respect to another. The “paradox” comes from the tacit and erroneous assumption that the cylinder remains rigid when the frogs hit the ends. This cannot be true since the elastic waves that inform one end of the tube that the other has been hit must propagate along the walls of the tube at less than the speed of light. In the freely-falling frame of the cylinder, the two ends are driven outward by the impact of the frogs. Tension waves fly from each end of the tube toward the other. Not until the waves meet at the center of the tube do they discover the existence of each other. Then they pass each other and counteract each other's effects, pulling the tube back to its original shape. The tube then pulsates back and forth in its fundamental mode of vibration. During![](images/843fa87aedd9c50ed950925b4b8eb924152a7ee142131794c1d0a67dc4f6af09.jpg)  As seen in cylinder's frame.![](images/5ceb7f177f0d46a81c443db830921ef093b1c2fac17e272dcb3f1106ca0d360.jpg)  As seen in a $2^{\\text{nd}}$ inertial frame.this pulsation the frogs hit the ends of the tube time and again, each time changing the amplitude and phase of the pulsation.From another freely-falling frame (perhaps instantaneously comoving with onlooking birds), the cylinder rushes by at speed $\\beta$ , and the frogs do not hit the ends of the tube simultaneously, the pulsations of the two ends will be out of phase with each other, but the overall picture will not be much different. In particular, the center of the tube (which is at rest in the inertial frame of the cylinder) will not jerk back and forth in any other inertial frame. The accompanying spacetime diagrams illustrate the phenomena."
+  },
+  "verification": null
+}

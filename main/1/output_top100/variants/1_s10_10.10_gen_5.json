@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "effective_potential",
+      "coordinate": "schwarzschild",
+      "scenario": "black_hole_orbit",
+      "method": "killing_vector_conservation",
+      "generalization_axis": "extend",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$V_{eff}(r)$",
+      "$E$",
+      "$L$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Schwarzschild 黑洞度规线元为 $ds^2 = -\\frac{r-r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$。该时空具有时间平移 Killing 矢量场 $\\xi_t^\\mu = (1, 0, 0, 0)$ 和绕 $\\phi$ 轴旋转的 Killing 矢量场 $\\xi_\\phi^\\mu = (0, 0, 0, 1)$，分别对应能量守恒量 $E$ 和角动量守恒量 $L$。采用符号约定 $(-,+,+,+)$，即类时测地线切矢量 $u^\\mu = \\dot{x}^\\mu$ 满足 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$。能量定义为 $E = -g_{\\mu\\nu} \\xi_t^\\mu \\dot{x}^\\nu$，角动量定义为 $L = g_{\\mu\\nu} \\xi_\\phi^\\mu \\dot{x}^\\nu$。请证明：对于在赤道面 $\\theta = \\pi/2$ 上运动的类时测地线粒子，其径向运动方程可以写为 $\\dot{r}^2 = E^2 - V_{eff}(r)$ 的形式，并推导出有效势 $V_{eff}(r)$ 的具体表达式。",
+    "answer": "$V_{eff}(r) = 1 - \\frac{r_s}{r} + \\frac{L^2}{r^2} - \\frac{r_s L^2}{r^3}$",
+    "solution": "1. 根据 Killing 矢量场与测地线切矢量的内积守恒，计算能量和角动量的具体表达式：\\n能量 $E = -g_{\\mu\\nu} \\xi_t^\\mu \\dot{x}^\\nu = -g_{tt} \\dot{t} = \\frac{r-r_s}{r} \\dot{t} = \\left(1 - \\frac{r_s}{r}\\right) \\dot{t}$\\n角动量 $L = g_{\\mu\\nu} \\xi_\\phi^\\mu \\dot{x}^\\nu = g_{\\phi\\phi} \\dot{\\phi} = r^2 \\sin^2 \\theta \\dot{\\phi}$\\n对于赤道面运动，设 $\\theta = \\pi/2$ 且 $\\dot{\\theta} = 0$，则角动量简化为 $L = r^2 \\dot{\\phi}$。\\n\\n2. 写出类时测地线的约束条件：\\n$g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$\\n代入度规分量：\\n$-\\left(1 - \\frac{r_s}{r}\\right) \\dot{t}^2 + \\frac{r}{r-r_s} \\dot{r}^2 + r^2 \\dot{\\theta}^2 + r^2 \\sin^2 \\theta \\dot{\\phi}^2 = -1$\\n\\n3. 代入赤道面条件 $\\theta = \\pi/2, \\dot{\\theta} = 0$，并将 $\\dot{t}$ 和 $\\dot{\\phi}$ 用守恒量表示：\\n由 $E$ 的表达式解得 $\\dot{t} = \\frac{E}{1 - r_s/r} = \\frac{Er}{r-r_s}$\\n由 $L$ 的表达式解得 $\\dot{\\phi} = \\frac{L}{r^2}$\\n\\n4. 将这些表达式代入约束方程：\\n$-\\left(1 - \\frac{r_s}{r}\\right) \\left(\\frac{Er}{r-r_s}\\right)^2 + \\frac{r}{r-r_s} \\dot{r}^2 + r^2 \\left(\\frac{L}{r^2}\\right)^2 = -1$\\n化简第一项：$-\\frac{E^2}{1 - r_s/r}$\\n方程变为：$-\\frac{E^2}{1 - r_s/r} + \\frac{r}{r-r_s} \\dot{r}^2 + \\frac{L^2}{r^2} = -1$\\n\\n5. 两边乘以 $\\left(1 - \\frac{r_s}{r}\\right) = \\frac{r-r_s}{r}$，并整理 $\\dot{r}^2$ 项：\\n$-E^2 + \\dot{r}^2 + \\left(1 - \\frac{r_s}{r}\\right) \\frac{L^2}{r^2} = -\\left(1 - \\frac{r_s}{r}\\right)$\\n移项得到径向运动方程：\\n$\\dot{r}^2 = E^2 - \\left(1 - \\frac{r_s}{r}\\right) \\left(1 + \\frac{L^2}{r^2}\\right)$\\n\\n6. 识别出有效势：\\n$V_{eff}(r) = \\left(1 - \\frac{r_s}{r}\\right) \\left(1 + \\frac{L^2}{r^2}\\right) = 1 - \\frac{r_s}{r} + \\frac{L^2}{r^2} - \\frac{r_s L^2}{r^3}$"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 0.9,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

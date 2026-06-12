@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s4_4.13_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "four_velocity",
+      "coordinate": "lorentz_transformation",
+      "scenario": "uniform_magnetic_field",
+      "method": "circular_trajectory"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s4_4.13_b",
+    "source_id": "1_s4_4.13_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s4_4.13_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "需构造实验室系四速度并应用洛伦兹Boost求运动观测者分量，逻辑链条完整且具标准粒子物理背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$\\omega$",
+      "$R$",
+      "$\\beta$"
+    ],
+    "target": [
+      "$u^{0^{\\prime}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s4_4.13_b.md]4.13 (b) Problem 4.13. A particle of charge $q$ , mass $m$ , moves in a circular orbit of radius $R$ in a uniform B field $\\mathbf{B}_{\\underline{\\mathbf{e}}_z}$ . (b) The speed of the particle is constant since the B field can do no work on the particle. An observer moving at velocity $\\beta_{\\underline{\\mathbf{e}}_{\\mathbf{x}}}$ , however, does not see the speed as constant. What is $\\mathfrak{u}^{0^{'}}$ measured by this observer?",
+    "answer": "$\\gamma (1 - \\beta \\omega y ) \\left(1 - \\omega^ { 2 } R ^ { 2 }\\right) ^ { - \\frac { 1 } { 2 } }",
+    "solution": "(b) The 4-velocity components seen in the lab are$$u^{0} = \\left(1 - \\omega^{2} R^{2}\\right)^{- \\frac {1} {2}} . \\quad u^{x} = \\omega y \\left(1 - \\omega^{2} R^{2}\\right)^{- \\frac {1} {2}} \\quad u^{y} = - \\omega x \\left(1 - \\omega^{2} R^{2}\\right)^{- \\frac {1} {2}} .The components measured by the moving observer are found with a Lorentz transformation, e.g.$$u^{0^{\\prime}} = \\gamma (u^{0} - \\beta u^{x} ) = \\gamma (1 - \\beta \\omega y ) \\left(1 - \\omega^{2} R^{2}\\right)^{- \\frac {1} {2}} ,where $\\gamma \\equiv (1 - \\beta^2)^{-\\frac{1}{2}}"
+  },
+  "verification": null
+}

@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s16_16.17",
+    "type": "prove",
+    "tags": {
+      "metric": "stationary_axisymmetry",
+      "target_object": "killing_vector",
+      "coordinate": "perfect_fluid",
+      "scenario": "rotating_star",
+      "method": "relativistic_hydrodynamics"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.17",
+    "source_id": "1_s16_16.17",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.17"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "结合Killing矢量守恒性质与相对论欧拉方程，多步推导自引力旋转星体流体平衡关系",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\phi$",
+      "$p$",
+      "$\\rho$",
+      "$u^t$",
+      "$\\Omega$"
+    ],
+    "target": [
+      "$u^t$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.17. Show that for a rigidly rotating, self-gravitating, perfect fluid star$$\\nabla \\mathbf {p} = (\\rho + \\mathbf {p}) \\nabla \\log \\mathbf {u}^{\\mathrm {t}}.$$Here $\\mathbf{u}^{\\dagger}$ is a component of the 4-velocity of the fluid in the canonical coordinate system adapted to the Killing vectors (i.e. $\\pmb{\\xi}_{(t)} = \\partial/\\partial t, \\pmb{\\xi}_{(\\phi)} = \\partial/\\partial \\phi$ ).",
+    "answer": "$(\\rho + p) \\nabla \\log u^t = \\nabla p$",
+    "solution": "Solution 16.17. The non-vanishing components of the fluid 4-velocity are $\\mathbf{u}^{\\mathrm{t}}$ and $\\mathbf{u}^{\\phi} = \\Omega \\mathbf{u}^{\\mathrm{t}}$ , i.e.$$\\mathbf {u} = \\mathbf {u}^{\\mathrm {t}} \\left(\\frac {\\partial}{\\partial \\mathbf {t}} + \\Omega \\frac {\\partial}{\\partial \\phi}\\right).$$Let$$\\pmb {\\xi} = \\frac {\\partial}{\\partial t} + \\Omega \\frac {\\partial}{\\partial \\phi} = \\pmb {\\xi}_{(t)} + \\Omega \\pmb {\\xi}_{(\\phi)}.$$Then $\\pmb{\\xi}$ is a Killing vector, since $\\Omega$ is a constant. By Problem 10.14, we have$$\\nabla_{\\mathbf {u}} \\mathbf {u} = \\nabla \\log | \\boldsymbol {\\xi} \\cdot \\boldsymbol {\\xi} |^{\\frac {1}{2}}$$where, since $\\mathbf{u} \\cdot \\mathbf{u} = -1$ , $|\\pmb{\\xi} \\cdot \\pmb{\\xi}|^{\\frac{1}{2}} = 1 / \\mathbf{u}^{\\mathbf{t}}$ . Thus, the Euler equation (see Problem 14.3) for the fluid becomes$$(\\rho + p) \\nabla \\log (u^{t})^{- 1} = - \\nabla p - (\\nabla_{(u^{t} \\xi)} p) u.$$Since $\\mathfrak{p}$ is independent of $t$ and $\\phi$ , it follows that $\\nabla_{\\xi} \\mathfrak{p} = 0$ . Thus,$$(\\rho + p) \\nabla \\log u^{t} = \\nabla p.$$"
+  },
+  "verification": null
+}

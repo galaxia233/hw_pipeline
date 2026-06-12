@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s3_3.1_a",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski metric",
+      "target_object": "Lorentz transformation",
+      "coordinate": "spacetime coordinates",
+      "scenario": "spacelike interval",
+      "method": "spacetime diagram"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.1_a",
+    "source_id": "1_s3_3.1_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.1_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.4,
+      "generalizability": 0.5,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "基于时空几何与洛伦兹Boost的基础证明题，逻辑链较短但题干与解答完整清晰",
+      "overall": 0.55
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$\\Delta x$",
+      "$\\Delta t$",
+      "$\\beta$"
+    ],
+    "target": [
+      "$\\Lambda^\\mu_\\nu$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "# Problem 3.1.(I) If 2 events are separated by a spacelike interval, show that(a) there exists a Lorentz frame in which they are simultaneous, and",
+    "answer": "存在一个沿空间分离方向、速度为 $\\beta = \\Delta t / \\Delta x$ 的洛伦兹参考系，使得两事件的坐标时间差为零（即同时发生）。",
+    "solution": "Solution 3.1. The neatest way to do this problem is by using spacetime diagrams.First rotate the coordinate system until both events lie on the $x$ -axis and the first event occurs at $x = t = 0$ .The two events A and B at spacelike separation $(\\Delta x, \\Delta t)$ are depicted in Figure (i), with the world line of a light ray indicated as the dotted $45^{\\circ}$ line. A Lorentz transformation, shown as the $t'$ , $x'$ axes in Figure (ii), can obviously be made to make A and B simultaneous. (The magnitude of the Lorentz boost is $\\beta = \\Delta t / \\Delta x$ and $\\tan h^{-1} \\tan \\theta$ in Figure (ii) is the rapidity parameter.) Since the $t'$ axis cannot be rotated below the light cone line in a Lorentz transformation, the two events cannot be made to occur at the same location.![](images/791ecbfd27d2788c0e5a39f075496c4b2c65e997ccf440f8bc19a88ca68e07d.jpg)(i)![](images/0f42dbaee42556a34297defb402858d1bd552289fe2c80edc8d51efb936fce70.jpg)(ii)![](images/39204ea8db2f4e62cbf70baa508d25bbb11dc1a1581a2204e6151381555b7878.jpg)(iii)![](images/c29204ea8db2f4e62cbf70baa508d25bbb11dc1a1581a2204e6151381555b7878.jpg)(iv)Figure (iii) depicts events A and B at timelike separation. As shown in Figure (iv), a Lorentz transformation can obviously be made to bring A and B to the same location in the primed frame. The magnitude of the required boost is $\\alpha = \\Delta x / \\Delta t$ . Since the $x'$ axis cannot be rotated above the light cone line, the two events cannot be made simultaneous."
+  },
+  "verification": null
+}

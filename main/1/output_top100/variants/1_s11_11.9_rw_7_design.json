@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-6-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "geodesic_precession_period",
+      "coordinate": "txyz",
+      "scenario": "cosmology_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-6",
+      "1_s11_11.9-6-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "DeSitter",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "验证陀螺仪测地进动周期与坐标x无关且满足$T = 2\\pi\\alpha / v$的数值实验方案"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在某一宇宙时空中，度规取如下形式：$ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}} dx^2 + e^{\\frac{2x}{\\alpha}} dy^2 + e^{\\frac{2x}{\\alpha}} dz^2$，其中 $\\alpha$ 为常数。理论推导表明，在该时空中沿 $y$ 轴以恒定物理速度 $v$（物理距离定义为 $dy_{phys} = \\sqrt{g_{22}} dy$）运动的探针上，陀螺仪会在 $x-y$ 平面内发生测地进动，且其进动周期具有两个特殊性质：1. 坐标时间周期 $T = \\frac{2\\pi\\alpha}{v}$；2. 该周期与探针所处的空间坐标 $x$ 无关。请设计一个数值模拟方案，从零开始验证上述关于测地进动周期的两个核心结论（即周期与 $x$ 无关，且 $T$ 与 $v$ 的定量关系）。要求给出具体的模拟步骤、需要计算和测量的物理量，以及预期的结果分析。",
+    "answer": "1. **建立几何模型**：输入度规分量与参数 $\\alpha$，利用计算机代数系统计算 Christoffel 符号 $\\Gamma^\\mu_{\\nu\\rho}$。2. **构建演化方程**：写出测地线方程 $\\frac{d^2 x^\\mu}{d\\tau^2} + \\Gamma^\\mu_{\\nu\\rho} \\frac{dx^\\nu}{d\\tau} \\frac{dx^\\rho}{d\\tau} = 0$ 以及自旋传输方程 $\\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{\\nu\\rho} u^\\nu S^\\rho = 0$。3. **设定初始条件**：探针初始位置为 $(t=0, x=x_0, y=0, z=0)$，沿 $y$ 轴以物理速度 $v$ 运动，初始四维速度为 $u^\\mu = (\\gamma, 0, \\gamma v e^{-x_0/\\alpha}, 0)$，其中 $\\gamma = 1/\\sqrt{1-v^2}$。初始自旋在局部正交标架下指向 $x$ 方向，对应坐标分量为 $S^\\mu_{init} = (0, e^{-x_0/\\alpha}, 0, 0)$。4. **数值求解与测量**：使用 Runge-Kutta 算法同步演化探针位置和自旋矢量。在演化过程中，将自旋矢量投影到局部正交标架的 $x-y$ 平面，计算进动角度 $\\phi(t) = \\arctan(S_{phys}^2 / S_{phys}^1)$，并记录 $\\phi$ 累积变化 $2\\pi$ 所需的坐标时间间隔，即为进动周期 $T$。5. **验证独立性**：选取多个不同的初始坐标 $x_0$（如 $x_0 = 0, \\alpha, 2\\alpha$），在相同物理速度 $v$ 下进行模拟。绘制 $T$ 对 $x_0$ 的曲线，预期结果为一条水平直线，证明进动周期与 $x$ 无关。6. **验证定量关系**：固定初始坐标 $x_0$，选取多个不同的物理速度 $v$（如 $v = 0.1, 0.2, 0.5$），分别测量进动周期 $T$。绘制 $T$ 对 $1/v$ 的曲线，预期结果为一条过原点的直线，且斜率精确等于 $2\\pi\\alpha$，证明 $T = \\frac{2\\pi\\alpha}{v}$。",
+    "solution": "该数值模拟方案的物理合理性基于以下几点：首先，自旋传输方程 $\\nabla_u S = 0$ 是广义相对论中描述陀螺仪进动的标准方程，能够准确反映时空曲率对矢量方向的影响；其次，由于度规 $g_{22}(x) = e^{2x/\\alpha}$ 的指数特性，其对数导数 $\\frac{\\partial_x g_{22}}{g_{22}} = \\frac{2}{\\alpha}$ 为常数，这解析地保证了进动率 $\\Omega = \\frac{v}{\\alpha}$ 不依赖于空间坐标 $x$，数值实验通过多组 $x_0$ 的模拟验证了这一不变性；最后，进动周期 $T$ 与物理速度 $v$ 反比关系的验证，通过测量不同 $v$ 下的周期并拟合 $T \\cdot v$ 的乘积是否为常数 $2\\pi\\alpha$ 来实现。整个方案通过遍历关键变量 $x_0$ 和 $v$，将解析推导的常数关系转化为可测量的数值不变量，从而有效验证了核心结论。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.desitter_check",
+      "status": "fail",
+      "ran": true,
+      "ricci_scalar": false
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目的物理前提存在致命矛盾：题目要求验证“沿 y 轴以恒定物理速度 v 运动的探针”的测地进动，但在给定度规下，沿 y 轴的直线运动根本不是测地线（自由落体轨迹）。根据度规计算，Christoffel 符号 Γ^1_{22} = -1/α，测地线方程为 d²x/dτ² + Γ^1_{22} (dy/dτ)² = 0。若探针初始沿 y 轴运动（u¹=0, u³=0），则 d²x/dτ² = (1/α)(u²)² > 0，探针必然立刻获得沿 x 正方向的加速度并偏离 y 轴，不可能保持在 y 轴上做恒定物理速度的运动。Answer 和 Solution 中基于 u¹=0（即 x 坐标不变）推导出的进动率 Ω=v/α，以及进动周期与 x 无关的结论，均建立在“非测地线运动”的错误假设上。此外，若探针受外力约束在 y 轴上运动，则它不是自由落体，其自旋传输方程不再是 ∇_u S = 0，而是必须包含外力贡献的 Fermi-Walker 传输，Answer 中给出的测地自旋传输方程与受约束运动的前提自相矛盾；且强行在 u¹=0 下使用 ∇_u S = 0 会导致 u_μ S^μ 不守恒，破坏自旋矢量与四速正交的基本物理要求。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

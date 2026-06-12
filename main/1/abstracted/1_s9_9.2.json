@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s9_9.2",
+    "type": "calculate",
+    "tags": {
+      "metric": "riemann_tensor",
+      "target_object": "independent_components",
+      "coordinate": "tensor_symmetry",
+      "scenario": "bianchi_identity",
+      "method": "combinatorial_counting"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.2",
+    "source_id": "1_s9_9.2",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.3,
+      "rationale": "基于张量全反对称性与第一比安基恒等式的通用维数独立分量组合计数推导",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": "$\\\\mathbf{n}$",
+    "variables": [
+      "$\\\\mathbf{n}$",
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\gamma$",
+      "$\\\\delta$"
+    ],
+    "target": [
+      "$R_{\\\\alpha\\\\beta\\\\gamma\\\\delta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.2. How many independent components does the Riemann tensor have in $\\mathbf{n}$ dimensions?",
+    "answer": "\\\\frac{n^2(n^2-1)}{12}",
+    "solution": "Solution 9.2. The antisymmetry of $(\\\\alpha \\\\beta)$ and $(\\\\gamma \\\\delta)$ in $\\mathbf {R}_{\\\\alpha \\\\beta \\\\gamma \\\\delta}$ means that there are $\\mathbf {M} = \\\\frac{1}{2}\\\\mathbf {n}(\\\\mathbf {n} - 1)$ ways of choosing nontrivial pairs $(\\\\alpha \\\\beta)$ and similarly $\\mathbf {M}$ ways of nontrivially choosing $(\\\\gamma \\\\delta)$ . Since the tensor is symmetric with respect to interchange of the pairs $(\\\\alpha \\\\beta)$ and $(\\\\gamma \\\\delta)$ there are $\\\\frac{1}{2}\\\\mathbf {M}(\\\\mathbf {M} + 1)$ independent ways of choosing $\\alpha \\beta \\gamma \\delta$ when the pair symmetries are considered.\\nThe Riemann tensor also possesses the cyclic symmetry\\n$$\\n\\\\mathrm {A}_{\\\\alpha \\\\beta \\\\gamma \\\\delta} = \\\\mathrm {R}_{\\\\alpha \\\\beta \\\\gamma \\\\delta} + \\\\mathrm {R}_{\\\\alpha \\\\delta \\\\beta \\\\gamma} + \\\\mathrm {R}_{\\\\alpha \\\\gamma \\\\delta \\\\beta} = 0.\\n$$\\nThe pair symmetries guarantee that $\\mathbf {A}_{\\\\alpha \\\\beta \\\\gamma \\\\delta}$ is totally antisymmetric so that the constraint $\\mathbf {A}_{\\\\alpha \\\\beta \\\\gamma \\\\delta} = 0$ is trivial unless $a, \\beta, \\gamma, \\delta$ are all distinct. The number of added constraints is then the number of combinations of 4 objects which can be taken from $\\mathfrak {n}$ objects $= \\mathfrak {n}! / (\\mathfrak {n} - 4)! 4!$ (This formula gives zero, and is therefore valid, if $\\mathfrak {n} < 4$ in which case the permutation symmetry gives no additional constraints.) The number of independent components is then\\n$$\\n\\\\frac {1}{2} \\\\mathrm {M} (\\\\mathrm {M} + 1) - \\\\mathrm {n}! / (\\\\mathrm {n} - 4)! 4! = \\\\mathrm {n}^{2} (\\\\mathrm {n}^{2} - 1) / 1 2.\\n$$"
+  },
+  "verification": null
+}

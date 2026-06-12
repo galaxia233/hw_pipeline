@@ -1,0 +1,203 @@
+{
+  "metadata": {
+    "id": "1_s19_19.5",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "coordinate_transformation",
+      "coordinate": "radial_coordinate",
+      "scenario": "cosmology",
+      "method": "integration_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.5",
+    "source_id": "1_s19_19.5",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.4,
+      "realism": 0.8,
+      "rationale": "RW度规空间坐标与共形时间变换推导，需分曲率参数积分讨论，物理背景明确但缺失完整解题过程",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$\\chi(r)$",
+      "$\\eta(t)$",
+      "$\\Sigma(\\chi)$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$\\frac{R^2(t)}{1 - k r^2}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$R^2(t) r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$R^2(t) r^2 \\sin^2 \\theta$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "(R**2*t)/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "R**2*(r**2*t)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "R**2*(t*(r**2*sin(theta)**2))"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 19.5. Show that the Robertson-Walker metric$$\\mathrm {d s}^{2} = - \\mathrm {d t}^{2} + \\mathrm {R}^{2} (\\mathrm {t}) \\left[ \\frac {\\mathrm {d r}^{2}}{1 - \\mathrm {k r}^{2}} + \\mathrm {r}^{2} \\left(\\mathrm {d} \\theta^{2} + \\sin^{2} \\theta \\mathrm {d} \\phi^{2}\\right)\\right]$$can also be written as$$\\mathrm {d s}^{2} = - \\mathrm {d t}^{2} + R^{2} (\\mathrm {t}) [ \\mathrm {d} \\chi^{2} + \\Sigma^{2} (\\chi) (\\mathrm {d} \\theta^{2} + \\sin^{2} \\theta \\mathrm {d} \\phi^{2}) ]$$or as$$\\mathsf {R}^{2} (\\eta) \\left[ - \\mathrm {d} \\eta^{2} + \\mathrm {d} \\chi^{2} + \\Sigma^{2} (\\chi) (\\mathrm {d} \\theta^{2} + \\sin^{2} \\theta \\mathrm {d} \\phi^{2})\\right]$$where $\\Sigma^2 (\\chi) = \\sin^2\\chi$ or $\\chi^2$ or $\\sin h^2\\chi$ $(k = 1,0, - 1)$",
+    "answer": "$\\chi = \\begin{cases} \\sin^{-1} r & (k=1) \\\\ r & (k=0) \\\\ \\sin h^{-1} r & (k=-1) \\end{cases}, \\quad \\eta = \\int \\frac{dt}{R(t)}, \\quad \\Sigma(\\chi) = \\begin{cases} \\sin \\chi & (k=1) \\\\ \\chi & (k=0) \\\\ \\sin h \\chi & (k=-1) \\end{cases}$",
+    "solution": null
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "\\theta",
+      "\\phi"
+    ],
+    "metric_latex": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "\\frac{R^{2} t}{- k r^{2} + 1}",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "R^{2} r^{2} t",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "R^{2} r^{2} t \\sin^{2}{\\left(\\theta \\right)}"
+      ]
+    ],
+    "christoffel": {
+      "Gamma_011": "- \\frac{R^{2}}{2 k r^{2} - 2}",
+      "Gamma_022": "\\frac{R^{2} r^{2}}{2}",
+      "Gamma_033": "\\frac{R^{2} r^{2} \\sin^{2}{\\left(\\theta \\right)}}{2}",
+      "Gamma_101": "\\frac{1}{2 t}",
+      "Gamma_110": "\\frac{1}{2 t}",
+      "Gamma_111": "- \\frac{k r}{k r^{2} - 1}",
+      "Gamma_122": "k r^{3} - r",
+      "Gamma_133": "r \\left(k r^{2} - 1\\right) \\sin^{2}{\\left(\\theta \\right)}",
+      "Gamma_202": "\\frac{1}{2 t}",
+      "Gamma_212": "\\frac{1}{r}",
+      "Gamma_220": "\\frac{1}{2 t}",
+      "Gamma_221": "\\frac{1}{r}",
+      "Gamma_303": "\\frac{1}{2 t}",
+      "Gamma_313": "\\frac{1}{r}",
+      "Gamma_330": "\\frac{1}{2 t}",
+      "Gamma_331": "\\frac{1}{r}"
+    },
+    "riemann": {
+      "R_0101": "\\frac{R^{2}}{4 t \\left(k r^{2} - 1\\right)}",
+      "R_0110": "- \\frac{R^{2}}{4 t \\left(k r^{2} - 1\\right)}",
+      "R_0202": "- \\frac{R^{2} r^{2}}{4 t}",
+      "R_0220": "\\frac{R^{2} r^{2}}{4 t}",
+      "R_0303": "- \\frac{R^{2} r^{2} \\sin^{2}{\\left(\\theta \\right)}}{4 t}",
+      "R_0330": "\\frac{R^{2} r^{2} \\sin^{2}{\\left(\\theta \\right)}}{4 t}",
+      "R_1001": "- \\frac{1}{4 t^{2}}",
+      "R_1010": "\\frac{1}{4 t^{2}}",
+      "R_1212": "\\frac{r^{2} \\left(\\frac{R^{2}}{4} + k t\\right)}{t}",
+      "R_1221": "\\frac{r^{2} \\left(- \\frac{R^{2}}{4} - k t\\right)}{t}",
+      "R_1313": "\\frac{r^{2} \\left(\\frac{R^{2}}{4} + k t\\right) \\sin^{2}{\\left(\\theta \\right)}}{t}",
+      "R_1331": "\\frac{r^{2} \\left(- \\frac{R^{2}}{4} - k t\\right) \\sin^{2}{\\left(\\theta \\right)}}{t}",
+      "R_2002": "- \\frac{1}{4 t^{2}}",
+      "R_2020": "\\frac{1}{4 t^{2}}",
+      "R_2112": "\\frac{\\frac{R^{2}}{4} + k t}{t \\left(k r^{2} - 1\\right)}",
+      "R_2121": "\\frac{- \\frac{R^{2}}{4} - k t}{t \\left(k r^{2} - 1\\right)}",
+      "R_2323": "\\frac{\\left(\\frac{R^{2} r^{2}}{4} + t \\left(k r^{2} - 1\\right)\\right) \\sin^{2}{\\left(\\theta \\right)}}{t}",
+      "R_2332": "\\frac{\\left(- \\frac{R^{2} r^{2}}{4} - t \\left(k r^{2} - 1\\right)\\right) \\sin^{2}{\\left(\\theta \\right)}}{t}",
+      "R_3003": "- \\frac{1}{4 t^{2}}",
+      "R_3030": "\\frac{1}{4 t^{2}}",
+      "R_3113": "\\frac{\\frac{R^{2}}{4} + k t}{t \\left(k r^{2} - 1\\right)}",
+      "R_3131": "\\frac{- \\frac{R^{2}}{4} - k t}{t \\left(k r^{2} - 1\\right)}",
+      "R_3223": "- \\frac{R^{2} r^{2}}{4 t} - k r^{2} + 1",
+      "R_3232": "\\frac{R^{2} r^{2}}{4 t} + k r^{2} - 1"
+    },
+    "ricci_tensor": {
+      "R_00": "\\frac{3}{4 t^{2}}",
+      "R_11": "\\frac{- R^{2} - 8 k t}{4 t \\left(k r^{2} - 1\\right)}",
+      "R_22": "\\frac{R^{2} r^{2}}{4 t} + 2 k r^{2} - 1",
+      "R_33": "\\frac{\\left(\\frac{R^{2} r^{2}}{4} + 2 k r^{2} t - t\\right) \\sin^{2}{\\left(\\theta \\right)}}{t}"
+    },
+    "ricci_scalar": "\\frac{2 \\left(3 k r^{2} - 1\\right)}{R^{2} r^{2} t}",
+    "kretschmann": "\\frac{R^{6} r^{6} t^{2} \\left(k r^{2} - 1\\right) \\left(\\cos^{2}{\\left(\\theta \\right)} - 2\\right) \\sin^{2}{\\left(\\theta \\right)} + R^{6} r^{4} t^{2} \\sin^{2}{\\left(\\theta \\right)} + R^{2} r^{4} \\left(k r^{2} - 1\\right)^{2} \\sin^{2}{\\left(\\theta \\right)} + R^{2} r^{2} \\left(- k r^{2} + 1\\right) \\sin^{2}{\\left(\\theta \\right)} + R^{2} r^{2} \\left(- k r^{2} + 1\\right) - r^{6} t \\left(R^{2} + 4 k t\\right)^{2} \\left(k r^{2} - 1\\right)^{2} \\left(\\sin^{4}{\\left(\\theta \\right)} + \\sin^{2}{\\left(\\theta \\right)}\\right) - r^{2} t \\left(R^{2} + 4 k t\\right)^{2} \\sin^{2}{\\left(\\theta \\right)} - r^{2} t \\left(R^{2} + 4 k t\\right)^{2} + t \\left(R^{2} r^{2} + 4 t \\left(k r^{2} - 1\\right)\\right)^{2} \\left(k r^{2} - 1\\right) \\sin^{4}{\\left(\\theta \\right)} + t \\left(R^{2} r^{2} + 4 t \\left(k r^{2} - 1\\right)\\right)^{2} \\left(k r^{2} - 1\\right)}{8 R^{4} r^{4} t^{5} \\left(k r^{2} - 1\\right) \\sin^{2}{\\left(\\theta \\right)}}",
+    "einstein_tensor": {
+      "G_00": "\\frac{3}{4 t^{2}} + \\frac{3 k}{R^{2} t} - \\frac{1}{R^{2} r^{2} t}",
+      "G_11": "\\frac{- \\frac{R^{2} r^{2}}{4} + k r^{2} t - t}{r^{2} t \\left(k r^{2} - 1\\right)}",
+      "G_22": "\\frac{r^{2} \\left(\\frac{R^{2}}{4} - k t\\right)}{t}",
+      "G_33": "\\frac{r^{2} \\left(\\frac{R^{2}}{4} - k t\\right) \\sin^{2}{\\left(\\theta \\right)}}{t}"
+    },
+    "killing_vectors": []
+  }
+}

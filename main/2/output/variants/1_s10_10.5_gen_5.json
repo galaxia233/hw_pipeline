@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "Killing_vector",
+      "coordinate": "Schwarzschild",
+      "scenario": "black_hole",
+      "method": "invert_from_conservation",
+      "generalization_axis": "invert",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$",
+      "$\\xi_{(t)}^\\mu$",
+      "$\\xi_{(\\phi)}^\\mu$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，自由下落粒子的动力学观测表明其 4-动量的协变分量满足守恒律：$p_t = -E$ （常数）和 $p_\\phi = L$ （常数），其中 $E$ 为粒子能量，$L$ 为角动量。该时空的线元为 $ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。请从这两个动力学守恒性质出发，反推并证明该时空必然存在对应的时间平移和轴旋转 Killing 矢量场：首先证明若某量 $p_\\mu \\xi^\\mu$ 对所有测地线守恒，则矢量 $\\xi^\\mu$ 必须满足 Killing 方程 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$；然后根据 $p_t$ 和 $p_\\phi$ 的守恒形式，反推并给出这两个 Killing 矢量在当前坐标系下的具体分量形式。",
+    "answer": "反推得出时空必然存在 Killing 矢量场 $\\xi_{(t)}^\\mu = (1, 0, 0, 0)$ 和 $\\xi_{(\\phi)}^\\mu = (0, 0, 0, 1)$，且它们满足 Killing 方程 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$。",
+    "solution": "1. 证明 Killing 方程：对于自由下落粒子，其 4-动量 $p^\\mu$ 满足测地线方程 $p^\\nu \\nabla_\\nu p^\\mu = 0$。利用度规相容性 $\\nabla_\\nu g_{\\mu\\alpha} = 0$，可得协变分量同样满足 $p^\\nu \\nabla_\\nu p_\\mu = g_{\\mu\\alpha} p^\\nu \\nabla_\\nu p^\\alpha = 0$。\\n2. 考虑某矢量场 $\\xi^\\mu$，计算内积 $C = p_\\mu \\xi^\\mu$ 沿测地线的导数：\\n$\\frac{dC}{d\\lambda} = p^\\nu \\nabla_\\nu (p_\\mu \\xi^\\mu) = p^\\nu (\\nabla_\\nu p_\\mu) \\xi^\\mu + p^\\nu p_\\mu \\nabla_\\nu \\xi^\\mu = p^\\nu p_\\mu \\nabla_\\nu \\xi^\\mu$。\\n3. 将指标降为全协变形式：$\\frac{dC}{d\\lambda} = p^\\nu p^\\mu \\nabla_\\nu \\xi_\\mu$。分解 $\\nabla_\\nu \\xi_\\mu$ 为对称和反对称部分：$\\nabla_\\nu \\xi_\\mu = \\nabla_{(\\nu} \\xi_{\\mu)} + \\nabla_{[\\nu} \\xi_{\\mu]}$。\\n4. 由于 $p^\\nu p^\\mu$ 是对称张量，它与反对称张量 $\\nabla_{[\\nu} \\xi_{\\mu]}$ 的缩并必定为零。因此 $p^\\nu p^\\mu \\nabla_\\nu \\xi_\\mu = p^\\nu p^\\mu \\nabla_{(\\nu} \\xi_{\\mu)}$。\\n5. 若 $C = p_\\mu \\xi^\\mu$ 对所有测地线（即对所有可能的 $p^\\mu$）均守恒，则必须要求 $p^\\nu p^\\mu \\nabla_{(\\nu} \\xi_{\\mu)} = 0$ 恒成立，这必然要求对称部分本身为零，即 $\\nabla_{(\\nu} \\xi_{\\mu)} = 0$，写成显式即为 Killing 方程 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$。这证明了守恒量必然对应 Killing 矢量场。\\n6. 反推 Killing 矢量分量：已知守恒量为 $p_t = -E$ 和 $p_\\phi = L$。\\n对于时间平移守恒量，有 $p_\\mu \\xi_{(t)}^\\mu = p_t \\xi_{(t)}^t + p_r \\xi_{(t)}^r + p_\\theta \\xi_{(t)}^\\theta + p_\\phi \\xi_{(t)}^\\phi = p_t = -E$。要使此式对所有 4-动量成立，必须有 $\\xi_{(t)}^t = 1$ 且 $\\xi_{(t)}^r = \\xi_{(t)}^\\theta = \\xi_{(t)}^\\phi = 0$，即 $\\xi_{(t)}^\\mu = (1, 0, 0, 0)$。\\n同理，对于角动量守恒量，有 $p_\\mu \\xi_{(\\phi)}^\\mu = p_\\phi = L$，必须有 $\\xi_{(\\phi)}^\\phi = 1$ 且其他分量为 0，即 $\\xi_{(\\phi)}^\\mu = (0, 0, 0, 1)$。"
+  },
+  "verification": null
+}

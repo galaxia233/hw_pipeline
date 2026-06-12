@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s15_15.18-0-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "Bernoulli_potential",
+      "coordinate": "spherical",
+      "scenario": "Bondi_accretion_contrast",
+      "method": "conservation_laws",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.18",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.18",
+      "1_s15_15.18-0",
+      "1_s15_15.18-0-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "势能项差异",
+      "临界半径物理影响"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "绝热气体球对称吸积到中心天体上。在广义相对论中，流体稳态吸积的能量守恒由度规的类时Killing矢量保证，其形式为 $h u_\\mu \\xi^\\mu = \\text{const}$，其中 $h = 1 + a^2/(\\gamma-1)$ 为比焓，$u^\\mu$ 为流体微团的四速度，$\\xi^\\mu$ 为类时Killing矢量。已知两种黑洞度规及其属性如下：**背景A（Schwarzschild 黑洞）**- 度规：$ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s = 2GM/c^2$。- 类时Killing矢量：$\\xi^\\mu_{(A)} = (1, 0, 0, 0)$，对应时间平移与能量守恒。**背景B（Reissner-Nordström 带电黑洞）**- 度规：$ds^2 = -\\left(1 - \\frac{r_s}{r} + \\frac{r_Q^2}{r^2}\\right) dt^2 + \\left(1 - \\frac{r_s}{r} + \\frac{r_Q^2}{r^2}\\right)^{-1} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s = 2GM/c^2$, $r_Q^2 = GQ^2/(4\\pi\\epsilon_0 c^4)$。- 类时Killing矢量：$\\xi^\\mu_{(B)} = (1, 0, 0, 0)$，对应时间平移与能量守恒。请在两种背景下分别推导 $h u_\\mu \\xi^\\mu = \\text{const}$ 在弱场低速极限（$r_s/r \\ll 1$, $r_Q^2/r^2 \\ll 1$, $v/c \\ll 1$）下还原出的 Newtonian Bernoulli 方程，保留至 $1/r^2$ 阶项。对比两种背景下引力势能项的差异，并解释黑洞电荷 $Q$ 对吸积流声速点（临界半径）位置的物理影响。",
+    "answer": "背景A还原的 Newtonian Bernoulli 方程为：$\\frac{v^2}{2} + \\frac{a^2}{\\gamma-1} - \\frac{GM}{r} = \\text{const}$背景B还原的 Newtonian Bernoulli 方程为：$\\frac{v^2}{2} + \\frac{a^2}{\\gamma-1} - \\frac{GM}{r} + \\frac{GQ^2}{8\\pi\\epsilon_0 r^2} = \\text{const}$**差异对比与物理含义**：背景B的引力势能中多出一项正的静电排斥势 $+\\frac{GQ^2}{8\\pi\\epsilon_0 r^2}$，这使得黑洞的有效引力势变浅。由于静电排斥力削弱了整体引力吸引，流体在相同半径处的下落加速度减小，要达到与 Schwarzschild 背景下相同的局部声速条件，吸积流的声速点（临界半径）会向外推移，或者需要更高的无穷远边界声速/密度才能触发跨声速吸积，从而在整体上表现为黑洞电荷 $Q$ 抑制了吸积率。",
+    "solution": "1. 根据类时Killing矢量，流体稳态绝热吸积的能量守恒方程为 $h u_t = \\text{const}$。2. 由四速度约束 $u^\\mu u_\\mu = -1$，可得 $u_t = -\\sqrt{g_{tt}(1 + g_{rr} v^2)}$，其中局部静止观测者测量的径向速度定义为 $v = \\sqrt{g_{rr}/(-g_{tt})} u^r$，代入后有 $1 + g_{rr} v^2 = 1/(1-v^2/c^2)$，因此 $u_t = -\\sqrt{-g_{tt} / (1-v^2/c^2)}$。3. 在弱场低速极限下展开各项：比焓 $h \\approx 1 + a^2/(\\gamma-1 c^2)$，Lorentz因子 $1/\\sqrt{1-v^2/c^2} \\approx 1 + v^2/2c^2$，度规时间分量 $\\sqrt{-g_{tt}} \\approx 1 - \\Phi/c^2$。4. 对于背景A，势能 $\\Phi_A = -GM/r$；对于背景B，势能 $\\Phi_B = -GM/r + GQ^2/(8\\pi\\epsilon_0 r^2)$。5. 将展开式代入 $h u_t$，保留至 $1/c^2$ 阶，可得 $h u_t \\approx -1 - \\frac{v^2}{2c^2} + \\frac{\\Phi}{c^2} + \\frac{a^2}{\\gamma-1 c^2}$。6. 乘以 $-c^2$ 并移项，即可得到两种背景下的 Newtonian Bernoulli 方程。对比两式可见背景B新增了正的排斥势项，物理上导致临界半径外移或吸积率降低。"
+  },
+  "verification": null
+}

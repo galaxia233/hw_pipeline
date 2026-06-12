@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-1-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "local_velocity_expression",
+      "coordinate": "stationary_frame",
+      "scenario": "stationary_contrast_schwarzschild",
+      "method": "local_observation_projection",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-1",
+      "1_s10_10.15-1-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\xi$",
+      "$\\mathbf{E}$",
+      "$\\mathbf{p}$",
+      "$\\mu$"
+    ],
+    "target": [
+      "local_velocity_in_stationary",
+      "local_velocity_in_schwarzschild",
+      "physical_meaning_of_metric_coefficient"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "背景一：一般稳态时空。该时空具有时间 Killing 矢量 $\\boldsymbol{\\xi}$。测试粒子的4-动量为 $\\mathbf{p}$，静止质量为 $\\mu$。粒子的“无限远能量”定义为 $\\mathbf{E} = -\\mathbf{p} \\cdot \\boldsymbol{\\xi}$。局部静止观测者的4-速度定义为 $\\mathbf{u}_{\\text{stat}} = \\boldsymbol{\\xi} / \\sqrt{-\\xi^2}$，其中 $\\xi^2 = \\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}$。假设该局部静止观测者测得该测试粒子的局部3-速度大小为 $v$。背景二：Schwarzschild 时空。度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s = 2M$。根据该时空的 Fact Sheet，其时间平移 Killing 矢量为 $\\boldsymbol{\\xi}_t = \\partial_t$（分量形式为 $(1,0,0,0)$），对应粒子的守恒能量定义为 $\\tilde{E} = -\\mathbf{p} \\cdot \\boldsymbol{\\xi}_t$。定义局部静止观测者的4-速度为 $\\mathbf{u}_{\\text{stat}} = \\boldsymbol{\\xi}_t / \\sqrt{-\\xi_t^2}$，测得的局部3-速度大小为 $v$。请分别推导在背景一和背景二中，局部3-速度 $v$ 与粒子守恒能量（$\\mathbf{E}/\\mu$ 或 $\\tilde{E}/\\mu$）及时间 Killing 矢量范数（$\\xi^2$ 或 $\\xi_t^2$）的关系式。对比两种背景下的推导结果，并解释 Schwarzschild 时空中的度规系数 $g_{00}$ 如何具体体现一般稳态时空的 Killing 矢量范数，以及该差异对粒子局部速度的物理影响。",
+    "answer": "在背景一（一般稳态时空）中，局部速度 $v$ 的关系式为：$$v^2 = 1 - \\frac{-\\xi^2}{(\\mathbf{E}/\\mu)^2}$$在背景二（Schwarzschild 时空）中，时间 Killing 矢量 $\\boldsymbol{\\xi}_t = \\partial_t$ 的范数为 $\\xi_t^2 = g_{00} \\cdot 1^2 = -\\frac{r-r_s}{r} = -(1-2M/r)$。代入上述关系，得到局部速度 $v$ 的具体表达式为：$$v^2 = 1 - \\frac{1-2M/r}{(\\tilde{E}/\\mu)^2}$$对比与物理含义：Schwarzschild 时空的结果是一般稳态时空关系的具体实例化。在一般稳态时空中，Killing 矢量的范数 $-\\xi^2$ 抽象地反映了时空的引力红移因子；而在 Schwarzschild 时空中，$-\\xi_t^2$ 明确对应于度规的时间分量 $-g_{00} = 1-2M/r$，即引力红移因子 $\\sqrt{1-2M/r}$ 的平方。物理上，这意味着对于给定守恒能量 $\\tilde{E}$ 的粒子，越靠近黑洞（$r$ 越小，$-g_{00}$ 越小），其局部观测速度 $v$ 越大（趋近于光速 $v \\to 1$），因为更强的引力红移使得更多的守恒能量转化为局部动能；反之，在远离黑洞处（$r \\to \\inf ty$，$-g_{00} \\to 1$），关系退化为狭义相对论的形式 $v^2 = 1 - (\\mu/\\tilde{E})^2$。",
+    "solution": "背景一推导：1. 局部静止观测者4-速度 $\\mathbf{u}_{\\text{stat}} = \\boldsymbol{\\xi} / \\sqrt{-\\xi^2}$。2. 局部测得粒子能量 $E_{\\text{local}} = -\\mathbf{p} \\cdot \\mathbf{u}_{\\text{stat}} = -\\mu \\mathbf{u} \\cdot (\\boldsymbol{\\xi} / \\sqrt{-\\xi^2})$。3. 代入守恒量 $\\mathbf{E} = -\\mu \\mathbf{u} \\cdot \\boldsymbol{\\xi}$，得 $E_{\\text{local}} = \\mathbf{E} / \\sqrt{-\\xi^2}$。4. 狭义相对论关系 $E_{\\text{local}} = \\gamma \\mu$，其中 $\\gamma = 1/\\sqrt{1-v^2}$。5. 联立得 $\\gamma = \\frac{\\mathbf{E}}{\\mu \\sqrt{-\\xi^2}}$，两边平方并整理得 $v^2 = 1 - \\frac{-\\xi^2}{(\\mathbf{E}/\\mu)^2}$。背景二推导：1. 计算时间 Killing 矢量范数：$\\xi_t^2 = g_{00} \\xi_t^t \\xi_t^t = -\\frac{r-r_s}{r} = -(1-2M/r)$。2. 守恒能量 $\\tilde{E} = -\\mathbf{p} \\cdot \\boldsymbol{\\xi}_t$。3. 代入背景一的普适公式，得 $v^2 = 1 - \\frac{-\\xi_t^2}{(\\tilde{E}/\\mu)^2} = 1 - \\frac{1-2M/r}{(\\tilde{E}/\\mu)^2}$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "1. Answer中存在明显的排版/拼写错误：'$r \\to \\inf ty$'应为'$r \\to \\infty$'。2. Answer的物理机制解释存在概念性错误：声称'更强的引力红移使得更多的守恒能量转化为局部动能'。实际上，粒子向中心下落时局部动能增加，是因为引力势能转化为局部动能，此时局部静止观测者测得的粒子能量大于无限远处的守恒能量（对应引力蓝移）；引力红移是指局部高能过程在远方观测者看来能量减小的现象。将下落时局部动能的增加归因为'引力红移'在因果和概念上是倒置的，应归因于势能释放或蓝移效应。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

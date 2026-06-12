@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "id": "1_s1_1.17",
+    "type": "calculate",
+    "tags": {
+      "metric": "accelerated_frame",
+      "target_object": "coordinate_transformation",
+      "coordinate": "proper_time",
+      "scenario": "rindler_coordinates",
+      "method": "clock_desynchronization"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.17",
+    "source_id": "1_s1_1.17",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.17"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "匀加速参考系构建条件明确，需多步几何约束推导坐标变换，并关联固有时与同时面分析时钟同步性，物理图像清晰且可推广至弯曲时空等效原理应用。",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$\\\\overline{t}$",
+      "$\\\\overline{x}$",
+      "$\\\\overline{y}$",
+      "$\\\\overline{z}$",
+      "$g$"
+    ],
+    "target": [
+      "$t$",
+      "$x$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.17. An observer experiences a uniform acceleration in the $x$ direction, of magnitude $g$ . Define a coordinate system $(\\overline{t}, \\overline{x}, \\overline{y}, \\overline{z})$ for him in the following way: (i) Let the observer be at $\\overline{x} = \\overline{y} = \\overline{z} = 0$ and let $\\overline{t}$ be his proper time. (ii) Let his hyperplanes of simultaneity agree with the hyperplanes of simultaneity of an instantaneously comoving inertial frame. (iii) Let the other \"coordinate stationary observers\" (for whom $\\overline{x}, \\overline{y}, \\overline{z}$ are constant) move in such a way that they are always at rest with respect to the observer on the hyperplanes of simultaneity. At $t = 0$ label all spatial points with the same labels as the momentarily comoving inertial system $t = 0, x, y, z$ .\\nGive the coordinate transformation between $t, x, y, z$ and $\\overline{t}, \\overline{x}, \\overline{y}, \\overline{z}$ . Show that coordinate stationary clocks cannot remain synchronized.",
+    "answer": "$t = (g^{-1} + \\\\overline{x}) \\\\sin h g \\\\overline{t}$, $x = (g^{-1} + \\\\overline{x}) \\\\cos h g \\\\overline{t} - g^{-1}$, $y = \\\\overline{y}$, $z = \\\\overline{z}$；由于 $\\\\mathrm{d}\\\\tau = (1 + g\\\\overline{x}) \\\\mathrm{d}\\\\overline{t}$ 依赖于空间坐标 $\\\\overline{x}$，坐标静止时钟无法保持同步。",
+    "solution": "Solution 1.17. If the acceleration is in the $x$ direction we can clearly choose $y = \\\\overline{y}$ , $z = \\\\overline{z}$ . Note that the world lines\\n$$\\n\\\\begin{array}{l} \\\\mathbf {t} = \\\\mathbf {A} \\\\sin h \\\\mathbf {g} \\\\overline {{\\\\mathbf {t}}} + \\\\mathbf {B} \\\\\\\\ \\\\mathbf {x} = \\\\mathbf {A} \\\\cos h \\\\mathbf {g t} + \\\\mathbf {C} \\\\\\\\ \\\\end{array}\\n$$\\nrepresent world lines with constant acceleration. [Easily verified. See also Problem 2.13.] If $\\\\mathbf{A}, \\\\mathbf{B}, \\\\mathbf{C}$ are functions only of $\\\\overline{\\\\mathbf{x}}$ then the above equations represent a 4-velocity\\n$$\\n\\\\text bf {u} = \\\\cos h \\\\mathrm {g} \\\\overline {{\\\\mathbf {t}}} \\\\text bf {e}_{\\\\mathbf {t}} + \\\\sin h \\\\mathrm {g} \\\\overline {{\\\\mathbf {t}}} \\\\text bf {e}_{\\\\mathbf {x}},\\n$$\\nindependent of $\\\\overline{\\\\mathbf{x}}$ , and they therefore give us a set of world lines which are parallel on a $\\\\overline{\\\\mathbf{t}} =$ constant surface. If, furthermore B and C are constant, u is perpendicular to the hyperplane $\\\\mathrm{d}\\\\overline{\\\\mathbf{t}} = 0$ (i.e. the hyperplanes $\\\\overline{\\\\mathbf{t}} =$ constant are hyperplanes of simultaneity for the momentarily comoving inertial frame). It remains only to choose A(x), B, and C correctly:\\n$$\\n\\\\begin{array}{l} t = (g^{- 1} + \\\\bar {x}) \\\\sin h g \\\\bar {t} \\\\\\\\ \\\\mathbf {x} = \\\\left(\\\\mathbf {g}^{- 1} + \\\\overline {{\\\\mathbf {x}}}\\\\right) \\\\cos h \\\\mathbf {g} \\\\overline {{\\\\mathbf {t}}} - \\\\mathbf {g}^{- 1}. \\\\\\\\ \\\\end{array}\\n$$\\nNotice that the element of proper time for a coordinate stationary observer is\\n$$\\n\\\\mathrm {d} r = \\\\left(\\\\mathrm {d t}^{2} - \\\\mathrm {d x}^{2}\\\\right)^{\\\\frac {1}{2}} = (1 + \\\\mathrm {g} \\\\overline {{\\\\mathrm {x}}}) \\\\mathrm {d} \\\\overline {{\\\\mathrm {t}}}\\n$$\\nSince it does not depend only on $t$ , clocks will not remain synchronized. i.e. They can only agree on one hyperplane."
+  },
+  "verification": null
+}

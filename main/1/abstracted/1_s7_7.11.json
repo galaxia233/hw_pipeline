@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s7_7.11",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.11",
+    "source_id": "1_s7_7.11",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.11"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.5,
+      "rationale": "链式法则推导测地线方程重参数化条件+逻辑完整+广义相对论核心几何结构",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\lambda$",
+      "$s$",
+      "$f(\\lambda)$",
+      "$\\mathbf{x}^\\alpha$",
+      "$\\Gamma^\\alpha_{\\beta\\gamma}$"
+    ],
+    "target": [
+      "$\\Gamma^\\alpha_{\\beta\\gamma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.11. An affine parameter $\\lambda$ is one for which the equation of geodesic motion has the form$$\\frac {\\mathrm {d} \\mathbf {x}^{\\alpha}}{\\mathrm {d} \\lambda^{2}} + \\Gamma_{\\beta \\gamma}^{\\alpha} \\frac {\\mathrm {d} \\mathbf {x}^{\\beta}}{\\mathrm {d} \\lambda} \\frac {\\mathrm {d} \\mathbf {x}^{\\gamma}}{\\mathrm {d} \\lambda} = 0.$$Show that all affine parameters are related by linear transformations with constant coefficients.",
+    "answer": "Affine parameters $s$ and $\\lambda$ are related by a linear transformation $s = a\\lambda + b$ with constant coefficients $a$ and $b$ ($a \\neq 0$).",
+    "solution": "Solution 7.11. Define a new curve parametrization by the functional relationship $\\mathbf{s} = \\mathbf{f}(\\lambda)$ . Then derivatives are related by$$\\frac {d}{d \\lambda} = f^{\\prime} \\frac {d}{d s} \\quad \\frac {d^{2}}{d \\lambda^{2}} = f^{\\prime \\prime} \\frac {d}{d s} + f^{\\prime 2} \\frac {d^{2}}{d s^{2}}, \\tag {1}$$where $\\mathbf{f}' \\equiv \\frac{\\mathrm{df}}{\\mathrm{d}\\lambda}$ . With the new parametrization then the geodesic equation becomes$$\\frac {d^{2} \\mathbf {x}^{\\alpha}}{d s^{2}} + \\frac {f^{\\prime \\prime}}{f^{\\prime 2}} \\frac {d x^{\\alpha}}{d s} + \\Gamma^{\\alpha}_{\\beta \\gamma} \\frac {d x^{\\beta}}{d s} \\frac {d x^{\\gamma}}{d s} = 0. \\tag {2}$$Equation (2) is in the \"standard form\" (s an affine parametrization) if the second term vanishes. For s to be an affine parameter, f\" must vanish i.e. s and $\\lambda$ must be linearly related."
+  },
+  "verification": null
+}

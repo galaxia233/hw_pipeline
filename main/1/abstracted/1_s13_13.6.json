@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s13_13.6",
+    "type": "concept",
+    "tags": {
+      "metric": "energy_condition",
+      "target_object": "tensor_diagonalization",
+      "coordinate": "eigenvalue_analysis",
+      "scenario": "frame_transformation",
+      "method": "spacetime_physics"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.6",
+    "source_id": "1_s13_13.6",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "通过本征值分析与参考系变换推导弱能量条件的充要判据，逻辑严密且具标准物理应用背景",
+      "overall": 0.83
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$0$",
+      "$1$",
+      "$2$",
+      "$3$"
+    ],
+    "target": [
+      "$T^{\\hat{0}\\hat{0}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 13.6. Normally it is assumed that a physically possible $\\mathbf{T}^{\\mu \\nu}$ must satisfy the (weak) energy condition, $\\mathbf{T}^{00} \\geq 0$ for all physical observers. Assume that $\\mathbf{T}^{\\mu \\nu}$ has a timelike eigenvector; how can a given single observer determine whether the $\\mathbf{T}^{\\mu \\nu}$ he measures satisfies the condition?",
+    "answer": "$\\rho \\geq 0 \\quad \\rho + p_{i} \\geq 0$",
+    "solution": "Solution 13.6. Given $\\mathbf{T}_{\\alpha}^{\\beta}$ in his own orthonormal frame, the observer can find its four eigenvalues and eigenvectors:\\n$$\\n\\mathrm {T}_{\\alpha}^{\\beta} \\mathrm {W}_{\\beta} = \\lambda \\mathrm {W}_{\\alpha}. \\tag {1}\\n$$\\nWe are given that one eigenvector is timelike. Normalize it so that $\\mathbf{W}_{\\alpha}\\mathbf{W}^{\\alpha} = -1$ . If its components are $\\mathbf{W}^{\\alpha} = (\\gamma, \\gamma \\mathbf{v}^{\\mathrm{j}})$ , then perform a Lorentz transformation with velocity $\\mathbf{v}^{\\mathrm{j}}$ to the rest frame of $\\mathbf{W}$ . In that frame $\\mathbf{W}^{\\hat{\\alpha}} = (1, 0)$ and Equation (1) gives $\\mathbf{T}^{\\hat{0}\\hat{0}} = -\\lambda_{\\text{timelike}} \\equiv \\rho$ , and $\\mathbf{T}^{\\hat{0}\\hat{\\mathbf{k}}} = 0$ . The $3 \\times 3$ matrix $\\mathbf{T}_{\\hat{\\mathbf{j}}\\hat{\\mathbf{k}}}$ can be diagonalized by a spatial rotation, and from Equation (1) we see that the diagonal elements are the remaining\\neigenvalues $\\lambda_{\\mathbf{i}} = \\mathbf{p}_{\\mathbf{i}}$ with $\\mathbf{i} = 1,2,3$ . Now let $\\mathbf{u}$ be an arbitrary\\n4-velocity, with components $\\mathbf{u}^{\\alpha} = (\\overline{\\gamma},\\overline{\\gamma}\\overline{\\mathbf{v}}^{\\mathrm{j}})$ in the frame of the observer for whom $\\mathbf{T}^{\\alpha \\beta}$ is diagonal. The weak energy condition is that $\\mathbf{T}^{\\alpha \\beta}\\mathbf{u}_{\\alpha}\\mathbf{u}_{\\beta}\\geq 0$ that is\\n$$\\n\\rho + \\bar {\\mathrm {v}}_{1}^{2} \\mathrm {p}_{1} + \\bar {\\mathrm {v}}_{2}^{2} \\mathrm {p}_{2} + \\bar {\\mathrm {v}}_{3}^{2} \\mathrm {p}_{3} \\geq 0 \\tag {2}\\n$$\\nwhere $\\overline{\\mathbf{v}}^{\\mathbf{j}}$ is arbitrary and $\\overline{\\mathbf{v}}^2\\leq 1$ . The necessary and sufficient condition that Equation (2) be satisfied is\\n$$\\n\\rho \\geq 0 \\quad \\rho + p_{i} \\geq 0 \\tag {3}\\n$$\\na test which can be made by the original observer after he has solved Equation (1). For the case when $\\mathbf{T}^{\\alpha \\beta}$ has no timelike eigenvector, see Hawking and Ellis, p. 89."
+  },
+  "verification": null
+}

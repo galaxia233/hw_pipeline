@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "id": "1_s11_11.9-0",
+    "type": "calculate",
+    "tags": {
+      "target_object": "$e_{crit}$",
+      "coordinate": "orbital_parameters",
+      "scenario": "precession",
+      "method": "extrema_analysis",
+      "generalization_axis": "apply",
+      "metric": "weak_field_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.9",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.9",
+      "1_s11_11.9-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "weak_field_metric",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$X$",
+      "$Y$",
+      "$Z$",
+      "$r_s$",
+      "$r_M$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\psi$",
+      "$J$",
+      "$C$",
+      "$A$",
+      "$\\omega$",
+      "$T$"
+    ],
+    "target": [
+      "$e_{crit}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在研究由外部天体潮汐力与行星四极矩耦合引起的自转轴进动时，已知瞬时进动角速率 $\\dot{\\psi}$ 正比于外部天体在行星处产生的潮汐力场梯度（正比于 $M/r^3$，其中 $M$ 为外部天体质量，$r$ 为瞬时距离），正比于行星的四极矩（由扁率 $\\epsilon$ 表征），反比于行星自转角动量（正比于自转角速度 $\\omega$）。因此，瞬时进动角速率可表示为 $\\dot{\\psi} = C \\frac{M \\epsilon}{\\omega r^3}$，其中 $C$ 为包含物理常数的比例系数。\\n\\n若该行星在半长轴为 $a$、离心率为 $e$ 的椭圆轨道上运行，则在近星点（$r_{peri} = a(1-e)$）和远星点（$r_{apo} = a(1+e)$）处的瞬时进动角速率会存在差异。为了维持行星气候系统的长期稳定（避免因进动速率剧烈波动导致的极端季节变迁），行星宜居性模型要求近星点与远星点的进动角速率比值 $R = \\dot{\\psi}_{peri} / \\dot{\\psi}_{apo}$ 不能超过一个给定的临界阈值 $K$（$K > 1$）。\\n\\n请计算满足该稳定条件时，行星轨道离心率 $e$ 的最大允许临界值 $e_{crit}$（以阈值 $K$ 的解析表达式表示）。",
+    "answer": "$e_{crit} = \\frac{K^{1/3} - 1}{K^{1/3} + 1}$",
+    "solution": "1. 根据题意，瞬时进动角速率的表达式为 $\\dot{\\psi} = C \\frac{M \\epsilon}{\\omega r^3}$。\\n2. 在近星点处，距离 $r_{peri} = a(1-e)$，代入得近星点进动角速率：\\n   $\\dot{\\psi}_{peri} = C \\frac{M \\epsilon}{\\omega [a(1-e)]^3}$\\n3. 在远星点处，距离 $r_{apo} = a(1+e)$，代入得远星点进动角速率：\\n   $\\dot{\\psi}_{apo} = C \\frac{M \\epsilon}{\\omega [a(1+e)]^3}$\\n4. 计算两者的比值 $R$：\\n   $R = \\frac{\\dot{\\psi}_{peri}}{\\dot{\\psi}_{apo}} = \\frac{[a(1+e)]^3}{[a(1-e)]^3} = \\frac{(1+e)^3}{(1-e)^3}$\\n5. 根据稳定条件，要求比值不超过阈值 $K$，即：\\n   $\\frac{(1+e)^3}{(1-e)^3} \\le K$\\n6. 对不等式两边开立方：\\n   $\\frac{1+e}{1-e} \\le K^{1/3}$\\n7. 展开并整理关于 $e$ 的不等式：\\n   $1+e \\le K^{1/3}(1-e)$\\n   $1+e \\le K^{1/3} - K^{1/3}e$\\n   $e(1 + K^{1/3}) \\le K^{1/3} - 1$\\n8. 解得离心率 $e$ 的最大允许临界值为：\\n   $e_{crit} = \\frac{K^{1/3} - 1}{K^{1/3} + 1}$"
+  },
+  "verification": null
+}

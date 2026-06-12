@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-5-2",
+    "type": "concept",
+    "tags": {
+      "target_object": "metric_perturbation_transformation",
+      "coordinate": "Cartesian",
+      "scenario": "linearized_gravity_gauge_transformation_verify",
+      "method": "tensor_transformation_and_symmetry_analysis",
+      "generalization_axis": "verify",
+      "metric": "MinkowskiCartesian"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-5",
+      "1_s13_13.12-5-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "MinkowskiCartesian",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "\\bar{h}_{\\mu\\nu}"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Minkowski 真空时空中，度规为 $\\eta_{\\mu\\nu} = \\text{diag}(-1,1,1,1)$。考虑一个无穷小坐标变换 $\\bar{x}^\\mu = x^\\mu + \\xi^\\mu(x)$，度规可表示为 $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$，变换后为 $\\bar{g}_{\\mu\\nu} = \\eta_{\\mu\\nu} + \\bar{h}_{\\mu\\nu}$。以下是某同学推导度规扰动 $\\bar{h}_{\\mu\\nu}(x)$ 的一阶变换律的过程：1. 度规的精确变换为 $\\bar{g}_{\\mu\\nu}(\\bar{x}) = \\frac{\\partial x^\\rho}{\\partial \\bar{x}^\\mu} \\frac{\\partial x^\\sigma}{\\partial \\bar{x}^\\nu} g_{\\rho\\sigma}(x)$。2. 坐标变换的雅可比矩阵为 $\\frac{\\partial x^\\rho}{\\partial \\bar{x}^\\mu} = \\delta^\\rho_\\mu + \\partial_\\mu \\xi^\\rho$。3. 将 $\\bar{g}_{\\mu\\nu}(\\bar{x})$ 在旧坐标 $x$ 处作泰勒展开，有 $\\bar{g}_{\\mu\\nu}(x+\\xi) = \\bar{g}_{\\mu\\nu}(x) - \\xi^\\rho \\partial_\\rho \\bar{g}_{\\mu\\nu}(x)$。4. 代入度规分解并保留一阶小量，由于 $\\partial_\\rho \\eta_{\\mu\\nu}=0$，得：$\\eta_{\\mu\\nu} + \\bar{h}_{\\mu\\nu} - \\xi^\\rho \\partial_\\rho h_{\\mu\\nu} = (\\delta^\\rho_\\mu + \\partial_\\mu \\xi^\\rho)(\\delta^\\sigma_\\nu + \\partial_\\nu \\xi^\\sigma)(\\eta_{\\rho\\sigma} + h_{\\rho\\sigma})$展开至一阶：$= \\eta_{\\mu\\nu} + \\partial_\\mu \\xi^\\rho \\eta_{\\rho\\nu} + \\partial_\\nu \\xi^\\sigma \\eta_{\\mu\\sigma} + h_{\\mu\\nu}$。5. 利用度规降低指标，注意到 $\\eta_{\\rho\\nu} = \\delta_{\\rho\\nu}$，则 $\\partial_\\mu \\xi^\\rho \\eta_{\\rho\\nu} = \\partial_\\mu \\xi^\\nu$，同理 $\\partial_\\nu \\xi^\\sigma \\eta_{\\mu\\sigma} = \\partial_\\nu \\xi^\\mu$。6. 综合以上结果，移项得到度规扰动的一阶变换律：$\\bar{h}_{\\mu\\nu} = h_{\\mu\\nu} + \\partial_\\mu \\xi^\\nu + \\partial_\\nu \\xi^\\mu + \\xi^\\rho \\partial_\\rho h_{\\mu\\nu}$。请找出上述推导过程中的所有错误，指出其位置和错误类型，并给出正确值。",
+    "answer": "推导过程中共有3处错误：1. 步骤2：雅可比矩阵符号错误。错误值 $\\delta^\\rho_\\mu + \\partial_\\mu \\xi^\\rho$，正确值为 $\\delta^\\rho_\\mu - \\partial_\\mu \\xi^\\rho$。2. 步骤3：泰勒展开符号错误。错误值 $\\bar{g}_{\\mu\\nu}(x) - \\xi^\\rho \\partial_\\rho \\bar{g}_{\\mu\\nu}$，正确值为 $\\bar{g}_{\\mu\\nu}(x) + \\xi^\\rho \\partial_\\rho \\bar{g}_{\\mu\\nu}$。3. 步骤5：度规降指标错误引用及指标位置错误。错误地将 Minkowski 度规当成欧几里得度规 $\\eta_{\\rho\\nu} = \\delta_{\\rho\\nu}$，且未正确转换指标的上下位置，得出 $\\partial_\\mu \\xi^\\rho \\eta_{\\rho\\nu} = \\partial_\\mu \\xi^\\nu$。正确操作应使用 Minkowski 度规 $\\eta_{\\rho\\nu} \\neq \\delta_{\\rho\\nu}$ 将上标降为下标，正确值为 $\\partial_\\mu \\xi^\\rho \\eta_{\\rho\\nu} = \\partial_\\mu \\xi_\\nu$（同理 $\\partial_\\nu \\xi^\\sigma \\eta_{\\mu\\sigma} = \\partial_\\nu \\xi_\\mu$）。",
+    "solution": "1. 度规的精确变换为 $\\bar{g}_{\\mu\\nu}(\\bar{x}) = \\frac{\\partial x^\\rho}{\\partial \\bar{x}^\\mu} \\frac{\\partial x^\\sigma}{\\partial \\bar{x}^\\nu} g_{\\rho\\sigma}(x)$。2. 坐标变换的雅可比矩阵为 $\\frac{\\partial x^\\rho}{\\partial \\bar{x}^\\mu} = \\delta^\\rho_\\mu - \\partial_\\mu \\xi^\\rho$。3. 将 $\\bar{g}_{\\mu\\nu}(\\bar{x})$ 在旧坐标 $x$ 处作泰勒展开，有 $\\bar{g}_{\\mu\\nu}(x+\\xi) = \\bar{g}_{\\mu\\nu}(x) + \\xi^\\rho \\partial_\\rho \\bar{g}_{\\mu\\nu}(x)$。4. 代入度规分解并保留一阶小量，由于 $\\partial_\\rho \\eta_{\\mu\\nu}=0$，得：$\\eta_{\\mu\\nu} + \\bar{h}_{\\mu\\nu} + \\xi^\\rho \\partial_\\rho h_{\\mu\\nu} = (\\delta^\\rho_\\mu - \\partial_\\mu \\xi^\\rho)(\\delta^\\sigma_\\nu - \\partial_\\nu \\xi^\\sigma)(\\eta_{\\rho\\sigma} + h_{\\rho\\sigma})$展开至一阶：$= \\eta_{\\mu\\nu} - \\partial_\\mu \\xi^\\rho \\eta_{\\rho\\nu} - \\partial_\\nu \\xi^\\sigma \\eta_{\\mu\\sigma} + h_{\\mu\\nu}$。5. 利用度规降低指标，$\\partial_\\mu \\xi^\\rho \\eta_{\\rho\\nu} = \\partial_\\mu \\xi_\\nu$，同理 $\\partial_\\nu \\xi^\\sigma \\eta_{\\mu\\sigma} = \\partial_\\nu \\xi_\\mu$。6. 综合以上结果，移项得到度规扰动的一阶变换律：$\\bar{h}_{\\mu\\nu} = h_{\\mu\\nu} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu - \\xi^\\rho \\partial_\\rho h_{\\mu\\nu}$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.minkowskicartesian_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "Answer 的 solution 存在严重物理与推导错误：\\n1. 题目推导在步骤4中，将泰勒展开产生的 $\\xi^\\rho \\partial_\\rho \\bar{h}_{\\mu\\nu}$ 错误地替换为了 $\\xi^\\rho \\partial_\\rho h_{\\mu\\nu}$（变量替换不一致），Answer 遗漏了这一错误，并在其纠正的步骤4中继续写成了 $\\xi^\\rho \\partial_\\rho h_{\\mu\\nu}$。\\n2. 在一阶微扰理论中，$\\xi$ 和 $h$ 均为一阶小量，因此 $\\xi^\\rho \\partial_\\rho h_{\\mu\\nu}$ 属于二阶小量，应当被舍弃。Answer 的 solution 在步骤4 LHS 保留了二阶项 $\\xi^\\rho \\partial_\\rho h_{\\mu\\nu}$，却在步骤4 RHS 舍弃了同为二阶项的 $\\partial_\\mu \\xi^\\rho h_{\\rho\\nu}$ 和 $\\partial_\\nu \\xi^\\sigma h_{\\mu\\sigma}$，微扰展开的阶数严重不一致，违反了题目“保留一阶小量”的明确要求。\\n3. Answer 得出的最终一阶变换律 $\\bar{h}_{\\mu\\nu} = h_{\\mu\\nu} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu - \\xi^\\rho \\partial_\\rho h_{\\mu\\nu}$ 包含了不该出现的二阶项。正确的一阶度规扰动变换律应为 $\\bar{h}_{\\mu\\nu} = h_{\\mu\\nu} - \\partial_\\mu \\xi_\\nu - \\partial_\\nu \\xi_\\mu$。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

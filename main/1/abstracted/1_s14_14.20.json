@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s14_14.20",
+    "type": "concept",
+    "tags": {
+      "metric": "killing_vector",
+      "target_object": "conserved_integral",
+      "coordinate": "charged_test_particle",
+      "scenario": "canonical_momentum",
+      "method": "lie_derivative"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s14_14.20",
+    "source_id": "1_s14_14.20",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s14_14.20"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 1.0,
+      "realism": 0.7,
+      "rationale": "基于Killing方程与电磁场对称性的多步守恒量推导，结构高度可迁移至任意具有连续对称性的时空背景，题干解答完整且为标准理论物理范式",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\boldsymbol{\\\\xi}$",
+      "$\\\\mathbf{A}$",
+      "$\\\\mathbf{p}$",
+      "$\\\\boldsymbol{\\\\pi}$",
+      "$e$"
+    ],
+    "target": [
+      "$\\\\pi_\\\\mu \\\\xi^\\\\mu$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 14.20. Suppose $\\pmb{\\xi}$ is a Killing vector for a solution of the Einstein-Maxwell equations. Write down an integral of the motion for charged test particles. (Assume $\\mathfrak{L}_{\\pmb{\\xi}}\\mathbf{A} = 0$ where $\\mathbf{A}$ is the 4-potential.)",
+    "answer": "$\\boldsymbol{\\pi} \\cdot \\boldsymbol{\\xi}$ is a conserved quantity along the particle's trajectory.",
+    "solution": "Solution 14.20. For an uncharged test particle, $\\mathbf{p} \\cdot \\boldsymbol{\\xi}$ is conserved. We can guess that for a charged particle, $\\boldsymbol{\\pi} \\cdot \\boldsymbol{\\xi}$ is conserved, where $\\boldsymbol{\\pi}$ is the canonical momentum $\\mathbf{p} + \\mathbf{eA}$ (see Problem 14.19). One way of seeing this is to note that corresponding to $\\boldsymbol{\\xi}$ there is an ignorable coordinate, i.e. we can choose coordinates so that the Hamiltonian $\\mathbf{H}$ is independent of one coordinate. The conjugate canonical momentum is then a conserved quantity.\\nAlternatively, we can verify directly from the equation of motion\\n$$\\n\\nabla_{\\mathbf {p}} \\mathbf {p} = e \\mathbf {F} \\cdot \\mathbf {p}\\n$$\\nthat\\n$$\\n\\n\\\\begin{array}{l} \\nabla_{\\mathbf {p}} (\\boldsymbol {\\\\pi} \\cdot \\boldsymbol {\\\\xi}) = (\\nabla_{\\mathbf {p}} \\mathbf {p}) \\cdot \\boldsymbol {\\\\xi} + \\\\mathbf {p} \\cdot \\nabla_{\\mathbf {p}} \\boldsymbol {\\\\xi} + e (\\nabla_{\\mathbf {p}} \\\\mathbf {A}) \\cdot \\boldsymbol {\\\\xi} + e \\\\mathbf {A} \\cdot \\nabla_{\\mathbf {p}} \\boldsymbol {\\\\xi} \\\\\\\\\\n= \\\\mathbf {e} \\\\boldsymbol {\\\\xi} \\cdot \\\\mathbf {F} \\cdot \\\\mathbf {p} + 0 + \\\\mathbf {e} (\\nabla_{\\mathbf {p}} \\\\mathbf {A}) \\cdot \\boldsymbol {\\\\xi} - \\\\mathbf {e p} \\cdot \\nabla_{\\\\mathbf {A}} \\boldsymbol {\\\\xi}. \\\\\\\\\\n\\\\end{array}\\n$$\\nHere we have used Killing's equation to set the second term to zero and to rewrite the last term. Note that the order of vectors in the dot products in the first line is immaterial, but $\\mathbf{F}$ has two \"slots\" and we must keep the vectors in the correct positions. Now the fact that the electromagnetic field admits an ignorable coordinate is expressed by the relation\\n$$\\n0 = \\\\mathcal {L}_{\\\\boldsymbol {\\\\xi}} \\\\mathbf {A} = \\nabla_{\\\\boldsymbol {\\\\xi}} \\\\mathbf {A} - \\nabla_{\\\\mathbf {A}} \\boldsymbol {\\\\xi}.\\n$$\\nUsing this in the last term, we get\\n$$\\n\\n\\\\begin{array}{l} \\nabla_{\\mathbf {p}} (\\\\pi \\cdot \\boldsymbol {\\\\xi}) = e \\\\boldsymbol {\\\\xi} \\cdot \\\\mathbf {F} \\cdot \\\\mathbf {p} + e \\\\boldsymbol {\\\\xi} \\cdot (\\nabla \\\\mathbf {A}) \\cdot \\\\mathbf {p} - e \\\\mathbf {p} \\cdot (\\nabla \\\\mathbf {A})^{\\\\prime} \\cdot \\\\boldsymbol {\\\\xi} \\\\\\\\\\n= e \\\\boldsymbol {\\\\xi} \\cdot \\\\mathbf {F} \\cdot \\\\mathbf {p} - e \\\\boldsymbol {\\\\xi} \\cdot \\\\mathbf {F} \\cdot \\\\mathbf {p} \\\\\\\\\\n= 0 \\\\\\\\\\n\\\\end{array}\\n$$\\nwhere we have used the fact that $\\mathbf{F}$ is $\\nabla \\mathbf{A}$ antisymmetrized. Thus $\\pi \\cdot \\xi$ is a conserved quantity along the particle's trajectory."
+  },
+  "verification": null
+}

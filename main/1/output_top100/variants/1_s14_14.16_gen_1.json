@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s14_14.16-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "covariant derivative commutator contraction",
+      "coordinate": "general",
+      "scenario": "field equation ambiguity",
+      "method": "Ricci identity contraction",
+      "generalization_axis": "extend",
+      "metric": "metric_tensor"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.16",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.16",
+      "1_s14_14.16-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric_tensor",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$A^\\\\mu$",
+      "$J^\\\\mu$",
+      "$F^{\\\\mu\\\\nu}$",
+      "$R^\\\\mu_\\\\sigma$"
+    ],
+    "target": [
+      "$A^{\\mu}_{;\\nu;\\mu} - A^{\\mu}_{;\\mu;\\nu}$",
+      "$R_{\\sigma\\nu}A^{\\sigma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，将平直时空的物理方程推广到弯曲时空的“逗号变分号”（comma-goes-to-semicolon）规则并非完全无歧义。正如对矢量势 $A^{\\mu}$ 的二阶导数算子 $\\partial^{\\nu} \\partial_{\\nu} A^{\\mu}$ 推广会产生差异，对另一种二阶导数缩并形式 $\\partial_{\\nu} \\partial_{\\mu} A^{\\mu}$ 的推广同样存在歧义。在平直时空中，算子 $\\partial_{\\nu} \\partial_{\\mu} A^{\\mu}$ 既可以理解为对标量 $\\partial_{\\mu} A^{\\mu}$ 的普通导数 $\\partial_{\\nu} (\\partial_{\\mu} A^{\\mu})$，也可以理解为对矢量 $A^{\\mu}$ 的二阶导数再缩并。应用“逗号变分号”规则，前者推广为对标量求导 $(A^{\\mu}_{;\\mu})_{;\\nu} = A^{\\mu}_{;\\mu;\\nu}$，后者推广为对矢量先求导再缩并 $A^{\\mu}_{;\\nu;\\mu}$。请证明这两种推广结果之间的差异，并给出用 Ricci 张量表示的最终表达式。",
+    "answer": "$R_{\\sigma\\nu}A^{\\sigma}$",
+    "solution": "根据协变导数的非对易性（Ricci 恒等式），任意矢量场 $V^{\\alpha}$ 的两次协变导数交换次序产生的差异由 Riemann 曲率张量决定：$$V^{\\alpha}_{;\\beta;\\gamma} - V^{\\alpha}_{;\\gamma;\\beta} = R^{\\alpha}_{\\phantom{\\alpha}\\sigma\\beta\\gamma}V^{\\sigma}$$令 $V^{\\alpha} = A^{\\alpha}$，并将等式左侧的第一个矢量指标 $\\alpha$ 与第二个导数指标 $\\gamma$ 进行缩并（取 $\\gamma = \\alpha$），得到：$$A^{\\alpha}_{;\\beta;\\alpha} - A^{\\alpha}_{;\\alpha;\\beta} = R^{\\alpha}_{\\phantom{\\alpha}\\sigma\\beta\\alpha}A^{\\sigma}$$根据 Riemann 张量的缩并定义，$R^{\\alpha}_{\\phantom{\\alpha}\\sigma\\beta\\alpha} = R_{\\sigma\\beta}$，这正是 Ricci 张量。因此等式变为：$$A^{\\alpha}_{;\\beta;\\alpha} - A^{\\alpha}_{;\\alpha;\\beta} = R_{\\sigma\\beta}A^{\\sigma}$$将自由指标 $\\beta$ 替换为 $\\nu$，缩并指标 $\\alpha$ 替换为 $\\mu$，即得题目所求的两种推广方式的差异：$$A^{\\mu}_{;\\nu;\\mu} - A^{\\mu}_{;\\mu;\\nu} = R_{\\sigma\\nu}A^{\\sigma}$$这表明，对算子 $\\partial_{\\nu} \\partial_{\\mu} A^{\\mu}$ 的两种推广方式，其差异正比于 Ricci 张量与矢量势的缩并 $R_{\\sigma\\nu}A^{\\sigma}$。"
+  },
+  "verification": null
+}

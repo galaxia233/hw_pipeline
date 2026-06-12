@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_3",
+    "type": "concept",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "stress_energy_tensor",
+      "coordinate": "comoving_coordinates",
+      "scenario": "quantum_vacuum_scenario",
+      "method": "dimensional_analysis_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s13_13.4_3",
+    "source_id": "1_s13_13.4_3",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s13_13.4_3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.8,
+      "realism": 0.9,
+      "rationale": "结合量子真空涨落与引力相互作用进行量纲估计，并关联现代宇宙学观测约束探讨宇宙学常数问题",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\hbar$",
+      "$c$",
+      "$G$",
+      "$m$",
+      "$\\lambda_C$",
+      "$\\rho$"
+    ],
+    "target": [
+      "$T_{00}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 13.4. In relativistic quantum mechanics empty space contains virtual particles. It is speculated that the vacuum therefore, has a nonzero stress-energy.(3) Ya. B. Zel'dovich has suggested that the mass-energy density should be associated only with the gravitational interaction energy of nearby virtual particles (separated by their Compton wavelength). What is the predicted magnitude of the vacuum stress energy here? Is it ruled out by observation?",
+    "answer": "预测的真空质量-能量密度量级约为 $\\rho \\sim \\frac{G m^6 c^4}{\\hbar^4}$（或普朗克密度量级）。该值远超实际观测到的暗能量密度（约 $10^{-29}\\,\\text{g/cm}^3$），因此被观测严格排除。",
+    "solution": null
+  },
+  "verification": null
+}

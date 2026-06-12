@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-0-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "$r_c$",
+      "coordinate": "spherical",
+      "scenario": "gyroscope_precession_critical_radius_contrast",
+      "method": "equating_magnitudes",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-0",
+      "1_s11_11.11-0-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\phi$",
+      "$M$",
+      "$\\mathbf{v}$",
+      "$\\mathbf{S}$",
+      "$h_j$",
+      "$\\Gamma_{\\hat{j}\\hat{k}\\hat{0}}$"
+    ],
+    "target": [
+      "$r_c$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，赤道圆轨道上陀螺仪的测地进动角速度大小为 $\\Omega_G = \\frac{3(GM)^{3/2}}{2c^2 r^{5/2}}$，Lense-Thirring 进动角速度大小为 $\\Omega_{LT} = \\frac{2GJ}{c^2 r^3}$。**背景 A（旋转天体）**：弱场慢旋转度规（Lense-Thirring 度规），线元为 $ds^2 = -\\left(1 - \\frac{2GM}{c^2 r}\\right) c^2 dt^2 + \\left(1 - \\frac{2GM}{c^2 r}\\right)^{-1} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2 - \\frac{4GJ}{c^2 r} \\sin^2\\theta dt d\\phi$，其中天体自旋角动量 $J \\neq 0$。该度规具有时间平移和绕 $\\phi$ 轴旋转的 Killing 矢量（轴对称）。**背景 B（Schwarzschild）**：Schwarzschild 度规，线元为 $ds^2 = -\\left(1 - \\frac{r_s}{r}\\right) dt^2 + \\left(1 - \\frac{r_s}{r}\\right)^{-1} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s = 2GM/c^2$，对应 $J = 0$。该度规具有时间平移和绕 $\\phi$ 轴旋转的 Killing 矢量，且具有更高阶的球对称性（3个旋转 Killing 矢量）。请分别在背景 A 和背景 B 下，推导或判断使得这两种进动效应大小相等的临界轨道半径 $r_c$（若不存在则说明原因），并对比两种背景下 $r_c$ 的差异，结合度规结构（特别是 $dt d\\phi$ 交叉项）与 Killing 矢量反映的对称性差异，解释该差异反映的 Lense-Thirring 效应的物理起源。",
+    "answer": "在背景 A 中，令 $\\Omega_G = \\Omega_{LT}$，即 $\\frac{3(GM)^{3/2}}{2c^2 r^{5/2}} = \\frac{2GJ}{c^2 r^3}$，解得有限临界半径 $r_c = \\frac{16 J^2}{9 G M^3}$。在背景 B 中，由于 $J = 0$，$\\Omega_{LT} = 0$，而 $\\Omega_G > 0$，两者不可能在有限半径上相等，因此临界半径 $r_c$ 不存在。差异与物理含义：背景 A 存在有限的 $r_c$，而背景 B 不存在。这是因为 Lense-Thirring 进动是由中心天体的自旋角动量 $J$ 引起的参考系拖曳效应，在度规中表现为 $dt d\\phi$ 交叉项。背景 A 中 $J \\neq 0$，度规包含 $dt d\\phi$ 交叉项，且 Killing 矢量从背景 B 的3个旋转矢量（球对称）退化为仅1个绕 $\\phi$ 轴的旋转矢量（轴对称），导致存在非零的 $\\Omega_{LT}$，使其能在特定半径与测地进动匹配。背景 B 中 $J = 0$，度规无交叉项且具有完整的球对称性，不存在参考系拖曳，$\\Omega_{LT}$ 恒为零，因此无法与测地进动相等。",
+    "solution": "对于背景 A，令 $\\Omega_G = \\Omega_{LT}$，代入表达式求解：$\\frac{3(GM)^{3/2}}{2c^2 r_c^{5/2}} = \\frac{2GJ}{c^2 r_c^3}$ 消去 $c^2$ 和 $G$，整理得 $\\frac{3 M^{3/2} G^{1/2}}{2 r_c^{5/2}} = \\frac{2 J}{r_c^3}$ $r_c^{1/2} = \\frac{4 J}{3 M^{3/2} G^{1/2}}$ $r_c = \\frac{16 J^2}{9 G M^3}$。对于背景 B，$J=0$ 导致 $\\Omega_{LT}=0$，方程 $\\Omega_G = 0$ 在有限半径无解，故 $r_c$ 不存在。对比分析：$r_c$ 的存在性差异直接反映了 Lense-Thirring 效应的物理起源——中心天体的自旋 $J$。在度规结构上，$J$ 的存在使得度规的 Killing 矢量从背景 B 的3个旋转对称矢量（球对称）退化为背景 A 的1个旋转对称矢量（轴对称），并引入了 $dt d\\phi$ 交叉项（参考系拖曳），这是产生 $\\Omega_{LT}$ 的几何根源。背景 B 无自旋，保持球对称且无交叉项，无参考系拖曳，故 $\\Omega_{LT}=0$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "背景 B (Schwarzschild) 度规线元的时间项漏掉了光速平方 $c^2$ 因子。题目写为 $-(1 - r_s/r) dt^2$，而正确的显式单位制表达应为 $-(1 - r_s/r) c^2 dt^2$（与背景 A 中的 $-(1 - 2GM/c^2 r) c^2 dt^2$ 保持量纲和单位制一致）。这个遗漏导致度规分量量纲不自洽：$g_{tt}$ 的量纲变为 $T^2$，而 $g_{rr}$ 等空间分量的量纲为 $L^2$，且与题目其他部分（如进动角速度公式）显式保留 $c$ 的做法相矛盾。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

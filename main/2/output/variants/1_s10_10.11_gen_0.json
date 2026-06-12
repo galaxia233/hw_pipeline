@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "energy_current",
+      "coordinate": "general",
+      "scenario": "static_perfect_fluid",
+      "method": "tensor_substitution",
+      "generalization_axis": "apply",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "killing_vector",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mu$",
+      "$\\nu$"
+    ],
+    "target": [
+      "$J^{\\mu}_E$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在具有类时 Killing 矢量场 $\\xi_t^{\\mu}$ 的稳态时空中，考虑处于静态平衡的理想流体。其能动张量为 $T^{\\mu\\nu} = (\\rho+p)u^{\\mu} u^{\\nu} + p g^{\\mu\\nu}$，其中 $\\rho$ 为固有能量密度，$p$ 为固有压强。由于流体处于静态，其四维速度矢量与类时 Killing 矢量平行，可表示为 $u^{\\mu} = \\xi_t^{\\mu} / \\sqrt{-\\xi_t^{\\nu} \\xi_{t \\nu}}$。已知对于任意 Killing 矢量 $\\xi$，矢量 $J^{\\mu} = T^{\\mu\\nu} \\xi_{\\nu}$ 均为守恒流（即 $\\nabla_\\mu J^{\\mu} = 0$）。请推导该静态理想流体的守恒能量流 $J_E^{\\mu} = T^{\\mu\\nu} \\xi_{t \\nu}$ 的显式表达式，并解释压强 $p$ 在最终结果中完全抵消的物理意义。（采用 $(-,+,+,+)$ 度规符号约定，此时类时矢量满足 $\\xi_t^{\\nu} \\xi_{t \\nu} < 0$）",
+    "answer": "守恒能量流为 $J_E^{\\mu} = -\\rho \\xi_t^{\\mu}$。物理意义：在静态流体中，焓密度 $(\\rho+p)$ 代表的局部能量输运与应力项 $p \\xi_t^{\\mu}$ 代表的压强对动量/能量流的贡献完全抵消，表明压强不参与净的守恒能量输运，系统的全局守恒能量仅由固有能量密度 $\\rho$ 决定。",
+    "solution": "1. 写出守恒流定义：$J_E^{\\mu} = T^{\\mu\\nu} \\xi_{t \\nu}$。2. 代入理想流体能动张量：$J_E^{\\mu} = (\\rho+p) u^{\\mu} (u^{\\nu} \\xi_{t \\nu}) + p g^{\\mu\\nu} \\xi_{t \\nu}$。3. 计算标量项 $u^{\\nu} \\xi_{t \\nu}$。由于 $u^{\\mu} = \\xi_t^{\\mu} / \\sqrt{-\\xi_t^{\\alpha} \\xi_{t \\alpha}}$，设 $V = \\sqrt{-\\xi_t^{\\nu} \\xi_{t \\nu}}$，在 $(-,+,+,+)$ 约定下类时 Killing 矢量满足 $\\xi_t^{\\nu} \\xi_{t \\nu} < 0$，因此 $u^{\\nu} \\xi_{t \\nu} = \\frac{\\xi_t^{\\nu} \\xi_{t \\nu}}{V} = \\frac{-V^2}{V} = -V$。4. 计算应力项：由度规的逆变换性质，$g^{\\mu\\nu} \\xi_{t \\nu} = \\xi_t^{\\mu}$。5. 将上述结果代回原式：$J_E^{\\mu} = (\\rho+p) (\\frac{\\xi_t^{\\mu}}{V}) (-V) + p \\xi_t^{\\mu} = -(\\rho+p) \\xi_t^{\\mu} + p \\xi_t^{\\mu} = -\\rho \\xi_t^{\\mu}$。6. 物理意义解释：在相对论流体力学中，局部能量流通常由焓密度 $(\\rho+p)$ 乘以速度给出，因为推动流体需要克服压强做功；而 $p \\xi_t^{\\mu}$ 项来源于能动张量中的空间应力部分对能量-动量流的贡献。在静态平衡下，流体没有宏观的空间流动，压强作为内能的增加（体现在焓密度中）与其作为空间应力对动量流的贡献恰好完全抵消。这意味着静态系统的守恒能量流仅依赖于固有静质量-能量密度 $\\rho$，压强不产生净的守恒能量输运。"
+  },
+  "verification": null
+}

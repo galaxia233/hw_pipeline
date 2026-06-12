@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s1_1.12",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric_minkowski",
+      "target_object": "target_boost_velocity_angle_relation",
+      "coordinate": "coordinate_imaginary_time",
+      "scenario": "scenario_special_relativity",
+      "method": "method_comparison_with_rotation_matrix"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.12",
+    "source_id": "1_s1_1.12",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.12"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.5,
+      "rationale": "通过虚时坐标将洛伦兹boost解析延拓为欧氏旋转，推导步骤完整，可推广至任意空间方向的boost分析",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$w$",
+      "$\\\\theta$",
+      "$v$",
+      "$\\\\gamma$"
+    ],
+    "target": [
+      "$v$",
+      "$\\\\theta$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Define an imaginary coordinate $\\mathbf{w} = \\mathbf{i} \\mathbf{t}$ . Show that a rotation of angle $\\theta$ in the $\\mathbf{x_i}, \\mathbf{w}$ plane $(\\mathrm{i} = 1,2,3)$ , where $\\theta$ is a pure imaginary number, corresponds to a pure Lorentz boost in $t$ , $\\mathbf{x}$ , $\\mathbf{y}$ , $\\mathbf{z}$ coordinates. How is the boost velocity $\\mathbf{v}$ related to the angle $\\theta$ ?",
+    "answer": "$\\\\theta = i \\\\tan h^{-1} v$",
+    "solution": "Solution 1.12. The Lorentz transformation is\\n$$\\nt^{\\\\prime} = \\\\gamma (t - v x)\\n$$\\n$$\\n\\\\mathbf {x}^{\\\\prime} = \\\\gamma (\\\\mathbf {x} - v t) ;\\n$$\\nif $\\mathbf{w} \\\\equiv \\\\mathbf{i}\\\\mathbf{t}, \\\\mathbf{v}' \\\\equiv \\\\mathbf{i}\\\\mathbf{t}'$ , this becomes\\n$$\\nw^{\\\\prime} = \\\\gamma (w - i v x)\\n$$\\n$$\\n\\\\mathbf {x}^{\\\\prime} = \\\\gamma (\\\\mathbf {x} + \\\\mathbf {i v w}).\\n$$\\nTo make this look like a rotation\\n$$\\nw^{\\\\prime} = \\\\cos \\\\theta w - \\\\sin \\\\theta x\\n$$\\n$$\\n\\\\mathbf {x}^{\\\\prime} = \\\\cos \\\\theta \\\\mathbf {x} + \\\\sin \\\\theta \\\\mathbf {w},\\n$$\\nwe obviously want\\n$$\\n\\\\sin \\\\theta = i v \\\\gamma\\n$$\\n$$\\n\\\\cos \\\\theta = \\\\gamma .\\n$$\\n$$\\n\\\\sin^{2} \\\\theta + \\\\cos^{2} \\\\theta = \\\\gamma^{2} (1 - v^{2}) = 1.\\n$$\\nSo $\\theta = \\\\arcsin (\\\\mathrm{i}v\\\\gamma) = \\\\arctan (\\\\mathrm{i}v) = +\\\\mathrm{i}\\\\tan h^{-1}\\\\mathrm{v}$ ."
+  },
+  "verification": null
+}

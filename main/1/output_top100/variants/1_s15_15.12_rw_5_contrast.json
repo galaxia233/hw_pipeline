@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s15_15.12-1-2-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "radial_geodesic_maximum_radius",
+      "coordinate": "spherical",
+      "scenario": "contrast:AdS_vs_Schwarzschild_radial_launch",
+      "method": "energy_conservation_and_local_velocity",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.12",
+      "1_s15_15.12-1",
+      "1_s15_15.12-1-2",
+      "1_s15_15.12-1-2-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$r_{max}$",
+      "势阱与逃逸差异"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在两种不同的时空背景下，粒子从径向坐标 $r_0$ 处沿径向向外被发射。位于 $r_0$ 处的局部静态观察者测量到粒子的初始局部径向速度为 $v_0$（$0 < v_0 < 1$）。粒子沿径向类时测地线飞行，到达最大径向坐标 $r_{max}$（此时其径向速度为零）后开始折返，或者逃逸至无穷远。背景A (Anti-de Sitter 时空)：度规为 $ds^2 = -\\cos h^2(r) dt^2 + dr^2 + \\sin h^2(r) d\\Omega^2$。背景B (Schwarzschild 时空)：度规为 $ds^2 = -\\left(1-\\frac{r_s}{r}\\right) dt^2 + \\left(1-\\frac{r_s}{r}\\right)^{-1} dr^2 + r^2 d\\Omega^2$。请分别在背景A和B下推导粒子的最大径向坐标 $r_{max}$（若存在折返点则给出表达式，若逃逸则给出逃逸的速度条件），并对比这两种时空下粒子运动边界的差异，解释其反映的引力势阱性质的物理含义。",
+    "answer": "背景A (AdS)：$r_{max} = \\operatorname{arcosh}\\left(\\frac{\\cos h(r_0)}{\\sqrt{1-v_0^2}}\\right)$。粒子在任何初始速度 $v_0 < 1$ 下均会折返。背景B (Schwarzschild)：当 $v_0 < \\sqrt{r_s/r_0}$ 时折返，$r_{max} = \\frac{r_s(1-v_0^2)}{r_s/r_0 - v_0^2}$；当 $v_0 \\ge \\sqrt{r_s/r_0}$ 时粒子逃逸至无穷远（$r_{max} \\to \\inf ty$）。差异与物理含义：AdS 时空的 $|g_{tt}| = \\cos h^2(r)$ 随 $r$ 无限增大，引力势阱无限深，有效势无上界，因此粒子必然被时空势阱束缚而折返，不存在逃逸速度的概念。Schwarzschild 时空的 $|g_{tt}| = 1-r_s/r$ 随 $r \\to \\inf ty$ 趋于 1，引力势阱有限深，有效势存在上界（为1）。当粒子能量 $E \\ge 1$ 时即可克服势垒逃逸至无穷远，这对应了经典力学中逃逸速度的概念。这一对比揭示了渐近平坦时空与渐近负常曲率时空在束缚粒子能力上的根本几何差异。",
+    "solution": "1. 寻找各时空的时间平移 Killing 矢量，对应守恒量 $E_A = -g_{tt}^A \\dot{t}$ 与 $E_B = -g_{tt}^B \\dot{t}$。2. 由局部静态观察者的四维速度和空间径向单位矢量，将局部速度 $v_0$ 转换为初始 $\\dot{t}_0$，进而求出初始能量 $E$。3. 在折返点 $r_{max}$ 处 $\\dot{r}=0$，由类时测地线归一化条件得到 $\\dot{t}_{max}$，进而将守恒量 $E$ 表示为仅含 $r_{max}$ 的函数。4. 对比初始和折返点的 $E$，解出 $r_{max}$，或分析方程无解的条件得出逃逸判定。5. 分析 $E$ 取值范围与度规因子渐近性质的关系，得出势阱深浅的物理结论。"
+  },
+  "verification": null
+}

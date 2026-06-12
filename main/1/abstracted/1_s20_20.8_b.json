@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s20_20.8_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "flat_spacetime",
+      "target_object": "scalar_potential_gravity",
+      "coordinate": "photon_energy_shift",
+      "scenario": "Pound_Rebka_experiment",
+      "method": "experimental_verification"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s20_20.8_b",
+    "source_id": "1_s20_20.8_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s20_20.8_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "基于协动员修正的玩具标量引力模型，结合光子能量演化推导地面红移公式，物理动机明确且逻辑链条完整。",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$",
+      "$\\\\Phi$",
+      "$p^\\\\mu$"
+    ],
+    "target": [
+      "$\\\\Delta \\\\nu / \\\\nu$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s20_20.8_b.md]\\n\\nProblem 20.8. Newtonian gravitation theory can be modified and made covariant if the force equation on a point particle is written as\\n$$\\n\\\\mathrm {d p}^{\\\\mu} = - \\\\eta^{\\\\mu \\\\nu} \\\\Phi_{, \\\\nu} \\\\mathrm {p}_{\\\\beta} \\\\mathrm {d x}^{\\\\beta} + \\\\mathrm {p}^{\\\\alpha} \\\\Phi_{, \\\\alpha} \\\\mathrm {d x}^{\\\\mu}\\n$$\\nwhere $\\Phi$ is a scalar potential which is related to stress energy by\\n$$\\n\\\\Phi_{; \\\\mu}^{; \\\\mu} = 4 \\\\pi T_{\\\\mu}^{\\\\mu} .\\n$$\\nInvestigate whether this theory agrees with experiment and observation:\\n(a) Is this theory in agreement with the experiments of Eotvos and Dicke showing the equivalence of inertial and passive gravitational mass?\\n(b) Is this theory in agreement with the Pound-Rebka experiment on the gravitational redshift of a photon on the earth's surface?",
+    "answer": "Yes. For an earth-based experiment $g\\\\Delta z << 1$, the fractional frequency shift is $\\\\Delta \\\\nu / \\\\nu = - g \\\\Delta z$, which is in agreement with the Pound-Rebka experiment.",
+    "solution": " (b) Yes. Near the earth the earth is flat. Take $\\mathbf{z}$ to be in the vertical direction, then we have $\\Phi = \\Phi(\\mathbf{z})$ and the “source equation” for $\\Phi$ is $\\partial^2 \\Phi / \\partial z^2 = 0$ . Above the earth's surface then, the potential is\\n$$\\n\\\\Phi = a z + b.\\n$$\\nThe constant $a$ is determined by dropping a massive particle from rest and setting its initial acceleration to $g$ . With $u^0 = 1$ , $u^j = 0$ in the force equation, we have\\n$$\\n- \\\\mathrm {m g} = \\\\mathrm {d p}^{z} / \\\\mathrm {d r} = - \\\\mathrm {m} \\\\Phi , z = - \\\\mathrm {m a}\\n$$\\nand hence $\\mathbf{a} = \\mathbf{g}$\\nNow consider a photon moving vertically upward. It loses energy\\n$$\\n\\\\mathrm {d p}^{0} = - \\\\mathrm {p}^{\\\\alpha} \\\\Phi_{, \\\\alpha} \\\\mathrm {d x}^{0} = - \\\\mathrm {p}^{z} \\\\Phi_{, z} \\\\mathrm {d t}\\n$$\\nin time $\\mathbf{dt} = \\mathbf{dz}$ . Since $\\mathbf{p}^z = \\mathbf{p}^0$ for a photon, the energy loss is then\\n$$\\n\\\\mathrm {d p}^{0} = - \\\\mathrm {p}^{0} \\\\mathrm {g d z}.\\n$$\\nFor an earth-based experiment $\\mathbf{g}\\\\Delta z << 1$ and\\n$$\\n\\\\Delta \\\\mathbf {p}^{0} / \\\\mathbf {p}^{0} = \\\\Delta \\\\nu / \\\\nu = - \\\\mathbf {g} \\\\Delta z\\n$$\\nin agreement with the Pound-Rebka experiment."
+  },
+  "verification": null
+}

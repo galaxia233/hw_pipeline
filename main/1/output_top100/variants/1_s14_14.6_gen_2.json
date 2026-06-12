@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "g_xx, g_yy",
+      "coordinate": "t,x,y,z",
+      "scenario": "static_uniform_field",
+      "method": "invert_from_weight_property",
+      "generalization_axis": "invert",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "invert",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$z$"
+    ],
+    "target": [
+      "$\\partial_z g_{xx} = 0$ 且 $\\partial_z g_{yy} = 0$"
+    ],
+    "metric": [
+      [
+        "$g_{tt}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$1$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$1$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$g_{zz}$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在一个具有静态均匀引力场的时空中，坐标线元为 $ds^2 = g_{tt}(z) dt^2 + g_{xx}(z) dx^2 + g_{yy}(z) dy^2 + g_{zz}(z) dz^2$，其中度规分量仅为竖直坐标 $z$ 的函数。采用符号约定 $(-,+,+,+)$，有质量粒子的类时条件为 $g_{\\mu\\nu} \\dot{x}^\\mu \\dot{x}^\\nu = -1$。假设物理观察确立了一个普遍结论：对于放置在此场中的**任何**静态物质分布（容器），其在秤上测得的重量 $W(0) = \\int T^{\\hat{z}\\hat{z}} dx dy$ 严格且唯一地由其总能量密度物理分量 $T^{\\hat{t}\\hat{t}}$ 决定，并且**完全独立于**任何横向应力分量 $T^{\\hat{x}\\hat{x}}$ 和 $T^{\\hat{y}\\hat{y}}$。基于这一物理结论，请反推并证明时空度规分量 $g_{xx}$ 和 $g_{yy}$ 必须满足的几何约束条件。",
+    "answer": "$\\partial_z g_{xx} = 0$ 且 $\\partial_z g_{yy} = 0$，即横向度规分量必须与竖直坐标 $z$ 无关。",
+    "solution": "根据能动张量守恒方程 $T^{\\alpha\\beta}_{;\\beta} = 0$，取 $\\alpha = z$ 展开：$$0 = |g|^{-1/2} \\partial_\\beta (|g|^{1/2} T^{z\\beta}) + \\Gamma^z_{\\beta\\gamma} T^{\\beta\\gamma}$$对于静态物质分布，$T^{zt} = T^{zx} = T^{zy} = 0$（无动量通量），且张量与时间无关。对 $x, y$ 积分并利用边界条件（容器外部张量为零），方程退化为：$$0 = \\int \\left[ |g|^{-1/2} \\partial_z (|g|^{1/2} T^{zz}) + \\Gamma^z_{zz} T^{zz}\\right] dx dy + \\Gamma^z_{tt} \\int T^{tt} dx dy + \\Gamma^z_{xx} \\int T^{xx} dx dy + \\Gamma^z_{yy} \\int T^{yy} dx dy$$将坐标分量转换为物理分量（正交基分量）：$T^{\\hat{t}\\hat{t}} = |g_{tt}| T^{tt}$，$T^{\\hat{x}\\hat{x}} = g_{xx} T^{xx}$，$T^{\\hat{y}\\hat{y}} = g_{yy} T^{yy}$。与横向应力相关的项为：$$\\Gamma^z_{xx} \\int \\frac{T^{\\hat{x}\\hat{x}}}{g_{xx}} dx dy + \\Gamma^z_{yy} \\int \\frac{T^{\\hat{y}\\hat{y}}}{g_{yy}} dx dy$$由于已知结论指出重量 $W(0)$ 完全独立于 $T^{\\hat{x}\\hat{x}}$ 和 $T^{\\hat{y}\\hat{y}}$，且这一性质对**任何**静态物质分布都成立（意味着 $T^{\\hat{x}\\hat{x}}$ 和 $T^{\\hat{y}\\hat{y}}$ 可取任意非零值），上述两项必须恒为零。这要求 Christoffel 符号满足 $\\Gamma^z_{xx} = 0$ 和 $\\Gamma^z_{yy} = 0$。在给定度规下计算 Christoffel 符号：$$\\Gamma^z_{xx} = -\\frac{1}{2} g^{zz} \\partial_z g_{xx}$$$$\\Gamma^z_{yy} = -\\frac{1}{2} g^{zz} \\partial_z g_{yy}$$由于度规非退化，$g^{zz} \\neq 0$，因此必须满足 $\\partial_z g_{xx} = 0$ 和 $\\partial_z g_{yy} = 0$。即横向空间度规分量 $g_{xx}$ 和 $g_{yy}$ 必须与竖直坐标 $z$ 无关。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.metric_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.1,
+      "issue": "题目和解答存在多个严重的物理与数学错误：\n1. **积分协变矢量分量错误**：Solution 直接对矢量分量协变导数方程 $T^{z\\beta}_{;\\beta}=0$ 按坐标积分得出 $\\int T^{z\\beta}_{;\\beta} dx dy = 0$。在广义相对论中，矢量分量不是标量，不能直接积分并应用散度定理；必须乘上度规体积元 $\\sqrt{-g}$ 积分 $\\int \\sqrt{-g} T^{z\\beta}_{;\\beta} dx dy = 0$ 才具有物理守恒意义。缺少 $\\sqrt{-g}$ 导致后续所有系数推导失效。\n2. **物理分量与坐标面积元混淆**：题目定义重量为 $W(0) = \\int T^{\\hat{z}\\hat{z}} dx dy$，将物理分量（正交基分量）与坐标面积元直接组合，缺少了度规空间缩放因子。正确的物理重量应积分于物理面积元：$W(0) = \\int T^{\\hat{z}\\hat{z}} dA_{phys} = \\int T^{\\hat{z}\\hat{z}} \\sqrt{g_{xx}g_{yy}} dx dy$。\n3. **度规与场景矛盾**：摘要明确指出度规为 Minkowski（全局平直，分量常数，无引力场），但题目声称其为“具有静态均匀引力场的时空”且度规分量仅为 $z$ 的函数，并作为非平凡结论反推得出 $\\partial_z g_{xx} = 0$。对于 Minkowski 度规此结论是平凡的，而题设的 $g_{xx}(z)$ 等依赖关系与摘要的 Minkowski 度规根本矛盾。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

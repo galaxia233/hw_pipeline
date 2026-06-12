@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s2_2.15",
+    "type": "prove",
+    "tags": {
+      "metric": "minkowski_metric",
+      "target_object": "four_acceleration",
+      "coordinate": "spacetime_coordinates",
+      "scenario": "test_particle_kinematics",
+      "method": "proof_by_contradiction"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.15",
+    "source_id": "1_s2_2.15",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.15"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 1.0,
+      "realism": 0.6,
+      "rationale": "基于四维速度模长守恒导出正交条件，逻辑链条清晰，可泛化用于检验任意假设力场的理论自洽性",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\\\nu$",
+      "$u^\\\\mu$",
+      "$a^\\\\mu$",
+      "$F^\\\\mu$",
+      "$\\\\tau$",
+      "$\\\\mathfrak{m}$"
+    ],
+    "target": [
+      "$\\\\mathbf{a} \\\\cdot \\\\mathbf{u}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 2.15. A new force field $\\mathbf{F}^{\\\\mu}(\\\\mathbf{x}^{\\\\nu})$ is discovered which induces a 4-acceleration $a^\\\\mu \\\\equiv \\\\mathrm{du}^\\\\mu /\\\\mathrm{d}\\\\tau = \\\\mathfrak{m}^{-1}\\\\mathrm{F}^\\\\mu (\\\\mathbf{x}^\\\\nu)$ on a particle of mass m, at position $\\mathbf{x}^{\\\\nu}$ . Notice that $\\mathbf{F}^{\\\\mu}$ does not depend on $\\mathbf{u}^{\\\\nu}$ . Show that this force is not consistent with special relativity.",
+    "answer": "该力场与狭义相对论不一致，违反四加速度与四速度正交的基本几何约束。",
+    "solution": "Solution 2.15. If $\\mathbf{F}$ is not to be identically zero then for some 4-velocity $\\mathbf{u}$ , the product $\\mathbf{a} \\\\cdot \\\\mathbf{u}$ must be nonzero. This contradicts the requirement that $\\mathbf{a} \\\\cdot \\\\mathbf{u} = \\\\frac{1}{2} \\\\mathrm{d}(\\\\mathbf{u} \\\\cdot \\\\mathbf{u}) / \\\\mathrm{d}\\\\tau = 0."
+  },
+  "verification": null
+}

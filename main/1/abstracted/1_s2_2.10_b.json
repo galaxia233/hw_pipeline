@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s2_2.10_b",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "photon_energy_target",
+      "coordinate": "laboratory_coordinates",
+      "scenario": "two_body_decay_scenario",
+      "method": "four-momentum_conservation_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s2_2.10_b",
+    "source_id": "1_s2_2.10_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s2_2.10_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.8,
+      "rationale": "基于能量动量守恒的多步代数推导结合穆斯堡尔效应真实物理背景",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$M$",
+      "$\\delta$",
+      "$h\\nu$"
+    ],
+    "target": [
+      "$h\\nu$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 2.10. Consider the reaction $\\mathbf{A}\\rightarrow \\mathbf{B} + \\mathbf{C}$ (with particle masses $\\mathfrak{m}_{\\mathbf{A}}, \\mathfrak{m}_{\\mathbf{B}}, \\mathfrak{m}_{\\mathbf{C}}$ ).(b) An atom of mass M at rest decays to a state of rest energy M-δ by emitting a photon of energy hν. Show that hν < δ. In the Mössbauer effect, why is hν = δ?",
+    "answer": "$h\\nu = \\delta - \\frac{\\delta^2}{2M} < \\delta$；在穆斯堡尔效应中，反冲动量由约 $10^{23}$ 个原子共享，反冲能量可忽略，因此 $h\\nu \\approx \\delta$。",
+    "solution": "(b) Here $\\mathfrak{m}_{\\mathbf{A}} = \\mathbf{M}$ , $\\mathfrak{m}_{\\mathbf{B}} = 0$ , $\\mathfrak{m}_{\\mathbf{C}} = \\mathbf{M} - \\delta$ , so$$\\mathbf {E}_{\\mathbf {B}} = \\mathrm {h} \\nu = \\frac {\\mathrm {M}^{2} - (\\mathrm {M} - \\delta)^{2}}{2 \\mathrm {M}} = \\delta - \\frac {\\delta^{2}}{2 \\mathrm {M}} < \\delta .$$Physically $\\mathfrak{h}\\nu \\neq \\delta$ because some energy goes into the recoil of M which is necessary to conserve momentum. In the Mössbauer effect, the recoil momentum is shared among $\\sim 10^{23}$ atoms, so the recoil energy is negligible."
+  },
+  "verification": null
+}

@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "id": "1_s13_13.1-6",
+    "type": "prove",
+    "tags": {
+      "target_object": [
+        "$8\\pi \\rho = \\frac{6\\alpha k}{a^2} + \\frac{6\\alpha \\dot{a}^2}{a^2} + (6\\alpha - 3)\\frac{\\ddot{a}}{a}$",
+        "$\\alpha = \\frac{1}{2}$"
+      ],
+      "coordinate": [
+        "t",
+        "r",
+        "theta",
+        "phi"
+      ],
+      "scenario": "cosmology",
+      "method": "tensor_calculation",
+      "generalization_axis": "extend",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s13_13.1",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.1",
+      "1_s13_13.1-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$8\\pi \\rho = \\frac{6\\alpha k}{a^2} + \\frac{6\\alpha \\dot{a}^2}{a^2} + (6\\alpha - 3)\\frac{\\ddot{a}}{a}$",
+      "$\\alpha = \\frac{1}{2}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，标准的 Einstein 场方程形式为 $G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$，其中 Einstein 张量 $G_{\\mu\\nu} = R_{\\mu\\nu} - \\frac{1}{2} g_{\\mu\\nu} R$。如前所述，如果将场方程修改为 $R_{\\mu\\nu} - \\alpha g_{\\mu\\nu} R = 8\\pi T_{\\mu\\nu}$（其中 $\\alpha$ 为常数），在弱场牛顿极限下会导致与实验不符。现在我们将此修正场方程应用于描述宇宙演化的 FLRW 度规：$$ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2} dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$$假设宇宙中的物质为完美流体，其能动张量为 $T_{\\mu\\nu} = (\\rho+p)u_\\mu u_\\nu + p g_{\\mu\\nu}$（其中 $\\rho$ 为能量密度，$p$ 为压强，$u^\\mu$ 为流体四维速度）。请利用该度规的 Ricci 张量与 Ricci 标量，推导由修正场方程的时间分量（即 $00$ 分量）给出的宇宙能量密度 $\\rho$ 所满足的修正 Friedmann 方程，并据此证明：只有当参数 $\\alpha = \\frac{1}{2}$ 时，该方程中才不包含宇宙膨胀的加速度项 $\\ddot{a}$，从而使其退化为一个纯粹的能量约束方程，而非包含二阶时间导数的动力学演化方程。",
+    "answer": "修正的 Friedmann 方程为 $8\\pi \\rho = \\frac{6\\alpha k}{a^2} + \\frac{6\\alpha \\dot{a}^2}{a^2} + (6\\alpha - 3)\\frac{\\ddot{a}}{a}$；参数必须为 $\\alpha = \\frac{1}{2}$。",
+    "solution": "对于 FLRW 度规，其时间分量的 Ricci 张量和 Ricci 标量为：$$R_{00} = -3 \\frac{\\ddot{a}}{a}$$$$R = \\frac{6(k + a\\ddot{a} + \\dot{a}^2)}{a^2}$$度规的时间分量为 $g_{00} = -1$。修正场方程左侧的 $00$ 分量为：$$(R_{\\mu\\nu} - \\alpha g_{\\mu\\nu} R)_{00} = R_{00} - \\alpha g_{00} R = -3 \\frac{\\ddot{a}}{a} - \\alpha (-1) \\frac{6(k + a\\ddot{a} + \\dot{a}^2)}{a^2}$$展开并合并同类项：$$= -3 \\frac{\\ddot{a}}{a} + \\frac{6\\alpha k}{a^2} + \\frac{6\\alpha \\dot{a}^2}{a^2} + 6\\alpha \\frac{\\ddot{a}}{a}$$$$= \\frac{6\\alpha k}{a^2} + \\frac{6\\alpha \\dot{a}^2}{a^2} + (6\\alpha - 3) \\frac{\\ddot{a}}{a}$$由于在共动坐标系中完美流体的能动张量 $00$ 分量为 $T_{00} = \\rho$，根据修正场方程 $R_{\\mu\\nu} - \\alpha g_{\\mu\\nu} R = 8\\pi T_{\\mu\\nu}$，得到修正的 Friedmann 方程：$$8\\pi \\rho = \\frac{6\\alpha k}{a^2} + \\frac{6\\alpha \\dot{a}^2}{a^2} + (6\\alpha - 3) \\frac{\\ddot{a}}{a}$$在标准宇宙学中，Friedmann 方程描述的是宇宙的初始值约束（类似于经典力学中的能量守恒），它应当仅依赖于宇宙的膨胀速率 $\\dot{a}$ 和空间曲率 $k$，而不应包含广义坐标的二阶导数（即加速度 $\\ddot{a}$）。为了使上述方程中不出现加速度项 $\\ddot{a}$，其系数必须为零，即：$$6\\alpha - 3 = 0$$解得 $\\alpha = \\frac{1}{2}$。此时方程退化为标准的能量约束方程 $8\\pi \\rho = \\frac{3k}{a^2} + \\frac{3\\dot{a}^2}{a^2}$，证明了参数 $\\alpha = \\frac{1}{2}$ 的唯一性。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

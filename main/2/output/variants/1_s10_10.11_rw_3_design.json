@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-6-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "covariant divergence",
+      "coordinate": "t,x,y,z",
+      "scenario": "cosmology_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-6",
+      "1_s10_10.11-6-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "DeSitter",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "设计数值实验方案验证守恒流协变散度为零"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑一个静态 de Sitter 宇宙时空，其度规为：$$ ds^2 = -dt^2 + e^{\\frac{2x}{\\alpha}}(dx^2 + dy^2 + dz^2) $$其中 $\\alpha$ 为常数。该时空具有类时 Killing 矢量 $\\xi^\\mu = (1, 0, 0, 0)$。其 Einstein 张量的协变分量非零项为 $G_{00} = -\\frac{e^{-\\frac{2x}{\\alpha}}}{\\alpha^2}$，$G_{11} = \\frac{1}{\\alpha^2}$。根据 Killing 矢量与能动张量构成守恒流的原理，定义守恒流密度 $J^\\mu = G^{\\mu\\nu} \\xi_\\nu$。核心结论是：该守恒流的协变散度为零，即 $J^\\mu_{;\\mu} = 0$。请你从零设计一个数值模拟方案，通过在时空中布置离散网格并计算相关几何量与张量分量，来数值验证 $J^\\mu_{;\\mu} = 0$ 这一结论。方案需包含：网格划分策略、需要计算的关键张量分量与 Christoffel 符号、协变散度的数值计算公式，以及如何评估数值误差以确保结论可靠。",
+    "answer": "【数值模拟方案】1. 网格划分：由于度规与流分量均不显含时间 $t$ 及横向坐标 $y, z$，仅在 $x$ 方向存在变化，因此在 $x$ 轴上划分均匀网格 $x_i$，步长为 $\\Delta x$。$t, y, z$ 方向只需单点表示。2. 计算张量分量：在每个网格点解析计算或提取 $J^0 = \\frac{e^{-\\frac{2x}{\\alpha}}}{\\alpha^2}$，并确认 $J^1=J^2=J^3=0$。3. 计算偏导数：利用中心差分法计算 $\\partial_1 J^0 \\approx \\frac{J^0(x+\\Delta x) - J^0(x-\\Delta x)}{2 \\Delta x}$；由于 $J^0$ 不含 $t,y,z$，$\\partial_0 J^0 = \\partial_2 J^0 = \\partial_3 J^0 = 0$；由于 $J^1,J^2,J^3$ 恒为零，其偏导数也为零。4. 计算 Christoffel 符号：提取收缩项 $\\Gamma^\\mu_{\\mu\\nu}$。由于度规不含时间，$\\Gamma^\\mu_{\\mu 0}=0$；通过解析计算或数值差分度规导数，得到 $\\Gamma^1_{11} + \\Gamma^2_{21} + \\Gamma^3_{31} = \\frac{1}{\\alpha} + \\frac{1}{\\alpha} + \\frac{1}{\\alpha} = \\frac{3}{\\alpha}$。5. 计算协变散度：代入公式 $J^\\mu_{;\\mu} = \\partial_0 J^0 + \\partial_1 J^1 + \\partial_2 J^2 + \\partial_3 J^3 + \\Gamma^\\mu_{\\mu 0} J^0 + \\Gamma^\\mu_{\\mu 1} J^1 + \\dot s$。由于 $J^1,J^2,J^3=0$，$\\Gamma^\\mu_{\\mu 1} J^1$ 等项为零；又因 $\\Gamma^\\mu_{\\mu 0}=0$，故 $\\Gamma^\\mu_{\\mu\\nu} J^\\nu = 0$。最终散度理论值应为 0。6. 误差评估：逐步减小步长 $\\Delta x$，观察计算出的散度值是否按预期收敛于 0（收敛性测试），以此验证解析结论 $J^\\mu_{;\\mu}=0$。【预期结果】在各网格点计算出的协变散度数值均在机器精度或差分误差范围内趋近于 0，验证了守恒律。",
+    "solution": "方案物理合理性论证：守恒流的协变散度为零是弯曲时空中的核心物理定律，数值验证需要正确处理协变导数的定义。由于度规仅依赖于空间坐标 $x$，流 $J^\\mu$ 仅在 $x$ 方向有梯度，且仅有时间分量非零。设计重点在于识别出 $\\partial_\\mu J^\\mu$ 项与 $\\Gamma^\\mu_{\\mu\\nu} J^\\nu$ 项的相互贡献。本方案通过聚焦 $x$ 维度的网格划分，抓住了度规变化的本质，避免了不必要的多维网格计算资源浪费。通过差分法计算偏导数并结合 Christoffel 符号（可解析或数值提取），能够准确重构协变导数。特别是对于 $\\Gamma^\\mu_{\\mu\\nu} J^\\nu$ 项，由于 $J^1=0$ 及度规的时间无关性，数值计算能够清晰展示非零 Christoffel 符号收缩项与零流分量的乘积确实为零，最终总和趋于零，这与解析推导中各项分别为零的逻辑一致。收敛性测试是数值验证解析结论的标准手段，确保了结论不受离散化误差的干扰。"
+  },
+  "verification": null
+}

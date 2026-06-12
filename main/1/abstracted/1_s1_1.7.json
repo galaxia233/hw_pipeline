@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s1_1.7",
+    "type": "calculate",
+    "tags": {
+      "metric": "Minkowski_metric",
+      "target_object": "Rod_orientation_angle",
+      "coordinate": "Inertial_Cartesian_coordinates",
+      "scenario": "Uniform_boost_scenario",
+      "method": "Length_contraction_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.7",
+    "source_id": "1_s1_1.7",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.3,
+      "generalizability": 0.6,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于狭义相对论长度收缩的经典运动学变换题，逻辑链条短但步骤完整且物理图像清晰",
+      "overall": 0.62
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$v$",
+      "$\\beta$",
+      "$\\theta$",
+      "$\\theta'$"
+    ],
+    "target": [
+      "$\\theta$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.7. Frame $S'$ moves with velocity $\\underline{v}$ relative to frame $S$ . A rod in frame $S'$ makes an angle $\\theta'$ with respect to the forward direction of motion. What is this angle $\\theta$ as measured in $S$ ?",
+    "answer": "$\\cot \\theta = (1 - \\beta^{2})^{\\frac{1}{2}} \\cot \\theta^{\\prime}.$",
+    "solution": "The rotation comes from the contraction in the $x$ direction but not in the $y$ direction. That is, $\\cot \\theta = \\Delta x / \\Delta y$ . Because of the motion, $\\Delta x = \\Delta x' (1 - \\beta^2)^{\\frac{1}{2}}$ while $\\Delta y = \\Delta y'$ . Thus,$$\\cot \\theta = (1 - \\beta^{2})^{\\frac{1}{2}} \\cot \\theta^{\\prime}.$$"
+  },
+  "verification": null
+}

@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s3_3.10",
+    "type": "prove",
+    "tags": {
+      "metric": "differential_geometry",
+      "target_object": "coordinate_transformation",
+      "coordinate": "jacobian_matrix",
+      "scenario": "tensor_index_notation",
+      "method": "chain_rule_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.10",
+    "source_id": "1_s3_3.10",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.10"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于偏导数链式法则证明坐标变换雅可比矩阵的乘法闭合性，逻辑严密且适用于任意光滑流形背景",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\mu$",
+      "$\\bar{x}^\\mu$",
+      "$\\tilde{x}^\\mu$",
+      "$\\alpha$",
+      "$\\beta$",
+      "$\\gamma$"
+    ],
+    "target": [
+      "$\\Lambda_{\\gamma}^{\\alpha} \\tilde{\\Lambda}_{\\beta}^{\\gamma}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.10. If $\\Lambda_{\\beta}^{a}$ and $\\tilde{\\Lambda}_{\\beta}^{a}$ are two matrices which transform the components of a tensor from one coordinate basis to another, show that the matrix $\\Lambda_{\\gamma}^{a}\\tilde{\\Lambda}_{\\beta}^{\\gamma}$ is also a coordinate transformation.",
+    "answer": "The product matrix $\\Lambda_{\\gamma}^{\\alpha} \\tilde{\\Lambda}_{\\beta}^{\\gamma}$ satisfies the partial derivative chain rule and therefore constitutes a valid composite coordinate transformation matrix.",
+    "solution": "Solution 3.10. Suppose one coordinate transformation is$$\\bar {\\mathbf {x}}^{\\mu} = \\bar {\\mathbf {x}}^{\\mu} \\left(\\mathbf {x}^{\\nu}\\right), \\quad \\text {s o} \\quad \\Lambda_{\\beta}^{\\alpha} = \\partial_{\\bar {\\mathbf {x}}}^{\\alpha} / \\partial_{\\mathbf {x}}^{\\beta} \\tag {1}$$and the other is$$\\tilde {\\mathbf {x}}^{\\mu} = \\tilde {\\mathbf {x}}^{\\mu} \\left(\\mathbf {x}^{\\nu}\\right), \\quad \\text {s o} \\quad \\tilde{\\Lambda}_{\\beta}^{\\alpha} = \\partial_{\\tilde {\\mathbf {x}}}^{\\alpha} / \\partial_{\\mathbf {x}}^{\\beta}. \\tag {2}$$The product matrix is then$$\\Lambda_{\\gamma}^{\\alpha} \\tilde{\\Lambda}_{\\beta}^{\\gamma} = \\frac {\\partial_{\\overline {{\\mathbf {x}}}}^{\\alpha}}{\\partial_{\\mathbf {x}}^{\\gamma}} \\frac {\\partial_{\\tilde {\\mathbf {x}}}^{\\gamma}}{\\partial_{\\mathbf {x}} \\beta}. \\tag {3}$$This looks suspiciously like the chain rule for partial derivatives, so one is led to consider the coordinate transformation$$\\overline {{\\mathbf {x}}}^{\\mu} (\\mathbf {x}^{\\beta}) = \\overline {{\\mathbf {x}}}^{\\mu} \\left[ \\tilde {\\mathbf {x}}^{\\gamma} (\\mathbf {x}^{\\beta})\\right], \\tag {4}$$whose transformation matrix is obviously$$\\bar {\\Lambda}_{\\beta}^{\\mu} = \\frac {\\partial_{\\overline {{\\mathbf {x}}}}^{\\mu}}{\\partial_{\\mathbf {x}} \\beta} = \\frac {\\partial_{\\overline {{\\mathbf {x}}}}^{\\mu}}{\\partial_{\\widetilde {\\mathbf {x}}}^{\\gamma}} \\frac {\\partial_{\\widetilde {\\mathbf {x}}}^{\\gamma}}{\\partial_{\\mathbf {x}} \\beta}. \\tag {5}$$This differs from (3) only by a twiddle. A little thought shows that the twiddle is not meaningful. Partial derivatives are taken with respect to argument variables; it makes no difference what symbols are used to represent these variables. Thus (4) is in fact the coordinate transformation of the product matrix."
+  },
+  "verification": null
+}

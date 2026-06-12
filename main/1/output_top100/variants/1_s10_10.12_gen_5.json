@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "Killing vector covariant derivative",
+      "coordinate": "spherical",
+      "scenario": "black hole",
+      "method": "tensor calculation",
+      "generalization_axis": "extend",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\nabla_\\mu \\xi_{(\\phi) \\nu}$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，度规为$$ds^2 = -\\left(1 - \\frac{r_s}{r}\\right) dt^2 + \\frac{1}{1 - \\frac{r_s}{r}} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$$该时空具有时间平移和旋转对称性，分别对应能量守恒和角动量守恒。种子题目利用时间平移 Killing 矢量 $\\xi_{(t)}^\\mu = (1, 0, 0, 0)$ 证明了能量守恒流 $T^\\alpha_\\beta \\xi^\\beta$ 在类空超曲面上的积分与超曲面选取无关。这一守恒律的几何前提是该矢量满足 Killing 方程 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$。请利用所给的度规 Christoffel 符号，计算旋转 Killing 矢量 $\\xi_{(\\phi)}^\\mu = (0, 0, 0, 1)$ 的协变导数 $\\nabla_\\mu \\xi_\\nu$ 的所有非零分量，并由此验证其满足 Killing 方程，从而为角动量守恒流的积分无关性提供几何基础。",
+    "answer": "非零分量为 $\\nabla_1 \\xi_3 = r \\sin^2\\theta$, $\\nabla_3 \\xi_1 = -r \\sin^2\\theta$, $\\nabla_2 \\xi_3 = \\frac{1}{2} r^2 \\sin(2\\theta)$, $\\nabla_3 \\xi_2 = -\\frac{1}{2} r^2 \\sin(2\\theta)$；Killing 方程 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$ 成立。",
+    "solution": "1. **降指标计算**：旋转 Killing 矢量为 $\\xi_{(\\phi)}^\\mu = (0, 0, 0, 1)$。降指标得到 $\\xi_\\mu = g_{\\mu\\nu} \\xi^\\nu = g_{\\mu 3}$。根据度规，$\\xi_0 = 0$, $\\xi_1 = 0$, $\\xi_2 = 0$, $\\xi_3 = r^2 \\sin^2\\theta$。2. **协变导数公式**：$\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu - \\Gamma^\\alpha_{\\mu\\nu} \\xi_\\alpha$。由于 $\\xi_0, \\xi_1, \\xi_2$ 均为零，此式简化为 $\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu - \\Gamma^3_{\\mu\\nu} \\xi_3$。3. **偏导数计算**：只有对 $\\xi_3$ 的空间偏导数非零：   - $\\partial_1 \\xi_3 = \\partial_r (r^2 \\sin^2\\theta) = 2r \\sin^2\\theta$   - $\\partial_2 \\xi_3 = \\partial_\\theta (r^2 \\sin^2\\theta) = 2r^2 \\sin\\theta \\cos\\theta = r^2 \\sin(2\\theta)$4. **提取 Christoffel 符号**：对于 Schwarzschild 度规，涉及指标 3 的非零 Christoffel 符号为 $\\Gamma^3_{13} = 1/r$, $\\Gamma^3_{23} = 1/\\tan\\theta$，以及对称分量 $\\Gamma^3_{31} = 1/r$, $\\Gamma^3_{32} = 1/\\tan\\theta$。5. **计算非零协变导数分量**：   - $\\nabla_1 \\xi_3 = \\partial_1 \\xi_3 - \\Gamma^3_{13} \\xi_3 = 2r \\sin^2\\theta - (1/r) r^2 \\sin^2\\theta = r \\sin^2\\theta$   - $\\nabla_3 \\xi_1 = \\partial_3 \\xi_1 - \\Gamma^3_{31} \\xi_3 = 0 - (1/r) r^2 \\sin^2\\theta = -r \\sin^2\\theta$   - $\\nabla_2 \\xi_3 = \\partial_2 \\xi_3 - \\Gamma^3_{23} \\xi_3 = r^2 \\sin(2\\theta) - (\\cos\\theta/\\sin\\theta) r^2 \\sin^2\\theta = r^2 \\sin(2\\theta) - r^2 \\sin\\theta \\cos\\theta = \\frac{1}{2} r^2 \\sin(2\\theta)$   - $\\nabla_3 \\xi_2 = \\partial_3 \\xi_2 - \\Gamma^3_{32} \\xi_3 = 0 - (\\cos\\theta/\\sin\\theta) r^2 \\sin^2\\theta = -\\frac{1}{2} r^2 \\sin(2\\theta)$6. **验证 Killing 方程**：观察以上四个非零分量，它们在指标互换时恰好反号，即 $\\nabla_1 \\xi_3 = - \\nabla_3 \\xi_1$, $\\nabla_2 \\xi_3 = - \\nabla_3 \\xi_2$。其他所有分量为零，自然对称也为零。因此 $\\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu = 0$ 严格成立。这证明了 $\\xi_{(\\phi)}^\\mu$ 是合法的 Killing 矢量，从而保证了角动量守恒流 $\\nabla_\\alpha (T^\\alpha_\\beta \\xi^\\beta) = 0$ 的成立，使得其积分同样与超曲面选取无关。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": false,
+      "training_value": 0.2,
+      "issue": "题目要求“请利用所给的度规 Christoffel 符号，计算旋转 Killing 矢量... 的协变导数”，但题目正文中并未提供任何 Christoffel 符号的列表或数值。这导致题目缺少其所声称的必要条件，做题者无法按照题目指令“利用所给的”符号完成计算，必须违背题意自行推导或查阅外部资料，严重违反了 self-contained 原则。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

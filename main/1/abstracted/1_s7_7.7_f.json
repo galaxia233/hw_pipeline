@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s7_7.7_f",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "christoffel_symbol",
+      "coordinate": "contraction",
+      "scenario": "coordinate_frame",
+      "method": "tensor_identity"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.7_f",
+    "source_id": "1_s7_7.7_f",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.7_f"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.4,
+      "rationale": "需利用度规行列式导数公式与克里斯托费尔符号定义进行多步代数推导，具普适微分几何背景但题干未绑定具体物理场景",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mu",
+      "$\\nu",
+      "$\\alpha",
+      "$\\mathbf{g}^{\\mu\\nu}",
+      "$\\Gamma_{\\mu\\nu}^{\\alpha}",
+      "$|\\mathbf{g}|"
+    ],
+    "target": [
+      "$\\Gamma_{\\mu\\nu}^{\\alpha}"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.7. Prove the following identities:(f) $\\mathbf{g}^{\\mu \\nu}\\Gamma_{\\mu \\nu}^{\\alpha} = -\\frac{1}{|\\mathbf{g}|^{\\frac{1}{2}}} (\\mathbf{g}^{\\alpha \\nu}|\\mathbf{g}|^{\\frac{1}{2}}),\\nu$ in a coordinate frame.",
+    "answer": "$\\mathbf{g}^{\\mu \\nu}\\Gamma_{\\mu \\nu}^{\\alpha} = -\\frac{1}{|\\mathbf{g}|^{\\frac{1}{2}}} (\\mathbf{g}^{\\alpha \\nu}|\\mathbf{g}|^{\\frac{1}{2}}),\\nu$",
+    "solution": null
+  },
+  "verification": null
+}

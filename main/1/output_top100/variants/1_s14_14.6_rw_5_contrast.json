@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s14_14.6-1-5-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "radial_stress_contribution",
+      "coordinate": "spherical",
+      "scenario": "weighing_in_gravity_contrast",
+      "method": "compare_support_force_equation",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.6",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.6",
+      "1_s14_14.6-1",
+      "1_s14_14.6-1-5",
+      "1_s14_14.6-1-5-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "径向应力对径向支撑力的贡献"
+    ],
+    "metric": [
+      [
+        "-cosh(r)**2",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "sinh(r)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*sinh(r)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，静止容器在引力场中的受力平衡可通过守恒方程 $\\nabla_\\mu T^{\\mu r} = 0$ 并转换为物理分量来分析。考虑两种不同的时空背景：1. 反德西特静态时空，度规为 $ds^2 = -\\cos h^2(r) dt^2 + dr^2 + \\sin h^2(r) d\\theta^2 + \\sin^2(\\theta)\\sin h^2(r) d\\phi^2$。2. 史瓦西时空，度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2(\\theta) d\\phi^2$。请在赤道面 $\\theta = \\pi/2$ 上，分别推导这两种度规下静止容器的径向受力平衡方程（将 $T^{\\mu\\mu}$ 转换为物理分量 $T^{\\hat{\\mu}\\hat{\\mu}}$ 表示）。对比径向应力 $T^{\\hat{r}\\hat{r}}$ 在两种背景下对径向支撑力贡献的差异，并从度规几何属性的角度解释该差异的物理含义。",
+    "answer": "1. 反德西特静态时空：径向受力平衡方程为 $\\tan h(r) T^{\\hat{t}\\hat{t}} - \\cot h(r) T^{\\hat{\\theta}\\hat{\\theta}} - \\cot h(r) T^{\\hat{\\phi}\\hat{\\phi}} = 0$。其中径向应力 $T^{\\hat{r}\\hat{r}}$ 的系数为0，即径向应力对径向支撑力无贡献。2. 史瓦西时空：径向受力平衡方程为 $\\frac{r_s}{2r^2} T^{\\hat{t}\\hat{t}} - \\frac{r_s}{2r^2} T^{\\hat{r}\\hat{r}} + \\left(-\\frac{1}{r} + \\frac{r_s}{r^2}\\right) T^{\\hat{\\theta}\\hat{\\theta}} + \\left(-\\frac{1}{r} + \\frac{r_s}{r^2}\\right) T^{\\hat{\\phi}\\hat{\\phi}} = 0$。径向应力 $T^{\\hat{r}\\hat{r}}$ 有非零系数 $-\\frac{r_s}{2r^2}$，参与了受力平衡。3. 差异与物理含义：在反德西特静态坐标系中，径向度规分量 $g_{rr} = 1$，径向空间平直，因此径向方向的应力不产生等效的引力效应，不参与径向支撑力平衡；而在史瓦西时空中，径向度规分量 $g_{rr} = \\frac{r}{r-r_s} \\neq 1$，径向空间存在弯曲，径向应力作为能量来源参与引力相互作用，从而对支撑力产生贡献。",
+    "solution": "1. 对于静态均匀容器，$T^{\\mu\\nu}$ 仅对角分量非零，且 $\\partial_\\mu T^{\\mu r} = 0$。守恒方程 $\\nabla_\\mu T^{\\mu r} = 0$ 简化为 $\\Gamma^r_{\\mu\\mu} T^{\\mu\\mu} = 0$。2. 物理分量转换：$T^{\\mu\\mu} = T^{\\hat{\\mu}\\hat{\\mu}} / |g_{\\mu\\mu}|$。方程转换为 $\\sum_\\mu (\\Gamma^r_{\\mu\\mu} / |g_{\\mu\\mu}|) T^{\\hat{\\mu}\\hat{\\mu}} = 0$。3. 计算反德西特静态时空的系数：$\\Gamma^r_{tt} / |g_{tt}| = \\tan h(r)$，$\\Gamma^r_{rr} / |g_{rr}| = 0$，$\\Gamma^r_{\\theta\\theta} / |g_{\\theta\\theta}| = -\\cot h(r)$，$\\Gamma^r_{\\phi\\phi} / |g_{\\phi\\phi}| = -\\cot h(r)$ (在 $\\theta = \\pi/2$ 处)。4. 计算史瓦西时空的系数：$\\Gamma^r_{tt} / |g_{tt}| = \\frac{r_s}{2r^2}$，$\\Gamma^r_{rr} / |g_{rr}| = -\\frac{r_s}{2r^2}$，$\\Gamma^r_{\\theta\\theta} / |g_{\\theta\\theta}| = -\\frac{1}{r} + \\frac{r_s}{r^2}$，$\\Gamma^r_{\\phi\\phi} / |g_{\\phi\\phi}| = -\\frac{1}{r} + \\frac{r_s}{r^2}$ (在 $\\theta = \\pi/2$ 处)。5. 对比 $\\Gamma^r_{rr} / |g_{rr}|$ 的值：反德西特时空为0，史瓦西时空非零。其物理根源在于 $g_{rr}$ 是否为常数1，反映了径向空间的曲率差异。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目存在两个致命错误：1. 协变导数展开严重漏项：守恒方程 $\\nabla_\\mu T^{\\mu r} = 0$ 的正确展开应为 $\\partial_\\mu T^{\\mu r} + \\Gamma^\\mu_{\\mu r} T^{rr} + \\Gamma^r_{\\mu\\mu} T^{\\mu\\mu} = 0$。在静态假设下，应为 $\\Gamma^\\mu_{\\mu r} T^{rr} + \\Gamma^r_{\\mu\\mu} T^{\\mu\\mu} = 0$。但 solution 和 answer 均漏掉了 $\\Gamma^\\mu_{\\mu r} T^{rr}$ 项，错误地将其简化为 $\\Gamma^r_{\\mu\\mu} T^{\\mu\\mu} = 0$。这导致反德西特度规下 $T^{\\\\hat{r}\\\\hat{r}}$ 的系数错误地变为0（实际应为 $\\tanh(r) + 2\\coth(r)$），史瓦西度规下 $T^{\\\\hat{r}\\\\hat{r}}$ 的系数错误地变为 $-r_s/2r^2$（实际应为 $2/r - 5r_s/2r^2$）。2. 物理场景与度规不一致：题目声称度规1为“反德西特静态时空”，但真正的AdS4度规径向分量应为 $g_{rr} = 1/(1+r^2)$（或含尺度因子 $1/(1+r^2/l^2)$），而题目给出的 $g_{rr}=1$ 的度规并非AdS4度规（其Ricci张量不为 $-3/l^2 g_{\\\\mu\\\\nu}$）。3. 物理解释荒谬：答案基于漏项错误得出“因为 $g_{rr}=1$ 所以径向应力不参与受力平衡”的结论，违背了连续介质力学常识（即使是平直时空极坐标 $g_{rr}=1$，径向应力也会通过 $\\Gamma^\\\\mu_{\\\\mu r}$ 参与平衡，产生等效体积力）。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

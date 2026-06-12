@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "Fermi-Walker_transport",
+      "coordinate": "Schwarzschild",
+      "scenario": "static_observer_spin_precession",
+      "method": "limit_verification",
+      "generalization_axis": "verify",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$a^\\mu$",
+      "$\\Omega^\\mu_{\\ \\nu}$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞度规时空中，考虑一个静止于固定径向坐标 $r$ 处（$r > r_s$）的静态观察者所携带的陀螺仪。度规线元为 $ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$。已知无外加扭矩的陀螺仪其自旋矢量 $S^\\mu$ 满足 Fermi-Walker 传输方程：$\\nabla_{\\mathbf{u}} S^\\mu = \\Omega^\\mu_{\\ \\nu} S^\\nu$，其中旋率张量 $\\Omega^\\mu_{\\ \\nu} = u^\\mu a_\\nu - a^\\mu u_\\nu$，$\\mathbf{u}$ 为观察者的四速度，$\\mathbf{a} = \\nabla_{\\mathbf{u}} \\mathbf{u}$ 为四加速度。请通过计算该静态观察者的四加速度 $a^\\mu$ 及旋率张量 $\\Omega^\\mu_{\\ \\nu}$，验证当黑洞质量趋于零（即 Schwarzschild 半径 $r_s \\to 0$ 的平直时空极限）时，Fermi-Walker 传输方程确实退化为平直时空中的平行传输方程 $\\frac{dS^\\mu}{d\\tau} = 0$。",
+    "answer": "在 $r_s \\to 0$ 极限下，四加速度 $a^\\mu \\to 0$，旋率张量 $\\Omega^\\mu_{\\ \\nu} \\to 0$，Fermi-Walker 传输方程退化为 $\\nabla_{\\mathbf{u}} S^\\mu = 0$；同时由于 Christoffel 符号 $\\Gamma^\\mu_{\\alpha\\beta} \\to 0$ 且 $u^0 \\to 1$，该方程进一步退化为平直时空的 $\\frac{dS^\\mu}{d\\tau} = 0$。",
+    "solution": "1. 首先计算静态观察者的四速度 $u^\\mu$。由于观察者静止，空间分量为零：$u^1 = u^2 = u^3 = 0$。由类时条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$，可得 $g_{00} (u^0)^2 = -1$，即 $-\\frac{r - r_s}{r} (u^0)^2 = -1$，解得 $u^0 = \\frac{1}{\\sqrt{1 - \\frac{r_s}{r}}}$。\\n2. 计算四加速度 $a^\\mu = u^\\nu \\nabla_\\nu u^\\mu = u^0 \\nabla_0 u^\\mu$。代入定义展开：$a^\\mu = u^0 (\\partial_0 u^\\mu + \\Gamma^\\mu_{0\\nu} u^\\nu) = (u^0)^2 \\Gamma^\\mu_{00}$。由于静态观察者的 $u^\\mu$ 不依赖 $t$，故 $\\partial_0 u^\\mu = 0$。\\n3. 根据 Christoffel 符号数据：$\\Gamma^0_{00} = 0$，$\\Gamma^1_{00} = \\frac{r_s (r - r_s)}{2 r^3}$，$\\Gamma^2_{00} = 0$，$\\Gamma^3_{00} = 0$。代入得：\\n   $a^0 = (u^0)^2 \\Gamma^0_{00} = 0$\\n   $a^1 = (u^0)^2 \\Gamma^1_{00} = \\frac{1}{1 - \\frac{r_s}{r}} \\frac{r_s (r - r_s)}{2 r^3} = \\frac{r_s}{2 r^2}$\\n   $a^2 = 0$，$a^3 = 0$\\n   因此 $a^\\mu = (0, \\frac{r_s}{2 r^2}, 0, 0)$。\\n4. 计算协变分量 $u_0$ 和 $a_1$：\\n   $u_0 = g_{00} u^0 = -\\frac{r - r_s}{r} \\frac{1}{\\sqrt{1 - \\frac{r_s}{r}}} = -\\sqrt{1 - \\frac{r_s}{r}}$\\n   $a_1 = g_{11} a^1 = \\frac{r}{r - r_s} \\frac{r_s}{2 r^2} = \\frac{r_s}{2 r (r - r_s)}$\\n5. 构造旋率张量 $\\Omega^\\mu_{\\ \\nu} = u^\\mu a_\\nu - a^\\mu u_\\nu$。由于 $u^\\mu$ 和 $a^\\mu$ 仅在 0 和 1 分量非零，非零项仅为：\\n   $\\Omega^0_{\\ 1} = u^0 a_1 - a^0 u_1 = \\frac{1}{\\sqrt{1 - \\frac{r_s}{r}}} \\frac{r_s}{2 r (r - r_s)} = \\frac{r_s}{2 r (r - r_s) \\sqrt{1 - \\frac{r_s}{r}}}$\\n   $\\Omega^1_{\\ 0} = u^1 a_0 - a^1 u_0 = 0 - \\frac{r_s}{2 r^2} (-\\sqrt{1 - \\frac{r_s}{r}}) = \\frac{r_s \\sqrt{1 - \\frac{r_s}{r}}}{2 r^2}$\\n6. 取 $r_s \\to 0$ 极限验证退化行为：\\n   当 $r_s \\to 0$ 时，四加速度 $a^1 \\to 0$，旋率张量 $\\Omega^0_{\\ 1} \\to 0$ 且 $\\Omega^1_{\\ 0} \\to 0$。因此 Fermi-Walker 传输方程 $\\nabla_{\\mathbf{u}} S^\\mu = \\Omega^\\mu_{\\ \\nu} S^\\nu$ 退化为平行传输方程 $\\nabla_{\\mathbf{u}} S^\\mu = 0$。\\n   进一步，对于静态观察者，$\\nabla_{\\mathbf{u}} S^\\mu = u^0 (\\partial_0 S^\\mu + \\Gamma^\\mu_{0\\nu} S^\\nu) = u^0 \\frac{dS^\\mu}{dt} + u^0 \\Gamma^\\mu_{0\\nu} S^\\nu$。在 $r_s \\to 0$ 极限下，Christoffel 符号 $\\Gamma^\\mu_{0\\nu} \\to 0$（皆包含 $r_s$ 因子），且 $u^0 \\to 1$，故方程最终退化为 $\\frac{dS^\\mu}{d\\tau} = 0$，这正是平直时空中自旋矢量不随时间改变的预期结果，验证了该极限行为。"
+  },
+  "verification": null
+}

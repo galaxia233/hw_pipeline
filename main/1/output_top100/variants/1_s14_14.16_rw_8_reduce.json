@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s14_14.16-7-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "wave equation of vector field",
+      "coordinate": "Schwarzschild",
+      "scenario": "reduce to flat spacetime",
+      "method": "limit r_s to 0",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.16",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.16",
+      "1_s14_14.16-7",
+      "1_s14_14.16-7-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\nabla_\\nu \\nabla^\\nu A^\\mu - R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论框架下，弯曲时空中无质量矢量场 $A^\\mu$（满足洛伦兹规范 $\\nabla_\\nu A^\\nu = 0$）的波动方程为 $\\nabla_\\nu \\nabla^\\nu A^\\mu - R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma = 0$，其中包含的 Ricci 曲率项反映了矢量场与时空曲率的耦合。考虑 Schwarzschild 黑洞外部真空度规 $ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。请通过取黑洞质量趋于零的极限（即 $r_s \\to 0$），将上述包含曲率项的弯曲时空矢量波动方程归约至平直时空的经典对应，并写出归约后的经典波动方程形式。",
+    "answer": "当取 $r_s \\to 0$ 的极限时，Schwarzschild 度规中与引力源相关的几何效应消失，度规退化为平直时空的 Minkowski 度规 $ds^2 = -dt^2 + dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$。在此极限下，协变导数退化为普通偏导数（$\\nabla_\\nu \\to \\partial_\\nu$），且 Ricci 张量退化为零（$R^\\mu_{\\phantom{\\mu}\\sigma} \\to 0$）。因此，弯曲时空矢量波动方程中的曲率耦合项消失，波动算子退化为平直时空的达朗贝尔算子，方程归约回经典的无质量矢量波动方程：$\\partial_\\nu \\partial^\\nu A^\\mu = 0$。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "Answer 中声称 'Ricci 张量退化为零（$R^\\mu_{\\phantom{\\mu}\\sigma} \\to 0$）'，并据此认为曲率耦合项在极限下消失。这与 Schwarzschild 真空度规的已知性质直接矛盾：根据度规摘要，Schwarzschild 真空度规的 Ricci 张量始终严格为零（$R^\\mu_{\\phantom{\\mu}\\sigma} = 0$），无论是否取 $r_s \\to 0$ 的极限。因此，波动方程中的曲率耦合项 $R^\\mu_{\\phantom{\\mu}\\sigma} A^\\sigma$ 在 Schwarzschild 真空中本来就恒为零，而不是在平直时空极限下才退化为零。Answer 的推导逻辑混淆了 Ricci 张量与不为零的 Riemann 张量，给出了完全错误的物理原因。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

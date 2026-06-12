@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-5",
+    "type": "prove",
+    "tags": {
+      "target_object": "spin_vector_transverse_components",
+      "coordinate": "spherical",
+      "scenario": "radial_free_fall_gyroscope",
+      "method": "parallel_transport_equation",
+      "generalization_axis": "verify",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$S^{\\hat{\\theta}}$",
+      "$S^{\\hat{\\phi}}$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In the Schwarzschild spacetime, the metric is given by $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$, where $r_s = 2M$. The spin vector $S^\\mu$ of a torque-free gyroscope undergoes Fermi-Walker transport. For a freely falling gyroscope (geodesic motion), the 4-acceleration vanishes, and the transport reduces to parallel transport $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$. Verify that for such a gyroscope undergoing purely radial free fall in the equatorial plane ($\\dot{\\theta}=0, \\dot{\\phi}=0$), the transverse components of the spin vector in the local orthonormal frame, defined as $S^{\\hat{\\theta}} = r S^\\theta$ and $S^{\\hat{\\phi}} = r S^\\phi$, remain constant during the fall. Explicitly use the parallel transport equation and the Christoffel symbols to show that $\\frac{d}{d\\tau}(r S^\\theta) = 0$ and $\\frac{d}{d\\tau}(r S^\\phi) = 0$.",
+    "answer": "The transverse components $S^{\\hat{\\theta}}$ and $S^{\\hat{\\phi}}$ are conserved, i.e., $\\frac{d}{d\\tau}(r S^\\theta) = 0$ and $\\frac{d}{d\\tau}(r S^\\phi) = 0$.",
+    "solution": "For a freely falling gyroscope, the spin vector is parallel transported along its geodesic worldline, satisfying $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$. In component form, the parallel transport equation is:$$ \\frac{dS^\\mu}{d\\tau} + \\Gamma^\\mu_{\\alpha\\beta} u^\\alpha S^\\beta = 0 $$For purely radial free fall, the 4-velocity only has time and radial components: $u^\\alpha = (u^0, u^1, 0, 0)$. 1. For the $\\theta$ component ($\\mu = 2$):$$ \\frac{dS^\\theta}{d\\tau} + \\Gamma^\\theta_{\\alpha\\beta} u^\\alpha S^\\beta = 0 $$The relevant Christoffel symbols with $\\alpha \\in \\{0, 1\\}$ are $\\Gamma^\\theta_{12} = \\frac{1}{r}$ and $\\Gamma^\\theta_{21} = \\frac{1}{r}$. Since $u^\\theta = 0$, the term $\\Gamma^\\theta_{21} u^\\theta S^1 = 0$. Thus, the equation simplifies to:$$ \\frac{dS^\\theta}{d\\tau} + \\Gamma^\\theta_{12} u^1 S^\\theta = 0 $$Substituting $\\Gamma^\\theta_{12} = \\frac{1}{r}$ and $u^1 = \\frac{dr}{d\\tau}$:$$ \\frac{dS^\\theta}{d\\tau} + \\frac{1}{r} \\frac{dr}{d\\tau} S^\\theta = 0 $$This can be rewritten using the product rule as:$$ \\frac{1}{r} \\frac{d}{d\\tau}(r S^\\theta) = 0 \\implies \\frac{d}{d\\tau}(r S^\\theta) = 0 $$Since the local orthonormal frame component is $S^{\\hat{\\theta}} = \\sqrt{g_{\\theta\\theta}} S^\\theta = r S^\\theta$, we have $\\frac{d}{d\\tau} S^{\\hat{\\theta}} = 0$, verifying that the $\\theta$ component of the spin in the local frame is conserved.2. For the $\\phi$ component ($\\mu = 3$):$$ \\frac{dS^\\phi}{d\\tau} + \\Gamma^\\phi_{\\alpha\\beta} u^\\alpha S^\\beta = 0 $$The relevant Christoffel symbols with $\\alpha \\in \\{0, 1\\}$ are $\\Gamma^\\phi_{13} = \\frac{1}{r}$ and $\\Gamma^\\phi_{31} = \\frac{1}{r}$. Since $u^\\phi = 0$, the term $\\Gamma^\\phi_{31} u^\\phi S^1 = 0$. Thus:$$ \\frac{dS^\\phi}{d\\tau} + \\Gamma^\\phi_{13} u^1 S^\\phi = 0 $$Substituting $\\Gamma^\\phi_{13} = \\frac{1}{r}$ and $u^1 = \\frac{dr}{d\\tau}$:$$ \\frac{dS^\\phi}{d\\tau} + \\frac{1}{r} \\frac{dr}{d\\tau} S^\\phi = 0 \\implies \\frac{d}{d\\tau}(r S^\\phi) = 0 $$In the equatorial plane ($\\theta = \\pi/2$), the local orthonormal component is $S^{\\hat{\\phi}} = \\sqrt{g_{\\phi\\phi}} S^\\phi = r S^\\phi$. Thus, $\\frac{d}{d\\tau} S^{\\hat{\\phi}} = 0$, verifying that the $\\phi$ component is also conserved. This confirms that for radial free fall, the spin vector experiences no transverse precession relative to the local orthonormal frame."
+  },
+  "verification": null
+}

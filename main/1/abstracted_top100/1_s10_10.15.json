@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "killing_vector",
+      "coordinate": "conservation_law",
+      "scenario": "stationary_spacetime",
+      "method": "bound_optimization"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s10_10.15",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s10_10.15"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "多步极值推导与判别式法结合+区分类时/类空Killing矢量区域+适用于任意稳态时空",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\xi$",
+      "$\\mathbf{E}$",
+      "$\\mathbf{p}$",
+      "$\\mu$"
+    ],
+    "target": [
+      "$\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "10.15. In a stationary metric with time Killing vector $\\xi$ the \"energy at infinity\" $\\mathbf{E} = -\\mathbf{p} \\cdot \\boldsymbol{\\xi}$ of a test particle with 4-momentum $\\mathbf{p}$ is conserved. Find the minimum value of $\\mathbf{E} / \\mu$ (where $\\mu =$ particle mass) that the particle can have at a given point in the spacetime, in terms of the norm of $\\boldsymbol{\\xi}$ .",
+    "answer": "$\\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$",
+    "solution": "Solution 10.15. Consider a particle of rest mass $\\mu$ and conserved energy $\\mathbf{E} = -\\mathbf{p} \\cdot \\boldsymbol{\\xi}$ where $\\mathbf{p}$ is the 4-momentum and $\\boldsymbol{\\xi}$ is the time Killing vector. Not all values of $\\mathbf{E} / \\mu$ are possible for trajectories through a given point in spacetime. For example, particles at radial infinity must have $\\mathbf{E} / \\mu \\geq 1$ . To find the bound on $\\mathbf{E} / \\mu$ for a general point, pick an orthonormal frame at the point. The 4-velocity of a particle has components $\\mathbf{u} = (\\gamma, \\gamma \\mathbf{v})$ with $\\underline{\\mathbf{v}}$ a 3-vector and $\\gamma = (1 - \\mathbf{v}^2)^{-\\frac{1}{2}}$ ; the time Killing vector has components $\\xi = (\\xi_0, \\underline{\\xi})$ , with $\\underline{\\xi}$ a 3-vector. The particle's ratio of energy to rest mass is given by$$\\mathbf {E} / \\mu = - \\mathbf {u} \\cdot \\boldsymbol {\\xi}_{(t)} = \\gamma (\\xi_{0} - \\underline {{v}} \\cdot \\underline {{\\xi}}) \\tag {1}$$where the dot denotes the scalar product in the local Euclidean 3-space. Evidently, a necessary (but not a sufficient) condition for an extremum (hence a bound) on $\\mathbf{E} / \\mu$ is$$\\underline {{\\mathbf {v}}} \\cdot \\underline {{\\xi}} = \\pm \\mathbf {v} \\xi . \\tag {2}$$Here $\\mathbf{v} \\equiv |\\underline{\\mathbf{v}}|$ , $\\xi \\equiv |\\underline{\\xi}|$ . Now we distinguish two cases: If $\\xi$ is spacelike (e.g. in the ergosphere of a Kerr blackhole), then we have $\\xi_0 < \\xi$ ; and inspection of Equation (1) shows that all values of $\\mathrm{E} / \\mu$ are possible, that is $-\\inf ty < \\mathrm{E} / \\mu < +\\inf ty$ . This is the answer for regions in which $\\xi$ is spacelike. The infinite limits correspond to $\\mathbf{v} \\rightarrow \\mathbf{1}$ with the two signs of Equation (2). If, instead, $\\xi$ is timelike (e.g. at radial infinity), so that $\\xi_0 > \\xi$ , then the right-hand side of Equation (1) is always positive, and there is a nontrivial lower bound on $\\mathrm{E} / \\mu$ . Writing Equation (1) and using Equation (2) with the upper sign, we obtain$$(\\xi^{2} + \\mathrm {E}^{2} / \\mu^{2}) \\mathrm {v}^{2} - 2 \\xi \\xi_{0} \\mathrm {v} + (\\xi_{0}^{2} - \\mathrm {E}^{2} / \\mu^{2}) = 0.$$The extremum in $\\mathbf{E} / \\mu$ is obtained by setting the discriminant of this equation, a quadratic in $\\mathbf{v}$ , equal to zero; this gives$$0 = (\\mathrm {E} / \\mu)^{2} \\left[ (\\mathrm {E} / \\mu)^{2} - \\xi^{2} + \\xi_{0}^{2}\\right].$$The root $\\mathbf{E} / \\mu = 0$ is spurious, and the lower bound on $\\mathbf{E} / \\mu$ is$$(\\mathrm {E} / \\mu)^{2} = \\dot {\\xi}_{0}^{2} - \\dot {\\xi}^{2} = - \\boldsymbol {\\xi} \\cdot \\boldsymbol {\\xi}.$$We see that the allowed range of $\\mathbf{E} / \\mu$ at a point depends only on the norm of the time Killing vector at that point:$$(- \\boldsymbol {\\xi} \\cdot \\boldsymbol {\\xi})^{\\frac {1}{2}} \\leq \\mathbf {E} / \\mu < + \\inf ty$$for $\\pmb{\\xi}$ timelike."
+  },
+  "verification": null
+}

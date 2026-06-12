@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-7-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "\\frac{d S^r}{d \\tau} = 0",
+      "coordinate": "spherical",
+      "scenario": "radial_free_fall_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-7",
+      "1_s11_11.4-7-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "验证径向自由下落陀螺仪自旋径向分量守恒 \\frac{d S^r}{d \\tau} = 0 及其背后的 Christoffel 符号抵消机制"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 时空赤道面 ($\\theta = \\pi/2$) 上，一个沿径向自由下落的无扭矩陀螺仪，其四速度为 $u^\\mu = (u^t, u^r, 0, 0)$。自旋矢量 $S^\\mu$ 满足平行输运方程 $\\nabla_{\\mathbf{u}} \\mathbf{S} = 0$，且始终与四速度正交 $g_{\\mu\\nu} u^\\mu S^\\nu = 0$。已知 Schwarzschild 度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$，其中 $r_s$ 为 Schwarzschild 半径。理论推导表明：尽管该时空的 Christoffel 符号不为零，但在上述正交条件下，自旋矢量的径向分量 $S^r$ 的平行输运方程能够精确还原为平直时空中的形式 $\\frac{d S^r}{d \\tau} = 0$。请你从零设计一个数值模拟实验方案，来验证上述“自旋径向分量守恒”及其背后的“Christoffel 符号代数抵消”结论。要求给出：1. 时空与粒子的初始参数设定（包括初始坐标、四速度、初始自旋矢量）；2. 需要数值求解的微分方程组；3. 需要记录和提取的关键计算量；4. 如何通过数值数据证明 Christoffel 符号项的抵消机制及 $\\frac{d S^r}{d \\tau} = 0$。",
+    "answer": "1. **参数设定**：选取 $r_s = 1$，初始径向位置 $r_0 = 10 r_s$，初始角位置 $\\theta_0 = \\pi/2$，$\\phi_0 = 0$；设定纯径向下落的初始四速度 $u^r_0 < 0$，通过测地线约束计算 $u^t_0$；设定初始自旋 $S^r_0 = 1$，由正交条件 $g_{tt}u^t S^t + g_{rr}u^r S^r=0$ 计算出 $S^t_0$，并令 $S^\\theta_0 = S^\\phi_0 = 0$。2. **微分方程组**：建立包含测地线方程 $\\frac{d u^\\mu}{d \\tau} + \\Gamma^\\mu_{\\alpha\\beta} u^\\alpha u^\\beta = 0$ 与坐标演化 $\\frac{d x^\\mu}{d \\tau} = u^\\mu$，以及自旋平行输运方程 $\\frac{d S^\\mu}{d \\tau} + \\Gamma^\\mu_{\\alpha\\beta} u^\\alpha S^\\beta = 0$ 的常微分方程组，使用四阶 Runge-Kutta 方法沿固有时间 $\\tau$ 积分。3. **关键计算量**：在每个积分步提取：自旋径向分量 $S^r(\\tau)$；$S^r$ 方程中的两项 Christoffel 贡献 $A(\\tau) = -\\frac{g_{rr}}{g_{tt}} \\Gamma^r_{tt} u^r S^r$ 和 $B(\\tau) = \\Gamma^r_{rr} u^r S^r$。4. **验证方式**：   - 绘制 $S^r(\\tau)$ 曲线，预期其在整个下落过程中保持恒定（数值误差内波动），直接验证 $\\frac{d S^r}{d \\tau} = 0$。   - 计算 $A(\\tau) + B(\\tau)$，预期其和恒为 0（或在浮点精度内为极小值），证明非零的 Christoffel 符号项在演化中被精确抵消，而非因其他偶然因素消失。",
+    "solution": "本方案通过直接数值积分测地线和平行输运方程，能够完整追踪陀螺仪在下落过程中的状态演化。提取 $S^r(\\tau)$ 并观察其是否偏离常数，是验证 $\\frac{d S^r}{d \\tau} = 0$ 的最直接宏观证据。更重要的是，单独提取并对比 $\\Gamma^r_{tt} u^t S^t$ （通过正交条件转化为 $-\\frac{g_{rr}}{g_{tt}} \\Gamma^r_{tt} u^r S^r$）与 $\\Gamma^r_{rr} u^r S^r$ 两项的数值，若两者之和始终为0，则不仅证实了宏观结果（守恒），还揭示了微观机制（Christoffel 符号的代数抵消），从而排除了其他使 $S^r$ 恒定的偶然可能性，物理合理性完备。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目及其解答声称在径向自由下落时自旋径向分量满足 $\\frac{dS^r}{d\\tau} = 0$，并认为其抵消机制仅包含 $\\Gamma^r_{tt} u^t S^t$ 和 $\\Gamma^r_{rr} u^r S^r$两项。然而，$S^r$ 的平行输运方程完整形式应为 $\\frac{dS^r}{d\\tau} + \\Gamma^r_{tt} u^t S^t + 2\\Gamma^r_{tr} u^t S^r + \\Gamma^r_{rr} u^r S^r = 0$。利用正交条件 $S^t = -\\frac{g_{rr}}{g_{tt}} \\frac{u^r}{u^t} S^r$ 替换后，方程变为 $\\frac{dS^r}{d\\tau} + \\left(-\\frac{g_{rr}}{g_{tt}} \\Gamma^r_{tt} + \\Gamma^r_{rr}\\right) u^r S^r + 2\\Gamma^r_{tr} u^t S^r = 0$。虽然前两项确实代数抵消（即 answer 中的 $A+B=0$），但推导完全遗漏了关键的第三项 $2\\Gamma^r_{tr} u^t S^r$（其中 $\\Gamma^r_{tr} = \\frac{r_s(r-r_s)}{2r^3} \\neq 0$）。因此，正确的方程应为 $\\frac{dS^r}{d\\tau} = -2\\Gamma^r_{tr} u^t S^r \\neq 0$，自旋径向分量并不守恒，answer 和 solution 中关于 Christoffel 符号仅两项抵消及 $S^r$ 守恒的结论属于根本性的物理错误。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

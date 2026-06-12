@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "id": "1_s1_1.19",
+    "type": "prove",
+    "tags": {
+      "metric": "minkowski_metric",
+      "target_object": "photon_kinematics",
+      "coordinate": "cartesian_coordinate",
+      "scenario": "relativistic_reflection",
+      "method": "lorentz_transformation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.19",
+    "source_id": "1_s1_1.19",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.19"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "需跨惯性系进行洛伦兹变换与动量分量分解，逻辑链条完整，属相对论光学标准物理场景",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 3,
+    "variables": [
+      "$t$",
+      "$x$",
+      "$y$",
+      "$E$",
+      "$P_x$",
+      "$P_y$",
+      "$\\\\theta_1$",
+      "$\\\\theta_2$",
+      "$\\\\beta$",
+      "$\\\\gamma$"
+    ],
+    "target": [
+      "$\\\\theta_1$",
+      "$\\\\theta_2$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.19. A mirror is moving parallel to its plane. Show that the angle of incidence of a photon equals the angle of reflection.\\n\\n## Solution\\n\\nSolution 1.19. Let $\\mathbf{E}$ and $\\underline{\\mathbf{P}}$ denote the energy and momentum of the photon. In the frame of the mirror (primed frame) $\\mathbf{E}_{\\mathrm{in}}' = \\mathbf{E}_{\\mathrm{out}}'$ , $\\mathbf{P}_{\\mathbf{x}\\mathrm{in}}' = \\mathbf{P}_{\\mathbf{x}\\mathrm{out}}'$ , $\\mathbf{P}_{\\mathbf{y}\\mathrm{in}}' = -\\mathbf{P}_{\\mathbf{y}\\mathrm{out}}'$ . In the lab frame, we wish to show $\\theta_{1} = \\theta_{2}$ .\\n$$\\n\\\\frac {\\\\tan \\\\theta_{1}}{\\\\tan \\\\theta_{2}} = \\\\frac {\\\\left(\\\\mathrm {P}_{\\\\mathrm {x}} / \\\\mathrm {P}_{\\\\mathrm {y}}\\\\right)_{\\\\text {i n}}}{\\\\left(\\\\mathrm {P}_{\\\\mathrm {x}} / - \\\\mathrm {P}_{\\\\mathrm {y}}\\\\right)_{\\\\text {o u t}}} = \\\\frac {\\\\mathrm {P}_{\\\\mathrm {x}} \\\\text {i n}}{\\\\mathrm {P}_{\\\\mathrm {x}} \\\\text {o u t}} \\\\cdot \\\\frac {\\\\mathrm {P}_{\\\\mathrm {y}}^{\\\\prime} \\\\text {i n}}{- \\\\mathrm {P}_{\\\\mathrm {y}}^{\\\\prime} \\\\text {o u t}} = \\\\frac {\\\\mathrm {P}_{\\\\mathrm {x}} \\\\text {i n}}{\\\\mathrm {P}_{\\\\mathrm {x}} \\\\text {o u t}},\\n$$\\nwhere we have used $\\mathbf{P}_{\\mathbf{y}}^{\\prime} = \\mathbf{P}_{\\mathbf{y}}$ . Then, Lorentz transforming $\\mathbf{P}_{\\mathbf{x}}$\\n$$\\n\\\\frac {\\\\tan \\\\theta_{1}}{\\\\tan \\\\theta_{2}} = \\\\frac {\\\\gamma \\\\left(\\\\mathrm {P}_{\\\\mathrm {x}}^{\\\\prime} + \\\\beta \\\\mathrm {E}^{\\\\prime}\\\\right)_{\\\\mathrm {in}}}{\\\\gamma \\\\left(\\\\mathrm {P}_{\\\\mathrm {x}}^{\\\\prime} + \\\\beta \\\\mathrm {E}^{\\\\prime}\\\\right)_{\\\\mathrm {out}}} = 1.\\n$$\\nHence the angle of incidence equals the angle of reflection in the lab frame as well as the mirror frame.\\n![](images/10acda976434f164deac0a258fc2ed550698d3a68baf2f379614fc750af68ef7.jpg)",
+    "answer": "The angle of incidence equals the angle of reflection in the lab frame as well as the mirror frame.",
+    "solution": "Solution 1.19. Let $\\mathbf{E}$ and $\\underline{\\mathbf{P}}$ denote the energy and momentum of the photon. In the frame of the mirror (primed frame) $\\mathbf{E}_{\\mathrm{in}}' = \\mathbf{E}_{\\mathrm{out}}'$ , $\\mathbf{P}_{\\mathbf{x}\\mathrm{in}}' = \\mathbf{P}_{\\mathbf{x}\\mathrm{out}}'$ , $\\mathbf{P}_{\\mathbf{y}\\mathrm{in}}' = -\\mathbf{P}_{\\mathbf{y}\\mathrm{out}}'$ . In the lab frame, we wish to show $\\theta_{1} = \\theta_{2}$ .\\n$$\\n\\\\frac {\\\\tan \\\\theta_{1}}{\\\\tan \\\\theta_{2}} = \\\\frac {\\\\left(\\\\mathrm {P}_{\\\\mathrm {x}} / \\\\mathrm {P}_{\\\\mathrm {y}}\\\\right)_{\\\\text {i n}}}{\\\\left(\\\\mathrm {P}_{\\\\mathrm {x}} / - \\\\mathrm {P}_{\\\\mathrm {y}}\\\\right)_{\\\\text {o u t}}} = \\\\frac {\\\\mathrm {P}_{\\\\mathrm {x}} \\\\text {i n}}{\\\\mathrm {P}_{\\\\mathrm {x}} \\\\text {o u t}} \\\\cdot \\\\frac {\\\\mathrm {P}_{\\\\mathrm {y}}^{\\\\prime} \\\\text {i n}}{- \\\\mathrm {P}_{\\\\mathrm {y}}^{\\\\prime} \\\\text {o u t}} = \\\\frac {\\\\mathrm {P}_{\\\\mathrm {x}} \\\\text {i n}}{\\\\mathrm {P}_{\\\\mathrm {x}} \\\\text {o u t}},\\n$$\\nwhere we have used $\\mathbf{P}_{\\mathbf{y}}^{\\prime} = \\mathbf{P}_{\\mathbf{y}}$ . Then, Lorentz transforming $\\mathbf{P}_{\\mathbf{x}}$\\n$$\\n\\\\frac {\\\\tan \\\\theta_{1}}{\\\\tan \\\\theta_{2}} = \\\\frac {\\\\gamma \\\\left(\\\\mathrm {P}_{\\\\mathrm {x}}^{\\\\prime} + \\\\beta \\\\mathrm {E}^{\\\\prime}\\\\right)_{\\\\mathrm {in}}}{\\\\gamma \\\\left(\\\\mathrm {P}_{\\\\mathrm {x}}^{\\\\prime} + \\\\beta \\\\mathrm {E}^{\\\\prime}\\\\right)_{\\\\mathrm {out}}} = 1.\\n$$\\nHence the angle of incidence equals the angle of reflection in the lab frame as well as the mirror frame.\\n![](images/10acda976434f164deac0a258fc2ed550698d3a68baf2f379614fc750af68ef7.jpg)"
+  },
+  "verification": null
+}

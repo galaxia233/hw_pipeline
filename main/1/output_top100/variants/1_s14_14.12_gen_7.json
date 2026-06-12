@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-7",
+    "type": "prove",
+    "tags": {
+      "target_object": "Riemann tensor limit",
+      "coordinate": "local orthonormal frame",
+      "scenario": "Schwarzschild far-field",
+      "method": "limit analysis",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$R^{\\hat{j}}_{\\hat{0}\\hat{k}\\hat{0}}$",
+      "$\\frac{\\partial^2 \\Phi}{\\partial x^j \\partial x^k}$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在种子题推导的加速观察者运动方程中，粒子受到的相对论潮汐力项为 $-R^j_{0k0} x^k$。现在考虑 Schwarzschild 黑洞外部的时空，其度规为：$$ ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2 $$其中 $r_s = 2M$ 为 Schwarzschild 半径。请证明：对于一个处于远场区域（$r \\gg r_s$）的静态观察者，在其局部正交坐标系（orthonormal frame）下，Riemann 张量的物理分量 $R^{\\hat{j}}_{\\hat{0}\\hat{k}\\hat{0}}$ 在远场极限下精确还原为 Newtonian 潮汐加速度张量 $\\frac{\\partial^2 \\Phi}{\\partial x^j \\partial x^k}$，其中 Newtonian 引力势 $\\Phi = -M/r$。",
+    "answer": "在局部正交坐标系下，$R^{\\hat{r}}_{\\hat{0}\\hat{r}\\hat{0}} = \\frac{2M}{r^3}$，$R^{\\hat{\\theta}}_{\\hat{0}\\hat{\\theta}\\hat{0}} = -\\frac{M}{r^3}$，$R^{\\hat{\\phi}}_{\\hat{0}\\hat{\\phi}\\hat{0}} = -\\frac{M}{r^3}$。对于势 $\\Phi = -M/r$，其沿局部笛卡尔坐标轴的二阶导数恰好为 $\\frac{\\partial^2 \\Phi}{\\partial z^2} = \\frac{2M}{r^3}$ 及横向 $\\frac{\\partial^2 \\Phi}{\\partial x^2} = \\frac{\\partial^2 \\Phi}{\\partial y^2} = -\\frac{M}{r^3}$。两者完全一致，证明相对论潮汐力在弱场极限还原为牛顿潮汐力。",
+    "solution": "1. **计算坐标系下的 Riemann 张量分量**：\\n根据 Schwarzschild 度规的几何属性数据，提取非零的 $R^j_{0k0}$ 分量：\\n$R^1_{010} = g^{11} R_{0101} = \\frac{r-r_s}{r} \\cdot \\frac{r_s}{r^2(r-r_s)} = \\frac{r_s}{r^3} = \\frac{2M}{r^3}$\\n$R^2_{020} = g^{22} R_{0202} = \\frac{1}{r^2} \\cdot \\left(-\\frac{r_s}{2r}\\right) = -\\frac{r_s}{2r^3} = -\\frac{M}{r^3}$\\n$R^3_{030} = g^{33} R_{0303} = \\frac{1}{r^2 \\sin^2\\theta} \\cdot \\left(-\\frac{r_s \\sin^2\\theta}{2r}\\right) = -\\frac{r_s}{2r^3} = -\\frac{M}{r^3}$\\n\\n2. **转换到局部正交基（物理分量）**：\\n静态观察者的局部正交基矢量为 $e_{\\hat{0}} = (1-r_s/r)^{-1/2} e_0$, $e_{\\hat{1}} = (1-r_s/r)^{1/2} e_1$, $e_{\\hat{2}} = r^{-1} e_2$, $e_{\\hat{3}} = (r \\sin\\theta)^{-1} e_3$。\\n由于基矢变换的缩放因子在逆变和协变指标中相互抵消，物理分量与坐标分量数值相等：\\n$R^{\\hat{1}}_{\\hat{0}\\hat{1}\\hat{0}} = R^1_{010} = \\frac{2M}{r^3}$\\n$R^{\\hat{2}}_{\\hat{0}\\hat{2}\\hat{0}} = R^2_{020} = -\\frac{M}{r^3}$\\n$R^{\\hat{3}}_{\\hat{0}\\hat{3}\\hat{0}} = R^3_{030} = -\\frac{M}{r^3}$\\n在球对称时空中，其余交叉分量为 0。\\n\\n3. **计算 Newtonian 潮汐张量**：\\nNewtonian 引力势为 $\\Phi = -M/r$。在远场极限 $r \\gg r_s$ 下，观察者的局部笛卡尔坐标 $(x^1, x^2, x^3)$ 可与球坐标的局部方向 $(r, \\theta, \\phi)$ 对应。\\n沿径向（设为 $z$ 轴）的潮汐加速度导数为：\\n$\\frac{\\partial^2 \\Phi}{\\partial z^2} = \\frac{\\partial^2}{\\partial r^2} \\left(-\\frac{M}{r}\\right) = \\frac{2M}{r^3}$\\n由于真空满足 Laplace 方程 $\\nabla^2 \\Phi = 0$，横向（设为 $x, y$ 轴）的二阶导数之和必为 $-\\frac{2M}{r^3}$，由对称性可得：\\n$\\frac{\\partial^2 \\Phi}{\\partial x^2} = \\frac{\\partial^2 \\Phi}{\\partial y^2} = -\\frac{M}{r^3}$\\n\\n4. **极限对应**：\\n对比可知，$R^{\\hat{j}}_{\\hat{0}\\hat{k}\\hat{0}} = \\frac{\\partial^2 \\Phi}{\\partial x^j \\partial x^k}$ 严格成立。这证明了种子题中加速观察者方程里的相对论潮汐力项 $-R^j_{0k0} x^k$，在 Schwarzschild 远场极限下精确还原为经典的 Newtonian 潮汐力项 $-\\frac{\\partial^2 \\Phi}{\\partial x^j \\partial x^k} x^k$。"
+  },
+  "verification": null
+}

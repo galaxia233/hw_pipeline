@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "id": "1_s14_14.2-0-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "\\rho(r)",
+      "coordinate": "spherical",
+      "scenario": "thermal_equilibrium_contrast",
+      "method": "Tolman_law_and_Stefan_Boltzmann",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.2",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.2",
+      "1_s14_14.2-0",
+      "1_s14_14.2-0-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T$",
+      "$g_{00}$"
+    ],
+    "target": [
+      "局部静止观察者测得的辐射能量密度 \\rho(r) 及视界附近极限行为对比"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "考虑两种静态球对称时空背景：背景A（Schwarzschild时空，不带电黑洞）：$$ds^2_A = -\\left(1 - \\frac{r_s}{r}\\right) dt^2 + \\left(1 - \\frac{r_s}{r}\\right)^{-1} dr^2 + r^2 d\\Omega^2$$其中 $r_s = 2M$。背景B（Reissner-Nordström时空，带电黑洞）：$$ds^2_B = -\\left(1 - \\frac{r_s}{r} + \\frac{Q^2}{4\\pi\\varepsilon_0 r^2}\\right) dt^2 + \\left(1 - \\frac{r_s}{r} + \\frac{Q^2}{4\\pi\\varepsilon_0 r^2}\\right)^{-1} dr^2 + r^2 d\\Omega^2$$其中 $r_s = 2M$，$Q$ 为黑洞电荷量，$\\varepsilon_0$ 为真空电容率。假设在这两种黑洞周围分别存在处于全局热平衡状态的静态黑体辐射场。在远离黑洞的区域 $(r \\to \\inf ty)$，局部静止观察者测得的辐射温度均为 $T_\\inf ty$，相应的能量密度均为 $\\rho_\\inf ty$。已知两种时空均具有时间平移 Killing 矢量 $\\partial_t$，根据 Tolman 定律 ($T \\sqrt{-g_{00}} = \\text{常数}$) 与 Stefan-Boltzmann 定律 ($\\rho \\propto T^4$)，请推导这两种背景下局部静止观察者测得的辐射能量密度 $\\rho(r)$ 的表达式，并对比它们在各自外视界 $(r \\to r_+)$ 附近趋于无穷大的极限行为差异，解释其物理含义。",
+    "answer": "背景A：$\\rho_A(r) = \\rho_\\inf ty \\left(1 - \\frac{r_s}{r}\\right)^{-2}$。外视界 $r_+ = r_s$。当 $r \\to r_+^+$ 时，$\\rho_A(r) \\approx \\rho_\\inf ty \\left( \\frac{r_s}{r - r_+}\\right)^2$。背景B：$\\rho_B(r) = \\rho_\\inf ty \\left(1 - \\frac{r_s}{r} + \\frac{Q^2}{4\\pi\\varepsilon_0 r^2}\\right)^{-2}$。外视界 $r_+ = \\frac{r_s + \\sqrt{r_s^2 - Q^2/\\pi\\varepsilon_0}}{2}$。在视界附近，度规因子可近似为 $\\left(1 - \\frac{r_s}{r} + \\frac{Q^2}{4\\pi\\varepsilon_0 r^2}\\right) \\approx \\frac{(r_+-r_-)(r-r_+)}{r_+^2}$，其中 $r_- = \\frac{r_s - \\sqrt{r_s^2 - Q^2/\\pi\\varepsilon_0}}{2}$ 为内视界。因此 $\\rho_B(r) \\approx \\rho_\\inf ty \\left( \\frac{r_+^2}{(r_+-r_-)(r-r_+)}\\right)^2$。差异对比与物理含义：两者在视界附近的发散阶数均为 $(r-r_+)^{-2}$，这是因为两者均具有时间平移Killing矢量且在视界处 $-g_{00} \\to 0$，导致强烈的引力红移。然而，RN黑洞的发散系数包含了内视界的影响。RN黑洞的表面引力 $\\kappa = \\frac{r_+-r_-}{2r_+^2}$ 小于Schwarzschild黑洞的表面引力 $\\kappa_A = \\frac{1}{2r_s}$。由于 $\\rho(r) \\propto \\kappa^{-2} (r-r_+)^{-2}$，RN黑洞的发散系数更大。物理含义是：电荷的排斥力削弱了黑洞的表面引力，使得引力红移因子的梯度减小，在相同的径向坐标距离 $(r-r_+)$ 处，RN黑洞的红移因子更小，从而导致局部静止观察者测得的温度和能量密度比Schwarzschild黑洞更高。当黑洞趋近极端带电状态（$r_+ \\to r_-$）时，表面引力 $\\kappa \\to 0$，发散系数趋于无穷大。",
+    "solution": "1. 利用时间平移Killing矢量，由Tolman定律得到局部温度 $T(r) = T_\\inf ty / \\sqrt{-g_{00}(r)}$。2. 由Stefan-Boltzmann定律得到局部能量密度 $\\rho(r) = \\rho_\\inf ty (T(r)/T_\\inf ty)^4 = \\rho_\\inf ty (-g_{00}(r))^{-2}$。3. 将两种度规的 $g_{00}$ 代入，得到 $\\rho_A$ 和 $\\rho_B$。4. 分析视界附近 $-g_{00}$ 的一阶泰勒展开，提取发散阶数和系数，联系到黑洞表面引力 $\\kappa$。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "背景B的度规存在严重的量纲与物理单位制混合错误。题目给出的 Reissner-Nordström 度规项为 $\\frac{Q^2}{4\\pi\\varepsilon_0 r^2}$，该项的量纲为 $[力]=[牛顿]$，而非无量纲的，不能与1和 $\\frac{r_s}{r}$ 相加。如果采用几何单位制（如背景A中 $r_s=2M$ 隐含的 $G=1, c=1$），则 $4\\pi\\varepsilon_0=1$，正确的 RN 度规应为 $1 - \\frac{2M}{r} + \\frac{Q^2}{r^2}$；如果采用 SI 单位制，则 $r_s$ 应为 $\\frac{2GM}{c^2}$，且 RN 度规项应为 $\\frac{G Q^2}{4\\pi\\varepsilon_0 c^4 r^2}$。题目缝合了两种单位制，导致度规在物理上完全错误。相应地，Answer 中基于此错误度规推导出的外视界半径 $r_+ = \\frac{r_s + \\sqrt{r_s^2 - Q^2/\\pi\\varepsilon_0}}{2}$ 在物理上也是错误的（真实的 RN 外视界在几何单位制下应为 $M + \\sqrt{M^2 - Q^2}$）。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

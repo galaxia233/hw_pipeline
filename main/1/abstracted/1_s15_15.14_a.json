@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s15_15.14_a",
+    "type": "prove",
+    "tags": {
+      "metric": "tensor_invariance",
+      "target_object": "lorentz_boost",
+      "coordinate": "riemann_tensor",
+      "scenario": "electromagnetic_analogy",
+      "method": "tetrad_formalism"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s15_15.14_a",
+    "source_id": "1_s15_15.14_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s15_15.14_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.4,
+      "realism": 0.7,
+      "rationale": "需运用洛伦兹变换矩阵对黎曼张量进行分量变换推导，结合电磁场类比具有明确物理背景，但仅含题干无解答过程",
+      "overall": 0.65
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\hat{\\mathbf{t}}$",
+      "$\\hat{\\mathbf{j}}$",
+      "$\\mathbf{e}_{\\hat{\\mathbf{j}}}$",
+      "$\\mathbb{R}_{\\hat{\\mathbf{t}}\\hat{\\mathbf{j}}\\hat{\\mathbf{t}}\\hat{\\mathbf{j}}}$",
+      "$\\mathbf{E}_{\\hat{\\mathbf{j}}}$",
+      "$\\mathbf{B}_{\\hat{\\mathbf{j}}}$"
+    ],
+    "target": [
+      "$\\mathbb{R}_{\\hat{\\mathbf{t}}\\hat{\\mathbf{j}}\\hat{\\mathbf{t}}\\hat{\\mathbf{j}}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "15.14 (a) Show that in general a boost in the spatial direction $\\mathbf{e}_{\\hat{\\mathbf{j}}}$ leaves invariant the physical components of the Riemann tensor $\\mathbb{R}_{\\hat{\\mathbf{t}}\\hat{\\mathbf{j}}\\hat{\\mathbf{t}}\\hat{\\mathbf{j}}}$ which are \"parallel\" to the boost. This is analogous to the invariance of $\\mathbf{E}_{\\hat{\\mathbf{j}}}$ and $\\mathbf{B}_{\\hat{\\mathbf{j}}}$ for a boost in the $\\mathbf{e}_{\\hat{\\mathbf{j}}}$ direction.",
+    "answer": "$\\mathbb{R}'_{\\hat{\\mathbf{t}}\\hat{\\mathbf{j}}\\hat{\\mathbf{t}}\\hat{\\mathbf{j}}} = \\mathbb{R}_{\\hat{\\mathbf{t}}\\hat{\\mathbf{j}}\\hat{\\mathbf{t}}\\hat{\\mathbf{j}}}$",
+    "solution": null
+  },
+  "verification": null
+}

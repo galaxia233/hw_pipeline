@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-6",
+    "type": "prove",
+    "tags": {
+      "target_object": "covariant divergence of Einstein tensor",
+      "coordinate": "FLRW",
+      "scenario": "cosmology",
+      "method": "tensor calculation",
+      "generalization_axis": "extend",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\nabla_\\alpha G^\\alpha_0$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In stationary spacetimes, the existence of a time-like Killing vector $\\xi^\\mu$ guarantees the conservation of the energy current $J^\\alpha = T^\\alpha_\\beta \\xi^\\beta$, i.e., $\\nabla_\\alpha J^\\alpha = 0$. However, in the FLRW cosmological spacetime, the scale factor $a(t)$ evolves with time, so there is no time-like Killing vector and global energy conservation fails. Despite this, the Bianchi identity $\\nabla_\\alpha G^\\alpha_\\beta = 0$ remains a fundamental geometric identity for any metric. Using the Einstein tensor and Christoffel symbols provided in the Fact Sheet, explicitly calculate the covariant divergence $\\nabla_\\alpha G^\\alpha_0$ for the FLRW metric to verify that it vanishes identically. Furthermore, briefly explain what physical conservation law this vanishing divergence implies for a perfect fluid universe.",
+    "answer": "$\\nabla_\\alpha G^\\alpha_0 = 0$. Physically, by the Einstein field equations $G^\\alpha_\\beta = 8\\pi T^\\alpha_\\beta$, this identity guarantees $\\nabla_\\alpha T^\\alpha_0 = 0$, which for a perfect fluid yields the cosmological continuity equation $\\dot{\\rho} + 3H(\\rho+p)=0$, indicating that energy density dilutes due to cosmic expansion and pressure work rather than being globally conserved.",
+    "solution": "To verify the Bianchi identity $\\nabla_\\alpha G^\\alpha_0 = 0$, we explicitly compute the covariant divergence using the mixed Einstein tensor components and the Christoffel symbols from the Fact Sheet.1. **Calculate the mixed Einstein tensor components $G^\\alpha_0$**:   The inverse metric components are $g^{00} = -1$, $g^{11} = \\frac{-k r^2 + 1}{a^2}$, $g^{22} = \\frac{1}{r^2 a^2}$, $g^{33} = \\frac{1}{r^2 a^2 \\sin^2 \\theta}$.   From the Fact Sheet, the covariant Einstein tensor components are:   $G_{00} = \\frac{3(k + \\dot{a}^2)}{a^2}$   $G_{11} = \\frac{k + 2 a \\ddot{a} + \\dot{a}^2}{k r^2 - 1}$   $G_{22} = r^2 (-k - 2 a \\ddot{a} - \\dot{a}^2)$   $G_{33} = r^2 (-k - 2 a \\ddot{a} - \\dot{a}^2) \\sin^2 \\theta$      Raising the first index:   $G^0_0 = g^{00} G_{00} = - \\frac{3(k + \\dot{a}^2)}{a^2}$   $G^1_1 = g^{11} G_{11} = \\frac{-k r^2 + 1}{a^2} \\cdot \\frac{k + 2 a \\ddot{a} + \\dot{a}^2}{k r^2 - 1} = - \\frac{k + 2 a \\ddot{a} + \\dot{a}^2}{a^2}$   $G^2_2 = g^{22} G_{22} = - \\frac{k + 2 a \\ddot{a} + \\dot{a}^2}{a^2}$   $G^3_3 = g^{33} G_{33} = - \\frac{k + 2 a \\ddot{a} + \\dot{a}^2}{a^2}$   Since $G_{i0} = 0$, we have $G^1_0 = G^2_0 = G^3_0 = 0$.2. **Compute the covariant divergence**:   The formula for the covariant divergence of a mixed tensor is:   $\\nabla_\\alpha G^\\alpha_0 = \\partial_\\alpha G^\\alpha_0 + \\Gamma^\\alpha_{\\alpha \\lambda} G^\\lambda_0 - \\Gamma^\\lambda_{\\alpha 0} G^\\alpha_\\lambda$      - **First term**: Since $G^\\alpha_0$ only has a $t$-component depending on $t$, we have:     $\\partial_\\alpha G^\\alpha_0 = \\partial_t G^0_0 = \\partial_t \\left( -3 \\frac{k + \\dot{a}^2}{a^2}\\right) = - \\frac{6 \\dot{a} \\ddot{a}}{a^2} + \\frac{6 \\dot{a} (k + \\dot{a}^2)}{a^3}$      - **Second term**: Since $G^\\lambda_0 = 0$ for $\\lambda \\neq 0$, we only need $\\Gamma^\\alpha_{\\alpha 0} G^0_0$.     From the Fact Sheet, the relevant Christoffel symbols are $\\Gamma^1_{10} = \\Gamma^2_{20} = \\Gamma^3_{30} = \\frac{\\dot{a}}{a}$ (and $\\Gamma^0_{00} = 0$).     Thus, $\\Gamma^\\alpha_{\\alpha 0} = 3 \\frac{\\dot{a}}{a}$.     $\\Gamma^\\alpha_{\\alpha \\lambda} G^\\lambda_0 = 3 \\frac{\\dot{a}}{a} \\left( -3 \\frac{k + \\dot{a}^2}{a^2}\\right) = -9 \\frac{\\dot{a} (k + \\dot{a}^2)}{a^3}$      - **Third term**: We need $- \\Gamma^\\lambda_{\\alpha 0} G^\\alpha_\\lambda$.     The mixed Einstein tensor is diagonal, and the non-zero Christoffel symbols $\\Gamma^\\lambda_{\\alpha 0}$ with $\\alpha = \\lambda \\neq 0$ are $\\Gamma^1_{10}, \\Gamma^2_{20}, \\Gamma^3_{30}$, all equal to $\\frac{\\dot{a}}{a}$.     $\\Gamma^\\lambda_{\\alpha 0} G^\\alpha_\\lambda = \\Gamma^1_{10} G^1_1 + \\Gamma^2_{20} G^2_2 + \\Gamma^3_{30} G^3_3 = 3 \\frac{\\dot{a}}{a} \\left( - \\frac{k + 2 a \\ddot{a} + \\dot{a}^2}{a^2}\\right) = -3 \\frac{\\dot{a} k}{a^3} - 6 \\frac{\\dot{a} \\ddot{a}}{a^2} - 3 \\frac{\\dot{a}^3}{a^3}$     Therefore, $- \\Gamma^\\lambda_{\\alpha 0} G^\\alpha_\\lambda = 3 \\frac{\\dot{a} k}{a^3} + 6 \\frac{\\dot{a} \\ddot{a}}{a^2} + 3 \\frac{\\dot{a}^3}{a^3}$   3. **Sum the three parts**:   $\\nabla_\\alpha G^\\alpha_0 = \\left( -6 \\frac{\\dot{a} \\ddot{a}}{a^2} + 6 \\frac{\\dot{a} k}{a^3} + 6 \\frac{\\dot{a}^3}{a^3}\\right) + \\left( -9 \\frac{\\dot{a} k}{a^3} - 9 \\frac{\\dot{a}^3}{a^3}\\right) + \\left( 3 \\frac{\\dot{a} k}{a^3} + 6 \\frac{\\dot{a} \\ddot{a}}{a^2} + 3 \\frac{\\dot{a}^3}{a^3}\\right) = 0$4. **Physical significance**:   The vanishing of $\\nabla_\\alpha G^\\alpha_0$ is the $\\beta=0$ component of the Bianchi identity. Through the Einstein field equations $G^\\alpha_\\beta = 8 \\pi T^\\alpha_\\beta$, this geometric identity forces the covariant conservation of the energy-momentum tensor: $\\nabla_\\alpha T^\\alpha_0 = 0$. For a perfect fluid with $T^\\alpha_\\beta = \\text{diag}(-\\rho, p, p, p)$, this directly yields the continuity equation $\\dot{\\rho} + 3 \\frac{\\dot{a}}{a} (\\rho + p) = 0$. This equation shows that while global energy is not conserved in an expanding universe (due to the absence of a time-like Killing vector), energy density locally evolves according to the work done by cosmic expansion, a physical conservation law guaranteed by the geometric Bianchi identity."
+  },
+  "verification": null
+}

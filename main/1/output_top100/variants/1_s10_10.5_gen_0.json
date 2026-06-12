@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s10_10.5-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "\\Phi = \\xi_{(t)}^\\mu \\xi_{(\\phi)\\mu}",
+      "coordinate": "coordinate_free",
+      "scenario": "rotating_star_axial_symmetry",
+      "method": "tensor_manipulation",
+      "generalization_axis": "extend",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.5",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.5",
+      "1_s10_10.5-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "killing_vector",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "\\xi_{(t)}^\\nu \\nabla_\\nu (\\xi_{(t)}^\\mu \\xi_{(\\phi)\\mu})",
+      "\\xi_{(\\phi)}^\\nu \\nabla_\\nu (\\xi_{(t)}^\\mu \\xi_{(\\phi)\\mu})"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "对于描述轴对称旋转星的稳态时空度规，其等距变换群由两个独立的 Killing 矢量生成：时间平移 Killing 矢量 $\\xi_{(t)}$ 和旋转 Killing 矢量 $\\xi_{(\\phi)}$。已知这两个 Killing 矢量是对易的，即它们的对易子为零：$[\\xi_{(t)}, \\xi_{(\\phi)}]^\\alpha = \\xi_{(t)}^\\mu \\nabla_\\mu \\xi_{(\\phi)}^\\alpha - \\xi_{(\\phi)}^\\mu \\nabla_\\mu \\xi_{(t)}^\\alpha = 0$。请证明这两个 Killing 矢量的内积不变量 $\\Phi = \\xi_{(t)}^\\mu \\xi_{(\\phi)\\mu}$ 满足 $\\xi_{(t)}^\\nu \\nabla_\\nu \\Phi = 0$ 且 $\\xi_{(\\phi)}^\\nu \\nabla_\\nu \\Phi = 0$。",
+    "answer": "0",
+    "solution": "定义内积不变量 $\\Phi = \\xi_{(t)}^\\mu \\xi_{(\\phi)\\mu} = g_{\\mu\\alpha} \\xi_{(t)}^\\mu \\xi_{(\\phi)}^\\alpha$。首先证明 $\\xi_{(t)}^\\nu \\nabla_\\nu \\Phi = 0$。对 $\\Phi$ 求沿 $\\xi_{(t)}$ 的方向导数并展开：$$ \\xi_{(t)}^\\nu \\nabla_\\nu \\Phi = \\xi_{(t)}^\\nu \\nabla_\\nu (g_{\\mu\\alpha} \\xi_{(t)}^\\mu \\xi_{(\\phi)}^\\alpha) $$利用度规相容性 $\\nabla_\\nu g_{\\mu\\alpha} = 0$ 以及 Leibniz 法则，得到：$$ \\xi_{(t)}^\\nu \\nabla_\\nu \\Phi = \\xi_{(t)}^\\nu (\\nabla_\\nu \\xi_{(t)\\alpha}) \\xi_{(\\phi)}^\\alpha + \\xi_{(t)}^\\nu \\xi_{(t)}^\\mu (\\nabla_\\nu \\xi_{(\\phi)\\mu}) $$在第二项中，交换哑指标 $\\mu \\leftrightarrow \\alpha$，得 $\\xi_{(t)}^\\alpha \\xi_{(t)}^\\nu \\nabla_\\nu \\xi_{(\\phi)\\alpha}$。利用已知条件对易子为零：$\\xi_{(t)}^\\nu \\nabla_\\nu \\xi_{(\\phi)}^\\alpha - \\xi_{(\\phi)}^\\nu \\nabla_\\nu \\xi_{(t)}^\\alpha = 0$。将指标降下后同样成立，即 $\\xi_{(t)}^\\nu \\nabla_\\nu \\xi_{(\\phi)\\alpha} = \\xi_{(\\phi)}^\\nu \\nabla_\\nu \\xi_{(t)\\alpha}$。代入第二项：$$ \\xi_{(t)}^\\nu \\nabla_\\nu \\Phi = \\xi_{(t)}^\\nu \\xi_{(\\phi)}^\\alpha \\nabla_\\nu \\xi_{(t)\\alpha} + \\xi_{(t)}^\\alpha \\xi_{(\\phi)}^\\nu \\nabla_\\nu \\xi_{(t)\\alpha} $$提取公因子：$$ \\xi_{(t)}^\\nu \\nabla_\\nu \\Phi = \\xi_{(t)}^\\nu \\xi_{(\\phi)}^\\alpha (\\nabla_\\nu \\xi_{(t)\\alpha} + \\nabla_\\alpha \\xi_{(t)\\nu}) $$由于 $\\xi_{(t)}$ 是 Killing 矢量，满足 Killing 方程 $\\nabla_\\nu \\xi_{(t)\\alpha} + \\nabla_\\alpha \\xi_{(t)\\nu} = 0$，因此括号内为零，故 $\\xi_{(t)}^\\nu \\nabla_\\nu \\Phi = 0$。同理证明 $\\xi_{(\\phi)}^\\nu \\nabla_\\nu \\Phi = 0$：$$ \\xi_{(\\phi)}^\\nu \\nabla_\\nu \\Phi = \\xi_{(\\phi)}^\\nu (\\nabla_\\nu \\xi_{(\\phi)\\alpha}) \\xi_{(t)}^\\alpha + \\xi_{(\\phi)}^\\nu \\xi_{(\\phi)}^\\mu (\\nabla_\\nu \\xi_{(t)\\mu}) $$第二项中交换指标 $\\mu \\leftrightarrow \\alpha$ 并利用对易子条件 $\\xi_{(\\phi)}^\\nu \\nabla_\\nu \\xi_{(t)\\alpha} = \\xi_{(t)}^\\nu \\nabla_\\nu \\xi_{(\\phi)\\alpha}$，得：$$ \\xi_{(\\phi)}^\\nu \\nabla_\\nu \\Phi = \\xi_{(\\phi)}^\\nu \\xi_{(t)}^\\alpha \\nabla_\\nu \\xi_{(\\phi)\\alpha} + \\xi_{(\\phi)}^\\alpha \\xi_{(t)}^\\nu \\nabla_\\nu \\xi_{(\\phi)\\alpha} $$提取公因子：$$ \\xi_{(\\phi)}^\\nu \\nabla_\\nu \\Phi = \\xi_{(\\phi)}^\\nu \\xi_{(t)}^\\alpha (\\nabla_\\nu \\xi_{(\\phi)\\alpha} + \\nabla_\\alpha \\xi_{(\\phi)\\nu}) $$由 $\\xi_{(\\phi)}$ 的 Killing 方程 $\\nabla_\\nu \\xi_{(\\phi)\\alpha} + \\nabla_\\alpha \\xi_{(\\phi)\\nu} = 0$，上式为零，故 $\\xi_{(\\phi)}^\\nu \\nabla_\\nu \\Phi = 0$。物理含义：内积 $\\Phi$ 对应于度规分量 $g_{t\\phi}$，它描述了旋转时空的参考系拖曳效应。此证明表明拖曳势在时间平移和旋转方向上是均匀不变的，这正是稳态和轴对称性的几何体现。"
+  },
+  "verification": null
+}

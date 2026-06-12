@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s14_14.16-0-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "dispersion_relation_and_instability_threshold",
+      "coordinate": "local_inertial_frame",
+      "scenario": "reduce_maxwell_to_flat_spacetime",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "metric_tensor"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.16",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s14_14.16",
+      "1_s14_14.16-0",
+      "1_s14_14.16-0-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric_tensor",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$A^\\\\mu$",
+      "$J^\\\\mu$",
+      "$F^{\\\\mu\\\\nu}$",
+      "$R^\\\\mu_\\\\sigma$"
+    ],
+    "target": [
+      "\\omega^2",
+      "k_c"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In an Einstein spacetime where the Ricci tensor satisfies $R_{\\mu\\nu} = \\Lambda g_{\\mu\\nu}$ (with $\\Lambda$ being the cosmological constant), the curved-spacetime Maxwell equations in the Lorenz gauge $\\nabla_{\\nu} A^{\\nu} = 0$ yield the wave equation for the vector potential: $\\nabla_{\\nu} \\nabla^{\\nu} A^{\\mu} - R^{\\mu}_{\\phantom{\\mu}\\sigma} A^{\\sigma} = 0$. Using local flat approximation and plane wave ansatz, the local dispersion relation for electromagnetic waves is derived as $\\omega^2 = k^2 + \\Lambda$, with a critical wave number $k_c = \\sqrt{|\\Lambda|}$ marking the instability threshold (which only occurs for $\\Lambda < 0$). Reduce this GR result back to its classical correspondence by taking the limit $\\Lambda \\to 0$ (which reduces the Einstein spacetime to a Ricci-flat vacuum spacetime, such as the Schwarzschild spacetime). Derive the classical dispersion relation and explain how the instability threshold vanishes in this limit.",
+    "answer": "Taking the limit $\\Lambda \\to 0$, the dispersion relation reduces to $\\omega^2 = k^2$, which is the standard dispersion relation for massless electromagnetic waves in flat spacetime (or locally in a Ricci-flat vacuum spacetime like Schwarzschild). The critical wave number becomes $k_c = \\sqrt{|\\Lambda|} \\to 0$, meaning the instability threshold vanishes, and all electromagnetic wave modes remain stably oscillatory in the vacuum limit.",
+    "solution": "1. Apply the limit $\\Lambda \\to 0$ to the GR dispersion relation: $\\omega^2 = k^2 + \\Lambda \\implies \\omega^2 = k^2$. This matches the classical vacuum electromagnetic wave equation where curvature coupling vanishes. 2. Apply the limit to the critical wave number: $k_c = \\sqrt{|\\Lambda|} \\implies k_c \\to 0$. This implies that the condition for exponential growth $k < k_c$ is no longer satisfied for any finite wave number, thus all modes are oscillatory and the curvature-induced instability disappears in the Ricci-flat vacuum spacetime."
+  },
+  "verification": null
+}

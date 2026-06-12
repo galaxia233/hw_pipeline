@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s14_14.12-0",
+    "type": "prove",
+    "tags": {
+      "target_object": "恢复力项与平衡稳定性分析",
+      "coordinate": "局部加速参考系",
+      "scenario": "加速观测者平衡点扰动",
+      "method": "Taylor展开与梯度计算",
+      "generalization_axis": "apply",
+      "metric": "local_noninertial_frame"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s14_14.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s14_14.12",
+      "1_s14_14.12-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "local_noninertial_frame",
+    "soft_variant": "apply",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$x^j$",
+      "$v^j$",
+      "$\\\\omega^m$",
+      "$a_j$",
+      "$\\\\Gamma^\\\\alpha_{\\\\beta\\\\gamma}$",
+      "$R^j_{0k0}$"
+    ],
+    "target": [
+      "$\\delta \\left(\\frac{d v^j}{d t}\\right)$",
+      "$- a^j a^k \\delta x^k$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，对于处于引力场中且具有恒定平移加速度 $\\mathbf{a}$（无旋转，$\\boldsymbol{\\omega}=0$）的局部参考系，其内部低速粒子的相对运动方程为：$$ \\frac{d v^j}{d t} = - a^j (1 + \\mathbf{a} \\cdot \\mathbf{x}) - R^j_{0k0} x^k $$其中 $R^j_{0k0}$ 为 Riemann 曲率张量在参考系原点的分量。设粒子在该参考系中处于相对静止的平衡位置（即 $v=0$ 且 $\\frac{d v^j}{d t}=0$）。请推导粒子在平衡位置附近发生微小偏移 $\\delta x^k$ 时，所受相对加速度的变化量 $\\delta \\left(\\frac{d v^j}{d t}\\right)$ 的表达式。证明：相比于自由下落参考系（$\\mathbf{a}=0$），恒定加速度 $\\mathbf{a}$ 为系统引入了一个与偏移量成正比的恢复力项，写出该恢复力项的具体形式，并解释其物理来源（即它对应于原方程中的哪一项及其物理含义）。",
+    "answer": "变化量表达式为 $\\delta \\left(\\frac{d v^j}{d t}\\right) = - a^j a^k \\delta x^k - R^j_{0k0} \\delta x^k$；恢复力项为 $- a^j a^k \\delta x^k$；物理来源为原方程中的 $- a^j (\\mathbf{a} \\cdot \\mathbf{x})$ 项，代表惯性力随空间位置的线性修正。",
+    "solution": "1. 定义粒子在局部参考系中受到的等效合力为 $F^j(\\mathbf{x}) = - a^j (1 + \\mathbf{a} \\cdot \\mathbf{x}) - R^j_{0k0} x^k$，则相对加速度 $\\frac{d v^j}{d t} = F^j$。2. 在平衡位置 $\\mathbf{x}_{eq}$ 处，有 $F^j(\\mathbf{x}_{eq}) = 0$。3. 当粒子发生微小偏移 $\\mathbf{x} = \\mathbf{x}_{eq} + \\delta \\mathbf{x}$ 时，利用 Taylor 展开，相对加速度的变化量为：$$ \\delta \\left(\\frac{d v^j}{d t}\\right) = F^j(\\mathbf{x}_{eq} + \\delta \\mathbf{x}) - F^j(\\mathbf{x}_{eq}) \\approx \\frac{\\partial F^j}{\\partial x^k} \\delta x^k $$4. 计算梯度矩阵：$$ \\frac{\\partial F^j}{\\partial x^k} = \\frac{\\partial}{\\partial x^k} \\left[ - a^j - a^j (a^l x^l) - R^j_{0k0} x^k\\right] $$由于 $a^j$ 和 $R^j_{0k0}$ 在局部参考系原点附近视为常数，且 $\\frac{\\partial (a^l x^l)}{\\partial x^k} = a^k$，可得：$$ \\frac{\\partial F^j}{\\partial x^k} = - a^j a^k - R^j_{0k0} $$5. 因此，变化量为：$$ \\delta \\left(\\frac{d v^j}{d t}\\right) = - a^j a^k \\delta x^k - R^j_{0k0} \\delta x^k $$6. 当 $\\mathbf{a}=0$（自由下落）时，只有潮汐力项 $- R^j_{0k0} \\delta x^k$；当 $\\mathbf{a} \\neq 0$ 时，多出了一项 $- a^j a^k \\delta x^k = - a^j (\\mathbf{a} \\cdot \\delta \\mathbf{x})$。7. 该恢复力项的物理来源是原方程中的 $- a^j (\\mathbf{a} \\cdot \\mathbf{x})$ 项。这一项代表了由于观测者加速度引起的惯性力（等效引力）随空间位置的线性修正，即在偏离原点的不同位置感受到的等效引力场强度不同，从而产生了一个趋向平衡点的线性恢复力。"
+  },
+  "verification": null
+}

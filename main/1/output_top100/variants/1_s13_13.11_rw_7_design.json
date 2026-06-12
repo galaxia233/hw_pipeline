@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "id": "1_s13_13.11-2-5-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "Newtonian radial equation of motion",
+      "coordinate": "Spherical",
+      "scenario": "Newtonian limit design",
+      "method": "numerical_simulation",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.11",
+      "1_s13_13.11-2",
+      "1_s13_13.11-2-5",
+      "1_s13_13.11-2-5-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "验证牛顿极限下径向测地线方程退化为牛顿引力方程"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，自由测试粒子的运动由测地线方程 $\\frac{d^2 x^\\mu}{d\\tau^2} + \\Gamma^\\mu_{\\alpha\\beta} \\frac{dx^\\alpha}{d\\tau} \\frac{dx^\\beta}{d\\tau} = 0$ 决定。考虑描述非旋转球对称质量 $M$ 外部时空的史瓦西度规 $\\mathrm{d}s^2 = -(1-\\frac{r_s}{r})\\mathrm{d}t^2 + (1-\\frac{r_s}{r})^{-1}\\mathrm{d}r^2 + r^2\\mathrm{d}\\theta^2 + r^2\\sin^2 \\theta \\mathrm{d}\\phi^2$（其中 $r_s = 2M$ 为史瓦西半径）。理论分析表明，在牛顿极限（远离源 $r \\gg r_s$ 且低速 $v \\ll c$）下，测地线方程的径向分量会精确退化为经典牛顿引力运动方程：$\\frac{d^2 r}{dt^2} = -\\frac{M}{r^2}$。请设计一个数值模拟方案，从零开始验证该退化结论。要求说明：1）如何设置粒子的初始位置和初始四维速度以体现牛顿极限条件；2）需要数值计算和提取哪些物理量；3）如何与牛顿理论预期结果进行对比以验证退化结论。",
+    "answer": "1) 设置初始条件：选取初始径向坐标 $r_0$ 远大于史瓦西半径（例如 $r_0 = 1000 r_s$），以满足 $r \\gg r_s$ 的弱场条件；设置初始坐标速度极小（例如径向初速度 $v_r$ 和角向初速度 $v_\\phi$ 满足 $v/c \\sim 10^{-3}$），以满足 $v \\ll c$ 的低速条件，并据此构造对应的初始四维速度分量 $U^\\mu$。2) 计算与提取量：利用度规计算 Christoffel 符号，使用数值积分方法（如 Runge-Kutta 法）求解测地线方程，得到粒子轨迹 $(t(\\tau), r(\\tau), \\theta(\\tau), \\phi(\\tau))$。提取坐标时间序列 $t_n$ 和径向坐标序列 $r_n$，通过数值差分计算出广义相对论框架下的坐标径向加速度 $a_{GR} = \\frac{d^2 r}{dt^2}$。同时，计算对应位置处的牛顿预期加速度 $a_{Newton} = -\\frac{M}{r^2}$。3) 对比验证：绘制 $a_{GR}$ 与 $a_{Newton}$ 随时间演化的对比图，计算相对误差 $\\delta = |a_{GR} - a_{Newton}|/|a_{Newton}|$。预期在设定的极限条件下，相对误差 $\\delta$ 极小（趋近于0）；作为对照，若逐渐减小初始 $r_0$ 或增大初始速度，误差 $\\delta$ 应显著上升，从而验证仅在牛顿极限下径向测地线方程退化为牛顿方程。",
+    "solution": null
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "题目和答案中的牛顿极限退化方程存在严重的物理遗漏。在球坐标系下，经典牛顿力学的径向坐标加速度完整方程应为 $\\frac{d^2 r}{dt^2} = -\\frac{M}{r^2} + r(\\frac{d\\theta}{dt})^2 + r\\sin^2\\theta(\\frac{d\\phi}{dt})^2$，其中包含横向速度引起的惯性离心项。题目声称测地线径向分量退化为 $\\frac{d^2 r}{dt^2} = -\\frac{M}{r^2}$，这仅在纯径向运动（角向速度为零）时才成立。然而，答案在设置初始条件时明确指出存在“角向初速度 $v_\\phi$”（满足 $v/c \\sim 10^{-3}$），即粒子并非纯径向运动。按照答案的方案，提取广义相对论下的坐标径向加速度 $a_{GR} = \\frac{d^2 r}{dt^2}$ 并与遗漏了离心项的 $a_{Newton} = -\\frac{M}{r^2}$ 进行对比，将引入量级与 $(v/c)^2$ 相当的巨大系统误差，该误差甚至可能掩盖真正的相对论修正效应，导致验证逻辑彻底失效。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

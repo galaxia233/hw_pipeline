@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "id": "1_s17_17.16_f",
+    "type": "prove",
+    "tags": {
+      "metric": "kerr_metric",
+      "target_object": "energy_flux",
+      "coordinate": "horizon_boundary",
+      "scenario": "spacetime_coords",
+      "method": "black_hole_superradiance"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.16_f",
+    "source_id": "1_s17_17.16_f",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.16_f"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "完整应力张量推导与视界能流积分，具超辐射物理背景且逻辑严密",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\omega$",
+      "$m$",
+      "$a$",
+      "$M$",
+      "$r_{+}$",
+      "$\\Phi$"
+    ],
+    "target": [
+      "$T_{\\mathrm{t}}^{\\mathrm{r}}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 17.16 (f) Show that, for a wave of the form $\\Phi = \\exp(-\\mathrm{i}\\omega t + \\mathrm{i}\\mathrm{m}\\phi)\\mathrm{f}(\\mathbf{r},\\theta)$ , energy flows out of the hole if $0 < \\omega / \\mathfrak{m} < \\mathfrak{a} / (2\\mathbf{M}\\mathbf{r}_{+})$ . Compare to Problem 17.15.",
+    "answer": "$0 < \\omega / m < a / (2 M r_{+})$",
+    "solution": "(f) The stress-energy tensor for a scalar field is$$4 \\pi \\mathrm {T}_{\\alpha \\beta} = \\Phi_{, (\\alpha} \\Phi_{, \\beta)}^{*} - \\frac {1}{2} \\mathrm {g}_{\\alpha \\beta} | \\Phi_{, \\gamma} \\Phi_{, \\gamma} |.$$The complex conjugation is necessary because the representation of $\\Phi$ is complex. The energy flux vector is $\\mathbf{J}_{\\beta} = -\\mathbf{T}_{\\alpha\\beta} \\xi^{\\alpha}$ , where $\\pmb{\\xi}$ is the time Killing vector $\\partial/\\partial t$ (see Problem 10.11). The energy flux into the horizon is found by integrating the radial component of $\\mathbf{J}$ over the2-surface $\\mathbf{r} = \\mathbf{r}_{+}$$$\\frac {\\mathrm {d} \\mathbf {E}}{\\mathrm {d} t} = \\int \\mathrm {T}_{\\mathrm {t}}^{\\mathrm {r}} | \\mathbf {g} |^{\\frac {1}{2}} \\mathrm {d} \\theta \\mathrm {d} \\phi .$$Since$$\\begin{array}{l}4 \\pi \\mathrm {T}_{\\mathrm {t}}^{\\mathrm {r}} = \\operatorname {R e} \\left(\\Phi_{, \\mathrm {t}} \\Phi^{*} , \\mathrm {r}\\right) = \\operatorname {R e} \\left(\\Phi_{, \\mathrm {t}} \\Phi^{*} \\frac {\\mathrm {r}^{2} + \\mathrm {a}^{2}}{\\sum}\\right) \\\\= \\omega (\\omega - \\mathrm {m} \\omega_{+}) S^{2} (\\theta) \\frac {2 \\mathrm {M r}_{+}}{\\sum}, \\\\\\end{array}$$we have$$\\frac {\\mathrm {d} \\mathrm {E}}{\\mathrm {d} t} = \\omega (\\omega - \\mathrm {m} \\omega_{+}) \\frac {2 \\mathrm {M r}_{+}}{4 \\pi} \\int \\mathrm {S}^{2} (\\theta) \\sin \\theta \\mathrm {d} \\theta \\mathrm {d} \\phi$$and $\\mathrm{dE} / \\mathrm{dt}$ is negative, i.e. energy flows out of the horizon if $\\omega -\\mathfrak{m}\\omega_{+} < 0$ i.e. if $0 <   \\omega /\\mathfrak{m} <   \\omega_{+}$ in agreement with Problem 17.15."
+  },
+  "verification": null
+}

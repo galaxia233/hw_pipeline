@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s1_1.1_d",
+    "type": "calculate",
+    "tags": {
+      "metric": "special_relativity",
+      "target_object": "four_velocity",
+      "coordinate": "proper_time",
+      "scenario": "chain_rule",
+      "method": "kinematics"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.1_d",
+    "source_id": "1_s1_1.1_d",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.1_d"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "狭义相对论基础运动学关系，需结合洛伦兹因子定义与链式法则完成参数转换",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\\\tau$",
+      "$\\\\mathbf{v}$",
+      "$\\\\mathbf{u}$",
+      "$\\\\gamma$"
+    ],
+    "target": [
+      "$\\\\frac{d}{d\\\\tau}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.1. The 4-velocity $\\mathbf{u}$ corresponds to 3-velocity $\\mathbf{v}$ . Express:\\n(d) $\\mathrm{d} / \\mathrm{d}\\tau$ in terms of $\\mathrm{d} / \\mathrm{d}t$ and $\\underline{\\mathbf{y}}$",
+    "answer": "$\\\\gamma \\\\frac{d}{dt}$",
+    "solution": null
+  },
+  "verification": null
+}

@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "id": "1_s12_12.7",
+    "type": "calculate",
+    "tags": {
+      "metric": "Newtonian_gravitational_metric",
+      "target_object": "vertical_height_coordinate",
+      "coordinate": "insulated_heated_bottle_scenario",
+      "scenario": "thermodynamic_and_relaxation_method",
+      "method": "weight_decrease_calculation_target"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s12_12.7",
+    "source_id": "1_s12_12.7",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s12_12.7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "结合热力学状态方程、质能等价原理与重力场中质心高度变化的多步推理题，逻辑链条完整且具备物理实际背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$h$",
+      "$T$",
+      "$W$",
+      "$z$",
+      "$\\rho$",
+      "$m$",
+      "$k$",
+      "$g$",
+      "$R_\\oplus$",
+      "$c$",
+      "$N$",
+      "$z_\\mathrm{cg}$",
+      "$\\eta$"
+    ],
+    "target": [
+      "$h$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s12_12.7.md]Problem 12.7. A tall, cylindrical, insulated bottle of height $h$ is filled with air at $300^0\\mathrm{K}$ . It is then sealed and set on a scale at sea level. The scale reads a weight $W$ . For what range of $h$ does the weight $W$ decrease as the contents of the bottle are slowly heated.",
+    "answer": "$h > 218 \\text{cm}$",
+    "solution": "Solution 12.7. As the contents are heated, mass-energy is added according to $c^2 dM = \\frac{7}{2} kN dT$ ($\\frac{7}{2}$ since air is diatomic; $N$ is the total number of molecules in the cylinder). However the center of gravity of the gas rises which acts to decrease the weight (distance to earth's center increases). The position of the center of gravity is:$$z_{c g} = \\int_{0}^{h} \\rho z d z / \\int_{0}^{h} \\rho d z, \\quad \\rho = \\rho_{0} \\exp \\left(- \\frac {m g}{k T} z\\right),$$so the change of $z_{\\mathrm{cg}}$ with temperature is given by$$\\frac {\\mathrm {d} z_{\\mathrm {c g}}}{\\mathrm {d} \\mathrm {T}} = \\frac {\\mathrm {k}}{\\mathrm {m g}} \\left[ 1 - \\left(\\frac {\\eta}{\\sin h \\eta}\\right)^{2}\\right], \\qquad \\eta \\equiv \\frac {\\mathrm {m g h}}{2 \\mathrm {k T}}$$where $m$ is the average mass of an air molecule.The weight change is thus$$\\mathrm {d W} = \\left(\\mathrm {g} \\frac {\\mathrm {d M}}{\\mathrm {d T}} + \\mathrm {M} \\frac {\\mathrm {d g}}{\\mathrm {d} z_{\\mathrm {c g}}} \\frac {\\mathrm {d} z_{\\mathrm {c g}}}{\\mathrm {d T}}\\right) \\mathrm {d T} = \\left(\\frac {7}{2} \\frac {\\mathrm {g k N}}{\\mathrm {c}^{2}} - \\mathrm {m N} \\frac {2 \\mathrm {g}}{\\mathrm {R}_{\\oplus}} \\frac {\\mathrm {k}}{\\mathrm {m g}} \\left[ 1 - \\frac {\\eta^{2}}{\\sin h^{2} \\eta}\\right]\\right) \\mathrm {d T}.$$The right-hand side is negative when$$1 - \\frac {\\eta^{2}}{\\sin h^{2} \\eta} > \\frac {7}{4} \\frac {\\mathrm {g} \\mathrm {R}_{\\oplus}}{\\mathrm {c}^{2}} = . 1 2 2 \\times 1 0^{- 8}.$$This implies that $\\eta > 6.05 \\times 10^{-5}$ and that $h = 2kT\\eta / mg > 218$ cm."
+  },
+  "verification": null
+}

@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "id": "1_s9_9.20",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "orthonormal_frame",
+      "method": "spherical_symmetry"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.20",
+    "source_id": "1_s9_9.20",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.20"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.3,
+      "realism": 0.8,
+      "rationale": "正交标架法求黎曼张量需多步Cartan结构方程推导，具有一般球对称时空可迁移性且物理背景真实，但因解题文本截断导致完整度较低",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$\\alpha$",
+      "$\\beta$",
+      "$\\gamma$"
+    ],
+    "target": [
+      "$R^{\\hat{a}}_{\\ \\hat{b}\\hat{c}\\hat{d}}$"
+    ],
+    "metric": [
+      [
+        "-$e^{2\\alpha}$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$e^{2\\beta}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$e^{2\\gamma}$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$e^{2\\gamma}\\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.20. Compute the Riemann tensor of the following metric in an orthonormal frame:$$\\begin{array}{l} \\mathrm {d s}^{2} = - \\mathrm {e}^{2 \\alpha} \\mathrm {d t}^{2} + \\mathrm {e}^{2 \\beta} \\mathrm {d r}^{2} + \\mathrm {e}^{2 \\gamma} (\\mathrm {d} \\theta^{2} + \\sin^{2} \\theta \\mathrm {d} \\phi^{2}) \\\\ \\alpha , \\beta , \\gamma = \\text {f u n c t i o n s} \\mathrm {r}, \\mathrm {t}. \\\\ \\end{array}$$What is the Ricci tensor for this metric? The scalar curvature? The Einstein tensor?## Solution",
+    "answer": null,
+    "solution": "Solution 9.20. We use the same orthonormal tetrad as in Problem 8.27:"
+  },
+  "verification": null
+}

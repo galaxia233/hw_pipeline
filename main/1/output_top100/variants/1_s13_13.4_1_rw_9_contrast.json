@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "id": "1_s13_13.4_1-4-9",
+    "type": "concept",
+    "tags": {
+      "target_object": "Collapse time to singularity",
+      "coordinate": "cosmological time t vs proper time τ",
+      "scenario": "AdS Big Crunch contrast Schwarzschild radial free-fall",
+      "method": "Friedmann equation contrast Geodesic Killing energy",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s13_13.4_1",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s13_13.4_1",
+      "1_s13_13.4_1-4",
+      "1_s13_13.4_1-4-9"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "chi",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "AdS Big Crunch cosmological time",
+      "Schwarzschild free-fall proper time",
+      "Singularity evolution difference"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "cos(t)**2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "cos(t)**2*sinh(chi)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sin(theta)**2*cos(t)**2*sinh(chi)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，奇点的出现和时间演化方式密切依赖于时空的几何背景。考虑以下两种截然不同的度规：**背景1：Anti-de Sitter 封闭宇宙**度规为：$$ ds^2 = -dt^2 + \\cos^{2}(t) d\\chi^2 + \\cos^{2}(t) \\sin h^{2}(\\chi) (d\\theta^2 + \\sin^{2}(\\theta) d\\phi^2) $$该度规描述了一个具有负空间曲率 ($k=-1$) 和负宇宙学常数 ($\\Lambda=-3$) 的真空主导宇宙，尺度因子为 $a(t) = \\cos(t)$。宇宙从最大膨胀 $a(0)=1$, $\\dot{a}(0)=0$ 开始坍缩。注意：由于尺度因子依赖时间，此背景不存在时间平移对称性，演化由整体的爱因斯坦场方程导出的弗里德曼方程 $\\left(\\frac{\\dot{a}}{a}\\right)^2 = \\frac{\\Lambda}{3} - \\frac{k}{a^2}$ 支配。**背景2：Schwarzschild 黑洞**度规为：$$ ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2 (d\\theta^2 + \\sin^2\\theta d\\phi^2) $$该度规描述了一个静态球对称黑洞，具有时间平移 Killing 矢量 $\\partial_t$（对应能量守恒）。考虑一个在 $r_0 = 4r_s$ 处从静止释放（初始 $\\dot{r}=0$）的径向自由下落测试粒子。**对比任务**：分别在两种背景下推导演化过程到达奇点的时间：推导背景1中宇宙坍缩至大挤压奇点（$a(t_c)=0$）的宇宙学时间 $t_c$，以及背景2中测试粒子下落至中心奇点（$r=0$）的固有时间 $\\tau_c$；并对比这两种演化到达奇点的时间参数在物理意义上的本质差异（包括演化类型、对称性依赖及度规时间坐标行为的差异）。",
+    "answer": "背景1大挤压宇宙学时间：$t_c = \\frac{\\pi}{2}$。背景2自由下落固有时间：$\\tau_c = 4\\pi r_s$。物理差异对比：1. **整体演化 vs 局部下落**：AdS 的 $t_c$ 是一个整体宇宙学时间，标志着整个宇宙空间切片同时到达奇点（大挤压），是宇宙的绝对终结；Schwarzschild 的 $\\tau_c$ 是单个局部测试粒子的演化时间，标志着粒子到达中心奇点，而时空本身在 $\\partial_t$ 对称下是静态的，不存在整体的终结。2. **对称性与守恒量**：AdS 背景度规随时间演化，无时间平移 Killing 矢量，演化由整体的爱因斯坦场方程（弗里德曼方程）支配，不依赖单个粒子的守恒量；Schwarzschild 背景具有时间平移对称性 $\\partial_t$，粒子演化由局部 Killing 矢量导出的守恒能量 $E$ 支配。3. **坐标时间行为**：在 AdS 中，度规时间坐标 $t$ 与共动观测者的固有时间一致，顺畅流逝至 $t_c$ 时宇宙结束；在 Schwarzschild 中，外部坐标时间 $t$ 在视界 $r=r_s$ 处发散，无法作为到达奇点的有效参数，只有粒子的固有时间 $\\tau$ 顺畅到达奇点。",
+    "solution": "1. **背景1 (AdS) 推导**：代入 $\\Lambda=-3$, $k=-1$ 到弗里德曼方程，得到 $\\left(\\frac{\\dot{a}}{a}\\right)^2 = -1 + \\frac{1}{a^2}$，即 $\\dot{a}^2 = 1 - a^2$。由于宇宙坍缩，$\\dot{a} = -\\sqrt{1-a^2}$。分离变量并积分：$\\int_1^0 \\frac{da}{\\sqrt{1-a^2}} = -\\int_0^{t_c} dt \\implies \\arcsin(0) - \\arcsin(1) = -t_c \\implies t_c = \\frac{\\pi}{2}$。2. **背景2 (Schwarzschild) 推导**：利用时间平移 Killing 矢量 $\\partial_t$ 定义守恒能量 $E = -g_{tt} \\dot{t} = \\frac{r-r_s}{r} \\dot{t}$。粒子从 $r_0 = 4r_s$ 由静止释放，初始 $\\dot{r}=0$，代入测地线方程 $g_{tt}\\dot{t}^2 + g_{rr}\\dot{r}^2 = -1$ 得 $E = \\sqrt{3}/2$。径向演化方程为 $\\dot{r}^2 = E^2 - (1-r_s/r) = \\frac{3}{4} - 1 + \\frac{2M}{r} = \\frac{2M}{r} - \\frac{1}{4}$。从 $r=4r_s=8M$ 到 $r=0$ 的固有时间积分：$\\tau_c = \\int_0^{8M} \\frac{dr}{\\sqrt{2M/r - 1/4}}$。做变量替换 $r = 8M \\cos^2\\alpha$，积分化为 $\\int_0^{\\pi/2} 32M \\cos^2\\alpha d\\alpha = 8\\pi M = 4\\pi r_s$。3. **对比物理差异**：详述答案中的三点差异。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "1. 术语概念错误：题目背景1被称为'Anti-de Sitter 封闭宇宙'，并明确指出其具有负空间曲率 (k=-1)。在标准宇宙学中，k=-1 对应的是开放宇宙（Open universe，空间拓扑为双曲空间），而封闭宇宙（Closed universe）对应正曲率 k=+1（空间拓扑为三维球面）。题目在引入弗里德曼方程和度规时均使用了 k=-1 与开放双曲空间的度规形式，却冠以'封闭宇宙'之名，属于严重的物理术语矛盾。2. 数学排版错误：背景1的度规表达式中出现了 \\sin h^{2}(\\chi)，这是明显的排版拼写错误，正确的双曲正弦函数符号应为 \\sinh^{2}(\\chi)。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

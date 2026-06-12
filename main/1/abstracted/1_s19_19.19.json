@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s19_19.19",
+    "type": "prove",
+    "tags": {
+      "metric": "flrw_cosmology",
+      "target_object": "peculiar_velocity",
+      "coordinate": "comoving_coordinates",
+      "scenario": "asymptotic_behavior",
+      "method": "scale_factor_dynamics"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.19",
+    "source_id": "1_s19_19.19",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.19"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "结合弗里德曼度规与标因子演化进行多步渐近分析，物理图像清晰且具宇宙学背景",
+      "overall": 0.83
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$R(t)$",
+      "$r$",
+      "$r_P$"
+    ],
+    "target": [
+      "$D_{\\\\text{prop}}(t)$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.19. A bullet is shot out into an expanding Friedmann universe. When $\\mathbf{k} = -1$ , show that it approaches the same velocity as some cosmological observer, but a position which is a constant proper distance away from him. When $\\mathbf{k} = 0$ , show that the bullet again approaches the velocity of some cosmological observer but that the proper distance between the bullet and that observer becomes arbitrarily large as $t \\to \\inf ty$ .\\n\\n## Solution\\n\\nSolution 19.19. After the bullet has reached nonrelativistic velocity, we have (from Problem 19.7)\\n$$\\n\\\\frac {\\\\text {c o n s t a n t}}{R} = \\\\frac {d r_{P}}{d t} = \\\\frac {d r_{P}}{d r} \\\\frac {d r}{d R} \\\\frac {d R}{d t} = \\\\frac {d r}{d R} \\\\dot {R} R \\\\tag {1}\\n$$\\nwhere $\\mathbf{r}$ is the Robertson-Walker coordinate, related to proper separations $(\\mathbf{r}_{\\\\mathbf{p}} \\\\equiv$ proper separation) by $\\mathrm{dr}_{\\\\mathbf{p}} = \\\\mathbf{R} \\\\mathrm{d}\\\\mathbf{r}$ (hence the last equality above). For a $k = 0$ Friedmann universe $\\mathbf{R} \\\\propto t^{\\\\frac{2}{3}}$ so $\\dot{\\\\mathbf{R}} \\\\propto \\\\mathbf{R}^{-\\\\frac{1}{2}}$ and Equation (1) gives us $\\mathrm{dr} / \\\\mathrm{dR} \\\\propto \\\\mathbf{R}^{-\\\\frac{3}{2}}$ and hence\\n$$\\nr = A + B / R^{\\\\frac {1}{2}}.\\n$$\\nAs $t \\\\to \\\\inf ty$ , the $r_{\\\\text{bullet}}$ approaches $r = A$ . The proper distance between the $r = A$ observer and the bullet is $R\\\\Delta r = BR^{\\\\frac{1}{2}}$ . Thus the proper distance becomes infinite even though the velocities (according to Equation (1)) approach each other.\\nIf $k = -1$ , then $R$ becomes constant at large times and Equation (1) gives $\\mathrm{dr} / \\\\mathrm{dR} \\\\propto \\\\mathrm{R}^{-2}$ so that\\n$$\\n\\\\mathrm {r} = \\\\mathrm {A} + \\\\mathrm {B} / \\\\mathrm {R}.\\n$$\\nAs $t \\\\to \\\\inf ty$ the bullets coordinate $r$ approaches A, but the proper distance to the $r = A$ observer $R\\\\Delta r$ approaches B, a constant.",
+    "answer": "当 $k=-1$ 时固有距离趋于常数 $B$；当 $k=0$ 时固有距离随 $t\\\\to\\\\inf ty$ 发散至无穷大；两种情形下子弹速度均趋近于某宇宙学观测者。",
+    "solution": "After the bullet has reached nonrelativistic velocity, we have (from Problem 19.7)\\n$$\\n\\\\frac {\\\\text {c o n s t a n t}}{R} = \\\\frac {d r_{P}}{d t} = \\\\frac {d r_{P}}{d r} \\\\frac {d r}{d R} \\\\frac {d R}{d t} = \\\\frac {d r}{d R} \\\\dot {R} R \\\\tag {1}\\n$$\\nwhere $\\mathbf{r}$ is the Robertson-Walker coordinate, related to proper separations $(\\mathbf{r}_{\\\\mathbf{p}} \\\\equiv$ proper separation) by $\\mathrm{dr}_{\\\\mathbf{p}} = \\\\mathbf{R} \\\\mathrm{d}\\\\mathbf{r}$ (hence the last equality above). For a $k = 0$ Friedmann universe $\\mathbf{R} \\\\propto t^{\\\\frac{2}{3}}$ so $\\dot{\\\\mathbf{R}} \\\\propto \\\\mathbf{R}^{-\\\\frac{1}{2}}$ and Equation (1) gives us $\\mathrm{dr} / \\\\mathrm{dR} \\\\propto \\\\mathbf{R}^{-\\\\frac{3}{2}}$ and hence\\n$$\\nr = A + B / R^{\\\\frac {1}{2}}.\\n$$\\nAs $t \\\\to \\\\inf ty$ , the $r_{\\\\text{bullet}}$ approaches $r = A$ . The proper distance between the $r = A$ observer and the bullet is $R\\\\Delta r = BR^{\\\\frac{1}{2}}$ . Thus the proper distance becomes infinite even though the velocities (according to Equation (1)) approach each other.\\nIf $k = -1$ , then $R$ becomes constant at large times and Equation (1) gives $\\mathrm{dr} / \\\\mathrm{dR} \\\\propto \\\\mathrm{R}^{-2}$ so that\\n$$\\n\\\\mathrm {r} = \\\\mathrm {A} + \\\\mathrm {B} / \\\\mathrm {R}.\\n$$\\nAs $t \\\\to \\\\inf ty$ the bullets coordinate $r$ approaches A, but the proper distance to the $r = A$ observer $R\\\\Delta r$ approaches B, a constant."
+  },
+  "verification": null
+}

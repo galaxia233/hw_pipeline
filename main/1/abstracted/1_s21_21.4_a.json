@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s21_21.4_a",
+    "type": "prove",
+    "tags": {
+      "metric": "action_principle",
+      "target_object": "palatini_formalism",
+      "coordinate": "einstein_field_equations",
+      "scenario": "metric_connection",
+      "method": "variational_calculus"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s21_21.4_a",
+    "source_id": "1_s21_21.4_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s21_21.4_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.3,
+      "realism": 0.7,
+      "rationale": "Palatini变分法独立处理度规与联络，通过泛函求导推导爱因斯坦场方程与Levi-Civita联络公式，逻辑链条长且具广泛理论迁移价值",
+      "overall": 0.68
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$g_{\\mu\\nu}$",
+      "$\\Gamma^\\lambda_{\\mu\\nu}$",
+      "$R$",
+      "$L_{\\mathrm{matter}}$",
+      "$x^\\mu$",
+      "$S$"
+    ],
+    "target": [
+      "$G_{\\mu\\nu}$",
+      "$\\Gamma^\\lambda_{\\mu\\nu}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s21_21.4_a.md]Problem 21.4. Consider the action$$\\mathbf {S} = (1 6 \\pi)^{- 1} \\int (- \\mathbf {g})^{\\frac {1}{2}} \\mathsf {R d}^{4} \\mathbf {x} + \\int \\mathsf {L}_{\\mathrm {m a t t e r}} (- \\mathbf {g})^{\\frac {1}{2}} \\mathsf {d}^{4} \\mathbf {x} ,$$where $\\mathbf{R}$ is the Ricci scalar and $\\mathbf{L}_{\\mathrm{matter}}$ contains g's but no $\\Gamma$ 's (so that $\\Gamma$ 's are present only in $\\mathbf{R}$ ).(a) Treat the g's and the $\\Gamma$ 's as independent field variables (\"Palatini method\"), and show that $\\delta S = 0$ leads to the Einstein field equations and the usual formula for the $\\Gamma$ 's in terms of the g's. (Assume $\\Gamma_{\\beta \\nu}^{\\alpha} = \\Gamma_{\\nu \\beta}^{\\alpha}$ .)",
+    "answer": "$G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}$ and $\\Gamma^\\lambda_{\\mu\\nu} = \\frac{1}{2}g^{\\lambda\\rho}(\\partial_\\mu g_{\\nu\\rho} + \\partial_\\nu g_{\\mu\\rho} - \\partial_\\rho g_{\\mu\\nu})$",
+    "solution": null
+  },
+  "verification": null
+}

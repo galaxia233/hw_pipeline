@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s6_6.4_a",
+    "type": "prove",
+    "tags": {
+      "metric": "surface_metric",
+      "target_object": "coordinate_transformation_target",
+      "coordinate": "polar_and_cartesian_coordinates",
+      "scenario": "marine_navigation_scenario",
+      "method": "rhumb_line_integration_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s6_6.4_a",
+    "source_id": "1_s6_6.4_a",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s6_6.4_a"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.3,
+      "realism": 0.9,
+      "rationale": "经典地图投影推导题，融合球面几何与航海导航实际背景，需解微分方程得出坐标映射关系，但输入仅含题干无解答过程。",
+      "overall": 0.65
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$x$",
+      "$y$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [
+      "$\\\\mathbf{x}=\\\\phi, \\\\quad \\\\mathbf{y}=\\\\log \\\\cot \\\\frac{1}{2}\\\\theta$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 6.4. Mercator's projection is defined as follows: The map coordinates are rectangular Cartesian coordinates $(x, y)$ such that a straight line on the map is a line of constant compass bearing on the globe.\\n(a) Show that the map is defined by $\\mathbf{x} = \\phi$ , $\\mathbf{y} = \\log \\cot \\frac{1}{2}\\theta$ , where $(\\theta, \\phi)$ are the polar coordinates of a point on the globe.",
+    "answer": null,
+    "solution": null
+  },
+  "verification": null
+}

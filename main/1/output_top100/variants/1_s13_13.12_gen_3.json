@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "id": "1_s13_13.12-3",
+    "type": "prove",
+    "tags": {
+      "target_object": "$\\partial_{(\\mu} \\delta K_{\\nu)}$",
+      "coordinate": "Cartesian",
+      "scenario": "linearized gravity Killing vector deformation",
+      "method": "linearized Killing equation",
+      "generalization_axis": "extend",
+      "metric": "MinkowskiCartesian"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": true,
+    "source": "generated",
+    "source_id": "1_s13_13.12",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s13_13.12",
+      "1_s13_13.12-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "MinkowskiCartesian",
+    "soft_variant": "cross_metric",
+    "training_value": null,
+    "degraded": false,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "$\\partial_{(\\mu} \\delta K_{\\nu)}$"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "In linearized gravity around the Minkowski spacetime, the full metric is given by $g_{\\mu\\nu} = \\eta_{\\mu\\nu} + h_{\\mu\\nu}$, where $\\eta_{\\mu\\nu}$ is the Minkowski metric in Cartesian coordinates with signature $(-,+,+,+)$. Under an infinitesimal coordinate transformation (gauge transformation) $x^\\mu \\to x^\\mu + \\xi^\\mu$, the metric perturbation transforms as $\\delta h_{\\mu\\nu} = -2 \\xi_{(\\mu,\\nu)}$. Consider the translation Killing vectors of the background Minkowski spacetime, such as the time translation vector $\\bar{K}^\\mu = (1,0,0,0)$ or spatial translation vectors, which have constant components and satisfy $\\nabla^{(0)}_{(\\mu} \\bar{K}_{\\nu)} = 0$. In the perturbed spacetime $g_{\\mu\\nu}$, these background vectors are generally no longer exact Killing vectors. Let $K^\\mu = \\bar{K}^\\mu + \\delta K^\\mu$ be a Killing vector of the full metric $g_{\\mu\\nu}$ to first order in $h_{\\mu\\nu}$. Derive the first-order differential equation that the correction $\\delta K^\\mu$ must satisfy, and prove that it can be compactly written in terms of the Lie derivative of the metric perturbation along the background Killing vector as: $$ \\partial_{(\\mu} \\delta K_{\\nu)} = -\\frac{1}{2} \\mathcal{L}_{\\bar{K}} h_{\\mu\\nu} $$ where $\\mathcal{L}_{\\bar{K}} h_{\\mu\\nu} = \\bar{K}^\\rho \\partial_\\rho h_{\\mu\\nu} + h_{\\rho\\nu} \\partial_\\mu \\bar{K}^\\rho + h_{\\mu\\rho} \\partial_\\nu \\bar{K}^\\rho$.",
+    "answer": "$\\partial_{(\\mu} \\delta K_{\\nu)} = -\\frac{1}{2} \\mathcal{L}_{\\bar{K}} h_{\\mu\\nu}$",
+    "solution": "1. The Killing equation for the full metric to first order is $\\nabla_{(\\mu} K_{\\nu)} = 0$. Expand the covariant derivative to first order in $h_{\\mu\\nu}$: $\\nabla_\\mu K_\\nu \\approx \\partial_\\mu K_\\nu - \\Gamma^\\rho_{\\mu\\nu} \\bar{K}_\\rho$, where $\\Gamma^\\rho_{\\mu\\nu} = \\frac{1}{2} \\eta^{\\rho\\sigma} (h_{\\sigma\\mu,\\nu} + h_{\\sigma\\nu,\\mu} - h_{\\mu\\nu,\\sigma})$ is the linearized Christoffel symbol.2. Expand the full Killing vector components $K_\\mu = g_{\\mu\\nu} K^\\nu = (\\eta_{\\mu\\nu} + h_{\\mu\\nu})(\\bar{K}^\\nu + \\delta K^\\nu) \\approx \\bar{K}_\\mu + \\delta K_\\mu + h_{\\mu\\nu} \\bar{K}^\\nu$.3. Substitute into the symmetrized Killing equation: $\\partial_{(\\mu} K_{\\nu)} - \\Gamma^\\rho_{(\\mu\\nu)} \\bar{K}_\\rho = 0$.4. Evaluate the symmetrized derivative term: $\\partial_{(\\mu} K_{\\nu)} = \\partial_{(\\mu} \\bar{K}_{\\nu)} + \\partial_{(\\mu} \\delta K_{\\nu)} + \\partial_{(\\mu} (h_{\\nu)\\rho} \\bar{K}^\\rho)$. Since $\\bar{K}^\\mu$ are translation Killing vectors (constant components), $\\partial_\\mu \\bar{K}^\\rho = 0$ and $\\partial_{(\\mu} \\bar{K}_{\\nu)} = 0$. Thus, $\\partial_{(\\mu} (h_{\\nu)\\rho} \\bar{K}^\\rho) = \\bar{K}^\\rho \\partial_{(\\mu} h_{\\nu)\\rho} = \\bar{K}^\\sigma \\partial_{(\\mu} h_{\\nu)\\sigma}$.5. Evaluate the linearized Christoffel term contracted with $\\bar{K}_\\rho$: $\\Gamma^\\rho_{(\\mu\\nu)} \\bar{K}_\\rho = \\frac{1}{2} \\bar{K}_\\rho \\eta^{\\rho\\sigma} (h_{\\sigma\\mu,\\nu} + h_{\\sigma\\nu,\\mu}) - \\frac{1}{2} \\bar{K}_\\rho \\eta^{\\rho\\sigma} h_{\\mu\\nu,\\sigma} = \\bar{K}^\\sigma \\partial_{(\\mu} h_{\\nu)\\sigma} - \\frac{1}{2} \\bar{K}^\\sigma \\partial_\\sigma h_{\\mu\\nu}$.6. Substitute all terms back into the Killing equation: $0 + \\partial_{(\\mu} \\delta K_{\\nu)} + \\bar{K}^\\sigma \\partial_{(\\mu} h_{\\nu)\\sigma} - \\left( \\bar{K}^\\sigma \\partial_{(\\mu} h_{\\nu)\\sigma} - \\frac{1}{2} \\bar{K}^\\sigma \\partial_\\sigma h_{\\mu\\nu}\\right) = 0$.7. The $\\bar{K}^\\sigma \\partial_{(\\mu} h_{\\nu)\\sigma}$ terms exactly cancel, leaving: $\\partial_{(\\mu} \\delta K_{\\nu)} + \\frac{1}{2} \\bar{K}^\\sigma \\partial_\\sigma h_{\\mu\\nu} = 0$.8. For translation Killing vectors, the Lie derivative of $h_{\\mu\\nu}$ simplifies because $\\partial_\\mu \\bar{K}^\\rho = 0$: $\\mathcal{L}_{\\bar{K}} h_{\\mu\\nu} = \\bar{K}^\\rho \\partial_\\rho h_{\\mu\\nu} + h_{\\rho\\nu} \\partial_\\mu \\bar{K}^\\rho + h_{\\mu\\rho} \\partial_\\nu \\bar{K}^\\rho = \\bar{K}^\\rho \\partial_\\rho h_{\\mu\\nu} = \\bar{K}^\\sigma \\partial_\\sigma h_{\\mu\\nu}$.9. Substituting this into the previous equation yields the final result: $\\partial_{(\\mu} \\delta K_{\\nu)} = -\\frac{1}{2} \\mathcal{L}_{\\bar{K}} h_{\\mu\\nu}$. This reveals a beautiful structural analogy with the gauge transformation of the metric perturbation $\\delta h_{\\mu\\nu} = - \\mathcal{L}_{\\xi} \\eta_{\\mu\\nu}$."
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.minkowskicartesian_check",
+      "status": "ok",
+      "ran": true,
+      "ricci_scalar": true,
+      "ricci_tensor": true,
+      "einstein_tensor": true
+    },
+    "judge": {
+      "correct": true,
+      "self_contained": true,
+      "training_value": 1.0,
+      "issue": "",
+      "ran": true
+    },
+    "red_team": {
+      "survives": true,
+      "flaw": "",
+      "ran": true
+    }
+  }
+}

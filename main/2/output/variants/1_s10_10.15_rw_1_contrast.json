@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s10_10.15-4-1",
+    "type": "concept",
+    "tags": {
+      "target_object": "minimum energy and effective velocity",
+      "coordinate": "t, x, y, z & t, r, theta, phi",
+      "scenario": "contrast_Killing_norm",
+      "method": "Killing vector derivation",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.15",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.15",
+      "1_s10_10.15-4",
+      "1_s10_10.15-4-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "最小守恒能量 $E_{min}/\\mu$ 的推导与对比",
+      "径向有效速度方程 $\\dot{x}^2$ 与 $\\dot{r}^2$ 的推导与对比",
+      "Killing 矢量范数物理意义的差异解释"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，时间平移 Killing 矢量 $\\boldsymbol{\\xi}$ 为自由粒子提供了守恒的能量 $E$，而其范数 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}$ 深刻影响了粒子的局域能量下限与有效动力学方程。请对比以下两种时空背景中径向运动有质量粒子（质量为 $\\mu$）的物理性质：**背景 A（De Sitter 时空）**：度规为 $ds^2 = -dt^2 + e^{2x/\\alpha}(dx^2 + dy^2 + dz^2)$，具有时间平移 Killing 矢量 $\\boldsymbol{\\xi}_{A} = \\partial_t$。**背景 B（Schwarzschild 时空）**：度规为 $ds^2 = -\\frac{r-r_s}{r} dt^2 + \\frac{r}{r-r_s} dr^2 + r^2(d\\theta^2 + \\sin^2\\theta d\\phi^2)$，具有时间平移 Killing 矢量 $\\boldsymbol{\\xi}_{B} = \\partial_t$。请在两种背景下，分别推导：1. 局部静止粒子（$\\dot{x}=0$ 或 $\\dot{r}=0$）的最小守恒能量 $E_{min}/\\mu$，将其表达为 Killing 矢量范数 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}$ 的函数；2. 具有守恒能量 $E$ 的粒子沿径向运动的有效空间速度方程（即 $e^{2x/\\alpha} \\dot{x}^2$ 或 $\\dot{r}^2$ 作为 $E$ 与度规分量的显式函数）。最后，对比两者的推导结果，说明 Killing 矢量范数 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}$ 在两种时空中不同的坐标依赖性（常数 vs 坐标依赖）如何决定了最小能量与有效速度方程的差异，并解释该差异的物理含义（引力势/时间膨胀 vs 宇宙膨胀尺度因子）。",
+    "answer": "**背景 A（De Sitter）**：1. Killing 矢量范数 $\\boldsymbol{\\xi}_A \\cdot \\boldsymbol{\\xi}_A = g_{tt} = -1$。局部静止时，最小能量 $E_{min}/\\mu = \\sqrt{-\\boldsymbol{\\xi}_A \\cdot \\boldsymbol{\\xi}_A} = 1$。2. 守恒能量 $E = -g_{tt} \\dot{t} = \\dot{t}$。代入类时条件 $- \\dot{t}^2 + e^{2x/\\alpha} \\dot{x}^2 = -1$，得有效速度方程：$e^{2x/\\alpha} \\dot{x}^2 = E^2 - 1 = E^2 + \\boldsymbol{\\xi}_A \\cdot \\boldsymbol{\\xi}_A$。**背景 B（Schwarzschild）**：1. Killing 矢量范数 $\\boldsymbol{\\xi}_B \\cdot \\boldsymbol{\\xi}_B = g_{tt} = -(1-r_s/r)$。局部静止时，最小能量 $E_{min}/\\mu = \\sqrt{-\\boldsymbol{\\xi}_B \\cdot \\boldsymbol{\\xi}_B} = \\sqrt{1-r_s/r}$。2. 守恒能量 $E = -g_{tt} \\dot{t} = (1-r_s/r)\\dot{t}$。代入类时条件 $-\\frac{r-r_s}{r}\\dot{t}^2 + \\frac{r}{r-r_s}\\dot{r}^2 = -1$，得有效速度方程：$\\dot{r}^2 = E^2 - (1-r_s/r) = E^2 + \\boldsymbol{\\xi}_B \\cdot \\boldsymbol{\\xi}_B$。**对比与物理含义**：两者均满足统一的代数结构：局部静止最小能量 $E_{min}/\\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$，且有效速度方程中动能项等于 $E^2 + \\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}$。差异源于 Killing 矢量范数的性质：- 在 De Sitter 中，$\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = -1$ 是常数，故 $E_{min}/\\mu = 1$ 在全时空均匀，不存在引力势差。方程右侧为常数，$\\dot{x}^2$ 的变化仅由左侧的宇宙膨胀尺度因子 $e^{2x/\\alpha}$ 引起，体现宇宙膨胀对固有时间与空间距离的拉伸效应。- 在 Schwarzschild 中，$\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = -(1-r_s/r)$ 随坐标 $r$ 变化，导致 $E_{min}/\\mu$ 随位置降低，反映了静态引力场中的引力红移与时间膨胀效应（越靠近中心，局部静止粒子的总能量越低）；右侧势项 $(1-r_s/r)$ 随 $r$ 减小而减小，使得 $\\dot{r}^2$ 增大，直接体现引力加速下落的过程。",
+    "solution": "推导思路：1. **计算 Killing 矢量范数**：对 $\\boldsymbol{\\xi} = \\partial_t$，其范数为 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi} = g_{tt}$。在 De Sitter 中为 -1，在 Schwarzschild 中为 $-(1-r_s/r)$。2. **推导最小能量**：局部静止粒子仅有时间分量 $u^\\mu = (\\dot{t}, 0, 0, 0)$。代入类时条件 $g_{tt} \\dot{t}^2 = -1$，结合守恒量 $E = -g_{tt} \\dot{t}$，可得 $E^2 / (-g_{tt}) = 1 \\implies E_{min}^2 = -g_{tt}$，即 $E_{min}/\\mu = \\sqrt{-\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}}$。3. **推导有效速度方程**：   - De Sitter：将 $E = \\dot{t}$ 代入 $-\\dot{t}^2 + e^{2x/\\alpha} \\dot{x}^2 = -1$，消去 $\\dot{t}$ 得 $e^{2x/\\alpha} \\dot{x}^2 = E^2 - 1$。   - Schwarzschild：将 $\\dot{t} = E / (1-r_s/r)$ 代入 $-\\frac{r-r_s}{r}\\dot{t}^2 + \\frac{r}{r-r_s}\\dot{r}^2 = -1$，消去 $\\dot{t}$ 后两边乘 $(1-r_s/r)$ 得 $-E^2 + \\dot{r}^2 = -(1-r_s/r)$，移项得 $\\dot{r}^2 = E^2 - (1-r_s/r)$。4. **对比结构**：两者有效速度方程右侧均表现为 $E^2 + \\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}$，左侧为对应的空间速度项。分析 $\\boldsymbol{\\xi} \\cdot \\boldsymbol{\\xi}$ 为常数与坐标函数时的物理差异。"
+  },
+  "verification": null
+}

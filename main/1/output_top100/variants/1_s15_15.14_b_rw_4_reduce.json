@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s15_15.14_b-0-1-4",
+    "type": "concept",
+    "tags": {
+      "target_object": "Kretschmann_scalar",
+      "coordinate": "spherical",
+      "scenario": "reduce_to_flat_spacetime",
+      "method": "limit_analysis",
+      "generalization_axis": "limit",
+      "metric": "DeSitter"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.14_b",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.14_b",
+      "1_s15_15.14_b-0",
+      "1_s15_15.14_b-0-1",
+      "1_s15_15.14_b-0-1-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "DeSitter",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "target": [
+      "Kretschmann_scalar",
+      "Minkowski_spacetime"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*x/alpha)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "exp(2*x/alpha)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*x/alpha)"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，Schwarzschild 时空的线元为 $ds^2 = \\frac{- r + r_{s}}{r} dt^2 + \\frac{r}{r - r_{s}} dr^2 + r^{2} d\\theta^2 + r^{2} \\sin^{2}{\\left(\\theta\\right)} d\\phi^2$，其中 $r_s = 2M$ 为 Schwarzschild 半径，$M$ 为中心天体质量。该时空的 Kretschmann 标量为 $K = \\frac{48 M^{2}}{r^{6}}$，它是一个刻画时空内禀曲率强度的完全不变量。请通过取无源极限 $M \\to 0$，推导此时 Kretschmann 标量的极限值，并说明该极限在物理上对应退化为何种经典的简化时空。",
+    "answer": "当取无源极限 $M \\to 0$ 时，Kretschmann 标量 $K = \\frac{48 M^{2}}{r^{6}} \\to 0$。在物理上，这对应于移除引力源后，时空的内禀曲率完全消失，时空退化回无引力的经典平直时空（Minkowski 时空）。",
+    "solution": "计算 Kretschmann 标量在 $M \\to 0$ 时的极限：$\\lim_{M \\to 0} \\frac{48 M^{2}}{r^{6}} = 0$。Kretschmann 标量为零意味着时空的 Riemann 曲率张量全为零，即时空没有引力效应造成的弯曲。在无质量源的极限下，引力场消失，时空几何退化为无曲率的平直时空，即 Minkowski 时空。"
+  },
+  "verification": null
+}

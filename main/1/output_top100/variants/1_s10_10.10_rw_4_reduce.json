@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-4-4",
+    "type": "prove",
+    "tags": {
+      "target_object": "peculiar velocity",
+      "coordinate": "comoving",
+      "scenario": "cosmology_reduce_to_flat",
+      "method": "limit",
+      "generalization_axis": "limit",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-4",
+      "1_s10_10.10-4-4"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "FLRW",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$v_{\\perp}$ 保持为常数（经典平直时空横向速度守恒）"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Friedmann-Lemaître-Robertson-Walker (FLRW) 宇宙中，时空度规为：$$ ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2}dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2 $$其中 $a(t)$ 为标度因子，$k$ 为曲率参数。对于赤道面 $\\theta = \\pi/2$ 上的自由粒子，其绕 $\\phi$ 轴的角动量守恒量为 $L = r^2 a^2(t) \\dot{\\phi}$，物理横向速度定义为 $v_{\\perp} = \\frac{a(t) r \\dot{\\phi}}{\\dot{t}}$。在广义相对论框架下，已推导出低速近似下该粒子的物理横向速度衰减规律为 $v_{\\perp} \\propto 1/a(t)$。请将上述 GR 语境下的结论，取宇宙膨胀消失且空间平直的极限（即标度因子 $a(t) \\to 1$ 为常数，曲率参数 $k \\to 0$），回到静态平直时空（闵可夫斯基时空）对应。说明在此极限下，物理横向速度 $v_{\\perp}$ 回到了经典力学中何种熟知的物理规律，并给出具体的极限过渡表达式。",
+    "answer": "当取宇宙膨胀消失且空间平直的极限，即标度因子 $a(t) \\to 1$ 且为常数，曲率参数 $k \\to 0$ 时，FLRW度规退化为闵可夫斯基度规 $ds^2 = -dt^2 + dr^2 + r^2 d\\Omega^2$。此时广义相对论中的物理横向速度衰减规律 $v_{\\perp} \\propto 1/a(t)$ 过渡为 $v_{\\perp} \\propto 1/1$，即 $v_{\\perp}$ 不再随时间衰减，保持为常数。这回到了经典平直时空中自由粒子不受外力作用时横向速度（或角动量 $L = r v_{\\perp}$）守恒的物理规律。具体极限过渡为：$v_{\\perp} = \\frac{L}{r a(t)} \\to \\frac{L}{r}$，此即经典力学中的线速度 $v = r \\dot{\\phi}$。",
+    "solution": "1. 观察广义相对论中的结论 $v_{\\perp} \\propto 1/a(t)$。2. 取物理极限：令标度因子 $a(t) \\to 1$（宇宙停止膨胀，标度因子不再随时间变化）且曲率 $k \\to 0$，此时 FLRW 度规回归到闵可夫斯基平直时空度规。3. 在此极限下，$1/a(t)$ 趋于常数 1，因此 $v_{\\perp} \\propto 1$，即横向速度不再随时间衰减，保持为常数。4. 角动量守恒量 $L = r^2 a^2(t) \\dot{\\phi}$ 在 $a(t) \\to 1$ 时退化为经典角动量 $L_{\\text{classical}} = m r^2 \\dot{\\phi}$（此处讨论单位质量情况即 $L=r^2\\dot{\\phi}$）。5. 速度表达式 $v_{\\perp} = \\frac{L}{r a(t)}$ 退化为 $v_{\\perp} = \\frac{L}{r} = r \\dot{\\phi}$，这正是经典牛顿力学中自由粒子做匀速直线运动（或保持横向速度分量不变）的守恒规律。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "Answer 和 Solution 错误地断言在平直时空极限下物理横向速度 $v_{\\perp}$ 保持为常数。根据题目自身给出的推导关系 $v_{\\perp} = \\frac{L}{r a(t)}$，当取极限 $a(t) \\to 1$ 时，结果应为 $v_{\\perp} = \\frac{L}{r}$。对于自由粒子，其径向坐标 $r$ 随时间变化（粒子沿直线运动），因此 $v_{\\perp}$ 并非常数，而是随 $r$ 变化的函数。Answer 从 $v_{\\perp} \\propto 1/a(t)$ 衰减消失直接跳到 $v_{\\perp} \\propto 1/1$ 并断言其为常数，完全忽略了表达式中变量 $r$ 的时间依赖性。在经典力学中，自由粒子的极坐标横向速度分量 $v_{\\perp} = r\\dot{\\phi}$ 本身并不守恒，真正守恒的是角动量 $L = r v_{\\perp}$ 或速度矢量的大小。Solution 甚至声称'匀速直线运动（或保持横向速度分量不变）'，这违背了极坐标运动学的基本常识（匀速直线运动的极坐标横向速度分量必然随粒子靠近或远离原点而变化）。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

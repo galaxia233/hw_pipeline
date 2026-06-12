@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-8-7",
+    "type": "concept",
+    "tags": {
+      "target_object": "\\Omega",
+      "coordinate": "spherical",
+      "scenario": "FLRW_comoving_gyroscope",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "FLRW"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-8",
+      "1_s11_11.11-8-7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "FLRW",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "\\Omega"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Friedmann-Lemaître-Robertson-Walker (FLRW) 宇宙中，远处星系定义了共动宇宙学参考架。度规为 $ds^2 = -dt^2 + \\frac{a^{2}(t)}{1 - k r^{2}} dr^2 + r^{2} a^{2}(t) d\\theta^{2} + r^{2} a^{2}(t) \\sin^{2}{\\theta} d\\phi^{2}$。考虑一个放置在固定共动坐标位置 $(r_0, \\theta_0, \\phi_0)$ 且相对远处星系静止（即共动观察者）的陀螺仪。理论推导表明，该陀螺仪自旋矢量相对于宇宙学参考架的进动角速度 $\\Omega$ 精确为零。请从零设计一个数值模拟方案来验证此结论。方案需包含：1) 模型参数与初始条件设定；2) 自旋演化方程的求解流程；3) 物理分量的提取与进动角速度的计算方法；4) 作为对照，如何通过参数扫描验证其在静态平坦极限（$a(t) \\to 1, k \\to 0$）下自旋输运退化回 Minkowski 时空形式。",
+    "answer": "1. 参数与初始条件设定：选择尺度因子演化律（如 $a(t) = t^{2/3}$）与曲率参数 $k$；设定共动观察者坐标 $(r_0, \\theta_0, \\phi_0)$，其四维速度为 $u^\\mu = (1,0,0,0)$；设定初始自旋坐标分量 $S^\\mu(t_0) = (0, S^1_0, S^2_0, S^3_0)$ 满足正交性条件 $g_{\\mu\\nu} u^\\mu S^\\nu = 0$（即 $S^0=0$）。2. 演化方程求解：数值求解自旋的平行输运方程 $\\frac{d S^\\mu}{d \\tau} + \\Gamma^\\mu_{\\alpha \\beta} u^\\alpha S^\\beta = 0$。由于 $u^\\alpha = (1,0,0,0)$，方程简化为 $\\frac{d S^\\mu}{d t} + \\Gamma^\\mu_{0 j} S^j = 0$，利用度规算出非零分量 $\\Gamma^1_{01} = \\Gamma^2_{02} = \\Gamma^3_{03} = \\frac{\\dot{a}}{a}$，积分得到坐标分量演化 $S^i(t)$。3. 物理量提取：计算正交基下的物理分量 $\\hat{S}^1 = \\frac{a(t)}{\\sqrt{1-kr^2}} S^1$, $\\hat{S}^2 = a(t) r S^2$, $\\hat{S}^3 = a(t) r \\sin\\theta S^3$，并求方向角 $\\Theta(t)$ 与 $\\Phi(t)$ 及进动角速度 $\\Omega(t) = \\frac{d\\Phi}{dt}$。预期结果：方向角恒定，$\\Omega = 0$。4. 对照实验：设置参数扫描使 $a(t) \\to 1, \\dot{a} \\to 0, k \\to 0$，重复步骤2-3，预期 $\\Gamma^i_{0j} \\to 0$ 使得坐标分量方程退化为 $\\frac{d S^i}{d t} = 0$，验证无进动。",
+    "solution": "由平行输运方程解得自旋坐标分量的时间演化规律为 $S^i(t) = S^i(t_0) \\frac{a(t_0)}{a(t)}$。当将坐标分量投影到由度规决定的正交局部基时，物理分量 $\\hat{S}^i$ 包含的尺度因子 $a(t)$ 恰好与坐标分量解中的 $1/a(t)$ 抵消（因为 $r, \\theta, \\phi$ 对共动观察者为常数），使得 $\\hat{S}^i$ 为纯常数。因此，自旋矢量在物理空间中的指向不随时间改变，角速度 $\\Omega = 0$。在对照实验中，当参数逼近静态平坦极限（$a \\to 1, \\dot{a} \\to 0, k \\to 0$），Christoffel 符号 $\\Gamma^i_{0j} = \\frac{\\dot{a}}{a} \\to 0$，平行输运方程直接退化为 $dS^i/dt = 0$，精确再现了 Minkowski 时空的零进动特征，验证了方案的物理自洽性。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.flrw_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.2,
+      "issue": "1. 遗漏关键步骤与未经证明的假设：广义相对论中自旋矢量的严格演化应遵循 Fermi-Walker 输运方程，只有当观察者做测地线运动（即四维加速度 $a^\\mu=0$）时，Fermi-Walker 输运才退化为平行输运方程。Answer 和 Solution 直接使用了平行输运方程 $\\frac{DS^\\mu}{d\\tau}=0$，却未推导或说明共动观察者 $u^\\mu=(1,0,0,0)$ 的加速度为何为零（即未证明 $a^\\mu = \\frac{Du^\\mu}{d\\tau} = \\Gamma^\\mu_{00} = 0$），属于引入未经证明的假设和逻辑跳跃。2. 模型参数物理不自洽：Answer 第1部分建议选择尺度因子演化律“如 $a(t)=t^{2/3}$”与曲率参数 $k$，暗示两者可独立选取。然而根据 Friedmann 方程，$a(t)=t^{2/3}$ 仅在平坦宇宙（$k=0$）的物质主导期成立；若任意组合 $k \\neq 0$ 与 $a(t)=t^{2/3}$，将违反 Einstein 场方程，与题目声称的“在 FLRW 宇宙中”的物理前提矛盾。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-7-8",
+    "type": "prove",
+    "tags": {
+      "target_object": "Fermi-Walker_transport",
+      "coordinate": "Schwarzschild",
+      "scenario": "static_observer_spin_precession_reduce",
+      "method": "limit_verification",
+      "generalization_axis": "limit",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-7",
+      "1_s11_11.4-7-8"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "reduce",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$a^\\mu$",
+      "$\\Omega^\\mu_{\\ \\nu}$"
+    ],
+    "metric": [
+      [
+        "-(r - r_s)/r",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "r/(r - r_s)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2*sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞度规时空中，考虑一个静止于固定径向坐标 $r$ 处（$r > r_s$）的静态观察者所携带的陀螺仪。度规线元为 $ds^2 = -\\frac{r - r_s}{r} dt^2 + \\frac{r}{r - r_s} dr^2 + r^2 d\\theta^2 + r^2 \\sin^2 \\theta d\\phi^2$。已知无外加扭矩的陀螺仪其自旋矢量 $S^\\mu$ 满足 Fermi-Walker 传输方程：$\\nabla_{\\mathbf{u}} S^\\mu = \\Omega^\\mu_{\\ \\nu} S^\\nu$，其中旋率张量 $\\Omega^\\mu_{\\ \\nu} = u^\\mu a_\\nu - a^\\mu u_\\nu$，$\\mathbf{u}$ 为观察者的四速度，$\\mathbf{a} = \\nabla_{\\mathbf{u}} \\mathbf{u}$ 为四加速度。请通过分析四加速度 $a^\\mu$ 与旋率张量 $\\Omega^\\mu_{\\ \\nu}$ 的表达式，证明当 Schwarzschild 半径 $r_s \\to 0$（即回到平直时空极限）时，Fermi-Walker 传输方程将归约回平直时空中的经典平行传输方程 $\\frac{dS^\\mu}{d\\tau} = 0$。",
+    "answer": "在 $r_s \\to 0$ 极限下，四加速度 $a^\\mu \\to 0$，旋率张量 $\\Omega^\\mu_{\\ \\nu} \\to 0$，使得 Fermi-Walker 传输方程退化为 $\\nabla_{\\mathbf{u}} S^\\mu = 0$；同时由于 Christoffel 符号 $\\Gamma^\\mu_{0\\nu} \\to 0$ 且 $u^0 \\to 1$，该方程进一步归约回平直时空的经典平行传输方程 $\\frac{dS^\\mu}{d\\tau} = 0$。",
+    "solution": "1. 计算静态观察者的四速度 $u^\\mu$。由于观察者静止，空间分量为零：$u^1 = u^2 = u^3 = 0$。由类时条件 $g_{\\mu\\nu} u^\\mu u^\\nu = -1$，可得 $u^0 = \\frac{1}{\\sqrt{1 - \\frac{r_s}{r}}}$。\\n2. 计算四加速度 $a^\\mu = u^\\nu \\nabla_\\nu u^\\mu = (u^0)^2 \\Gamma^\\mu_{00}$。根据 Christoffel 符号数据，$\\Gamma^1_{00} = \\frac{r_s (r - r_s)}{2 r^3}$，其余分量为零。代入得 $a^1 = \\frac{r_s}{2 r^2}$，故 $a^\\mu = (0, \\frac{r_s}{2 r^2}, 0, 0)$。\\n3. 计算旋率张量 $\\Omega^\\mu_{\\ \\nu} = u^\\mu a_\\nu - a^\\mu u_\\nu$，其非零项 $\\Omega^0_{\\ 1} = \\frac{r_s}{2 r (r - r_s) \\sqrt{1 - \\frac{r_s}{r}}}$ 与 $\\Omega^1_{\\ 0} = \\frac{r_s \\sqrt{1 - \\frac{r_s}{r}}}{2 r^2}$。\\n4. 取 $r_s \\to 0$ 极限进行归约：$a^\\mu \\to 0$ 且 $\\Omega^\\mu_{\\ \\nu} \\to 0$，因此 $\\nabla_{\\mathbf{u}} S^\\mu = \\Omega^\\mu_{\\ \\nu} S^\\nu \\to 0$，方程退化为 $\\nabla_{\\mathbf{u}} S^\\mu = 0$。\\n5. 展开协变导数：$\\nabla_{\\mathbf{u}} S^\\mu = u^0 \\frac{dS^\\mu}{dt} + u^0 \\Gamma^\\mu_{0\\nu} S^\\nu$。在 $r_s \\to 0$ 极限下，$u^0 \\to 1$ 且 $\\Gamma^\\mu_{0\\nu} \\to 0$，方程最终归约为 $\\frac{dS^\\mu}{d\\tau} = 0$，这是平直时空中自旋矢量不随原时改变的经典对应结果。"
+  },
+  "verification": null
+}

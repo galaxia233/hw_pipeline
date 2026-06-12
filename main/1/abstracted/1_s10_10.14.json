@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s10_10.14",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "coordinate",
+      "scenario": "scenario",
+      "method": "method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s10_10.14",
+    "source_id": "1_s10_10.14",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s10_10.14"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 1.0,
+      "realism": 0.6,
+      "rationale": "多步协变导数运算结合基灵方程+静态时空观者加速度模型",
+      "overall": 0.78
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\xi^\\\\mu$",
+      "$u^\\\\mu$",
+      "$a^\\\\mu$"
+    ],
+    "target": [
+      "$a_\\\\alpha$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "If $\\pmb{\\xi}$ is a timelike Killing vector and $\\mathbf{u} = \\pmb{\\xi} / |\\pmb{\\xi} \\cdot \\pmb{\\xi}|^{\\frac{1}{2}}$ is a 4-velocity, prove that $\\mathbf{a} \\equiv \\nabla_{\\mathbf{u}} \\mathbf{u} = \\frac{1}{2} \\nabla \\log |\\pmb{\\xi} \\cdot \\pmb{\\xi}|$ .",
+    "answer": "$\\\\mathbf{a} \\\\equiv \\\\nabla_{\\\\mathbf{u}} \\\\mathbf{u} = \\\\frac{1}{2} \\\\nabla \\\\log |\\\\pmb{\\\\xi} \\\\cdot \\\\pmb{\\\\xi}|$",
+    "solution": "Solution 10.14. The components of $\\mathbf{u}$ are\\n$$\\n\\\\mathsf {u}_{\\\\alpha} = \\\\xi_{\\\\alpha} / (- \\\\xi_{\\\\gamma} \\\\xi^{\\\\gamma})^{\\\\frac {1}{2}}\\n$$\\n(the minus sign is chosen to make the term in parentheses positive), so\\n$$\\n\\\\mathsf {a}_{\\\\alpha} = \\\\mathsf {u}_{\\\\alpha ; \\\\beta} \\\\mathsf {u}^{\\\\beta} = \\\\left[ \\\\frac {\\\\xi_{\\\\alpha ; \\\\beta}}{(- \\\\xi_{\\\\gamma} \\\\xi^{\\\\gamma})^{\\\\frac {1}{2}}} + \\\\frac {\\\\xi_{\\\\alpha} \\\\xi_{\\\\gamma ; \\\\beta} \\\\xi^{\\\\gamma}}{(- \\\\xi_{\\\\tau} \\\\xi^{\\\\tau})^{\\\\frac {3}{2}}} \\\\right] \\\\frac {\\\\xi^{\\\\beta}}{(- \\\\xi_{\\\\mu} \\\\xi^{\\\\mu})^{\\\\frac {1}{2}}} .\\n$$\\nThe second term vanishes because $\\xi_{\\\\gamma ;\\\\beta}\\\\xi^{\\\\gamma}\\\\xi^{\\\\beta} = \\\\xi_{(\\\\gamma ;\\\\beta)}\\\\xi^{\\\\gamma}\\\\xi^{\\\\beta} = 0$ . Since $\\xi_{a;\\\\beta} = -\\\\xi_{\\\\beta;a}$ , the first term gives\\n$$\\n\\\\mathsf {a}_{\\\\alpha} = \\\\frac {\\\\xi_{\\\\beta ; \\\\alpha} \\\\xi^{\\\\beta}}{+ \\\\xi_{\\\\gamma} \\\\xi^{\\\\gamma}} = \\\\frac {1}{2} \\\\frac {(\\\\xi_{\\\\beta} \\\\xi^{\\\\beta})_{; \\\\alpha}}{(\\\\xi_{\\\\gamma} \\\\xi^{\\\\gamma})} = \\\\frac {1}{2} \\\\left[ \\\\log (- \\\\xi_{\\\\beta} \\\\xi^{\\\\beta}) \\\\right]_{, \\\\alpha}.\\n$$"
+  },
+  "verification": null
+}

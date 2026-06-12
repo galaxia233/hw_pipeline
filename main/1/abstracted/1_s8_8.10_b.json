@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s8_8.10_b",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "curved_spacetime",
+      "coordinate": "differential_forms",
+      "scenario": "generalized_stokes_theorem",
+      "method": "generic_curvilinear_coordinates"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.10_b",
+    "source_id": "1_s8_8.10_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.10_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "多步微分形式外微分与勒维奇维塔张量运算结合度规行列式导出协变散度",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^\\mu$",
+      "$f^\\mu$",
+      "$g$",
+      "$\\Sigma_\\mu$",
+      "$\\varepsilon_{\\mu\\alpha\\beta\\gamma}$"
+    ],
+    "target": [
+      "$\\nabla_\\mu f^\\mu$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s8_8.10_b.md]Problem 8.10. [Note: This problem assumes a familiarity with the Cartan calculus, beyond the scope of most relativity texts. Succeeding problems do not depend on it.] In the language of differential forms the generalizedStokes' theorem is$$\\int_{\\Omega} \\mathrm {d} \\boldsymbol {\\theta} = \\int_{\\partial \\Omega} \\boldsymbol {\\theta}.$$To what does this theorem reduce, in the following cases(b) $\\Omega$ is 4-dimensional, $\\pmb{\\theta} = \\mathbf{f}^{\\mu}\\mathbf{d}^{3}\\pmb{\\Sigma}_{\\mu}$ .",
+    "answer": "$$\\int_{\\Omega} \\nabla \\cdot \\mathbf {f} \\left| \\mathbf {g}\\right|^{\\frac{1}{2}} \\mathrm {d}^{4} \\mathbf {x} = \\int_{\\partial \\Omega} \\mathbf {f}^{\\mu} \\mathrm {d}^{3} \\Sigma_{\\mu}.$$",
+    "solution": "(b) $\\pmb{\\theta} = \\mathbf{f}^{\\mu}\\mathbf{d}^{3}\\pmb{\\Sigma}_{\\mu} = \\mathbf{f}^{\\mu}\\frac{1}{3!}\\varepsilon_{\\mu \\alpha \\beta \\gamma}\\widetilde{\\mathbf{dx}}^{\\alpha}\\wedge \\widetilde{\\mathbf{dx}}^{\\beta}\\wedge \\widetilde{\\mathbf{dx}}^{\\gamma}$$$\\begin{array}{l} \\mathbf {d} \\boldsymbol {\\theta} = \\frac {1}{3 !} \\left(\\mathrm {f}^{\\mu},_{\\lambda} \\varepsilon_{\\mu \\alpha \\beta \\gamma} \\widetilde {\\mathrm {d x}}^{\\lambda} + \\mathrm {f}^{\\mu} \\mathrm {d} \\varepsilon_{\\mu \\alpha \\beta \\gamma}\\right) \\wedge \\widetilde {\\mathrm {d x}}^{\\alpha} \\wedge \\widetilde {\\mathrm {d x}}^{\\beta} \\wedge \\widetilde {\\mathrm {d x}}^{\\gamma} \\\\\\\\ = \\frac {1}{3 !} \\left(\\mathrm {f}^{\\mu},_{\\lambda} \\varepsilon_{\\mu \\alpha \\beta \\gamma} \\widetilde {\\mathrm {d x}}^{\\lambda} + \\mathrm {f}^{\\mu} \\frac {1}{2} \\frac {\\mathrm {g} ,_{\\lambda}}{\\mathrm {g}} \\varepsilon_{\\mu \\alpha \\beta \\gamma} \\widetilde {\\mathrm {d x}}^{\\lambda}\\right) \\wedge \\widetilde {\\mathrm {d x}}^{\\alpha} \\wedge \\widetilde {\\mathrm {d x}}^{\\beta} \\wedge \\widetilde {\\mathrm {d x}}^{\\gamma} \\\\\\\\ = \\frac {1}{3 !} | \\mathrm {g} |^{\\- \\frac {1}{2}} (| \\mathrm {g} |^{\\frac {1}{2}} f^{\\mu}),_{\\lambda}^{\\varepsilon}_{\\mu \\alpha \\beta \\gamma} \\widetilde {\\mathrm {d x}}^{\\lambda} \\wedge \\widetilde {\\mathrm {d x}}^{\\alpha} \\wedge \\widetilde {\\mathrm {d x}}^{\\beta} \\wedge \\widetilde {\\mathrm {d x}}^{\\gamma} \\\\\\\\ = \\frac {\\- 1}{3 ! \\left| \\mathrm {g}\\right|^{\\frac {1}{2}}} \\left(\\left| \\mathrm {g}\\right|^{\\frac {1}{2}} \\mathrm {f}^{\\mu}\\right)_{, \\lambda} \\varepsilon_{\\mu a \\beta \\gamma} \\varepsilon^{\\lambda a \\beta \\gamma} | \\mathrm {g} |^{\\frac {1}{2}} \\widetilde {\\mathrm {d x}}^{0} \\wedge \\widetilde {\\mathrm {d x}}^{1} \\wedge \\widetilde {\\mathrm {d x}}^{2} \\wedge \\widetilde {\\mathrm {d x}}^{3} \\\\\\\\ = \\frac {1}{3 ! \\left| \\mathbf {g}\\right|^{\\frac {1}{2}}} \\left(\\left| \\mathbf {g}\\right|^{\\frac {1}{2}} \\mathbf {f}^{\\mu}\\right)_{, \\lambda} \\delta_{\\mu}^{\\lambda} 3! \\left| \\mathbf {g}\\right|^{\\frac {1}{2}} \\widetilde {\\mathbf {d x}}^{0} \\wedge \\widetilde {\\mathbf {d x}}^{1} \\wedge \\widetilde {\\mathbf {d x}}^{2} \\wedge \\widetilde {\\mathbf {d x}}^{3} \\\\\\\\ = \\mathrm {f}_{; \\mu}^{\\mu} \\left| \\mathrm {g}\\right|^{\\frac {1}{2}} \\widetilde {\\mathrm {d x}}^{0} \\wedge \\widetilde {\\mathrm {d x}}^{1} \\wedge \\widetilde {\\mathrm {d x}}^{2} \\wedge \\widetilde {\\mathrm {d x}}^{3} . \\\\\\\\ \\end{array}$$The theorem then reduces to$$\\int_{\\Omega} \\nabla \\cdot \\mathbf {f} \\left| \\mathbf {g}\\right|^{\\frac {1}{2}} \\mathrm {d}^{4} \\mathbf {x} = \\int_{\\partial \\Omega} \\mathbf {f}^{\\mu} \\mathrm {d}^{3} \\Sigma_{\\mu}.$$"
+  },
+  "verification": null
+}

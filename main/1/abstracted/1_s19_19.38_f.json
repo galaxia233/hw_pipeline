@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s19_19.38_f",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "geodesic_equation",
+      "coordinate": "comoving_coordinates",
+      "scenario": "cosmology",
+      "method": "christoffel_symbol"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.38_f",
+    "source_id": "1_s19_19.38_f",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.38_f"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.6,
+      "realism": 0.9,
+      "rationale": "基于宇宙学共动坐标系的测地线条件证明，需串联测地线方程、协变导数与联络计算，物理背景真实且可迁移至任意foliation框架",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\\\\\tau$",
+      "$x^i$",
+      "$g_{0i}$",
+      "$g_{ij}$"
+    ],
+    "target": [
+      "$g_{0i,0}$"
+    ],
+    "metric": [
+      [
+        "$-1$",
+        "$g_{01}$",
+        "$g_{02}$",
+        "$g_{03}$"
+      ],
+      [
+        "$g_{10}$",
+        "$g_{11}$",
+        "$g_{12}$",
+        "$g_{13}$"
+      ],
+      [
+        "$g_{20}$",
+        "$g_{21}$",
+        "$g_{22}$",
+        "$g_{23}$"
+      ],
+      [
+        "$g_{30}$",
+        "$g_{31}$",
+        "$g_{32}$",
+        "$g_{33}$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "19.38 In cosmology one usually uses coordinates comoving with the galaxies. Let $(r, x^i)$ be such a system, and let the metric take the general form\\n$$\\n\\\\\\\\mathrm {d s}^{2} = - \\\\\\\\mathrm {d} \\\\\\\\tau^{2} + 2 \\\\\\\\mathrm {g}_{0 \\\\\\\\mathrm {i}} \\\\\\\\mathrm {d} \\\\\\\\tau \\\\\\\\mathrm {d x}^{\\\\\\\\mathrm {i}} + \\\\\\\\mathrm {g}_{\\\\\\\\mathrm {i j}} \\\\\\\\mathrm {d x}^{\\\\\\\\mathrm {i}} \\\\\\\\mathrm {d x}^{\\\\\\\\mathrm {j}}\\n$$\\nwhere $\\mathbf{g}_{0\\\\\\\\mathrm{i}}$ and $\\mathbf{g}_{\\\\\\\\mathrm {ij}}$ can be functions of $\\pmb{\\\\\\\\tau}$ and $\\mathbf{x}^{\\\\\\\\mathrm {i}}$ . Show (f) that $\\mathbf{g}_{0\\\\\\\\mathbf{i},0} = 0$ if and only if galaxies fall on geodesics;",
+    "answer": "$g_{0i,0} = 0$",
+    "solution": null
+  },
+  "verification": null
+}

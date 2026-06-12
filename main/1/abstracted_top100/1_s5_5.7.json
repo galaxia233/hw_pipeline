@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s5_5.7",
+    "type": "calculate",
+    "tags": {
+      "metric": "stress_energy_tensor",
+      "target_object": "rotating_body",
+      "coordinate": "relativistic_kinematics",
+      "scenario": "covariant_divergence",
+      "method": "dirac_delta"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.7",
+    "source_id": "1_s5_5.7",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.7"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.9,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "需结合瞬时静止系洛伦兹变换、协变守恒方程与球坐标δ函数积分，逻辑链条完整且具相对论运动学背景。",
+      "overall": 0.85
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$"
+    ],
+    "target": [
+      "$T^{00}$",
+      "$T^{0\\phi}$",
+      "$T^{rr}$",
+      "$T^{\\phi\\phi}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.7. An infinitesimally thin rod of length $2a$ has a point mass $m$ at each of its ends. The center of the rod is fixed in the laboratory and the rod rotates about this point with a relativistic angular velocity $\\omega$ . (i.e. $\\omega \\ell$ is comparable with $c$ ). Assume the rod is massless. What is $\\mathbf{T}^{\\mu \\nu}$ for the rod and particle system?",
+    "answer": "$\\mathbf{T}^{\\mu \\nu} = \\frac{\\mathfrak{m}}{1 - \\omega^{2} \\mathfrak{a}^{2}} \\delta(\\cos \\theta) \\left[ \\delta(\\phi - \\omega \\mathfrak{t}) + \\delta(\\phi - \\omega \\mathfrak{t} - \\pi)\\right] \\times \\left[ \\begin{array}{c c c c} \\frac{\\delta(r - a)}{a^{2}} & 0 & 0 & \\frac{\\omega \\delta(r - a)}{a^{2}} \\\\ & -\\frac{\\omega^{2} a}{r^{2}} & 0 & 0 \\\\ & & 0 & 0 \\\\ \\text{symmetric} & & & \\frac{\\omega^{2} \\delta(r - a)}{a^{2}} \\end{array}\\right]$",
+    "solution": "Solution 5.7. Let $S'$ be the instantaneous rest frame of an element of![](images/c7c1955c9b6e9be687989cc12e1d092f09ebea30b9a64a114595543f389eb2f7.jpg)the rod. In this rest frame the only nonzero components are $\\mathbf{T}^{0'0'} = \\rho$ , $\\mathbf{T}^{x'x'} = \\mathfrak{p}$ . If we Lorentz transform to the lab frame we find the nonzero components: $\\mathbf{T}^{xx} = \\mathfrak{p}$ , $\\mathbf{T}^{yy} = \\gamma^{2}\\beta^{2}\\rho$ , $\\mathbf{T}^{00} = \\gamma^{2}\\rho$ , $\\mathbf{T}^{0y} = \\gamma^{2}\\beta\\rho$ , where $\\beta = \\omega r$ and $\\gamma \\equiv (1 - \\beta^{2})^{-\\frac{1}{2}}$ . If spherical polar coordinates are used the nonzero components are$$\\mathbf{T}^{rr} = \\mathfrak{p}, \\quad \\mathbf{T}^{\\phi\\phi} = \\gamma^{2} \\beta^{2} \\rho / r^{2}, \\quad \\mathbf{T}^{0\\phi} = \\gamma^{2} \\beta \\rho / r, \\quad \\mathbf{T}^{00} = \\gamma^{2} \\rho .$$To find $\\mathfrak{p}(r)$ we can use the $r$ component of the equation of motion$$\\begin{array}{l}0 = \\mathrm{T}^{r\\nu}_{;\\nu} = \\mathrm{T}^{rr}_{,r} + \\mathrm{T}^{\\phi\\phi}\\Gamma_{\\phi\\phi}^{r} + \\mathrm{T}^{rr}\\left[\\log(-g)^{\\frac{1}{2}}\\right]_{,r} \\\\\\mathbf{\\tau} = \\left(\\mathrm{T}^{rr} r^{2}\\right)_{,r} / r^{2} - r\\sin^{2}\\theta \\mathrm{T}^{\\phi\\phi}\\end{array}$$so that$$\\left(\\operatorname{pr}^{2}\\right)_{,r} = r\\sin^{2}\\theta \\gamma^{2}\\beta^{2}\\rho .$$Since the only mass density is in the point masses we have$$\\rho = m\\delta(r - a)\\delta(\\cos\\theta)[\\delta(\\phi - \\omega t) + \\delta(\\phi - \\omega t - \\pi)] / r^{2}.$$We can now integrate the equation of motion with the boundary condition $\\mathfrak{p} = 0$ for $r > a$ , to find $\\mathfrak{p}$ . When this is done the components of the stress-energy tensor (in the lab, described by coordinates $t, r, \\theta, \\phi$ ) are seen to be$$\\begin{array}{l}\\mathbf{T}^{\\mu \\nu} = \\frac{\\mathfrak{m}}{1 - \\omega^{2} \\mathfrak{a}^{2}} \\delta(\\cos \\theta) \\left[ \\delta(\\phi - \\omega \\mathfrak{t}) + \\delta(\\phi - \\omega \\mathfrak{t} - \\pi)\\right] \\\\\\times \\left[ \\begin{array}{c c c c} \\frac{\\delta(r - a)}{a^{2}} & 0 & 0 & \\frac{\\omega \\delta(r - a)}{a^{2}} \\\\ & -\\frac{\\omega^{2} a}{r^{2}} & 0 & 0 \\\\ & & 0 & 0 \\\\\\n\\text{symmetric} & & & \\frac{\\omega^{2} \\delta(r - a)}{a^{2}} \\end{array}\\right]\\end{array}$$"
+  },
+  "verification": null
+}

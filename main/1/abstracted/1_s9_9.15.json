@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s9_9.15",
+    "type": "prove",
+    "tags": {
+      "metric": "Riemann_tensor",
+      "target_object": "Bianchi_identity",
+      "coordinate": "cyclic_identity",
+      "scenario": "locally_flat_coordinates",
+      "method": "tensor_symmetry"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.15",
+    "source_id": "1_s9_9.15",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.15"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基于局部惯性系与协变导数对易子的严格张量推导，逻辑链条完整且通用性强。",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$a$",
+      "$\\beta$",
+      "$\\gamma$",
+      "$\\delta$",
+      "$\\nu$",
+      "$\\sigma$",
+      "$\\alpha$"
+    ],
+    "target": [
+      "$R_{a[\\beta\\gamma\\delta]}$",
+      "$R_{a\\delta\\beta\\gamma;\\nu} + R_{a\\delta\\nu\\beta;\\gamma} + R_{a\\delta\\gamma\\nu;\\beta}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.15. Prove the cyclic identity$$\\mathrm {R}_{a \\beta \\gamma \\delta} + \\mathrm {R}_{a \\delta \\beta \\gamma} + \\mathrm {R}_{a \\gamma \\delta \\beta} = 0$$and the Bianchi identities$$\\mathrm {R}_{a \\delta \\beta \\gamma ; \\nu} + \\mathrm {R}_{a \\delta \\nu \\beta ; \\gamma} + \\mathrm {R}_{a \\delta \\gamma \\nu ; \\beta} = 0.$$",
+    "answer": "$$\\mathrm {R}_{a \\beta \\gamma \\delta} + \\mathrm {R}_{a \\delta \\beta \\gamma} + \\mathrm {R}_{a \\gamma \\delta \\beta} = 0$$$$\\mathrm {R}_{a \\delta \\beta \\gamma ; \\nu} + \\mathrm {R}_{a \\delta \\nu \\beta ; \\gamma} + \\mathrm {R}_{a \\delta \\gamma \\nu ; \\beta} = 0.$$",
+    "solution": "Solution 9.15. Choose locally flat coordinates so that$$\\mathbf {R}_{\\beta \\gamma \\delta}^{a} = 2 \\Gamma_{\\beta [ \\delta , \\gamma ]}^{a}.$$In these coordinates then$$\\mathsf {R}^{a}_{[ \\beta \\gamma \\delta ]} = 2 \\Gamma^{a}_{[ \\beta [ \\delta , \\gamma ] ]} = 2 \\Gamma^{a}_{[ \\beta \\delta , \\gamma ]}.$$Since the Christoffel symbols are symmetric on their lower indices the right side must vanish, and by lowering the first index we have$\\mathbf{R}_{\\alpha}[\\beta \\gamma \\delta] = 0$ . The Riemann tensor is antisymmetric in its last two indices, so this is equivalent to the cyclic identity.From Problem 9.8 we have for any $\\mathbf{U}^{\\alpha}$ that$$2 \\mathrm {U}_{; [ \\beta \\gamma ]}^{\\alpha} = - \\mathrm {U}_{\\sigma \\beta \\gamma}^{\\sigma} .$$Take $\\mathbf{U}^{\\alpha}$ to be fixed at some point and parallel transported along geodesics to all nearby points in some neighborhood, then at the point $\\mathbf{U}^{\\alpha};\\beta = 0$ for all $\\beta$ , and hence$$2 \\mathrm {U}_{; [ \\beta \\gamma ] \\delta}^{\\alpha} = - \\mathrm {U}_{\\sigma \\beta \\gamma ; \\delta}^{\\sigma}$$and$$2 \\mathrm {U}_{; [ [ \\beta \\gamma ] \\delta ]}^{\\alpha} = 2 \\mathrm {U}_{; [ \\beta \\gamma \\delta ]}^{\\alpha} = - \\mathrm {U}_{\\sigma}^{\\sigma} \\mathrm {R}_{\\sigma}^{\\alpha} [ \\beta \\gamma ; \\delta ] .$$From Problem 9.8 we have for the tensor $\\mathbf{U}_{; \\beta}^{\\alpha}$ that$$2 \\mathrm {U}_{; \\beta}^{\\alpha} = - \\mathrm {U}_{; \\beta}^{\\sigma} \\mathrm {R}_{\\sigma \\gamma \\delta}^{\\alpha} + \\mathrm {U}_{; \\sigma}^{\\alpha} \\mathrm {R}_{\\beta \\gamma \\delta}^{\\sigma}.$$Since $\\mathbf{U}^{\\alpha};\\beta = 0$ at the point we have $\\mathbf{U}^{\\alpha};\\beta [\\gamma \\delta ] = 0$ and hence $\\mathbf{U}^{\\alpha};[\\beta \\gamma \\delta ] = 0$ We could have chosen the direction of $\\mathbf{U}^{\\alpha}$ at the point in any way so it follows that$$\\mathbf {R}_{\\sigma}^{a} [ \\beta \\gamma ; \\delta ] = 0.$$Since the Riemann tensor is antisymmetric on its last two indices, this is equivalent to the Bianchi identities. (The Bianchi identities can also, of course, be derived by the straightforward but tedious process of differentiating and manipulating the formula for Riemann components in terms of Christoffel symbols. This is best done in locally flat coordinates.)"
+  },
+  "verification": null
+}

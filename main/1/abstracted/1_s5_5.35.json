@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s5_5.35",
+    "type": "calculate",
+    "tags": {
+      "metric": "statistical_mechanics",
+      "target_object": "thermodynamics",
+      "coordinate": "relativistic_gas",
+      "scenario": "specific_heats",
+      "method": "partition_function"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s5_5.35",
+    "source_id": "1_s5_5.35",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s5_5.35"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "Requires relativistic thermodynamic derivations with modified Bessel functions and explicit non-relativistic/ultra-relativistic limits.",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T$",
+      "$m$",
+      "$k$",
+      "$U$",
+      "$\\\\gamma$",
+      "$\\\\beta$",
+      "$K_1$",
+      "$K_2$"
+    ],
+    "target": [
+      "$\\\\gamma$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 5.35. For a perfect Maxwell-Boltzmann gas, find $\\gamma(T)$ , the ratio of specific heats, as a function of temperature.",
+    "answer": "$\\\\gamma(T) = 1 + \\\\frac{k}{dU/dT}$, where $U(T) = m \\\\left[ K_1(\\\\beta)/K_2(\\\\beta) + 3/\\\\beta \\\\right]$ and $\\\\beta = m/kT$. Limits: $\\\\gamma = 5/3$ for $kT \\\\ll m$, $\\\\gamma = 4/3$ for $kT \\\\gg m$.",
+    "solution": "Solution 5.35. From Problem 5.32,\\n$$\\n\\\\gamma = \\\\left(\\\\mathrm {c}_{\\\\mathrm {v}} + \\\\mathrm {k}\\\\right) / \\\\mathrm {c}_{\\\\mathrm {v}} = 1 + \\\\frac {\\\\mathrm {k}}{\\\\mathrm {d U} / \\\\mathrm {d T}}\\n$$\\nwhere, from Problem 5.34\\n$$\\n\\\\mathrm {U} (\\\\mathrm {T}) = \\\\mathrm {m} \\\\left\\\\{\\\\mathrm {K}_{1} (\\\\beta) / \\\\mathrm {K}_{2} (\\\\beta) + 3 / \\\\beta \\\\right\\\\}, \\\\quad \\\\beta = \\\\mathrm {m} / \\\\mathrm {k T}.\\n$$\\nThis gives the formal answer. Note that for $\\mathrm{kT} \\\\ll \\mathrm{m}$ , $\\mathbf{U} = \\mathbf{m} + 3\\mathrm{kT} / 2$ , $\\gamma = 5 / 3$ , and that for $\\mathrm{kT} \\\\gg \\mathrm{m}$ , $\\mathbf{U} = 3\\mathrm{kT}$ and $\\gamma = 4 / 3$ ."
+  },
+  "verification": null
+}

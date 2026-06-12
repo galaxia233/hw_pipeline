@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s1_1.20_d",
+    "type": "prove",
+    "tags": {
+      "metric": "Minkowski_spacetime",
+      "target_object": "velocity_magnitude",
+      "coordinate": "observer_rest_frame",
+      "scenario": "particle_observation",
+      "method": "four_vector_projection"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s1_1.20_d",
+    "source_id": "1_s1_1.20_d",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s1_1.20_d"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.6,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.5,
+      "rationale": "基于四矢量内积与投影定义的狭义相对论基础运动学恒等式，逻辑链条清晰且可自然推广至任意惯性观者与弯曲时空局部系",
+      "overall": 0.7
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$m$",
+      "$p$",
+      "$u$",
+      "$\\mathbf{v}$",
+      "$\\mathbf{p}$"
+    ],
+    "target": [
+      "$|\\underline{\\mathbf{v}}|$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 1.20. A particle of rest mass $m$ and 4-momentum $p$ is examined by an observer with 4-velocity $u$ . Show that:(d) the ordinary velocity $\\mathbf{v}$ he measures has magnitude$$| \\underline {{\\mathbf {v}}} | = \\left[ 1 + \\frac {\\mathbf {p} \\cdot \\mathbf {p}}{(\\mathbf {p} \\cdot \\mathbf {u})^{2}}\\right]^{\\frac {1}{2}}$$",
+    "answer": "| \\underline {{\\mathbf {v}}} | = \\left[ 1 + \\frac {\\mathbf {p} \\cdot \\mathbf {p}}{(\\mathbf {p} \\cdot \\mathbf {u}) ^ {2}} \\right] ^ {\\frac {1}{2}}",
+    "solution": null
+  },
+  "verification": null
+}

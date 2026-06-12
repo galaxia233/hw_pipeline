@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s19_19.28",
+    "type": "calculate",
+    "tags": {
+      "metric": "FLRW_metric",
+      "target_object": "temperature_variable_target",
+      "coordinate": "comoving_radius_coordinate",
+      "scenario": "early_universe_particle_physics_scenario",
+      "method": "isentropic_expansion_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.28",
+    "source_id": "1_s19_19.28",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.28"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.9,
+      "rationale": "Combines early universe thermodynamics, particle degrees of freedom transition, and FLRW adiabatic expansion via rigorous entropy conservation requiring multi-step derivation.",
+      "overall": 0.88
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$T_1$",
+      "$T_2$",
+      "$R_1$",
+      "$R_2$",
+      "$T$",
+      "$\\\\rho$",
+      "$S$",
+      "$V$"
+    ],
+    "target": [
+      "$T_2$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 19.28. A Friedmann cosmology has temperature $\\mathbf{T}_1$ at expansion scale $\\mathbf{R}_1$ , and is dominated by relativistic electrons, positrons, muons, photons, and neutrinos in thermal equilibrium. Later, at expansion scale $\\mathbf{R}_2$ , the muon pairs have annihilated, but the other particles are still relativistic and in equilibrium. Find the temperature $\\mathbf{T}_2$ in terms of $\\mathbf{T}_1$ , $\\mathbf{R}_1$ , and $\\mathbf{R}_2$ .",
+    "answer": "$T_2 = T_1 \\\\left(\\\\frac{R_1}{R_2}\\\\right) \\\\left(\\\\frac{25}{18}\\\\right)^{\\\\frac{1}{3}}.$",
+    "solution": "For relativistic particles, $\\mathbf{E} \\approx \\mathbf{p}$ , the equilibrium density at a temperature $\\mathbf{T}$ is (see the solution to Problem 19.27):\\n$$\\n\\\\rho (T) = \\\\int E n (p) d p = \\\\left\\\\{\\\\begin{array}{l l} a T^{4} & \\\\text {f o r p h o t o n s} \\\\\\\\\\n\\\\frac {7}{1 6} a T^{4} & \\\\text {f o r e a c h n e u t r i n o s p e c i e s} \\\\\\\\\\n\\\\frac {7}{8} a T^{4} & \\\\text {f o r e a c h e l e c t r o n o r m u o n s p e c i e s .} \\\\end{array} \\\\right.\\n$$\\nHere a is Stefan's constant $= (8\\\\pi^{5}\\\\mathbf{k}^{4}) / (15\\\\mathbf{h}^{3})$ . For this problem, then, we have\\n$$\\n\\\\rho (\\\\mathrm {T}) = \\\\left\\\\{\\\\begin{array}{l l} \\\\left(1 + 4 \\\\cdot \\\\frac {7}{1 6} + 4 \\\\cdot \\\\frac {7}{8}\\\\right) \\\\mathrm {a T}^{4} & \\\\mathrm {a t R_{1}} \\\\\\\\\\n\\\\left(1 + 4 \\\\cdot \\\\frac {7}{1 6} + 2 \\\\cdot \\\\frac {7}{8}\\\\right) \\\\mathrm {a T}^{4} & \\\\mathrm {a t R_{2}} \\\\end{array} \\\\right\\\\} \\\\equiv \\\\mathrm {K a T}^{4},\\n$$\\n$$\\n\\\\mathrm {K}_{1} = 2 5 / 4, \\\\quad \\\\mathrm {K}_{2} = 1 8 / 4.\\n$$\\nWe now use the fact that the expansion of the universe is isentropic. The entropy per volume of such a relativistic gas is calculated from the first law of thermodynamics to be\\n$$\\n\\\\frac {\\\\mathrm {S}}{\\\\mathrm {V}} = \\\\frac {4}{3} \\\\mathrm {K a T}^{3}.\\n$$\\nSince $V$ , the volume, varies as the expansion factor cubed, we have\\n$$\\n\\\\text {c o n s t a n t} = \\\\mathrm {S} \\\\propto \\\\frac {4}{3} \\\\mathrm {K a} (\\\\mathrm {R T})^{3},\\n$$\\ngiving for isentropic expansion\\n$$\\n\\\\mathrm {K}_{1} \\\\mathrm {R}_{1}^{3} \\\\mathrm {T}_{1}^{3} = \\\\mathrm {K}_{2} \\\\mathrm {R}_{2}^{3} \\\\mathrm {T}_{2}^{3}\\n$$\\nand\\n$$\\n\\\\mathrm {T}_{2} = \\\\mathrm {T}_{1} \\\\left(\\\\frac {\\\\mathrm {R}_{1}}{\\\\mathrm {R}_{2}}\\\\right) \\\\left(\\\\frac {2 5}{1 8}\\\\right)^{\\\\frac {1}{3}}.\\n$$\\nPhysically, this result says that in annihilating, the muons dump their energy (actually entropy) into the remaining particles, and increase their temperature by a factor $(25 / 18)^{\\\\frac{1}{3}}$ over the expected first-power decrease of T with R."
+  },
+  "verification": null
+}

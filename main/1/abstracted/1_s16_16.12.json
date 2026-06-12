@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "id": "1_s16_16.12",
+    "type": "calculate",
+    "tags": {
+      "metric": "static_spherical_star",
+      "target_object": "uniform_density",
+      "coordinate": "relativistic_hydrostatic_equilibrium",
+      "scenario": "compactness_bound",
+      "method": "dominant_energy_condition"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s16_16.12",
+    "source_id": "1_s16_16.12",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s16_16.12"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.6,
+      "rationale": "基于相对论流体静力学平衡方程与度规匹配条件的多步推导，结合压强发散分析与能量条件约束得出星体紧凑度极限，物理动机明确且逻辑链条完整。",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$"
+    ],
+    "target": [],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 16.12. Solve the relativistic equations of stellar structure for a static, spherically symmetric star of uniform density. Show that the mass and radius of the star satisfy $\\mathbf{R} / 2\\mathbf{M} > 9 / 8$ . What is the smallest $\\mathbf{R} / 2\\mathbf{M}$ can be if the dominant energy condition (see Problem 13.7) holds?",
+    "answer": "最小区别率下限为 $9/8$；主导能量条件下最小值为 $4/3$。",
+    "solution": "# CHAPTER 16: SOLUTIONS\\n$$\\n\\\\frac {\\mathrm {p}}{\\rho_{0}} = \\\\frac {\\left(1 - 2 \\\\mathrm {M r}^{2} / \\\\mathrm {R}^{3}\\\\right)^{\\\\frac {1}{2}} - \\\\left(1 - 2 \\\\mathrm {M} / \\\\mathrm {R}\\\\right)^{\\\\frac {1}{2}}}{3 \\\\left(1 - 2 \\\\mathrm {M} / \\\\mathrm {R}\\\\right)^{\\\\frac {1}{2}} - \\\\left(1 - 2 \\\\mathrm {M r}^{2} / \\\\mathrm {R}^{3}\\\\right)^{\\\\frac {1}{2}}} \\\\tag {7}\\n$$\\nThe constant of integration has been determined by demanding $p = 0$ at $r = R$ . The quantity $\\Phi$ is most easily found from the equation:\\n$$\\n\\\\frac {\\mathrm {d} \\Phi}{\\mathrm {d} p} = \\\\frac {\\mathrm {d} \\Phi / \\mathrm {d} r}{\\mathrm {d} p / \\mathrm {d} r} = - \\\\frac {1}{\\rho_{0} + p}.\\n$$\\nIntegrate to find\\n$$\\n\\\\begin{array}{l} e^{\\\\Phi} = \\\\text {c o n s t a n t} / (\\rho_{0} + p) \\\\\\\\\\n= \\\\frac {3}{2} (1 - 2 \\\\mathrm {M} / \\\\mathrm {R})^{\\\\frac {1}{2}} - \\\\frac {1}{2} (1 - 2 \\\\mathrm {M r}^{2} / \\\\mathrm {R}^{3})^{\\\\frac {1}{2}} \\\\tag {8} \\\\\\\\\\n\\\\end{array}\\n$$\\nwhere Equation (7) has been used to fix the constant of integration so that\\n$$\\ne^{\\\\Phi (r = R)} = (1 - 2 M / R)^{\\\\frac {1}{2}}.\\n$$\\n(That is, so that the metric will match smoothly to the Schwarzschild metric outside the star.)\\nWe thus have a 1-parameter family of stellar models, conveniently parametrized by the central pressure\\n$$\\n\\\\frac {P_{C}}{\\rho_{0}} = \\\\frac {1 - (1 - 2 M / R)^{\\\\frac {1}{2}}}{3 (1 - 2 M / R)^{\\\\frac {1}{2}} - 1}. \\\\tag {9}\\n$$\\nThe central pressure becomes infinite when\\n$$\\n3 \\\\left(1 - \\\\frac {2 M}{R}\\\\right)^{\\\\frac {1}{2}} - 1 = 0\\n$$\\ni.e. the limiting value of $\\mathbf{R} / 2\\mathbf{M}$ is $9 / 8$\\nThe dominant energy condition demands $p_c < \\rho_0$ , so that the right side of Equation (9) is $< 1$ . This implies $R / 2M > 4 / 3$ 。"
+  },
+  "verification": null
+}

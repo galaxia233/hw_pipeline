@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "id": "1_s11_11.11-0-6",
+    "type": "concept",
+    "tags": {
+      "target_object": "r_c",
+      "coordinate": "spherical",
+      "scenario": "gyroscope_precession_verify",
+      "method": "equating_rates_verify",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.11",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s11_11.11",
+      "1_s11_11.11-0",
+      "1_s11_11.11-0-6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\phi$",
+      "$M$",
+      "$\\mathbf{v}$",
+      "$\\mathbf{S}$",
+      "$h_j$",
+      "$\\Gamma_{\\hat{j}\\hat{k}\\hat{0}}$"
+    ],
+    "target": [
+      "$r_c$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在地球赤道平面的圆形轨道上，陀螺仪的自旋矢量会受到测地进动和参考系拖拽进动两种相对论性效应的影响。为了分析这些效应的大小，我们首先确定圆形轨道上的四维速度。在给定的史瓦西度规下，度规分量 $g_{00} = \\frac{-r+r_s}{r}$。对于赤道平面上的圆形轨道，陀螺仪四维速度的时间分量大小为 $u^t = \\frac{1}{\\sqrt{-(g_{00})}} = \\frac{1}{\\sqrt{\\frac{r_s-r}{r}}}$。已知在弱场低速近似下，赤道圆形轨道的测地进动角速度大小为 $\\Omega_G = \\frac{3(GM)^{3/2}}{2c^2 r^{5/2}}$，而沿轨道平面的 Lens-Thirring 参考系拖拽进动角速度大小为 $\\Omega_{LT} = \\frac{2GJ}{c^2 r^3}$。要使得这两种进动效应幅值相等，需令两者的角速度表达式相等以求得临界轨道半径 $r_c$：$$ \\frac{3(GM)^{3/2}}{2c^2 r_c^{5/2}} = \\frac{2GJ}{c^2 r_c^3} $$约去 $c^2$ 并将含 $r_c$ 的项移至等式一侧，计算 $\\frac{r_c^{-3}}{r_c^{-5/2}}$：$$ \\frac{3(GM)^{3/2}}{2} = 2 G J r_c^{-1/2} $$由此解出：$$ r_c^{-1/2} = \\frac{3 (GM)^{3/2}}{4 G J} $$化简右侧的 $G$ 和 $M$ 幂次，将 $(GM)^{3/2}$ 展开：$$ r_c^{-1/2} = \\frac{3 G M^{3/2}}{4 J} $$两边取倒数并平方，得到临界轨道半径的表达式：$$ r_c = \\left( \\frac{4 J}{3 G M^{3/2}}\\right)^2 = \\frac{16 J^2}{9 G^2 M^3} $$请找出上述推导过程中的所有错误，指出其位置、错误类型并给出正确值。",
+    "answer": "1. 位置：四维速度时间分量 $u^t$ 的计算，$-(g_{00})$ 的表达式。错误类型：sign error。错误值：$\\frac{r_s-r}{r}$，正确值：$\\frac{r-r_s}{r}$。2. 位置：$r_c$ 幂次合并步骤，$\\frac{r_c^{-3}}{r_c^{-5/2}}$ 的计算。错误类型：sign error (exponent)。错误值：$r_c^{-1/2}$，正确值：$r_c^{1/2}$。3. 位置：化简 $\\frac{3 (GM)^{3/2}}{4 G J}$。错误类型：exponent error。错误值：$\\frac{3 G M^{3/2}}{4 J}$，正确值：$\\frac{3 G^{1/2} M^{3/2}}{4 J}$。4. 位置：最终结果 $r_c$ 的表达式。错误类型：exponent error。错误值：$\\frac{16 J^2}{9 G^2 M^3}$，正确值：$\\frac{16 J^2}{9 G M^3}$。",
+    "solution": "在史瓦西度规下，考虑赤道平面上的圆形轨道。已知度规分量 $g_{00} = \\frac{-r+r_s}{r}$。对于沿圆形轨道运动的陀螺仪，其四维速度的时间分量大小为 $u^t = \\frac{1}{\\sqrt{-(g_{00})}} = \\frac{1}{\\sqrt{\\frac{r-r_s}{r}}}$。已知在弱场低速近似下，赤道圆形轨道的测地进动角速度大小为 $\\Omega_G = \\frac{3(GM)^{3/2}}{2c^2 r^{5/2}}$，而沿轨道平面的 Lens-Thirring 参考系拖拽进动角速度大小为 $\\Omega_{LT} = \\frac{2GJ}{c^2 r^3}$。令两者相等以求得临界轨道半径 $r_c$：$$ \\frac{3(GM)^{3/2}}{2c^2 r_c^{5/2}} = \\frac{2GJ}{c^2 r_c^3} $$约去 $c^2$ 并将含 $r_c$ 的项移至等式一侧，计算 $\\frac{r_c^{-3}}{r_c^{-5/2}}$：$$ \\frac{3}{2} (GM)^{3/2} = 2 G J r_c^{1/2} $$由此解出：$$ r_c^{1/2} = \\frac{4 G J}{3 (GM)^{3/2}} $$化简右侧的 $G$ 和 $M$ 幂次，将 $(GM)^{3/2}$ 展开：$$ r_c^{1/2} = \\frac{4 J}{3 G^{1/2} M^{3/2}} $$两边平方即可得到临界轨道半径的表达式：$$ r_c = \\left( \\frac{4 J}{3 G^{1/2} M^{3/2}}\\right)^2 = \\frac{16 J^2}{9 G M^3} $$"
+  },
+  "verification": null
+}

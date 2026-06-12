@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s10_10.12-6-5",
+    "type": "concept",
+    "tags": {
+      "target_object": "Killing equation vs Bianchi identity",
+      "coordinate": "FLRW vs Schwarzschild",
+      "scenario": "cosmology vs black hole",
+      "method": "tensor calculation",
+      "generalization_axis": "compare",
+      "metric": "Schwarzschild"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.12",
+      "1_s10_10.12-6",
+      "1_s10_10.12-6-5"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "Schwarzschild",
+    "soft_variant": "contrast",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "t",
+      "r",
+      "theta",
+      "phi"
+    ],
+    "target": [
+      "$\\nabla_\\alpha G^\\alpha_0$ in FLRW",
+      "$\\nabla_{(\\mu}\\xi_{\\nu)}$ in Schwarzschild",
+      "energy conservation contrast"
+    ],
+    "metric": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "a(t)**2/(1 - k*r**2)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "r**2 * a(t)**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "r**2 * a(t)**2 * sin(theta)**2"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Energy behavior in curved spacetimes depends fundamentally on geometric symmetries. Investigate the geometric origins of energy conservation differences in the following two backgrounds:\\n\\n**Background A (FLRW Cosmology)**: \\nMetric: $ds^2 = -dt^2 + \\frac{a^2(t)}{1-kr^2}dr^2 + r^2 a^2(t) d\\theta^2 + r^2 a^2(t) \\sin^2\\theta d\\phi^2$. \\nFact Sheet A: The spacetime has NO time-like Killing vector. The non-zero Einstein tensor components are $G_{00} = \\frac{3(k+\\dot{a}^2)}{a^2}$, $G_{11} = \\frac{k+2a\\ddot{a}+\\dot{a}^2}{kr^2-1}$, $G_{22} = r^2(-k-2a\\ddot{a}-\\dot{a}^2)$, $G_{33} = r^2(-k-2a\\ddot{a}-\\dot{a}^2)\\sin^2\\theta$. The non-zero Christoffel symbols are $\\Gamma^0_{11} = -\\frac{a\\dot{a}}{kr^2-1}$, $\\Gamma^0_{22} = r^2 a\\dot{a}$, $\\Gamma^0_{33} = r^2 a\\dot{a}\\sin^2\\theta$, $\\Gamma^1_{01}=\\Gamma^1_{10}=\\frac{\\dot{a}}{a}$, $\\Gamma^1_{11} = -\\frac{kr}{kr^2-1}$, $\\Gamma^1_{22} = kr^3-r$, $\\Gamma^1_{33} = r(kr^2-1)\\sin^2\\theta$, $\\Gamma^2_{02}=\\Gamma^2_{20}=\\frac{\\dot{a}}{a}$, $\\Gamma^2_{12}=\\Gamma^2_{21}=\\frac{1}{r}$, $\\Gamma^2_{33}=-\\frac{\\sin(2\\theta)}{2}$, $\\Gamma^3_{03}=\\Gamma^3_{30}=\\frac{\\dot{a}}{a}$, $\\Gamma^3_{13}=\\Gamma^3_{31}=\\frac{1}{r}$, $\\Gamma^3_{23}=\\Gamma^3_{32}=\\frac{1}{\\tan\\theta}$.\\n\\n**Background B (Schwarzschild Black Hole)**: \\nMetric: $ds^2 = -\\frac{r-r_s}{r}dt^2 + \\frac{r}{r-r_s}dr^2 + r^2 d\\theta^2 + r^2 \\sin^2\\theta d\\phi^2$. \\nFact Sheet B: The spacetime possesses a time-like Killing vector $\\xi^\\mu = (1, 0, 0, 0)$ (time translation). The non-zero Christoffel symbols are $\\Gamma^0_{01}=\\Gamma^0_{10}=\\frac{r_s}{2r(r-r_s)}$, $\\Gamma^1_{00}=\\frac{r_s(r-r_s)}{2r^3}$, $\\Gamma^1_{11}=-\\frac{r_s}{2r(r-r_s)}$, $\\Gamma^1_{22}=-r+r_s$, $\\Gamma^1_{33}=(-r+r_s)\\sin^2\\theta$, $\\Gamma^2_{12}=\\Gamma^2_{21}=\\frac{1}{r}$, $\\Gamma^2_{33}=-\\frac{\\sin(2\\theta)}{2}$, $\\Gamma^3_{13}=\\Gamma^3_{31}=\\frac{1}{r}$, $\\Gamma^3_{23}=\\Gamma^3_{32}=\\frac{1}{\\tan\\theta}$.\\n\\n**Question**: \\n1) In Background A, explicitly calculate the covariant divergence $\\nabla_\\alpha G^\\alpha_0$ to verify it vanishes identically. \\n2) In Background B, explicitly calculate the symmetrized covariant derivative $\\nabla_{(\\mu}\\xi_{\\nu)} = \\nabla_\\mu \\xi_\\nu + \\nabla_\\nu \\xi_\\mu$ for the Killing vector $\\xi^\\mu = (1, 0, 0, 0)$ to verify it vanishes identically. \\n3) Contrast the physical implications: Explain how these two vanishing geometric identities lead to fundamentally different physical conclusions regarding energy conservation in the respective spacetimes.",
+    "answer": "Both calculations yield zero: $\\nabla_\\alpha G^\\alpha_0 = 0$ in FLRW, and $\\nabla_{(\\mu}\\xi_{\\nu)} = 0$ in Schwarzschild. However, their physical implications for energy are fundamentally different. In FLRW, the vanishing Bianchi identity forces $\\nabla_\\alpha T^\\alpha_0 = 0$ via Einstein field equations, which for a perfect fluid yields the continuity equation $\\dot{\\rho} + 3H(\\rho+p)=0$; since there is no time-like Killing vector, global energy is NOT conserved but rather dilutes due to cosmic expansion. In Schwarzschild, the vanishing Killing equation guarantees that the current $J^\\alpha = T^\\alpha_\\beta \\xi^\\beta$ is covariantly conserved ($\\nabla_\\alpha J^\\alpha = 0$), meaning global energy IS a well-defined, conserved quantity.",
+    "solution": "**1) FLRW Calculation ($\\nabla_\\alpha G^\\alpha_0$):**\\nFirst compute mixed Einstein tensor: $G^0_0 = g^{00}G_{00} = -\\frac{3(k+\\dot{a}^2)}{a^2}$, $G^1_1 = -\\frac{k+2a\\ddot{a}+\\dot{a}^2}{a^2}$, $G^2_2 = G^3_3 = -\\frac{k+2a\\ddot{a}+\\dot{a}^2}{a^2}$, and $G^i_0 = 0$.\\nCovariant divergence: $\\nabla_\\alpha G^\\alpha_0 = \\partial_\\alpha G^\\alpha_0 + \\Gamma^\\alpha_{\\alpha \\lambda} G^\\lambda_0 - \\Gamma^\\lambda_{\\alpha 0} G^\\alpha_\\lambda$.\\n- First term: $\\partial_t G^0_0 = -6\\frac{\\dot{a}\\ddot{a}}{a^2} + 6\\frac{\\dot{a}(k+\\dot{a}^2)}{a^3}$.\\n- Second term: $\\Gamma^\\alpha_{\\alpha 0} G^0_0 = 3\\frac{\\dot{a}}{a} \\left( -3\\frac{k+\\dot{a}^2}{a^2}\\right) = -9\\frac{\\dot{a}(k+\\dot{a}^2)}{a^3}$.\\n- Third term: $-\\Gamma^\\lambda_{\\alpha 0} G^\\alpha_\\lambda = -(\\Gamma^1_{10}G^1_1 + \\Gamma^2_{20}G^2_2 + \\Gamma^3_{30}G^3_3) = -3\\frac{\\dot{a}}{a} \\left( -\\frac{k+2a\\ddot{a}+\\dot{a}^2}{a^2}\\right) = 3\\frac{\\dot{a}k}{a^3} + 6\\frac{\\dot{a}\\ddot{a}}{a^2} + 3\\frac{\\dot{a}^3}{a^3}$.\\nSumming all three parts yields $\\nabla_\\alpha G^\\alpha_0 = 0$.\\n\\n**2) Schwarzschild Calculation ($\\nabla_{(\\mu}\\xi_{\\nu)}$):**\\nFor $\\xi^\\mu = (1,0,0,0)$, the covariant components are $\\xi_\\nu = g_{\\nu 0} = (-\\frac{r-r_s}{r}, 0, 0, 0)$.\\n$\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu - \\Gamma^\\lambda_{\\mu\\nu} \\xi_\\lambda$. Since only $\\xi_0 \\neq 0$, we have $\\nabla_\\mu \\xi_\\nu = \\partial_\\mu \\xi_\\nu - \\Gamma^0_{\\mu\\nu} \\xi_0$.\\nCompute the non-trivial components:\\n- $\\nabla_1 \\xi_0 = \\partial_r(-\\frac{r-r_s}{r}) - \\Gamma^0_{10} \\xi_0 = -\\frac{r_s}{r^2} - \\frac{r_s}{2r(r-r_s)}(-\\frac{r-r_s}{r}) = -\\frac{r_s}{2r^2}$.\\n- $\\nabla_0 \\xi_1 = \\partial_t(0) - \\Gamma^0_{01} \\xi_0 = - \\frac{r_s}{2r(r-r_s)}(-\\frac{r-r_s}{r}) = \\frac{r_s}{2r^2}$.\\nSymmetrizing: $\\nabla_{(1}\\xi_{0)} = \\frac{1}{2}(\\nabla_1 \\xi_0 + \\nabla_0 \\xi_1) = \\frac{1}{2}(-\\frac{r_s}{2r^2} + \\frac{r_s}{2r^2}) = 0$. All other components vanish trivially. Thus $\\nabla_{(\\mu}\\xi_{\\nu)} = 0$.\\n\\n**3) Physical Contrast:**\\nAlthough both calculations yield zero, they represent different geometric symmetries governing energy. In FLRW, the vanishing divergence is the Bianchi identity, which enforces $\\nabla_\\alpha T^\\alpha_0 = 0$ via the field equations. This leads to the continuity equation $\\dot{\\rho} + 3H(\\rho+p)=0$, indicating that energy density changes over time (dilutes) due to expansion, meaning global energy is NOT conserved (no time-like Killing vector). In Schwarzschild, the vanishing symmetrized derivative proves $\\partial_t$ is a Killing vector, which guarantees $\\nabla_\\alpha(T^\\alpha_\\beta \\xi^\\beta) = 0$, meaning global energy IS conserved."
+  },
+  "verification": null
+}

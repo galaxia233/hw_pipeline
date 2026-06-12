@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s10_10.10-1-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "rate_of_change_of_Killing_projection",
+      "coordinate": "schwarzschild",
+      "scenario": "numerical_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.10",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s10_10.10",
+      "1_s10_10.10-1",
+      "1_s10_10.10-1-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "killing_vector",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mu$",
+      "$\\\\alpha$",
+      "$\\\\beta$",
+      "$\\\\mathbf{x}^{\\\\mu}$",
+      "$\\\\mathbf{u}^{\\\\alpha}$",
+      "$\\\\boldsymbol{\\\\xi}_{\\\\alpha}$"
+    ],
+    "target": [
+      "设计数值模拟方案验证非测地线运动下Killing投影变率公式 \\frac{dQ}{d\\tau} = \\xi_\\mu a^\\mu"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，沿测地线运动的粒子会守恒其四维速度在 Killing 矢量场上的投影。但当粒子受非引力外力偏离测地线时，该投影的变率满足 $\\frac{dQ}{d\\tau} = \\xi_\\mu a^\\mu$（其中 $Q = \\xi_\\mu u^\\mu$，$a^\\mu = u^\\nu \\nabla_\\nu u^\\mu$ 为四维加速度）。若 $\\xi^\\mu$ 为静态 Killing 矢量，粒子能量 $E = -\\xi_\\mu u^\\mu$ 的变率为 $\\frac{dE}{d\\tau} = -\\xi_\\mu a^\\mu = -\\frac{1}{m} \\xi_\\mu F^\\mu$。请设计一个数值模拟方案来验证此结论。背景时空取 Schwarzschild 度规 $ds^2 = -(1-2M/r) dt^2 + (1-2M/r)^{-1} dr^2 + r^2 d\\Omega^2$。设计要求：1. 明确所选的静态 Killing 矢量场 $\\xi^\\mu$ 及其协变分量 $\\xi_\\mu$。2. 设计一种作用在粒子上的非引力四维力 $F^\\mu$（需满足物理约束 $F^\\mu u_\\mu = 0$）。3. 说明数值计算中需要提取的关键物理量。4. 给出对比预期结果的具体方式，以证明 $\\frac{dQ}{d\\tau} = \\xi_\\mu a^\\mu$ 成立。",
+    "answer": "1. Killing 矢量场：选取时间平移 Killing 矢量 $\\xi^\\mu = (1, 0, 0, 0)$，由度规可知其协变分量为 $\\xi_\\mu = (-(1-2M/r), 0, 0, 0)$。2. 四维外力设计：设定粒子受沿径向的恒定局部纯空间力 $f$。为满足 $F^\\mu u_\\mu = 0$，四维力的坐标分量可取为 $F^\\mu = \\left( \\frac{f u^r}{1-2M/r}, f \\sqrt{1-2M/r}/u^t, 0, 0\\right)$。3. 提取物理量：   - 数值求解演化方程 $\\frac{dx^\\mu}{d\\tau} = u^\\mu$ 和 $\\frac{du^\\mu}{d\\tau} = -\\Gamma^\\mu_{\\alpha\\beta} u^\\alpha u^\\beta + \\frac{F^\\mu}{m}$，获取世界线 $x^\\mu(\\tau)$ 与 $u^\\mu(\\tau)$。   - 在每步计算四维加速度 $a^\\mu = \\frac{du^\\mu}{d\\tau} + \\Gamma^\\mu_{\\alpha\\beta} u^\\alpha u^\\beta$（或直接用 $F^\\mu/m$ 计算）。   - 计算 $Q(\\tau) = \\xi_\\mu u^\\mu$，并通过中心差分求其数值导数 $\\frac{dQ}{d\\tau}_{\\text{num}}$。   - 计算理论预测值 $\\frac{dQ}{d\\tau}_{\\text{theo}} = \\xi_\\mu a^\\mu$。4. 预期结果对比：绘制 $\\frac{dQ}{d\\tau}_{\\text{num}}$ 和 $\\xi_\\mu a^\\mu$ 随 $\\tau$ 的演化曲线，两者应在数值误差范围内完全重合，且相对误差随步长减小而趋于零，从而验证非测地线运动下 Killing 投影变率公式的正确性。",
+    "solution": "方案论证：该数值实验通过人为引入非引力四维力 $F^\\mu$ 使得粒子偏离测地线运动，从而产生非零的四维加速度 $a^\\mu$。通过数值积分获取粒子的运动学历史后，一方面直接数值计算 $Q(\\tau)$ 的时间导数，另一方面利用积分得到的 $u^\\mu$ 和度规计算的 $\\Gamma^\\mu_{\\alpha\\beta}$ 求出 $a^\\mu$，进而计算 $\\xi_\\mu a^\\mu$。对比两者若高度吻合，即可验证 $\\frac{dQ}{d\\tau} = \\xi_\\mu a^\\mu$ 的理论推导。选取 Schwarzschild 度规使得 Killing 矢量及其协变分量形式明确，便于数值计算；设计满足 $F^\\mu u_\\mu = 0$ 的外力保证了物理上的自洽性（纯空间力）。此方案直接且有效地将抽象的协变导数乘积法则结论转化为可计算的数值对比验证。"
+  },
+  "verification": null
+}

@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "id": "1_s19_19.38_g",
+    "type": "prove",
+    "tags": {
+      "metric": "cosmology",
+      "target_object": "comoving_coordinates",
+      "coordinate": "vorticity_tensor",
+      "scenario": "hypersurface_orthogonality",
+      "method": "geodesic_motion"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s19_19.38_g",
+    "source_id": "1_s19_19.38_g",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s19_19.38_g"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.2,
+      "realism": 0.8,
+      "rationale": "基于流体元涡度与超曲面正交性的等价性进行多步逻辑推导，物理背景为宇宙学共动观测，但题干未附答案与解析过程",
+      "overall": 0.62
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\tau$",
+      "$x^1$",
+      "$x^2$",
+      "$x^3$"
+    ],
+    "target": [
+      "$\\\\omega_{\\\\alpha \\\\beta}$",
+      "$g_{0i}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "19.38 In cosmology one usually uses coordinates comoving with the galaxies. Let $(r, x^i)$ be such a system, and let the metric take the general form\\n$$\\n\\\\mathrm {d s}^{2} = - \\\\mathrm {d} \\\\tau^{2} + 2 \\\\mathrm {g}_{0 \\\\mathrm {i}} \\\\mathrm {d} \\\\tau \\\\mathrm {d x}^{\\\\mathrm {i}} + \\\\mathrm {g}_{\\\\mathrm {i j}} \\\\mathrm {d x}^{\\\\mathrm {i}} \\\\mathrm {d x}^{\\\\mathrm {j}}\\n$$\\nwhere $\\mathbf{g}_{0\\\\mathrm{i}}$ and $\\mathbf{g}_{\\\\mathrm{ij}}$ can be functions of $\\pmb{\\\\tau}$ and $\\mathbf{x}^{\\\\mathrm{i}}$ . Show (g) that if $\\omega_{\\\\alpha \\\\beta} \\\\neq 0$ , no choice of $\\tau$ and $\\mathbf{x}^{\\\\mathrm{i}}$ can make $\\mathbf{g}_{0\\\\mathrm{i}} = 0$ everywhere and that this means that $\\omega_{\\\\alpha \\\\beta, 0} \\\\neq 0$ implies nongeodesic motion of the galaxies.",
+    "answer": null,
+    "solution": null
+  },
+  "verification": null
+}

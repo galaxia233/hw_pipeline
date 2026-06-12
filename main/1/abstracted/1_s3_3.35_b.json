@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s3_3.35_b",
+    "type": "prove",
+    "tags": {
+      "metric": "conservation_law",
+      "target_object": "four_dimensional_gauss_theorem",
+      "coordinate": "scalar_invariance",
+      "scenario": "coordinate_transformation"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s3_3.35_b",
+    "source_id": "1_s3_3.35_b",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s3_3.35_b"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.8,
+      "realism": 0.4,
+      "rationale": "四维散度定理结合空间超曲面拼接证明守恒荷标量性，逻辑链条清晰且具有一般场论普适性",
+      "overall": 0.73
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$x^{\\mu}$",
+      "$J^{\\alpha}$",
+      "$J^{0}$",
+      "$x^{0'}$"
+    ],
+    "target": [
+      "$J^{\\alpha}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 3.35. A vector field $\\mathbf{J}^{\\alpha}(\\mathbf{x}^{\\mu})$ satisfies $\\mathbf{J}_{,\\alpha}^{\\alpha} = 0$ and $\\mathbf{J}^{\\alpha}$ falls off faster than $\\mathbf{r}^{-2}$ at large distances from the origin. (a) Show that $\\int \\mathbf{J}^{0}\\mathrm{d}^{3}\\mathbf{x}$ is constant in time. (b) Show that the integral is a scalar, i.e. $\\int \\mathbf{J}^{0}\\mathrm{d}^{3}\\mathbf{x} = \\int \\mathbf{J}^{0}\\mathrm{d}^{3}\\mathbf{x}^{\\prime}$ .",
+    "answer": "$\\int J^{0}\\mathrm{d}^{3}x = \\int J^{0'}\\mathrm{d}^{3}x'$",
+    "solution": "(b) The planes $\\mathbf{x}^0 =$ constant, and $\\mathbf{x}^{0'} =$ constant intersect forming two 4-dimensional regions: I and II. Close off these regions with spatial hypersurfaces at infinity forming two bounded 4-volumes. By Gauss' theorem, for region I$$0 = \\int_{I} J^{\\alpha},_{\\alpha} d^{4} \\Omega = 0 = \\int_{I x^{0}} J^{0} d^{3} \\Sigma_{0} - \\int_{I x^{0^{\\prime}}} J^{0^{\\prime}} d^{3} \\Sigma_{0}or$$$$\\int_{\\mathrm {I x}^{0}} \\mathrm {J}^{0} \\mathrm {d x} \\mathrm {d y} \\mathrm {d z} = \\int_{\\mathrm {I x}^{0^{\\prime}}} \\mathrm {J}^{0^{\\prime}} \\mathrm {d x}^{\\prime} \\mathrm {d y}^{\\prime} \\mathrm {d z}^{\\prime},$$and similarly for region II. The proof is completed by adding the equations for the two regions."
+  },
+  "verification": null
+}

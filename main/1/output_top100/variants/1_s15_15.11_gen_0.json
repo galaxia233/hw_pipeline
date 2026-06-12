@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "1_s15_15.11-0",
+    "type": "calculate",
+    "tags": {
+      "target_object": "Kretschmann scalar and singularity location",
+      "coordinate": "Schwarzschild coordinates",
+      "scenario": "Schwarzschild black hole curvature analysis",
+      "method": "evaluate curvature scalar and analyze limits",
+      "generalization_axis": "extend",
+      "metric": "schwarzschild_metric"
+    },
+    "tools_used": [
+      "EinsteinPy",
+      "judge:glm-5.1+red_team:glm-5.1"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s15_15.11",
+      "1_s15_15.11-0"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "numerical",
+    "physics_env": "schwarzschild_metric",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$v$",
+      "$\\sigma$"
+    ],
+    "target": [
+      "$K_{r=3M}$",
+      "$r_{singularity}$"
+    ],
+    "metric": [
+      [
+        "$-(1-\\frac{2M}{r})$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$\\frac{1}{1-\\frac{2M}{r}}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\sin^2\\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 黑洞时空中，极高速粒子（如光子）被黑洞俘获的临界轨道位于光子球半径 $r = 3M$ 处。已知该时空的度规为 $ds^2 = -\\left(1-\\frac{2M}{r}\\right)dt^2 + \\left(1-\\frac{2M}{r}\\right)^{-1}dr^2 + r^2 d\\Omega^2$，其真空场方程使得 Ricci 标量恒为 $R = 0$，但时空并非平直，其曲率由 Kretschmann 标量 $K = R_{abcd}R^{abcd} = \\frac{48 M^2}{r^6}$ 描述。请计算光子球所在位置 $r = 3M$ 处的 Kretschmann 标量值，并通过分析 Kretschmann 标量在 $r \\to 0$ 和 $r \\to 2M$（事件视界）时的极限行为，指出该黑洞的真正物理奇点位置，并说明事件视界处的曲率性质。",
+    "answer": "$K(3M) = \\frac{16}{243 M^2}$; 真正物理奇点位于 $r = 0$; 事件视界 $r = 2M$ 处曲率有限，为坐标奇点。",
+    "solution": "1. 将光子球半径 $r = 3M$ 代入 Kretschmann 标量公式：   $$K(3M) = \\frac{48 M^2}{(3M)^6} = \\frac{48 M^2}{729 M^6} = \\frac{16}{243 M^2}$$ 这表明即使 Ricci 标量为 0，光子球处的时空仍具有有限的内禀曲率。2. 分析 $r \\to 0$ 的极限： $$K(r \\to 0) = \\frac{48 M^2}{r^6} \\to \\inf ty$$ 曲率标量发散，这意味着中心处的奇异性是无论何种坐标变换都无法消除的真正物理奇点。3. 分析 $r \\to 2M$（事件视界）的极限： $$K(2M) = \\frac{48 M^2}{(2M)^6} = \\frac{48 M^2}{64 M^6} = \\frac{3}{4 M^4}$$   该值为有限值，表明事件视界处的度规奇异性仅仅是由坐标选择不佳引起的坐标奇点，时空几何在该处是平滑的，可通过坐标变换（如 Kruskal 坐标）消除。"
+  },
+  "verification": {
+    "attempt": 0,
+    "structural": {
+      "ok": true,
+      "ran": true
+    },
+    "metric_check": {
+      "checker": "sympy_verify.schwarzschild_metric_check",
+      "status": "ok",
+      "ran": true
+    },
+    "judge": {
+      "correct": false,
+      "self_contained": true,
+      "training_value": 0.1,
+      "issue": "answer 和 solution 中 $K(3M)$ 的数值计算存在严重的幂次错误。在计算 $\\frac{48 M^2}{(3M)^6}$ 时，分母的 $M$ 的幂次应为 6，约去分子中的 $M^2$ 后，结果的 $M$ 幂次应为 $M^{-4}$，即期望值为 $\\frac{16}{243 M^4}$，但题目中错误地写成了 $\\frac{16}{243 M^2}$（漏掉了平方）。此外，solution 中分析 $r \\to 0$ 极限时出现了明显的拼写/排版错误，将 $\\infty$ 错写为 `\\inf ty`。",
+      "ran": true
+    },
+    "red_team": {
+      "survives": null,
+      "ran": false,
+      "flaw": "judge did not pass, red_team skipped"
+    }
+  }
+}

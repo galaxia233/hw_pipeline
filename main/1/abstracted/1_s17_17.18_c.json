@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "id": "1_s17_17.18_c",
+    "type": "prove",
+    "tags": {
+      "metric": "kerr_metric",
+      "target_object": "zero_angular_momentum_observer",
+      "coordinate": "coordinate_basis",
+      "scenario": "tetrad_formalism",
+      "method": "hypersurface_orthogonality"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s17_17.18_c",
+    "source_id": "1_s17_17.18_c",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s17_17.18_c"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.7,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "结合正交标架定义与外微分运算证明超曲面正交条件，需多步推理且具明确黑洞吸积盘物理背景",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\\\theta$",
+      "$\\\\phi$",
+      "$\\\\omega$",
+      "$g_{tt}$",
+      "$g_{\\\\phi\\\\phi}$"
+    ],
+    "target": [
+      "$u_{[\\\\alpha;\\\\beta} u_{\\\\gamma]}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s17_17.18_c.md]\\n\\nProblem 17.18 (c) The “Zero Angular Momentum Observers” (ZAMO's) in the Kerr geometry have basis 1-forms\\n$$\\n\\\\begin{array}{l} \\\\tilde {\\omega}^{\\\\hat {t}} = \\\\left| g_{t t} - \\\\omega^{2} g_{\\\\phi \\\\phi} \\\\right|^{\\\\frac {1}{2}} \\\\widetilde {d t} \\\\\\\\\\n\\\\tilde {\\omega}^{\\\\hat {\\\\phi}} = \\\\left(\\\\mathrm {g}_{\\\\phi \\\\phi}\\\\right)^{\\\\frac {1}{2}} \\\\left(\\\\widetilde {\\\\mathrm {d} \\\\phi} - \\\\omega \\\\widetilde {\\\\mathrm {d t}}\\\\right) \\\\\\\\\\n\\\\tilde {\\\\boldsymbol {\\\\omega}}^{\\\\hat {\\\\mathbf {r}}} = \\\\left(\\\\boldsymbol {\\\\Sigma} / \\\\Delta\\\\right)^{\\\\frac {1}{2}} \\\\overline {{\\\\mathrm {d} \\\\mathbf {r}}} \\\\\\\\\\n\\\\tilde {\\\\boldsymbol {\\\\omega}}^{\\\\hat {\\\\theta}} = \\\\Sigma^{\\\\frac {1}{2}} \\\\widetilde {\\\\mathbf {d} \\\\theta} \\\\\\\\\\n\\\\end{array}\\n$$\\nwhere $\\omega \\equiv -\\mathbf{g}_{t\\phi} / \\mathbf{g}_{\\phi \\phi}$\\n(c) The 4-velocity of the ZAMO is $\\mathbf{u} = \\mathbf{e}_{\\hat{\\mathbf{t}}}$ ; show that $\\mathbf{u}$ has zero rotation.",
+    "answer": "$\\\\mathbf{d}\\\\widetilde{\\\\boldsymbol{\\\\omega}}^{\\\\mathrm{t}}\\\\wedge \\\\widetilde{\\\\boldsymbol{\\\\omega}}^{\\\\mathrm{t}} = 0$，即四速度场满足超曲面正交条件，具有零旋转",
+    "solution": "(c) The 4-velocity has zero rotation if $\\omega_{\\\\alpha}\\\\beta = 0$ (see Problem 5.18) or equivalently if $\\mathbf{u}$ is hypersurface orthogonal:\\n$$\\n\\\\mathrm {u}_{[ \\\\alpha ; \\\\beta} \\\\mathrm {u}_{\\\\gamma ]} = 0\\n$$\\n(see Problem 7.23). The quickest way to check this condition is to use forms and the equivalence of $\\mathfrak{u}[\\\\hat{\\\\alpha};\\\\hat{\\\\beta}]$ and $\\mathbf{d}\\\\tilde{\\\\boldsymbol{\\\\omega}}^{\\\\mathrm{t}}$ . The condition $\\mathfrak{u}[\\\\hat{\\\\alpha};\\\\hat{\\\\beta}\\\\mathbf{u}_{\\\\hat{\\\\gamma}}] = 0$ is then equivalent to $\\mathbf{d}\\\\tilde{\\\\boldsymbol{\\\\omega}}^{\\\\mathrm{t}}\\\\wedge \\\\tilde{\\\\boldsymbol{\\\\omega}}^{\\\\mathrm{t}} = 0$ . But $\\tilde{\\\\boldsymbol{\\\\omega}}^{\\\\mathrm{t}} = \\\\boldsymbol{a}\\\\mathrm{d}t$ where $a = |\\\\mathbf{g}_{\\\\mathrm{tt}} - \\\\omega^{2}\\\\mathbf{g}_{\\\\phi \\\\phi}|^{\\\\frac{1}{2}} = a(\\\\mathbf{r},\\\\theta)$ and thus\\n$$\\n\\\\mathrm {d} \\\\tilde {\\\\omega}^{\\\\mathrm {t}} = a,_{\\\\mathrm {r}} \\\\widetilde {\\\\mathrm {d r}} \\\\wedge \\\\widetilde {\\\\mathrm {d} t} + a,_{\\\\theta} \\\\widetilde {\\\\mathrm {d} \\\\theta} \\\\wedge \\\\widetilde {\\\\mathrm {d} t}\\n$$\\nso $\\mathbf{d}\\\\widetilde{\\\\boldsymbol{\\\\omega}}^{\\\\mathrm{t}}\\\\wedge \\\\widetilde{\\\\boldsymbol{\\\\omega}}^{\\\\mathrm{t}} = 0$ since $\\widetilde{\\\\mathrm{dt}}\\\\wedge \\\\widetilde{\\\\mathrm{dt}} = 0$"
+  },
+  "verification": null
+}

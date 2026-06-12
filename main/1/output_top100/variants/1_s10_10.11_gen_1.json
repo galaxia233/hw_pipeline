@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "id": "1_s10_10.11-1",
+    "type": "prove",
+    "tags": {
+      "target_object": "Q_ξ global conserved quantity",
+      "coordinate": "abstract 4D spacetime",
+      "scenario": "asymptotically flat spacetime global conservation",
+      "method": "covariant Stokes theorem",
+      "generalization_axis": "extend",
+      "metric": "killing_vector"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s10_10.11",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s10_10.11",
+      "1_s10_10.11-1"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "killing_vector",
+    "soft_variant": "extend",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\mu$",
+      "$\\nu$"
+    ],
+    "target": [
+      "$Q_{\\xi}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在渐近平直的广义相对论时空中，已知与 Killing 矢量 $\\xi^{\\mu}$ 相关的局部守恒流定义为 $J^{\\mu} = T^{\\mu\\nu} \\xi_{\\nu}$，且满足微分守恒律 $\\nabla_{\\mu} J^{\\mu} = 0$（其中 $T^{\\mu\\nu}$ 为能动张量）。利用协变形式的斯托克斯定理，证明定义在类空超曲面 $\\Sigma$ 上的全局守恒量 $Q_{\\xi} = \\int_{\\Sigma} J^{\\mu} n_{\\mu} d\\Sigma$（其中 $n_{\\mu}$ 为 $\\Sigma$ 的未来指向单位法矢量）不依赖于类空超曲面的选择，并明确指出该结论所依赖的边界条件（即物质场在空间无穷远处的渐近行为要求）。",
+    "answer": "$Q_{\\xi}$ 与类空超曲面 $\\Sigma$ 的选择无关。边界条件要求：物质场的能动张量 $T^{\\mu\\nu}$ 在空间无穷远处的类空边界上衰减足够快，使得流 $J^{\\mu}$ 的通量积分消失。",
+    "solution": "证明过程如下：1. 考虑时空中的两个类空超曲面 $\\Sigma_1$ 和 $\\Sigma_2$，它们在空间无穷远处相交，共同构成了一个闭合的 3 维边界 $\\partial V = -\\Sigma_1 + \\Sigma_2 + S$，其中 $S$ 是连接 $\\Sigma_1$ 和 $\\Sigma_2$ 边缘且位于空间无穷远处的类空 3 维超曲面柱面。2. 设 $V$ 为由 $\\partial V$ 包围的 4 维时空体积。根据协变形式的斯托克斯定理（高斯定律），对于任意矢量场 $J^{\\mu}$，有：$$ \\int_{V} \\nabla_{\\mu} J^{\\mu} dV = \\oint_{\\partial V} J^{\\mu} d\\Sigma_{\\mu} $$3. 由于已知 $J^{\\mu}$ 满足局部守恒律 $\\nabla_{\\mu} J^{\\mu} = 0$，等式左边的体积积分为零：$$ 0 = \\oint_{\\partial V} J^{\\mu} d\\Sigma_{\\mu} = -\\int_{\\Sigma_1} J^{\\mu} n_{\\mu} d\\Sigma + \\int_{\\Sigma_2} J^{\\mu} n_{\\mu} d\\Sigma + \\int_{S} J^{\\mu} d\\Sigma_{\\mu} $$这里 $n_{\\mu}$ 是类空超曲面的未来指向单位法向量。负号对应于 $\\Sigma_1$ 的法向量相对于体积 $V$ 的外法向是逆向的。4. 在渐近平直时空中，物质场源必须足够局部化。边界条件要求能动张量 $T^{\\mu\\nu}$ 在空间无穷远处的衰减率满足 $T^{\\mu\\nu} \\to 0$ 足够快（通常要求比 $1/r^3$ 更快），使得由其构成的流 $J^{\\mu}$ 在无穷远类空边界 $S$ 上的通量积分趋于零，即：$$ \\int_{S} J^{\\mu} d\\Sigma_{\\mu} = 0 $$5. 将此边界条件代入步骤 3 的方程，得到：$$ \\int_{\\Sigma_1} J^{\\mu} n_{\\mu} d\\Sigma = \\int_{\\Sigma_2} J^{\\mu} n_{\\mu} d\\Sigma $$即 $Q_{\\xi}(\\Sigma_1) = Q_{\\xi}(\\Sigma_2)$。这证明了全局守恒量 $Q_{\\xi}$ 的值与类空超曲面的选择无关，真正具有全局守恒的物理意义。"
+  },
+  "verification": null
+}

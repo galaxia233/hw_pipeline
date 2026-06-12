@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "id": "1_s8_8.28",
+    "type": "prove",
+    "tags": {
+      "metric": "redshift_equivalence",
+      "target_object": "four_velocity_dot_product",
+      "coordinate": "null_geodesic",
+      "scenario": "wave_phase",
+      "method": "proper_time_interval"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s8_8.28",
+    "source_id": "1_s8_8.28",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s8_8.28"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.7,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.8,
+      "rationale": "利用光子波矢与相位沿零测地线不变性，结合观测者四维速度内积进行多步推导",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathbf{u}_{\\\\mathbf{A}}$",
+      "$\\\\mathbf{u}_{\\\\mathbf{B}}$",
+      "$\\\\mathbf{p}$",
+      "$z$",
+      "$\\\\Delta \\\\tau_{\\\\mathbf{A}}$",
+      "$\\\\Delta \\\\tau_{\\\\mathbf{B}}$",
+      "$\\\\mathbf{k}$",
+      "$\\\\theta$"
+    ],
+    "target": [
+      "$1+z$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "[文件 1: 1_s8_8.28.md]\\n\\nProblem 8.28. The redshift between two observers (with 4-velocities $\\mathbf{u}_{\\mathbf{A}}$ and $\\mathbf{u}_{\\mathbf{B}}$ ) can be defined in two ways: (i) by the energies of a photon (4-momentum $\\mathbf{p}$ ) travelling along a null geodesic between them: $1 + z \\equiv \\mathbf{u}_{\\mathbf{A}} \\cdot \\mathbf{p} / \\mathbf{u}_{\\mathbf{B}} \\cdot \\mathbf{p}$ , or (ii) by the proper time between two null geodesics, emitted $\\Delta \\tau_{\\mathbf{A}}$ apart and received $\\Delta \\tau_{\\mathbf{B}}$ apart, $1 + z \\equiv \\Delta \\tau_{\\mathbf{A}} / \\Delta \\tau_{\\mathbf{B}}$ . Show that these definitions are equivalent.\\n\\n## Solution",
+    "answer": "这两个定义等价。",
+    "solution": "Solution 8.28. Start with $1 + z = \\Delta \\tau_{\\mathbf{A}} / \\Delta \\tau_{\\mathbf{B}}$ . To show that this is equivalent to the other definition, recall that $\\mathbf{p}$ is proportional to $\\mathbf{k}$ , the wave vector, which is the gradient of the surfaces of constant phase:\\n$$\\n\\\\mathbf {k} = \\\\nabla \\\\theta .\\n$$\\nSince $\\mathbf{k}$ is a null vector,\\n$$\\n0 = \\\\mathbf {k} \\\\cdot \\\\mathbf {k} = \\\\mathbf {k} \\\\cdot \\\\nabla \\\\theta = \\\\nabla_{\\\\mathbf {k}} \\\\theta\\n$$\\ni.e. $\\theta =$ constant along the rays. Consider two rays differing in phase by $\\Delta \\theta$ . Observer A computes $\\Delta \\theta$ as\\n$$\\n\\\\Delta \\\\theta = \\\\theta (\\\\tau + \\\\Delta \\\\tau_{\\\\mathbf {A}}) - \\\\theta (\\\\tau) = (\\\\Delta \\\\tau_{\\\\mathbf {A}}) \\\\nabla_{\\\\mathbf {u}_{\\\\mathbf {A}}} \\\\theta = (\\\\Delta \\\\tau_{\\\\mathbf {A}}) \\\\mathbf {u}_{\\\\mathbf {A}} \\\\cdot \\\\mathbf {k}.\\n$$\\n![](images/19df07a68aa581e736e84e46b0dc2a8c946215ea8a02c952d4dd69a14863f30a.jpg)\\nSimilarly observer B finds\\n$$\\n\\\\Delta \\\\theta = (\\\\Delta \\\\tau_{\\\\mathbf {B}}) \\\\mathbf {u}_{\\\\mathbf {B}} \\\\cdot \\\\mathbf {k}\\n$$\\nwhere $\\mathbf{k}$ is now evaluated at B. Since $\\Delta \\theta$ is the same for A and B, we have\\n$$\\n\\\\frac {\\\\Delta \\\\tau_{\\\\mathbf {A}}}{\\\\Delta \\\\tau_{\\\\mathbf {B}}} = \\\\frac {(\\\\mathbf {u} \\\\cdot \\\\mathbf {k})_{\\\\mathbf {B}}}{(\\\\mathbf {u} \\\\cdot \\\\mathbf {k})_{\\\\mathbf {A}}} = \\\\frac {(\\\\mathbf {u} \\\\cdot \\\\mathbf {p})_{\\\\mathbf {B}}}{(\\\\mathbf {u} \\\\cdot \\\\mathbf {p})_{\\\\mathbf {A}}}\\n$$\\nso the two definitions are equivalent."
+  },
+  "verification": null
+}

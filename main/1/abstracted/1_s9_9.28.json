@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "id": "1_s9_9.28",
+    "type": "prove",
+    "tags": {
+      "metric": "extrinsic_curvature",
+      "target_object": "hypersurface_embedding",
+      "coordinate": "covariant_derivative",
+      "scenario": "tensor_manipulation",
+      "method": "relativistic_kinematics"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.28",
+    "source_id": "1_s9_9.28",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.28"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "涉及超曲面嵌入几何与外曲率定义的多步张量协变导数推导，具有清晰的相对论初始值表述背景。",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$u^\\alpha$",
+      "$n^\\alpha$",
+      "$K_{\\alpha \\beta}$",
+      "$\\xi^\\alpha$"
+    ],
+    "target": [
+      "$n_\\alpha \\xi^\\alpha$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.28. Suppose at a point $\\mathbf{q}$ in a 3-surface $\\Sigma$ two curves are tangent (i) $C_{\\Sigma}$ a curve in the 3-surface and (ii) $C$ a geodesic of the 4-dimensional space in which $\\Sigma$ is embedded. Let $\\mathbf{n}$ be the unit normal to $\\Sigma$ . The vector $\\xi^{\\alpha} = \\frac{1}{2}\\mathbf{u}^{\\alpha};\\beta \\mathbf{u}^{\\beta}$ (where $\\mathbf{u}$ is the tangent vector to $C_{\\Sigma}$ ) measures the rate at which $C$ and $C_{\\Sigma}$ separate. Show that the rate of separation $\\mathbf{n} \\cdot \\boldsymbol{\\xi}$ is$$\\mathbf {n} \\cdot \\boldsymbol {\\xi} = \\frac {1}{2} K_{\\alpha \\beta} u^{\\alpha} u^{\\beta}$$where $\\mathbf{K}_{\\alpha \\beta}$ is the extrinsic curvature tensor for $\\pmb{\\Sigma}$ .",
+    "answer": "$$\\mathbf {n} \\cdot \\boldsymbol {\\xi} = \\frac {1}{2} K_{\\alpha \\beta} u^{\\alpha} u^{\\beta}$$",
+    "solution": "Solution 9.28. Since $\\mathbf{n} \\cdot \\mathbf{u} = 0$ we have immediately$$\\begin{array}{l}u^{\\alpha} \\left(n^{\\beta} u_{\\beta}\\right); a = 0 = n^{\\beta}; a u^{\\alpha} u_{\\beta} + n^{\\beta} u_{\\beta}; a u^{\\alpha} \\\\= - K_{\\alpha \\beta} u^{\\alpha} u^{\\beta} + 2 n \\cdot \\xi . \\\\\\end{array}$$"
+  },
+  "verification": null
+}

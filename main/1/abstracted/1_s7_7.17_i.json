@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "id": "1_s7_7.17_i",
+    "type": "prove",
+    "tags": {
+      "metric": "metric",
+      "target_object": "target_object",
+      "coordinate": "local_tetrad_coords",
+      "scenario": "observer_worldline_scenario",
+      "method": "covariant_derivative_method"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s7_7.17_i",
+    "source_id": "1_s7_7.17_i",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s7_7.17_i"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于度规相容性与正交归一条件推导联络代数性质，逻辑链条清晰且具一般性",
+      "overall": 0.82
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$\\\\mathbf{u}$",
+      "$\\\\mathbf{e}_\\\\alpha$",
+      "$A_\\\\alpha^\\\\beta$"
+    ],
+    "target": [
+      "$A_\\\\alpha^\\\\beta$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 7.17. Consider an observer with 4-velocity $\\mathbf{u}$ who transports his four basis vectors $\\mathbf{e}_{\\alpha}$ along with him according to the transport law $\\nabla_{\\mathbf{u}}\\mathbf{e}_{\\alpha} = \\mathbf{A}_{\\alpha}^{\\beta}\\mathbf{e}_{\\beta}$ . What is the most general form of $\\mathbf{A}_{\\alpha}^{\\beta}$ if:\\n(i) the basis vectors are to be orthonormal?",
+    "answer": "The tensor $A_{\\\\alpha\\\\beta} \\\\equiv \\\\eta_{\\\\beta\\\\gamma}A_{\\\\alpha}^{\\\\gamma}$ must be antisymmetric: $A_{\\\\alpha\\\\beta} = -A_{\\\\beta\\\\alpha}$. Equivalently, $A_{\\\\alpha}^{\\\\beta}$ generates infinitesimal local Lorentz transformations.",
+    "solution": "To preserve orthonormality, the inner product of any two basis vectors must remain constant along the observer's worldline: $\\\\frac{d}{d\\\\tau} g(\\\\mathbf{e}_\\\\alpha, \\\\mathbf{e}_\\\\beta) = 0$. Using the compatibility of the Levi-Civita connection ($\\\\nabla g = 0$), we have $g(\\\\nabla_{\\\\mathbf{u}}\\\\mathbf{e}_\\\\alpha, \\\\mathbf{e}_\\\\beta) + g(\\\\mathbf{e}_\\\\alpha, \\\\nabla_{\\\\mathbf{u}}\\\\mathbf{e}_\\\\beta) = 0$. Substituting the transport law $\\\\nabla_{\\\\mathbf{u}}\\\\mathbf{e}_\\\\alpha = A_\\\\alpha^{\\\\gamma}\\\\mathbf{e}_\\\\gamma$ yields $g(A_\\\\alpha^{\\\\gamma}\\\\mathbf{e}_\\\\gamma, \\\\mathbf{e}_\\\\beta) + g(\\\\mathbf{e}_\\\\alpha, A_\\\\beta^{\\\\gamma}\\\\mathbf{e}_\\\\gamma) = 0$. In an orthonormal frame, $g(\\\\mathbf{e}_\\\\gamma, \\\\mathbf{e}_\\\\beta) = \\\\eta_{\\\\gamma\\\\beta}$, so this becomes $A_\\\\alpha^{\\\\gamma}\\\\eta_{\\\\gamma\\\\beta} + \\\\eta_{\\\\alpha\\\\gamma}A_\\\\beta^{\\\\gamma} = 0$, which simplifies to $A_{\\\\alpha\\\\beta} + A_{\\\\beta\\\\alpha} = 0$. Thus, the most general form requires $A_{\\\\alpha\\\\beta}$ to be antisymmetric in its lower indices, meaning $A_\\\\alpha^{\\\\beta}$ represents an infinitesimal Lorentz rotation/boost."
+  },
+  "verification": null
+}

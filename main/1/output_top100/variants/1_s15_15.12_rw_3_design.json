@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "1_s15_15.12-0-3",
+    "type": "concept",
+    "tags": {
+      "target_object": "angular_velocity_and_period",
+      "coordinate": "Schwarzschild",
+      "scenario": "circular_orbit_design",
+      "method": "design",
+      "generalization_axis": "apply",
+      "metric": "schwarzschild_metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s15_15.12",
+    "source_type": "problem_set",
+    "stage": "scale:soft_rewrite",
+    "lineage": [
+      "1_s15_15.12",
+      "1_s15_15.12-0",
+      "1_s15_15.12-0-3"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "conceptual",
+    "physics_env": "schwarzschild_metric",
+    "soft_variant": "design",
+    "training_value": null,
+    "degraded": null,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$r$",
+      "$\\theta$",
+      "$\\phi$",
+      "$M$",
+      "$\\tau$"
+    ],
+    "target": [
+      "数值模拟验证圆周测地线角速度及周期"
+    ],
+    "metric": [
+      [
+        "$-1+2M/r$",
+        "$0$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(1-2M/r)^{-1}$",
+        "$0$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$r^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$0$",
+        "$0$",
+        "$r^2 \\sin^2 \\theta$"
+      ]
+    ],
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在 Schwarzschild 时空中，理论推导表明赤道面（$\\theta = \\pi/2$）上的圆周测地线运动满足坐标角速度的关系式 $\\Omega^2 = \\frac{M}{r^3}$。特别地，当粒子在径向坐标 $r = 4M$ 处做圆周运动时，其坐标角速度为 $\\Omega = \\frac{1}{8M}$，完成一个完整轨道所需的坐标时间周期为 $T = 16\\pi M$。已知该时空的度规为 $ds^2 = -(1 - \\frac{2M}{r}) dt^2 + (1 - \\frac{2M}{r})^{-1} dr^2 + r^2 d\\theta^2 + r^2 \\sin^{2}\\theta d\\phi^2$。请设计一个数值模拟实验方案，通过追踪测地线粒子的演化来验证上述理论结论（重点关注 $r=4M$ 时的 $\\Omega$ 与 $T$，以及不同半径下的 $\\Omega^2 \\propto 1/r^3$ 关系）。方案需包含：初始条件的设定方法、数值演化方程、需要提取和计算的物理量，以及预期的验证结果。",
+    "answer": "1. **参数与初始条件设定**：设定中心质量 $M=1$。选取赤道面 $\\theta = \\pi/2$ 作为运动平面。对于圆周测地线，初始位置设为 $r_0 = 4M = 4$，$\\phi_0 = 0$。初始四维速度必须满足圆周轨道约束：$\\dot{r}=0$，$\\dot{\\theta}=0$；利用守恒量 $E = (1-2M/r)\\dot{t}$ 和 $L = r^2 \\dot{\\phi}$，结合圆周轨道的等效势能条件 $V_{eff}(r)=E^2/2$ 及 $dV_{eff}/dr=0$，计算出满足测地线方程的初始 $\\dot{t}$ 和 $\\dot{\\phi}$。2. **数值演化方程**：使用 Runge-Kutta 4 等数值积分器，求解测地线方程 $\\frac{d^2 x^\\mu}{d\\tau^2} + \\Gamma^\\mu_{\\alpha\\beta} \\frac{dx^\\alpha}{d\\tau} \\frac{dx^\\beta}{d\\tau} = 0$。将二阶方程降阶为8个一阶常微分方程（4个坐标速度 + 4个坐标演化），代入给定的 Christoffel 符号分量进行积分。3. **提取与计算物理量**：在积分过程中记录每一步的坐标时间 $t$ 与角坐标 $\\phi$。计算坐标角速度 $\\Omega_{num} = \\Delta\\phi / \\Delta t$；记录粒子角坐标 $\\phi$ 首次达到 $2\\pi$ 时的坐标时间 $t$，此差值即为数值周期 $T_{num}$。改变初始半径 $r_0$（如取 $6M, 8M, 10M$），重复实验，提取对应的 $\\Omega_{num}$。4. **预期验证结果**：在 $r=4M$ 处，数值计算的角速度 $\\Omega_{num}$ 应稳定趋近于 $1/8$，周期 $T_{num}$ 应趋近于 $16\\pi$。对不同半径的数据绘制 $\\Omega_{num}^2$ 与 $1/r_0^3$ 的关系图，预期得到一条斜率等于 $M$ 的直线，从而验证广义相对论下的开普勒第三定律 $\\Omega^2 = M/r^3$。",
+    "solution": "本设计通过数值求解测地线方程来模拟粒子在弯曲时空中的真实运动轨迹。由于 Christoffel 符号完全编码了时空的引力场信息，测地线方程的数值解等价于粒子在 Schwarzschild 引力场中的自由落体演化。设定正确的初始四维速度（使得径向加速度与向心加速度在广义相对论意义下平衡）是保证粒子做圆周运动的关键。通过提取数值轨迹中的相位随时间演化关系，可以直接从动力学演化结果中测量角速度与周期，这为理论解析推导的 $\\Omega^2 = M/r^3$ 提供了独立且坚实的动力学验证。"
+  },
+  "verification": null
+}

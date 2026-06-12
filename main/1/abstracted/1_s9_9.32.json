@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "id": "1_s9_9.32",
+    "type": "prove",
+    "tags": {
+      "metric": "hypersurface_embedding",
+      "target_object": "gaussian_normal_coordinates",
+      "coordinate": "extrinsic_curvature",
+      "scenario": "riemann_tensor",
+      "method": "gauss_codazzi_equations"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.32",
+    "source_id": "1_s9_9.32",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.32"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.8,
+      "completeness": 0.9,
+      "realism": 0.7,
+      "rationale": "基于高斯法坐标的超曲面嵌入理论，结合曲率算子与外曲率导出高斯-科达齐方程，逻辑链条完整且为ADM形式体系核心",
+      "overall": 0.8
+    }
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$n$",
+      "$x^i$",
+      "$^{(3)}g_{ij}$",
+      "$\\varepsilon$",
+      "$K_{ij}$",
+      "$\\Gamma_{ij}^k$",
+      "$^{(4)}R_{ijk}^{m}$"
+    ],
+    "target": [
+      "${}^{(4)}R_{ijk}^{m}$",
+      "${}^{(4)}R_{ijk}^{n}$",
+      "${}^{(4)}R_{ink}^{n}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "Problem 9.32. Let $\\mathbf{n}$ be the unit normal to a hypersurface $\\Sigma$ , with $\\mathbf{n} \\cdot \\mathbf{n} \\equiv \\varepsilon = +1$ or $-1$ if $\\Sigma$ is timelike or spacelike respectively. In Gaussian normal coordinates (see Problem 8.25) based on $\\Sigma$ , the metric is$$d s^{2} = \\varepsilon d n^{2} +^{(3)} g_{i j} d x^{i} d x^{j}.$$Derive the Gauss-Codazzi equations$$\\begin{array}{l} {}^{( 4 )} \\mathrm {R}_{i j k}^{m} = {}^{( 3 )} \\mathrm {R}_{i j k}^{m} + \\varepsilon \\left( \\mathrm {K}_{i j} \\mathrm {K}_{k}^{m} - \\mathrm {K}_{i k} \\mathrm {K}_{j}^{m}\\right) \\\\ \\left(^{(4)} \\mathrm {R}_{\\mathrm {i j k}}^{\\mathrm {n}} = \\varepsilon \\left(\\mathrm {K}_{\\mathrm {i k} | \\mathrm {j}} - \\mathrm {K}_{\\mathrm {i j} | \\mathrm {k}}\\right)\\right.. \\\\ \\end{array}$$Here 4 and 3 refer respectively to the spacetime geometry and to the geometry of $\\Sigma$ ; a slash denotes covariant differentiation with respect to ${}^{(3)}\\mathbf{g}_{ij}$ ; the $\\mathbf{n}$ index denotes the component on the $\\mathbf{n}$ basis vector. Also derive the equation for the remaining component of the Riemann tensor:$${}^{( 4 )} \\mathbf {R}_{\\text {i n k}}^{\\mathbf {n}} = \\varepsilon \\left( \\mathrm {K}_{\\mathrm {i k} , \\mathrm {n}} + \\mathrm {K}_{\\mathrm {i m}} \\mathrm {K}_{\\mathrm {k}}^{\\mathbf {m}}\\right) .$$",
+    "answer": "${}^{(4)} \\mathrm {R}_{i j k}^{m} = {}^{( 3 )} \\mathrm {R}_{i j k}^{m} + \\varepsilon \\left( \\mathrm {K}_{i j} \\mathrm {K}_{k}^{m} - \\mathrm {K}_{i k} \\mathrm {K}_{j}^{m}\\right)$${}^{(4)} \\mathrm {R}_{\\mathrm {i j k}}^{\\mathrm {n}} = \\varepsilon \\left(\\mathrm {K}_{\\mathrm {i k} | \\mathrm {j}} - \\mathrm {K}_{\\mathrm {i j} | \\mathrm {k}}\\right)$${}^{(4)} \\mathbf {R}_{\\text {i n k}}^{\\mathbf {n}} = \\varepsilon \\left( \\mathrm {K}_{\\mathrm {i k},\\mathrm {n}} + \\mathrm {K}_{\\mathrm {i m}} \\mathrm {K}_{\\mathrm {k}}^{\\mathbf {m}}\\right)$",
+    "solution": "Solution 9.32. Let $\\mathbf{e}_i$ be a coordinate basis in $\\Sigma$ ; the equations to be derived are tensor equations and so will be valid independent of the basis used to derive them. The vectors $\\mathbf{e}_i$ along with $\\mathbf{n}$ form a basis for the spacetime, so$$\\left(^{(4)} \\nabla_{i} e_{j} = \\alpha_{i j} n + \\beta^{k}_{i j} e_{k}\\right). \\tag {1}$$The coefficients in Equation (1) can be found by dotting in $\\mathbf{n}$ and $\\mathbf{e_k}$ $(\\mathbf{n} \\cdot \\mathbf{e_i} = 0)$ :$$\\varepsilon a_{i j} = \\mathbf {n} \\cdot^{(4)} \\nabla_{i} \\mathbf {e}_{j} =^{(4)} \\nabla_{i} (\\mathbf {n} \\cdot \\mathbf {e}_{j}) - \\mathbf {e}_{j} \\cdot^{(4)} \\nabla_{i} \\mathbf {n} = 0 + K_{i j}$$$$\\beta_{\\mathbf {k i j}} = \\mathbf {e}_{\\mathbf {k}} \\cdot^{(4)} \\nabla_{\\mathbf {i}} \\mathbf {e}_{\\mathbf {j}} =^{(4)} \\Gamma_{\\mathbf {k j i}} =^{(3)} \\Gamma_{\\mathbf {k j i}}.$$The last equality follows from the fact that the Christoffel symbol can be computed directly from ${}^{(3)}\\mathbf{g}_{ij}$ . With these coefficients Equation (1) becomes the \"Gauss-Weingarten equation.\"$$\\left(^{(4)} \\nabla_{i} e_{j} = \\varepsilon K_{i j} n +^{(3)} \\Gamma_{j i}^{k} e_{k}\\right). \\tag {2}$$The Riemann tensor can be computed from derivatives of the $\\Gamma$'s; it is somewhat quicker to use the curvature operator (see Problem 9.12):$$\\mathbf {R}_{\\alpha \\beta \\gamma \\delta} = \\mathbf {e}_{\\alpha} \\cdot \\mathbf {R} (\\mathbf {e}_{\\gamma}, \\mathbf {e}_{\\delta}) \\mathbf {e}_{\\beta} \\tag {3}$$where$$\\mathbf {R} \\left(\\mathbf {e}_{\\gamma}, \\mathbf {e}_{\\delta}\\right) = \\left[ \\nabla_{\\gamma}, \\nabla_{\\delta}\\right] - \\nabla_{\\left[ \\mathbf {e}_{\\gamma}, \\mathbf {e}_{\\delta}\\right]} . \\tag {4}$$Evaluate Equation (4) for $\\mathbf{e}_{\\mathbf{j}}$ and $\\mathbf{e}_{\\mathbf{k}}$ . The last term vanishes because $[\\mathbf{e}_{\\mathbf{j}}, \\mathbf{e}_{\\mathbf{k}}] = 0$ for a coordinate basis, and$$\\begin{array}{l} {}^{( 4 )} \\nabla_{j} {}^{( 4 )} \\nabla_{k} \\mathbf {e}_{i} = {}^{( 4 )} \\nabla_{j} ( \\varepsilon K_{i k} \\mathbf {n} + {}^{( 3 )} \\Gamma_{i k}^{m} \\mathbf {e}_{m} ) \\\\ = \\varepsilon K_{i k, j} n - \\varepsilon K_{i k} K_{j}^{m} e_{m} +^{(3)} \\Gamma_{i k, j}^{m} e_{m} \\\\ +^{(3)} \\Gamma_{i k}^{m} \\left(\\varepsilon K_{j m} n +^{(3)} \\Gamma_{m j}^{n} e_{n}\\right). \\tag {5} \\\\ \\end{array}$$Evaluate Equation (5) with $j$ and $k$ interchanged and subtract the two equations. The result is$$\\mathbf {R} \\left(\\mathbf {e}_{j}, \\mathbf {e}_{k}\\right) \\mathbf {e}_{i} = \\varepsilon \\left(\\mathrm {K}_{i k} |_{j} - \\mathrm {K}_{i j} |_{k}\\right) n + \\mathbf {e}_{m} \\left[ \\varepsilon \\left(\\mathrm {K}_{i j} \\mathrm {K}_{k}^{\\mathrm {m}} - \\mathrm {K}_{i k} \\mathrm {K}_{j}^{\\mathrm {m}}\\right) +^{(3)} \\mathrm {R}_{i j k}^{\\mathrm {m}}\\right]. (6)$$Dotting Equation (6) with $\\mathbf{n}$ and $\\mathbf{e}_{\\mathbf{n}}$ respectively gives the Gauss-Codazzi equations.The components of the Riemann tensor with two $\\mathbf{n}$'s can be found from $\\mathbf{R}(\\mathbf{e}_{\\mathbf{k}}, \\mathbf{n}) \\mathbf{n}$ . Since $\\mathbf{n}$ has been chosen to be a coordinate basis vector, $[\\mathbf{n}, \\mathbf{e}_{\\mathbf{k}}] = 0$ so the last term in Equation (4) vanishes and thus$$R \\left(e_{k}, n\\right) n =^{(4)} \\nabla_{k}^{'^{(4)} \\nabla_{n} n -^{(4)} \\nabla_{n}^{(4)} \\nabla_{k} n.$$But ${}^{(4)}\\nabla_{\\mathbf{n}}\\mathfrak {n} = 0$ because $\\mathbf{n}$ is tangent to a geodesic (Gaussian normal coordinates), so that$$\\mathbf {e}_{\\mathbf {i}} \\cdot \\mathbf {R} (\\mathbf {e}_{\\mathbf {k}}, \\mathbf {n}) \\mathbf {n} = \\mathbf {e}_{\\mathbf {i}} \\cdot \\mathbf {\\Sigma}^{(4)} \\nabla_{\\mathbf {n}} (\\mathbf {K}_{\\mathbf {k}}^{\\mathrm {m}} \\mathbf {e}_{\\mathbf {m}}) = \\mathbf {\\Sigma} \\mathbf {K}_{\\mathbf {k i}, \\mathbf {n}} - \\mathbf {K}_{\\mathbf {k}}^{\\mathrm {m}} \\mathbf {e}_{\\mathbf {m}} \\cdot \\nabla_{\\mathbf {n}} \\mathbf {e}_{\\mathbf {i}}.$$Now $[\\mathbf{e},\\mathbf{n}] = 0$ implies that"
+  },
+  "verification": null
+}

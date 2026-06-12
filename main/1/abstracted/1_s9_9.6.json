@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "id": "1_s9_9.6",
+    "type": "calculate",
+    "tags": {
+      "metric": "metric",
+      "target_object": "christoffel_symbol",
+      "coordinate": "riemann_tensor",
+      "scenario": "toroidal_coordinate",
+      "method": "surface_embedding"
+    },
+    "tools_used": [],
+    "validated": false,
+    "source": "1_s9_9.6",
+    "source_id": "1_s9_9.6",
+    "source_type": "problem_set",
+    "stage": "seed",
+    "lineage": [
+      "1_s9_9.6"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": null,
+    "physics_env": null,
+    "soft_variant": null,
+    "training_value": null,
+    "degraded": null,
+    "quality": {
+      "physical_depth": 0.8,
+      "generalizability": 0.9,
+      "completeness": 0.7,
+      "realism": 0.6,
+      "rationale": "基于嵌入曲面诱导度规进行多步张量计算，逻辑链条完整且结构高度可泛化至其他二维流形",
+      "overall": 0.75
+    }
+  },
+  "physical_data": {
+    "dimension": 2,
+    "variables": [
+      "$\\\\phi$",
+      "$\\\\theta$"
+    ],
+    "target": [
+      "$g_{\\\\phi \\\\phi}$",
+      "$g_{\\\\theta \\\\theta}$",
+      "$\\\\Gamma_{\\\\theta \\\\theta}^{\\\\phi}$",
+      "$\\\\Gamma_{\\\\theta \\\\phi}^{\\\\theta}$",
+      "$R_{\\\\phi \\\\theta \\\\phi \\\\theta}$"
+    ],
+    "metric": [
+      [
+        "$a^2$",
+        "$0$"
+      ],
+      [
+        "$0$",
+        "$(b + a \\\\sin \\\\phi)^2$"
+      ]
+    ],
+    "metric_sympy": [
+      [
+        "a**2",
+        "0"
+      ],
+      [
+        "0",
+        "(a*sin(phi) + b)**2"
+      ]
+    ]
+  },
+  "origin": {
+    "question": "Problem 9.6. Set up a coordinate system on a torus (the 2-dimensional surface of a doughnut in Euclidean 3-space). Calculate all components of $\\mathbf{g}_{\\mu \\nu}$ , $\\Gamma_{\\alpha \\beta}^{\\mu}$ and $\\mathbb{R}_{\\alpha \\beta \\gamma \\delta}$ .",
+    "answer": "$g_{\\\\phi \\\\phi} = a^2$, $g_{\\\\theta \\\\theta} = (b + a \\\\sin \\\\phi)^2$, $\\\\Gamma_{\\\\theta \\\\theta}^{\\\\phi} = - a^{-1} (b + a \\\\sin \\\\phi) \\\\cos \\\\phi$, $\\\\Gamma_{\\\\theta \\\\phi}^{\\\\theta} = a \\\\cos \\\\phi (b + a \\\\sin \\\\phi)^{-1}$, $R_{\\\\phi \\\\theta \\\\phi \\\\theta} = a \\\\sin \\\\phi (b + a \\\\sin \\\\phi)$",
+    "solution": "Solution 9.6. From the diagram, two orthogonal infinitesimal displacements have length $\\mathrm{ad}\\phi$ and $(\\mathbf{b} + \\mathbf{a}\\sin \\phi)\\mathrm{d}\\theta$ so $\\mathrm{ds}^2 = \\mathbf{a}^2\\mathrm{d}\\phi^2 +$\\n$(\\mathbf{b} + \\mathbf{a}\\sin \\phi)^2\\mathrm{d}\\theta^2$ or $\\mathbf{g}_{\\theta \\theta} = (\\mathbf{b} + \\mathbf{a}\\sin \\phi)^2$ $\\mathbf{g}_{\\phi \\phi} = \\mathbf{a}^2$ $\\mathbf{g}_{\\theta \\phi} = \\mathbf{g}_{\\phi \\theta} = 0$ . The formula for the Christoffel symbols now gives the nonvanishing $\\Gamma$ 's\\ndirectly\\n$$\\n\\\\Gamma_{\\\\theta \\\\theta}^{\\\\phi} = - a^{- 1} (b + a \\\\sin \\\\phi) \\\\cos \\\\phi\\n$$\\n$$\\n\\\\Gamma_{\\\\theta \\\\phi}^{\\\\theta} = \\\\Gamma_{\\\\phi \\\\theta}^{\\\\theta} = a \\\\cos \\\\phi (b + a \\\\sin \\\\phi)^{- 1}.\\n$$\\n![](images/676f10c7ed81633b56d68b980dfc5915d9f8b6a0ac296e4acc85b928efbe5b75.jpg)\\n![](images/a67afcc6a191ddbce0aba94b949cd380a227f47b8c5de22a42321784b58db37d.jpg)\\nIn 2 dimensions the Riemann tensor has only one independent component. Take it to be $\\mathbf{R}_{\\\\phi \\\\theta \\\\phi \\\\theta}$ , then the standard formula gives\\n$$\\nR_{\\\\phi \\\\theta \\\\phi \\\\theta} = a \\\\sin \\\\phi (b + a \\\\sin \\\\phi).\\n$$"
+  },
+  "verification": null,
+  "cached_fact_sheet": {
+    "dimension": 2,
+    "variables": [
+      "\\\\phi",
+      "\\\\theta"
+    ],
+    "metric_latex": [
+      [
+        "a^{2}",
+        "0"
+      ],
+      [
+        "0",
+        "\\left(a \\sin{\\left(\\phi \\right)} + b\\right)^{2}"
+      ]
+    ],
+    "christoffel": {},
+    "riemann": {},
+    "ricci_tensor": {},
+    "ricci_scalar": "0",
+    "kretschmann": "0",
+    "einstein_tensor": {},
+    "killing_vectors": []
+  }
+}

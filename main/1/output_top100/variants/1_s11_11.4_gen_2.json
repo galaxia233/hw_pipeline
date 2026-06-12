@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "id": "1_s11_11.4-2",
+    "type": "prove",
+    "tags": {
+      "target_object": "$\\frac{D S^\\mu}{d \\tau}$",
+      "coordinate": "general",
+      "scenario": "geodesic_limit",
+      "method": "limit_verify",
+      "generalization_axis": "verify",
+      "metric": "metric"
+    },
+    "tools_used": [
+      "EinsteinPy"
+    ],
+    "validated": false,
+    "source": "generated",
+    "source_id": "1_s11_11.4",
+    "source_type": "problem_set",
+    "stage": "scale:cognitive_fanout",
+    "lineage": [
+      "1_s11_11.4",
+      "1_s11_11.4-2"
+    ],
+    "topic": null,
+    "concepts": [],
+    "cognitive_form": "derivation",
+    "physics_env": "metric",
+    "soft_variant": "verify",
+    "training_value": null,
+    "degraded": true,
+    "quality": null
+  },
+  "physical_data": {
+    "dimension": 4,
+    "variables": [
+      "$t$",
+      "$\\mathbf{S}$",
+      "$\\mathbf{u}$",
+      "$\\mathbf{a}$"
+    ],
+    "target": [
+      "$\\frac{D S^\\mu}{d \\tau}$"
+    ],
+    "metric": null,
+    "metric_sympy": null
+  },
+  "origin": {
+    "question": "在广义相对论中，无外加扭矩的陀螺仪自旋矢量 $S^\\mu$ 满足 Fermi-Walker 传输方程，即其 Fermi-Walker 导数为零：$$ \\frac{D_F S^\\mu}{d \\tau} = \\frac{D S^\\mu}{d \\tau} - (u^\\mu a^\\nu - a^\\mu u^\\nu) S_\\nu = 0 $$其中 $u^\\mu$ 为陀螺仪的四维速度矢量（满足类时条件 $u^\\mu u_\\mu = -1$），$a^\\mu = \\frac{D u^\\mu}{d \\tau}$ 为其四加速度，$\\tau$ 为固有时，$\\frac{D}{d \\tau}$ 表示沿世界线的普通协变导数。请验证：当陀螺仪处于自由下落状态（即沿测地线运动，四加速度 $a^\\mu = 0$）这一极限条件下，Fermi-Walker 传输方程如何退化？并从物理上解释该退化结果的含义（即为什么这代表陀螺仪自旋在局部惯性系中不发生旋转）。",
+    "answer": "Fermi-Walker 传输方程退化为普通平行传输方程 $\\frac{D S^\\mu}{d \\tau} = 0$。物理意义为：在自由落体参考系（局部惯性系）中，陀螺仪自旋矢量不发生空间旋转，即相对于局部惯性系保持指向不变。",
+    "solution": "1. **代入极限条件**：在自由下落（测地线运动）的极限下，陀螺仪的四加速度为零，即 $a^\\mu = \\frac{D u^\\mu}{d \\tau} = 0$。将此条件代入 Fermi-Walker 导数的定义：$$ \\frac{D_F S^\\mu}{d \\tau} = \\frac{D S^\\mu}{d \\tau} - (u^\\mu \\cdot 0 - 0 \\cdot u^\\nu) S_\\nu = \\frac{D S^\\mu}{d \\tau} - 0 = \\frac{D S^\\mu}{d \\tau} $$2. **推导退化方程**：已知无扭矩时自旋满足 Fermi-Walker 传输 $\\frac{D_F S^\\mu}{d \\tau} = 0$，代入上述退化关系得：$$ \\frac{D S^\\mu}{d \\tau} = 0 $$这正是自旋矢量的普通协变平行传输方程。3. **物理意义解释**：Fermi-Walker 传输的物理本质是保证自旋矢量在不做测地线运动（存在加速度 $a^\\mu$）时，也不会相对于“非旋转局部惯性系”发生旋转。方程中的项 $(u^\\mu a^\\nu - a^\\mu u^\\nu) S_\\nu$ 修正了加速度带来的 Thomas-Wigner 旋转效应，确保自旋与陀螺仪自身的局部空间轴不发生相对旋转。当 $a^\\mu = 0$ 时，陀螺仪沿测地线运动，此时局部惯性系本身就是惯性运动，无需修正加速度带来的旋转。平行传输 $\\frac{D S^\\mu}{d \\tau} = 0$ 意味着在沿测地线建立的局部惯性坐标系中，自旋矢量的空间分量不随固有时发生变化，即自旋在自由落体参考系中保持指向不变（无旋转）。"
+  },
+  "verification": null
+}
